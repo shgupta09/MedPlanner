@@ -11,8 +11,6 @@
 		5F1E9B311F763C49009FECDD /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E9B2F1F763C49009FECDD /* SplashScreenViewController.xib */; };
 		5F1E9B3A1F763C73009FECDD /* UserSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B381F763C73009FECDD /* UserSelectViewController.m */; };
 		5F1E9B3B1F763C73009FECDD /* UserSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E9B391F763C73009FECDD /* UserSelectViewController.xib */; };
-		5F1E9B3F1F763C85009FECDD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B3D1F763C85009FECDD /* HomeViewController.m */; };
-		5F1E9B401F763C85009FECDD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E9B3E1F763C85009FECDD /* HomeViewController.xib */; };
 		5F1E9B4A1F76442C009FECDD /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B461F76442C009FECDD /* CommonFunction.m */; };
 		5F1E9B4B1F76442C009FECDD /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B491F76442C009FECDD /* CustomTextField.m */; };
 		5F1E9B4E1F764568009FECDD /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B4D1F764568009FECDD /* CustomButton.m */; };
@@ -59,8 +57,15 @@
 		D84DF2041F8A0D9C00234070 /* RegisterCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84DF1FF1F8A0D9C00234070 /* RegisterCompleteViewController.xib */; };
 		D84DF2051F8A0D9C00234070 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84DF2011F8A0D9C00234070 /* RegisterViewController.m */; };
 		D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84DF2021F8A0D9C00234070 /* RegisterViewController.xib */; };
-		D8E57E801F8E7FB1004C510B /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E57E7E1F8E7FB1004C510B /* HomeCell.m */; };
-		D8E57E811F8E7FB1004C510B /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8E57E7F1F8E7FB1004C510B /* HomeCell.xib */; };
+		D8F5A55D1F92020300E36160 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A55B1F92020300E36160 /* HomeViewController.m */; };
+		D8F5A55E1F92020300E36160 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F5A55C1F92020300E36160 /* HomeViewController.xib */; };
+		D8F5A5621F92021A00E36160 /* PatientHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A5601F92021A00E36160 /* PatientHomeVC.m */; };
+		D8F5A5631F92021A00E36160 /* PatientHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F5A5611F92021A00E36160 /* PatientHomeVC.xib */; };
+		D8F5A5681F9202AF00E36160 /* DoctorListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A5661F9202AF00E36160 /* DoctorListVC.m */; };
+		D8F5A5691F9202AF00E36160 /* DoctorListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F5A5671F9202AF00E36160 /* DoctorListVC.xib */; };
+		D8F5A56E1F9202D300E36160 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A56C1F9202D300E36160 /* HomeCell.m */; };
+		D8F5A56F1F9202D300E36160 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F5A56D1F9202D300E36160 /* HomeCell.xib */; };
+		D8F5A5721F920B1C00E36160 /* CustomButton2.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A5711F920B1C00E36160 /* CustomButton2.m */; };
 		F3D93D20790BF946480A45A1 /* libPods-TatabApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D816EB267D58E1A20A223E17 /* libPods-TatabApp.a */; };
 /* End PBXBuildFile section */
 
@@ -83,9 +88,6 @@
 		5F1E9B371F763C73009FECDD /* UserSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSelectViewController.h; sourceTree = "<group>"; };
 		5F1E9B381F763C73009FECDD /* UserSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSelectViewController.m; sourceTree = "<group>"; };
 		5F1E9B391F763C73009FECDD /* UserSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSelectViewController.xib; sourceTree = "<group>"; };
-		5F1E9B3C1F763C85009FECDD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		5F1E9B3D1F763C85009FECDD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		5F1E9B3E1F763C85009FECDD /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		5F1E9B411F764242009FECDD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		5F1E9B451F76442C009FECDD /* CommonFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFunction.h; sourceTree = "<group>"; };
 		5F1E9B461F76442C009FECDD /* CommonFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFunction.m; sourceTree = "<group>"; };
@@ -164,9 +166,20 @@
 		D84DF2001F8A0D9C00234070 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		D84DF2011F8A0D9C00234070 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		D84DF2021F8A0D9C00234070 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		D8E57E7D1F8E7FB1004C510B /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
-		D8E57E7E1F8E7FB1004C510B /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
-		D8E57E7F1F8E7FB1004C510B /* HomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		D8F5A55A1F92020300E36160 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		D8F5A55B1F92020300E36160 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		D8F5A55C1F92020300E36160 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		D8F5A55F1F92021A00E36160 /* PatientHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientHomeVC.h; sourceTree = "<group>"; };
+		D8F5A5601F92021A00E36160 /* PatientHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientHomeVC.m; sourceTree = "<group>"; };
+		D8F5A5611F92021A00E36160 /* PatientHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientHomeVC.xib; sourceTree = "<group>"; };
+		D8F5A5651F9202AF00E36160 /* DoctorListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorListVC.h; sourceTree = "<group>"; };
+		D8F5A5661F9202AF00E36160 /* DoctorListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorListVC.m; sourceTree = "<group>"; };
+		D8F5A5671F9202AF00E36160 /* DoctorListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorListVC.xib; sourceTree = "<group>"; };
+		D8F5A56B1F9202D300E36160 /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
+		D8F5A56C1F9202D300E36160 /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
+		D8F5A56D1F9202D300E36160 /* HomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		D8F5A5701F920B1C00E36160 /* CustomButton2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton2.h; sourceTree = "<group>"; };
+		D8F5A5711F920B1C00E36160 /* CustomButton2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton2.m; sourceTree = "<group>"; };
 		EC3D829D93651C6DE55E17FC /* Pods-TatabApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TatabApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TatabApp/Pods-TatabApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -331,6 +344,8 @@
 				5F1E9B491F76442C009FECDD /* CustomTextField.m */,
 				5F1E9B4C1F764568009FECDD /* CustomButton.h */,
 				5F1E9B4D1F764568009FECDD /* CustomButton.m */,
+				D8F5A5701F920B1C00E36160 /* CustomButton2.h */,
+				D8F5A5711F920B1C00E36160 /* CustomButton2.m */,
 			);
 			path = CommonFiles;
 			sourceTree = "<group>";
@@ -346,6 +361,7 @@
 		5FBBBB111F726FC400C03813 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8F5A5641F92029600E36160 /* DoctorList */,
 				9C6DE7281F8399B500635102 /* SideMenu */,
 				5F4F6C5B1F820F6E000C65A0 /* AwarenessModule */,
 				5FBBBB121F726FC400C03813 /* HomeViewController */,
@@ -360,10 +376,8 @@
 		5FBBBB121F726FC400C03813 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D8E57E7C1F8E7F94004C510B /* HomeCell */,
-				5F1E9B3C1F763C85009FECDD /* HomeViewController.h */,
-				5F1E9B3D1F763C85009FECDD /* HomeViewController.m */,
-				5F1E9B3E1F763C85009FECDD /* HomeViewController.xib */,
+				D8F5A5591F9201D800E36160 /* Patient */,
+				D8F5A5581F9201C000E36160 /* Doctor */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -503,12 +517,43 @@
 			path = Patient;
 			sourceTree = "<group>";
 		};
-		D8E57E7C1F8E7F94004C510B /* HomeCell */ = {
+		D8F5A5581F9201C000E36160 /* Doctor */ = {
 			isa = PBXGroup;
 			children = (
-				D8E57E7D1F8E7FB1004C510B /* HomeCell.h */,
-				D8E57E7E1F8E7FB1004C510B /* HomeCell.m */,
-				D8E57E7F1F8E7FB1004C510B /* HomeCell.xib */,
+				D8F5A55A1F92020300E36160 /* HomeViewController.h */,
+				D8F5A55B1F92020300E36160 /* HomeViewController.m */,
+				D8F5A55C1F92020300E36160 /* HomeViewController.xib */,
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
+		D8F5A5591F9201D800E36160 /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				D8F5A55F1F92021A00E36160 /* PatientHomeVC.h */,
+				D8F5A5601F92021A00E36160 /* PatientHomeVC.m */,
+				D8F5A5611F92021A00E36160 /* PatientHomeVC.xib */,
+			);
+			path = Patient;
+			sourceTree = "<group>";
+		};
+		D8F5A5641F92029600E36160 /* DoctorList */ = {
+			isa = PBXGroup;
+			children = (
+				D8F5A56A1F9202D300E36160 /* HomeCell */,
+				D8F5A5651F9202AF00E36160 /* DoctorListVC.h */,
+				D8F5A5661F9202AF00E36160 /* DoctorListVC.m */,
+				D8F5A5671F9202AF00E36160 /* DoctorListVC.xib */,
+			);
+			path = DoctorList;
+			sourceTree = "<group>";
+		};
+		D8F5A56A1F9202D300E36160 /* HomeCell */ = {
+			isa = PBXGroup;
+			children = (
+				D8F5A56B1F9202D300E36160 /* HomeCell.h */,
+				D8F5A56C1F9202D300E36160 /* HomeCell.m */,
+				D8F5A56D1F9202D300E36160 /* HomeCell.xib */,
 			);
 			path = HomeCell;
 			sourceTree = "<group>";
@@ -616,20 +661,22 @@
 				5F1E9B3B1F763C73009FECDD /* UserSelectViewController.xib in Resources */,
 				9C8FE6DD1F8B8DCF0003003C /* RCDoctor4.xib in Resources */,
 				5FBBBAF61F72401B00C03813 /* LaunchScreen.storyboard in Resources */,
-				D8E57E811F8E7FB1004C510B /* HomeCell.xib in Resources */,
+				D8F5A5691F9202AF00E36160 /* DoctorListVC.xib in Resources */,
 				D82354B01F8A6C2E0097A94C /* RCDoctor2.xib in Resources */,
 				9C6DE7421F83A6B100635102 /* VideoListTableViewCell.xib in Resources */,
 				5FBBBAF31F72401B00C03813 /* Assets.xcassets in Resources */,
 				5F4F6C691F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib in Resources */,
+				D8F5A56F1F9202D300E36160 /* HomeCell.xib in Resources */,
 				D84B6BBD1F77837500F37660 /* LoderView.xib in Resources */,
 				5F1E9B311F763C49009FECDD /* SplashScreenViewController.xib in Resources */,
 				5F1E9B5E1F76AAB4009FECDD /* DependantDetailTableViewCell.xib in Resources */,
 				9C6DE72D1F8399CD00635102 /* RearViewController.xib in Resources */,
 				5FBBBAEE1F72401B00C03813 /* Main.storyboard in Resources */,
-				5F1E9B401F763C85009FECDD /* HomeViewController.xib in Resources */,
 				9C8FE6D81F8B53270003003C /* RCDoctor3.xib in Resources */,
 				D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */,
 				9C6DE7331F83A1FC00635102 /* RearCell.xib in Resources */,
+				D8F5A55E1F92020300E36160 /* HomeViewController.xib in Resources */,
+				D8F5A5631F92021A00E36160 /* PatientHomeVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,11 +892,12 @@
 				9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */,
 				9C6DE7381F83A60600635102 /* AwarenessVideoListViewController.m in Sources */,
 				5F1E9B4A1F76442C009FECDD /* CommonFunction.m in Sources */,
+				D8F5A5681F9202AF00E36160 /* DoctorListVC.m in Sources */,
 				5F1E9B5D1F76AAB4009FECDD /* DependantDetailTableViewCell.m in Sources */,
 				5FBBBAE81F72401B00C03813 /* AppDelegate.m in Sources */,
 				D82354AA1F8A37790097A94C /* RCDoctor1.m in Sources */,
-				D8E57E801F8E7FB1004C510B /* HomeCell.m in Sources */,
 				D84B6BBC1F77837500F37660 /* LoderView.m in Sources */,
+				D8F5A5621F92021A00E36160 /* PatientHomeVC.m in Sources */,
 				5F1E9B4E1F764568009FECDD /* CustomButton.m in Sources */,
 				5F1E9B301F763C49009FECDD /* SplashScreenViewController.m in Sources */,
 				9C6DE73C1F83A61A00635102 /* VideoListObject.m in Sources */,
@@ -858,14 +906,16 @@
 				D84DF2051F8A0D9C00234070 /* RegisterViewController.m in Sources */,
 				5F1E9B3A1F763C73009FECDD /* UserSelectViewController.m in Sources */,
 				D84DF2031F8A0D9C00234070 /* RegisterCompleteViewController.m in Sources */,
+				D8F5A56E1F9202D300E36160 /* HomeCell.m in Sources */,
 				5FBBBAE51F72401B00C03813 /* main.m in Sources */,
+				D8F5A55D1F92020300E36160 /* HomeViewController.m in Sources */,
 				D82354AF1F8A6C2E0097A94C /* RCDoctor2.m in Sources */,
 				5F1E9B4B1F76442C009FECDD /* CustomTextField.m in Sources */,
 				9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */,
 				5F1E9B521F76482D009FECDD /* Reachability.m in Sources */,
+				D8F5A5721F920B1C00E36160 /* CustomButton2.m in Sources */,
 				9C6DE7411F83A6B100635102 /* VideoListTableViewCell.m in Sources */,
 				9C6DE72C1F8399CD00635102 /* RearViewController.m in Sources */,
-				5F1E9B3F1F763C85009FECDD /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

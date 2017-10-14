@@ -99,11 +99,18 @@
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginemail] andKey:loginemail];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginUserToken] andKey:loginUserToken];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
-                        HomeViewController *frontViewController = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
+                        SWRevealViewController *mainRevealController;
+                        if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Doctor"]) {
+                            HomeViewController *frontViewController = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
+                            mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
+                        }else{
+                            PatientHomeVC *frontViewController = [[PatientHomeVC alloc]initWithNibName:@"PatientHomeVC" bundle:nil];
+                            mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
                         
+                        }
                         
-                        SWRevealViewController *mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
+                       
                         mainRevealController.delegate = self;
                         mainRevealController.view.backgroundColor = [UIColor blackColor];
                         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mainRevealController];

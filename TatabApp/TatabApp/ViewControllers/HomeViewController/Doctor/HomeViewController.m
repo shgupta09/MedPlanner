@@ -21,15 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     isOpen = false;
+    [self setData];
+}
+
+-(void)setData{
+    [_btn_Pationts setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
+    [_btn_CasesHistory setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
+    [_btn_MedicalCases setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
+    [_btn_ManageAwareness setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
+    _lbl_Name.text = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
+    isOpen = false;
     revealController = [self revealViewController];
     singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                               action:@selector(handleSingleTap:)];
-    [_tbl_View registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil]forCellReuseIdentifier:@"HomeCell"];
-    _tbl_View.rowHeight = UITableViewAutomaticDimension;
-    _tbl_View.estimatedRowHeight = 100;
-    _tbl_View.multipleTouchEnabled = NO;
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveNotification)
                                                  name:@"LogoutNotification"
@@ -96,17 +101,6 @@
             }];
             [alertController addAction:ok];
             [self presentViewController:alertController animated:YES completion:nil];
-}
-#pragma mark- tableView delegate
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    return 5;
-}
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HomeCell *rearCell = [_tbl_View dequeueReusableCellWithIdentifier:@"HomeCell"];
-    rearCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return rearCell;
 }
 
 @end

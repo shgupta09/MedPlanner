@@ -8,7 +8,7 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
-
+#import "CustomButton2.h"
 #import "SWRevealViewController.h"
 #import "SplashScreenViewController.h"
 #import "CommonFunction.h"
@@ -37,6 +37,10 @@
 #import "AppDelegate.h"
 #import "RearCell.h"
 #import "HomeCell.h"
+#import "PatientHomeVC.h"
+#import "DoctorListVC.h"
+
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

@@ -472,7 +472,7 @@
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginuserType] andKey:loginuserType];
                        
                         HomeViewController *frontViewController = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
-                        RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
+                        PatientHomeVC *rearViewController = [[PatientHomeVC alloc]initWithNibName:@"PatientHomeVC" bundle:nil];
                         
                         
                         SWRevealViewController *mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];

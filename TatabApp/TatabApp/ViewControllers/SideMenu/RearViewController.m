@@ -57,13 +57,16 @@
         
         switch (indexPath.row) {
                 
-            case 0:{
-                
-            }
-                break;
-            case 1 :{
-                AwarenessCategoryViewController* vc ;
-                vc = [[AwarenessCategoryViewController alloc] initWithNibName:@"AwarenessCategoryViewController" bundle:nil];
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            {
+                DoctorListVC* vc ;
+                vc = [[DoctorListVC alloc] initWithNibName:@"DoctorListVC" bundle:nil];
+                vc.titleStr = [titleArray objectAtIndex:indexPath.row];
                 [self.navigationController pushViewController:vc animated:true];
 
             }
