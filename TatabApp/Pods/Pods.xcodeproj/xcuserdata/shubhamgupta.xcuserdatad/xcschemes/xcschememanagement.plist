@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-TatabApp.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-TatabAppTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SWRevealViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TPKeyboardAvoiding.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0DCC3D6C4B0D6BDF842D625E8DF8934B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0E233C6E376A0F8111D19412C9FB15BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90E6B64C6DD4A9E60295E4BE99ED7DFA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C95C45974D77E3E41FE9D2A80E093179</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB52F93A7D875C6FC344D39D6648767C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
