@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCDoctor3 : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface RCDoctor3 : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_Sepciality;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_currentGrade;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_subSpeciality;

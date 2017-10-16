@@ -16,6 +16,11 @@
     NSString *departDateString;
     UIView *viewOverPicker;
     UIToolbar *toolBar;
+    LoderView *loderObj;
+    NSMutableArray *categoryArray;
+    UIPickerView *pickerObj;
+    NSInteger selectedRowForSpeciality;
+
 }
 
 @end
@@ -30,18 +35,18 @@
 }
 
 -(void)setData{
-    
+    selectedRowForSpeciality = 0;
         _txt_resignedSince.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
         _txt_subSpeciality.leftImgView.image = [UIImage imageNamed:@"b"];
         _txtClassification.leftImgView.image = [UIImage imageNamed:@"b"];
         _txt_hospitalName.leftImgView.image = [UIImage imageNamed:@"b"];
         _txt_workedSince.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
         
-    _txt_Sepciality.text = @"adfaf";
-    _txt_currentGrade.text = @"adfaf";
-    _txtClassification.text = @"adfaf";
-    _txt_subSpeciality.text = @"adfaf";
-    _txt_hospitalName.text = @"adfaf";
+//    _txt_Sepciality.text = @"adfaf";
+//    _txt_currentGrade.text = @"adfaf";
+//    _txtClassification.text = @"adfaf";
+//    _txt_subSpeciality.text = @"adfaf";
+//    _txt_hospitalName.text = @"adfaf";
     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
     [_tblView registerNib:[UINib nibWithNibName:@"DependantDetailTableViewCell" bundle:nil]forCellReuseIdentifier:@"DependantDetailTableViewCell"];
     _tblView.rowHeight = UITableViewAutomaticDimension;
@@ -49,6 +54,8 @@
     _tblView.backgroundColor = [UIColor clearColor];
     dependencyArray = [NSMutableArray new];
     departDate = [NSDate date];
+    categoryArray= [NSMutableArray new];
+    [self hitApiForSpeciality];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +78,31 @@
     }
     return NO;
 }
+
+#pragma mark - picker data Source
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 1;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component{
+    
+    return [categoryArray count];
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
+(NSInteger)row forComponent:(NSInteger)component{
+    
+    AwarenessCategory* categoryObj = [categoryArray objectAtIndex:row];
+    return categoryObj.category_name;
+    
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component{
+    AwarenessCategory* categoryObj = [categoryArray objectAtIndex:row];
+    _txt_Sepciality.text = categoryObj.category_name;
+    selectedRowForSpeciality = row;
+}
+
 #pragma mark- tableView delegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -138,6 +170,42 @@
     
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (IBAction)btnAction_Speciality:(UIButton *)sender {
+    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerObj.delegate = self;
+    pickerObj.dataSource = self;
+    pickerObj.showsSelectionIndicator = YES;
+    pickerObj.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    UIToolbar *toolBarForTitle;
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             space,doneButton, nil];
+    pickerObj.hidden = false;
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:toolBar];
+    [pickerObj  selectRow:selectedRowForSpeciality inComponent:0 animated:true];
+    
+    [viewOverPicker addSubview:pickerObj];
+    [self.view addSubview:viewOverPicker];
+    [pickerObj reloadAllComponents];
+}
+
+
+
+
 // value change of the date picker
 -(void) dueDateChanged:(UIDatePicker *)sender {
     
@@ -362,6 +430,58 @@
     }
     return validationDict.mutableCopy;
     
+}
+-(void)hitApiForSpeciality{
+
+    
+    
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"awareness"]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                
+                for (NSDictionary* sub in [responseObj objectForKey:@"awareness"]) {
+                    
+                    AwarenessCategory* s = [[AwarenessCategory alloc] init  ];
+                    [sub enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop){
+                        [s setValue:obj forKey:(NSString *)key];
+                    }];
+                    
+                    [categoryArray addObject:s];
+                }
+                
+                
+                [_tblView reloadData];
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+-(void)addLoder{
+    self.view.userInteractionEnabled = NO;
+    //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+    loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
+    loderObj.lbl_title.text = @"Please wait...";
+    [self.view addSubview:loderObj];
+}
+
+-(void)removeloder{
+    //loderObj = nil;
+    [loderObj removeFromSuperview];
+    //[loaderView removeFromSuperview];
+    self.view.userInteractionEnabled = YES;
 }
 
 

@@ -25,8 +25,8 @@
       [CommonFunction setResignTapGestureToView:self.view andsender:self];
     _txtUsername.leftImgView.image = [UIImage imageNamed:@"d"];
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
-    _txtPassword.text = @"Admin@123";
-    _txtUsername.text = @"shh@yopmail.com";
+//    _txtPassword.text = @"Admin@123";
+//    _txtUsername.text = @"shh@yopmail.com";
     // Do any additional setup after loading the view from its nib.
 
 }
@@ -89,7 +89,7 @@
                     [self performBlock:^{
                         
                         
-                        [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                        [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
                         
                         [CommonFunction storeValueInDefault:[CommonFunction trimString:_txtUsername.text] andKey:loginfirstname];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserId] andKey:loginuserId];
@@ -118,7 +118,7 @@
                        
                         [self resignResponder];
                         
-                    } afterDelay:1.5];
+                    } afterDelay:.2];
                     
                     [self removeloder];
                 }
