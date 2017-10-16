@@ -27,13 +27,13 @@
     [requestManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     requestManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
 
-    [requestManager.requestSerializer setValue:usreNamePassword forHTTPHeaderField:@"authtoken"];
+//    [requestManager.requestSerializer setValue:usreNamePassword forHTTPHeaderField:@"authtoken"];
 //    [requestManager.requestSerializer setValue:timeInStr forHTTPHeaderField:@"timestamp"];
         
     if (requiredAuthentication) {
-//        NSString *token = [UserDefaultUtility getDeviceToken];
-       // NSLog(@"token %@",token);
-//        [requestManager.requestSerializer setValue:[NSString stringWithFormat:@"gatekeeper %@",token] forHTTPHeaderField:@"Authorization"];
+        NSString *token = [CommonFunction getValueFromDefaultWithKey:loginUserToken];
+       
+        [requestManager.requestSerializer setValue:token forHTTPHeaderField:@"authtoken"];
     }
      NSString *urlString = url;
     switch (requestType) {

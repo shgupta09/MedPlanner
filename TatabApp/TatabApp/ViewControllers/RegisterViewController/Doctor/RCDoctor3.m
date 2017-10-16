@@ -20,6 +20,8 @@
     NSMutableArray *categoryArray;
     UIPickerView *pickerObj;
     NSInteger selectedRowForSpeciality;
+    NSInteger selectedRowForSubSpeciality;
+    BOOL isSpeciality;
 
 }
 
@@ -35,18 +37,20 @@
 }
 
 -(void)setData{
+    isSpeciality = false;
     selectedRowForSpeciality = 0;
+    selectedRowForSubSpeciality = 0;
         _txt_resignedSince.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
         _txt_subSpeciality.leftImgView.image = [UIImage imageNamed:@"b"];
         _txtClassification.leftImgView.image = [UIImage imageNamed:@"b"];
         _txt_hospitalName.leftImgView.image = [UIImage imageNamed:@"b"];
         _txt_workedSince.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
         
-//    _txt_Sepciality.text = @"adfaf";
-//    _txt_currentGrade.text = @"adfaf";
-//    _txtClassification.text = @"adfaf";
-//    _txt_subSpeciality.text = @"adfaf";
-//    _txt_hospitalName.text = @"adfaf";
+    _txt_Sepciality.text = @"adfaf";
+    _txt_currentGrade.text = @"adfaf";
+    _txtClassification.text = @"adfaf";
+    _txt_subSpeciality.text = @"adfaf";
+    _txt_hospitalName.text = @"adfaf";
     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
     [_tblView registerNib:[UINib nibWithNibName:@"DependantDetailTableViewCell" bundle:nil]forCellReuseIdentifier:@"DependantDetailTableViewCell"];
     _tblView.rowHeight = UITableViewAutomaticDimension;
@@ -55,6 +59,7 @@
     dependencyArray = [NSMutableArray new];
     departDate = [NSDate date];
     categoryArray= [NSMutableArray new];
+    
     [self hitApiForSpeciality];
 }
 
@@ -99,8 +104,15 @@ numberOfRowsInComponent:(NSInteger)component{
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component{
     AwarenessCategory* categoryObj = [categoryArray objectAtIndex:row];
+    
+    if (isSpeciality) {
     _txt_Sepciality.text = categoryObj.category_name;
-    selectedRowForSpeciality = row;
+        selectedRowForSpeciality = row;
+    }else{
+    _txt_subSpeciality.text = categoryObj.category_name;
+        selectedRowForSubSpeciality = row;
+    }
+    
 }
 
 #pragma mark- tableView delegate
@@ -122,19 +134,12 @@ numberOfRowsInComponent:(NSInteger)component{
     
     DependantDetailTableViewCell *cell = [_tblView dequeueReusableCellWithIdentifier:@"DependantDetailTableViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    
-    
-    
-    
     if((indexPath.row-1)%2 == 0){
         cell.contentView.backgroundColor = [UIColor whiteColor];
     }
-    else
-    {
+    else{
         cell.contentView.backgroundColor = [UIColor lightGrayColor];
     }
-    
     if (indexPath.row == 0){
         cell.contentView.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
         cell.lblBirthday.textColor = [UIColor whiteColor];
@@ -196,7 +201,14 @@ numberOfRowsInComponent:(NSInteger)component{
     pickerObj.hidden = false;
     [toolBar setItems:toolbarItems];
     [viewOverPicker addSubview:toolBar];
-    [pickerObj  selectRow:selectedRowForSpeciality inComponent:0 animated:true];
+    
+    if (sender.tag == 0) {
+        isSpeciality = true;
+        [pickerObj  selectRow:selectedRowForSpeciality inComponent:0 animated:true];
+    }else{
+        isSpeciality = false;
+        [pickerObj  selectRow:selectedRowForSubSpeciality inComponent:0 animated:true];
+    }
     
     [viewOverPicker addSubview:pickerObj];
     [self.view addSubview:viewOverPicker];

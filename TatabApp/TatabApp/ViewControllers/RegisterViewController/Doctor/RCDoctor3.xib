@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -148,7 +148,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Fg-Sa-Nlw">
                                             <rect key="frame" x="20" y="28.5" width="335" height="45"/>
                                         </button>
-                                        <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="SUBSPECIALITY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Twp-Nj-eK7" customClass="CustomTextField">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="SUBSPECIALITY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Twp-Nj-eK7" customClass="CustomTextField">
                                             <rect key="frame" x="20" y="132" width="335" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="fKP-BQ-Zdu"/>
@@ -160,7 +160,13 @@
                                                 <outlet property="delegate" destination="-1" id="tKh-bx-voJ"/>
                                             </connections>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CLASSIFICATION" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAU-GQ-npE" customClass="CustomTextField">
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3q-oV-bFM">
+                                            <rect key="frame" x="20" y="132" width="335" height="45"/>
+                                            <connections>
+                                                <action selector="btnAction_Speciality:" destination="-1" eventType="touchUpInside" id="8Mh-wW-S5G"/>
+                                            </connections>
+                                        </button>
+                                        <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CLASSIFICATION" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAU-GQ-npE" customClass="CustomTextField">
                                             <rect key="frame" x="20" y="191" width="335" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="OrL-b1-2Ic"/>
@@ -191,11 +197,14 @@
                                         <constraint firstItem="1Fg-Sa-Nlw" firstAttribute="height" secondItem="tPE-B4-6JG" secondAttribute="height" id="Csa-8f-kLi"/>
                                         <constraint firstItem="Twp-Nj-eK7" firstAttribute="leading" secondItem="tmJ-vl-i1c" secondAttribute="leading" id="D3n-Jq-sSw"/>
                                         <constraint firstItem="4mj-iM-teg" firstAttribute="top" secondItem="Ksu-7H-NMP" secondAttribute="bottom" constant="14" id="EAp-hh-kBd"/>
+                                        <constraint firstItem="c3q-oV-bFM" firstAttribute="centerY" secondItem="Twp-Nj-eK7" secondAttribute="centerY" id="EZC-1d-EOH"/>
                                         <constraint firstItem="1Fg-Sa-Nlw" firstAttribute="centerX" secondItem="tPE-B4-6JG" secondAttribute="centerX" id="ErX-sT-o7Z"/>
                                         <constraint firstItem="DXg-4r-g4q" firstAttribute="leading" secondItem="LFt-TF-OcC" secondAttribute="leading" constant="20" id="FBa-kJ-NqL"/>
                                         <constraint firstItem="Twp-Nj-eK7" firstAttribute="trailing" secondItem="tmJ-vl-i1c" secondAttribute="trailing" id="FEl-jz-iIj"/>
+                                        <constraint firstItem="c3q-oV-bFM" firstAttribute="width" secondItem="Twp-Nj-eK7" secondAttribute="width" id="H3H-2L-JQV"/>
                                         <constraint firstItem="5uS-GW-5c8" firstAttribute="trailing" secondItem="tPE-B4-6JG" secondAttribute="trailing" id="IEv-j6-xgw"/>
                                         <constraint firstItem="D12-Yu-icF" firstAttribute="height" secondItem="tPE-B4-6JG" secondAttribute="height" id="Iha-5J-rVF"/>
+                                        <constraint firstItem="c3q-oV-bFM" firstAttribute="centerX" secondItem="Twp-Nj-eK7" secondAttribute="centerX" id="Jim-lG-UtI"/>
                                         <constraint firstItem="D12-Yu-icF" firstAttribute="centerX" secondItem="tPE-B4-6JG" secondAttribute="centerX" id="Lvf-tX-IoH"/>
                                         <constraint firstItem="D12-Yu-icF" firstAttribute="width" secondItem="tPE-B4-6JG" secondAttribute="width" id="P9r-xj-kdL"/>
                                         <constraint firstItem="Twp-Nj-eK7" firstAttribute="trailing" secondItem="5uS-GW-5c8" secondAttribute="trailing" id="POW-5K-oGF"/>
@@ -206,6 +215,7 @@
                                         <constraint firstAttribute="trailing" secondItem="tPE-B4-6JG" secondAttribute="trailing" constant="20" id="UdG-4F-MWI"/>
                                         <constraint firstItem="1Fg-Sa-Nlw" firstAttribute="centerY" secondItem="tPE-B4-6JG" secondAttribute="centerY" id="VZJ-06-ZGb"/>
                                         <constraint firstItem="cvG-cE-hqg" firstAttribute="leading" secondItem="LFt-TF-OcC" secondAttribute="leading" constant="20" id="Ydc-NN-Z9T"/>
+                                        <constraint firstItem="c3q-oV-bFM" firstAttribute="height" secondItem="Twp-Nj-eK7" secondAttribute="height" id="Zc1-xq-syw"/>
                                         <constraint firstItem="Ksu-7H-NMP" firstAttribute="width" secondItem="cvG-cE-hqg" secondAttribute="width" id="bkq-xj-aBB"/>
                                         <constraint firstItem="5uS-GW-5c8" firstAttribute="leading" secondItem="tPE-B4-6JG" secondAttribute="leading" id="eSr-eo-H1o"/>
                                         <constraint firstItem="cvG-cE-hqg" firstAttribute="top" secondItem="YAU-GQ-npE" secondAttribute="bottom" constant="14" id="f9a-pg-PfV"/>

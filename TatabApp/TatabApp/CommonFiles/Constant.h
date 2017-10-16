@@ -111,7 +111,7 @@ static NSString* const COLORCODE_FOR_TEXTFIELD = @"#00b1dd";
 
 
 static NSString* const API_BASE_URL = @"http://www.dataheadstudio.com/test/api/";
-
+static NSString* const API_FETCH_DOCTOR = @"specialization";
 static NSString* const API_SA_BASE_URL = @"sa-service/";
 static NSString* const API_USER_URL = @"np-user-service/users/";
 static NSString* const API_LOCATION_URL = @"np-location-service/locations/";
