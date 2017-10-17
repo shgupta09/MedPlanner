@@ -28,11 +28,19 @@
     _tblView.rowHeight = UITableViewAutomaticDimension;
     _tblView.estimatedRowHeight = 35;
     _tblView.backgroundColor = [UIColor clearColor];
+    if (![CommonFunction getBoolValueFromDefaultWithKey:isAwarenessApiHIt]) {
+        [self getData];
+    }else{
+        categoryArray = [AwarenessCategory sharedInstance].myDataArray;
+
+    }
     
-    [self getData];
     
     
     // Do any additional setup after loading the view from its nib.
+}
+-(void)viewDidLayoutSubviews{
+    loderObj.frame = self.view.frame;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,7 +58,7 @@
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"awareness"]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
-                
+                [CommonFunction stroeBoolValueForKey:isAwarenessApiHIt withBoolValue:true];
                 for (NSDictionary* sub in [responseObj objectForKey:@"awareness"]) {
                     
                     AwarenessCategory* s = [[AwarenessCategory alloc] init  ];
@@ -58,9 +66,9 @@
                         [s setValue:obj forKey:(NSString *)key];
                     }];
                     
-                    [categoryArray addObject:s];
+                    [[AwarenessCategory sharedInstance].myDataArray addObject:s];
                 }
-                
+                categoryArray = [AwarenessCategory sharedInstance].myDataArray;
                 
                 [_tblView reloadData];
                 [self removeloder];
@@ -96,11 +104,8 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     AwarenessCategory* category = [categoryArray objectAtIndex:indexPath.row];
-    cell.imgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: category.icon_url]]];
+    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:category.icon_url] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
     cell.lblName.text = category.category_name;
-    
-    
-    
     return cell;
 }
 

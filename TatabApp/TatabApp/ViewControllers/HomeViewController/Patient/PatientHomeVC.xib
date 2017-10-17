@@ -58,6 +58,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="reR-Yl-lHk"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Electronic Medical Records"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBc-S4-qAF" customClass="CustomButton2">
@@ -65,6 +66,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="dXg-HS-G5G"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Request History"/>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="u57-hP-d82">
@@ -79,6 +81,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="Hs7-qU-Gu1"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Medical Consultation"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuJ-Is-sg1" customClass="CustomButton2">
@@ -86,6 +89,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="D4s-VI-0xE"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Register Sub Regords"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Shubham Gupta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-gg-10T">

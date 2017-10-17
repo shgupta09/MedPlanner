@@ -47,7 +47,15 @@
                         <color key="textColor" red="0.42745098040000001" green="0.74901960779999999" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWu-ah-lJd">
+                        <rect key="frame" x="0.0" y="78.5" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="shT-6Q-Hnh"/>
+                        </constraints>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="vjV-lF-GO1" firstAttribute="leading" secondItem="cf7-wr-Ox7" secondAttribute="trailing" constant="10" id="0oF-aE-vB3"/>
                     <constraint firstItem="oqR-1T-x8j" firstAttribute="bottom" secondItem="EA5-sZ-lsi" secondAttribute="bottom" constant="-10" id="2BO-Vm-JVl"/>
@@ -56,13 +64,23 @@
                     <constraint firstItem="oqR-1T-x8j" firstAttribute="trailing" secondItem="cf7-wr-Ox7" secondAttribute="trailing" id="FnA-vD-NiI"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vjV-lF-GO1" secondAttribute="trailing" constant="10" id="LfR-y1-s5F"/>
                     <constraint firstItem="vjV-lF-GO1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Nqk-BZ-Khg"/>
+                    <constraint firstAttribute="bottom" secondItem="yWu-ah-lJd" secondAttribute="bottom" id="Otq-Ei-gV7"/>
                     <constraint firstItem="EA5-sZ-lsi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Qgs-xM-KVt"/>
                     <constraint firstItem="EA5-sZ-lsi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aBi-Kk-1fO"/>
                     <constraint firstAttribute="bottom" secondItem="EA5-sZ-lsi" secondAttribute="bottom" constant="9" id="j6L-Wt-FQ5"/>
+                    <constraint firstItem="yWu-ah-lJd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nH1-PO-pp2"/>
+                    <constraint firstAttribute="trailing" secondItem="yWu-ah-lJd" secondAttribute="trailing" id="w7W-nd-ipT"/>
                     <constraint firstItem="cf7-wr-Ox7" firstAttribute="leading" secondItem="EA5-sZ-lsi" secondAttribute="trailing" constant="10" id="wrR-d8-Fxh"/>
                     <constraint firstItem="oqR-1T-x8j" firstAttribute="leading" secondItem="cf7-wr-Ox7" secondAttribute="leading" id="yjB-2C-dDd"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lbl_name" destination="cf7-wr-Ox7" id="BNz-RB-4AF"/>
+                <outlet property="lbl_specialization" destination="oqR-1T-x8j" id="v0C-HP-AHw"/>
+                <outlet property="lbl_sub_specialization" destination="vjV-lF-GO1" id="lEo-pP-8qv"/>
+                <outlet property="profileImageView" destination="EA5-sZ-lsi" id="pLv-yg-Q2H"/>
+            </connections>
+            <point key="canvasLocation" x="-6" y="76"/>
         </tableViewCell>
     </objects>
     <resources>

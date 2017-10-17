@@ -21,8 +21,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rpy-Ky-1kD">
-                    <rect key="frame" x="0.0" y="80" width="325" height="587"/>
-                    <color key="backgroundColor" red="0.0" green="0.69411764705882351" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="0.0" y="22" width="325" height="645"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="wxp-Y4-1wY"/>
                         <outlet property="delegate" destination="-1" id="Z5k-Jl-jlF"/>
@@ -34,8 +34,9 @@
                 <constraint firstItem="Rpy-Ky-1kD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Xr-QO-ryY"/>
                 <constraint firstAttribute="bottom" secondItem="Rpy-Ky-1kD" secondAttribute="bottom" id="Ons-Xi-ygw"/>
                 <constraint firstAttribute="trailing" secondItem="Rpy-Ky-1kD" secondAttribute="trailing" constant="50" id="Ud9-GN-FgR"/>
-                <constraint firstItem="Rpy-Ky-1kD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="pDq-NX-KMe"/>
+                <constraint firstItem="Rpy-Ky-1kD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="pDq-NX-KMe"/>
             </constraints>
+            <point key="canvasLocation" x="44.5" y="153.5"/>
         </view>
     </objects>
 </document>

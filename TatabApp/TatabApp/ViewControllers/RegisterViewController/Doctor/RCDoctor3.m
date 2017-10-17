@@ -22,6 +22,8 @@
     NSInteger selectedRowForSpeciality;
     NSInteger selectedRowForSubSpeciality;
     BOOL isSpeciality;
+    AwarenessCategory *speciality;
+    AwarenessCategory *sub_speciality;
 
 }
 
@@ -46,11 +48,11 @@
         _txt_hospitalName.leftImgView.image = [UIImage imageNamed:@"b"];
         _txt_workedSince.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
         
-    _txt_Sepciality.text = @"adfaf";
-    _txt_currentGrade.text = @"adfaf";
-    _txtClassification.text = @"adfaf";
-    _txt_subSpeciality.text = @"adfaf";
-    _txt_hospitalName.text = @"adfaf";
+//    _txt_Sepciality.text = @"adfaf";
+//    _txt_currentGrade.text = @"adfaf";
+//    _txtClassification.text = @"adfaf";
+//    _txt_subSpeciality.text = @"adfaf";
+//    _txt_hospitalName.text = @"adfaf";
     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
     [_tblView registerNib:[UINib nibWithNibName:@"DependantDetailTableViewCell" bundle:nil]forCellReuseIdentifier:@"DependantDetailTableViewCell"];
     _tblView.rowHeight = UITableViewAutomaticDimension;
@@ -59,10 +61,14 @@
     dependencyArray = [NSMutableArray new];
     departDate = [NSDate date];
     categoryArray= [NSMutableArray new];
-    
-    [self hitApiForSpeciality];
+    if(![CommonFunction getBoolValueFromDefaultWithKey:isAwarenessApiHIt])
+    {[self hitApiForSpeciality];}else{
+    categoryArray = [AwarenessCategory sharedInstance].myDataArray;
+    }
 }
-
+-(void)viewDidLayoutSubviews{
+    loderObj.frame = self.view.frame;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -107,10 +113,12 @@ numberOfRowsInComponent:(NSInteger)component{
     
     if (isSpeciality) {
     _txt_Sepciality.text = categoryObj.category_name;
+        speciality = categoryObj;
         selectedRowForSpeciality = row;
     }else{
     _txt_subSpeciality.text = categoryObj.category_name;
         selectedRowForSubSpeciality = row;
+        sub_speciality = categoryObj;
     }
     
 }
@@ -265,9 +273,9 @@ numberOfRowsInComponent:(NSInteger)component{
    
     NSDictionary *dictForValidation = [self validateData2];
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
-        [_parameterDict setValue:[CommonFunction trimString:_txt_Sepciality.text] forKey:Specialist];
+        [_parameterDict setValue:speciality.category_id forKey:Specialist];
         [_parameterDict setValue:[CommonFunction trimString:_txt_currentGrade.text] forKey:currentGrade];
-        [_parameterDict setValue:[CommonFunction trimString:_txt_subSpeciality.text] forKey:SubSpecialist];
+        [_parameterDict setValue:sub_speciality.category_id forKey:SubSpecialist];
         [_parameterDict setValue:[CommonFunction trimString:_txtClassification.text] forKey:classification];
         
         
@@ -454,7 +462,7 @@ numberOfRowsInComponent:(NSInteger)component{
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"awareness"]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
-                
+                [CommonFunction stroeBoolValueForKey:isAwarenessApiHIt withBoolValue:true];
                 for (NSDictionary* sub in [responseObj objectForKey:@"awareness"]) {
                     
                     AwarenessCategory* s = [[AwarenessCategory alloc] init  ];
@@ -462,10 +470,10 @@ numberOfRowsInComponent:(NSInteger)component{
                         [s setValue:obj forKey:(NSString *)key];
                     }];
                     
-                    [categoryArray addObject:s];
+                    [[AwarenessCategory sharedInstance].myDataArray addObject:s];
                 }
                 
-                
+                categoryArray = [AwarenessCategory sharedInstance].myDataArray;
                 [_tblView reloadData];
                 [self removeloder];
                 

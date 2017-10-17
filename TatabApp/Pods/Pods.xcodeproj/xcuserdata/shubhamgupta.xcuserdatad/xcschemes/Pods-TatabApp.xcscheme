@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0E233C6E376A0F8111D19412C9FB15BE'
+               BlueprintIdentifier = '06C539ECA7A9288D92A8070BAF63D624'
                BlueprintName = 'Pods-TatabApp'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-TatabApp.a'>

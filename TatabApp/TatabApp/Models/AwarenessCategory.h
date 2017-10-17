@@ -13,5 +13,7 @@
 @property(nonatomic ,strong) NSString *category_id;
 @property(nonatomic ,strong) NSString *category_name;
 @property(nonatomic ,strong) NSString *icon_url;
+-(NSMutableArray*) myDataArray;
++(AwarenessCategory*) sharedInstance;
 
 @end

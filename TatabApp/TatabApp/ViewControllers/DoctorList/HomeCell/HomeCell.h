@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_name;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_specialization;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_sub_specialization;
+
 
 @end

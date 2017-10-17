@@ -12,5 +12,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *tbl_View;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_title;
-@property (nonatomic ,strong) NSString *titleStr;
+@property (nonatomic,strong)AwarenessCategory *awarenessObj;
 @end

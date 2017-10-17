@@ -40,5 +40,5 @@
 +(NSString *)ConvertDateTime:(NSString *)dateStr andTime:(NSString *)time;
 +(NSDate *)convertStringToDate:(NSString *)dtrDate;
 +(NSString *)getThePrice:(NSString *)price;
-
++(UIImage *)getImageWithUrlString:(NSString*)urlString;
 @end

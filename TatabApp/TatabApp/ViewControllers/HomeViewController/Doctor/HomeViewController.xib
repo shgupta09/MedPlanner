@@ -58,6 +58,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="SrT-3v-WJo"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Pationts Medical Records"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUa-ct-b0T" customClass="CustomButton2">
@@ -65,6 +66,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="WPF-tG-i6y"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Case History"/>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-T8-Kbj">
@@ -91,6 +93,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="ACh-lp-tfW"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Medical Cases"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0T-Rq-0Ys" customClass="CustomButton2">
@@ -98,6 +101,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="AKV-Mm-WwC"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Manage Awareness Content"/>
                 </button>
             </subviews>

@@ -19,8 +19,6 @@
 
 
 
-#define IsSectorApiHit @"IsSectorApiHit"
-#define IsCountryCodeHit @"IsCountryCodeHit"
 
 #define BoolValueKey @"BoolValue"
 #define AlertKey @"Alert"
@@ -61,7 +59,7 @@
 #define IBAN @"iban"
 #define Photo @"photo"
 #define Document @"document"
-
+#define isAwarenessApiHIt @"Api"
 
 
 #define codeForActivatedAccount @"NP001"

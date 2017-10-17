@@ -23,9 +23,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iJq-8u-pnb">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iJq-8u-pnb">
                     <rect key="frame" x="0.0" y="22" width="375" height="351"/>
                     <color key="backgroundColor" red="0.59602463250000004" green="0.59611290689999996" blue="0.59600526089999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="Kjn-XF-Ref">
+                    <rect key="frame" x="-0.5" y="373" width="375" height="294"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naE-Xn-0Uy" customClass="CustomButton">
                     <rect key="frame" x="10" y="32" width="50" height="50"/>
@@ -38,9 +41,10 @@
                         <action selector="btnBackClicked:" destination="-1" eventType="touchUpInside" id="xMS-yx-BfG"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ENN-Mt-Yqr">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ENN-Mt-Yqr">
                     <rect key="frame" x="0.0" y="373" width="375" height="294"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="ate-QS-ZuF"/>
                         <outlet property="delegate" destination="-1" id="Ske-RR-IYH"/>
@@ -58,19 +62,26 @@
                 <constraint firstItem="iJq-8u-pnb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="66M-3Z-oDD"/>
                 <constraint firstAttribute="trailing" secondItem="iJq-8u-pnb" secondAttribute="trailing" id="9iJ-MT-kaY"/>
                 <constraint firstAttribute="bottom" secondItem="ENN-Mt-Yqr" secondAttribute="bottom" id="DEZ-wk-ZQc"/>
+                <constraint firstItem="Kjn-XF-Ref" firstAttribute="height" secondItem="ENN-Mt-Yqr" secondAttribute="height" id="Dxl-DU-ROu"/>
                 <constraint firstItem="ENN-Mt-Yqr" firstAttribute="top" secondItem="iJq-8u-pnb" secondAttribute="bottom" id="JBY-e0-QBV"/>
                 <constraint firstAttribute="trailing" secondItem="ENN-Mt-Yqr" secondAttribute="trailing" id="JLo-Fy-xRu"/>
+                <constraint firstItem="Kjn-XF-Ref" firstAttribute="centerX" secondItem="ENN-Mt-Yqr" secondAttribute="centerX" id="Pz2-M1-P6U"/>
                 <constraint firstItem="naE-Xn-0Uy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="RhS-mA-2iO"/>
                 <constraint firstItem="ENN-Mt-Yqr" firstAttribute="top" secondItem="Ed9-YO-voW" secondAttribute="bottom" constant="10" id="Tfu-Ty-ddW"/>
                 <constraint firstItem="ENN-Mt-Yqr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gHc-md-btW"/>
                 <constraint firstItem="Ed9-YO-voW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="kix-L0-hLU"/>
+                <constraint firstItem="Kjn-XF-Ref" firstAttribute="centerY" secondItem="ENN-Mt-Yqr" secondAttribute="centerY" id="n9q-8N-ndI"/>
                 <constraint firstItem="iJq-8u-pnb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="orP-BW-TvV"/>
                 <constraint firstItem="naE-Xn-0Uy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="s7E-NO-HOs"/>
                 <constraint firstAttribute="trailing" secondItem="Ed9-YO-voW" secondAttribute="trailing" constant="10" id="sDk-MI-h60"/>
                 <constraint firstItem="iJq-8u-pnb" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1:1.9" id="whA-ib-n8T"/>
                 <constraint firstItem="ENN-Mt-Yqr" firstAttribute="top" secondItem="iJq-8u-pnb" secondAttribute="bottom" id="x2M-gB-tHc"/>
+                <constraint firstItem="Kjn-XF-Ref" firstAttribute="width" secondItem="ENN-Mt-Yqr" secondAttribute="width" id="yNo-RQ-xio"/>
             </constraints>
             <point key="canvasLocation" x="-184" y="55"/>
         </view>
     </objects>
+    <resources>
+        <image name="BackgroundGeneral" width="750" height="1334"/>
+    </resources>
 </document>

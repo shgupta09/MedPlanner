@@ -39,6 +39,8 @@
 #import "HomeCell.h"
 #import "PatientHomeVC.h"
 #import "DoctorListVC.h"
+#import "Specialization.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 // Include any system framework and library headers here that should be included in all compilation units.

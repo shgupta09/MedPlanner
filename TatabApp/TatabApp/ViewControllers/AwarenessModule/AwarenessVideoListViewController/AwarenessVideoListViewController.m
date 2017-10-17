@@ -60,7 +60,9 @@
 
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewDidLayoutSubviews{
+    loderObj.frame = self.view.frame;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -128,6 +130,8 @@
     
     VideoListObject* videoObject = [arrVideos objectAtIndex:indexPath.row];
 //    cell.imgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: videoObject.icon_url]]];
+    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:videoObject.url] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
+
     cell.lblVideoHeading.text = @"Lorem Ipsum";
     cell.lblVideoContent.text = videoObject.content;
     

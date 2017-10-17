@@ -96,7 +96,7 @@
 -(NSDictionary *)validateData{
     NSMutableDictionary *validationDict = [[NSMutableDictionary alloc] init];
     [validationDict setValue:@"1" forKey:BoolValueKey];
-    if (![CommonFunction validateName:_txt_IBAN.text]){
+    if (![CommonFunction validateMobile:_txt_IBAN.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_IBAN.text].length == 0){
             [validationDict setValue:@"We need a IBAN" forKey:AlertKey];
@@ -104,7 +104,7 @@
             [validationDict setValue:@"Oops! It seems that this is not a valid IBAN." forKey:AlertKey];
         }
         
-    }  else  if (![CommonFunction validateName:_txt_ConfirmIban.text]){
+    }  else  if (![CommonFunction validateMobile:_txt_ConfirmIban.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_ConfirmIban.text].length == 0){
             [validationDict setValue:@"We need a Confirm IBAN" forKey:AlertKey];

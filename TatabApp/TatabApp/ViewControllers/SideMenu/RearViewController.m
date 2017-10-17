@@ -12,6 +12,8 @@
     NSArray *titleArray;
     NSArray *titleImageArray;
      SWRevealViewController *revealController;
+    NSMutableArray *categoryArray;
+    LoderView *loderObj;
 
 }
 @end
@@ -21,16 +23,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      revealController = [self revealViewController];
-    titleArray  = [[NSArray alloc]initWithObjects:@"GENERAL CLINIC",@"FAMILY AND COMMUNITY CLINIC",@"PSYOLOGY CLINIC",@"ABDOMINAL CLINIC",@"OBGYNE",@"PEDIATRICS",@"SETTING",@"PROFILE",@"Logout", nil];
-    titleImageArray = [[NSArray alloc] initWithObjects:@"menu-general",@"menu-family",@"menu-psy",@"menu-stomach",@"menu-fetus",@"menu-children",@"Icon---Setttings",@"Icon---Profile",@"", nil];
+    titleArray  = [[NSArray alloc]initWithObjects:@"SETTING",@"PROFILE",@"Logout", nil];
+    titleImageArray = [[NSArray alloc] initWithObjects:@"Icon---Setttings",@"Icon---Profile",@"", nil];
      [_tbl_View registerNib:[UINib nibWithNibName:@"RearCell" bundle:nil]forCellReuseIdentifier:@"RearCell"];
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 100;
     _tbl_View.multipleTouchEnabled = NO;
-
+    if (![CommonFunction getBoolValueFromDefaultWithKey:isAwarenessApiHIt]) {
+        [self getData];
+    }else{
+        categoryArray = [AwarenessCategory sharedInstance].myDataArray;
+    }
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewDidLayoutSubviews{
+    loderObj.frame = self.view.frame;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -40,39 +48,43 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
    
-    return titleArray.count;
+    return categoryArray.count+3;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RearCell *rearCell = [_tbl_View dequeueReusableCellWithIdentifier:@"RearCell"];
-    rearCell.lbl_title.text = [titleArray objectAtIndex:indexPath.row];
-    rearCell.imgView.image = [UIImage imageNamed:[titleImageArray objectAtIndex:indexPath.row]];
+    if (indexPath.row<categoryArray.count) {
+        AwarenessCategory *obj = [categoryArray objectAtIndex:indexPath.row];
+        rearCell.lbl_title.text = obj.category_name;
+//        rearCell.imgView.image = [CommonFunction getImageWithUrlString:obj.icon_url];
+        
+        [rearCell.imgView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
+    }else{
+        rearCell.lbl_title.text = [titleArray objectAtIndex:indexPath.row-categoryArray.count];
+        rearCell.imgView.image = [UIImage imageNamed:[titleImageArray objectAtIndex:indexPath.row-categoryArray.count]];
+
+    }
+   
 
     rearCell.selectionStyle = UITableViewCellSelectionStyleNone;
     return rearCell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [revealController revealToggle:nil];
-   
+    if (indexPath.row<categoryArray.count){
         
-        switch (indexPath.row) {
+        DoctorListVC* vc ;
+        vc = [[DoctorListVC alloc] initWithNibName:@"DoctorListVC" bundle:nil];
+        vc.awarenessObj = [categoryArray objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:vc animated:true];
+    }else{
+        switch (indexPath.row-categoryArray.count) {
                 
             case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            {
-                DoctorListVC* vc ;
-                vc = [[DoctorListVC alloc] initWithNibName:@"DoctorListVC" bundle:nil];
-                vc.titleStr = [titleArray objectAtIndex:indexPath.row];
-                [self.navigationController pushViewController:vc animated:true];
-
-            }
-                
                 break;
-            case 8 :{
+            case 1:
+                break;
+            case 2 :{
                 
                 UIAlertController * alert=   [UIAlertController
                                               alertControllerWithTitle:@"Logout"
@@ -113,9 +125,67 @@
             default:
                 break;
         }
+
+    }
+    
+    
+    
+    
+}
+
+-(void) getData
+{
+    
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
         
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"awareness"]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                [CommonFunction stroeBoolValueForKey:isAwarenessApiHIt withBoolValue:true];
+                for (NSDictionary* sub in [responseObj objectForKey:@"awareness"]) {
+                    
+                    AwarenessCategory* s = [[AwarenessCategory alloc] init  ];
+                    [sub enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop){
+                        [s setValue:obj forKey:(NSString *)key];
+                    }];
+                    
+                    [[AwarenessCategory sharedInstance].myDataArray addObject:s];
+                }
+                categoryArray = [AwarenessCategory sharedInstance].myDataArray;
+                
+                [_tbl_View reloadData];
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
     
-    
+}
+#pragma mark - add loder
+
+-(void)addLoder{
+    self.view.userInteractionEnabled = NO;
+    //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+    loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
+    loderObj.lbl_title.text = @"Fetching data...";
+    [self.view addSubview:loderObj];
+}
+
+-(void)removeloder{
+    //loderObj = nil;
+    [loderObj removeFromSuperview];
+    //[loaderView removeFromSuperview];
+    self.view.userInteractionEnabled = YES;
 }
 
 /*
