@@ -20,8 +20,8 @@
 
 
 
+
 #define BoolValueKey @"BoolValue"
-#define AlertKey @"Alert"
 
 //Cloud Related
 
@@ -61,6 +61,12 @@
 #define Document @"document"
 #define isAwarenessApiHIt @"Api"
 
+//Alert Related Constant
+#define Tag_For_Remove_Alert 100
+#define OK_Btn @"Ok"
+#define Cancel_Btn @"Cancel"
+#define AlertKey @"Alert"
+#define Warning_Key @"Warning"
 
 #define codeForActivatedAccount @"NP001"
 //Color related

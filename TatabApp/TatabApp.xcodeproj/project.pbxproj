@@ -58,6 +58,8 @@
 		D84DF2051F8A0D9C00234070 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84DF2011F8A0D9C00234070 /* RegisterViewController.m */; };
 		D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84DF2021F8A0D9C00234070 /* RegisterViewController.xib */; };
 		D8EE8B161F95E564006A018E /* Specialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE8B151F95E564006A018E /* Specialization.m */; };
+		D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE8B191F966FA8006A018E /* CustomAlert.m */; };
+		D8EE8B1C1F966FB8006A018E /* CustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8EE8B1B1F966FB8006A018E /* CustomAlert.xib */; };
 		D8F5A55D1F92020300E36160 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A55B1F92020300E36160 /* HomeViewController.m */; };
 		D8F5A55E1F92020300E36160 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F5A55C1F92020300E36160 /* HomeViewController.xib */; };
 		D8F5A5621F92021A00E36160 /* PatientHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A5601F92021A00E36160 /* PatientHomeVC.m */; };
@@ -169,6 +171,9 @@
 		D84DF2021F8A0D9C00234070 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		D8EE8B141F95E564006A018E /* Specialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Specialization.h; sourceTree = "<group>"; };
 		D8EE8B151F95E564006A018E /* Specialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Specialization.m; sourceTree = "<group>"; };
+		D8EE8B181F966FA8006A018E /* CustomAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlert.h; sourceTree = "<group>"; };
+		D8EE8B191F966FA8006A018E /* CustomAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlert.m; sourceTree = "<group>"; };
+		D8EE8B1B1F966FB8006A018E /* CustomAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlert.xib; sourceTree = "<group>"; };
 		D8F5A55A1F92020300E36160 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D8F5A55B1F92020300E36160 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D8F5A55C1F92020300E36160 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -337,6 +342,7 @@
 		5FBBBB0B1F726FC400C03813 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				D8EE8B171F966F77006A018E /* CustomAlert */,
 				D84B6BB81F77837500F37660 /* Loder VIew */,
 				D84B6BB51F777D2C00F37660 /* WebServicesCall.h */,
 				D84B6BB61F777D2C00F37660 /* WebServicesCall.m */,
@@ -522,6 +528,16 @@
 			path = Patient;
 			sourceTree = "<group>";
 		};
+		D8EE8B171F966F77006A018E /* CustomAlert */ = {
+			isa = PBXGroup;
+			children = (
+				D8EE8B181F966FA8006A018E /* CustomAlert.h */,
+				D8EE8B191F966FA8006A018E /* CustomAlert.m */,
+				D8EE8B1B1F966FB8006A018E /* CustomAlert.xib */,
+			);
+			path = CustomAlert;
+			sourceTree = "<group>";
+		};
 		D8F5A5581F9201C000E36160 /* Doctor */ = {
 			isa = PBXGroup;
 			children = (
@@ -672,6 +688,7 @@
 				5FBBBAF31F72401B00C03813 /* Assets.xcassets in Resources */,
 				5F4F6C691F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib in Resources */,
 				D8F5A56F1F9202D300E36160 /* HomeCell.xib in Resources */,
+				D8EE8B1C1F966FB8006A018E /* CustomAlert.xib in Resources */,
 				D84B6BBD1F77837500F37660 /* LoderView.xib in Resources */,
 				5F1E9B311F763C49009FECDD /* SplashScreenViewController.xib in Resources */,
 				5F1E9B5E1F76AAB4009FECDD /* DependantDetailTableViewCell.xib in Resources */,
@@ -914,6 +931,7 @@
 				D84DF2031F8A0D9C00234070 /* RegisterCompleteViewController.m in Sources */,
 				D8F5A56E1F9202D300E36160 /* HomeCell.m in Sources */,
 				5FBBBAE51F72401B00C03813 /* main.m in Sources */,
+				D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */,
 				D8F5A55D1F92020300E36160 /* HomeViewController.m in Sources */,
 				D82354AF1F8A6C2E0097A94C /* RCDoctor2.m in Sources */,
 				5F1E9B4B1F76442C009FECDD /* CustomTextField.m in Sources */,

@@ -13,7 +13,6 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    NSLog(@"%@",[UIScreen mainScreen].bounds);
     if (self) {
         UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"LoderView" owner:self options:nil] objectAtIndex:0];
         view.frame = frame;
@@ -24,7 +23,6 @@
         return self;
     }
     
-    [self rotateView];
     return self;
 }
 

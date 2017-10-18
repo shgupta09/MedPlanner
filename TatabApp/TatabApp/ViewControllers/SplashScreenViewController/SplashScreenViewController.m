@@ -28,7 +28,7 @@
     [super viewDidLoad];
     [self getData];
     
-        sleep(1);
+//        sleep(1);
     
     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
         
@@ -102,7 +102,8 @@
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+//        [self presentViewController:alertController animated:YES completion:nil];
+        
     }
     
 }

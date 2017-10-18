@@ -71,7 +71,7 @@
         }
     }else{
         if (bt.tag == TAG_USERTYPE_CONSULTING){
-            LoginViewController* vc ;
+                        LoginViewController* vc ;
             vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
             UINavigationController* navVC = [[UINavigationController alloc] initWithRootViewController:vc];
             vc.navigationController.navigationBarHidden = true;
@@ -89,5 +89,6 @@
         }
     }
 }
+
 
 @end
