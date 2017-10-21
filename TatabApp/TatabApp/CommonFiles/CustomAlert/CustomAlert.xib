@@ -76,7 +76,7 @@
                             <state key="normal" title="ds"/>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eek-LT-rvN" customClass="CustomButton">
-                            <rect key="frame" x="81" y="148" width="113" height="50"/>
+                            <rect key="frame" x="20" y="148" width="235" height="50"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -96,12 +96,13 @@
                         <constraint firstAttribute="bottom" secondItem="GJP-Sz-bth" secondAttribute="bottom" constant="5" id="baX-rv-ggc"/>
                         <constraint firstItem="GJP-Sz-bth" firstAttribute="top" secondItem="Sry-ER-Fpo" secondAttribute="bottom" constant="13" id="eBZ-By-8rf"/>
                         <constraint firstAttribute="trailing" secondItem="Sry-ER-Fpo" secondAttribute="trailing" constant="10" id="edA-K5-vZQ"/>
+                        <constraint firstAttribute="trailing" secondItem="Eek-LT-rvN" secondAttribute="trailing" constant="20" id="evN-Uu-EJr"/>
                         <constraint firstItem="b1X-PX-gYE" firstAttribute="centerX" secondItem="QtB-P7-l5c" secondAttribute="centerX" id="hoF-Iw-ucl"/>
-                        <constraint firstItem="Eek-LT-rvN" firstAttribute="width" secondItem="rhj-jT-G5c" secondAttribute="width" id="hw1-Ys-LfR"/>
                         <constraint firstItem="Eek-LT-rvN" firstAttribute="top" secondItem="rhj-jT-G5c" secondAttribute="top" id="lEW-mJ-AI0"/>
                         <constraint firstItem="wxC-U9-ihr" firstAttribute="top" secondItem="2sz-um-WV9" secondAttribute="bottom" constant="10" id="q5k-fy-WyO"/>
                         <constraint firstItem="b1X-PX-gYE" firstAttribute="top" secondItem="Sry-ER-Fpo" secondAttribute="bottom" constant="8" id="rQr-Ih-69W"/>
                         <constraint firstAttribute="bottom" secondItem="b1X-PX-gYE" secondAttribute="bottom" constant="19" id="ugV-3C-SdF"/>
+                        <constraint firstItem="Eek-LT-rvN" firstAttribute="leading" secondItem="QtB-P7-l5c" secondAttribute="leading" constant="20" id="vet-3w-kCt"/>
                     </constraints>
                 </view>
             </subviews>

@@ -12,6 +12,8 @@
 {
     BOOL iscaptured;
     LoderView *loderObj;
+    CustomAlert *alertObj;
+    
 }
 @end
 
@@ -81,10 +83,7 @@
         [self hitApiForImage];
     }
     else{
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[dictForValidation valueForKey:AlertKey] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+       [self addAlertWithTitle:Warning_Key andMessage:[dictForValidation valueForKey:AlertKey] isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil imgName:Warning_Key];
     }
     
 
@@ -130,16 +129,6 @@
 
 -(void)hitApiForImage{
     NSData *imageData = UIImagePNGRepresentation(_imgView.image);
-//    uint8_t *bytesg = (uint8_t *)[imageData bytes];
-//    NSMutableArray *btyeArray  =  [NSMutableArray new];
-//    for (int i = 0; i<imageData.length;i++ ) {
-//        [btyeArray addObject:[NSNumber numberWithInt:bytesg[i]]];
-//    }
-    
-//    NSMutableDictionary *dict = [NSMutableDictionary new];
-//    [dict setObject:_imgView.image
-//             forKey:@"photo"];
-//     [dict setObject:_imgView.image forKey:@"document"];
     NSMutableArray *imgArray = [NSMutableArray new];
     [imgArray addObject:imageData];
     if ([ CommonFunction reachability]) {
@@ -176,10 +165,7 @@
             
         }];
     } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+      [self addAlertWithTitle:Warning_Key andMessage:No_Network isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil imgName:Warning_Key];
     }
     
 
@@ -311,10 +297,7 @@
             
         }];
     } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+       [self addAlertWithTitle:Warning_Key andMessage:No_Network isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil imgName:Warning_Key];
     }
     
     
@@ -344,4 +327,56 @@
 
 
 
+#pragma mark- Custom Loder
+
+-(void)addAlertWithTitle:(NSString *)titleString andMessage:(NSString *)messageString isTwoButtonNeeded:(BOOL)isTwoBUtoonNeeded firstbuttonTag:(NSInteger)firstButtonTag secondButtonTag:(NSInteger)secondButtonTag firstbuttonTitle:(NSString *)firstButtonTitle secondButtonTitle:(NSString *)secondButtonTitle imgName:(NSString *)imgNaame{
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+    alertObj.lbl_title.text = titleString;
+    alertObj.lbl_message.text = messageString;
+    alertObj.iconImage.image = [UIImage imageNamed:imgNaame];
+    if (isTwoBUtoonNeeded) {
+        alertObj.btn1.hidden = true;
+        [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
+        [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
+        alertObj.btn2.tag = firstButtonTag;
+        alertObj.btn3.tag = secondButtonTag;
+        [alertObj.btn2 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+        [alertObj.btn3 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }else{
+        alertObj.btn2.hidden = true;
+        alertObj.btn3.hidden = true;
+        alertObj.btn1.tag = firstButtonTag;
+        [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
+        [alertObj.btn1 addTarget:self
+                          action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    [UIView transitionWithView:self.view duration:0.3
+                       options:UIViewAnimationOptionTransitionCurlUp //change to whatever animation you like
+                    animations:^ { [self.view addSubview:alertObj];
+                    }
+                    completion:nil];
+    
+}
+-(void)removeAlert{
+    if ([alertObj isDescendantOfView:self.view]) {
+        [UIView transitionWithView:self.view duration:0.3
+                           options:UIViewAnimationOptionTransitionCurlDown //change to whatever animation you like
+                        animations:^ { [alertObj removeFromSuperview];
+                        }
+                        completion:nil];
+    }
+}
+
+-(IBAction)btnAction:(id)sender{
+    switch (((UIButton *)sender).tag) {
+        case Tag_For_Remove_Alert:
+            [self removeAlert];
+            break;
+            
+        default:
+            
+            break;
+    }
+}
 @end
