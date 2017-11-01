@@ -9,7 +9,10 @@
 #import "RCDoctor2.h"
 #import "RCDoctor3.h"
 @interface RCDoctor2 ()
-
+{
+    CustomAlert *alertObj;
+    
+}
 @end
 
 @implementation RCDoctor2
@@ -27,11 +30,11 @@
     _txt_homeLocation.leftImgView.image = [UIImage imageNamed:@"icon-map-location"];
     _txt_Nationality.leftImgView.image = [UIImage imageNamed:@"b"];
     
-    _txtPassport.text = @"9999708178";
-    _txt_Residence.text = @"adfaf";
-    _txt_workplace.text = @"adfaf";
-    _txt_homeLocation.text = @"adfaf";
-    _txt_Nationality.text = @"adfaf";
+//    _txtPassport.text = @"9999708178";
+//    _txt_Residence.text = @"adfaf";
+//    _txt_workplace.text = @"adfaf";
+//    _txt_homeLocation.text = @"adfaf";
+//    _txt_Nationality.text = @"adfaf";
     
 }
 
@@ -81,10 +84,7 @@
         
     }
     else{
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[dictForValidation valueForKey:AlertKey] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+        [self addAlertWithTitle:Warning_Key andMessage:[dictForValidation valueForKey:AlertKey] isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil imgName:Warning_Key];
     }
     
    
@@ -140,6 +140,59 @@
     }
     return validationDict.mutableCopy;
     
+}
+
+#pragma mark- Custom Loder
+
+-(void)addAlertWithTitle:(NSString *)titleString andMessage:(NSString *)messageString isTwoButtonNeeded:(BOOL)isTwoBUtoonNeeded firstbuttonTag:(NSInteger)firstButtonTag secondButtonTag:(NSInteger)secondButtonTag firstbuttonTitle:(NSString *)firstButtonTitle secondButtonTitle:(NSString *)secondButtonTitle imgName:(NSString *)imgNaame{
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+    alertObj.lbl_title.text = titleString;
+    alertObj.lbl_message.text = messageString;
+    alertObj.iconImage.image = [UIImage imageNamed:imgNaame];
+    if (isTwoBUtoonNeeded) {
+        alertObj.btn1.hidden = true;
+        [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
+        [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
+        alertObj.btn2.tag = firstButtonTag;
+        alertObj.btn3.tag = secondButtonTag;
+        [alertObj.btn2 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+        [alertObj.btn3 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }else{
+        alertObj.btn2.hidden = true;
+        alertObj.btn3.hidden = true;
+        alertObj.btn1.tag = firstButtonTag;
+        [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
+        [alertObj.btn1 addTarget:self
+                          action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    [UIView transitionWithView:self.view duration:0.3
+                       options:UIViewAnimationOptionTransitionCurlUp //change to whatever animation you like
+                    animations:^ { [self.view addSubview:alertObj];
+                    }
+                    completion:nil];
+    
+}
+-(void)removeAlert{
+    if ([alertObj isDescendantOfView:self.view]) {
+        [UIView transitionWithView:self.view duration:0.3
+                           options:UIViewAnimationOptionTransitionCurlDown //change to whatever animation you like
+                        animations:^ { [alertObj removeFromSuperview];
+                        }
+                        completion:nil];
+    }
+}
+
+-(IBAction)btnAction:(id)sender{
+    switch (((UIButton *)sender).tag) {
+        case Tag_For_Remove_Alert:
+            [self removeAlert];
+            break;
+            
+        default:
+            
+            break;
+    }
 }
 
 @end

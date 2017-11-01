@@ -28,7 +28,7 @@
     [super viewDidLoad];
     [self getData];
     
-//        sleep(1);
+        sleep(1);
     
     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
         
