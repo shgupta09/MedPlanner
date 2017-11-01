@@ -67,7 +67,6 @@
 #define Cancel_Btn @"Cancel"
 #define AlertKey @"Alert"
 #define Warning_Key @"Warning"
-#define No_Network @"No Network Access"
 
 #define codeForActivatedAccount @"NP001"
 //Color related
