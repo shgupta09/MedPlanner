@@ -342,6 +342,4 @@
     return img;
 }
 
-
-
 @end
