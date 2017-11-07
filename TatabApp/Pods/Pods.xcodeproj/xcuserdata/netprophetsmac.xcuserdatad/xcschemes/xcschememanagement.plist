@@ -8,25 +8,48 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Pods-TatabApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-TatabAppTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>SWRevealViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>TPKeyboardAvoiding.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>06C539ECA7A9288D92A8070BAF63D624</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0DCC3D6C4B0D6BDF842D625E8DF8934B</key>
 		<dict>
 			<key>primary</key>
@@ -37,12 +60,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>25E2E92F3DEC008CC95D9909ED1863CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2602F3D0DAC534568B6AD7EEA0DD1959</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>49FD5D17184F14FFB9D72AFE8A609958</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>90E6B64C6DD4A9E60295E4BE99ED7DFA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B4DFBB405291EDFBCC276AB149140F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
