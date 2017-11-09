@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0B0FD01FB1EC82006468AA /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B0FCE1FB1EC82006468AA /* ChatViewController.m */; };
+		5F0B0FD11FB1EC82006468AA /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0B0FCF1FB1EC82006468AA /* ChatViewController.xib */; };
 		5F1E9B301F763C49009FECDD /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B2E1F763C49009FECDD /* SplashScreenViewController.m */; };
 		5F1E9B311F763C49009FECDD /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E9B2F1F763C49009FECDD /* SplashScreenViewController.xib */; };
 		5F1E9B3A1F763C73009FECDD /* UserSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B381F763C73009FECDD /* UserSelectViewController.m */; };
@@ -22,6 +24,12 @@
 		5F4F6C631F828F81000C65A0 /* AwarenessCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F6C621F828F81000C65A0 /* AwarenessCategory.m */; };
 		5F4F6C681F82915F000C65A0 /* AwarenessCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F6C661F82915F000C65A0 /* AwarenessCategoryTableViewCell.m */; };
 		5F4F6C691F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F4F6C671F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib */; };
+		5F5DF37B1FB31D1800956B62 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5DF37A1FB31D1800956B62 /* MessageCell.m */; };
+		5F5DF37E1FB31DA600956B62 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5DF37D1FB31DA600956B62 /* Message.m */; };
+		5F5DF3811FB322EF00956B62 /* SMMessageViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5DF3801FB322EF00956B62 /* SMMessageViewTableCell.m */; };
+		5F9F49BD1FB1D791009E1418 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49B61FB1D791009E1418 /* README.md */; };
+		5F9F49BE1FB1D791009E1418 /* XMPPCoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49BA1FB1D791009E1418 /* XMPPCoreDataHandler.m */; };
+		5F9F49BF1FB1D791009E1418 /* XMPPHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49BC1FB1D791009E1418 /* XMPPHandler.m */; };
 		5FBBBAE51F72401B00C03813 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBAE41F72401B00C03813 /* main.m */; };
 		5FBBBAE81F72401B00C03813 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBAE71F72401B00C03813 /* AppDelegate.m */; };
 		5FBBBAEE1F72401B00C03813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBBBAEC1F72401B00C03813 /* Main.storyboard */; };
@@ -31,7 +39,8 @@
 		5FBBBB011F72401C00C03813 /* TatabAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBB001F72401C00C03813 /* TatabAppTests.m */; };
 		5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBB181F72720800C03813 /* LoginViewController.m */; };
 		5FBBBB1B1F72720800C03813 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FBBBB191F72720800C03813 /* LoginViewController.xib */; };
-		80D4162ADB3F166D1F5DC3F4 /* libPods-TatabAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D387D74185D905643A1858BE /* libPods-TatabAppTests.a */; };
+		6B88C8AAED0F77BF5245AA06 /* Pods_TatabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */; };
+		884FE13F103CA6FC743E4912 /* Pods_TatabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */; };
 		9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */; };
 		9C6DE72C1F8399CD00635102 /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6DE72A1F8399CD00635102 /* RearViewController.m */; };
 		9C6DE72D1F8399CD00635102 /* RearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6DE72B1F8399CD00635102 /* RearViewController.xib */; };
@@ -69,7 +78,6 @@
 		D8F5A56E1F9202D300E36160 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A56C1F9202D300E36160 /* HomeCell.m */; };
 		D8F5A56F1F9202D300E36160 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F5A56D1F9202D300E36160 /* HomeCell.xib */; };
 		D8F5A5721F920B1C00E36160 /* CustomButton2.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A5711F920B1C00E36160 /* CustomButton2.m */; };
-		F3D93D20790BF946480A45A1 /* libPods-TatabApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D816EB267D58E1A20A223E17 /* libPods-TatabApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +92,13 @@
 
 /* Begin PBXFileReference section */
 		0B7243BFA15CEF2681A99446 /* Pods-TatabAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TatabAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TatabAppTests/Pods-TatabAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TatabAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E254AF616877AABF7CAB560 /* Pods-TatabAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TatabAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TatabAppTests/Pods-TatabAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		5F0B0FCD1FB1EC82006468AA /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		5F0B0FCE1FB1EC82006468AA /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		5F0B0FCF1FB1EC82006468AA /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		5F0B0FD21FB1EE57006468AA /* SMChatDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMChatDelegate.h; sourceTree = "<group>"; };
+		5F0B0FD31FB1EE57006468AA /* SMMessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMessageDelegate.h; sourceTree = "<group>"; };
 		5F1E9B2D1F763C49009FECDD /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
 		5F1E9B2E1F763C49009FECDD /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		5F1E9B2F1F763C49009FECDD /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
@@ -112,6 +126,18 @@
 		5F4F6C651F82915F000C65A0 /* AwarenessCategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwarenessCategoryTableViewCell.h; sourceTree = "<group>"; };
 		5F4F6C661F82915F000C65A0 /* AwarenessCategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwarenessCategoryTableViewCell.m; sourceTree = "<group>"; };
 		5F4F6C671F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AwarenessCategoryTableViewCell.xib; sourceTree = "<group>"; };
+		5F5DF3791FB31D1800956B62 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		5F5DF37A1FB31D1800956B62 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		5F5DF37C1FB31DA600956B62 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		5F5DF37D1FB31DA600956B62 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		5F5DF37F1FB322EF00956B62 /* SMMessageViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMessageViewTableCell.h; sourceTree = "<group>"; };
+		5F5DF3801FB322EF00956B62 /* SMMessageViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMessageViewTableCell.m; sourceTree = "<group>"; };
+		5F9F49B61FB1D791009E1418 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5F9F49B81FB1D791009E1418 /* DebugLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLog.h; sourceTree = "<group>"; };
+		5F9F49B91FB1D791009E1418 /* XMPPCoreDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPCoreDataHandler.h; sourceTree = "<group>"; };
+		5F9F49BA1FB1D791009E1418 /* XMPPCoreDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPCoreDataHandler.m; sourceTree = "<group>"; };
+		5F9F49BB1FB1D791009E1418 /* XMPPHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPHandler.h; sourceTree = "<group>"; };
+		5F9F49BC1FB1D791009E1418 /* XMPPHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPHandler.m; sourceTree = "<group>"; };
 		5FBBBAE01F72401B00C03813 /* TatabApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TatabApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBBBAE41F72401B00C03813 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5FBBBAE61F72401B00C03813 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -149,9 +175,8 @@
 		9C8FE6D91F8B8DCF0003003C /* RCDoctor4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoctor4.h; sourceTree = "<group>"; };
 		9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDoctor4.m; sourceTree = "<group>"; };
 		9C8FE6DB1F8B8DCF0003003C /* RCDoctor4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDoctor4.xib; sourceTree = "<group>"; };
+		A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TatabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB844014A999876E3EEA5CD /* Pods-TatabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TatabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TatabApp/Pods-TatabApp.release.xcconfig"; sourceTree = "<group>"; };
-		D387D74185D905643A1858BE /* libPods-TatabAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TatabAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D816EB267D58E1A20A223E17 /* libPods-TatabApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TatabApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D82354A71F8A37790097A94C /* RCDoctor1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoctor1.h; sourceTree = "<group>"; };
 		D82354A81F8A37790097A94C /* RCDoctor1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDoctor1.m; sourceTree = "<group>"; };
 		D82354A91F8A37790097A94C /* RCDoctor1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDoctor1.xib; sourceTree = "<group>"; };
@@ -196,7 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3D93D20790BF946480A45A1 /* libPods-TatabApp.a in Frameworks */,
+				6B88C8AAED0F77BF5245AA06 /* Pods_TatabApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80D4162ADB3F166D1F5DC3F4 /* libPods-TatabAppTests.a in Frameworks */,
+				884FE13F103CA6FC743E4912 /* Pods_TatabAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,10 +250,20 @@
 		51EF22DD57B504A66E6CB433 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D816EB267D58E1A20A223E17 /* libPods-TatabApp.a */,
-				D387D74185D905643A1858BE /* libPods-TatabAppTests.a */,
+				A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */,
+				3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F0B0FCC1FB1EC58006468AA /* ChatViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5F0B0FCD1FB1EC82006468AA /* ChatViewController.h */,
+				5F0B0FCE1FB1EC82006468AA /* ChatViewController.m */,
+				5F0B0FCF1FB1EC82006468AA /* ChatViewController.xib */,
+			);
+			path = ChatViewController;
 			sourceTree = "<group>";
 		};
 		5F1E9B4F1F76482D009FECDD /* Reachability */ = {
@@ -279,6 +314,40 @@
 				5F4F6C671F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib */,
 			);
 			path = AwarenessCategoryTableViewCell;
+			sourceTree = "<group>";
+		};
+		5F5DF3781FB31D0F00956B62 /* ChatsRelatedViews */ = {
+			isa = PBXGroup;
+			children = (
+				5F5DF37F1FB322EF00956B62 /* SMMessageViewTableCell.h */,
+				5F5DF3801FB322EF00956B62 /* SMMessageViewTableCell.m */,
+				5F5DF37C1FB31DA600956B62 /* Message.h */,
+				5F5DF37D1FB31DA600956B62 /* Message.m */,
+				5F5DF3791FB31D1800956B62 /* MessageCell.h */,
+				5F5DF37A1FB31D1800956B62 /* MessageCell.m */,
+			);
+			path = ChatsRelatedViews;
+			sourceTree = "<group>";
+		};
+		5F9F49B51FB1D791009E1418 /* XMPPHandler */ = {
+			isa = PBXGroup;
+			children = (
+				5F9F49B61FB1D791009E1418 /* README.md */,
+				5F9F49B71FB1D791009E1418 /* XMPP */,
+			);
+			path = XMPPHandler;
+			sourceTree = "<group>";
+		};
+		5F9F49B71FB1D791009E1418 /* XMPP */ = {
+			isa = PBXGroup;
+			children = (
+				5F9F49B81FB1D791009E1418 /* DebugLog.h */,
+				5F9F49B91FB1D791009E1418 /* XMPPCoreDataHandler.h */,
+				5F9F49BA1FB1D791009E1418 /* XMPPCoreDataHandler.m */,
+				5F9F49BB1FB1D791009E1418 /* XMPPHandler.h */,
+				5F9F49BC1FB1D791009E1418 /* XMPPHandler.m */,
+			);
+			path = XMPP;
 			sourceTree = "<group>";
 		};
 		5FBBBAD71F72401B00C03813 = {
@@ -342,6 +411,7 @@
 		5FBBBB0B1F726FC400C03813 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				5F5DF3781FB31D0F00956B62 /* ChatsRelatedViews */,
 				D8EE8B171F966F77006A018E /* CustomAlert */,
 				D84B6BB81F77837500F37660 /* Loder VIew */,
 				D84B6BB51F777D2C00F37660 /* WebServicesCall.h */,
@@ -362,6 +432,7 @@
 		5FBBBB0C1F726FC400C03813 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				5F9F49B51FB1D791009E1418 /* XMPPHandler */,
 				5F1E9B4F1F76482D009FECDD /* Reachability */,
 			);
 			path = Libraries;
@@ -370,6 +441,7 @@
 		5FBBBB111F726FC400C03813 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5F0B0FCC1FB1EC58006468AA /* ChatViewController */,
 				D8F5A5641F92029600E36160 /* DoctorList */,
 				9C6DE7281F8399B500635102 /* SideMenu */,
 				5F4F6C5B1F820F6E000C65A0 /* AwarenessModule */,
@@ -433,6 +505,8 @@
 		9C4C5ECB1F792717003D84BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5F0B0FD21FB1EE57006468AA /* SMChatDelegate.h */,
+				5F0B0FD31FB1EE57006468AA /* SMMessageDelegate.h */,
 				9C6DE73A1F83A61A00635102 /* VideoListObject.m */,
 				9C6DE73B1F83A61A00635102 /* VideoListObject.h */,
 				9C4C5ECC1F792725003D84BD /* RegistrationDpendency.h */,
@@ -640,7 +714,7 @@
 				TargetAttributes = {
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = H7RFM2VSMC;
+						DevelopmentTeam = MK5HXMKD83;
 						ProvisioningStyle = Automatic;
 					};
 					5FBBBAFB1F72401C00C03813 = {
@@ -694,6 +768,7 @@
 				5F1E9B5E1F76AAB4009FECDD /* DependantDetailTableViewCell.xib in Resources */,
 				9C6DE72D1F8399CD00635102 /* RearViewController.xib in Resources */,
 				5FBBBAEE1F72401B00C03813 /* Main.storyboard in Resources */,
+				5F0B0FD11FB1EC82006468AA /* ChatViewController.xib in Resources */,
 				9C8FE6D81F8B53270003003C /* RCDoctor3.xib in Resources */,
 				D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */,
 				9C6DE7331F83A1FC00635102 /* RearCell.xib in Resources */,
@@ -748,9 +823,28 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TatabApp/Pods-TatabApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/KissXML/KissXML.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/XMPPFramework/XMPPFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/libidn/libidn.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KissXML.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XMPPFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libidn.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -811,13 +905,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TatabApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9E922D34F5803162449E905D /* [CP] Embed Pods Frameworks */ = {
@@ -841,13 +938,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TatabAppTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C189FE941345E34EB5A5A164 /* 📦 Embed Pods Frameworks */ = {
@@ -910,9 +1010,12 @@
 				5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */,
 				D84B6BB71F777D2C00F37660 /* WebServicesCall.m in Sources */,
 				5F4F6C631F828F81000C65A0 /* AwarenessCategory.m in Sources */,
+				5F5DF37B1FB31D1800956B62 /* MessageCell.m in Sources */,
 				5F4F6C681F82915F000C65A0 /* AwarenessCategoryTableViewCell.m in Sources */,
+				5F9F49BD1FB1D791009E1418 /* README.md in Sources */,
 				9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */,
 				9C6DE7381F83A60600635102 /* AwarenessVideoListViewController.m in Sources */,
+				5F9F49BF1FB1D791009E1418 /* XMPPHandler.m in Sources */,
 				5F1E9B4A1F76442C009FECDD /* CommonFunction.m in Sources */,
 				D8F5A5681F9202AF00E36160 /* DoctorListVC.m in Sources */,
 				5F1E9B5D1F76AAB4009FECDD /* DependantDetailTableViewCell.m in Sources */,
@@ -929,12 +1032,16 @@
 				D84DF2051F8A0D9C00234070 /* RegisterViewController.m in Sources */,
 				5F1E9B3A1F763C73009FECDD /* UserSelectViewController.m in Sources */,
 				D84DF2031F8A0D9C00234070 /* RegisterCompleteViewController.m in Sources */,
+				5F0B0FD01FB1EC82006468AA /* ChatViewController.m in Sources */,
 				D8F5A56E1F9202D300E36160 /* HomeCell.m in Sources */,
 				5FBBBAE51F72401B00C03813 /* main.m in Sources */,
 				D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */,
 				D8F5A55D1F92020300E36160 /* HomeViewController.m in Sources */,
+				5F5DF37E1FB31DA600956B62 /* Message.m in Sources */,
+				5F5DF3811FB322EF00956B62 /* SMMessageViewTableCell.m in Sources */,
 				D82354AF1F8A6C2E0097A94C /* RCDoctor2.m in Sources */,
 				5F1E9B4B1F76442C009FECDD /* CustomTextField.m in Sources */,
+				5F9F49BE1FB1D791009E1418 /* XMPPCoreDataHandler.m in Sources */,
 				9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */,
 				5F1E9B521F76482D009FECDD /* Reachability.m in Sources */,
 				D8F5A5721F920B1C00E36160 /* CustomButton2.m in Sources */,
@@ -1009,7 +1116,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1055,7 +1162,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1075,7 +1182,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H7RFM2VSMC;
+				DEVELOPMENT_TEAM = MK5HXMKD83;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1084,7 +1191,7 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ulab.SSCreative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.npglobal.SSCreative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1095,7 +1202,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H7RFM2VSMC;
+				DEVELOPMENT_TEAM = MK5HXMKD83;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1104,7 +1211,7 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ulab.SSCreative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.npglobal.SSCreative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
