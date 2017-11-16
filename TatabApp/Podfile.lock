@@ -1,43 +1,73 @@
 PODS:
-  - AFNetworking (2.5.0):
-    - AFNetworking/NSURLConnection (= 2.5.0)
-    - AFNetworking/NSURLSession (= 2.5.0)
-    - AFNetworking/Reachability (= 2.5.0)
-    - AFNetworking/Security (= 2.5.0)
-    - AFNetworking/Serialization (= 2.5.0)
-    - AFNetworking/UIKit (= 2.5.0)
-  - AFNetworking/NSURLConnection (2.5.0):
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.0):
+  - AFNetworking/NSURLSession (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.0)
-  - AFNetworking/Security (2.5.0)
-  - AFNetworking/Serialization (2.5.0)
-  - AFNetworking/UIKit (2.5.0):
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - SDWebImage (4.1.2):
-    - SDWebImage/Core (= 4.1.2)
-  - SDWebImage/Core (4.1.2)
+  - CocoaAsyncSocket (7.6.1)
+  - CocoaLumberjack (3.3.0):
+    - CocoaLumberjack/Default (= 3.3.0)
+    - CocoaLumberjack/Extensions (= 3.3.0)
+  - CocoaLumberjack/Default (3.3.0)
+  - CocoaLumberjack/Extensions (3.3.0):
+    - CocoaLumberjack/Default
+  - KissXML (5.2.0)
+  - libidn (1.33)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
   - SWRevealViewController (2.3.0)
   - TPKeyboardAvoiding (1.3.1)
+  - XMPPFramework (4.0):
+    - CocoaAsyncSocket (~> 7.6.0)
+    - CocoaLumberjack
+    - KissXML (~> 5.2.0)
+    - libidn (~> 1.33.0)
 
 DEPENDENCIES:
-  - AFNetworking (= 2.5.0)
+  - AFNetworking (~> 2.5.0)
   - SDWebImage (~> 4.1)
   - SWRevealViewController (~> 2.3)
   - TPKeyboardAvoiding (~> 1.3)
+  - XMPPFramework (from `https://github.com/robbiehanson/XMPPFramework.git`, branch `master`)
+
+EXTERNAL SOURCES:
+  XMPPFramework:
+    :branch: master
+    :git: https://github.com/robbiehanson/XMPPFramework.git
+
+CHECKOUT OPTIONS:
+  XMPPFramework:
+    :commit: 2a01bfc762818c26d71aa7ee18b391c55b3fbbff
+    :git: https://github.com/robbiehanson/XMPPFramework.git
 
 SPEC CHECKSUMS:
-  AFNetworking: 96ac9bf3eda33582701cb1fcc5b896aa1e20311e
-  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
+  CocoaLumberjack: 3c8c74683302f9012bb168e1c4b7ae3c0b558431
+  KissXML: 1c1eeeb6b94e4522cd2f2373e5d0d03c9227738f
+  libidn: 90fc1a62b60288dcf543f13f4ebca913f17d829f
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
+  XMPPFramework: 585b26f95cf67f294881c0aba3afd67346524ba5
 
-PODFILE CHECKSUM: 07472f984680f63998fd691fdf76d58423a88955
+PODFILE CHECKSUM: 8c3a1392c389f8ebf8a12deea93de9f757f6aab8
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.3.1

@@ -115,6 +115,27 @@
                         
                         }
                         
+                        //XMPP
+//                        NSString *username = @"rohit@XMPP_SERVER_IP_HERE"; // OR [NSString stringWithFormat:@"%@@%@",username,XMPP_BASE_URL]]
+//                        NSString *password = @"SOME_PASSWORD";
+//                        
+//                        AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//                        
+//                        del.xmppStream.myJID = [XMPPJID jidWithString:username];
+//                        
+//                        NSLog(@"Does supports registration %ub ", );
+//                        NSLog(@"Attempting registration for username %@",del.xmppStream.myJID.bare);
+//                        
+//                        if (del.xmppStream.supportsInBandRegistration) {
+//                            NSError *error = nil;
+//                            if (![del.xmppStream registerWithPassword:password error:&error])
+//                            {
+//                                NSLog(@"Oops, I forgot something: %@", error);
+//                            }else{
+//                                NSLog(@"No Error");
+//                            }
+//                        }
+                        
                        
                         mainRevealController.delegate = self;
                         mainRevealController.view.backgroundColor = [UIColor blackColor];
