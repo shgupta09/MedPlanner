@@ -30,19 +30,18 @@
     [super viewDidLoad];
     
     messages = [[NSMutableArray alloc] init];
-    XMPPStream* st = [[XMPPStream alloc] init];
    
     hm = [[XMPPHandler alloc] init];
-    hm.userId = @"adyttt";
-    
+//    hm.userId = @"shuam";
+        hm.userId = @"xyz";
     hm.userPassword = @"willpower";
     hm.hostName = @"80.209.227.103";
     
     hm.hostPort = [NSNumber numberWithInteger:5222];
     
-//    [hm registerUser];
-    [hm connectToXMPPServer];
-    
+  
+//    [hm connectToXMPPServer];
+    [hm registerUser];  
     [hm setMyStatus:MyStatusAvailable];
 
     
@@ -196,7 +195,7 @@
     
     if([messageStr length] > 0) {
         
-        [hm sendMessage:messageStr toFriendWithFriendId:@"shubham" andMessageId:@"34"];
+        [hm sendMessage:messageStr toFriendWithFriendId:@"shu" andMessageId:@"34"];
         
 //        XMPPMessage* message = [[XMPPMessage alloc] init];
 //        
@@ -209,9 +208,9 @@
     NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:messages.count-1
                                                    inSection:0];
     
-    [self.tblView scrollToRowAtIndexPath:topIndexPath
-                      atScrollPosition:UITableViewScrollPositionMiddle
-                              animated:YES];
+//    [self.tblView scrollToRowAtIndexPath:topIndexPath
+//                      atScrollPosition:UITableViewScrollPositionMiddle
+//                              animated:YES];
 }
 
 
