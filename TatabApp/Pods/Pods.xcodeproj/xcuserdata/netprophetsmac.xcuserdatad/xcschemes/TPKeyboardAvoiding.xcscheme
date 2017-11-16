@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FB52F93A7D875C6FC344D39D6648767C"
-               BuildableName = "libTPKeyboardAvoiding.a"
+               BlueprintIdentifier = "CC79EAD8DA6BD17AFB553EE6165CAEEB"
+               BuildableName = "TPKeyboardAvoiding.framework"
                BlueprintName = "TPKeyboardAvoiding"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FB52F93A7D875C6FC344D39D6648767C"
-            BuildableName = "libTPKeyboardAvoiding.a"
+            BlueprintIdentifier = "CC79EAD8DA6BD17AFB553EE6165CAEEB"
+            BuildableName = "TPKeyboardAvoiding.framework"
             BlueprintName = "TPKeyboardAvoiding"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
@@ -63,8 +63,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FB52F93A7D875C6FC344D39D6648767C"
-            BuildableName = "libTPKeyboardAvoiding.a"
+            BlueprintIdentifier = "CC79EAD8DA6BD17AFB553EE6165CAEEB"
+            BuildableName = "TPKeyboardAvoiding.framework"
             BlueprintName = "TPKeyboardAvoiding"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>

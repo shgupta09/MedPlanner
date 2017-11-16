@@ -4,6 +4,22 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/XMPPFramework/Core/XMPPStream.m"
+            timestampString = "532528944.5687"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1709"
+            endingLineNumber = "1709"
+            landmarkName = "-registerWithElements:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
@@ -16,16 +32,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
-            timestampString = "529828477.031621"
+            filePath = "Pods/XMPPFramework/Core/XMPPStream.m"
+            timestampString = "532529030.252211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "-hitApiForSpeciality"
+            startingLineNumber = "1715"
+            endingLineNumber = "1715"
+            landmarkName = "-registerWithElements:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/XMPPFramework/Core/XMPPStream.m"
+            timestampString = "532529047.364992"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1745"
+            endingLineNumber = "1745"
+            landmarkName = "-registerWithElements:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/XMPPFramework/Core/XMPPStream.m"
+            timestampString = "532529121.344056"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1764"
+            endingLineNumber = "1764"
+            landmarkName = "-registerWithElements:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/XMPPFramework/Core/XMPPStream.m"
+            timestampString = "532529126.568274"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1766"
+            endingLineNumber = "1766"
+            landmarkName = "-registerWithElements:error:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

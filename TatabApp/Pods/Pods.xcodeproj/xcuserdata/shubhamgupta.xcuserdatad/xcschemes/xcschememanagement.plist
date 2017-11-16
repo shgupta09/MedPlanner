@@ -8,36 +8,83 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>CocoaAsyncSocket.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>KissXML.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 		<key>Pods-TatabApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-TatabAppTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>SWRevealViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>TPKeyboardAvoiding.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>XMPPFramework.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>libidn.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>06C539ECA7A9288D92A8070BAF63D624</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0BD659E21DA1CDA96BE2DD70EBA13298</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>111BB08DD2871596DE681D893B1E3788</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +99,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>71ABE2B9B36585016003FD80E69C40F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>90E6B64C6DD4A9E60295E4BE99ED7DFA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>968CE34E72B461EC7CCC2CAD44D84570</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +119,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9E45C2644FBF468244BC026F3658DC31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC0D2D2B4EE7C873431AB3502859CA60</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2D0A5EDC2168930E39B50CE622B05B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C95C45974D77E3E41FE9D2A80E093179</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC79EAD8DA6BD17AFB553EE6165CAEEB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EA2A920A891C4D3535867E5C3EF3D793</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4B8C70379FF442A4FEB6759B3B7F9B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F697241C4F65EE493FAA6C1C92C55069</key>
 		<dict>
 			<key>primary</key>
 			<true/>

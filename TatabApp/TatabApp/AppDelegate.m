@@ -7,13 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 @interface AppDelegate ()
+
 
 @end
 
 @implementation AppDelegate
 
+@synthesize xmppStream;
+@synthesize xmppRoster;
+@synthesize _chatDelegate;
+@synthesize _messageDelegate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -23,8 +29,9 @@
     SplashScreenViewController* vc;
     vc = [[SplashScreenViewController alloc] initWithNibName:@"SplashScreenViewController" bundle:nil];
     _window.rootViewController = vc;
+//    DDLog.add(DDTTYLogger.sharedInstance(), with: DDLogLevel.all)
     
-    
+//    [DDLog addLogger:[DDTTYLogger] withLevel:<#(DDLogLevel)#>]
     [self.window makeKeyAndVisible];
     
     return YES;
