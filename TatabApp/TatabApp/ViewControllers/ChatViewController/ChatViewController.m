@@ -30,18 +30,18 @@
     [super viewDidLoad];
     
     messages = [[NSMutableArray alloc] init];
+    XMPPStream* st = [[XMPPStream alloc] init];
    
     hm = [[XMPPHandler alloc] init];
-//    hm.userId = @"shuam";
-        hm.userId = @"xyz";
+    hm.userId = @"shuam";
     hm.userPassword = @"willpower";
     hm.hostName = @"80.209.227.103";
     
     hm.hostPort = [NSNumber numberWithInteger:5222];
     
-  
-//    [hm connectToXMPPServer];
-    [hm registerUser];  
+//    [hm registerUser];
+    [hm connectToXMPPServer];
+    
     [hm setMyStatus:MyStatusAvailable];
 
     
