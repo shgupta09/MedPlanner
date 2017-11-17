@@ -223,5 +223,5 @@ extern NSString * const XMPPActiveDuringOfflienMessageId;
 - (void)acceptPresenceSubscriptionRequestForFriendWithFriendId:(NSString *)friendId andAddToRoster:(BOOL)addToRoster;
 
 - (void)getLastActivityForFriendWithFriendId:(NSString *)friendId;
-
+-(void)registerNewUser:(BOOL)IsConnectCall;
 @end

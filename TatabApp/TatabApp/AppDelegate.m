@@ -26,8 +26,8 @@
     
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    SplashScreenViewController* vc;
-    vc = [[SplashScreenViewController alloc] initWithNibName:@"SplashScreenViewController" bundle:nil];
+    ChatViewController* vc;
+    vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
     _window.rootViewController = vc;
 //    DDLog.add(DDTTYLogger.sharedInstance(), with: DDLogLevel.all)
     

@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<<<<<<< HEAD
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Chat" representedClassName="Chat" syncable="YES" codeGenerationType="class">
+        <attribute name="isReceive" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="senderId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Chat" positionX="-63" positionY="-18" width="128" height="90"/>
+=======
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="Ad" representedClassName="Ad" syncable="YES" codeGenerationType="class">
         <attribute name="ad_Cost" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -46,5 +56,6 @@
         <element name="Ad" positionX="216" positionY="90" width="128" height="178"/>
         <element name="Item" positionX="81" positionY="63" width="128" height="148"/>
         <element name="Tenure" positionX="81" positionY="-18" width="128" height="73"/>
+>>>>>>> 70190b8f6f8c281ce285fd50caa7ed707fad53ff
     </elements>
 </model>
