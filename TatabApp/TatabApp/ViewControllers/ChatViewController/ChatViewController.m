@@ -33,7 +33,7 @@
     XMPPStream* st = [[XMPPStream alloc] init];
    
     hm = [[XMPPHandler alloc] init];
-    hm.userId = @"ady";
+    hm.userId = @"shu";
     hm.userPassword = @"willpower";
     hm.hostName = @"80.209.227.103";
     
@@ -195,7 +195,7 @@
     
     if([messageStr length] > 0) {
         
-        [hm sendMessage:messageStr toFriendWithFriendId:@"shu" andMessageId:@"34"];
+        [hm sendMessage:messageStr toFriendWithFriendId:@"shuam" andMessageId:@"34"];
         
 //        XMPPMessage* message = [[XMPPMessage alloc] init];
 //        
