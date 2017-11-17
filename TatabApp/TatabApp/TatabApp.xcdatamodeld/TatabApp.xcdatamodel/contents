@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="Chat" representedClassName="Chat" syncable="YES" codeGenerationType="class">
         <attribute name="isReceive" optional="YES" attributeType="String" syncable="YES"/>
@@ -58,4 +59,8 @@
         <element name="Tenure" positionX="81" positionY="-18" width="128" height="73"/>
 >>>>>>> 70190b8f6f8c281ce285fd50caa7ed707fad53ff
     </elements>
+=======
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <elements/>
+>>>>>>> parent of 9d64921... CoreData Integration
 </model>

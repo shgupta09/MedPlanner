@@ -332,19 +332,6 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
     }
     
 }
--(void)registerNewUser:(BOOL)IsConnectCall{
-    NSError *error;
-    [self setupXMPPStream];
-    if (IsConnectCall) {
-        [self connectToXMPPServer];
-    }
-    [xmppStream setMyJID:[XMPPJID jidWithString:[NSString stringWithFormat:@"%@@%@",_userId,_hostName]]];
-    if (xmppStream.state == STATE_XMPP_CONNECTED){
-         [xmppStream registerWithPassword:_userPassword error:&error];
-    }else{
-        [self registerNewUser:false];
-    }
-}
 
 #pragma mark - XMPPStream Delegate
 - (void)xmppStreamDidRegister:(XMPPStream *)sender{

@@ -10,11 +10,11 @@
 #import "XMPPHandler.h"
 #import "MessageCell.h"
 #import "SMMessageViewTableCell.h"
-#import "Chat+CoreDataProperties.h"
+
 @interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
     XMPPHandler* hm;
-    NSMutableArray	*messagesArray;
+    NSMutableArray	*messages;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tblView;
@@ -29,9 +29,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    messagesArray = [[NSMutableArray alloc] init];
+    messages = [[NSMutableArray alloc] init];
+    XMPPStream* st = [[XMPPStream alloc] init];
    
-   
+<<<<<<< HEAD
     [self setUpRegisterUser];
 //    [self setChat];
     // Do any additional setup after loading the view from its nib.
@@ -94,17 +95,32 @@
 
 -(void)setChat{
     
+=======
+>>>>>>> parent of 9d64921... CoreData Integration
     hm = [[XMPPHandler alloc] init];
     hm.userId = @"shuam";
     hm.userPassword = @"willpower";
     hm.hostName = @"80.209.227.103";
+    
     hm.hostPort = [NSNumber numberWithInteger:5222];
+    
+//    [hm registerUser];
     [hm connectToXMPPServer];
+    
     [hm setMyStatus:MyStatusAvailable];
+
+    
     [self.tblView registerClass:[MessageCell class] forCellReuseIdentifier: @"MessageCell"];
+    // You may need to alter these settings depending on the server you're connecting to
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceiveMessage object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidSendMessage object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceivePresence object:nil];
+    
+    
+//    [hm registerUser];
+       // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,18 +145,16 @@
         
 //        [messageContent setObject:[m substituteEmoticons] forKey:@"msg"];
 //        [messageContent setObject:[NSString getCurrentTime] forKey:@"time"];
-//        [messagesArray addObject:messageContent];
-       
+        [messages addObject:messageContent];
+        [self.tblView reloadData];
         
-//        NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:messagesArray.count-1
-//                                                       inSection:0];
+        NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:messages.count-1
+                                                       inSection:0];
         
-//        [self.tblView scrollToRowAtIndexPath:topIndexPath
-//                          atScrollPosition:UITableViewScrollPositionMiddle
-//                                  animated:YES];
-        [self saveMessage:@"1" senderId:messageContent.elementID andeMessage:messageContent.body];
-        [self setMessageArray];
-         [self.tblView reloadData];
+        [self.tblView scrollToRowAtIndexPath:topIndexPath
+                          atScrollPosition:UITableViewScrollPositionMiddle
+                                  animated:YES];
+
     }
     
     else if ([notification.name isEqualToString:XMPPStreamDidSendMessage])
@@ -151,19 +165,15 @@
         
         //        [messageContent setObject:[m substituteEmoticons] forKey:@"msg"];
         //        [messageContent setObject:[NSString getCurrentTime] forKey:@"time"];
-//        [messagesArray addObject:messageContent];
-        
-        
-//        NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:messagesArray.count-1
-//                                                       inSection:0];
-        
-        
-        [self saveMessage:@"0" senderId:messageContent.elementID andeMessage:messageContent.body];
-        [self setMessageArray];
+        [messages addObject:messageContent];
         [self.tblView reloadData];
-//        [self.tblView scrollToRowAtIndexPath:topIndexPath
-//                            atScrollPosition:UITableViewScrollPositionMiddle
-//                                    animated:YES];
+        
+        NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:messages.count-1
+                                                       inSection:0];
+        
+        [self.tblView scrollToRowAtIndexPath:topIndexPath
+                            atScrollPosition:UITableViewScrollPositionMiddle
+                                    animated:YES];
     }
     else if ([notification.name isEqualToString:XMPPStreamDidReceivePresence])
     {
@@ -187,10 +197,6 @@
             
         }
     
-    }else if ([notification.name isEqualToString:XMPPStreamDidRegister]){
-        NSLog(@"Register SuccessFully");
-    }else if ([notification.name isEqualToString:XMPPStreamDidNotRegister]){
-        NSLog(@"Didn't Register");
     }
     
 
@@ -202,7 +208,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return [messagesArray count];
+    return [messages count];
 }
 
 #pragma mark -
@@ -213,9 +219,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    Chat *s = (Chat *) [messagesArray objectAtIndex:indexPath.row];
+    XMPPMessage *s = (XMPPMessage *) [messages objectAtIndex:indexPath.row];
     //    NSString *sender = [s objectForKey:@"sender"];
-    NSString *message = s.message;
+    NSString *message = s.body;
     
     static NSString *CellIdentifier = @"MessageCell";
     MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -227,10 +233,10 @@
     
     msg.text = message;
     
-//    NSXMLNode *fromNode = [s attributeForName:@"from"];
-//    NSString *from = [fromNode stringValue];
+    NSXMLNode *fromNode = [s attributeForName:@"from"];
+    NSString *from = [fromNode stringValue];
     
-    if ([s.isReceive isEqualToString:@"1"]){
+    if (from != nil){
         msg.sender = MessageSenderSomeone;
     }
     else
@@ -264,8 +270,8 @@
 //        [self.tblView reloadData];
     }
     
-//    NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:messagesArray.count-1
-//                                                   inSection:0];
+    NSIndexPath *topIndexPath = [NSIndexPath indexPathForRow:messages.count-1
+                                                   inSection:0];
     
 //    [self.tblView scrollToRowAtIndexPath:topIndexPath
 //                      atScrollPosition:UITableViewScrollPositionMiddle
