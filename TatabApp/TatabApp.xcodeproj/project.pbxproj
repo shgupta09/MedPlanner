@@ -51,6 +51,8 @@
 		9C6DE73C1F83A61A00635102 /* VideoListObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6DE73A1F83A61A00635102 /* VideoListObject.m */; };
 		9C6DE7411F83A6B100635102 /* VideoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6DE73F1F83A6B100635102 /* VideoListTableViewCell.m */; };
 		9C6DE7421F83A6B100635102 /* VideoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6DE7401F83A6B100635102 /* VideoListTableViewCell.xib */; };
+		9C79D2E21FBF0374004A0E76 /* Chat+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C79D2DE1FBF0374004A0E76 /* Chat+CoreDataClass.m */; };
+		9C79D2E31FBF0374004A0E76 /* Chat+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C79D2E11FBF0374004A0E76 /* Chat+CoreDataProperties.m */; };
 		9C8FE6D71F8B53270003003C /* RCDoctor3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8FE6D51F8B53270003003C /* RCDoctor3.m */; };
 		9C8FE6D81F8B53270003003C /* RCDoctor3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8FE6D61F8B53270003003C /* RCDoctor3.xib */; };
 		9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */; };
@@ -169,6 +171,10 @@
 		9C6DE73E1F83A6B100635102 /* VideoListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListTableViewCell.h; sourceTree = "<group>"; };
 		9C6DE73F1F83A6B100635102 /* VideoListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListTableViewCell.m; sourceTree = "<group>"; };
 		9C6DE7401F83A6B100635102 /* VideoListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoListTableViewCell.xib; sourceTree = "<group>"; };
+		9C79D2DE1FBF0374004A0E76 /* Chat+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Chat+CoreDataClass.m"; sourceTree = "<group>"; };
+		9C79D2DF1FBF0374004A0E76 /* Chat+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Chat+CoreDataProperties.h"; sourceTree = "<group>"; };
+		9C79D2E01FBF0374004A0E76 /* Chat+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Chat+CoreDataClass.h"; sourceTree = "<group>"; };
+		9C79D2E11FBF0374004A0E76 /* Chat+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Chat+CoreDataProperties.m"; sourceTree = "<group>"; };
 		9C8FE6D41F8B53270003003C /* RCDoctor3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoctor3.h; sourceTree = "<group>"; };
 		9C8FE6D51F8B53270003003C /* RCDoctor3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDoctor3.m; sourceTree = "<group>"; };
 		9C8FE6D61F8B53270003003C /* RCDoctor3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDoctor3.xib; sourceTree = "<group>"; };
@@ -505,6 +511,10 @@
 		9C4C5ECB1F792717003D84BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9C79D2DE1FBF0374004A0E76 /* Chat+CoreDataClass.m */,
+				9C79D2DF1FBF0374004A0E76 /* Chat+CoreDataProperties.h */,
+				9C79D2E01FBF0374004A0E76 /* Chat+CoreDataClass.h */,
+				9C79D2E11FBF0374004A0E76 /* Chat+CoreDataProperties.m */,
 				5F0B0FD21FB1EE57006468AA /* SMChatDelegate.h */,
 				5F0B0FD31FB1EE57006468AA /* SMMessageDelegate.h */,
 				9C6DE73A1F83A61A00635102 /* VideoListObject.m */,
@@ -1025,6 +1035,7 @@
 				D8F5A5621F92021A00E36160 /* PatientHomeVC.m in Sources */,
 				5F1E9B4E1F764568009FECDD /* CustomButton.m in Sources */,
 				D8EE8B161F95E564006A018E /* Specialization.m in Sources */,
+				9C79D2E21FBF0374004A0E76 /* Chat+CoreDataClass.m in Sources */,
 				5F1E9B301F763C49009FECDD /* SplashScreenViewController.m in Sources */,
 				9C6DE73C1F83A61A00635102 /* VideoListObject.m in Sources */,
 				9C6DE7321F83A1FC00635102 /* RearCell.m in Sources */,
@@ -1039,6 +1050,7 @@
 				D8F5A55D1F92020300E36160 /* HomeViewController.m in Sources */,
 				5F5DF37E1FB31DA600956B62 /* Message.m in Sources */,
 				5F5DF3811FB322EF00956B62 /* SMMessageViewTableCell.m in Sources */,
+				9C79D2E31FBF0374004A0E76 /* Chat+CoreDataProperties.m in Sources */,
 				D82354AF1F8A6C2E0097A94C /* RCDoctor2.m in Sources */,
 				5F1E9B4B1F76442C009FECDD /* CustomTextField.m in Sources */,
 				5F9F49BE1FB1D791009E1418 /* XMPPCoreDataHandler.m in Sources */,
