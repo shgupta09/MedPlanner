@@ -70,7 +70,11 @@
 
 -(void)setUpRegisterUser{
     hm = [[XMPPHandler alloc] init];
+<<<<<<< HEAD
     hm.userId = @"qwerty";
+=======
+    hm.userId = @"ady";
+>>>>>>> 70190b8f6f8c281ce285fd50caa7ed707fad53ff
     hm.userPassword = @"willpower";
     hm.hostName = @"80.209.227.103";
     hm.hostPort = [NSNumber numberWithInteger:5222];
