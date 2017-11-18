@@ -34,6 +34,7 @@
    
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     [self setUpRegisterUser];
 //    [self setChat];
     // Do any additional setup after loading the view from its nib.
@@ -96,6 +97,8 @@
 
 -(void)setChat{
     
+=======
+>>>>>>> parent of 9d64921... CoreData Integration
 =======
 >>>>>>> parent of 9d64921... CoreData Integration
 =======
