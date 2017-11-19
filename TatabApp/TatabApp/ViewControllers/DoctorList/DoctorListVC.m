@@ -68,6 +68,8 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
+    Specialization *obj = [doctorListArray objectAtIndex:indexPath.row];
+    vc.titleStr = [NSString stringWithFormat:@"Dr. %@",obj.first_name];
     [self.navigationController pushViewController:vc animated:true];
 }
 

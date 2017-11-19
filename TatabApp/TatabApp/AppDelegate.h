@@ -23,13 +23,18 @@
     
     NSString *password;
     
+    
+    
+    
     BOOL isOpen;
     
     __unsafe_unretained NSObject <SMChatDelegate> *_chatDelegate;
     __unsafe_unretained NSObject <SMMessageDelegate> *_messageDelegate;
 
 }
-
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) UIWindow *window;
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
@@ -49,7 +54,7 @@
 
 - (BOOL)connect;
 - (void)disconnect;
-
+- (NSURL *)applicationDocumentsDirectory;
 - (void)saveContext;
 
 

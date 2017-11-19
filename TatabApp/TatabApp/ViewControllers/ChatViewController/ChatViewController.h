@@ -11,8 +11,9 @@
 
 
 @interface ChatViewController : UIViewController{
+    __weak IBOutlet UILabel *lbl_title;
 }
-
+@property (strong, nonatomic) NSString *titleStr;
 
 
 
