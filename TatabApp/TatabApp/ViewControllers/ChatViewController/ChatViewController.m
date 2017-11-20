@@ -98,12 +98,12 @@
         if (![presenceFromUser isEqualToString:myUsername]) {
             
             if ([presenceType isEqualToString:@"available"]) {
-                _viewOnlineStatus.backgroundColor = [UIColor greenColor];
+                lbl_title.backgroundColor = [UIColor greenColor];
                 
                 
             } else if ([presenceType isEqualToString:@"unavailable"]) {
                 
-                _viewOnlineStatus.backgroundColor = [UIColor redColor];
+                lbl_title.backgroundColor = [UIColor redColor];
                 
             }
             
@@ -126,6 +126,16 @@
 }
 
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+   
+    MessageCell *cell = [[MessageCell alloc] init];
+    Chat *s = (Chat *) [messagesArray objectAtIndex:indexPath.row];
+    Message *msg = [[Message alloc] init];
+    msg.date = s.date;
+    msg.text = s.message;
+    cell.message = msg;
+    return [cell height];
+}
 
 
 
@@ -154,7 +164,7 @@
     
     
     cell.message = msg;
-    cell.contentView.frame = CGRectMake(cell.contentView.frame.origin.x, cell.contentView.frame.origin.y, cell.contentView.frame.size.width, cell.textView.frame.size.height);
+    
     cell.backgroundColor = [UIColor yellowColor];
     
     return cell;
