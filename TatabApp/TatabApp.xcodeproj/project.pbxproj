@@ -30,6 +30,8 @@
 		5F9F49BD1FB1D791009E1418 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49B61FB1D791009E1418 /* README.md */; };
 		5F9F49BE1FB1D791009E1418 /* XMPPCoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49BA1FB1D791009E1418 /* XMPPCoreDataHandler.m */; };
 		5F9F49BF1FB1D791009E1418 /* XMPPHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49BC1FB1D791009E1418 /* XMPPHandler.m */; };
+		5FB5384C1FC31CA500C77713 /* ImageMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB5384A1FC31CA500C77713 /* ImageMessageTableViewCell.m */; };
+		5FB5384D1FC31CA500C77713 /* ImageMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5384B1FC31CA500C77713 /* ImageMessageTableViewCell.xib */; };
 		5FBBBAE51F72401B00C03813 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBAE41F72401B00C03813 /* main.m */; };
 		5FBBBAE81F72401B00C03813 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBAE71F72401B00C03813 /* AppDelegate.m */; };
 		5FBBBAEE1F72401B00C03813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBBBAEC1F72401B00C03813 /* Main.storyboard */; };
@@ -140,6 +142,9 @@
 		5F9F49BA1FB1D791009E1418 /* XMPPCoreDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPCoreDataHandler.m; sourceTree = "<group>"; };
 		5F9F49BB1FB1D791009E1418 /* XMPPHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPHandler.h; sourceTree = "<group>"; };
 		5F9F49BC1FB1D791009E1418 /* XMPPHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPHandler.m; sourceTree = "<group>"; };
+		5FB538491FC31CA500C77713 /* ImageMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMessageTableViewCell.h; sourceTree = "<group>"; };
+		5FB5384A1FC31CA500C77713 /* ImageMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageMessageTableViewCell.m; sourceTree = "<group>"; };
+		5FB5384B1FC31CA500C77713 /* ImageMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageMessageTableViewCell.xib; sourceTree = "<group>"; };
 		5FBBBAE01F72401B00C03813 /* TatabApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TatabApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBBBAE41F72401B00C03813 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5FBBBAE61F72401B00C03813 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -331,6 +336,9 @@
 				5F5DF37D1FB31DA600956B62 /* Message.m */,
 				5F5DF3791FB31D1800956B62 /* MessageCell.h */,
 				5F5DF37A1FB31D1800956B62 /* MessageCell.m */,
+				5FB538491FC31CA500C77713 /* ImageMessageTableViewCell.h */,
+				5FB5384A1FC31CA500C77713 /* ImageMessageTableViewCell.m */,
+				5FB5384B1FC31CA500C77713 /* ImageMessageTableViewCell.xib */,
 			);
 			path = ChatsRelatedViews;
 			sourceTree = "<group>";
@@ -778,6 +786,7 @@
 				5F1E9B5E1F76AAB4009FECDD /* DependantDetailTableViewCell.xib in Resources */,
 				9C6DE72D1F8399CD00635102 /* RearViewController.xib in Resources */,
 				5FBBBAEE1F72401B00C03813 /* Main.storyboard in Resources */,
+				5FB5384D1FC31CA500C77713 /* ImageMessageTableViewCell.xib in Resources */,
 				5F0B0FD11FB1EC82006468AA /* ChatViewController.xib in Resources */,
 				9C8FE6D81F8B53270003003C /* RCDoctor3.xib in Resources */,
 				D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */,
@@ -1021,6 +1030,7 @@
 				D84B6BB71F777D2C00F37660 /* WebServicesCall.m in Sources */,
 				5F4F6C631F828F81000C65A0 /* AwarenessCategory.m in Sources */,
 				5F5DF37B1FB31D1800956B62 /* MessageCell.m in Sources */,
+				5FB5384C1FC31CA500C77713 /* ImageMessageTableViewCell.m in Sources */,
 				5F4F6C681F82915F000C65A0 /* AwarenessCategoryTableViewCell.m in Sources */,
 				5F9F49BD1FB1D791009E1418 /* README.md in Sources */,
 				9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */,

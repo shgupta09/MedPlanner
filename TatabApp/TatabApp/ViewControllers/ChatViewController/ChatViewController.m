@@ -128,13 +128,40 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
    
-    MessageCell *cell = [[MessageCell alloc] init];
-    Chat *s = (Chat *) [messagesArray objectAtIndex:indexPath.row];
-    Message *msg = [[Message alloc] init];
-    msg.date = s.date;
-    msg.text = s.message;
-    cell.message = msg;
-    return [cell height];
+        Chat *s = (Chat *) [messagesArray objectAtIndex:indexPath.row];
+    //    NSString *sender = [s objectForKey:@"sender"];
+    NSString *message = s.message;
+    
+    if (message){
+        NSDictionary *dictOfMedia = [NSPropertyListSerialization
+                                     propertyListWithData:[message dataUsingEncoding:NSUTF8StringEncoding]
+                                     options:kNilOptions
+                                     format:NULL
+                                     error:NULL];
+        
+        
+        if (dictOfMedia!=nil && [dictOfMedia isKindOfClass:[NSDictionary class]] && [dictOfMedia objectForKey:@"type"])
+        {
+            
+            
+            return 170;
+            
+        }
+        else
+        {
+            MessageCell *cell = [[MessageCell alloc] init];
+            Chat *s = (Chat *) [messagesArray objectAtIndex:indexPath.row];
+            Message *msg = [[Message alloc] init];
+            msg.date = s.date;
+            msg.text = s.message;
+            cell.message = msg;
+            return [cell height];
+            
+
+        }
+
+    }
+    return 10;
 }
 
 
@@ -146,28 +173,71 @@
     //    NSString *sender = [s objectForKey:@"sender"];
     NSString *message = s.message;
     
-    static NSString *CellIdentifier = @"MessageCell";
-    MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell)
+    if (message){
+    NSDictionary *dictOfMedia = [NSPropertyListSerialization
+                                 propertyListWithData:[message dataUsingEncoding:NSUTF8StringEncoding]
+                                 options:kNilOptions
+                                 format:NULL
+                                 error:NULL];
+    
+    
+    if (dictOfMedia!=nil && [dictOfMedia isKindOfClass:[NSDictionary class]] && [dictOfMedia objectForKey:@"type"])
     {
-        cell = [[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+               
+        static NSString *CellIdentifier = @"ImageMessageTableViewCell";
+        ImageMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        
+//        Message *msg = [[Message alloc] init];
+//        msg.date = s.date;
+//        msg.text = message;
+//        if ([s.isReceive isEqualToString:@"1"]){
+//            msg.sender = MessageSenderSomeone;
+//        }
+//        else{
+//            msg.sender = MessageSenderMyself;
+//        }
+//        
+//        
+        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:[dictOfMedia objectForKey:@"url"]]];
+        
+        cell.backgroundColor = [UIColor redColor];
+        
+        return cell;
+
     }
-    Message *msg = [[Message alloc] init];
-    msg.date = s.date;
-    msg.text = message;
-    if ([s.isReceive isEqualToString:@"1"]){
-        msg.sender = MessageSenderSomeone;
+    else
+    {
+        static NSString *CellIdentifier = @"MessageCell";
+        MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!cell)
+        {
+            cell = [[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        Message *msg = [[Message alloc] init];
+        msg.date = s.date;
+        msg.text = message;
+        if ([s.isReceive isEqualToString:@"1"]){
+            msg.sender = MessageSenderSomeone;
+        }
+        else{
+            msg.sender = MessageSenderMyself;
+        }
+        
+        
+        cell.message = msg;
+        
+        cell.backgroundColor = [UIColor yellowColor];
+        
+        return cell;
+
     }
-    else{
-        msg.sender = MessageSenderMyself;
+    
     }
+    return [[UITableViewCell alloc] init];
     
+   
     
-    cell.message = msg;
-    
-    cell.backgroundColor = [UIColor yellowColor];
-    
-    return cell;
     
 }
 
@@ -258,6 +328,7 @@
     
     
     [self.tblView registerClass:[MessageCell class] forCellReuseIdentifier: @"MessageCell"];
+    [self.tblView registerNib:[UINib nibWithNibName:@"ImageMessageTableViewCell" bundle:nil] forCellReuseIdentifier: @"ImageMessageTableViewCell"];
     // You may need to alter these settings depending on the server you're connecting to
     
     
@@ -272,7 +343,7 @@
 - (IBAction)sendMessage {
     NSString *messageStr = _txtField.text;
     if([messageStr length] > 0) {
-        [hm sendMessage:messageStr toFriendWithFriendId:@"shuam" andMessageId:@"34"];
+        [hm sendMessage:messageStr toFriendWithFriendId:@"shu" andMessageId:@"34"];
     }
 }
 
@@ -286,8 +357,33 @@
 
 - (IBAction)btnAddFileClicked:(id)sender {
     
-   
-    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:@"adsf" toFriendWithFriendId:@"shu" andMessageId:@"34"];
+    NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"BackgroundGeneral"]);
+
+    NSString* imageURLReturned = @"";
+    
+    NSMutableArray *imgArray = [NSMutableArray new];
+    [imgArray addObject:imageData];
+    
+//    [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UploadDocument] postResponse:nil withImageData:nil isImageChanged:false requestType:POST requiredAuthorization:false ImageKey:@"photo" DataArray:imgArray completetion:^(BOOL status, id responseObj, NSString *tag, NSError *error, NSInteger statusCode) {
+//        if (error == nil) {
+//            if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+//                imageURLReturned = [[responseObj valueForKey:@"urls"] valueForKey:@"photo"];
+//            }
+//            else
+//            {
+//            }
+//            
+//        }
+//        
+//    }];
+//
+    
+    NSDictionary *dict = @{@"type":@"image",
+                           @"url":@"https://www.w3schools.com/w3images/fjords.jpg"};
+    
+    NSString *newMessage = [NSString stringWithFormat:@"%@",dict];
+
+    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shu" andMessageId:@"34"];
     
     
 }
