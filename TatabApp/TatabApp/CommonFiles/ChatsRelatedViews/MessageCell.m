@@ -11,7 +11,7 @@
 
 @interface MessageCell ()
 @property (strong, nonatomic) UILabel *timeLabel;
-@property (strong, nonatomic) UITextView *textView;
+
 @property (strong, nonatomic) UIImageView *bubbleImage;
 @property (strong, nonatomic) UIImageView *statusIcon;
 @end

@@ -15,6 +15,7 @@
 }
 @property (strong, nonatomic) NSString *titleStr;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 
 @end

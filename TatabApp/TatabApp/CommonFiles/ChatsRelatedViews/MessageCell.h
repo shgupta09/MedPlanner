@@ -17,7 +17,7 @@
 
 @property (strong, nonatomic) Message *message;
 @property (strong, nonatomic) UIButton *resendButton;
-
+@property (strong, nonatomic) UITextView *textView;
 -(void)updateMessageStatus;
 
 //Estimate BubbleCell Height
