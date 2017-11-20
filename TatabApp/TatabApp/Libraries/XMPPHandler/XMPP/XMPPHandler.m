@@ -68,12 +68,12 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
 
 #pragma mark - XMPP Stream Handler
 - (void)setupXMPPStream{
-    if (!xmppStream) {
+    if (!_xmppStream) {
         //initialize XMPPStream
-        xmppStream = [[XMPPStream alloc] init];
-        [xmppStream setEnableBackgroundingOnSocket:YES];
-        [xmppStream setHostName:_hostName];
-        [xmppStream setHostPort:_hostPort.intValue];
+        _xmppStream = [[XMPPStream alloc] init];
+        [_xmppStream setEnableBackgroundingOnSocket:YES];
+        [_xmppStream setHostName:_hostName];
+        [_xmppStream setHostPort:_hostPort.intValue];
         
         //initialize XMPPReconnect
         xmppReconnect = [[XMPPReconnect alloc] init];
@@ -97,16 +97,23 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
         [xmppCapabilities setAutoFetchNonHashedCapabilities:YES];
         
         //activate XMPP Modules
-        [xmppReconnect activate:xmppStream];
-        [xmppRoster activate:xmppStream];
-        [xmppvCardTemp activate:xmppStream];
-        [xmppvCardAvatar activate:xmppStream];
-        [xmppCapabilities activate:xmppStream];
+        [xmppReconnect activate:_xmppStream];
+        [xmppRoster activate:_xmppStream];
+        [xmppvCardTemp activate:_xmppStream];
+        [xmppvCardAvatar activate:_xmppStream];
+        [xmppCapabilities activate:_xmppStream];
+        
+        
+       
+        
         
         //add delegate
-        [xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
+        [_xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
         [xmppRoster addDelegate:self delegateQueue:dispatch_get_main_queue()];
         [xmppReconnect addDelegate:self delegateQueue:dispatch_get_main_queue()];
+        
+       
+        
     }else{
         DebugLog(@"XMPPSteam already setup.");
     }
@@ -114,7 +121,7 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
 
 - (void)clearXMPPStream{
     //remove delegate
-    [xmppStream removeDelegate:self];
+    [_xmppStream removeDelegate:self];
     [xmppRoster removeDelegate:self];
     
     //deactivate
@@ -125,10 +132,10 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
     [xmppCapabilities deactivate];
     
     //disconnect XMPPStream
-    [xmppStream disconnect];
+    [_xmppStream disconnect];
     
     //clear objects
-    xmppStream = nil;
+    _xmppStream = nil;
     xmppReconnect = nil;
     xmppRoster = nil;
     xmppRosterCoreDataStorage = nil;
@@ -142,22 +149,22 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
 
 #pragma mark - Connect/Disconnect to XMPP Server
 - (BOOL)connectToXMPPServer{
-    if (!xmppStream) {
+    if (!_xmppStream) {
         [self setupXMPPStream];
     }
     if (_userId && _userPassword) {
-        if (xmppStream.isDisconnected) {
-            [xmppStream setMyJID:[XMPPJID jidWithString:[self getCurrentUserFullId]]];
+        if (_xmppStream.isDisconnected) {
+            [_xmppStream setMyJID:[XMPPJID jidWithString:[self getCurrentUserFullId]]];
             
             //initialize XMPPMessageDeliveryReceipts
             XMPPMessageDeliveryReceipts *xmppMessageDeliveryReceipts = [[XMPPMessageDeliveryReceipts alloc] initWithDispatchQueue:dispatch_get_main_queue()];
             [xmppMessageDeliveryReceipts setAutoSendMessageDeliveryReceipts:YES];
             [xmppMessageDeliveryReceipts setAutoSendMessageDeliveryRequests:YES];
-            [xmppMessageDeliveryReceipts activate:xmppStream];
+            [xmppMessageDeliveryReceipts activate:_xmppStream];
             
             //Client to Server Connection
             NSError *error;
-            if ([xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error]) {
+            if ([_xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error]) {
                 return YES;
             }
             [self showErrorWithNSError:error];
@@ -171,7 +178,7 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
 
 - (void)disconnectFromXMPPServer{
     [self setMyStatus:MyStatusUnavailable];
-    [xmppStream disconnectAfterSending];
+    [_xmppStream disconnectAfterSending];
 }
 
 #pragma mark - Chat State Notification
@@ -202,7 +209,7 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
     }
     
     //send message
-    [xmppStream sendElement:xmppMessage];
+    [_xmppStream sendElement:xmppMessage];
     DebugLog(@"XMPPStream - Sending Chat State : %@",xmppMessage.XMLString);
 }
 
@@ -237,9 +244,71 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
     [messageNode addChild:receiptsRequestNode];
     
     //send message
-    [xmppStream sendElement:messageNode];
+    [_xmppStream sendElement:messageNode];
     DebugLog(@"XMPPStream - Sending Message : %@",messageNode.XMLString);
 }
+
+
+- (void)sendImage:(UIImage *)image withMessage:(NSString*)message toFriendWithFriendId:(NSString *)friendId andMessageId:(NSString *)messageId{
+    //NSString *messageStr = @”This is a test”;
+    UIImage *imagePic = [UIImage imageNamed:@"BackgroundGeneral"];
+    if([message length] > 0 || [imagePic isKindOfClass:[UIImage class]] )
+    {
+        NSXMLElement *body = [NSXMLElement elementWithName:@"body"];
+        [body setStringValue:message];
+        NSMutableDictionary *m = [[NSMutableDictionary alloc] init];
+        NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
+        [message addAttributeWithName:@"type"stringValue:@"chat"];
+        [message addAttributeWithName:@"to"stringValue:[self getFullIdForFriendId:friendId]];
+        [message addChild:body];
+        if([imagePic isKindOfClass:[UIImage class]])
+        {
+            [m setObject:imagePic forKey:@"image"];
+            NSData *dataPic =  UIImagePNGRepresentation(imagePic);
+            NSXMLElement *photo = [NSXMLElement elementWithName:@"PHOTO"];
+            NSXMLElement *binval = [NSXMLElement elementWithName:@"BINVAL"];
+            [photo addChild:binval];
+            NSString *base64String = [dataPic base64EncodedStringWithOptions:0];
+            [binval setStringValue:base64String];
+            [message addChild:photo];
+        }
+        [_xmppStream sendElement:message];
+    }
+}
+    
+//    //message node
+//    NSXMLElement *messageNode = [NSXMLElement elementWithName:@"message"];
+//    [messageNode addAttributeWithName:@"type" stringValue:@"chat"];
+//    [messageNode addAttributeWithName:@"to" stringValue:[self getFullIdForFriendId:friendId]];
+//    [messageNode addAttributeWithName:@"id" stringValue:messageId];
+//    
+//    //body node
+//    NSXMLElement *bodyNode = [NSXMLElement elementWithName:@"body"];
+//    [bodyNode setStringValue:message];
+//    
+//    //request node for receipt
+//    NSXMLElement *receiptsRequestNode = [NSXMLElement elementWithName:@"request"];
+//    [receiptsRequestNode addAttributeWithName:@"xmlns" stringValue:@"urn:xmpp:receipts"];
+//    [receiptsRequestNode addAttributeWithName:@"id" stringValue:messageId];
+//    
+//    //add body and request node into message node
+//    [messageNode addChild:bodyNode];
+//    
+//    NSData *dataF = UIImagePNGRepresentation(image);
+//    NSString *imgStr=[dataF base64EncodedStringWithOptions:0];
+//
+//    NSXMLElement *ImgAttachement = [NSXMLElement elementWithName:@"attachment"];
+//    [ImgAttachement setStringValue:imgStr];
+//    [messageNode addChild:ImgAttachement];
+//
+//    [messageNode addChild:receiptsRequestNode];
+//    
+//    //send message
+//    [_xmppStream sendElement:messageNode];
+//    DebugLog(@"XMPPStream - Sending Message : %@",messageNode.XMLString);
+
+
+
 
 #pragma mark - My Status
 - (void)setMyStatus:(MyStatus)myStatus{
@@ -257,7 +326,7 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
     }
     
     //broadcast status
-    [xmppStream sendElement:xmppPresence];
+    [_xmppStream sendElement:xmppPresence];
     DebugLog(@"XMPPStream - Sending My Status : %@",xmppPresence.XMLString);
 }
 
@@ -314,15 +383,15 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
     [iqNode addAttributeWithName:@"type" stringValue:@"get"];
     NSXMLElement *queryNode = [[NSXMLElement alloc] initWithName:@"query" xmlns:XMPPLastActivityNamespace];
     [iqNode addChild:queryNode];
-    [xmppStream sendElement:iqNode];
+    [_xmppStream sendElement:iqNode];
 }
 
 #pragma mark - Registe  r New User
 - (void)registerUser{
     
-    [xmppStream setMyJID:[XMPPJID jidWithString:[NSString stringWithFormat:@"%@@%@",_userId,_hostName]]];
+    [_xmppStream setMyJID:[XMPPJID jidWithString:[NSString stringWithFormat:@"%@@%@",_userId,_hostName]]];
     NSError *error;
-    BOOL registered = (xmppStream.isConnected)? [xmppStream registerWithPassword:_userPassword error:&error]:[self connectToXMPPServer];
+    BOOL registered = (_xmppStream.isConnected)? [_xmppStream registerWithPassword:_userPassword error:&error]:[self connectToXMPPServer];
     if (registered) {
         DebugLog(@"Register Success");
        
@@ -364,8 +433,8 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
     if (_allowSSLHostNameMismatch) {
         [settings setObject:[NSNull null] forKey:(NSString *)kCFStreamSSLPeerName];
     }else{
-        NSString *serverDomain = xmppStream.hostName;
-        NSString *virtualDomain = [xmppStream.myJID domain];
+        NSString *serverDomain = _xmppStream.hostName;
+        NSString *virtualDomain = [_xmppStream.myJID domain];
         NSString *expectedCertName = (serverDomain == nil)?virtualDomain:serverDomain;
         [settings setObject:expectedCertName forKey:(NSString *)kCFStreamSSLPeerName];
     }
@@ -393,7 +462,7 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
     
     //Try to authenticate user
     NSError *error;
-    if ([xmppStream authenticateWithPassword:_userPassword error:&error]) {
+    if ([_xmppStream authenticateWithPassword:_userPassword error:&error]) {
         DebugLog(@"XMPPStream : Authenticated");
     }
     if (error) {
@@ -520,7 +589,7 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
     //filter presence type
     if ([presence isErrorPresence]) {
         DebugLog(@"XMPPStreamDelegate : Receive Error Presence.");
-    }else if ([presence.from.bare isEqualToString:xmppStream.myJID.bare]){
+    }else if ([presence.from.bare isEqualToString:_xmppStream.myJID.bare]){
         DebugLog(@"XMPPStreamDelegate : Receive Self Presence.");
     }else if ([presence.type isEqualToString:@"subscribe"]){
         DebugLog(@"XMPPStreamDelegate : Receive Subscribe Presence.");
@@ -624,5 +693,6 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
         [[[UIAlertView alloc] initWithTitle:@"ERROR" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }
 }
+
 
 @end

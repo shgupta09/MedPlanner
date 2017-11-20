@@ -234,7 +234,7 @@
 -(void)setChat{
     
     hm = [[XMPPHandler alloc] init];
-    hm.userId = @"shuam";
+    hm.userId = @"shu";
     hm.userPassword = @"willpower";
     hm.hostName = @"80.209.227.103";
     
@@ -243,6 +243,7 @@
     //    [hm registerUser];
     [hm connectToXMPPServer];
     
+        
     [hm setMyStatus:MyStatusAvailable];
     
     
@@ -261,7 +262,7 @@
 - (IBAction)sendMessage {
     NSString *messageStr = _txtField.text;
     if([messageStr length] > 0) {
-        [hm sendMessage:messageStr toFriendWithFriendId:@"shu" andMessageId:@"34"];
+        [hm sendMessage:messageStr toFriendWithFriendId:@"shuam" andMessageId:@"34"];
     }
 }
 
@@ -273,6 +274,13 @@
     return YES;
 }
 
+- (IBAction)btnAddFileClicked:(id)sender {
+    
+   
+    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:@"adsf" toFriendWithFriendId:@"shu" andMessageId:@"34"];
+    
+    
+}
 
 #pragma mark - keyboard notification
 - (void)keyboardDidShow: (NSNotification *) notif{

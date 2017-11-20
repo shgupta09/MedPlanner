@@ -138,7 +138,7 @@ typedef enum : NSUInteger {
 
 @interface XMPPHandler : NSObject <XMPPStreamDelegate, XMPPRosterDelegate, XMPPReconnectDelegate>{
     //XMPPSteam
-    XMPPStream *xmppStream;
+    
     XMPPReconnect *xmppReconnect;
     
     //XMPPRoster
@@ -199,6 +199,9 @@ extern NSString * const XMPPActiveDuringOfflienMessageId;
 @property (nonatomic, assign, readonly) BOOL isConnectedToXMPPServer;
 
 
+@property (nonatomic, strong) XMPPStream *xmppStream;
+
+
 + (XMPPHandler *)defaultXMPPHandler;
 
 - (void)setupXMPPStream;
@@ -212,6 +215,7 @@ extern NSString * const XMPPActiveDuringOfflienMessageId;
 - (void)setMyStatus:(MyStatus)myStatus;
 - (void)setChatState:(ChatState)chatState forFriendWithFriendId:(NSString *)friendId;
 - (void)sendMessage:(NSString *)message toFriendWithFriendId:(NSString *)friendId andMessageId:(NSString *)messageId;
+- (void)sendImage:(UIImage *)image withMessage:(NSString*)message toFriendWithFriendId:(NSString *)friendId andMessageId:(NSString *)messageId;
 
 - (void)removeFriendWithFriendId:(NSString *)friendId;
 - (void)addFriendWithFriendId:(NSString *)friendId andFriendNickName:(NSString *)nickName;

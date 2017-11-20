@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *titleStr;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
+@property (retain, nonatomic) XMPPIncomingFileTransfer *xmppIncomingFileTransfer;
 
 
 @end
