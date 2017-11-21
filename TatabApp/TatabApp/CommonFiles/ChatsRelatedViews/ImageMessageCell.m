@@ -123,15 +123,20 @@
     if (_message.sender == MessageSenderMyself)
     {
         textView_x = self.contentView.frame.size.width - textView_w - 20;
-        textView_y = -3;
+        textView_y = 5;
         autoresizing = UIViewAutoresizingFlexibleLeftMargin;
     }
     else
     {
         textView_x = 20;
-        textView_y = -1;
+        textView_y = 5;
         autoresizing = UIViewAutoresizingFlexibleRightMargin;
     }
+    
+    _imgView.layer.borderWidth = 1;
+    _imgView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    _imgView.layer.cornerRadius = 5;
+    _imgView.layer.masksToBounds = true;
     
     _imgView.frame = CGRectMake(textView_x, textView_y, textView_w, textView_h);
 }
@@ -156,11 +161,11 @@
     
     //Set position
     CGFloat time_x;
-    CGFloat time_y = _imgView.frame.size.height - 10;
+    CGFloat time_y = _imgView.frame.size.height +6;
     
     if (_message.sender == MessageSenderMyself)
     {
-        time_x = _imgView.frame.origin.x + _imgView.frame.size.width - _timeLabel.frame.size.width - 20;
+        time_x = _imgView.frame.origin.x + _imgView.frame.size.width - _timeLabel.frame.size.width ;
     }
     else
     {
@@ -188,8 +193,8 @@
     CGFloat bubble_x;
     CGFloat bubble_y = 0;
     CGFloat bubble_width;
-    CGFloat bubble_height = MIN(_imgView.frame.size.height + 8,
-                                _timeLabel.frame.origin.y + _timeLabel.frame.size.height + 6);
+    CGFloat bubble_height = MIN(_imgView.frame.size.height + 25,
+                                _timeLabel.frame.origin.y + _timeLabel.frame.size.height + 30);
     
     if (_message.sender == MessageSenderMyself)
     {
@@ -200,7 +205,7 @@
                               stretchableImageWithLeftCapWidth:15 topCapHeight:14];
         
         
-        bubble_width = self.contentView.frame.size.width - bubble_x - marginRight;
+        bubble_width = self.contentView.frame.size.width - bubble_x - marginRight + 10;
         bubble_width -= [self isStatusFailedCase]?[self fail_delta]:0.0;
     }
     else
