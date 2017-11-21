@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (retain, nonatomic) XMPPIncomingFileTransfer *xmppIncomingFileTransfer;
 @property (weak, nonatomic) IBOutlet UIButton *addOptionBtnAction;
+@property (weak, nonatomic) IBOutlet UIView *viewShowStatus;
 
 
 @end

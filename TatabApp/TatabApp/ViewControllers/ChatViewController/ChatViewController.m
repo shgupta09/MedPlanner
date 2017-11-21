@@ -42,7 +42,8 @@
    imageDataArray = [NSMutableArray new];
     toId = @"shuam";
     fromId = @"shu";
-    
+    _viewShowStatus.layer.cornerRadius = 5;
+    _viewShowStatus.layer.masksToBounds = true;
     _btnSend.layer.cornerRadius = 5;
     _btnSend.layer.masksToBounds = true;
     _txtField.layer.cornerRadius = 5;
@@ -65,7 +66,6 @@
                                                object:nil];
     _tblView.rowHeight = UITableViewAutomaticDimension;
     _tblView.estimatedRowHeight = 225;
-//    [CommonFunction setViewBackground:self.tblView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
 //    [self setUpRegisterUser];
     [self setChat];
     // Do any additional setup after loading the view from its nib.
@@ -90,7 +90,7 @@
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [hm disconnectFromXMPPServer];
-    
+    [hm clearXMPPStream];
 }
 -(void)setUpRegisterUser{
     hm = [[XMPPHandler alloc] init];
@@ -172,12 +172,12 @@
         if (![presenceFromUser isEqualToString:myUsername]) {
             
             if ([presenceType isEqualToString:@"available"]) {
-                lbl_title.backgroundColor = [UIColor greenColor];
+                _viewShowStatus.backgroundColor = [UIColor greenColor];
                 
                 
             } else if ([presenceType isEqualToString:@"unavailable"]) {
                 
-                lbl_title.backgroundColor = [UIColor redColor];
+                _viewShowStatus.backgroundColor = [UIColor whiteColor];
                 
             }
             
