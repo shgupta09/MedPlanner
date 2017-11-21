@@ -9,8 +9,8 @@
 #import "ChatViewController.h"
 #import "XMPPHandler.h"
 #import "MessageCell.h"
-#import "SMMessageViewTableCell.h"
 #import "Chat+CoreDataProperties.h"
+#import "ImageMessageCell.h"
 @interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
     XMPPHandler* hm;
@@ -60,6 +60,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(void)viewDidAppear:(BOOL)animated{
 
 
@@ -68,6 +69,57 @@
 //    });
     
 }
+
+-(void)setUpRegisterUser{
+    hm = [[XMPPHandler alloc] init];
+    hm.userId = @"shu";
+    hm.userId = @"qwerty";
+    hm.userId = @"ady";
+    hm.userPassword = @"willpower";
+    hm.hostName = @"80.209.227.103";
+    hm.hostPort = [NSNumber numberWithInteger:5222];
+    
+    //        [hm registerNewUser:true];
+    [hm registerUser];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidRegister object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidNotRegister object:nil];
+    
+    
+}
+
+
+-(void)setChat{
+    
+    hm = [[XMPPHandler alloc] init];
+    hm.userId = @"shu";
+    hm.userPassword = @"willpower";
+    hm.hostName = @"80.209.227.103";
+    
+    hm.hostPort = [NSNumber numberWithInteger:5222];
+    
+    //    [hm registerUser];
+    [hm connectToXMPPServer];
+    
+    
+    [hm setMyStatus:MyStatusAvailable];
+    
+    
+    [self.tblView registerClass:[MessageCell class] forCellReuseIdentifier: @"MessageCell"];
+    [self.tblView registerClass:[ImageMessageCell class] forCellReuseIdentifier: @"ImageMessageCell"];
+    [CommonFunction setViewBackground:_tblView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
+//    [self.tblView registerNib:[UINib nibWithNibName:@"ImageMessageCell" bundle:nil] forCellReuseIdentifier: @"ImageMessageCell"];
+    // You may need to alter these settings depending on the server you're connecting to
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceiveMessage object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidSendMessage object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceivePresence object:nil];
+    
+    [self setMessageArray:false];
+    //    [hm registerUser];
+    // Do any additional setup after loading the view from its nib.
+}
+
 
 -(void) notficationRecieved:(NSNotification*) notification{
     
@@ -184,24 +236,28 @@
     if (dictOfMedia!=nil && [dictOfMedia isKindOfClass:[NSDictionary class]] && [dictOfMedia objectForKey:@"type"])
     {
                
-        static NSString *CellIdentifier = @"ImageMessageTableViewCell";
-        ImageMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        static NSString *CellIdentifier = @"ImageMessageCell";
+        ImageMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!cell)
+        {
+            cell = [[ImageMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
         
+        Message *msg = [[Message alloc] init];
+        msg.date = s.date;
+        msg.text = message;
+        if ([s.isReceive isEqualToString:@"1"]){
+            msg.sender = MessageSenderSomeone;
+        }
+        else{
+            msg.sender = MessageSenderMyself;
+        }
         
-//        Message *msg = [[Message alloc] init];
-//        msg.date = s.date;
-//        msg.text = message;
-//        if ([s.isReceive isEqualToString:@"1"]){
-//            msg.sender = MessageSenderSomeone;
-//        }
-//        else{
-//            msg.sender = MessageSenderMyself;
-//        }
-//        
-//        
-        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:[dictOfMedia objectForKey:@"url"]]];
+        msg.imgURL = [dictOfMedia objectForKey:@"url"];
+        cell.message = msg;
+       
+//        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:[dictOfMedia objectForKey:@"url"]]];
         
-        cell.backgroundColor = [UIColor redColor];
         
         return cell;
 
@@ -227,7 +283,6 @@
         
         cell.message = msg;
         
-        cell.backgroundColor = [UIColor yellowColor];
         
         return cell;
 
@@ -291,54 +346,6 @@
     
     
     return context;
-}
-
--(void)setUpRegisterUser{
-    hm = [[XMPPHandler alloc] init];
-    hm.userId = @"shu";
-    hm.userId = @"qwerty";
-    hm.userId = @"ady";
-    hm.userPassword = @"willpower";
-    hm.hostName = @"80.209.227.103";
-    hm.hostPort = [NSNumber numberWithInteger:5222];
-    
-    //        [hm registerNewUser:true];
-    [hm registerUser];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidRegister object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidNotRegister object:nil];
-    
-    
-}
-
-
--(void)setChat{
-    
-    hm = [[XMPPHandler alloc] init];
-    hm.userId = @"shu";
-    hm.userPassword = @"willpower";
-    hm.hostName = @"80.209.227.103";
-    
-    hm.hostPort = [NSNumber numberWithInteger:5222];
-    
-    //    [hm registerUser];
-    [hm connectToXMPPServer];
-    
-        
-    [hm setMyStatus:MyStatusAvailable];
-    
-    
-    [self.tblView registerClass:[MessageCell class] forCellReuseIdentifier: @"MessageCell"];
-    [self.tblView registerNib:[UINib nibWithNibName:@"ImageMessageTableViewCell" bundle:nil] forCellReuseIdentifier: @"ImageMessageTableViewCell"];
-    // You may need to alter these settings depending on the server you're connecting to
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceiveMessage object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidSendMessage object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceivePresence object:nil];
-    
-    [self setMessageArray:false];
-    //    [hm registerUser];
-    // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)sendMessage {
     NSString *messageStr = _txtField.text;

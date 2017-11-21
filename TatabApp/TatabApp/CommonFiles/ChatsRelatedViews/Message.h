@@ -34,6 +34,7 @@ typedef NS_ENUM(NSInteger, MessageSender)
 @property (strong, nonatomic) NSString *identifier;
 @property (strong, nonatomic) NSString *chat_id;
 @property (strong, nonatomic) NSString *text;
+@property (strong, nonatomic) NSString *imgURL;
 @property (strong, nonatomic) NSDate *date;
 @property (assign, nonatomic) CGFloat heigh;
 

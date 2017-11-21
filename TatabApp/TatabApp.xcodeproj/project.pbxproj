@@ -26,7 +26,7 @@
 		5F4F6C691F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F4F6C671F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib */; };
 		5F5DF37B1FB31D1800956B62 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5DF37A1FB31D1800956B62 /* MessageCell.m */; };
 		5F5DF37E1FB31DA600956B62 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5DF37D1FB31DA600956B62 /* Message.m */; };
-		5F5DF3811FB322EF00956B62 /* SMMessageViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5DF3801FB322EF00956B62 /* SMMessageViewTableCell.m */; };
+		5F6DA7031FC3EF4F004F70E4 /* ImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6DA7021FC3EF4F004F70E4 /* ImageMessageCell.m */; };
 		5F9F49BD1FB1D791009E1418 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49B61FB1D791009E1418 /* README.md */; };
 		5F9F49BE1FB1D791009E1418 /* XMPPCoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49BA1FB1D791009E1418 /* XMPPCoreDataHandler.m */; };
 		5F9F49BF1FB1D791009E1418 /* XMPPHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49BC1FB1D791009E1418 /* XMPPHandler.m */; };
@@ -134,8 +134,8 @@
 		5F5DF37A1FB31D1800956B62 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		5F5DF37C1FB31DA600956B62 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		5F5DF37D1FB31DA600956B62 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		5F5DF37F1FB322EF00956B62 /* SMMessageViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMessageViewTableCell.h; sourceTree = "<group>"; };
-		5F5DF3801FB322EF00956B62 /* SMMessageViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMessageViewTableCell.m; sourceTree = "<group>"; };
+		5F6DA7011FC3EF4F004F70E4 /* ImageMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMessageCell.h; sourceTree = "<group>"; };
+		5F6DA7021FC3EF4F004F70E4 /* ImageMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageMessageCell.m; sourceTree = "<group>"; };
 		5F9F49B61FB1D791009E1418 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5F9F49B81FB1D791009E1418 /* DebugLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLog.h; sourceTree = "<group>"; };
 		5F9F49B91FB1D791009E1418 /* XMPPCoreDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPCoreDataHandler.h; sourceTree = "<group>"; };
@@ -330,8 +330,6 @@
 		5F5DF3781FB31D0F00956B62 /* ChatsRelatedViews */ = {
 			isa = PBXGroup;
 			children = (
-				5F5DF37F1FB322EF00956B62 /* SMMessageViewTableCell.h */,
-				5F5DF3801FB322EF00956B62 /* SMMessageViewTableCell.m */,
 				5F5DF37C1FB31DA600956B62 /* Message.h */,
 				5F5DF37D1FB31DA600956B62 /* Message.m */,
 				5F5DF3791FB31D1800956B62 /* MessageCell.h */,
@@ -339,6 +337,8 @@
 				5FB538491FC31CA500C77713 /* ImageMessageTableViewCell.h */,
 				5FB5384A1FC31CA500C77713 /* ImageMessageTableViewCell.m */,
 				5FB5384B1FC31CA500C77713 /* ImageMessageTableViewCell.xib */,
+				5F6DA7011FC3EF4F004F70E4 /* ImageMessageCell.h */,
+				5F6DA7021FC3EF4F004F70E4 /* ImageMessageCell.m */,
 			);
 			path = ChatsRelatedViews;
 			sourceTree = "<group>";
@@ -1029,6 +1029,7 @@
 				5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */,
 				D84B6BB71F777D2C00F37660 /* WebServicesCall.m in Sources */,
 				5F4F6C631F828F81000C65A0 /* AwarenessCategory.m in Sources */,
+				5F6DA7031FC3EF4F004F70E4 /* ImageMessageCell.m in Sources */,
 				5F5DF37B1FB31D1800956B62 /* MessageCell.m in Sources */,
 				5FB5384C1FC31CA500C77713 /* ImageMessageTableViewCell.m in Sources */,
 				5F4F6C681F82915F000C65A0 /* AwarenessCategoryTableViewCell.m in Sources */,
@@ -1058,7 +1059,6 @@
 				D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */,
 				D8F5A55D1F92020300E36160 /* HomeViewController.m in Sources */,
 				5F5DF37E1FB31DA600956B62 /* Message.m in Sources */,
-				5F5DF3811FB322EF00956B62 /* SMMessageViewTableCell.m in Sources */,
 				D82354AF1F8A6C2E0097A94C /* RCDoctor2.m in Sources */,
 				D8F108C21FC09A140049296C /* Chat+CoreDataProperties.m in Sources */,
 				5F1E9B4B1F76442C009FECDD /* CustomTextField.m in Sources */,

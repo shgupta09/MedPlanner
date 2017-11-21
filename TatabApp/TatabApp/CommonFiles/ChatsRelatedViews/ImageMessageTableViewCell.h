@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Message.h"
 @interface ImageMessageTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *lbTime;
 @property (retain, nonatomic) NSURL* url;
+@property (strong, nonatomic) Message *message;
+
 @end
