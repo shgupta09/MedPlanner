@@ -69,6 +69,25 @@
     [self clearData];
     [self saveContext];
 }
+//In App Delegate
+
++(AppDelegate *)getDelegate
+{
+    return (AppDelegate*)[UIApplication sharedApplication].delegate;
+}
+
+
+#pragma mark -status Bar
+-(void)hideStatusBar{
+    UIView *subViewArray = [self.window viewWithTag:100];
+    subViewArray.hidden = YES;
+}
+
+-(void)showStatusBar{
+    UIView *subViewArray = [self.window viewWithTag:100];
+    subViewArray.hidden = NO;
+}
+
 
 #pragma mark - clear DATA
 

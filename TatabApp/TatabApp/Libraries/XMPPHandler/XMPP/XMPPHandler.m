@@ -76,11 +76,11 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
         [_xmppStream setHostPort:_hostPort.intValue];
         
         //initialize XMPPReconnect
-        xmppReconnect = [[XMPPReconnect alloc] init];
         
+        xmppReconnect = [[XMPPReconnect alloc] init];
         //initialize XMPPRosterCoreDataStorage
         xmppRosterCoreDataStorage = [[XMPPRosterCoreDataStorage alloc] init];
-        
+     
         //initialize XMPPRoster
         xmppRoster = [[XMPPRoster alloc] initWithRosterStorage:xmppRosterCoreDataStorage];
         [xmppRoster setAutoFetchRoster:YES];

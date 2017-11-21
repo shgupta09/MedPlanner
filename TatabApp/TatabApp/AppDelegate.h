@@ -57,6 +57,9 @@
 - (NSURL *)applicationDocumentsDirectory;
 - (void)saveContext;
 
-
++(AppDelegate *)getDelegate;
+-(void)hideStatusBar;
+-(void)showStatusBar;
+-(void)addStatusBar;
 @end
 

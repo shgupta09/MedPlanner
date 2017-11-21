@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatViewController">
             <connections>
+                <outlet property="addOptionBtnAction" destination="QOB-Z6-Mna" id="tCG-rV-Yyp"/>
                 <outlet property="bottomConstraint" destination="ZgA-fN-JJX" id="6iL-w8-1Ci"/>
                 <outlet property="btnSend" destination="RcB-yl-rdg" id="bYd-fb-lJC"/>
                 <outlet property="lbl_title" destination="kpV-KI-RvG" id="3FY-1A-KqN"/>
@@ -51,27 +52,17 @@
                             <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8D-hG-sZl">
-                            <rect key="frame" x="285" y="7" width="82" height="30"/>
-                            <state key="normal" title="Send Image"/>
-                            <connections>
-                                <action selector="btnAddFileClicked:" destination="-1" eventType="touchUpInside" id="t0f-s8-TtC"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Y8D-hG-sZl" secondAttribute="trailing" constant="8" id="5cC-78-9Rz"/>
                         <constraint firstAttribute="height" constant="44" id="FzP-ux-Ihj"/>
                         <constraint firstAttribute="trailing" secondItem="h6w-yt-hIZ" secondAttribute="trailing" id="Gw7-4E-Ewf"/>
                         <constraint firstItem="kpV-KI-RvG" firstAttribute="centerY" secondItem="wN3-GQ-K9o" secondAttribute="centerY" id="Hp1-Ta-KL5"/>
                         <constraint firstItem="h6w-yt-hIZ" firstAttribute="leading" secondItem="wN3-GQ-K9o" secondAttribute="leading" id="SKb-nR-wJN"/>
-                        <constraint firstItem="Y8D-hG-sZl" firstAttribute="top" secondItem="wN3-GQ-K9o" secondAttribute="top" constant="7" id="dtw-8v-Jsn"/>
                         <constraint firstItem="s8L-kP-cAk" firstAttribute="centerY" secondItem="wN3-GQ-K9o" secondAttribute="centerY" id="fEb-6b-Zjk"/>
                         <constraint firstItem="kpV-KI-RvG" firstAttribute="centerX" secondItem="wN3-GQ-K9o" secondAttribute="centerX" id="mCt-za-akk"/>
                         <constraint firstItem="s8L-kP-cAk" firstAttribute="leading" secondItem="wN3-GQ-K9o" secondAttribute="leading" id="nq7-rh-6EL"/>
                         <constraint firstAttribute="bottom" secondItem="h6w-yt-hIZ" secondAttribute="bottom" id="pKG-Hr-Gph"/>
-                        <constraint firstItem="h6w-yt-hIZ" firstAttribute="top" secondItem="Y8D-hG-sZl" secondAttribute="bottom" constant="6" id="yFu-ea-XXI"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Idb-w9-WQW" customClass="TPKeyboardAvoidingTableView">
@@ -85,8 +76,18 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UiN-VW-ZJs">
                     <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOB-Z6-Mna">
+                            <rect key="frame" x="14" y="10" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="ICh-yc-12t"/>
+                                <constraint firstAttribute="height" constant="40" id="zYk-db-Aru"/>
+                            </constraints>
+                            <connections>
+                                <action selector="btnAddFileClicked:" destination="-1" eventType="touchUpInside" id="RhV-wG-EJI"/>
+                            </connections>
+                        </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="When i can haave next Visi?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lfh-Jx-FjD">
-                            <rect key="frame" x="10" y="10" width="305" height="40"/>
+                            <rect key="frame" x="59" y="10" width="261" height="40"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -118,10 +119,12 @@
                     <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="RcB-yl-rdg" firstAttribute="centerY" secondItem="UiN-VW-ZJs" secondAttribute="centerY" id="4R9-R0-iiB"/>
+                        <constraint firstItem="Lfh-Jx-FjD" firstAttribute="leading" secondItem="QOB-Z6-Mna" secondAttribute="trailing" constant="5" id="7og-GX-lzn"/>
                         <constraint firstItem="Lfh-Jx-FjD" firstAttribute="centerY" secondItem="UiN-VW-ZJs" secondAttribute="centerY" id="C58-DK-XzL"/>
-                        <constraint firstItem="RcB-yl-rdg" firstAttribute="leading" secondItem="Lfh-Jx-FjD" secondAttribute="trailing" constant="10" id="If7-BO-msD"/>
                         <constraint firstAttribute="height" constant="60" id="PN5-hA-rBq"/>
-                        <constraint firstItem="Lfh-Jx-FjD" firstAttribute="leading" secondItem="UiN-VW-ZJs" secondAttribute="leading" constant="10" id="kUv-uA-50y"/>
+                        <constraint firstItem="QOB-Z6-Mna" firstAttribute="centerY" secondItem="RcB-yl-rdg" secondAttribute="centerY" id="RmK-aJ-JYR"/>
+                        <constraint firstItem="QOB-Z6-Mna" firstAttribute="leading" secondItem="UiN-VW-ZJs" secondAttribute="leading" constant="14" id="bPt-xO-RQk"/>
+                        <constraint firstItem="RcB-yl-rdg" firstAttribute="leading" secondItem="Lfh-Jx-FjD" secondAttribute="trailing" constant="5" id="gl6-Zh-51P"/>
                         <constraint firstAttribute="trailing" secondItem="RcB-yl-rdg" secondAttribute="trailing" constant="10" id="qoM-i6-LOh"/>
                     </constraints>
                 </view>
