@@ -15,6 +15,7 @@
 {
     XMPPHandler* hm;
     NSMutableArray	*messagesArray;
+    LoderView *loderObj;
 }
 @property (weak, nonatomic) IBOutlet UIButton *btnSend;
 
@@ -60,7 +61,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewDidLayoutSubviews{
+    loderObj.frame = self.view.frame;
+}
 -(void)viewDidAppear:(BOOL)animated{
 
 
@@ -364,33 +367,45 @@
 
 - (IBAction)btnAddFileClicked:(id)sender {
     
-    NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"BackgroundGeneral"]);
+    NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"BackgroundGeneral"], 0.5);
 
     NSString* imageURLReturned = @"";
     
     NSMutableArray *imgArray = [NSMutableArray new];
     [imgArray addObject:imageData];
-    
-//    [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UploadDocument] postResponse:nil withImageData:nil isImageChanged:false requestType:POST requiredAuthorization:false ImageKey:@"photo" DataArray:imgArray completetion:^(BOOL status, id responseObj, NSString *tag, NSError *error, NSInteger statusCode) {
-//        if (error == nil) {
-//            if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
-//                imageURLReturned = [[responseObj valueForKey:@"urls"] valueForKey:@"photo"];
-//            }
-//            else
-//            {
-//            }
-//            
-//        }
-//        
-//    }];
-//
-    
-    NSDictionary *dict = @{@"type":@"image",
-                           @"url":@"https://www.w3schools.com/w3images/fjords.jpg"};
-    
-    NSString *newMessage = [NSString stringWithFormat:@"%@",dict];
+   
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UploadDocument] postResponse:nil withImageData:nil isImageChanged:false requestType:POST requiredAuthorization:false ImageKey:@"photo" DataArray:imgArray completetion:^(BOOL status, id responseObj, NSString *tag, NSError *error, NSInteger statusCode) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                    [self removeloder];
 
-    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shu" andMessageId:@"34"];
+                    NSDictionary *dict = @{@"type":@"image",
+                                           @"url": [[responseObj valueForKey:@"urls"] valueForKey:@"photo"]};
+                    
+                    NSString *newMessage = [NSString stringWithFormat:@"%@",dict];
+                    
+                    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shu" andMessageId:@"34"];
+
+                }
+                else
+                {
+                    [self removeloder];
+
+                }
+                
+            }
+            else
+            {
+                [self removeloder];
+
+            }
+            
+        }];
+    }
+    
+    
     
     
 }
@@ -411,6 +426,22 @@
 }
 
 
+#pragma mark - add loder
+
+-(void)addLoder{
+    self.view.userInteractionEnabled = NO;
+    //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+    loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
+    loderObj.lbl_title.text = @"Uploading image...";
+    [self.view addSubview:loderObj];
+}
+
+-(void)removeloder{
+    //loderObj = nil;
+    [loderObj removeFromSuperview];
+    //[loaderView removeFromSuperview];
+    self.view.userInteractionEnabled = YES;
+}
 
 @end
 
