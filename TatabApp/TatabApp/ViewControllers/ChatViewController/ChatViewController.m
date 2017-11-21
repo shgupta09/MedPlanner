@@ -66,8 +66,9 @@
                                                object:nil];
     _tblView.rowHeight = UITableViewAutomaticDimension;
     _tblView.estimatedRowHeight = 225;
-//    [self setUpRegisterUser];
-    [self setChat];
+    [self setUpRegisterUser];
+    
+//    [self setChat];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -94,20 +95,18 @@
 }
 -(void)setUpRegisterUser{
     hm = [[XMPPHandler alloc] init];
-    hm.userId = @"shu";
-    hm.userId = @"qwerty";
-    hm.userId = @"ady";
+    hm.userId = @"121214545487878";
     hm.userPassword = @"willpower";
     hm.hostName = @"80.209.227.103";
     hm.hostPort = [NSNumber numberWithInteger:5222];
-    
-    //        [hm registerNewUser:true];
-    [hm registerUser];
+   
+     [hm registerUser];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidRegister object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidNotRegister object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidConnect object:nil];
     
 }
+
 
 
 -(void)setChat{
@@ -136,6 +135,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceiveMessage object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidSendMessage object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceivePresence object:nil];
+      
+    
     
     [self setMessageArray:false];
     //    [hm registerUser];
@@ -183,6 +184,8 @@
             
         }
     
+    }else if([notification.name isEqualToString:XMPPStreamDidConnect]){
+        [hm registerUser];
     }
     
 
@@ -424,6 +427,7 @@
 }
 
 - (IBAction)btnAddFileClicked:(id)sender {
+    
     [self showActionSheet];
 }
 
