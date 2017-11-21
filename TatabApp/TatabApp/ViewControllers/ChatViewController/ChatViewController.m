@@ -16,6 +16,9 @@
     XMPPHandler* hm;
     NSMutableArray	*messagesArray;
     LoderView *loderObj;
+    NSString* toId ;
+    NSString* fromId;
+    
 }
 @property (weak, nonatomic) IBOutlet UIButton *btnSend;
 
@@ -32,6 +35,9 @@
     [super viewDidLoad];
     lbl_title.text = _titleStr;
    
+    toId = @"shuam";
+    fromId = @"shu";
+    
     _btnSend.layer.cornerRadius = 5;
     _btnSend.layer.masksToBounds = true;
     _txtField.layer.cornerRadius = 5;
@@ -94,7 +100,7 @@
 -(void)setChat{
     
     hm = [[XMPPHandler alloc] init];
-    hm.userId = @"shu";
+    hm.userId = fromId;
     hm.userPassword = @"willpower";
     hm.hostName = @"80.209.227.103";
     
@@ -353,7 +359,7 @@
 - (IBAction)sendMessage {
     NSString *messageStr = _txtField.text;
     if([messageStr length] > 0) {
-        [hm sendMessage:messageStr toFriendWithFriendId:@"shu" andMessageId:@"34"];
+        [hm sendMessage:messageStr toFriendWithFriendId:toId andMessageId:@"34"];
     }
 }
 
@@ -386,7 +392,8 @@
                     
                     NSString *newMessage = [NSString stringWithFormat:@"%@",dict];
                     
-                    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shu" andMessageId:@"34"];
+//                    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shuam" andMessageId:@"34"];
+                    [hm sendMessage:newMessage toFriendWithFriendId:toId andMessageId:@"34"];
 
                 }
                 else
