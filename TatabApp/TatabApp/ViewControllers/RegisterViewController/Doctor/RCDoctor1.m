@@ -27,9 +27,9 @@
 
 -(void)setData{
     
-    _txtName.text = @"Shubham";
+    _txtName.text = @"123456";
     _txtPassword.text = @"Admin@123";
-    _txtEmail.text = @"janemanShagun@yopmail.com";
+    _txtEmail.text = @"123456@yopmail.com";
     _txtMobile.text = @"9999708178";
 //    
     _txtName.leftImgView.image = [UIImage imageNamed:@"b"];

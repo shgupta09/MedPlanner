@@ -38,15 +38,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     picker = [[UIImagePickerController alloc] init];
-    lbl_title.text = _titleStr;
+    lbl_title.text = [NSString stringWithFormat:@"Dr. %@",_objDoctor.first_name];
    imageDataArray = [NSMutableArray new];
     NSArray* foo = [[CommonFunction getValueFromDefaultWithKey:loginemail] componentsSeparatedByString: @"@"];
     NSString* userID = [foo objectAtIndex: 0];
-    toId = @"shuam";
-    fromId = @"amrit";
-    
-//    toId = @"amrit";
-//    fromId = @"shuam";
+    toId = @"123456";
+    fromId = userID;
+//    toId = @"78910";
+//    fromId = userID;
     _viewShowStatus.layer.cornerRadius = 5;
     _viewShowStatus.layer.masksToBounds = true;
     _btnSend.layer.cornerRadius = 5;
@@ -117,7 +116,7 @@
     
     hm = [[XMPPHandler alloc] init];
     hm.userId = fromId;
-    hm.userPassword = @"Abc@123";
+    hm.userPassword = [CommonFunction getValueFromDefaultWithKey:loginPassword];
     hm.hostName = @"80.209.227.103";
     
     hm.hostPort = [NSNumber numberWithInteger:5222];
@@ -358,10 +357,6 @@
     
     }
     return [[UITableViewCell alloc] init];
-    
-   
-    
-    
 }
 
 

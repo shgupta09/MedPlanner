@@ -13,7 +13,8 @@
 @interface ChatViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>{
     __weak IBOutlet UILabel *lbl_title;
 }
-@property (strong, nonatomic) NSString *titleStr;
+@property (strong, nonatomic) Specialization *objDoctor;
+
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (retain, nonatomic) XMPPIncomingFileTransfer *xmppIncomingFileTransfer;

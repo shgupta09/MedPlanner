@@ -96,7 +96,7 @@
 #define selected_Nationality @"Nationality"
 
 
-
+#define SuccessNotification @"RegisterSuccessNotiFication"
 #define Privacy @"Privacy"
 #define TermsAndCondition @"Terms"
 #define FarePolicy @"Fair"

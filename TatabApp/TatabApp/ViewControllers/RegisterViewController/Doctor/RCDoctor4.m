@@ -16,7 +16,7 @@
     BOOL iscaptured;
     LoderView *loderObj;
     XMPPHandler* hm;
-
+    
 }
 @end
 
@@ -29,13 +29,17 @@
 
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewDidDisappear:(BOOL)animated{
+    
+}
 -(void)setUpRegisterUser{
     hm = [[XMPPHandler alloc] init];
     hm.userId = @"asdffsadfcccc";
     hm.userPassword = @"willpower";
+    
     hm.hostName = @"80.209.227.103";
     hm.hostPort = [NSNumber numberWithInteger:5222];
+    [hm.xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
     [hm registerUser];
     
     
@@ -44,7 +48,6 @@
     iscaptured = false;
     _imgView.layer.borderWidth= 3;
     _imgView.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamSocketDidConnect object:nil];
     _txt_ConfirmIban.text = @"1212121212";
     _txt_IBAN.text = @"1212121212";
 }
@@ -53,13 +56,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void) notficationRecieved:(NSNotification*) notification{
-    if ([notification.name isEqualToString:XMPPStreamSocketDidConnect])
-    {
-        
-        
-    }
-}
+
 #pragma mark - image Picker
 - (IBAction)captireBtnAction:(id)sender {
     
@@ -91,7 +88,8 @@
 
 #pragma mark - Btn Actions
 - (IBAction)btnBackClicked:(id)sender {
-    
+    [hm disconnectFromXMPPServer];
+    [hm clearXMPPStream];
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)btnActionCompleteRegistration:(id)sender {
@@ -211,18 +209,23 @@
 -(void)hitApiForRegister{
     
         if ([ CommonFunction reachability]) {
+         
+            
             [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_RegisterDoctor]  postResponse:[_parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
                 if (error == nil) {
                     
                     if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+    
+                       
+//
                         NSArray* foo = [[_parameterDict valueForKey:@"email"] componentsSeparatedByString: @"@"];
                         NSString* userID = [foo objectAtIndex: 0];
                         hm.userId = userID;
                         hm.userPassword = [_parameterDict valueForKey:@"password"];
                         hm.hostName = @"80.209.227.103";
                         hm.hostPort = [NSNumber numberWithInteger:5222];
+                        [hm.xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
                         [hm registerUser];
-                        
                         
                         
                         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -280,7 +283,7 @@
     [parameterDict setValue:[_parameterDict valueForKey:loginPassword] forKey:loginPassword];
     loderObj.lbl_title.text = @"Logging In...";
     if ([ CommonFunction reachability]) {
-        
+      
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_LOGIN_URL]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
@@ -296,7 +299,8 @@
                     
                     [self performBlock:^{
                         [alertController dismissViewControllerAnimated:true completion:nil];
-                        
+                        [hm disconnectFromXMPPServer];
+                        [hm clearXMPPStream];
                         [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginemail]  andKey:loginemail];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginfirstname] andKey:loginfirstname];
@@ -304,7 +308,7 @@
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginuserId] andKey:loginuserId];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginuserType] andKey:loginuserType];
                         
-
+                        [CommonFunction storeValueInDefault:[_parameterDict valueForKey:loginPassword] andKey:loginPassword];
                         HomeViewController *frontViewController = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
                         

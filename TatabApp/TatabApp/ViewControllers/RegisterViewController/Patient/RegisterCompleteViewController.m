@@ -68,6 +68,7 @@
     _btnMAle.tintColor = [UIColor whiteColor];
 
     departDate = [NSDate date];
+  
     [self setUpRegisterUser];
 
        // Do any additional setup after loading the view from its nib.
@@ -77,13 +78,16 @@
     [hm disconnectFromXMPPServer];
     [hm clearXMPPStream];
 }
+
+
 -(void)setUpRegisterUser{
     hm = [[XMPPHandler alloc] init];
     hm.userId = @"asdffsadfcccc";
     hm.userPassword = @"willpower";
     hm.hostName = @"80.209.227.103";
+    [hm.xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
     hm.hostPort = [NSNumber numberWithInteger:5222];
-    [hm registerUser];
+    [hm setupXMPPStream];
    
     
 }
@@ -100,6 +104,8 @@
         [_popUpView removeFromSuperview];
     }
 }
+
+
 #pragma mark - TextField Delegate
 
 //! for change the current first responder
@@ -301,7 +307,10 @@
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
 }
+-(void)xmppStreamDidConnect:(XMPPStream *)sender{
 
+
+}
 - (IBAction)btnCompleteRegistrationClicked:(id)sender {
     NSDictionary *dictForValidation = [self validateData2];
     
@@ -330,7 +339,8 @@
     
     [_parameterDict setValue:@"M" forKey:loginuserGender];
     [_parameterDict setValue:[CommonFunction trimString:_txtBirthday.text] forKey:@"dob"];
-    
+
+
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
         
         if ([ CommonFunction reachability]) {
@@ -347,6 +357,7 @@
                         hm.userPassword = [_parameterDict valueForKey:@"password"];
                         hm.hostName = @"80.209.227.103";
                         hm.hostPort = [NSNumber numberWithInteger:5222];
+
                         [hm registerUser];
                         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
@@ -492,12 +503,13 @@
                         
                         
                         [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
+                        
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginemail]  andKey:loginemail];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginfirstname] andKey:loginfirstname];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginUserToken] andKey:loginUserToken];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginuserId] andKey:loginuserId];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginuserType] andKey:loginuserType];
-                       
+                        [CommonFunction storeValueInDefault:[_parameterDict valueForKey:loginPassword] andKey:loginPassword];
                         PatientHomeVC *frontViewController = [[PatientHomeVC alloc]initWithNibName:@"PatientHomeVC" bundle:nil];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
                         

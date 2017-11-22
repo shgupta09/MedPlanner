@@ -393,6 +393,7 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
     BOOL registered = (_xmppStream.isConnected)? [_xmppStream registerWithPassword:_userPassword error:&error]:[self connectToXMPPServer];
     if (registered) {
         DebugLog(@"Register Success");
+         [[NSNotificationCenter defaultCenter] postNotificationName:SuccessNotification object:nil];
 //        [_xmppStream registerWithPassword:_userPassword error:&error];
     }
     if (error) {
