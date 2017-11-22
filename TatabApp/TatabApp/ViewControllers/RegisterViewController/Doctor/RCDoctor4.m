@@ -7,11 +7,16 @@
 //
 
 #import "RCDoctor4.h"
+#import "XMPPHandler.h"
+
+
 
 @interface RCDoctor4 ()
 {
     BOOL iscaptured;
     LoderView *loderObj;
+    XMPPHandler* hm;
+
 }
 @end
 
@@ -20,23 +25,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setData];
+    [self setUpRegisterUser];
+
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)setUpRegisterUser{
+    hm = [[XMPPHandler alloc] init];
+    hm.userId = @"asdffsadfcccc";
+    hm.userPassword = @"willpower";
+    hm.hostName = @"80.209.227.103";
+    hm.hostPort = [NSNumber numberWithInteger:5222];
+    [hm registerUser];
+    
+    
+}
 -(void)setData{
     iscaptured = false;
     _imgView.layer.borderWidth= 3;
     _imgView.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
-    
-//    _txt_ConfirmIban.text = @"aaaaa";
-//    _txt_IBAN.text = @"aaaaa";
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamSocketDidConnect object:nil];
+    _txt_ConfirmIban.text = @"1212121212";
+    _txt_IBAN.text = @"1212121212";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void) notficationRecieved:(NSNotification*) notification{
+    if ([notification.name isEqualToString:XMPPStreamSocketDidConnect])
+    {
+        
+        
+    }
+}
 #pragma mark - image Picker
 - (IBAction)captireBtnAction:(id)sender {
     
@@ -192,6 +215,16 @@
                 if (error == nil) {
                     
                     if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                        NSArray* foo = [[_parameterDict valueForKey:@"email"] componentsSeparatedByString: @"@"];
+                        NSString* userID = [foo objectAtIndex: 0];
+                        hm.userId = userID;
+                        hm.userPassword = [_parameterDict valueForKey:@"password"];
+                        hm.hostName = @"80.209.227.103";
+                        hm.hostPort = [NSNumber numberWithInteger:5222];
+                        [hm registerUser];
+                        
+                        
+                        
                         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                         

@@ -29,7 +29,7 @@
     
     _txtName.text = @"Shubham";
     _txtPassword.text = @"Admin@123";
-    _txtEmail.text = @"zcxvzxcvxzcv@yopmail.com";
+    _txtEmail.text = @"janemanShagun@yopmail.com";
     _txtMobile.text = @"9999708178";
 //    
     _txtName.leftImgView.image = [UIImage imageNamed:@"b"];

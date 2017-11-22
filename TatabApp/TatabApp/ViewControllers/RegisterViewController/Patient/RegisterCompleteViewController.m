@@ -8,6 +8,8 @@
 
 #import "RegisterCompleteViewController.h"
 #import "AppDelegate.h"
+#import "XMPPHandler.h"
+
 @interface RegisterCompleteViewController ()
 @property (weak, nonatomic) IBOutlet CustomTextField *txtBirthday;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtCity;
@@ -31,6 +33,8 @@
     NSString *departDateString;
     NSMutableArray *dependencyArray;
     LoderView *loderObj;
+    XMPPHandler* hm;
+
 
 }
 
@@ -64,9 +68,25 @@
     _btnMAle.tintColor = [UIColor whiteColor];
 
     departDate = [NSDate date];
+    [self setUpRegisterUser];
+
        // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [hm disconnectFromXMPPServer];
+    [hm clearXMPPStream];
+}
+-(void)setUpRegisterUser{
+    hm = [[XMPPHandler alloc] init];
+    hm.userId = @"asdffsadfcccc";
+    hm.userPassword = @"willpower";
+    hm.hostName = @"80.209.227.103";
+    hm.hostPort = [NSNumber numberWithInteger:5222];
+    [hm registerUser];
+   
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -309,7 +329,6 @@
         [_parameterDict setValue:tempArray forKey:@"children"];
     
     [_parameterDict setValue:@"M" forKey:loginuserGender];
-    [_parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId]  forKey:loginuserId];
     [_parameterDict setValue:[CommonFunction trimString:_txtBirthday.text] forKey:@"dob"];
     
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
@@ -321,6 +340,14 @@
                 if (error == nil) {
                     
                     if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                        
+                        NSArray* foo = [[_parameterDict valueForKey:@"email"] componentsSeparatedByString: @"@"];
+                        NSString* userID = [foo objectAtIndex: 0];
+                        hm.userId = userID;
+                        hm.userPassword = [_parameterDict valueForKey:@"password"];
+                        hm.hostName = @"80.209.227.103";
+                        hm.hostPort = [NSNumber numberWithInteger:5222];
+                        [hm registerUser];
                         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                         

@@ -40,8 +40,13 @@
     picker = [[UIImagePickerController alloc] init];
     lbl_title.text = _titleStr;
    imageDataArray = [NSMutableArray new];
+    NSArray* foo = [[CommonFunction getValueFromDefaultWithKey:loginemail] componentsSeparatedByString: @"@"];
+    NSString* userID = [foo objectAtIndex: 0];
     toId = @"shuam";
-    fromId = @"shu";
+    fromId = @"amrit";
+    
+//    toId = @"amrit";
+//    fromId = @"shuam";
     _viewShowStatus.layer.cornerRadius = 5;
     _viewShowStatus.layer.masksToBounds = true;
     _btnSend.layer.cornerRadius = 5;
@@ -66,9 +71,8 @@
                                                object:nil];
     _tblView.rowHeight = UITableViewAutomaticDimension;
     _tblView.estimatedRowHeight = 225;
-    [self setUpRegisterUser];
     
-//    [self setChat];
+    [self setChat];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -113,7 +117,7 @@
     
     hm = [[XMPPHandler alloc] init];
     hm.userId = fromId;
-    hm.userPassword = @"willpower";
+    hm.userPassword = @"Abc@123";
     hm.hostName = @"80.209.227.103";
     
     hm.hostPort = [NSNumber numberWithInteger:5222];
