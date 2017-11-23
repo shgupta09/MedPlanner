@@ -72,6 +72,24 @@
     _tblView.estimatedRowHeight = 225;
     
     [self setChat];
+    
+    if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+        _viewPatient.hidden = false;
+        _viewDoctor.hidden = true;
+        _imgView_PatientDoctor.layer.cornerRadius = _imgView_PatientDoctor.frame.size.width/2;
+        _imgView_PatientDoctor.layer.borderColor = [UIColor redColor].CGColor;
+        _imgView_PatientDoctor.layer.borderWidth = 2;
+        _imgView_PatientDoctor.clipsToBounds = true;
+        _lbl_Patient_DoctorName.text = _objDoctor.first_name;
+        _imgView_patient_BackGround.image = [UIImage imageNamed:_awarenessObj.category_name];
+        _imgView_patient_BackGround.alpha = .3;
+        _imgView_patient_BackGround.clipsToBounds = true;
+        _lbl_Patient_Clinic.text = _awarenessObj.category_name;
+         [_imgView_PatientDoctor sd_setImageWithURL:[NSURL URLWithString:_objDoctor.photo] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
+    }else{
+        _viewPatient.hidden = true;
+        _viewDoctor.hidden = false;
+    }
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -173,19 +191,20 @@
         NSString *myUsername = hm.userId;
         NSString *presenceFromUser = [[presence from] user];
         
-        if (![presenceFromUser isEqualToString:myUsername]) {
-            
-            if ([presenceType isEqualToString:@"available"]) {
-                _viewShowStatus.backgroundColor = [UIColor greenColor];
-                
-                
-            } else if ([presenceType isEqualToString:@"unavailable"]) {
-                
-                _viewShowStatus.backgroundColor = [UIColor whiteColor];
-                
-            }
-            
-        }
+// Change to show online
+//        if (![presenceFromUser isEqualToString:myUsername]) {
+//            
+//            if ([presenceType isEqualToString:@"available"]) {
+//                _viewShowStatus.backgroundColor = [UIColor greenColor];
+//                
+//                
+//            } else if ([presenceType isEqualToString:@"unavailable"]) {
+//                
+//                _viewShowStatus.backgroundColor = [UIColor whiteColor];
+//                
+//            }
+//            
+//        }
     
     }else if([notification.name isEqualToString:XMPPStreamDidConnect]){
         [hm registerUser];

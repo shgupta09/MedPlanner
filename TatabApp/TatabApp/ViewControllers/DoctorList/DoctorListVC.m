@@ -70,6 +70,7 @@
     ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
     Specialization *obj = [doctorListArray objectAtIndex:indexPath.row];
     vc.objDoctor = obj;
+    vc.awarenessObj = _awarenessObj;
     [self.navigationController pushViewController:vc animated:true];
 }
 

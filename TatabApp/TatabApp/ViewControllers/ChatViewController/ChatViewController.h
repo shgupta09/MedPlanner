@@ -14,12 +14,22 @@
     __weak IBOutlet UILabel *lbl_title;
 }
 @property (strong, nonatomic) Specialization *objDoctor;
-
-
+@property (nonatomic,strong)AwarenessCategory *awarenessObj;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (retain, nonatomic) XMPPIncomingFileTransfer *xmppIncomingFileTransfer;
 @property (weak, nonatomic) IBOutlet UIButton *addOptionBtnAction;
 @property (weak, nonatomic) IBOutlet UIView *viewShowStatus;
 
+//PatientView
+@property (weak, nonatomic) IBOutlet UIImageView *imgView_patient_BackGround;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView_PatientDoctor;
+@property (weak, nonatomic) IBOutlet UIView *viewPatient;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Patient_DoctorName;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Patient_Clinic;
+//Doctor's View
+
+@property (weak, nonatomic) IBOutlet UIView *viewDoctor;
 
 @end
