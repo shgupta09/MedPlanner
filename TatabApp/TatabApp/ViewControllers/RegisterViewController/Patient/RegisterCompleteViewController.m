@@ -351,8 +351,8 @@
                     
                     if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                         
-                        NSArray* foo = [[_parameterDict valueForKey:@"email"] componentsSeparatedByString: @"@"];
-                        NSString* userID = [foo objectAtIndex: 0];
+                        NSString* foo = [NSString stringWithFormat:@"%@%@",[[[_parameterDict valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[_parameterDict valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                        NSString* userID = foo;
                         hm.userId = userID;
                         hm.userPassword = [_parameterDict valueForKey:@"password"];
                         hm.hostName = @"80.209.227.103";

@@ -16,7 +16,6 @@
     XMPPHandler* hm;
     NSMutableArray	*messagesArray;
     LoderView *loderObj;
-    NSString* toId ;
     NSString* fromId;
     UIImagePickerController * picker;
     NSMutableArray *imageDataArray;
@@ -40,9 +39,11 @@
     picker = [[UIImagePickerController alloc] init];
     lbl_title.text = [NSString stringWithFormat:@"Dr. %@",_objDoctor.first_name];
    imageDataArray = [NSMutableArray new];
-    NSArray* foo = [[CommonFunction getValueFromDefaultWithKey:loginemail] componentsSeparatedByString: @"@"];
-    NSString* userID = [foo objectAtIndex: 0];
-    toId = @"123456";
+    NSString* email = [CommonFunction getValueFromDefaultWithKey:loginemail];
+    
+    NSString* foo = [NSString stringWithFormat:@"%@%@",[[email componentsSeparatedByString:@"@"] objectAtIndex:0],[[email componentsSeparatedByString:@"@"] objectAtIndex:1]];
+    NSString* userID = foo;
+//    _toId = @"123456";
     fromId = userID;
 //    toId = @"78910";
 //    fromId = userID;
@@ -170,7 +171,9 @@
     if ([notification.name isEqualToString:XMPPStreamDidReceiveMessage])
     {
         XMPPMessage* messageContent = notification.object;
-        [self saveMessage:@"1" senderId:messageContent.elementID andeMessage:messageContent.body];
+        
+        
+        [self saveMessage:@"1" senderId:messageContent andeMessage:messageContent.body];
         [self setMessageArray:true];
         _txtField.text = @"";
       
@@ -207,7 +210,8 @@
 //        }
     
     }else if([notification.name isEqualToString:XMPPStreamDidConnect]){
-        [hm registerUser];
+        
+       [hm registerUser];
     }
     
 
@@ -229,7 +233,7 @@
                     NSString *newMessage = [NSString stringWithFormat:@"%@",dict];
                     
                     //                    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shuam" andMessageId:@"34"];
-                    [hm sendMessage:newMessage toFriendWithFriendId:toId andMessageId:@"34"];
+                    [hm sendMessage:newMessage toFriendWithFriendId:_toId andMessageId:@"34"];
                     
                 }
                 else
@@ -382,7 +386,9 @@
 #pragma mark -other
 -(void)setMessageArray:(BOOL)isScroll{
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Chat"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"((senderId == %@)AND(recieverId == %@))OR((senderId == %@)AND(recieverId == %@))",_toId,fromId,fromId,_toId];
     messagesArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     [CommonFunction resignFirstResponderOfAView:self.view];
     
@@ -395,20 +401,46 @@
 }
 -(void)setTblScroll{
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:([messagesArray count]-1) inSection:0];
-    [_tblView scrollToRowAtIndexPath:indexPath
-                    atScrollPosition:UITableViewScrollPositionBottom
-                            animated:YES];
+    if ([messagesArray count]>0){
+        [_tblView scrollToRowAtIndexPath:indexPath
+                        atScrollPosition:UITableViewScrollPositionBottom
+                                animated:YES];
+    }
+    
     
 }
 
--(void)saveMessage:(NSString *)isReceive senderId:(NSString *)senderId andeMessage:(NSString *)messageString{
+-(void)saveMessage:(NSString *)isReceive senderId:(XMPPMessage *)messageContent andeMessage:(NSString *)messageString{
     NSManagedObjectContext *context = [self managedObjectContext];
     
     // Create a new managed object
     NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Chat" inManagedObjectContext:context];
     [newDevice setValue:messageString forKey:@"message"];
     [newDevice setValue:isReceive forKey:@"isReceive"];
-    [newDevice setValue:senderId forKey:@"senderId"];
+
+    
+    [newDevice setValue:isReceive forKey:@"isReceive"];
+
+    if (![isReceive  isEqual: @"0"] ){
+        
+        BOOL ischat = messageContent.isChatMessage;
+        if (ischat){
+            NSXMLNode *fromNode = [messageContent attributeForName:@"from"];
+            NSXMLNode *toNode = [messageContent attributeForName:@"to"];
+            NSString *from = [fromNode stringValue];
+            NSString *to = [toNode stringValue];
+            [newDevice setValue:[[from componentsSeparatedByString:@"@"] objectAtIndex:0]  forKey:@"senderId"];
+            [newDevice setValue:[[to componentsSeparatedByString:@"@"] objectAtIndex:0] forKey:@"recieverId"];
+        }
+        
+    }
+    else
+    {
+
+        [newDevice setValue:fromId forKey:@"senderId"];
+        [newDevice setValue:_toId forKey:@"recieverId"];
+    }
+
     
     [newDevice setValue:[NSDate date] forKey:@"date"];
     NSError *error = nil;
@@ -432,7 +464,7 @@
 - (IBAction)sendMessage {
     NSString *messageStr = _txtField.text;
     if([messageStr length] > 0) {
-        [hm sendMessage:messageStr toFriendWithFriendId:toId andMessageId:@"34"];
+        [hm sendMessage:messageStr toFriendWithFriendId:_toId andMessageId:@"34"];
     }
 }
 

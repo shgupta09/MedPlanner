@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgView_PatientDoctor;
 @property (weak, nonatomic) IBOutlet UIView *viewPatient;
 
+@property (strong, nonatomic) NSString* toId ;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Patient_DoctorName;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Patient_Clinic;

@@ -18,6 +18,7 @@
 @property(nonatomic ,strong) NSString *photo;
 @property(nonatomic ,strong) NSString *sub_specialist;
 @property(nonatomic ,strong) NSString *workplace;
+@property(nonatomic ,strong) NSString *jabberId;
 @property(nonatomic) NSInteger doctor_id;
 
 @end

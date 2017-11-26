@@ -33,7 +33,14 @@
     _tbl_View.estimatedRowHeight = 100;
     _tbl_View.multipleTouchEnabled = NO;
     _imgView.image = [UIImage imageNamed:_awarenessObj.category_name];
-    [self hitApiForSpeciality];
+    
+    if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+        [self hitApiForSpeciality];
+    }
+    else
+    {
+        [self hitApiForSpeciality];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +78,7 @@
     Specialization *obj = [doctorListArray objectAtIndex:indexPath.row];
     vc.objDoctor = obj;
     vc.awarenessObj = _awarenessObj;
+    vc.toId = obj.jabberId;
     [self.navigationController pushViewController:vc animated:true];
 }
 
@@ -91,7 +99,7 @@
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DOCTOR]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
-             if (error == nil) {
+            if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     doctorListArray = [NSMutableArray new];
                     NSArray *tempArray = [NSArray new];
@@ -109,6 +117,7 @@
                         specializationObj.photo = [obj valueForKey:@"photo"];
                         specializationObj.sub_specialist = [obj valueForKey:@"sub_specialist"];
                         specializationObj.workplace = [obj valueForKey:@"workplace"];
+                        specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
                         [doctorListArray addObject:specializationObj];
                     }];
@@ -137,6 +146,68 @@
         [self presentViewController:alertController animated:YES completion:nil];
     }
 }
+
+
+#pragma mark - Api Related
+-(void)hitApiForPatientList{
+    
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:_awarenessObj.category_id forKey:@"specialist_id"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DOCTOR]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    doctorListArray = [NSMutableArray new];
+                    NSArray *tempArray = [NSArray new];
+                    tempArray  = [responseObj valueForKey:@"specialization"];
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        
+                        Specialization *specializationObj = [Specialization new];
+                        specializationObj.classificationOfDoctor = [obj valueForKey:@"classification"];
+                        specializationObj.created_at = [obj valueForKey:@"created_at"];
+                        specializationObj.current_grade = [obj valueForKey:@"current_grade"];
+                        specializationObj.doctor_id = [[obj valueForKey:@"doctor_id"] integerValue];
+                        specializationObj.first_name = [obj valueForKey:@"first_name"];
+                        specializationObj.gender = [obj valueForKey:@"gender"];
+                        specializationObj.last_name = [obj valueForKey:@"last_name"];
+                        specializationObj.photo = [obj valueForKey:@"photo"];
+                        specializationObj.sub_specialist = [obj valueForKey:@"sub_specialist"];
+                        specializationObj.workplace = [obj valueForKey:@"workplace"];
+                        specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                        
+                        [doctorListArray addObject:specializationObj];
+                    }];
+                    [_tbl_View reloadData];
+                }else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        [self removeloder];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
 -(void)addLoder{
     self.view.userInteractionEnabled = NO;
     //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
