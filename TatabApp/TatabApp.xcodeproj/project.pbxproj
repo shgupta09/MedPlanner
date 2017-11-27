@@ -40,6 +40,7 @@
 		5FBBBB011F72401C00C03813 /* TatabAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBB001F72401C00C03813 /* TatabAppTests.m */; };
 		5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBB181F72720800C03813 /* LoginViewController.m */; };
 		5FBBBB1B1F72720800C03813 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FBBBB191F72720800C03813 /* LoginViewController.xib */; };
+		5FC496DC1FCBDC1B004E537A /* ChatPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC496DB1FCBDC1B004E537A /* ChatPatient.m */; };
 		6B88C8AAED0F77BF5245AA06 /* Pods_TatabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */; };
 		884FE13F103CA6FC743E4912 /* Pods_TatabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */; };
 		9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */; };
@@ -159,6 +160,8 @@
 		5FBBBB171F72720800C03813 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5FBBBB181F72720800C03813 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5FBBBB191F72720800C03813 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		5FC496DA1FCBDC1B004E537A /* ChatPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatPatient.h; sourceTree = "<group>"; };
+		5FC496DB1FCBDC1B004E537A /* ChatPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatPatient.m; sourceTree = "<group>"; };
 		9C4C5ECC1F792725003D84BD /* RegistrationDpendency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationDpendency.h; sourceTree = "<group>"; };
 		9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationDpendency.m; sourceTree = "<group>"; };
 		9C6DE7291F8399CD00635102 /* RearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RearViewController.h; sourceTree = "<group>"; };
@@ -533,6 +536,8 @@
 				5F4F6C621F828F81000C65A0 /* AwarenessCategory.m */,
 				D8EE8B141F95E564006A018E /* Specialization.h */,
 				D8EE8B151F95E564006A018E /* Specialization.m */,
+				5FC496DA1FCBDC1B004E537A /* ChatPatient.h */,
+				5FC496DB1FCBDC1B004E537A /* ChatPatient.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -732,7 +737,7 @@
 				TargetAttributes = {
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 2NUUE95Z88;
+						DevelopmentTeam = MK5HXMKD83;
 						ProvisioningStyle = Automatic;
 					};
 					5FBBBAFB1F72401C00C03813 = {
@@ -1051,6 +1056,7 @@
 				9C6DE73C1F83A61A00635102 /* VideoListObject.m in Sources */,
 				9C6DE7321F83A1FC00635102 /* RearCell.m in Sources */,
 				D84DF2051F8A0D9C00234070 /* RegisterViewController.m in Sources */,
+				5FC496DC1FCBDC1B004E537A /* ChatPatient.m in Sources */,
 				5F1E9B3A1F763C73009FECDD /* UserSelectViewController.m in Sources */,
 				D84DF2031F8A0D9C00234070 /* RegisterCompleteViewController.m in Sources */,
 				5F0B0FD01FB1EC82006468AA /* ChatViewController.m in Sources */,
@@ -1204,7 +1210,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2NUUE95Z88;
+				DEVELOPMENT_TEAM = MK5HXMKD83;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1213,7 +1219,7 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.assusoft.SSCreative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.npglobal.SSCreative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1224,7 +1230,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2NUUE95Z88;
+				DEVELOPMENT_TEAM = MK5HXMKD83;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1233,7 +1239,7 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.assusoft.SSCreative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.npglobal.SSCreative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -103,17 +103,9 @@
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
 }
--(void)viewDidAppear:(BOOL)animated{
 
-
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [hm sendMessage:@"hiiiiiiii" toFriendWithFriendId:@"shubham" andMessageId:@"1222"];
-//    });
-    
-}
 -(void)viewDidDisappear:(BOOL)animated{
-    [hm disconnectFromXMPPServer];
-    [hm clearXMPPStream];
+    
 }
 -(void)setUpRegisterUser{
     hm = [[XMPPHandler alloc] init];
@@ -157,7 +149,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceiveMessage object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidSendMessage object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceivePresence object:nil];
-      
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidRegister object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidNotAuthenticate object:nil];
+    
     
     
     [self setMessageArray:false];
@@ -182,7 +176,7 @@
     else if ([notification.name isEqualToString:XMPPStreamDidSendMessage])
     {
         XMPPMessage* messageContent = notification.object;
-        [self saveMessage:@"0" senderId:messageContent.elementID andeMessage:messageContent.body];
+        [self saveMessage:@"0" senderId:messageContent andeMessage:messageContent.body];
         [self setMessageArray:true];
         _txtField.text = @"";
        }
@@ -194,24 +188,28 @@
         NSString *myUsername = hm.userId;
         NSString *presenceFromUser = [[presence from] user];
         
-// Change to show online
-//        if (![presenceFromUser isEqualToString:myUsername]) {
-//            
-//            if ([presenceType isEqualToString:@"available"]) {
-//                _viewShowStatus.backgroundColor = [UIColor greenColor];
-//                
-//                
-//            } else if ([presenceType isEqualToString:@"unavailable"]) {
-//                
-//                _viewShowStatus.backgroundColor = [UIColor whiteColor];
-//                
-//            }
-//            
-//        }
+        if (![presenceFromUser isEqualToString:_toId]) {
+            
+            if ([presenceType isEqualToString:@"available"]) {
+                _viewShowStatus.backgroundColor = [UIColor greenColor];
+                
+                
+            } else if ([presenceType isEqualToString:@"unavailable"]) {
+                
+                _viewShowStatus.backgroundColor = [UIColor whiteColor];
+                
+            }
+            
+        }
     
-    }else if([notification.name isEqualToString:XMPPStreamDidConnect]){
-        
-       [hm registerUser];
+    }
+    else if ([notification.name isEqualToString:XMPPStreamDidNotAuthenticate])
+    {
+        [hm registerUser];
+    }
+    else if ([notification.name isEqualToString:XMPPStreamDidRegister])
+    {
+        [self setChat];
     }
     
 
@@ -233,6 +231,7 @@
                     NSString *newMessage = [NSString stringWithFormat:@"%@",dict];
                     
                     //                    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shuam" andMessageId:@"34"];
+                    
                     [hm sendMessage:newMessage toFriendWithFriendId:_toId andMessageId:@"34"];
                     
                 }
@@ -258,6 +257,8 @@
 }
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
+    [hm disconnectFromXMPPServer];
+    [hm clearXMPPStream];
     [self.navigationController popViewControllerAnimated:true];
 }
 
@@ -388,7 +389,7 @@
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Chat"];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"((senderId == %@)AND(recieverId == %@))OR((senderId == %@)AND(recieverId == %@))",_toId,fromId,fromId,_toId];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"((senderId == %@)AND(recieverId == %@))OR((senderId == %@)AND(recieverId == %@))",[_toId lowercaseString],[fromId lowercaseString],[fromId lowercaseString],[_toId lowercaseString]];
     messagesArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     [CommonFunction resignFirstResponderOfAView:self.view];
     
@@ -419,6 +420,7 @@
     [newDevice setValue:isReceive forKey:@"isReceive"];
 
     
+    
     [newDevice setValue:isReceive forKey:@"isReceive"];
 
     if (![isReceive  isEqual: @"0"] ){
@@ -429,16 +431,16 @@
             NSXMLNode *toNode = [messageContent attributeForName:@"to"];
             NSString *from = [fromNode stringValue];
             NSString *to = [toNode stringValue];
-            [newDevice setValue:[[from componentsSeparatedByString:@"@"] objectAtIndex:0]  forKey:@"senderId"];
-            [newDevice setValue:[[to componentsSeparatedByString:@"@"] objectAtIndex:0] forKey:@"recieverId"];
+            [newDevice setValue:[[[from componentsSeparatedByString:@"@"] objectAtIndex:0] lowercaseString]  forKey:@"senderId"];
+            [newDevice setValue:[[[to componentsSeparatedByString:@"@"] objectAtIndex:0] lowercaseString] forKey:@"recieverId"];
         }
         
     }
     else
     {
 
-        [newDevice setValue:fromId forKey:@"senderId"];
-        [newDevice setValue:_toId forKey:@"recieverId"];
+        [newDevice setValue:[fromId lowercaseString] forKey:@"senderId"];
+        [newDevice setValue:[_toId lowercaseString] forKey:@"recieverId"];
     }
 
     

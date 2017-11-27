@@ -132,5 +132,7 @@ static NSString* const API_COUNTRY_CODE = @"list/NpCountry";
 static NSString* const API_WEATHER = @"list/Weather";
 
 static NSString* const API_UploadDocument = @"upload";
+static NSString* const API_FETCH_PATIENTS = @"patients";
+
 static NSString* const API_RegisterDoctor = @"registerdoctor";
 #endif /* Constant_h */ 

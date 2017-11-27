@@ -12,6 +12,7 @@
 {
     LoderView *loderObj;
     NSMutableArray *doctorListArray;
+    NSMutableArray *patientListArray;
 }
 @end
 
@@ -39,7 +40,7 @@
     }
     else
     {
-        [self hitApiForSpeciality];
+        [self hitApiForPatientList];
     }
 }
 
@@ -50,8 +51,16 @@
 #pragma mark- tableView delegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+        return doctorListArray.count;
+
+    }
+    else
+    {
+        return patientListArray.count;
+ 
+    }
     
-    return doctorListArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"HomeCell"];
@@ -61,25 +70,58 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    Specialization *obj = [doctorListArray objectAtIndex:indexPath.row];
-    cell.lbl_name.text = [NSString stringWithFormat:@"Dr. %@",obj.first_name];
-    cell.lbl_specialization.text = obj.sub_specialist;
-    cell.lbl_sub_specialization.text = obj.classificationOfDoctor;
-//    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
-    [cell.profileImageView sd_setImageWithURL:[NSURL URLWithString:obj.photo] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
+    
+    if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+        Specialization *obj = [doctorListArray objectAtIndex:indexPath.row];
+        cell.lbl_name.text = [NSString stringWithFormat:@"Dr. %@",obj.first_name];
+        cell.lbl_specialization.text = obj.sub_specialist;
+        cell.lbl_sub_specialization.text = obj.classificationOfDoctor;
+        //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
+        [cell.profileImageView sd_setImageWithURL:[NSURL URLWithString:obj.photo] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
+        
+        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2;
+        cell.profileImageView.clipsToBounds = true;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    else
+    {
+        ChatPatient *obj = [patientListArray objectAtIndex:indexPath.row];
+        cell.lbl_name.text = [NSString stringWithFormat:@"Dr. %@",obj.name];
+        cell.lbl_specialization.text = @"Patient";
+        cell.lbl_sub_specialization.text = obj.gender;
+        //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
+        [cell.profileImageView setImage:[UIImage imageNamed:@"profile.png"]];
+        
+        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2;
+        cell.profileImageView.clipsToBounds = true;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
 
-    cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2;
-    cell.profileImageView.clipsToBounds = true;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
-    Specialization *obj = [doctorListArray objectAtIndex:indexPath.row];
-    vc.objDoctor = obj;
-    vc.awarenessObj = _awarenessObj;
-    vc.toId = obj.jabberId;
-    [self.navigationController pushViewController:vc animated:true];
+    if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+        ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
+        Specialization *obj = [doctorListArray objectAtIndex:indexPath.row];
+        vc.objDoctor = obj;
+        vc.awarenessObj = _awarenessObj;
+        vc.toId = obj.jabberId;
+        [self.navigationController pushViewController:vc animated:true];
+    }
+    else
+    {
+        ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
+        ChatPatient *obj = [patientListArray objectAtIndex:indexPath.row];
+        Specialization* temp = [Specialization new];
+        temp.first_name = obj.name;
+        vc.objDoctor  = temp;
+        
+        vc.awarenessObj = _awarenessObj;
+        vc.toId = obj.jabberId;
+        [self.navigationController pushViewController:vc animated:true];
+    }
+    
 }
 
 #pragma mark - btn Actions
@@ -151,36 +193,26 @@
 #pragma mark - Api Related
 -(void)hitApiForPatientList{
     
-    
-    NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:_awarenessObj.category_id forKey:@"specialist_id"];
-    
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DOCTOR]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_PATIENTS]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    doctorListArray = [NSMutableArray new];
+                    patientListArray = [NSMutableArray new];
                     NSArray *tempArray = [NSArray new];
-                    tempArray  = [responseObj valueForKey:@"specialization"];
+                    tempArray  = [responseObj valueForKey:@"patients"];
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         
-                        Specialization *specializationObj = [Specialization new];
-                        specializationObj.classificationOfDoctor = [obj valueForKey:@"classification"];
-                        specializationObj.created_at = [obj valueForKey:@"created_at"];
-                        specializationObj.current_grade = [obj valueForKey:@"current_grade"];
-                        specializationObj.doctor_id = [[obj valueForKey:@"doctor_id"] integerValue];
-                        specializationObj.first_name = [obj valueForKey:@"first_name"];
+                        ChatPatient *specializationObj = [ChatPatient new];
                         specializationObj.gender = [obj valueForKey:@"gender"];
-                        specializationObj.last_name = [obj valueForKey:@"last_name"];
-                        specializationObj.photo = [obj valueForKey:@"photo"];
-                        specializationObj.sub_specialist = [obj valueForKey:@"sub_specialist"];
-                        specializationObj.workplace = [obj valueForKey:@"workplace"];
+                        specializationObj.patient_id = [obj valueForKey:@"patient_id"];
+                        specializationObj.name = [obj valueForKey:@"name"];
+                        specializationObj.dob = [obj valueForKey:@"dob"];
                         specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
-                        [doctorListArray addObject:specializationObj];
+                        [patientListArray addObject:specializationObj];
                     }];
                     [_tbl_View reloadData];
                 }else
