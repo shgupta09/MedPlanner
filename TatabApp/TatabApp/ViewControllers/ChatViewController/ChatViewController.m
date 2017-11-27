@@ -398,11 +398,13 @@
         
         if (dictOfMedia!=nil && [dictOfMedia isKindOfClass:[NSDictionary class]] && [dictOfMedia objectForKey:@"type"])
         {
-             imgViewToZoom= [[UIImageView alloc]initWithFrame:self.view.frame];
+            [CommonFunction resignFirstResponderOfAView:self.view];
+            imgViewToZoom= [[UIImageView alloc]initWithFrame:self.view.frame];
             [imgViewToZoom sd_setImageWithURL:[dictOfMedia objectForKey:@"url"]];
             [imgViewToZoom addGestureRecognizer:cameraGesture];
             imgViewToZoom.userInteractionEnabled = true;
             [self.view addSubview:imgViewToZoom];
+            
         }
     }
 }
