@@ -48,8 +48,8 @@
     iscaptured = false;
     _imgView.layer.borderWidth= 3;
     _imgView.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
-    _txt_ConfirmIban.text = @"1212121212";
-    _txt_IBAN.text = @"1212121212";
+//    _txt_ConfirmIban.text = @"1212121212";
+//    _txt_IBAN.text = @"1212121212";
 }
 
 - (void)didReceiveMemoryWarning {

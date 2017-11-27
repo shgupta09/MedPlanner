@@ -28,9 +28,9 @@
     [super viewDidLoad];
     
     
-    _txtPassword.text = @"Admin@123";
-    _txtName.text = @"Rahul";
-    _txtEmail.text = @"DemoPatient16@yopmail.com";
+//    _txtPassword.text = @"Admin@123";
+//    _txtName.text = @"Rahul";
+//    _txtEmail.text = @"DemoPatient16@yopmail.com";
 //
     
     [self setData];

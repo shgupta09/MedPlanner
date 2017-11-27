@@ -20,7 +20,9 @@
     UIImagePickerController * picker;
     NSMutableArray *imageDataArray;
     UIImagePickerControllerSourceType *sourceType;
-    
+    UIImageView *imgViewToZoom;
+    UITapGestureRecognizer *cameraGesture;
+
     
 }
 @property (weak, nonatomic) IBOutlet UIButton *btnSend;
@@ -59,7 +61,6 @@
     UIImage * image = [UIImage imageNamed:@"Plus"];
     [_addOptionBtnAction setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     
-    XMPPStream* st = [[XMPPStream alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardDidShow:)
                                                  name:UIKeyboardDidShowNotification
@@ -71,7 +72,9 @@
                                                object:nil];
     _tblView.rowHeight = UITableViewAutomaticDimension;
     _tblView.estimatedRowHeight = 225;
-    
+    cameraGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(removeImage)];
+    [cameraGesture setNumberOfTapsRequired:1];
+   
     [self setChat];
     
     if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
@@ -169,7 +172,6 @@
         
         [self saveMessage:@"1" senderId:messageContent andeMessage:messageContent.body];
         [self setMessageArray:true];
-        _txtField.text = @"";
       
     }
     
@@ -343,7 +345,6 @@
         else{
             msg.sender = MessageSenderMyself;
         }
-        
         msg.imgURL = [dictOfMedia objectForKey:@"url"];
         cell.message = msg;
        
@@ -383,6 +384,31 @@
     return [[UITableViewCell alloc] init];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    Chat *s = (Chat *) [messagesArray objectAtIndex:indexPath.row];
+    NSString *message = s.message;
+    if (message){
+        NSDictionary *dictOfMedia = [NSPropertyListSerialization
+                                     propertyListWithData:[message dataUsingEncoding:NSUTF8StringEncoding]
+                                     options:kNilOptions
+                                     format:NULL
+                                     error:NULL];
+        
+        
+        if (dictOfMedia!=nil && [dictOfMedia isKindOfClass:[NSDictionary class]] && [dictOfMedia objectForKey:@"type"])
+        {
+             imgViewToZoom= [[UIImageView alloc]initWithFrame:self.view.frame];
+            [imgViewToZoom sd_setImageWithURL:[dictOfMedia objectForKey:@"url"]];
+            [imgViewToZoom addGestureRecognizer:cameraGesture];
+            imgViewToZoom.userInteractionEnabled = true;
+            [self.view addSubview:imgViewToZoom];
+        }
+    }
+}
+-(void)removeImage{
+    [imgViewToZoom removeFromSuperview];
+}
 
 #pragma mark -other
 -(void)setMessageArray:(BOOL)isScroll{
@@ -391,7 +417,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Chat"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"((senderId == %@)AND(recieverId == %@))OR((senderId == %@)AND(recieverId == %@))",[_toId lowercaseString],[fromId lowercaseString],[fromId lowercaseString],[_toId lowercaseString]];
     messagesArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    [CommonFunction resignFirstResponderOfAView:self.view];
+//    [CommonFunction resignFirstResponderOfAView:self.view];
     
     [self.tblView reloadData];
     if (isScroll) {
@@ -482,7 +508,6 @@
     
     [self showActionSheet];
 }
-
 
 
 #pragma mark - keyboard notification
