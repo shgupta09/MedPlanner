@@ -19,11 +19,13 @@
 @property (retain, nonatomic) XMPPIncomingFileTransfer *xmppIncomingFileTransfer;
 @property (weak, nonatomic) IBOutlet UIButton *addOptionBtnAction;
 @property (weak, nonatomic) IBOutlet UIView *viewShowStatus;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Name;
 
 //PatientView
 @property (weak, nonatomic) IBOutlet UIImageView *imgView_patient_BackGround;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView_PatientDoctor;
 @property (weak, nonatomic) IBOutlet UIView *viewPatient;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 @property (strong, nonatomic) NSString* toId ;
 

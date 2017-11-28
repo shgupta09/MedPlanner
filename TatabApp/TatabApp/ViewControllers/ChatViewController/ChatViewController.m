@@ -41,6 +41,7 @@
     picker = [[UIImagePickerController alloc] init];
     lbl_title.text = [NSString stringWithFormat:@"Dr. %@",_objDoctor.first_name];
    imageDataArray = [NSMutableArray new];
+    _lbl_Name.text = [NSString stringWithFormat:@"Dr. %@",_objDoctor.first_name];
     NSString* email = [CommonFunction getValueFromDefaultWithKey:loginemail];
     
     NSString* foo = [NSString stringWithFormat:@"%@%@",[[email componentsSeparatedByString:@"@"] objectAtIndex:0],[[email componentsSeparatedByString:@"@"] objectAtIndex:1]];
@@ -63,12 +64,12 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardDidShow:)
-                                                 name:UIKeyboardDidShowNotification
+                                                 name:UIKeyboardWillShowNotification
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardDidHide:)
-                                                 name:UIKeyboardDidHideNotification
+                                                 name:UIKeyboardWillHideNotification
                                                object:nil];
     _tblView.rowHeight = UITableViewAutomaticDimension;
     _tblView.estimatedRowHeight = 225;
@@ -184,25 +185,25 @@
        }
     else if ([notification.name isEqualToString:XMPPStreamDidReceivePresence])
     {
-        XMPPPresence* presence = notification.object;
-        
-        NSString *presenceType = [presence type]; // online/offline
-        NSString *myUsername = hm.userId;
-        NSString *presenceFromUser = [[presence from] user];
-        
-        if (![presenceFromUser isEqualToString:_toId]) {
-            
-            if ([presenceType isEqualToString:@"available"]) {
-                _viewShowStatus.backgroundColor = [UIColor greenColor];
-                
-                
-            } else if ([presenceType isEqualToString:@"unavailable"]) {
-                
-                _viewShowStatus.backgroundColor = [UIColor whiteColor];
-                
-            }
-            
-        }
+//        XMPPPresence* presence = notification.object;
+//        
+//        NSString *presenceType = [presence type]; // online/offline
+//        NSString *myUsername = hm.userId;
+//        NSString *presenceFromUser = [[presence from] user];
+//        
+//        if (![presenceFromUser isEqualToString:_toId]) {
+//            
+//            if ([presenceType isEqualToString:@"available"]) {
+//                _viewShowStatus.backgroundColor = [UIColor greenColor];
+//                
+//                
+//            } else if ([presenceType isEqualToString:@"unavailable"]) {
+//                
+//                _viewShowStatus.backgroundColor = [UIColor whiteColor];
+//                
+//            }
+//            
+//        }
     
     }
     else if ([notification.name isEqualToString:XMPPStreamDidNotAuthenticate])
@@ -518,13 +519,17 @@
     NSDictionary* keyboardInfo = [notif userInfo];
     NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    
+    
+   
     _bottomConstraint.constant = keyboardFrameBeginRect.size.height;
+    
     [_tblView reloadData];
 }
 
 - (void)keyboardDidHide: (NSNotification *) notif{
     // Do something here
-    _bottomConstraint.constant = 0;
+        _bottomConstraint.constant = 0;
 }
 
 
