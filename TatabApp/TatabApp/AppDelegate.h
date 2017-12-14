@@ -20,35 +20,19 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate,SWRevealViewControllerDelegate>{
     XMPPStream *xmppStream;
     XMPPRoster *xmppRoster;
-    
     NSString *password;
-    
-    
-    
-    
     BOOL isOpen;
-    
     __unsafe_unretained NSObject <SMChatDelegate> *_chatDelegate;
     __unsafe_unretained NSObject <SMMessageDelegate> *_messageDelegate;
-
 }
+
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) UIWindow *window;
-
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
-
-////XMPP
-//@property (nonatomic, strong) XMPPStream *xmppStream;
-//@property (nonatomic, strong) XMPPRosterCoreDataStorage *xmppRosterStorage;
-//@property (nonatomic, strong) XMPPRoster *xmppRoster;
-//@property (nonatomic, strong) id<ChatDelegate> *delegate;
-
-
 @property (nonatomic, readonly) XMPPStream *xmppStream;
 @property (nonatomic, readonly) XMPPRoster *xmppRoster;
-
 @property (nonatomic, assign) id  _chatDelegate;
 @property (nonatomic, assign) id  _messageDelegate;
 

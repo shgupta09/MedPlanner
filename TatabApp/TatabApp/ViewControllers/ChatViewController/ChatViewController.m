@@ -11,8 +11,7 @@
 #import "MessageCell.h"
 #import "Chat+CoreDataProperties.h"
 #import "ImageMessageCell.h"
-@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
-{
+@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>{
     XMPPHandler* hm;
     NSMutableArray	*messagesArray;
     LoderView *loderObj;
@@ -22,11 +21,9 @@
     UIImagePickerControllerSourceType *sourceType;
     UIImageView *imgViewToZoom;
     UITapGestureRecognizer *cameraGesture;
-
-    
 }
-@property (weak, nonatomic) IBOutlet UIButton *btnSend;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnSend;
 @property (weak, nonatomic) IBOutlet UITableView *tblView;
 @property (weak, nonatomic) IBOutlet UITextField *txtField;
 @property (weak, nonatomic) IBOutlet UIView *viewOnlineStatus;
@@ -46,10 +43,7 @@
     
     NSString* foo = [NSString stringWithFormat:@"%@%@",[[email componentsSeparatedByString:@"@"] objectAtIndex:0],[[email componentsSeparatedByString:@"@"] objectAtIndex:1]];
     NSString* userID = foo;
-//    _toId = @"123456";
     fromId = userID;
-//    toId = @"78910";
-//    fromId = userID;
     _viewShowStatus.layer.cornerRadius = 5;
     _viewShowStatus.layer.masksToBounds = true;
     _btnSend.layer.cornerRadius = 5;
@@ -57,7 +51,6 @@
     _txtField.layer.cornerRadius = 5;
     _txtField.layer.masksToBounds = true;
     messagesArray = [[NSMutableArray alloc] init];
-    
     _addOptionBtnAction.tintColor = [UIColor whiteColor];
     UIImage * image = [UIImage imageNamed:@"Plus"];
     [_addOptionBtnAction setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
@@ -111,6 +104,7 @@
 -(void)viewDidDisappear:(BOOL)animated{
     
 }
+
 -(void)setUpRegisterUser{
     hm = [[XMPPHandler alloc] init];
     hm.userId = @"121214545487878";
@@ -122,7 +116,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidRegister object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidNotRegister object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidConnect object:nil];
-    
 }
 
 
@@ -133,24 +126,15 @@
     hm.userId = fromId;
     hm.userPassword = [CommonFunction getValueFromDefaultWithKey:loginPassword];
     hm.hostName = @"80.209.227.103";
-    
     hm.hostPort = [NSNumber numberWithInteger:5222];
-    
-    //    [hm registerUser];
     [hm connectToXMPPServer];
-    
-    
     [hm setMyStatus:MyStatusAvailable];
-    
-    
     [self.tblView registerClass:[MessageCell class] forCellReuseIdentifier: @"MessageCell"];
     [self.tblView registerClass:[ImageMessageCell class] forCellReuseIdentifier: @"ImageMessageCell"];
     [CommonFunction setViewBackground:_tblView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
-//    [self.tblView registerNib:[UINib nibWithNibName:@"ImageMessageCell" bundle:nil] forCellReuseIdentifier: @"ImageMessageCell"];
+  
     // You may need to alter these settings depending on the server you're connecting to
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceiveMessage object:nil];
+   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceiveMessage object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidSendMessage object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceivePresence object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidRegister object:nil];
