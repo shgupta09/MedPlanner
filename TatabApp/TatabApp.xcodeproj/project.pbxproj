@@ -32,6 +32,12 @@
 		5F9F49BF1FB1D791009E1418 /* XMPPHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49BC1FB1D791009E1418 /* XMPPHandler.m */; };
 		5FB5384C1FC31CA500C77713 /* ImageMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB5384A1FC31CA500C77713 /* ImageMessageTableViewCell.m */; };
 		5FB5384D1FC31CA500C77713 /* ImageMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5384B1FC31CA500C77713 /* ImageMessageTableViewCell.xib */; };
+		5FB773E81FF5185F00982102 /* DoctorListEMRLogVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB773E61FF5185F00982102 /* DoctorListEMRLogVC.m */; };
+		5FB773E91FF5185F00982102 /* DoctorListEMRLogVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB773E71FF5185F00982102 /* DoctorListEMRLogVC.xib */; };
+		5FB773ED1FF5189E00982102 /* EMRHealthContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB773EB1FF5189E00982102 /* EMRHealthContainerVC.m */; };
+		5FB773EE1FF5189E00982102 /* EMRHealthContainerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB773EC1FF5189E00982102 /* EMRHealthContainerVC.xib */; };
+		5FB773F31FF525F300982102 /* DoctorListEMRLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB773F11FF525F300982102 /* DoctorListEMRLogTableViewCell.m */; };
+		5FB773F41FF525F300982102 /* DoctorListEMRLogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB773F21FF525F300982102 /* DoctorListEMRLogTableViewCell.xib */; };
 		5FBBBAE51F72401B00C03813 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBAE41F72401B00C03813 /* main.m */; };
 		5FBBBAE81F72401B00C03813 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBAE71F72401B00C03813 /* AppDelegate.m */; };
 		5FBBBAEE1F72401B00C03813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBBBAEC1F72401B00C03813 /* Main.storyboard */; };
@@ -146,6 +152,15 @@
 		5FB538491FC31CA500C77713 /* ImageMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMessageTableViewCell.h; sourceTree = "<group>"; };
 		5FB5384A1FC31CA500C77713 /* ImageMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageMessageTableViewCell.m; sourceTree = "<group>"; };
 		5FB5384B1FC31CA500C77713 /* ImageMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageMessageTableViewCell.xib; sourceTree = "<group>"; };
+		5FB773E51FF5185F00982102 /* DoctorListEMRLogVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorListEMRLogVC.h; sourceTree = "<group>"; };
+		5FB773E61FF5185F00982102 /* DoctorListEMRLogVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorListEMRLogVC.m; sourceTree = "<group>"; };
+		5FB773E71FF5185F00982102 /* DoctorListEMRLogVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorListEMRLogVC.xib; sourceTree = "<group>"; };
+		5FB773EA1FF5189E00982102 /* EMRHealthContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMRHealthContainerVC.h; sourceTree = "<group>"; };
+		5FB773EB1FF5189E00982102 /* EMRHealthContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMRHealthContainerVC.m; sourceTree = "<group>"; };
+		5FB773EC1FF5189E00982102 /* EMRHealthContainerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMRHealthContainerVC.xib; sourceTree = "<group>"; };
+		5FB773F01FF525F300982102 /* DoctorListEMRLogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorListEMRLogTableViewCell.h; sourceTree = "<group>"; };
+		5FB773F11FF525F300982102 /* DoctorListEMRLogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorListEMRLogTableViewCell.m; sourceTree = "<group>"; };
+		5FB773F21FF525F300982102 /* DoctorListEMRLogTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorListEMRLogTableViewCell.xib; sourceTree = "<group>"; };
 		5FBBBAE01F72401B00C03813 /* TatabApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TatabApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBBBAE41F72401B00C03813 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5FBBBAE61F72401B00C03813 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -292,6 +307,7 @@
 		5F1E9B581F76AA62009FECDD /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				5FB773EF1FF525DB00982102 /* DoctorListEMRLogTableViewCell */,
 				9C6DE73D1F83A6B100635102 /* VideoListTableViewCell */,
 				5F4F6C641F82914A000C65A0 /* AwarenessCategoryTableViewCell */,
 				5F1E9B591F76AA9A009FECDD /* DependantDetailTableViewCell */,
@@ -365,6 +381,37 @@
 				5F9F49BC1FB1D791009E1418 /* XMPPHandler.m */,
 			);
 			path = XMPP;
+			sourceTree = "<group>";
+		};
+		5FB773E31FF517AE00982102 /* EMRHealthContainer */ = {
+			isa = PBXGroup;
+			children = (
+				5FB773E41FF517BE00982102 /* EMR */,
+				5FB773EA1FF5189E00982102 /* EMRHealthContainerVC.h */,
+				5FB773EB1FF5189E00982102 /* EMRHealthContainerVC.m */,
+				5FB773EC1FF5189E00982102 /* EMRHealthContainerVC.xib */,
+			);
+			path = EMRHealthContainer;
+			sourceTree = "<group>";
+		};
+		5FB773E41FF517BE00982102 /* EMR */ = {
+			isa = PBXGroup;
+			children = (
+				5FB773E51FF5185F00982102 /* DoctorListEMRLogVC.h */,
+				5FB773E61FF5185F00982102 /* DoctorListEMRLogVC.m */,
+				5FB773E71FF5185F00982102 /* DoctorListEMRLogVC.xib */,
+			);
+			path = EMR;
+			sourceTree = "<group>";
+		};
+		5FB773EF1FF525DB00982102 /* DoctorListEMRLogTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5FB773F01FF525F300982102 /* DoctorListEMRLogTableViewCell.h */,
+				5FB773F11FF525F300982102 /* DoctorListEMRLogTableViewCell.m */,
+				5FB773F21FF525F300982102 /* DoctorListEMRLogTableViewCell.xib */,
+			);
+			path = DoctorListEMRLogTableViewCell;
 			sourceTree = "<group>";
 		};
 		5FBBBAD71F72401B00C03813 = {
@@ -458,6 +505,7 @@
 		5FBBBB111F726FC400C03813 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5FB773E31FF517AE00982102 /* EMRHealthContainer */,
 				5F0B0FCC1FB1EC58006468AA /* ChatViewController */,
 				D8F5A5641F92029600E36160 /* DoctorList */,
 				9C6DE7281F8399B500635102 /* SideMenu */,
@@ -737,8 +785,8 @@
 				TargetAttributes = {
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = H7RFM2VSMC;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = MK5HXMKD83;
+						ProvisioningStyle = Automatic;
 					};
 					5FBBBAFB1F72401C00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -772,8 +820,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D84DF2041F8A0D9C00234070 /* RegisterCompleteViewController.xib in Resources */,
+				5FB773E91FF5185F00982102 /* DoctorListEMRLogVC.xib in Resources */,
 				9C6DE7391F83A60600635102 /* AwarenessVideoListViewController.xib in Resources */,
 				5FBBBB1B1F72720800C03813 /* LoginViewController.xib in Resources */,
+				5FB773EE1FF5189E00982102 /* EMRHealthContainerVC.xib in Resources */,
 				D82354AB1F8A37790097A94C /* RCDoctor1.xib in Resources */,
 				5F4F6C601F828E5A000C65A0 /* AwarenessCategoryViewController.xib in Resources */,
 				5F1E9B3B1F763C73009FECDD /* UserSelectViewController.xib in Resources */,
@@ -789,6 +839,7 @@
 				D84B6BBD1F77837500F37660 /* LoderView.xib in Resources */,
 				5F1E9B311F763C49009FECDD /* SplashScreenViewController.xib in Resources */,
 				5F1E9B5E1F76AAB4009FECDD /* DependantDetailTableViewCell.xib in Resources */,
+				5FB773F41FF525F300982102 /* DoctorListEMRLogTableViewCell.xib in Resources */,
 				9C6DE72D1F8399CD00635102 /* RearViewController.xib in Resources */,
 				5FBBBAEE1F72401B00C03813 /* Main.storyboard in Resources */,
 				5FB5384D1FC31CA500C77713 /* ImageMessageTableViewCell.xib in Resources */,
@@ -1033,9 +1084,11 @@
 				9C8FE6D71F8B53270003003C /* RCDoctor3.m in Sources */,
 				5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */,
 				D84B6BB71F777D2C00F37660 /* WebServicesCall.m in Sources */,
+				5FB773F31FF525F300982102 /* DoctorListEMRLogTableViewCell.m in Sources */,
 				5F4F6C631F828F81000C65A0 /* AwarenessCategory.m in Sources */,
 				5F6DA7031FC3EF4F004F70E4 /* ImageMessageCell.m in Sources */,
 				5F5DF37B1FB31D1800956B62 /* MessageCell.m in Sources */,
+				5FB773ED1FF5189E00982102 /* EMRHealthContainerVC.m in Sources */,
 				5FB5384C1FC31CA500C77713 /* ImageMessageTableViewCell.m in Sources */,
 				5F4F6C681F82915F000C65A0 /* AwarenessCategoryTableViewCell.m in Sources */,
 				5F9F49BD1FB1D791009E1418 /* README.md in Sources */,
@@ -1071,6 +1124,7 @@
 				5F9F49BE1FB1D791009E1418 /* XMPPCoreDataHandler.m in Sources */,
 				D8F108B61FBFF4580049296C /* TatabApp.xcdatamodeld in Sources */,
 				9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */,
+				5FB773E81FF5185F00982102 /* DoctorListEMRLogVC.m in Sources */,
 				5F1E9B521F76482D009FECDD /* Reachability.m in Sources */,
 				D8F5A5721F920B1C00E36160 /* CustomButton2.m in Sources */,
 				9C6DE7411F83A6B100635102 /* VideoListTableViewCell.m in Sources */,
@@ -1210,7 +1264,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H7RFM2VSMC;
+				DEVELOPMENT_TEAM = MK5HXMKD83;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1219,10 +1273,10 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.npglobal.SSCreative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4c2c2744-7fe3-4977-bc24-9e63e7ee1a4e";
-				PROVISIONING_PROFILE_SPECIFIER = "medplanner development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1232,7 +1286,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H7RFM2VSMC;
+				DEVELOPMENT_TEAM = MK5HXMKD83;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1241,10 +1295,10 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.npglobal.SSCreative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4c2c2744-7fe3-4977-bc24-9e63e7ee1a4e";
-				PROVISIONING_PROFILE_SPECIFIER = "medplanner development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

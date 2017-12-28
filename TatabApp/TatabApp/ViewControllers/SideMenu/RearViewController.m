@@ -7,6 +7,7 @@
 //
 
 #import "RearViewController.h"
+
 @interface RearViewController ()
 {
     NSArray *titleArray;
@@ -23,8 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      revealController = [self revealViewController];
-    titleArray  = [[NSArray alloc]initWithObjects:@"SETTING",@"PROFILE",@"Logout", nil];
-    titleImageArray = [[NSArray alloc] initWithObjects:@"Icon---Setttings",@"Icon---Profile",@"", nil];
+    titleArray  = [[NSArray alloc]initWithObjects:@"SETTING",@"EMR & HEALTH",@"PROFILE",@"Logout", nil];
+    titleImageArray = [[NSArray alloc] initWithObjects:@"Icon---Setttings",@"Icon---Setttings",@"Icon---Profile",@"", nil];
      [_tbl_View registerNib:[UINib nibWithNibName:@"RearCell" bundle:nil]forCellReuseIdentifier:@"RearCell"];
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 100;
@@ -48,7 +49,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
    
-    return categoryArray.count+3;
+    return categoryArray.count+4;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -83,8 +84,14 @@
             case 0:
                 break;
             case 1:
+            {
+                EMRHealthContainerVC* vc ;
+                vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
+                [self.navigationController pushViewController:vc animated:true];
+            }
+                
                 break;
-            case 2 :{
+            case 3 :{
                 
                 UIAlertController * alert=   [UIAlertController
                                               alertControllerWithTitle:@"Logout"
