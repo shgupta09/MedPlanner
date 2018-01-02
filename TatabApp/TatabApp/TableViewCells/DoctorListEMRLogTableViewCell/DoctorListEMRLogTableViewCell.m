@@ -20,5 +20,11 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)btnDetailsClicked:(id)sender {
+    [_delegate btnDetailsTapped:sender];
+}
+- (IBAction)btnFollowClicked:(id)sender {
+    [_delegate btnFollowTapped:sender];
+}
 
 @end

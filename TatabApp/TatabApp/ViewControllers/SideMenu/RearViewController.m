@@ -37,6 +37,9 @@
     }
     // Do any additional setup after loading the view from its nib.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+}
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
 }

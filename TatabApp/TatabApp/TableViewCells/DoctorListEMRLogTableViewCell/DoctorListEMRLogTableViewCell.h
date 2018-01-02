@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DoctorListEMRLogTableViewCellDelegate
+- (void)btnDetailsTapped:(UIButton*)sender;
+- (void)btnFollowTapped:(UIButton*)sender;
+@end
+
+
+    
+    
+    
+
 @interface DoctorListEMRLogTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *lblDate;
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewProfile;
@@ -15,5 +25,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblCategoryName;
 @property (weak, nonatomic) IBOutlet UIButton *btnfollowUp;
 @property (weak, nonatomic) IBOutlet UIButton *btnDetails;
+@property (nonatomic, assign)   id<DoctorListEMRLogTableViewCellDelegate> delegate;
 
 @end

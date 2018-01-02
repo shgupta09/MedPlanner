@@ -113,7 +113,6 @@ static NSString* const COLORCODE = @"#d22424";
 static NSString* const COLORCODE_FOR_TEXTFIELD = @"#00b1dd";
 
 
-
 static NSString* const API_BASE_URL = @"http://www.dataheadstudio.com/test/api/";
 static NSString* const API_FETCH_DOCTOR = @"specialization";
 static NSString* const API_SA_BASE_URL = @"sa-service/";
@@ -133,6 +132,9 @@ static NSString* const API_WEATHER = @"list/Weather";
 
 static NSString* const API_UploadDocument = @"upload";
 static NSString* const API_FETCH_PATIENTS = @"patients";
+static NSString* const API_GET_CHAT_GROUP = @"getchatgroup";
+static NSString* const API_ADD_CHAT_GROUP = @"chatgroup";
+static NSString* const API_GET_PRES_FOLLOW_UP_DETAILS = @"getprescription";
 
 static NSString* const API_RegisterDoctor = @"registerdoctor";
 #endif /* Constant_h */ 

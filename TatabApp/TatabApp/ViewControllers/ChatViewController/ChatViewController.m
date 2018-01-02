@@ -88,6 +88,33 @@
         _viewPatient.hidden = true;
         _viewDoctor.hidden = false;
     }
+    
+    
+    UIAlertController* alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Add to Chat list"
+                                          message:@"Do you wish to add this doctor into your chat list? Will be added into your EMR secton."
+                                          preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction* item1 = [UIAlertAction actionWithTitle:@"Add"
+                                                    style:UIAlertActionStyleDefault
+                                                  handler:^(UIAlertAction *action) {
+                                                      //do something here
+
+                                                      [self hitApiForToAddIntoChatGroup];
+                                                      [alertController dismissViewControllerAnimated:YES completion:nil];
+                                                  }];
+    
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alertController addAction:item1];
+    [alertController addAction:cancelAction];
+    
+    alertController.popoverPresentationController.sourceView = self.view;
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -523,7 +550,7 @@
     self.view.userInteractionEnabled = NO;
     //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
     loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
-    loderObj.lbl_title.text = @"Uploading image...";
+    loderObj.lbl_title.text = @"Please wait...";
     [self.view addSubview:loderObj];
 }
 
@@ -642,6 +669,60 @@
     return processedImage;
     
 }
+
+
+#pragma mark - Api Related
+-(void)hitApiForToAddIntoChatGroup{
+    
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld", (long)_objDoctor.doctor_id ] forKey:@"doctor_id"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_ADD_CHAT_GROUP]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+
+                    
+                    NSLog(@"Added Successfully into the chat list");
+                
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                
+                }else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        [self removeloder];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
+
+
+
+
 @end
 
 

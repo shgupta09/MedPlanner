@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F02F9FC1FF7B0F500219F4C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F02F9FA1FF7B0F500219F4C /* DetailViewController.m */; };
+		5F02F9FD1FF7B0F500219F4C /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F02F9FB1FF7B0F500219F4C /* DetailViewController.xib */; };
 		5F0B0FD01FB1EC82006468AA /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B0FCE1FB1EC82006468AA /* ChatViewController.m */; };
 		5F0B0FD11FB1EC82006468AA /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0B0FCF1FB1EC82006468AA /* ChatViewController.xib */; };
 		5F1E9B301F763C49009FECDD /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B2E1F763C49009FECDD /* SplashScreenViewController.m */; };
@@ -105,6 +107,9 @@
 		0B7243BFA15CEF2681A99446 /* Pods-TatabAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TatabAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TatabAppTests/Pods-TatabAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TatabAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E254AF616877AABF7CAB560 /* Pods-TatabAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TatabAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TatabAppTests/Pods-TatabAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		5F02F9F91FF7B0F500219F4C /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		5F02F9FA1FF7B0F500219F4C /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		5F02F9FB1FF7B0F500219F4C /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		5F0B0FCD1FB1EC82006468AA /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		5F0B0FCE1FB1EC82006468AA /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		5F0B0FCF1FB1EC82006468AA /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
@@ -283,6 +288,16 @@
 				3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F02F9F81FF7B0D800219F4C /* DetailViewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				5F02F9F91FF7B0F500219F4C /* DetailViewController.h */,
+				5F02F9FA1FF7B0F500219F4C /* DetailViewController.m */,
+				5F02F9FB1FF7B0F500219F4C /* DetailViewController.xib */,
+			);
+			path = DetailViewcontroller;
 			sourceTree = "<group>";
 		};
 		5F0B0FCC1FB1EC58006468AA /* ChatViewController */ = {
@@ -505,6 +520,7 @@
 		5FBBBB111F726FC400C03813 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5F02F9F81FF7B0D800219F4C /* DetailViewcontroller */,
 				5FB773E31FF517AE00982102 /* EMRHealthContainer */,
 				5F0B0FCC1FB1EC58006468AA /* ChatViewController */,
 				D8F5A5641F92029600E36160 /* DoctorList */,
@@ -785,7 +801,7 @@
 				TargetAttributes = {
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = MK5HXMKD83;
+						DevelopmentTeam = 2NUUE95Z88;
 						ProvisioningStyle = Automatic;
 					};
 					5FBBBAFB1F72401C00C03813 = {
@@ -827,6 +843,7 @@
 				D82354AB1F8A37790097A94C /* RCDoctor1.xib in Resources */,
 				5F4F6C601F828E5A000C65A0 /* AwarenessCategoryViewController.xib in Resources */,
 				5F1E9B3B1F763C73009FECDD /* UserSelectViewController.xib in Resources */,
+				5F02F9FD1FF7B0F500219F4C /* DetailViewController.xib in Resources */,
 				9C8FE6DD1F8B8DCF0003003C /* RCDoctor4.xib in Resources */,
 				5FBBBAF61F72401B00C03813 /* LaunchScreen.storyboard in Resources */,
 				D8F5A5691F9202AF00E36160 /* DoctorListVC.xib in Resources */,
@@ -1125,6 +1142,7 @@
 				D8F108B61FBFF4580049296C /* TatabApp.xcdatamodeld in Sources */,
 				9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */,
 				5FB773E81FF5185F00982102 /* DoctorListEMRLogVC.m in Sources */,
+				5F02F9FC1FF7B0F500219F4C /* DetailViewController.m in Sources */,
 				5F1E9B521F76482D009FECDD /* Reachability.m in Sources */,
 				D8F5A5721F920B1C00E36160 /* CustomButton2.m in Sources */,
 				9C6DE7411F83A6B100635102 /* VideoListTableViewCell.m in Sources */,
@@ -1264,7 +1282,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = MK5HXMKD83;
+				DEVELOPMENT_TEAM = 2NUUE95Z88;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1273,7 +1291,7 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.npglobal.SSCreative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assusoft.SSCreative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1286,7 +1304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = MK5HXMKD83;
+				DEVELOPMENT_TEAM = 2NUUE95Z88;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1295,7 +1313,7 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.npglobal.SSCreative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assusoft.SSCreative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

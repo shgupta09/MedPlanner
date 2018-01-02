@@ -8,7 +8,8 @@
 
 #import "EMRHealthContainerVC.h"
 #import "DoctorListEMRLogTableViewCell.h"
-@interface EMRHealthContainerVC ()<UITableViewDataSource,UITableViewDelegate>
+#import "DetailViewController.h"
+@interface EMRHealthContainerVC ()<UITableViewDataSource,UITableViewDelegate,DoctorListEMRLogTableViewCellDelegate>
 {
     LoderView *loderObj;
     NSMutableArray *doctorListArray;
@@ -76,6 +77,11 @@
     cell.lblDate.text = obj.created_at;
         cell.imgViewProfile.layer.cornerRadius = 8;
         cell.imgViewProfile.clipsToBounds = true;
+    
+    [cell.btnDetails setTag:indexPath.row];
+    [cell.btnfollowUp setTag:indexPath.row];
+    cell.delegate = self;
+    
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
         
@@ -91,6 +97,24 @@
    
 }
 
+#pragma maek - cell buttons actions
+
+-(void)btnDetailsTapped:(UIButton *)sender{
+    UIButton* btn = sender;
+    Specialization* obj = [doctorListArray objectAtIndex:btn.tag];
+    NSLog(@"%@", obj.first_name);
+    
+    [self hitApiForDetails:obj.doctor_id];
+}
+-(void)btnFollowTapped:(UIButton *)sender{
+    UIButton* btn = sender;
+    Specialization* obj = [doctorListArray objectAtIndex:btn.tag];
+    NSLog(@"%@", obj.first_name);
+
+    [self hitApiForFollowUp:obj.doctor_id];
+}
+
+
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
@@ -98,22 +122,26 @@
 
 
 #pragma mark - Api Related
--(void)hitApiForSpeciality{
-    
+
+
+-(void)hitApiForDetails:(int)doctorId{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:@"3" forKey:@"specialist_id"];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DOCTOR]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_PRES_FOLLOW_UP_DETAILS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    
+                    
                     doctorListArray = [NSMutableArray new];
                     NSArray *tempArray = [NSArray new];
-                    tempArray  = [responseObj valueForKey:@"specialization"];
+                    tempArray  = [responseObj valueForKey:@"data"] ;
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         
                         Specialization *specializationObj = [Specialization new];
@@ -132,6 +160,120 @@
                         [doctorListArray addObject:specializationObj];
                     }];
                     [_tblView reloadData];
+                    
+                }else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        [self removeloder];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+
+}
+
+-(void)hitApiForFollowUp:(int)doctorId{
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
+
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_PRES_FOLLOW_UP_DETAILS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    
+                    
+                    DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+                    
+                    [self presentViewController:vc animated:false completion:^{
+                        [self removeloder];
+
+                    }];
+                    
+                    
+                }else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        [self removeloder];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+
+}
+
+
+-(void)hitApiForSpeciality{
+    
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_CHAT_GROUP]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    
+                    
+                    doctorListArray = [NSMutableArray new];
+                    NSArray *tempArray = [NSArray new];
+                    tempArray  = [responseObj valueForKey:@"data"];
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        
+                        Specialization *specializationObj = [Specialization new];
+                        specializationObj.classificationOfDoctor = [obj valueForKey:@"classification"];
+                        specializationObj.created_at = [obj valueForKey:@"created_at"];
+                        specializationObj.current_grade = [obj valueForKey:@"current_grade"];
+                        specializationObj.doctor_id = [[obj valueForKey:@"doctor_id"] integerValue];
+                        specializationObj.first_name = [obj valueForKey:@"first_name"];
+                        specializationObj.gender = [obj valueForKey:@"gender"];
+                        specializationObj.last_name = [obj valueForKey:@"last_name"];
+                        specializationObj.photo = [obj valueForKey:@"photo"];
+                        specializationObj.sub_specialist = [obj valueForKey:@"sub_specialist"];
+                        specializationObj.workplace = [obj valueForKey:@"workplace"];
+                        specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                        
+                        [doctorListArray addObject:specializationObj];
+                    }];
+                    [_tblView reloadData];
+                
                 }else
                 {
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -158,12 +300,13 @@
 }
 
 
+#pragma mark - add loder
 
 -(void)addLoder{
     self.view.userInteractionEnabled = NO;
     //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
     loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
-    loderObj.lbl_title.text = @"Please wait...";
+    loderObj.lbl_title.text = @"Fetching doctors...";
     [self.view addSubview:loderObj];
 }
 
@@ -176,4 +319,6 @@
 
 
 
+
+            
 @end
