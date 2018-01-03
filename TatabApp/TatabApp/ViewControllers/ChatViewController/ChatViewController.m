@@ -136,7 +136,7 @@
     hm = [[XMPPHandler alloc] init];
     hm.userId = @"121214545487878";
     hm.userPassword = @"willpower";
-    hm.hostName = @"80.209.227.103";
+    hm.hostName = @"35.154.181.86";
     hm.hostPort = [NSNumber numberWithInteger:5222];
    
      [hm registerUser];
@@ -152,7 +152,7 @@
     hm = [[XMPPHandler alloc] init];
     hm.userId = fromId;
     hm.userPassword = [CommonFunction getValueFromDefaultWithKey:loginPassword];
-    hm.hostName = @"80.209.227.103";
+    hm.hostName = @"35.154.181.86";
     hm.hostPort = [NSNumber numberWithInteger:5222];
     [hm connectToXMPPServer];
     [hm setMyStatus:MyStatusAvailable];

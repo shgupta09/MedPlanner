@@ -84,7 +84,7 @@
     hm = [[XMPPHandler alloc] init];
     hm.userId = @"asdffsadfcccc";
     hm.userPassword = @"willpower";
-    hm.hostName = @"80.209.227.103";
+    hm.hostName =@"35.154.181.86";
     [hm.xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
     hm.hostPort = [NSNumber numberWithInteger:5222];
     [hm setupXMPPStream];
@@ -355,7 +355,7 @@
                         NSString* userID = foo;
                         hm.userId = userID;
                         hm.userPassword = [_parameterDict valueForKey:@"password"];
-                        hm.hostName = @"80.209.227.103";
+                        hm.hostName = @"35.154.181.86";
                         hm.hostPort = [NSNumber numberWithInteger:5222];
 
                         [hm registerUser];
