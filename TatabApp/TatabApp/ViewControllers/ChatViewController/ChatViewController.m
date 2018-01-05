@@ -21,12 +21,16 @@
     UIImagePickerControllerSourceType *sourceType;
     UIImageView *imgViewToZoom;
     UITapGestureRecognizer *cameraGesture;
+    NSMutableArray *doctorListArray;
+    NSString *uploadType;
+    __weak IBOutlet UITextView *textView_advice;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *btnSend;
 @property (weak, nonatomic) IBOutlet UITableView *tblView;
 @property (weak, nonatomic) IBOutlet UITextField *txtField;
 @property (weak, nonatomic) IBOutlet UIView *viewOnlineStatus;
+@property (strong, nonatomic) IBOutlet UIView *popUpView;
 
 
 @end
@@ -35,6 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    doctorListArray = [NSMutableArray new];
+   
     picker = [[UIImagePickerController alloc] init];
     lbl_title.text = [NSString stringWithFormat:@"Dr. %@",_objDoctor.first_name];
    imageDataArray = [NSMutableArray new];
@@ -84,36 +90,14 @@
         _imgView_patient_BackGround.clipsToBounds = true;
         _lbl_Patient_Clinic.text = _awarenessObj.category_name;
          [_imgView_PatientDoctor sd_setImageWithURL:[NSURL URLWithString:_objDoctor.photo] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
+        [self hitApiForDoctorList];
     }else{
         _viewPatient.hidden = true;
         _viewDoctor.hidden = false;
     }
     
     
-    UIAlertController* alertController = [UIAlertController
-                                          alertControllerWithTitle:@"Add to Chat list"
-                                          message:@"Do you wish to add this doctor into your chat list? Will be added into your EMR secton."
-                                          preferredStyle:UIAlertControllerStyleActionSheet];
     
-    UIAlertAction* item1 = [UIAlertAction actionWithTitle:@"Add"
-                                                    style:UIAlertActionStyleDefault
-                                                  handler:^(UIAlertAction *action) {
-                                                      //do something here
-
-                                                      [self hitApiForToAddIntoChatGroup];
-                                                      [alertController dismissViewControllerAnimated:YES completion:nil];
-                                                  }];
-    
-    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [alertController dismissViewControllerAnimated:YES completion:nil];
-    }];
-    
-    [alertController addAction:item1];
-    [alertController addAction:cancelAction];
-    
-    alertController.popoverPresentationController.sourceView = self.view;
-    
-    [self presentViewController:alertController animated:YES completion:nil];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -276,6 +260,27 @@
     [self.navigationController popViewControllerAnimated:true];
 }
 
+- (IBAction)btnActionSubmit:(id)sender {
+    if (![textView_advice.text isEqualToString:@""]) {
+        [self hitApiForUpload];
+    }
+}
+- (IBAction)btnAction_Cancel:(id)sender {
+    [_popUpView removeFromSuperview];
+}
+- (IBAction)btnActionPreception:(id)sender {
+    uploadType = @"prescription";
+    [self addPopupview];
+}
+- (IBAction)btnAction_fellowUp:(id)sender {
+    uploadType = @"followup";
+    [self addPopupview];
+}
+- (IBAction)btnAction_Diagnose:(id)sender {
+    uploadType = @"diagnosis";
+    [self addPopupview];
+}
+
 #pragma mark -Table view delegates
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -425,6 +430,17 @@
 }
 
 #pragma mark -other
+
+-(void)addPopupview{
+//     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
+    [[self popUpView] setAutoresizesSubviews:true];
+    [[self popUpView] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
+    frame.origin.y = 0.0f;
+    self.popUpView.center = CGPointMake(self.view.center.x, self.view.center.y);
+    [[self popUpView] setFrame:frame];
+    [self.view addSubview:_popUpView];
+}
 -(void)setMessageArray:(BOOL)isScroll{
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     
@@ -672,6 +688,96 @@
 
 
 #pragma mark - Api Related
+-(void)hitApiForDoctorList{
+    
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_CHAT_GROUP]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    
+                   __block bool tempBool = false;
+                    doctorListArray = [NSMutableArray new];
+                    NSArray *tempArray = [NSArray new];
+                    tempArray  = [responseObj valueForKey:@"data"];
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        if (_objDoctor.doctor_id == [[obj valueForKey:@"doctor_id"] integerValue]  ) {
+                            tempBool = true;
+                        }
+                        
+                    }];
+                    if (!tempBool) {
+                        UIAlertController* alertController = [UIAlertController
+                                                              alertControllerWithTitle:@"Add to Chat list"
+                                                              message:@"Do you wish to add this doctor into your chat list? Will be added into your EMR secton."
+                                                              preferredStyle:UIAlertControllerStyleActionSheet];
+                        
+                        UIAlertAction* item1 = [UIAlertAction actionWithTitle:@"Add"
+                                                                        style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction *action) {
+                                                                          //do something here
+                                                                          
+                                                                          [self hitApiForToAddIntoChatGroup];
+                                                                          [alertController dismissViewControllerAnimated:YES completion:nil];
+                                                                      }];
+                        
+                        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            [alertController dismissViewControllerAnimated:YES completion:nil];
+                        }];
+                        
+                        [alertController addAction:item1];
+                        [alertController addAction:cancelAction];
+                        
+                        alertController.popoverPresentationController.sourceView = self.view;
+                        
+                        [self presentViewController:alertController animated:YES completion:nil];
+                    }
+                    //                        Specialization *specializationObj = [Specialization new];
+                    //                        specializationObj.classificationOfDoctor = [obj valueForKey:@"classification"];
+                    //                        specializationObj.created_at = [obj valueForKey:@"created_at"];
+                    //                        specializationObj.current_grade = [obj valueForKey:@"current_grade"];
+                    //                        specializationObj.doctor_id = [[obj valueForKey:@"doctor_id"] integerValue];
+                    //                        specializationObj.first_name = [obj valueForKey:@"first_name"];
+                    //                        specializationObj.gender = [obj valueForKey:@"gender"];
+                    //                        specializationObj.last_name = [obj valueForKey:@"last_name"];
+                    //                        specializationObj.photo = [obj valueForKey:@"photo"];
+                    //                        specializationObj.sub_specialist = [obj valueForKey:@"sub_specialist"];
+                    //                        specializationObj.workplace = [obj valueForKey:@"workplace"];
+                    //                        specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                    //                        
+                    //                        [doctorListArray addObject:specializationObj];
+//                    [doctorListArray]
+                    
+                }else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                [self removeloder];
+            }
+        }];
+    } else {
+        [self removeloder];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
+
+
+
 -(void)hitApiForToAddIntoChatGroup{
     
     
@@ -681,19 +787,60 @@
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_ADD_CHAT_GROUP]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-
-                    
                     NSLog(@"Added Successfully into the chat list");
-                
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                     [alertController addAction:ok];
-                
+                }else{
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                [self removeloder];
+            }
+        }];
+    } else {
+        [self removeloder];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+-(void)hitApiForUpload{
+    
+   
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%ld", (long)_objDoctor.doctor_id ] forKey:@"patient_id"];
+    [parameter setValue:uploadType forKey:@"type"];
+    [parameter setValue:textView_advice.text forKey:@"detail"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UPLOAD_DOCTOR_ADVICE]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    
+                    
+                    NSLog(@"Added Successfully into the chat list");
+                    
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        [_popUpView removeFromSuperview];
+                        textView_advice.text = @"";
+                    }];
+                    [alertController addAction:ok];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    
                 }else
                 {
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];

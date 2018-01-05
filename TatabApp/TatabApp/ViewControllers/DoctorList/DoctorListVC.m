@@ -87,7 +87,7 @@
     else
     {
         ChatPatient *obj = [patientListArray objectAtIndex:indexPath.row];
-        cell.lbl_name.text = [NSString stringWithFormat:@"Dr. %@",obj.name];
+        cell.lbl_name.text = [NSString stringWithFormat:@"Mr. %@",obj.name];
         cell.lbl_specialization.text = @"Patient";
         cell.lbl_sub_specialization.text = obj.gender;
         //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
@@ -115,6 +115,7 @@
         ChatPatient *obj = [patientListArray objectAtIndex:indexPath.row];
         Specialization* temp = [Specialization new];
         temp.first_name = obj.name;
+        temp.doctor_id = [obj.patient_id integerValue];
         vc.objDoctor  = temp;
         
         vc.awarenessObj = _awarenessObj;
@@ -192,24 +193,26 @@
 
 #pragma mark - Api Related
 -(void)hitApiForPatientList{
-    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
+
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_PATIENTS]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_PATIENTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     patientListArray = [NSMutableArray new];
                     NSArray *tempArray = [NSArray new];
-                    tempArray  = [responseObj valueForKey:@"patients"];
+                    tempArray  = [responseObj valueForKey:@"data"];
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         
                         ChatPatient *specializationObj = [ChatPatient new];
                         specializationObj.gender = [obj valueForKey:@"gender"];
                         specializationObj.patient_id = [obj valueForKey:@"patient_id"];
-                        specializationObj.name = [obj valueForKey:@"name"];
-                        specializationObj.dob = [obj valueForKey:@"dob"];
+                        specializationObj.name = [NSString stringWithFormat:@"%@ %@",[obj valueForKey:@"first_name"],[obj valueForKey:@"last_name"]];
+                        specializationObj.dob = [obj valueForKey:@"date_of_birth"];
                         specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
                         [patientListArray addObject:specializationObj];
