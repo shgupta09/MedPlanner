@@ -135,6 +135,6 @@ static NSString* const API_FETCH_PATIENTS = @"patients";
 static NSString* const API_GET_CHAT_GROUP = @"getchatgroup";
 static NSString* const API_ADD_CHAT_GROUP = @"chatgroup";
 static NSString* const API_GET_PRES_FOLLOW_UP_DETAILS = @"getprescription";
-
+static NSString* const API_UPLOAD_DOCTOR_ADVICE = @"prescription";
 static NSString* const API_RegisterDoctor = @"registerdoctor";
 #endif /* Constant_h */ 
