@@ -26,5 +26,8 @@
 - (IBAction)btnFollowClicked:(id)sender {
     [_delegate btnFollowTapped:sender];
 }
+- (IBAction)btnPrescriptionClicked:(id)sender {
+    [_delegate btnPrescriptionTapped:sender];
+}
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol DoctorListEMRLogTableViewCellDelegate
+- (void)btnPrescriptionTapped:(UIButton*)sender;
 - (void)btnDetailsTapped:(UIButton*)sender;
 - (void)btnFollowTapped:(UIButton*)sender;
 @end
@@ -26,5 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnfollowUp;
 @property (weak, nonatomic) IBOutlet UIButton *btnDetails;
 @property (nonatomic, assign)   id<DoctorListEMRLogTableViewCellDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIButton *btnPrescription;
 
 @end

@@ -12,6 +12,7 @@
 {
     LoderView *loderObj;
 }
+@property (weak, nonatomic) IBOutlet UILabel *lblHeader;
 
 @end
 
@@ -20,6 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _lblHeader.text =_detailType;
+    
+    _lblDetail.text = [[_detailArray objectAtIndex:0] valueForKey:@"details"];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -29,6 +33,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - btn Actions
+- (IBAction)btnBackClicked:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
 
 
 

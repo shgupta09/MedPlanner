@@ -80,6 +80,7 @@
     
     [cell.btnDetails setTag:indexPath.row];
     [cell.btnfollowUp setTag:indexPath.row];
+    [cell.btnPrescription setTag:indexPath.row];
     cell.delegate = self;
     
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -110,8 +111,16 @@
     UIButton* btn = sender;
     Specialization* obj = [doctorListArray objectAtIndex:btn.tag];
     NSLog(@"%@", obj.first_name);
-
+    
     [self hitApiForFollowUp:obj.doctor_id];
+}
+
+-(void)btnPrescriptionTapped:(UIButton *)sender{
+    UIButton* btn = sender;
+    Specialization* obj = [doctorListArray objectAtIndex:btn.tag];
+    NSLog(@"%@", obj.first_name);
+    
+    [self hitApiForPrescription:obj.doctor_id];
 }
 
 
@@ -139,27 +148,27 @@
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     
                     
-                    doctorListArray = [NSMutableArray new];
+                    NSMutableArray* array = [NSMutableArray new];
                     NSArray *tempArray = [NSArray new];
-                    tempArray  = [responseObj valueForKey:@"data"] ;
+                    tempArray  = [[responseObj valueForKey:@"data"] valueForKey:@"diagnosis"];;
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         
-                        Specialization *specializationObj = [Specialization new];
-                        specializationObj.classificationOfDoctor = [obj valueForKey:@"classification"];
-                        specializationObj.created_at = [obj valueForKey:@"created_at"];
-                        specializationObj.current_grade = [obj valueForKey:@"current_grade"];
-                        specializationObj.doctor_id = [[obj valueForKey:@"doctor_id"] integerValue];
-                        specializationObj.first_name = [obj valueForKey:@"first_name"];
-                        specializationObj.gender = [obj valueForKey:@"gender"];
-                        specializationObj.last_name = [obj valueForKey:@"last_name"];
-                        specializationObj.photo = [obj valueForKey:@"photo"];
-                        specializationObj.sub_specialist = [obj valueForKey:@"sub_specialist"];
-                        specializationObj.workplace = [obj valueForKey:@"workplace"];
-                        specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                        CommonInfoPatient *object = [CommonInfoPatient new];
+                        object.identifier = [obj valueForKey:@"id"];
+                        object.created_at = [obj valueForKey:@"created_at"];
+                        object.type = [obj valueForKey:@"type"];
+                        object.details = [obj valueForKey:@"details"];
                         
-                        [doctorListArray addObject:specializationObj];
+                        [array addObject:object];
                     }];
-                    [_tblView reloadData];
+                    DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+                    vc.detailType = @"diagnosis";
+                    vc.detailArray = array;
+                    [self presentViewController:vc animated:false completion:^{
+                        [self removeloder];
+                        
+                    }];
+                    
                     
                 }else
                 {
@@ -184,7 +193,69 @@
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
     }
-
+    
+}
+-(void)hitApiForPrescription:(int)doctorId{
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_PRES_FOLLOW_UP_DETAILS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    
+                    
+                    NSMutableArray* array = [NSMutableArray new];
+                    NSArray *tempArray = [NSArray new];
+                    tempArray  = [[responseObj valueForKey:@"data"] valueForKey:@"prescription"];;
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        
+                        CommonInfoPatient *object = [CommonInfoPatient new];
+                        object.identifier = [obj valueForKey:@"id"];
+                        object.created_at = [obj valueForKey:@"created_at"];
+                        object.type = [obj valueForKey:@"type"];
+                        object.details = [obj valueForKey:@"details"];
+                        
+                        [array addObject:object];
+                    }];
+                    DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+                    vc.detailType = @"diagnosis";
+                    vc.detailArray = array;
+                    [self presentViewController:vc animated:false completion:^{
+                        [self removeloder];
+                        
+                    }];
+                    
+                    
+                }else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        [self removeloder];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+    
 }
 
 -(void)hitApiForFollowUp:(int)doctorId{
@@ -200,10 +271,22 @@
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_PRES_FOLLOW_UP_DETAILS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    
-                    
+                    NSMutableArray* array = [NSMutableArray new];
+                    NSArray *tempArray = [NSArray new];
+                    tempArray  = [[responseObj valueForKey:@"data"] valueForKey:@"followup"];;
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        
+                        CommonInfoPatient *object = [CommonInfoPatient new];
+                        object.identifier = [obj valueForKey:@"id"];
+                        object.created_at = [obj valueForKey:@"created_at"];
+                        object.type = [obj valueForKey:@"type"];
+                        object.details = [obj valueForKey:@"details"];
+                        
+                        [array addObject:object];
+                    }];
                     DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-                    
+                    vc.detailType = @"followup";
+                    vc.detailArray = array;
                     [self presentViewController:vc animated:false completion:^{
                         [self removeloder];
 

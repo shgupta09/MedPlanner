@@ -49,6 +49,7 @@
 		5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBB181F72720800C03813 /* LoginViewController.m */; };
 		5FBBBB1B1F72720800C03813 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FBBBB191F72720800C03813 /* LoginViewController.xib */; };
 		5FC496DC1FCBDC1B004E537A /* ChatPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC496DB1FCBDC1B004E537A /* ChatPatient.m */; };
+		5FD369151FFE954A00FC6C3F /* CommonInfoPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD369141FFE954A00FC6C3F /* CommonInfoPatient.m */; };
 		6B88C8AAED0F77BF5245AA06 /* Pods_TatabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */; };
 		884FE13F103CA6FC743E4912 /* Pods_TatabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */; };
 		9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */; };
@@ -182,6 +183,8 @@
 		5FBBBB191F72720800C03813 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5FC496DA1FCBDC1B004E537A /* ChatPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatPatient.h; sourceTree = "<group>"; };
 		5FC496DB1FCBDC1B004E537A /* ChatPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatPatient.m; sourceTree = "<group>"; };
+		5FD369131FFE954A00FC6C3F /* CommonInfoPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonInfoPatient.h; sourceTree = "<group>"; };
+		5FD369141FFE954A00FC6C3F /* CommonInfoPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonInfoPatient.m; sourceTree = "<group>"; };
 		9C4C5ECC1F792725003D84BD /* RegistrationDpendency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationDpendency.h; sourceTree = "<group>"; };
 		9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationDpendency.m; sourceTree = "<group>"; };
 		9C6DE7291F8399CD00635102 /* RearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RearViewController.h; sourceTree = "<group>"; };
@@ -602,6 +605,8 @@
 				D8EE8B151F95E564006A018E /* Specialization.m */,
 				5FC496DA1FCBDC1B004E537A /* ChatPatient.h */,
 				5FC496DB1FCBDC1B004E537A /* ChatPatient.m */,
+				5FD369131FFE954A00FC6C3F /* CommonInfoPatient.h */,
+				5FD369141FFE954A00FC6C3F /* CommonInfoPatient.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1099,6 +1104,7 @@
 			files = (
 				5F4F6C5F1F828E5A000C65A0 /* AwarenessCategoryViewController.m in Sources */,
 				9C8FE6D71F8B53270003003C /* RCDoctor3.m in Sources */,
+				5FD369151FFE954A00FC6C3F /* CommonInfoPatient.m in Sources */,
 				5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */,
 				D84B6BB71F777D2C00F37660 /* WebServicesCall.m in Sources */,
 				5FB773F31FF525F300982102 /* DoctorListEMRLogTableViewCell.m in Sources */,

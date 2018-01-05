@@ -26,7 +26,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAX-58-zHj">
-                        <rect key="frame" x="48" y="0.0" width="176" height="60"/>
+                        <rect key="frame" x="48" y="0.0" width="128" height="60"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="C4f-SB-qSa">
                                 <rect key="frame" x="5" y="5" width="50" height="50"/>
@@ -36,7 +36,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelcdjmfgjksgajkdgsajkfgd" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlX-8n-2Mn">
-                                <rect key="frame" x="57" y="5" width="114" height="29"/>
+                                <rect key="frame" x="57" y="5" width="66" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="ltX-dN-DdF"/>
                                 </constraints>
@@ -64,23 +64,32 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7m-0c-oRA">
-                        <rect key="frame" x="224" y="0.0" width="48" height="60"/>
-                        <state key="normal" title="Button" image="Obgyne Clinic"/>
+                        <rect key="frame" x="176" y="0.0" width="48" height="60"/>
+                        <state key="normal" title="Button" image="details"/>
                         <connections>
                             <action selector="btnDetailsClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4vM-ig-DUy"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O62-dz-5qo">
+                        <rect key="frame" x="224" y="0.0" width="48" height="60"/>
+                        <state key="normal" title="Button" image="FollowUp"/>
+                        <connections>
+                            <action selector="btnPrescriptionClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="niY-rM-eUS"/>
+                        </connections>
+                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSL-Kl-8vI">
                         <rect key="frame" x="272" y="0.0" width="48" height="60"/>
-                        <state key="normal" title="Button" image="Pediatrics Clinic"/>
+                        <state key="normal" title="Button" image="FollowUp"/>
                         <connections>
                             <action selector="btnFollowClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ibV-0Z-CS0"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="O62-dz-5qo" firstAttribute="leading" secondItem="v7m-0c-oRA" secondAttribute="trailing" id="1i7-74-OoQ"/>
                     <constraint firstItem="dXJ-oV-RHW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3lJ-vp-45f"/>
                     <constraint firstItem="v7m-0c-oRA" firstAttribute="leading" secondItem="RAX-58-zHj" secondAttribute="trailing" id="Efv-SP-sij"/>
+                    <constraint firstAttribute="bottom" secondItem="O62-dz-5qo" secondAttribute="bottom" id="Hmv-JZ-oB1"/>
                     <constraint firstAttribute="trailing" secondItem="TSL-Kl-8vI" secondAttribute="trailing" id="NVR-9n-JZf"/>
                     <constraint firstItem="dXJ-oV-RHW" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.15" id="NZp-em-t9D"/>
                     <constraint firstItem="RAX-58-zHj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Of9-15-3fd"/>
@@ -91,14 +100,17 @@
                     <constraint firstAttribute="bottom" secondItem="v7m-0c-oRA" secondAttribute="bottom" id="cCD-wV-eJj"/>
                     <constraint firstItem="v7m-0c-oRA" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.15" id="cWw-0G-m4I"/>
                     <constraint firstItem="RAX-58-zHj" firstAttribute="leading" secondItem="dXJ-oV-RHW" secondAttribute="trailing" id="fJY-TP-Odf"/>
-                    <constraint firstItem="RAX-58-zHj" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.55" id="hpx-eC-gbZ"/>
+                    <constraint firstItem="RAX-58-zHj" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.4" id="hpx-eC-gbZ"/>
+                    <constraint firstItem="O62-dz-5qo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jOT-HT-TQB"/>
                     <constraint firstAttribute="bottom" secondItem="TSL-Kl-8vI" secondAttribute="bottom" id="koX-cd-Tns"/>
                     <constraint firstItem="dXJ-oV-RHW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="s3X-Tp-UK6"/>
-                    <constraint firstItem="TSL-Kl-8vI" firstAttribute="leading" secondItem="v7m-0c-oRA" secondAttribute="trailing" id="zuF-ZA-x2s"/>
+                    <constraint firstItem="O62-dz-5qo" firstAttribute="width" secondItem="v7m-0c-oRA" secondAttribute="width" id="umd-X3-OFx"/>
+                    <constraint firstItem="TSL-Kl-8vI" firstAttribute="leading" secondItem="O62-dz-5qo" secondAttribute="trailing" id="vbS-N6-B8o"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnDetails" destination="v7m-0c-oRA" id="ohe-mU-lrB"/>
+                <outlet property="btnPrescription" destination="O62-dz-5qo" id="Xhf-SZ-bxD"/>
                 <outlet property="btnfollowUp" destination="TSL-Kl-8vI" id="clF-vQ-9CD"/>
                 <outlet property="imgViewProfile" destination="C4f-SB-qSa" id="Mk5-V8-8vq"/>
                 <outlet property="lblCategoryName" destination="Ik2-OA-Fag" id="RHx-li-wAV"/>
@@ -109,8 +121,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Obgyne Clinic" width="750" height="680"/>
-        <image name="Pediatrics Clinic" width="750" height="680"/>
+        <image name="FollowUp" width="72" height="77"/>
+        <image name="details" width="79" height="82"/>
         <image name="profile" width="218" height="256"/>
     </resources>
 </document>

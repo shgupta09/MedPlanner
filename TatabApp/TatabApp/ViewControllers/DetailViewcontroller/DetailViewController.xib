@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
                 <outlet property="lblDetail" destination="J6t-MI-H5h" id="gwh-HE-J3d"/>
+                <outlet property="lblHeader" destination="yhx-wV-SXi" id="K8R-dt-jUk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,6 +41,9 @@
                         <constraint firstAttribute="width" constant="50" id="PJC-7e-jzS"/>
                     </constraints>
                     <state key="normal" title="Back"/>
+                    <connections>
+                        <action selector="btnBackClicked:" destination="-1" eventType="touchUpInside" id="CfD-Ug-prS"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhx-wV-SXi">
                     <rect key="frame" x="170" y="43" width="35" height="21"/>
