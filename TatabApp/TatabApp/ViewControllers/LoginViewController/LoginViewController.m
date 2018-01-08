@@ -27,14 +27,9 @@
     _txtUsername.leftImgView.image = [UIImage imageNamed:@"d"];
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
     _txtPassword.text = @"Admin@123";
-<<<<<<< HEAD
     _txtUsername.text = @"demo1patient@yopmail.com";
     // Do any additional setup after loading the view from its nib.
-=======
-   // _txtUsername.text = @"demo1patient@yopmail.com";
-     _txtUsername.text = @"demo1doctor@yopmail.com";// Do any additional setup after loading the view from its nib.
->>>>>>> d5cae604554f42321463ff76ac808b48259fe4ae
-    
+   
   
 
 }

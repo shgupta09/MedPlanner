@@ -23,7 +23,13 @@
     
     _lblHeader.text =_detailType;
     
-    _lblDetail.text = [[_detailArray objectAtIndex:0] valueForKey:@"details"];
+    if ([_detailArray count]>0) {
+        _lblDetail.text = [[_detailArray objectAtIndex:0] valueForKey:@"details"];
+    }
+    else{
+        _lblDetail.text = @"Oopss..!! No details to display..!!";
+
+    }
     
     // Do any additional setup after loading the view from its nib.
 }
