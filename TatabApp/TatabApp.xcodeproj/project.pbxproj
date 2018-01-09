@@ -21,6 +21,7 @@
 		5F1E9B521F76482D009FECDD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B511F76482D009FECDD /* Reachability.m */; };
 		5F1E9B5D1F76AAB4009FECDD /* DependantDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B5B1F76AAB4009FECDD /* DependantDetailTableViewCell.m */; };
 		5F1E9B5E1F76AAB4009FECDD /* DependantDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E9B5C1F76AAB4009FECDD /* DependantDetailTableViewCell.xib */; };
+		5F415F422003E13500862F0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F415F412003E13500862F0B /* Assets.xcassets */; };
 		5F4F6C5F1F828E5A000C65A0 /* AwarenessCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F6C5D1F828E5A000C65A0 /* AwarenessCategoryViewController.m */; };
 		5F4F6C601F828E5A000C65A0 /* AwarenessCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F4F6C5E1F828E5A000C65A0 /* AwarenessCategoryViewController.xib */; };
 		5F4F6C631F828F81000C65A0 /* AwarenessCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F6C621F828F81000C65A0 /* AwarenessCategory.m */; };
@@ -32,6 +33,16 @@
 		5F9F49BD1FB1D791009E1418 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49B61FB1D791009E1418 /* README.md */; };
 		5F9F49BE1FB1D791009E1418 /* XMPPCoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49BA1FB1D791009E1418 /* XMPPCoreDataHandler.m */; };
 		5F9F49BF1FB1D791009E1418 /* XMPPHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F49BC1FB1D791009E1418 /* XMPPHandler.m */; };
+		5FB51C402003E5BE00E4889B /* FeverReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB51C2F2003E5BE00E4889B /* FeverReportViewController.m */; };
+		5FB51C412003E5BE00E4889B /* FeverReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB51C302003E5BE00E4889B /* FeverReportViewController.xib */; };
+		5FB51C422003E5BE00E4889B /* HealthTrackerContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB51C322003E5BE00E4889B /* HealthTrackerContainerVC.m */; };
+		5FB51C432003E5BE00E4889B /* HealthTrackerContainerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB51C332003E5BE00E4889B /* HealthTrackerContainerVC.xib */; };
+		5FB51C442003E5BE00E4889B /* PressureReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB51C362003E5BE00E4889B /* PressureReportViewController.m */; };
+		5FB51C452003E5BE00E4889B /* PressureReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB51C372003E5BE00E4889B /* PressureReportViewController.xib */; };
+		5FB51C462003E5BE00E4889B /* SugarReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB51C3A2003E5BE00E4889B /* SugarReportViewController.m */; };
+		5FB51C472003E5BE00E4889B /* SugarReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB51C3B2003E5BE00E4889B /* SugarReportViewController.xib */; };
+		5FB51C482003E5BE00E4889B /* WeightReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB51C3E2003E5BE00E4889B /* WeightReportViewController.m */; };
+		5FB51C492003E5BE00E4889B /* WeightReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB51C3F2003E5BE00E4889B /* WeightReportViewController.xib */; };
 		5FB5384C1FC31CA500C77713 /* ImageMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB5384A1FC31CA500C77713 /* ImageMessageTableViewCell.m */; };
 		5FB5384D1FC31CA500C77713 /* ImageMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5384B1FC31CA500C77713 /* ImageMessageTableViewCell.xib */; };
 		5FB773E81FF5185F00982102 /* DoctorListEMRLogVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB773E61FF5185F00982102 /* DoctorListEMRLogVC.m */; };
@@ -43,7 +54,6 @@
 		5FBBBAE51F72401B00C03813 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBAE41F72401B00C03813 /* main.m */; };
 		5FBBBAE81F72401B00C03813 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBAE71F72401B00C03813 /* AppDelegate.m */; };
 		5FBBBAEE1F72401B00C03813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBBBAEC1F72401B00C03813 /* Main.storyboard */; };
-		5FBBBAF31F72401B00C03813 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FBBBAF21F72401B00C03813 /* Assets.xcassets */; };
 		5FBBBAF61F72401B00C03813 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBBBAF41F72401B00C03813 /* LaunchScreen.storyboard */; };
 		5FBBBB011F72401C00C03813 /* TatabAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBB001F72401C00C03813 /* TatabAppTests.m */; };
 		5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBBBB181F72720800C03813 /* LoginViewController.m */; };
@@ -135,6 +145,7 @@
 		5F1E9B5A1F76AAB4009FECDD /* DependantDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DependantDetailTableViewCell.h; sourceTree = "<group>"; };
 		5F1E9B5B1F76AAB4009FECDD /* DependantDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DependantDetailTableViewCell.m; sourceTree = "<group>"; };
 		5F1E9B5C1F76AAB4009FECDD /* DependantDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DependantDetailTableViewCell.xib; sourceTree = "<group>"; };
+		5F415F412003E13500862F0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F4F6C5C1F828E5A000C65A0 /* AwarenessCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwarenessCategoryViewController.h; sourceTree = "<group>"; };
 		5F4F6C5D1F828E5A000C65A0 /* AwarenessCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwarenessCategoryViewController.m; sourceTree = "<group>"; };
 		5F4F6C5E1F828E5A000C65A0 /* AwarenessCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AwarenessCategoryViewController.xib; sourceTree = "<group>"; };
@@ -155,6 +166,21 @@
 		5F9F49BA1FB1D791009E1418 /* XMPPCoreDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPCoreDataHandler.m; sourceTree = "<group>"; };
 		5F9F49BB1FB1D791009E1418 /* XMPPHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPHandler.h; sourceTree = "<group>"; };
 		5F9F49BC1FB1D791009E1418 /* XMPPHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPHandler.m; sourceTree = "<group>"; };
+		5FB51C2E2003E5BE00E4889B /* FeverReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeverReportViewController.h; sourceTree = "<group>"; };
+		5FB51C2F2003E5BE00E4889B /* FeverReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeverReportViewController.m; sourceTree = "<group>"; };
+		5FB51C302003E5BE00E4889B /* FeverReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeverReportViewController.xib; sourceTree = "<group>"; };
+		5FB51C312003E5BE00E4889B /* HealthTrackerContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthTrackerContainerVC.h; sourceTree = "<group>"; };
+		5FB51C322003E5BE00E4889B /* HealthTrackerContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthTrackerContainerVC.m; sourceTree = "<group>"; };
+		5FB51C332003E5BE00E4889B /* HealthTrackerContainerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthTrackerContainerVC.xib; sourceTree = "<group>"; };
+		5FB51C352003E5BE00E4889B /* PressureReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PressureReportViewController.h; sourceTree = "<group>"; };
+		5FB51C362003E5BE00E4889B /* PressureReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PressureReportViewController.m; sourceTree = "<group>"; };
+		5FB51C372003E5BE00E4889B /* PressureReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PressureReportViewController.xib; sourceTree = "<group>"; };
+		5FB51C392003E5BE00E4889B /* SugarReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugarReportViewController.h; sourceTree = "<group>"; };
+		5FB51C3A2003E5BE00E4889B /* SugarReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugarReportViewController.m; sourceTree = "<group>"; };
+		5FB51C3B2003E5BE00E4889B /* SugarReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SugarReportViewController.xib; sourceTree = "<group>"; };
+		5FB51C3D2003E5BE00E4889B /* WeightReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightReportViewController.h; sourceTree = "<group>"; };
+		5FB51C3E2003E5BE00E4889B /* WeightReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightReportViewController.m; sourceTree = "<group>"; };
+		5FB51C3F2003E5BE00E4889B /* WeightReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeightReportViewController.xib; sourceTree = "<group>"; };
 		5FB538491FC31CA500C77713 /* ImageMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMessageTableViewCell.h; sourceTree = "<group>"; };
 		5FB5384A1FC31CA500C77713 /* ImageMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageMessageTableViewCell.m; sourceTree = "<group>"; };
 		5FB5384B1FC31CA500C77713 /* ImageMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageMessageTableViewCell.xib; sourceTree = "<group>"; };
@@ -172,7 +198,6 @@
 		5FBBBAE61F72401B00C03813 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5FBBBAE71F72401B00C03813 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5FBBBAED1F72401B00C03813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5FBBBAF21F72401B00C03813 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FBBBAF51F72401B00C03813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FBBBAF71F72401B00C03813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FBBBAFC1F72401C00C03813 /* TatabAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TatabAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -401,6 +426,60 @@
 			path = XMPP;
 			sourceTree = "<group>";
 		};
+		5FB51C2C2003E5BE00E4889B /* HealthTrackerContainer */ = {
+			isa = PBXGroup;
+			children = (
+				5FB51C2D2003E5BE00E4889B /* FeverReportViewController */,
+				5FB51C312003E5BE00E4889B /* HealthTrackerContainerVC.h */,
+				5FB51C322003E5BE00E4889B /* HealthTrackerContainerVC.m */,
+				5FB51C332003E5BE00E4889B /* HealthTrackerContainerVC.xib */,
+				5FB51C342003E5BE00E4889B /* PressureReportViewController */,
+				5FB51C382003E5BE00E4889B /* SugarReportViewController */,
+				5FB51C3C2003E5BE00E4889B /* WeightReportViewController */,
+			);
+			path = HealthTrackerContainer;
+			sourceTree = "<group>";
+		};
+		5FB51C2D2003E5BE00E4889B /* FeverReportViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5FB51C2E2003E5BE00E4889B /* FeverReportViewController.h */,
+				5FB51C2F2003E5BE00E4889B /* FeverReportViewController.m */,
+				5FB51C302003E5BE00E4889B /* FeverReportViewController.xib */,
+			);
+			path = FeverReportViewController;
+			sourceTree = "<group>";
+		};
+		5FB51C342003E5BE00E4889B /* PressureReportViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5FB51C352003E5BE00E4889B /* PressureReportViewController.h */,
+				5FB51C362003E5BE00E4889B /* PressureReportViewController.m */,
+				5FB51C372003E5BE00E4889B /* PressureReportViewController.xib */,
+			);
+			path = PressureReportViewController;
+			sourceTree = "<group>";
+		};
+		5FB51C382003E5BE00E4889B /* SugarReportViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5FB51C392003E5BE00E4889B /* SugarReportViewController.h */,
+				5FB51C3A2003E5BE00E4889B /* SugarReportViewController.m */,
+				5FB51C3B2003E5BE00E4889B /* SugarReportViewController.xib */,
+			);
+			path = SugarReportViewController;
+			sourceTree = "<group>";
+		};
+		5FB51C3C2003E5BE00E4889B /* WeightReportViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5FB51C3D2003E5BE00E4889B /* WeightReportViewController.h */,
+				5FB51C3E2003E5BE00E4889B /* WeightReportViewController.m */,
+				5FB51C3F2003E5BE00E4889B /* WeightReportViewController.xib */,
+			);
+			path = WeightReportViewController;
+			sourceTree = "<group>";
+		};
 		5FB773E31FF517AE00982102 /* EMRHealthContainer */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,10 +543,10 @@
 				5FBBBAE61F72401B00C03813 /* AppDelegate.h */,
 				5FBBBAE71F72401B00C03813 /* AppDelegate.m */,
 				5FBBBAEC1F72401B00C03813 /* Main.storyboard */,
-				5FBBBAF21F72401B00C03813 /* Assets.xcassets */,
 				5FBBBAF41F72401B00C03813 /* LaunchScreen.storyboard */,
 				5FBBBAF71F72401B00C03813 /* Info.plist */,
 				5FBBBAE31F72401B00C03813 /* Supporting Files */,
+				5F415F412003E13500862F0B /* Assets.xcassets */,
 			);
 			path = TatabApp;
 			sourceTree = "<group>";
@@ -523,6 +602,7 @@
 		5FBBBB111F726FC400C03813 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5FB51C2C2003E5BE00E4889B /* HealthTrackerContainer */,
 				5F02F9F81FF7B0D800219F4C /* DetailViewcontroller */,
 				5FB773E31FF517AE00982102 /* EMRHealthContainer */,
 				5F0B0FCC1FB1EC58006468AA /* ChatViewController */,
@@ -807,7 +887,7 @@
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = H7RFM2VSMC;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					5FBBBAFB1F72401C00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -841,6 +921,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D84DF2041F8A0D9C00234070 /* RegisterCompleteViewController.xib in Resources */,
+				5FB51C412003E5BE00E4889B /* FeverReportViewController.xib in Resources */,
+				5FB51C492003E5BE00E4889B /* WeightReportViewController.xib in Resources */,
 				5FB773E91FF5185F00982102 /* DoctorListEMRLogVC.xib in Resources */,
 				9C6DE7391F83A60600635102 /* AwarenessVideoListViewController.xib in Resources */,
 				5FBBBB1B1F72720800C03813 /* LoginViewController.xib in Resources */,
@@ -854,7 +936,6 @@
 				D8F5A5691F9202AF00E36160 /* DoctorListVC.xib in Resources */,
 				D82354B01F8A6C2E0097A94C /* RCDoctor2.xib in Resources */,
 				9C6DE7421F83A6B100635102 /* VideoListTableViewCell.xib in Resources */,
-				5FBBBAF31F72401B00C03813 /* Assets.xcassets in Resources */,
 				5F4F6C691F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib in Resources */,
 				D8F5A56F1F9202D300E36160 /* HomeCell.xib in Resources */,
 				D8EE8B1C1F966FB8006A018E /* CustomAlert.xib in Resources */,
@@ -862,10 +943,14 @@
 				5F1E9B311F763C49009FECDD /* SplashScreenViewController.xib in Resources */,
 				5F1E9B5E1F76AAB4009FECDD /* DependantDetailTableViewCell.xib in Resources */,
 				5FB773F41FF525F300982102 /* DoctorListEMRLogTableViewCell.xib in Resources */,
+				5FB51C472003E5BE00E4889B /* SugarReportViewController.xib in Resources */,
 				9C6DE72D1F8399CD00635102 /* RearViewController.xib in Resources */,
 				5FBBBAEE1F72401B00C03813 /* Main.storyboard in Resources */,
 				5FB5384D1FC31CA500C77713 /* ImageMessageTableViewCell.xib in Resources */,
+				5F415F422003E13500862F0B /* Assets.xcassets in Resources */,
 				5F0B0FD11FB1EC82006468AA /* ChatViewController.xib in Resources */,
+				5FB51C432003E5BE00E4889B /* HealthTrackerContainerVC.xib in Resources */,
+				5FB51C452003E5BE00E4889B /* PressureReportViewController.xib in Resources */,
 				9C8FE6D81F8B53270003003C /* RCDoctor3.xib in Resources */,
 				D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */,
 				9C6DE7331F83A1FC00635102 /* RearCell.xib in Resources */,
@@ -1118,7 +1203,9 @@
 				9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */,
 				9C6DE7381F83A60600635102 /* AwarenessVideoListViewController.m in Sources */,
 				5F9F49BF1FB1D791009E1418 /* XMPPHandler.m in Sources */,
+				5FB51C462003E5BE00E4889B /* SugarReportViewController.m in Sources */,
 				5F1E9B4A1F76442C009FECDD /* CommonFunction.m in Sources */,
+				5FB51C482003E5BE00E4889B /* WeightReportViewController.m in Sources */,
 				D8F5A5681F9202AF00E36160 /* DoctorListVC.m in Sources */,
 				5F1E9B5D1F76AAB4009FECDD /* DependantDetailTableViewCell.m in Sources */,
 				5FBBBAE81F72401B00C03813 /* AppDelegate.m in Sources */,
@@ -1127,6 +1214,7 @@
 				D8F5A5621F92021A00E36160 /* PatientHomeVC.m in Sources */,
 				5F1E9B4E1F764568009FECDD /* CustomButton.m in Sources */,
 				D8EE8B161F95E564006A018E /* Specialization.m in Sources */,
+				5FB51C442003E5BE00E4889B /* PressureReportViewController.m in Sources */,
 				D8F108C11FC09A140049296C /* Chat+CoreDataClass.m in Sources */,
 				5F1E9B301F763C49009FECDD /* SplashScreenViewController.m in Sources */,
 				9C6DE73C1F83A61A00635102 /* VideoListObject.m in Sources */,
@@ -1139,6 +1227,7 @@
 				D8F5A56E1F9202D300E36160 /* HomeCell.m in Sources */,
 				5FBBBAE51F72401B00C03813 /* main.m in Sources */,
 				D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */,
+				5FB51C402003E5BE00E4889B /* FeverReportViewController.m in Sources */,
 				D8F5A55D1F92020300E36160 /* HomeViewController.m in Sources */,
 				5F5DF37E1FB31DA600956B62 /* Message.m in Sources */,
 				D82354AF1F8A6C2E0097A94C /* RCDoctor2.m in Sources */,
@@ -1148,6 +1237,7 @@
 				D8F108B61FBFF4580049296C /* TatabApp.xcdatamodeld in Sources */,
 				9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */,
 				5FB773E81FF5185F00982102 /* DoctorListEMRLogVC.m in Sources */,
+				5FB51C422003E5BE00E4889B /* HealthTrackerContainerVC.m in Sources */,
 				5F02F9FC1FF7B0F500219F4C /* DetailViewController.m in Sources */,
 				5F1E9B521F76482D009FECDD /* Reachability.m in Sources */,
 				D8F5A5721F920B1C00E36160 /* CustomButton2.m in Sources */,
@@ -1297,10 +1387,10 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ulab.SSCreative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "bb512a9b-5d71-4d77-9b0e-866d99333639";
+				PROVISIONING_PROFILE_SPECIFIER = "medplanner development";
 			};
 			name = Debug;
 		};
@@ -1319,10 +1409,10 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ulab.SSCreative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "bb512a9b-5d71-4d77-9b0e-866d99333639";
+				PROVISIONING_PROFILE_SPECIFIER = "medplanner development";
 			};
 			name = Release;
 		};

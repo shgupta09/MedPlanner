@@ -24,14 +24,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - btn Actions
+- (IBAction)btnBackClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:true];
 }
-*/
+- (IBAction)btnEMRClcked:(id)sender {
+    
+    [self dismissViewControllerAnimated:false completion:nil];
+    
+}
+
+- (IBAction)btnWeightClicked:(id)sender {
+
+    WeightReportViewController* vc = [[WeightReportViewController alloc] initWithNibName:@"WeightReportViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:false];
+    
+}
+- (IBAction)btnBloodPressureClicked:(id)sender {
+
+    PressureReportViewController* vc = [[PressureReportViewController alloc] initWithNibName:@"PressureReportViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:false];
+
+}
+- (IBAction)btnFeverClicked:(id)sender {
+    FeverReportViewController* vc = [[FeverReportViewController alloc] initWithNibName:@"FeverReportViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:false];
+
+}
+- (IBAction)btnBloodSugar:(id)sender {
+
+    SugarReportViewController* vc = [[SugarReportViewController alloc] initWithNibName:@"SugarReportViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:false];
+}
+
 
 @end

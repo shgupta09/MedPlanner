@@ -53,6 +53,14 @@
     // Dispose of any resources that can be recreated.
 }
 //
+- (IBAction)btnHealthTrackerClicked:(id)sender {
+    HealthTrackerContainerVC* vc ;
+    vc = [[HealthTrackerContainerVC alloc] initWithNibName:@"HealthTrackerContainerVC" bundle:nil];
+    UINavigationController* navVC = [[UINavigationController alloc ] initWithRootViewController:vc];
+    navVC.navigationBarHidden = true;
+    [self.navigationController presentViewController:navVC animated:false completion:nil];
+    
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     

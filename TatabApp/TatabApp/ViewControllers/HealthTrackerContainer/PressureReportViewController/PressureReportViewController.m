@@ -24,6 +24,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - btn Actions
+- (IBAction)btnBackClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:false];
+}
+
+- (IBAction)btnEMRClcked:(id)sender {
+    
+    [self dismissViewControllerAnimated:false completion:nil];
+    
+}
+
+
 /*
 #pragma mark - Navigation
 

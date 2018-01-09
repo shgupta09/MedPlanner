@@ -47,6 +47,11 @@
 #import "ImageMessageTableViewCell.h"
 #import "ChatPatient.h"
 #import "EMRHealthContainerVC.h"
+#import "HealthTrackerContainerVC.h"
+#import "WeightReportViewController.h"
+#import "PressureReportViewController.h"
+#import "SugarReportViewController.h"
+#import "FeverReportViewController.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
