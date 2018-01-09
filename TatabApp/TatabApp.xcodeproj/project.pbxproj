@@ -80,6 +80,7 @@
 		D82354AB1F8A37790097A94C /* RCDoctor1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82354A91F8A37790097A94C /* RCDoctor1.xib */; };
 		D82354AF1F8A6C2E0097A94C /* RCDoctor2.m in Sources */ = {isa = PBXBuildFile; fileRef = D82354AD1F8A6C2E0097A94C /* RCDoctor2.m */; };
 		D82354B01F8A6C2E0097A94C /* RCDoctor2.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82354AE1F8A6C2E0097A94C /* RCDoctor2.xib */; };
+		D842065F2005444D00459FC2 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = D842065E2005444D00459FC2 /* Report.m */; };
 		D84B6BB71F777D2C00F37660 /* WebServicesCall.m in Sources */ = {isa = PBXBuildFile; fileRef = D84B6BB61F777D2C00F37660 /* WebServicesCall.m */; };
 		D84B6BBC1F77837500F37660 /* LoderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D84B6BBA1F77837500F37660 /* LoderView.m */; };
 		D84B6BBD1F77837500F37660 /* LoderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84B6BBB1F77837500F37660 /* LoderView.xib */; };
@@ -240,6 +241,8 @@
 		D82354AC1F8A6C2E0097A94C /* RCDoctor2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoctor2.h; sourceTree = "<group>"; };
 		D82354AD1F8A6C2E0097A94C /* RCDoctor2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDoctor2.m; sourceTree = "<group>"; };
 		D82354AE1F8A6C2E0097A94C /* RCDoctor2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDoctor2.xib; sourceTree = "<group>"; };
+		D842065D2005444D00459FC2 /* Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
+		D842065E2005444D00459FC2 /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
 		D84B6BB51F777D2C00F37660 /* WebServicesCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServicesCall.h; sourceTree = "<group>"; };
 		D84B6BB61F777D2C00F37660 /* WebServicesCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServicesCall.m; sourceTree = "<group>"; };
 		D84B6BB91F77837500F37660 /* LoderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoderView.h; sourceTree = "<group>"; };
@@ -687,6 +690,8 @@
 				5FC496DB1FCBDC1B004E537A /* ChatPatient.m */,
 				5FD369131FFE954A00FC6C3F /* CommonInfoPatient.h */,
 				5FD369141FFE954A00FC6C3F /* CommonInfoPatient.m */,
+				D842065D2005444D00459FC2 /* Report.h */,
+				D842065E2005444D00459FC2 /* Report.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1241,6 +1246,7 @@
 				5F02F9FC1FF7B0F500219F4C /* DetailViewController.m in Sources */,
 				5F1E9B521F76482D009FECDD /* Reachability.m in Sources */,
 				D8F5A5721F920B1C00E36160 /* CustomButton2.m in Sources */,
+				D842065F2005444D00459FC2 /* Report.m in Sources */,
 				9C6DE7411F83A6B100635102 /* VideoListTableViewCell.m in Sources */,
 				9C6DE72C1F8399CD00635102 /* RearViewController.m in Sources */,
 			);

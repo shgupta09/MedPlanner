@@ -28,7 +28,8 @@
 
 //Api related
 
-
+#define PATIENT_ID @"patient_id"
+#define DOCTOR_ID @"doctor_id"
 #define loginPassword @"password"
 #define loginemail @"email"
 #define loginfirstname @"first_name"
@@ -137,4 +138,12 @@ static NSString* const API_ADD_CHAT_GROUP = @"chatgroup";
 static NSString* const API_GET_PRES_FOLLOW_UP_DETAILS = @"getprescription";
 static NSString* const API_UPLOAD_DOCTOR_ADVICE = @"prescription";
 static NSString* const API_RegisterDoctor = @"registerdoctor";
-#endif /* Constant_h */ 
+static NSString* const API_GET_BLOODSUGAR = @"getbloodsugar";
+static NSString* const API_UPLOAD_BLOODSUGAR = @"reportbloodsugar";
+static NSString* const API_GET_BLOODPRESSURE = @"getbloodpressure";
+static NSString* const API_UPLOAD_BLOODPRESSURE = @"reportbloodpressure";
+static NSString* const API_GET_WEIGHT = @"getreportweight";
+static NSString* const API_UPLOAD_WEIGHT = @"reportweight";
+static NSString* const API_GET_FEVER_REPORT = @"getreportfever";
+static NSString* const API_UPLOAD_FEVER_REPORT = @"reportfever";
+#endif /* Constant_h */

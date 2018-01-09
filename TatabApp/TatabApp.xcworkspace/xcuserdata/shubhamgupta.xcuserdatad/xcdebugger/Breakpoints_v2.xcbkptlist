@@ -148,7 +148,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
-                  timestampString = "536841991.092063"
+                  timestampString = "537214929.847217"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "203"
@@ -163,7 +163,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
-                  timestampString = "536841991.093943"
+                  timestampString = "537214929.849798"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "204"
@@ -267,6 +267,38 @@
             endingLineNumber = "242"
             landmarkName = "-hitApiForSpeciality"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[EMRHealthContainerVC hitApiForPrescription:]_block_invoke"
+                  moduleName = "TatabApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/EMRHealthContainer/EMRHealthContainerVC.m"
+                  timestampString = "537214929.87544"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "243"
+                  endingLineNumber = "243"
+                  offsetFromSymbolStart = "840">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[EMRHealthContainerVC hitApiForPrescription:]_block_invoke"
+                  moduleName = "TatabApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/EMRHealthContainer/EMRHealthContainerVC.m"
+                  timestampString = "537214929.877808"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "243"
+                  endingLineNumber = "243"
+                  offsetFromSymbolStart = "936">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -436,7 +468,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
-                  timestampString = "536841991.149691"
+                  timestampString = "537214929.920427"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"
@@ -451,7 +483,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
-                  timestampString = "536841991.151293"
+                  timestampString = "537214929.923057"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
@@ -714,6 +746,86 @@
             startingLineNumber = "310"
             endingLineNumber = "310"
             landmarkName = "-xmppStreamDidConnect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/HealthTrackerContainer/HealthTrackerContainerVC.m"
+            timestampString = "537214974.333549"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/HealthTrackerContainer/FeverReportViewController/FeverReportViewController.m"
+            timestampString = "537214977.092281"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/HealthTrackerContainer/PressureReportViewController/PressureReportViewController.m"
+            timestampString = "537214982.926493"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/HealthTrackerContainer/SugarReportViewController/SugarReportViewController.m"
+            timestampString = "537214986.958604"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/HealthTrackerContainer/WeightReportViewController/WeightReportViewController.m"
+            timestampString = "537214991.102982"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
