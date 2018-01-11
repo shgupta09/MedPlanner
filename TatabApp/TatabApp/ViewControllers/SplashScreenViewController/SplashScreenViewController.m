@@ -30,46 +30,17 @@
     
 //        sleep(1);
     
-    if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
-        
-        
-        if ([[CommonFunction getValueFromDefaultWithKey:loginuseIsComplete] integerValue] ==1)
-        {
-            RegisterCompleteViewController* vc;
-            vc = [[RegisterCompleteViewController alloc] initWithNibName:@"RegisterCompleteViewController" bundle:nil];
-//                        [CommonFunction storeValueInDefault:[CommonFunction trimString:_txtName.text] andKey:@"firstName"];
-           
-            [self presentViewController:vc animated:true completion:nil];
-        
-        }
-        else
-        {
-            RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
-            SWRevealViewController *mainRevealController;
-            if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Doctor"]) {
-                HomeViewController *frontViewController = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
-                mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
-            }else{
-                PatientHomeVC *frontViewController = [[PatientHomeVC alloc]initWithNibName:@"PatientHomeVC" bundle:nil];
-                mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
-                
-            }
-            mainRevealController.delegate = self;
-            mainRevealController.view.backgroundColor = [UIColor blackColor];
-//            [frontViewController.view addSubview:[CommonFunction setStatusBarColor]];
-            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mainRevealController];
-            ((AppDelegate *)[[UIApplication sharedApplication] delegate]).window.rootViewController = nav;
+    RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
+    SWRevealViewController *mainRevealController;
+    NewAwareVC *frontViewController = [[NewAwareVC alloc]initWithNibName:@"NewAwareVC" bundle:nil];
+        mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
+   
+    mainRevealController.delegate = self;
+    mainRevealController.view.backgroundColor = [UIColor blackColor];
+    //            [frontViewController.view addSubview:[CommonFunction setStatusBarColor]];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mainRevealController];
+    ((AppDelegate *)[[UIApplication sharedApplication] delegate]).window.rootViewController = nav;
 
-        }
-    }
-    else
-    {
-        UserSelectViewController* vc = [[UserSelectViewController alloc] initWithNibName:@"UserSelectViewController" bundle:nil];
-        vc.isRegistrationSelection = false;
-//        UINavigationController* navCon = [[UINavigationController alloc] initWithRootViewController:vc];
-//        vc.navigationController.navigationBarHidden = true;
-        [self presentViewController:vc animated:YES completion:nil];
-    }
     
     
 }

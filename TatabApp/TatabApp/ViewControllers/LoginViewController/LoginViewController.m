@@ -48,7 +48,7 @@
 
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+    [self.navigationController popViewControllerAnimated:true];
 }
 - (IBAction)btnRegisterClicked:(id)sender {
   
@@ -107,44 +107,15 @@
                         [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
                         SWRevealViewController *mainRevealController;
-                        if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Doctor"]) {
-                            HomeViewController *frontViewController = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
-                            mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
-                        }else{
-                            PatientHomeVC *frontViewController = [[PatientHomeVC alloc]initWithNibName:@"PatientHomeVC" bundle:nil];
-                            mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
+                        NewAwareVC *frontViewController = [[NewAwareVC alloc]initWithNibName:@"NewAwareVC" bundle:nil];
+                        mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
                         
-                        }
-                        
-                        //XMPP
-//                        NSString *username = @"rohit@XMPP_SERVER_IP_HERE"; // OR [NSString stringWithFormat:@"%@@%@",username,XMPP_BASE_URL]]
-//                        NSString *password = @"SOME_PASSWORD";
-//                        
-//                        AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//                        
-//                        del.xmppStream.myJID = [XMPPJID jidWithString:username];
-//                        
-//                        NSLog(@"Does supports registration %ub ", );
-//                        NSLog(@"Attempting registration for username %@",del.xmppStream.myJID.bare);
-//                        
-//                        if (del.xmppStream.supportsInBandRegistration) {
-//                            NSError *error = nil;
-//                            if (![del.xmppStream registerWithPassword:password error:&error])
-//                            {
-//                                NSLog(@"Oops, I forgot something: %@", error);
-//                            }else{
-//                                NSLog(@"No Error");
-//                            }
-//                        }
-                        
-                       
                         mainRevealController.delegate = self;
                         mainRevealController.view.backgroundColor = [UIColor blackColor];
+                        //            [frontViewController.view addSubview:[CommonFunction setStatusBarColor]];
                         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mainRevealController];
                         ((AppDelegate *)[[UIApplication sharedApplication] delegate]).window.rootViewController = nav;
-                       
-                        [self resignResponder];
-                        
+                        [self resignResponder];                        
                     } afterDelay:.2];
                     
                     [self removeloder];

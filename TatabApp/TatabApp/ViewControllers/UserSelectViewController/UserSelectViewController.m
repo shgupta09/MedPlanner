@@ -47,7 +47,7 @@
 #pragma mark - btn actions
 - (IBAction)btnBackClicked:(id)sender {
     if (_isRegistrationSelection) {
-        [self.navigationController popToRootViewControllerAnimated:true];
+        [self.navigationController popViewControllerAnimated:true];
     }else{
     [self dismissViewControllerAnimated:true completion:nil];
     }

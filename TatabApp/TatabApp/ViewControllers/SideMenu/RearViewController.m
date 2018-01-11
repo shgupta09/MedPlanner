@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      revealController = [self revealViewController];
+    
     titleArray  = [[NSArray alloc]initWithObjects:@"SETTING",@"EMR & HEALTH",@"PROFILE",@"Logout", nil];
     titleImageArray = [[NSArray alloc] initWithObjects:@"Icon---Setttings",@"Icon---Setttings",@"Icon---Profile",@"", nil];
      [_tbl_View registerNib:[UINib nibWithNibName:@"RearCell" bundle:nil]forCellReuseIdentifier:@"RearCell"];
@@ -38,7 +39,14 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated{
-    
+      if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
+    titleArray  = [[NSArray alloc]initWithObjects:@"SETTING",@"EMR & HEALTH",@"PROFILE",@"Logout", nil];
+    titleImageArray = [[NSArray alloc] initWithObjects:@"Icon---Setttings",@"Icon---Setttings",@"Icon---Profile",@"", nil];
+      }else{
+          titleArray = [[NSArray alloc]initWithObjects:@"Login", nil];
+          titleImageArray = [[NSArray alloc] initWithObjects:@"Icon---Setttings",nil];
+      }
+    [_tbl_View reloadData];
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
@@ -52,11 +60,17 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
    
-    return categoryArray.count+4;
+     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
+         return categoryArray.count+4;
+     }else{
+         return 1;
+     }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RearCell *rearCell = [_tbl_View dequeueReusableCellWithIdentifier:@"RearCell"];
+     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
+    
     if (indexPath.row<categoryArray.count) {
         AwarenessCategory *obj = [categoryArray objectAtIndex:indexPath.row];
         rearCell.lbl_title.text = obj.category_name;
@@ -69,12 +83,16 @@
 
     }
    
-
+     }else{
+         rearCell.lbl_title.text = [titleArray objectAtIndex:indexPath.row];
+         rearCell.imgView.image = [UIImage imageNamed:[titleImageArray objectAtIndex:indexPath.row]];
+     }
     rearCell.selectionStyle = UITableViewCellSelectionStyleNone;
     return rearCell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [revealController revealToggle:nil];
+     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
     if (indexPath.row<categoryArray.count){
         
         DoctorListVC* vc ;
@@ -139,7 +157,12 @@
     }
     
     
-    
+     }else{
+         LoginViewController* vc ;
+         vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+         [self.navigationController pushViewController:vc animated:true];
+
+     }
     
 }
 
