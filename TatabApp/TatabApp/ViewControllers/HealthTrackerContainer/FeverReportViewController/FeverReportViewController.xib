@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -198,15 +197,33 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzk-x1-0Cl" customClass="BEMSimpleLineGraphView">
-                                    <rect key="frame" x="78" y="97" width="220" height="220"/>
+                                    <rect key="frame" x="18" y="74" width="340" height="267"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="Jzk-x1-0Cl" secondAttribute="height" multiplier="1:1" id="cUM-o7-zhd"/>
-                                    </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="YES"/>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="enableXAxisLabel" value="YES"/>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="enableYAxisLabel" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="colorBottom">
+                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="colorTop">
+                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="colorLine">
+                                            <color key="value" red="0.81568627449999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="widthLine">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="colorXaxisLabel">
+                                            <color key="value" red="0.81568627449999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="colorYaxisLabel">
+                                            <color key="value" red="0.81568627449999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="colorPoint">
+                                            <color key="value" red="0.96862745100000003" green="0.64313725489999995" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <outlet property="dataSource" destination="-1" id="DvC-K5-lRu"/>
@@ -214,7 +231,7 @@
                                     </connections>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1a-pB-tPI" customClass="CustomButton">
-                                    <rect key="frame" x="193" y="59" width="105" height="30"/>
+                                    <rect key="frame" x="253" y="59" width="105" height="7"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="105" id="OBm-ib-1Dp"/>
                                     </constraints>
@@ -234,8 +251,9 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeG-4d-SpX" customClass="CustomButton">
-                                    <rect key="frame" x="220" y="351" width="105" height="30"/>
+                                    <rect key="frame" x="220" y="349" width="105" height="32"/>
                                     <constraints>
+                                        <constraint firstAttribute="height" constant="32" id="TOI-ds-agU"/>
                                         <constraint firstAttribute="width" constant="105" id="bfC-G5-SLT"/>
                                     </constraints>
                                     <state key="normal" title="To"/>
@@ -244,7 +262,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsi-6M-haU">
-                                    <rect key="frame" x="63" y="77.5" width="10" height="10"/>
+                                    <rect key="frame" x="15" y="54.5" width="10" height="10"/>
                                     <color key="backgroundColor" red="0.81568627449999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="10" id="25x-o3-nTV"/>
@@ -252,7 +270,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvE-0H-mvr">
-                                    <rect key="frame" x="78" y="74.5" width="72" height="14.5"/>
+                                    <rect key="frame" x="30" y="51.5" width="72" height="14.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -265,13 +283,16 @@
                                 <constraint firstItem="w1a-pB-tPI" firstAttribute="trailing" secondItem="Jzk-x1-0Cl" secondAttribute="trailing" id="8tP-Zg-70R"/>
                                 <constraint firstItem="Jzk-x1-0Cl" firstAttribute="top" secondItem="lvE-0H-mvr" secondAttribute="bottom" constant="8" id="D4f-gc-LR9"/>
                                 <constraint firstItem="Jzk-x1-0Cl" firstAttribute="top" secondItem="w1a-pB-tPI" secondAttribute="bottom" constant="8" id="EoD-Ni-cmQ"/>
-                                <constraint firstItem="lvE-0H-mvr" firstAttribute="leading" secondItem="Jzk-x1-0Cl" secondAttribute="leading" id="JnC-Y1-Ojk"/>
+                                <constraint firstItem="Vsi-6M-haU" firstAttribute="leading" secondItem="1K8-tB-QE0" secondAttribute="leading" constant="15" id="JKF-0b-hZZ"/>
                                 <constraint firstAttribute="trailing" secondItem="BeG-4d-SpX" secondAttribute="trailing" constant="50" id="JnR-T2-jlN"/>
                                 <constraint firstAttribute="trailing" secondItem="UNl-0Q-twZ" secondAttribute="trailing" constant="8" id="LcG-go-Gte"/>
-                                <constraint firstItem="Jzk-x1-0Cl" firstAttribute="width" secondItem="1K8-tB-QE0" secondAttribute="height" multiplier="44:83" id="MDC-W7-ror"/>
                                 <constraint firstItem="Vsi-6M-haU" firstAttribute="centerY" secondItem="lvE-0H-mvr" secondAttribute="centerY" id="Mns-Sv-tlO"/>
                                 <constraint firstAttribute="bottom" secondItem="BeG-4d-SpX" secondAttribute="bottom" constant="34" id="Qg8-hI-TzX"/>
+                                <constraint firstAttribute="trailing" secondItem="Jzk-x1-0Cl" secondAttribute="trailing" constant="17" id="Qyh-xq-Q8N"/>
+                                <constraint firstItem="Jzk-x1-0Cl" firstAttribute="leading" secondItem="1K8-tB-QE0" secondAttribute="leading" constant="18" id="RI7-uA-2pR"/>
+                                <constraint firstItem="w1a-pB-tPI" firstAttribute="top" secondItem="UNl-0Q-twZ" secondAttribute="bottom" constant="11" id="Tkl-5R-wbh"/>
                                 <constraint firstItem="lvE-0H-mvr" firstAttribute="leading" secondItem="Vsi-6M-haU" secondAttribute="trailing" constant="5" id="YiC-tX-ioX"/>
+                                <constraint firstItem="BeG-4d-SpX" firstAttribute="top" secondItem="Jzk-x1-0Cl" secondAttribute="bottom" constant="8" id="duB-yx-q0F"/>
                                 <constraint firstAttribute="bottom" secondItem="hfc-f0-Yap" secondAttribute="bottom" constant="34" id="jBM-Md-Nae"/>
                                 <constraint firstItem="Jzk-x1-0Cl" firstAttribute="centerY" secondItem="1K8-tB-QE0" secondAttribute="centerY" id="lLS-rv-fRe"/>
                                 <constraint firstItem="HtM-Zw-urp" firstAttribute="centerX" secondItem="1K8-tB-QE0" secondAttribute="centerX" id="nBG-6P-UMg"/>
