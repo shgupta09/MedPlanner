@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BEMSimpleLineGraph.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CocoaAsyncSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>111BB08DD2871596DE681D893B1E3788</key>
+		<key>2737E4054365069F967211C8A76AB24E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +82,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8A421C6298CB3DF5D749193BD6FD0B38</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8E311C1151946FB648DFC91BA002EEBC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>968CE34E72B461EC7CCC2CAD44D84570</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E45C2644FBF468244BC026F3658DC31</key>
+		<key>A40A4387148E3EAE1932934098DAD3C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,12 +107,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B2D0A5EDC2168930E39B50CE622B05B5</key>
+		<key>BD3903A559C056E37F010254E79A7BC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC79EAD8DA6BD17AFB553EE6165CAEEB</key>
+		<key>E969C8D2B58D77644E418112F080225D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -108,11 +123,6 @@
 			<true/>
 		</dict>
 		<key>F4B8C70379FF442A4FEB6759B3B7F9B8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F697241C4F65EE493FAA6C1C92C55069</key>
 		<dict>
 			<key>primary</key>
 			<true/>

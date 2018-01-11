@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <BEMSimpleLineGraph/BEMSimpleLineGraphView.h>
 
 @interface PressureReportViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIView *popUpView;
+@property (weak, nonatomic) IBOutlet UIButton *btnFromDate;
+@property (weak, nonatomic) IBOutlet UIButton *btnToDate;
+@property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *graphView;
 
 @end
