@@ -24,6 +24,15 @@
     NSDate *fromDate;
     UIToolbar *toolBar;
     
+    NSMutableArray* arrayType;
+    NSInteger selectedRowForType;
+    
+    NSInteger ansWeight;
+    NSString *ansReading;
+    NSInteger selectedRowForReading;
+    NSInteger selectedRowForTiming;
+
+    NSMutableArray * arrayreading;
 }
 @end
 
@@ -32,16 +41,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     toDate = [NSDate date];
-    
+    ansWeight = 0;
+    ansReading = @"101-111";
+    arrayreading = [[NSMutableArray alloc] initWithObjects:@"101-111",@"111-121",@"121-131",@"131-141",@"141-151",@"151-161",@"161-171",@"171-181",@"181-191",@"191-201", nil];
     fromDate = [NSDate date];
-    
-    CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);
-    _sliderView.transform = trans;
-    _sliderValue.text = [NSString stringWithFormat:@"%f",_sliderView.value];
-    [_sliderView addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
-    _sliderView.maximumValue = 42.0;
-    _sliderView.minimumValue = 32.0;
-    
+    arrayType = [[NSMutableArray alloc] initWithObjects:@"Pre-meal",@"Sleep",@"Post-sleep", nil];
+    selectedRowForType = 0;
+    selectedRowForTiming = 0;
+    selectedRowForReading = 0;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
@@ -98,6 +105,92 @@
     [self getBloodSugar];
     
 }
+
+- (IBAction)btnBackPopUp:(id)sender {
+    [_popUpView removeFromSuperview];
+}
+
+
+- (IBAction)btnSubmitFeverreport:(id)sender {
+    [self uploadBloodSugar] ;
+}
+- (IBAction)btnWeightClicked:(id)sender {
+    
+    
+    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerObj.delegate = self;
+    pickerObj.dataSource = self;
+    pickerObj.showsSelectionIndicator = YES;
+    pickerObj.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    UIToolbar *toolBarForTitle;
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             space,doneButton, nil];
+    pickerObj.hidden = false;
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:toolBar];
+    pickerObj.tag = 2;
+    [pickerObj  selectRow:selectedRowForType inComponent:0 animated:true];
+    
+    
+    [viewOverPicker addSubview:pickerObj];
+    [self.view addSubview:viewOverPicker];
+    [pickerObj reloadAllComponents];
+    
+    
+}
+- (IBAction)btnSubmitClicked:(id)sender {
+    
+    
+    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerObj.delegate = self;
+    pickerObj.dataSource = self;
+    pickerObj.showsSelectionIndicator = YES;
+    pickerObj.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    UIToolbar *toolBarForTitle;
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             space,doneButton, nil];
+    pickerObj.hidden = false;
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:toolBar];
+    pickerObj.tag = 3;
+    [pickerObj  selectRow:selectedRowForType inComponent:0 animated:true];
+    
+    
+    [viewOverPicker addSubview:pickerObj];
+    [self.view addSubview:viewOverPicker];
+    [pickerObj reloadAllComponents];
+    
+    
+}
+
 - (IBAction)btnSelectFromDateClicked:(id)sender {
     
     [CommonFunction resignFirstResponderOfAView:self.view];
@@ -218,13 +311,49 @@
     return [[[dataArray objectAtIndex:index] valueForKey:@"temperature"] floatValue]; // The value of the point on the Y-Axis for the index.
 }
 
+- (IBAction)btnSelectType:(id)sender {
+    
+    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerObj.delegate = self;
+    pickerObj.dataSource = self;
+    pickerObj.showsSelectionIndicator = YES;
+    pickerObj.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    UIToolbar *toolBarForTitle;
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             space,doneButton, nil];
+    pickerObj.hidden = false;
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:toolBar];
+    pickerObj.tag = 1;
+    [pickerObj  selectRow:selectedRowForType inComponent:0 animated:true];
+    
+    
+    [viewOverPicker addSubview:pickerObj];
+    [self.view addSubview:viewOverPicker];
+    [pickerObj reloadAllComponents];
+    
+}
 
 
 -(void)uploadBloodSugar{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
-    [parameterDict setValue:@"" forKey:@"timing"];
+    [parameterDict setValue:[arrayType objectAtIndex:selectedRowForTiming] forKey:@"timing"];
     [parameterDict setValue:@"" forKey:@"reading"];
     [parameterDict setValue:@"" forKey:@"comment"];
     [parameterDict setValue:@"" forKey:@"date"];
@@ -233,7 +362,7 @@
         [self addLoder];
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UPLOAD_BLOODSUGAR]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UPLOAD_BLOODSUGAR]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -352,6 +481,71 @@
     [loderObj removeFromSuperview];
     //[loaderView removeFromSuperview];
     self.view.userInteractionEnabled = YES;
+}
+
+
+#pragma mark - picker data Source
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 1;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component{
+    if (pickerObj.tag == 1){
+        return [arrayType count];
+    }
+    else if (pickerObj.tag == 2){
+        //Weight
+        return [arrayType count];
+    }
+    else if (pickerObj.tag == 3){
+        //reading
+        return 10;
+    }
+    
+    return 0;
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
+(NSInteger)row forComponent:(NSInteger)component{
+    
+    if (pickerObj.tag == 1){
+        return [arrayType objectAtIndex:row];
+    }
+    else if (pickerObj.tag == 2){
+        //Weight
+        return [arrayType objectAtIndex:row];
+    }
+    else if (pickerObj.tag == 3){
+        //reading
+        return [arrayreading objectAtIndex:row];
+    }
+    
+    
+    return @"";
+    
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component{
+    
+    if (pickerObj.tag == 1){
+        [_btnSelectType setTitle:[arrayType objectAtIndex:row] forState:UIControlStateNormal];
+        selectedRowForType = row;
+        
+    }
+    else if (pickerObj.tag == 2){
+        //Weight
+        [_btnWeightPopup setTitle:[arrayType objectAtIndex:row] forState:UIControlStateNormal];
+        selectedRowForTiming = row;
+        
+    }
+    else if (pickerObj.tag == 3){
+        //reading
+        [_btnWeightPopup setTitle:[arrayreading objectAtIndex:row] forState:UIControlStateNormal];
+        selectedRowForReading = row;
+    
+    }
+    
+    
 }
 
 

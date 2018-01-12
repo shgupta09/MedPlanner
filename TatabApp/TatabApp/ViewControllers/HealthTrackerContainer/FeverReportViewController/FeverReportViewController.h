@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UISlider *sliderView;
 @property (weak, nonatomic) IBOutlet UILabel *sliderValue;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtComments;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons_imgView;
 
 @end

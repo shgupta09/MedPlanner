@@ -37,10 +37,11 @@
     
     CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);
     _sliderView.transform = trans;
-    _sliderValue.text = [NSString stringWithFormat:@"%f",_sliderView.value];
+    _lblDIAValue.text = [NSString stringWithFormat:@"%.f",roundf(_sliderView.value)];
+    _lblSYSValue.text = [NSString stringWithFormat:@"%.f",roundf(_sliderView.value+60)];
     [_sliderView addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
-    _sliderView.maximumValue = 42.0;
-    _sliderView.minimumValue = 32.0;
+    _sliderView.maximumValue = 120.0;
+    _sliderView.minimumValue = 65.0;
     
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -58,7 +59,54 @@
 
     // Do any additional setup after loading the view from its nib.
 }
-
+- (IBAction)sliderValueChanged:(UISlider *)sender {
+    NSLog(@"slider value = %f", sender.value);
+    _lblDIAValue.text = [NSString stringWithFormat:@"%.f",roundf(_sliderView.value)];
+    _lblSYSValue.text = [NSString stringWithFormat:@"%.f",roundf(_sliderView.value+60)];
+    
+    if (_sliderView.value>=120 ) {
+        _cons_imageviewDIA.constant = -140;
+    }
+    else if (_sliderView.value>=90 && _sliderView.value<=120) {
+        _cons_imageviewDIA.constant = -70;
+        
+    }
+    else if (_sliderView.value>=80 && _sliderView.value<=89) {
+        _cons_imageviewDIA.constant = 0;
+        
+    }
+    else if (_sliderView.value>=70 && _sliderView.value<=79) {
+        _cons_imageviewDIA.constant = 70;
+        
+    }
+    else if (_sliderView.value<=70) {
+        _cons_imageviewDIA.constant = 140;
+        
+    }
+  
+    
+    if (_sliderView.value+60>=170 ) {
+        _cons_imgViewSYS.constant = -140;
+    }
+    else if (_sliderView.value+60>=140 && _sliderView.value+60<=169) {
+        _cons_imgViewSYS.constant = -70;
+        
+    }
+    else if (_sliderView.value+60>=130 && _sliderView.value+60<=139) {
+        _cons_imgViewSYS.constant = 0;
+        
+    }
+    else if (_sliderView.value+60>=120 && _sliderView.value+60<=129) {
+        _cons_imgViewSYS.constant = 70;
+        
+    }
+    else if (_sliderView.value+60<=120) {
+        _cons_imgViewSYS.constant = 140;
+        
+    }
+  
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -72,19 +120,28 @@
         [_popUpView removeFromSuperview];
     }
 }
+
+- (IBAction)btnSubmitFeverreport:(id)sender {
+    [self uploadBloodPressure] ;
+}
+
+
 -(void)uploadBloodPressure{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
-    [parameterDict setValue:@"" forKey:@"heart_rate"];
-    [parameterDict setValue:@"" forKey:@"comment"];
-    [parameterDict setValue:@"" forKey:@"date"];
+    [parameterDict setValue:[NSString stringWithFormat:@"%.f",roundf(_sliderView.value)] forKey:@"heart_rate"];
+    [parameterDict setValue:_txtComments.text forKey:@"comment"];
+    NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
+    Formatter.dateFormat = @"yyyy-MM-dd";
+    NSString *stringFor = [Formatter stringFromDate:[NSDate date]];
+    [parameterDict setValue:stringFor forKey:@"date"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UPLOAD_BLOODPRESSURE]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UPLOAD_BLOODPRESSURE]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -92,6 +149,8 @@
                     [alertController addAction:ok];
                     [self presentViewController:alertController animated:YES completion:nil];
                     [self removeloder];
+                    [_popUpView removeFromSuperview];
+
                 }
                 else
                 {
@@ -127,17 +186,22 @@
     
 }
 
+- (IBAction)btnBackPopUp:(id)sender {
+    [_popUpView removeFromSuperview];
+}
+
+
 -(void)getBloodPressure{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
-    [parameterDict setValue:@"" forKey:@"from"];
-    [parameterDict setValue:@"" forKey:@"to"];
+    [parameterDict setValue:fromDateString forKey:@"from"];
+    [parameterDict setValue:toDateString forKey:@"to"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_BLOODPRESSURE]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_BLOODPRESSURE]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     dataArray = [NSMutableArray new];
@@ -192,13 +256,11 @@
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:false];
 }
-
 - (IBAction)btnEMRClcked:(id)sender {
     
     [self dismissViewControllerAnimated:false completion:nil];
     
 }
-
 
 - (IBAction)btnAddPressureClicked:(id)sender {
     
@@ -333,7 +395,7 @@
 }
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    return [[[dataArray objectAtIndex:index] valueForKey:@"temperature"] floatValue]; // The value of the point on the Y-Axis for the index.
+    return [[[dataArray objectAtIndex:index] valueForKey:@"heart_rate"] floatValue]; // The value of the point on the Y-Axis for the index.
 }
 
 #pragma mark - add loder

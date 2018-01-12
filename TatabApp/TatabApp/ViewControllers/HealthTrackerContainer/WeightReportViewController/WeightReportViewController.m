@@ -35,14 +35,7 @@
     
     fromDate = [NSDate date];
     
-    CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);
-    _sliderView.transform = trans;
-    _sliderValue.text = [NSString stringWithFormat:@"%f",_sliderView.value];
-    [_sliderView addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
-    _sliderView.maximumValue = 42.0;
-    _sliderView.minimumValue = 32.0;
-    
-    
+       
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -101,6 +94,16 @@
     [self getWeight];
     
 }
+
+- (IBAction)btnBackPopUp:(id)sender {
+    [_popUpView removeFromSuperview];
+}
+
+- (IBAction)btnSubmitFeverreport:(id)sender {
+    [self uploadWeight] ;
+}
+
+
 - (IBAction)btnSelectFromDateClicked:(id)sender {
     
     [CommonFunction resignFirstResponderOfAView:self.view];
@@ -236,7 +239,7 @@
         [self addLoder];
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UPLOAD_WEIGHT]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UPLOAD_WEIGHT]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];

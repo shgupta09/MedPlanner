@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="btnFromDate" destination="hfc-f0-Yap" id="pEH-pc-GYH"/>
                 <outlet property="btnToDate" destination="BeG-4d-SpX" id="oCl-dd-peN"/>
+                <outlet property="cons_imgView" destination="TYh-0Y-k2M" id="BFN-gU-UEB"/>
                 <outlet property="graphView" destination="Jzk-x1-0Cl" id="1c6-yJ-5N8"/>
                 <outlet property="popUpView" destination="NxM-qy-n28" id="hoE-qp-8i8"/>
                 <outlet property="sliderValue" destination="QgM-Tv-4RU" id="T5n-RT-Rhz"/>
@@ -504,6 +505,17 @@
                                             <color key="textColor" red="0.272356778383255" green="0.68184441328048706" blue="0.83073687553405762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointer" translatesAutoresizingMaskIntoConstraints="NO" id="0y9-AU-sTI">
+                                            <rect key="frame" x="2" y="156" width="22" height="19"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="22" id="Fcq-2I-u3D"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19" id="LDc-fI-YPa"/>
+                                                <constraint firstAttribute="height" constant="19" id="Xb0-vE-lhp"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="22" id="f2u-M9-Dgo"/>
+                                                <constraint firstAttribute="width" constant="22" id="lK0-Q9-f3o"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="19" id="vX1-jQ-cVd"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -514,7 +526,9 @@
                                         <constraint firstAttribute="bottom" secondItem="ZYu-Ld-4QQ" secondAttribute="bottom" constant="9" id="CzG-9Y-ScW"/>
                                         <constraint firstItem="QgM-Tv-4RU" firstAttribute="centerY" secondItem="q3N-Gb-ZYE" secondAttribute="centerY" id="JEY-Dr-JDF"/>
                                         <constraint firstAttribute="trailing" secondItem="QgM-Tv-4RU" secondAttribute="trailing" constant="8" id="LR8-d4-eCh"/>
+                                        <constraint firstItem="I3a-rA-H7A" firstAttribute="leading" secondItem="0y9-AU-sTI" secondAttribute="trailing" constant="1" id="MrZ-os-6m5"/>
                                         <constraint firstItem="I3a-rA-H7A" firstAttribute="width" secondItem="4mx-Ze-hCN" secondAttribute="width" multiplier="0.5" id="PAE-6J-jbc"/>
+                                        <constraint firstItem="0y9-AU-sTI" firstAttribute="centerY" secondItem="q3N-Gb-ZYE" secondAttribute="centerY" id="TYh-0Y-k2M"/>
                                         <constraint firstItem="77n-sX-3a5" firstAttribute="top" secondItem="4mx-Ze-hCN" secondAttribute="top" constant="8" id="YR9-Uy-QAz"/>
                                         <constraint firstItem="77n-sX-3a5" firstAttribute="centerX" secondItem="4mx-Ze-hCN" secondAttribute="centerX" id="aC7-Rs-dTo"/>
                                         <constraint firstItem="Bjk-2z-43N" firstAttribute="centerY" secondItem="q3N-Gb-ZYE" secondAttribute="centerY" id="aiH-0N-jsZ"/>
@@ -571,6 +585,7 @@
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
         <image name="back" width="55" height="45"/>
+        <image name="pointer" width="102" height="87"/>
         <image name="thermometer" width="516" height="519"/>
     </resources>
 </document>

@@ -14,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnFromDate;
 @property (weak, nonatomic) IBOutlet UIButton *btnToDate;
 @property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *graphView;
-property (weak, nonatomic) IBOutlet CustomTextField *txtComments;
+@property (weak, nonatomic) IBOutlet UIButton *btnSelectType;
+@property (weak, nonatomic) IBOutlet CustomTextField *txtComments;
+@property (weak, nonatomic) IBOutlet CustomButton *btnWeightPopup;
+@property (weak, nonatomic) IBOutlet CustomButton *btnReadingPopup;
 
 @end

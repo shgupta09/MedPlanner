@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -368,6 +368,9 @@
                                             <state key="normal" title="Submit">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="btnSubmitFeverreport:" destination="-1" eventType="touchUpInside" id="auT-Rh-Trw"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Weight &amp; HR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxb-nx-v8c">
                                             <rect key="frame" x="91" y="8" width="152" height="20"/>
@@ -530,12 +533,25 @@ Stage 1
                                         <constraint firstItem="EA6-qK-oFK" firstAttribute="centerY" secondItem="CJS-4b-6h9" secondAttribute="centerY" id="ydd-Z0-EDS"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TS1-Qd-XPL">
+                                    <rect key="frame" x="20" y="21" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="1Lh-aa-D4z"/>
+                                        <constraint firstAttribute="width" constant="40" id="eqU-CN-75S"/>
+                                    </constraints>
+                                    <state key="normal" image="back"/>
+                                    <connections>
+                                        <action selector="btnBackPopUp:" destination="-1" eventType="touchUpInside" id="nxr-5t-CNr"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="3Nu-2c-wNu" firstAttribute="leading" secondItem="mZu-U0-j9u" secondAttribute="leading" constant="20" id="5pX-Em-7QB"/>
                                 <constraint firstItem="3Nu-2c-wNu" firstAttribute="centerY" secondItem="mZu-U0-j9u" secondAttribute="centerY" id="CRR-0f-GgN"/>
                                 <constraint firstAttribute="trailing" secondItem="3Nu-2c-wNu" secondAttribute="trailing" constant="21" id="Hrr-3I-l2v"/>
+                                <constraint firstItem="TS1-Qd-XPL" firstAttribute="top" secondItem="mZu-U0-j9u" secondAttribute="top" constant="21" id="TWi-jr-kxK"/>
+                                <constraint firstItem="TS1-Qd-XPL" firstAttribute="leading" secondItem="mZu-U0-j9u" secondAttribute="leading" constant="20" id="n0e-ei-c9o"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -562,6 +578,7 @@ Stage 1
     </objects>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
+        <image name="back" width="55" height="45"/>
         <image name="weightAdd" width="414" height="315"/>
     </resources>
 </document>

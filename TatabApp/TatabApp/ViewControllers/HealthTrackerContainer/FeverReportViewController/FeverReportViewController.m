@@ -37,11 +37,11 @@
     
     CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);
     _sliderView.transform = trans;
-    _sliderValue.text = [NSString stringWithFormat:@"%f",_sliderView.value];
+    _sliderValue.text = [NSString stringWithFormat:@"%.1f",_sliderView.value];
     [_sliderView addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     _sliderView.maximumValue = 42.0;
     _sliderView.minimumValue = 32.0;
-    
+
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
@@ -62,6 +62,27 @@
 - (IBAction)sliderValueChanged:(UISlider *)sender {
     NSLog(@"slider value = %f", sender.value);
     _sliderValue.text = [NSString stringWithFormat:@"%.1f", _sliderView.value];
+    
+    if (_sliderView.value>39 ) {
+        _cons_imgView.constant = -100;
+    }
+    else if (_sliderView.value>37.5 && _sliderView.value<=39) {
+        _cons_imgView.constant = -50;
+        
+    }
+    else if (_sliderView.value>36.5 && _sliderView.value<=37.5) {
+        _cons_imgView.constant = 0;
+        
+    }
+    else if (_sliderView.value>=36 && _sliderView.value<=36.5) {
+        _cons_imgView.constant = 50;
+        
+    }
+    else if (_sliderView.value<36) {
+        _cons_imgView.constant = 100;
+        
+    }
+    
 }
 
 
