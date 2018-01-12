@@ -67,6 +67,7 @@
 		9C55056D20088C650037F07F /* TextPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C55056B20088C650037F07F /* TextPostCell.xib */; };
 		9C5505712008B8090037F07F /* MediaPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C55056F2008B8090037F07F /* MediaPostCell.m */; };
 		9C5505722008B8090037F07F /* MediaPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C5505702008B8090037F07F /* MediaPostCell.xib */; };
+		9C5505752008E2FC0037F07F /* CustomButton3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5505742008E2FC0037F07F /* CustomButton3.m */; };
 		9C6DE72C1F8399CD00635102 /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6DE72A1F8399CD00635102 /* RearViewController.m */; };
 		9C6DE72D1F8399CD00635102 /* RearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6DE72B1F8399CD00635102 /* RearViewController.xib */; };
 		9C6DE7321F83A1FC00635102 /* RearCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6DE7301F83A1FC00635102 /* RearCell.m */; };
@@ -225,6 +226,8 @@
 		9C55056E2008B8090037F07F /* MediaPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPostCell.h; sourceTree = "<group>"; };
 		9C55056F2008B8090037F07F /* MediaPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPostCell.m; sourceTree = "<group>"; };
 		9C5505702008B8090037F07F /* MediaPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaPostCell.xib; sourceTree = "<group>"; };
+		9C5505732008E2FC0037F07F /* CustomButton3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton3.h; sourceTree = "<group>"; };
+		9C5505742008E2FC0037F07F /* CustomButton3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton3.m; sourceTree = "<group>"; };
 		9C6DE7291F8399CD00635102 /* RearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RearViewController.h; sourceTree = "<group>"; };
 		9C6DE72A1F8399CD00635102 /* RearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RearViewController.m; sourceTree = "<group>"; };
 		9C6DE72B1F8399CD00635102 /* RearViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RearViewController.xib; sourceTree = "<group>"; };
@@ -606,6 +609,8 @@
 				5F1E9B4D1F764568009FECDD /* CustomButton.m */,
 				D8F5A5701F920B1C00E36160 /* CustomButton2.h */,
 				D8F5A5711F920B1C00E36160 /* CustomButton2.m */,
+				9C5505732008E2FC0037F07F /* CustomButton3.h */,
+				9C5505742008E2FC0037F07F /* CustomButton3.m */,
 			);
 			path = CommonFiles;
 			sourceTree = "<group>";
@@ -1271,6 +1276,7 @@
 				D8F108C11FC09A140049296C /* Chat+CoreDataClass.m in Sources */,
 				5F1E9B301F763C49009FECDD /* SplashScreenViewController.m in Sources */,
 				9C6DE73C1F83A61A00635102 /* VideoListObject.m in Sources */,
+				9C5505752008E2FC0037F07F /* CustomButton3.m in Sources */,
 				9C6DE7321F83A1FC00635102 /* RearCell.m in Sources */,
 				D84DF2051F8A0D9C00234070 /* RegisterViewController.m in Sources */,
 				5FC496DC1FCBDC1B004E537A /* ChatPatient.m in Sources */,

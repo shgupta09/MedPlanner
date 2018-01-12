@@ -23,7 +23,10 @@
     NSDate *toDate;
     NSDate *fromDate;
     UIToolbar *toolBar;
-    
+     NSInteger selectedRowForType;
+    NSInteger selectedRowForWeight;
+    NSInteger selectedRowForheight;
+    NSInteger selectedRowForHeartRate;
 }
 @end
 
@@ -34,19 +37,13 @@
     toDate = [NSDate date];
     
     fromDate = [NSDate date];
-    
-<<<<<<< HEAD
-       
-=======
-    CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);
-    /*_sliderView.transform = trans;
-    _sliderValue.text = [NSString stringWithFormat:@"%f",_sliderView.value];
-    [_sliderView addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
-    _sliderView.maximumValue = 42.0;
-    _sliderView.minimumValue = 32.0;
-    */
-    
->>>>>>> db6e988e7ea5cc6efd1ad6e32cf86e88e45b1a36
+    selectedRowForType = 0;
+    selectedRowForWeight = 0;
+    selectedRowForheight = 0;
+    selectedRowForHeartRate = 0;
+    [_btnWeight setTitle:[NSString stringWithFormat:@"%d",3] forState:UIControlStateNormal];
+    [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",0] forState:UIControlStateNormal];
+    [_btnHeight setTitle:[NSString stringWithFormat:@"%d",50] forState:UIControlStateNormal];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -70,6 +67,28 @@
 }
 
 #pragma mark - btn Actions
+- (IBAction)btnActionEnterData:(id)sender {
+    switch (((UIButton *)sender).tag) {
+        case 0:
+            selectedRowForType = selectedRowForWeight;
+             [self showPicker:0];
+            break;
+        case 1:
+            selectedRowForType = selectedRowForHeartRate;
+             [self showPicker:1];
+            break;
+        case 2:
+            selectedRowForType = selectedRowForheight;
+             [self showPicker:2];
+            break;
+            
+        default:
+            break;
+    }
+   
+}
+
+
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:false];
 }
@@ -206,8 +225,6 @@
 }
 // value change of the date picker
 -(void) dueDateChanged:(UIDatePicker *)sender {
-    
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -239,12 +256,14 @@
 -(void)uploadWeight{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
-    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
-    [parameterDict setValue:@"" forKey:@"weight"];
-    [parameterDict setValue:@"" forKey:@"rest_hr"];
-    [parameterDict setValue:@"" forKey:@"height "];
-    [parameterDict setValue:@"" forKey:@"comment"];
-    [parameterDict setValue:@"" forKey:@"date"];
+    [parameterDict setValue:_btnWeight.titleLabel.text forKey:@"weight"];
+    [parameterDict setValue:_btnHeartRate.titleLabel.text forKey:@"rest_hr"];
+    [parameterDict setValue:_btnHeight.titleLabel.text forKey:@"height"];
+    [parameterDict setValue:_txt_Comment.text forKey:@"comment"];
+    NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
+    Formatter.dateFormat = @"yyyy-MM-dd";
+    NSString *stringFor = [Formatter stringFromDate:[NSDate date]];
+    [parameterDict setValue:stringFor forKey:@"date"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -373,6 +392,110 @@
     self.view.userInteractionEnabled = YES;
 }
 
+#pragma mark - picker data Source
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 1;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component{
+    if (pickerObj.tag == 0){
+        return 210;
+    }
+    else if (pickerObj.tag == 1){
+        //Weight
+        return 201;
+    }
+    else if (pickerObj.tag == 2){
+        //reading
+        return 207;
+    }
+    
+    return 0;
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
+(NSInteger)row forComponent:(NSInteger)component{
+    
+    if (pickerObj.tag == 0){
+        if (row == 0){
+            return [NSString stringWithFormat:@"%d",3];
+        }
+        return [NSString stringWithFormat:@"%d",3+row];
+    }
+    else if (pickerObj.tag == 1){
+        //Weight
+        return [NSString stringWithFormat:@"%d",row];
+    }
+    else if (pickerObj.tag == 2){
+        if (row == 0){
+            return [NSString stringWithFormat:@"%d",50];
+        }
+        return [NSString stringWithFormat:@"%d",50+row];
+    }
+    
+    
+    return @"";
+    
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component{
+    
+    if (pickerObj.tag == 0){
+        [_btnWeight setTitle:[NSString stringWithFormat:@"%d",3+row] forState:UIControlStateNormal];
+        selectedRowForWeight = row;
+        
+    }
+    else if (pickerObj.tag == 1){
+        //Weight
+        [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",row] forState:UIControlStateNormal];
+        selectedRowForHeartRate = row;
+        
+    }
+    else if (pickerObj.tag == 2){
+        //reading
+        [_btnHeight setTitle:[NSString stringWithFormat:@"%d",50+row] forState:UIControlStateNormal];
+        selectedRowForheight = row;
+        
+    }
+    
+    
+}
+
+-(void)showPicker:(int)tag{
+    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerObj.delegate = self;
+    pickerObj.dataSource = self;
+    pickerObj.showsSelectionIndicator = YES;
+    pickerObj.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    pickerObj.tag = tag;
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    UIToolbar *toolBarForTitle;
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             space,doneButton, nil];
+    pickerObj.hidden = false;
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:toolBar];
+    [pickerObj  selectRow:selectedRowForType inComponent:0 animated:true];
+    
+    
+    [viewOverPicker addSubview:pickerObj];
+    [self.view addSubview:viewOverPicker];
+    [pickerObj reloadAllComponents];
+    
+}
 
 
 @end
