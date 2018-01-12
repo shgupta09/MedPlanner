@@ -45,10 +45,21 @@
     ansReading = @"101-111";
     arrayreading = [[NSMutableArray alloc] initWithObjects:@"101-111",@"111-121",@"121-131",@"131-141",@"141-151",@"151-161",@"161-171",@"171-181",@"181-191",@"191-201", nil];
     fromDate = [NSDate date];
+<<<<<<< HEAD
     arrayType = [[NSMutableArray alloc] initWithObjects:@"Pre-meal",@"Sleep",@"Post-sleep", nil];
     selectedRowForType = 0;
     selectedRowForTiming = 0;
     selectedRowForReading = 0;
+=======
+    
+    CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);
+  /*  _sliderView.transform = trans;
+    _sliderValue.text = [NSString stringWithFormat:@"%f",_sliderView.value];
+    [_sliderView addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    _sliderView.maximumValue = 42.0;
+    _sliderView.minimumValue = 32.0;
+    */
+>>>>>>> db6e988e7ea5cc6efd1ad6e32cf86e88e45b1a36
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];

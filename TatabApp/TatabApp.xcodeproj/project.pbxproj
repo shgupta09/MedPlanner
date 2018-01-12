@@ -63,6 +63,10 @@
 		6B88C8AAED0F77BF5245AA06 /* Pods_TatabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */; };
 		884FE13F103CA6FC743E4912 /* Pods_TatabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */; };
 		9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */; };
+		9C55056C20088C650037F07F /* TextPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C55056A20088C650037F07F /* TextPostCell.m */; };
+		9C55056D20088C650037F07F /* TextPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C55056B20088C650037F07F /* TextPostCell.xib */; };
+		9C5505712008B8090037F07F /* MediaPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C55056F2008B8090037F07F /* MediaPostCell.m */; };
+		9C5505722008B8090037F07F /* MediaPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C5505702008B8090037F07F /* MediaPostCell.xib */; };
 		9C6DE72C1F8399CD00635102 /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6DE72A1F8399CD00635102 /* RearViewController.m */; };
 		9C6DE72D1F8399CD00635102 /* RearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6DE72B1F8399CD00635102 /* RearViewController.xib */; };
 		9C6DE7321F83A1FC00635102 /* RearCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6DE7301F83A1FC00635102 /* RearCell.m */; };
@@ -215,6 +219,12 @@
 		5FD369141FFE954A00FC6C3F /* CommonInfoPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonInfoPatient.m; sourceTree = "<group>"; };
 		9C4C5ECC1F792725003D84BD /* RegistrationDpendency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationDpendency.h; sourceTree = "<group>"; };
 		9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationDpendency.m; sourceTree = "<group>"; };
+		9C55056920088C650037F07F /* TextPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextPostCell.h; sourceTree = "<group>"; };
+		9C55056A20088C650037F07F /* TextPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPostCell.m; sourceTree = "<group>"; };
+		9C55056B20088C650037F07F /* TextPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextPostCell.xib; sourceTree = "<group>"; };
+		9C55056E2008B8090037F07F /* MediaPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPostCell.h; sourceTree = "<group>"; };
+		9C55056F2008B8090037F07F /* MediaPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPostCell.m; sourceTree = "<group>"; };
+		9C5505702008B8090037F07F /* MediaPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaPostCell.xib; sourceTree = "<group>"; };
 		9C6DE7291F8399CD00635102 /* RearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RearViewController.h; sourceTree = "<group>"; };
 		9C6DE72A1F8399CD00635102 /* RearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RearViewController.m; sourceTree = "<group>"; };
 		9C6DE72B1F8399CD00635102 /* RearViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RearViewController.xib; sourceTree = "<group>"; };
@@ -703,6 +713,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9C55056820088C4C0037F07F /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9C55056920088C650037F07F /* TextPostCell.h */,
+				9C55056A20088C650037F07F /* TextPostCell.m */,
+				9C55056B20088C650037F07F /* TextPostCell.xib */,
+				9C55056E2008B8090037F07F /* MediaPostCell.h */,
+				9C55056F2008B8090037F07F /* MediaPostCell.m */,
+				9C5505702008B8090037F07F /* MediaPostCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		9C6DE7281F8399B500635102 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -789,6 +812,7 @@
 		D8E1C79B2007C77C007172F5 /* AwarenessN */ = {
 			isa = PBXGroup;
 			children = (
+				9C55056820088C4C0037F07F /* TableViewCell */,
 				D8E1C79C2007C790007172F5 /* NewAwareVC.h */,
 				D8E1C79D2007C790007172F5 /* NewAwareVC.m */,
 				D8E1C79E2007C790007172F5 /* NewAwareVC.xib */,
@@ -976,8 +1000,10 @@
 				5FB51C452003E5BE00E4889B /* PressureReportViewController.xib in Resources */,
 				9C8FE6D81F8B53270003003C /* RCDoctor3.xib in Resources */,
 				D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */,
+				9C55056D20088C650037F07F /* TextPostCell.xib in Resources */,
 				9C6DE7331F83A1FC00635102 /* RearCell.xib in Resources */,
 				D8F5A55E1F92020300E36160 /* HomeViewController.xib in Resources */,
+				9C5505722008B8090037F07F /* MediaPostCell.xib in Resources */,
 				D8F5A5631F92021A00E36160 /* PatientHomeVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1235,6 +1261,7 @@
 				D8E1C79F2007C790007172F5 /* NewAwareVC.m in Sources */,
 				5F1E9B5D1F76AAB4009FECDD /* DependantDetailTableViewCell.m in Sources */,
 				5FBBBAE81F72401B00C03813 /* AppDelegate.m in Sources */,
+				9C55056C20088C650037F07F /* TextPostCell.m in Sources */,
 				D82354AA1F8A37790097A94C /* RCDoctor1.m in Sources */,
 				D84B6BBC1F77837500F37660 /* LoderView.m in Sources */,
 				D8F5A5621F92021A00E36160 /* PatientHomeVC.m in Sources */,
@@ -1251,6 +1278,7 @@
 				D84DF2031F8A0D9C00234070 /* RegisterCompleteViewController.m in Sources */,
 				5F0B0FD01FB1EC82006468AA /* ChatViewController.m in Sources */,
 				D8F5A56E1F9202D300E36160 /* HomeCell.m in Sources */,
+				9C5505712008B8090037F07F /* MediaPostCell.m in Sources */,
 				5FBBBAE51F72401B00C03813 /* main.m in Sources */,
 				D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */,
 				5FB51C402003E5BE00E4889B /* FeverReportViewController.m in Sources */,
