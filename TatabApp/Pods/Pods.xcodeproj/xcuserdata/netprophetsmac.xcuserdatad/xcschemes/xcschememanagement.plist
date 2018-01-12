@@ -11,6 +11,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>BEMSimpleLineGraph.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>CocoaAsyncSocket.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -105,12 +110,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2737E4054365069F967211C8A76AB24E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>49FD5D17184F14FFB9D72AFE8A609958</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>71ABE2B9B36585016003FD80E69C40F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8A421C6298CB3DF5D749193BD6FD0B38</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8E311C1151946FB648DFC91BA002EEBC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -135,6 +155,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A40A4387148E3EAE1932934098DAD3C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AC0D2D2B4EE7C873431AB3502859CA60</key>
 		<dict>
 			<key>primary</key>
@@ -146,6 +171,11 @@
 			<true/>
 		</dict>
 		<key>B6D57D97D1090180863CDEE8D9DE5FAB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD3903A559C056E37F010254E79A7BC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -166,6 +196,11 @@
 			<true/>
 		</dict>
 		<key>DF6F3BD7A8D80A843AB371605731E0F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E969C8D2B58D77644E418112F080225D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

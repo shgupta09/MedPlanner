@@ -36,12 +36,12 @@
     fromDate = [NSDate date];
     
     CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);
-    _sliderView.transform = trans;
+    /*_sliderView.transform = trans;
     _sliderValue.text = [NSString stringWithFormat:@"%f",_sliderView.value];
     [_sliderView addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     _sliderView.maximumValue = 42.0;
     _sliderView.minimumValue = 32.0;
-    
+    */
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
