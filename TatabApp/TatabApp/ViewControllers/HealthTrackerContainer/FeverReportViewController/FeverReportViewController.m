@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     toDate = [NSDate date];
-
+_txtComments.text = @"comment";
     fromDate = [NSDate date];
     
     CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);

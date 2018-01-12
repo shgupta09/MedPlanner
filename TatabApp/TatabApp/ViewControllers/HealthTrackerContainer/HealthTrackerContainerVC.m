@@ -27,7 +27,8 @@
 
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
-    [self.navigationController popViewControllerAnimated:true];
+    
+        [self.navigationController dismissViewControllerAnimated:false completion:nil];
 }
 - (IBAction)btnEMRClcked:(id)sender {
     

@@ -49,7 +49,8 @@
     selectedRowForType = 0;
     selectedRowForTiming = 0;
     selectedRowForReading = 0;
-    
+    _txtComments.text = @"comment";
+
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -308,7 +309,8 @@
 }
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    return [[[dataArray objectAtIndex:index] valueForKey:@"temperature"] floatValue]; // The value of the point on the Y-Axis for the index.
+    float reading = ([[[[[dataArray objectAtIndex:index] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:index] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
+    return reading; // The value of the point on the Y-Axis for the index.
 }
 
 - (IBAction)btnSelectType:(id)sender {
@@ -352,11 +354,15 @@
 -(void)uploadBloodSugar{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
-    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
+//    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
     [parameterDict setValue:[arrayType objectAtIndex:selectedRowForTiming] forKey:@"timing"];
-    [parameterDict setValue:@"" forKey:@"reading"];
-    [parameterDict setValue:@"" forKey:@"comment"];
-    [parameterDict setValue:@"" forKey:@"date"];
+    [parameterDict setValue:[arrayreading objectAtIndex:selectedRowForReading] forKey:@"reading"];
+    [parameterDict setValue:_txtComments.text forKey:@"comment"];
+    NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
+    Formatter.dateFormat = @"yyyy-MM-dd";
+    NSString *stringFor = [Formatter stringFromDate:[NSDate date]];
+
+    [parameterDict setValue:stringFor forKey:@"date"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -370,6 +376,8 @@
                     [alertController addAction:ok];
                     [self presentViewController:alertController animated:YES completion:nil];
                     [self removeloder];
+                    [_popUpView removeFromSuperview];
+
                 }
                 else
                 {
@@ -408,14 +416,14 @@
 -(void)getBloodSugar{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
-    [parameterDict setValue:@"" forKey:@"from"];
-    [parameterDict setValue:@"" forKey:@"to"];
+    [parameterDict setValue:fromDateString forKey:@"from"];
+    [parameterDict setValue:toDateString forKey:@"to"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_BLOODSUGAR]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_BLOODSUGAR]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     dataArray = [NSMutableArray new];
@@ -540,7 +548,7 @@ numberOfRowsInComponent:(NSInteger)component{
     }
     else if (pickerObj.tag == 3){
         //reading
-        [_btnWeightPopup setTitle:[arrayreading objectAtIndex:row] forState:UIControlStateNormal];
+        [_btnReadingPopup setTitle:[arrayreading objectAtIndex:row] forState:UIControlStateNormal];
         selectedRowForReading = row;
     
     }

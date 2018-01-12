@@ -23,6 +23,10 @@
     NSDate *toDate;
     NSDate *fromDate;
     UIToolbar *toolBar;
+    
+    
+    NSInteger heartRate;
+
 
 }
 @end
@@ -32,6 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     toDate = [NSDate date];
+    _txtComments.text = @"comment";
+    heartRate = 0;
     
     fromDate = [NSDate date];
     
@@ -130,7 +136,7 @@
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
-    [parameterDict setValue:[NSString stringWithFormat:@"%.f",roundf(_sliderView.value)] forKey:@"heart_rate"];
+    [parameterDict setValue:[NSString stringWithFormat:@"%d",heartRate] forKey:@"heart_rate"];
     [parameterDict setValue:_txtComments.text forKey:@"comment"];
     NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
     Formatter.dateFormat = @"yyyy-MM-dd";
@@ -260,6 +266,8 @@
     
     [self dismissViewControllerAnimated:false completion:nil];
     
+}
+- (IBAction)btnSelectHeartRateClicked:(id)sender {
 }
 
 - (IBAction)btnAddPressureClicked:(id)sender {
@@ -415,6 +423,34 @@
     self.view.userInteractionEnabled = YES;
 }
 
+
+
+#pragma mark - picker data Source
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 1;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component{
+    
+    return 200;
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
+(NSInteger)row forComponent:(NSInteger)component{
+    
+    return [NSString stringWithFormat:@"%d",row];
+    
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component{
+    
+    [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",row] forState:UIControlStateNormal];
+    heartRate = row;
+        
+    
+    
+    
+}
 
 
 @end

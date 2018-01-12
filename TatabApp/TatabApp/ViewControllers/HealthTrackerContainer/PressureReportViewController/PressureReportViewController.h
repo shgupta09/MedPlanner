@@ -21,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDIAValue;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons_imgViewSYS;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons_imageviewDIA;
+@property (weak, nonatomic) IBOutlet UIButton *btnHeartRate;
 
 @end
