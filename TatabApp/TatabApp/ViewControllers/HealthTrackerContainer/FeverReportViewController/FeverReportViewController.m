@@ -32,25 +32,49 @@
     [super viewDidLoad];
     
     toDate = [NSDate date];
-    [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
 
     fromDate = [NSDate date];
-    _sliderView.transform = CGAffineTransformMakeRotation(3.14/2);
+    
+    CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);
+    _sliderView.transform = trans;
+    _sliderValue.text = [NSString stringWithFormat:@"%f",_sliderView.value];
+    [_sliderView addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    _sliderView.maximumValue = 42.0;
+    _sliderView.minimumValue = 32.0;
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    //self.myLabel.text = [dateFormatter stringFromDate:[dueDatePickerView date]];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+        fromDateString = [dateFormatter stringFromDate:fromDate];
+        [_btnFromDate setTitle:fromDateString forState:UIControlStateNormal];
+        toDateString = [dateFormatter stringFromDate:toDate];
+        [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
+
+    
 
     // Do any additional setup after loading the view from its nib.
 }
+
+- (IBAction)sliderValueChanged:(UISlider *)sender {
+    NSLog(@"slider value = %f", sender.value);
+    _sliderValue.text = [NSString stringWithFormat:@"%.1f", _sliderView.value];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 -(void)resignResponder{
-    [CommonFunction resignFirstResponderOfAView:self.view];
-    if ([viewOverPicker isDescendantOfView:self.view]) {
-        [viewOverPicker removeFromSuperview];
-    }else if ([_popUpView isDescendantOfView:self.view]) {
-        [_popUpView removeFromSuperview];
-    }
+    
+}
+- (IBAction)btnBackPopUp:(id)sender {
+     [_popUpView removeFromSuperview];
 }
 
 #pragma mark - btn Actions
@@ -73,17 +97,22 @@
     [[self popUpView] setFrame:frame];
     [self.view addSubview:_popUpView];
 
-    [self uploadFeaverReport];
     
+}
+- (IBAction)btnSubmitFeverreport:(id)sender {
+    [self uploadFeaverReport] ;
 }
 
 -(void)uploadFeaverReport{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
 //    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
-    [parameterDict setValue:@"60" forKey:@"temperature"];
+    NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
+    Formatter.dateFormat = @"yyyy-MM-dd";
+    NSString *stringFor = [Formatter stringFromDate:[NSDate date]];
+    [parameterDict setValue:[NSString stringWithFormat:@"%.1f", _sliderView.value] forKey:@"temperature"];
     [parameterDict setValue:@"normal" forKey:@"comment"];
-    [parameterDict setValue:@"2017-05-10" forKey:@"date"];
+    [parameterDict setValue:stringFor forKey:@"date"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -97,6 +126,7 @@
                     [alertController addAction:ok];
                     [self presentViewController:alertController animated:YES completion:nil];
                     [self removeloder];
+                     [_popUpView removeFromSuperview];
                 }
                 else
                 {

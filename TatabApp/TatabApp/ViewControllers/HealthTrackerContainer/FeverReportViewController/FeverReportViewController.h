@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnToDate;
 @property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *graphView;
 @property (weak, nonatomic) IBOutlet UISlider *sliderView;
+@property (weak, nonatomic) IBOutlet UILabel *sliderValue;
+@property (weak, nonatomic) IBOutlet CustomTextField *txtComments;
 
 @end

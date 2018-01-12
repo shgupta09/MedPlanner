@@ -31,13 +31,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     toDate = [NSDate date];
-    [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
     
     fromDate = [NSDate date];
     
-
+    CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);
+    _sliderView.transform = trans;
+    _sliderValue.text = [NSString stringWithFormat:@"%f",_sliderView.value];
+    [_sliderView addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    _sliderView.maximumValue = 42.0;
+    _sliderView.minimumValue = 32.0;
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    //self.myLabel.text = [dateFormatter stringFromDate:[dueDatePickerView date]];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    fromDateString = [dateFormatter stringFromDate:fromDate];
+    [_btnFromDate setTitle:fromDateString forState:UIControlStateNormal];
+    toDateString = [dateFormatter stringFromDate:toDate];
+    [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 -(void)resignResponder{

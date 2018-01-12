@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,7 +16,9 @@
                 <outlet property="btnToDate" destination="BeG-4d-SpX" id="oCl-dd-peN"/>
                 <outlet property="graphView" destination="Jzk-x1-0Cl" id="1c6-yJ-5N8"/>
                 <outlet property="popUpView" destination="NxM-qy-n28" id="hoE-qp-8i8"/>
-                <outlet property="sliderView" destination="bee-ZX-vqn" id="Cds-3y-KgB"/>
+                <outlet property="sliderValue" destination="QgM-Tv-4RU" id="T5n-RT-Rhz"/>
+                <outlet property="sliderView" destination="Bjk-2z-43N" id="YRy-kx-VrL"/>
+                <outlet property="txtComments" destination="5jA-jE-YoN" id="0yO-6t-FmY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -197,7 +199,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzk-x1-0Cl" customClass="BEMSimpleLineGraphView">
-                                    <rect key="frame" x="18" y="74" width="340" height="267"/>
+                                    <rect key="frame" x="18" y="97" width="340" height="244"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="YES"/>
@@ -231,9 +233,10 @@
                                     </connections>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1a-pB-tPI" customClass="CustomButton">
-                                    <rect key="frame" x="253" y="59" width="105" height="7"/>
+                                    <rect key="frame" x="253" y="59" width="105" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="105" id="OBm-ib-1Dp"/>
+                                        <constraint firstAttribute="height" constant="30" id="n9a-nb-iq0"/>
                                     </constraints>
                                     <state key="normal" title="Refresh Graph"/>
                                     <connections>
@@ -262,7 +265,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsi-6M-haU">
-                                    <rect key="frame" x="15" y="54.5" width="10" height="10"/>
+                                    <rect key="frame" x="15" y="77.5" width="10" height="10"/>
                                     <color key="backgroundColor" red="0.81568627449999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="10" id="25x-o3-nTV"/>
@@ -270,7 +273,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvE-0H-mvr">
-                                    <rect key="frame" x="30" y="51.5" width="72" height="14.5"/>
+                                    <rect key="frame" x="30" y="74.5" width="72" height="14.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -294,7 +297,6 @@
                                 <constraint firstItem="lvE-0H-mvr" firstAttribute="leading" secondItem="Vsi-6M-haU" secondAttribute="trailing" constant="5" id="YiC-tX-ioX"/>
                                 <constraint firstItem="BeG-4d-SpX" firstAttribute="top" secondItem="Jzk-x1-0Cl" secondAttribute="bottom" constant="8" id="duB-yx-q0F"/>
                                 <constraint firstAttribute="bottom" secondItem="hfc-f0-Yap" secondAttribute="bottom" constant="34" id="jBM-Md-Nae"/>
-                                <constraint firstItem="Jzk-x1-0Cl" firstAttribute="centerY" secondItem="1K8-tB-QE0" secondAttribute="centerY" id="lLS-rv-fRe"/>
                                 <constraint firstItem="HtM-Zw-urp" firstAttribute="centerX" secondItem="1K8-tB-QE0" secondAttribute="centerX" id="nBG-6P-UMg"/>
                                 <constraint firstItem="HtM-Zw-urp" firstAttribute="top" secondItem="1K8-tB-QE0" secondAttribute="top" constant="8" id="sy3-Im-8xj"/>
                                 <constraint firstItem="UNl-0Q-twZ" firstAttribute="top" secondItem="1K8-tB-QE0" secondAttribute="top" constant="8" id="vIg-mO-vSp"/>
@@ -484,37 +486,64 @@
                                                 <constraint firstAttribute="height" constant="40" id="r3X-8e-Kdg"/>
                                             </constraints>
                                             <state key="normal" title="Submit">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" red="0.272356778383255" green="0.68184441328048706" blue="0.83073687553405762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="btnSubmitFeverreport:" destination="-1" eventType="touchUpInside" id="UTr-ym-OzB"/>
+                                            </connections>
                                         </button>
-                                        <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bee-ZX-vqn">
-                                            <rect key="frame" x="208" y="150" width="118" height="31"/>
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bjk-2z-43N">
+                                            <rect key="frame" x="126" y="150" width="262" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="258" id="dyB-PN-t04"/>
+                                            </constraints>
                                         </slider>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgM-Tv-4RU">
+                                            <rect key="frame" x="284" y="155" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.272356778383255" green="0.68184441328048706" blue="0.83073687553405762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="I3a-rA-H7A" firstAttribute="leading" secondItem="4mx-Ze-hCN" secondAttribute="leading" constant="25" id="5xG-35-XeO"/>
                                         <constraint firstItem="ZYu-Ld-4QQ" firstAttribute="top" secondItem="5jA-jE-YoN" secondAttribute="bottom" constant="8" id="7Sr-0a-Paf"/>
                                         <constraint firstItem="5jA-jE-YoN" firstAttribute="top" secondItem="I3a-rA-H7A" secondAttribute="bottom" constant="8" id="7bN-ks-3u0"/>
-                                        <constraint firstItem="bee-ZX-vqn" firstAttribute="leading" secondItem="q3N-Gb-ZYE" secondAttribute="trailing" constant="18" id="CYE-0Q-hxd"/>
+                                        <constraint firstItem="Bjk-2z-43N" firstAttribute="leading" secondItem="q3N-Gb-ZYE" secondAttribute="trailing" constant="-64" id="7vw-o4-W7e"/>
                                         <constraint firstAttribute="bottom" secondItem="ZYu-Ld-4QQ" secondAttribute="bottom" constant="9" id="CzG-9Y-ScW"/>
+                                        <constraint firstItem="QgM-Tv-4RU" firstAttribute="centerY" secondItem="q3N-Gb-ZYE" secondAttribute="centerY" id="JEY-Dr-JDF"/>
+                                        <constraint firstAttribute="trailing" secondItem="QgM-Tv-4RU" secondAttribute="trailing" constant="8" id="LR8-d4-eCh"/>
                                         <constraint firstItem="I3a-rA-H7A" firstAttribute="width" secondItem="4mx-Ze-hCN" secondAttribute="width" multiplier="0.5" id="PAE-6J-jbc"/>
                                         <constraint firstItem="77n-sX-3a5" firstAttribute="top" secondItem="4mx-Ze-hCN" secondAttribute="top" constant="8" id="YR9-Uy-QAz"/>
                                         <constraint firstItem="77n-sX-3a5" firstAttribute="centerX" secondItem="4mx-Ze-hCN" secondAttribute="centerX" id="aC7-Rs-dTo"/>
+                                        <constraint firstItem="Bjk-2z-43N" firstAttribute="centerY" secondItem="q3N-Gb-ZYE" secondAttribute="centerY" id="aiH-0N-jsZ"/>
                                         <constraint firstAttribute="trailing" secondItem="ZYu-Ld-4QQ" secondAttribute="trailing" constant="10" id="emY-qb-HVW"/>
-                                        <constraint firstItem="bee-ZX-vqn" firstAttribute="centerY" secondItem="q3N-Gb-ZYE" secondAttribute="centerY" id="mYS-wk-ro9"/>
                                         <constraint firstItem="5jA-jE-YoN" firstAttribute="leading" secondItem="4mx-Ze-hCN" secondAttribute="leading" constant="10" id="qVY-yW-WKV"/>
                                         <constraint firstItem="I3a-rA-H7A" firstAttribute="top" secondItem="77n-sX-3a5" secondAttribute="bottom" constant="7.5" id="qrW-dM-xAV"/>
                                         <constraint firstItem="ZYu-Ld-4QQ" firstAttribute="leading" secondItem="4mx-Ze-hCN" secondAttribute="leading" constant="10" id="xcd-qQ-1Uz"/>
                                         <constraint firstAttribute="trailing" secondItem="5jA-jE-YoN" secondAttribute="trailing" constant="10" id="ywJ-KD-WUt"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOq-6f-FLU">
+                                    <rect key="frame" x="20" y="26" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="Tb3-bT-vNC"/>
+                                        <constraint firstAttribute="width" constant="40" id="hQA-1N-goJ"/>
+                                    </constraints>
+                                    <state key="normal" image="back"/>
+                                    <connections>
+                                        <action selector="btnBackPopUp:" destination="-1" eventType="touchUpInside" id="R4u-5Y-wWI"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="4mx-Ze-hCN" firstAttribute="leading" secondItem="qTv-3D-squ" secondAttribute="leading" constant="20" id="1o3-OA-Blu"/>
                                 <constraint firstAttribute="trailing" secondItem="4mx-Ze-hCN" secondAttribute="trailing" constant="21" id="Awn-ix-i9B"/>
+                                <constraint firstItem="eOq-6f-FLU" firstAttribute="top" secondItem="qTv-3D-squ" secondAttribute="top" constant="26" id="O9h-me-aKh"/>
                                 <constraint firstItem="4mx-Ze-hCN" firstAttribute="top" secondItem="qTv-3D-squ" secondAttribute="top" constant="140" id="ODj-35-KvI"/>
+                                <constraint firstItem="eOq-6f-FLU" firstAttribute="leading" secondItem="qTv-3D-squ" secondAttribute="leading" constant="20" id="Yw6-am-tLu"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -541,6 +570,7 @@
     </objects>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
+        <image name="back" width="55" height="45"/>
         <image name="thermometer" width="516" height="519"/>
     </resources>
 </document>
