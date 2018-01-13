@@ -52,34 +52,34 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be5-SN-4H7">
-                    <rect key="frame" x="255" y="22" width="30" height="30"/>
+                    <rect key="frame" x="255" y="22.5" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="WSM-y3-eVV"/>
                         <constraint firstAttribute="width" constant="30" id="jQ4-dZ-cHj"/>
                     </constraints>
-                    <state key="normal" backgroundImage="Icon---Menu"/>
+                    <state key="normal" image="writeTweetBlue"/>
                     <connections>
                         <action selector="btnActionPost:" destination="-1" eventType="touchUpInside" id="7V5-or-Fe0"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ete-3S-Vsz">
-                    <rect key="frame" x="290" y="22" width="30" height="30"/>
+                    <rect key="frame" x="290" y="22.5" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="T4x-ws-LRm"/>
                         <constraint firstAttribute="height" constant="30" id="WYF-2L-Sul"/>
                     </constraints>
-                    <state key="normal" backgroundImage="Icon---Menu"/>
+                    <state key="normal" image="filter"/>
                     <connections>
                         <action selector="btn_ActionFilter:" destination="-1" eventType="touchUpInside" id="bnp-Zo-A6U"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsK-GT-bKr">
-                    <rect key="frame" x="325" y="22" width="30" height="30"/>
+                    <rect key="frame" x="325" y="22.5" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="6bK-fC-D7i"/>
                         <constraint firstAttribute="width" constant="30" id="90a-AB-XMS"/>
                     </constraints>
-                    <state key="normal" backgroundImage="Icon---Menu"/>
+                    <state key="normal" image="Icon---Search"/>
                     <connections>
                         <action selector="btnAction_Search:" destination="-1" eventType="touchUpInside" id="dkN-Iu-PLW"/>
                     </connections>
@@ -126,12 +126,12 @@
                                         </textView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgg-en-tTH">
                                             <rect key="frame" x="289" y="234" width="40" height="40"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="s9q-Pg-5cN"/>
                                                 <constraint firstAttribute="height" constant="40" id="xej-2x-43L"/>
                                             </constraints>
-                                            <state key="normal" image="pointer"/>
+                                            <state key="normal" image="sendTweet"/>
                                             <connections>
                                                 <action selector="btnActionSendPost:" destination="-1" eventType="touchUpInside" id="2GV-OH-MbL"/>
                                             </connections>
@@ -150,12 +150,14 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbk-T1-X91">
                                             <rect key="frame" x="5" y="234" width="40" height="40"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="Mjs-af-gk7"/>
                                                 <constraint firstAttribute="height" constant="40" id="TKL-a3-q9R"/>
                                             </constraints>
-                                            <state key="normal" image="FollowUp"/>
+                                            <state key="normal" image="cameraWhite">
+                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </state>
                                             <connections>
                                                 <action selector="btnAction_Attatchment:" destination="-1" eventType="touchUpInside" id="cWQ-WY-bzo"/>
                                             </connections>
@@ -262,7 +264,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzY-fA-wdW">
-                                    <rect key="frame" x="99" y="358" width="61" height="30"/>
+                                    <rect key="frame" x="99" y="359" width="61" height="30"/>
                                     <state key="normal" title="pediatric">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -271,7 +273,7 @@
                                     </state>
                                 </button>
                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeR-pI-PHC">
-                                    <rect key="frame" x="175" y="358" width="72" height="30"/>
+                                    <rect key="frame" x="175" y="359" width="72" height="30"/>
                                     <state key="normal" title="abodminal">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -280,7 +282,7 @@
                                     </state>
                                 </button>
                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XlA-Xc-u9p">
-                                    <rect key="frame" x="262" y="358" width="85" height="30"/>
+                                    <rect key="frame" x="262" y="359" width="85" height="30"/>
                                     <state key="normal" title="psycological">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -339,8 +341,12 @@
         </view>
     </objects>
     <resources>
-        <image name="FollowUp" width="72" height="77"/>
         <image name="Icon---Menu" width="42" height="34"/>
+        <image name="Icon---Search" width="43" height="45"/>
+        <image name="cameraWhite" width="45" height="37"/>
+        <image name="filter" width="57" height="51"/>
         <image name="pointer" width="102" height="87"/>
+        <image name="sendTweet" width="57" height="57"/>
+        <image name="writeTweetBlue" width="57" height="57"/>
     </resources>
 </document>
