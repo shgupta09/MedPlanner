@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    dataArray = [NSMutableArray new];
     imageUrl = @"";
     is_Media = false;
     categoryArray = [[NSMutableArray alloc] init] ;
@@ -39,8 +40,10 @@
     singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                               action:@selector(handleSingleTap:)];
     [_tbl_View registerNib:[UINib nibWithNibName:@"TextPostCell" bundle:nil]forCellReuseIdentifier:@"TextPostCell"];
+    [_tbl_View registerNib:[UINib nibWithNibName:@"MediaPostCell" bundle:nil]forCellReuseIdentifier:@"MediaPostCell"];
+
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
-    _tbl_View.estimatedRowHeight = 100;
+    _tbl_View.estimatedRowHeight = 200;
     _tbl_View.multipleTouchEnabled = NO;
     [self geAllPost];
 
@@ -116,8 +119,25 @@
     
     PostData *obj = [dataArray objectAtIndex:indexPath.row];
     if ([obj.type isEqualToString:@"photo"] ) {
+<<<<<<< HEAD
         TextPostCell *cell = [[TextPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TextPostCell"];
 
+=======
+        MediaPostCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"MediaPostCell"];
+        
+        if (cell == nil) {
+            cell = [[MediaPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MediaPostCell"];
+        }
+        cell.lbl_DoctorName.text = [NSString stringWithFormat:@"Dr. %@",obj.post_by];
+        [cell.imgView_Content sd_setImageWithURL:[NSURL URLWithString:obj.url]];
+        cell.viewForImage.layer.cornerRadius = 5;
+        cell.viewForImage.layer.masksToBounds = true;
+        cell.doctorImageView.layer.cornerRadius = 5;
+        cell.doctorImageView.layer.masksToBounds = true;
+        cell.clinicImageView.layer.cornerRadius = 5;
+        cell.clinicImageView.layer.masksToBounds = true;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+>>>>>>> 3c7c11b2806c6d4cbd754eca62f6748984ed00b6
         return cell;
     }
     else{
@@ -125,8 +145,9 @@
         
         if (cell == nil) {
             cell = [[TextPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TextPostCell"];
-            
         }
+        cell.lbl_DoctorName.text = [NSString stringWithFormat:@"Dr. %@",obj.post_by];
+        cell.lbl_Content.text = obj.content;
         cell.viewForImage.layer.cornerRadius = 5;
         cell.viewForImage.layer.masksToBounds = true;
         cell.doctorImageView.layer.cornerRadius = 5;
@@ -137,7 +158,8 @@
         return cell;
 
     }
-    
+    TextPostCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"TextPostCell"];
+    return cell;
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -401,14 +423,12 @@
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"posts"]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     is_Media = false;
                     dataArray = [NSMutableArray new];
-                    NSArray *tempArray = [responseObj valueForKey:@"data"];
+                    NSArray *tempArray = [responseObj valueForKey:@"posts"];
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         PostData *postData = [PostData new];
                         postData.tags = [obj valueForKey:@"tags"];
@@ -422,6 +442,7 @@
                         postData.is_liked = [obj valueForKey:@"is_liked"];
                         [dataArray addObject:postData];
                     }];
+                    [_tbl_View reloadData];
                     [self removeloder];
                 }
                 else
@@ -490,8 +511,9 @@
                     //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
                     
                     [self presentViewController:alertController animated:YES completion:nil];
-                    [self geAllPost];
                     [self removeloder];
+
+                    [self geAllPost];
                 }
                 else
                 {

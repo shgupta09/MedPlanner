@@ -240,7 +240,7 @@
                                 <constraint firstAttribute="height" constant="50" id="Qi7-UY-Esf"/>
                                 <constraint firstAttribute="width" constant="35" id="qCI-Xt-f8T"/>
                             </constraints>
-                            <state key="normal" backgroundImage="Icon---Profile"/>
+                            <state key="normal" image="diagnose"/>
                             <connections>
                                 <action selector="btnAction_Diagnose:" destination="-1" eventType="touchUpInside" id="yAm-Tb-ZYf"/>
                             </connections>
@@ -251,7 +251,7 @@
                                 <constraint firstAttribute="height" constant="50" id="HFI-oP-JFF"/>
                                 <constraint firstAttribute="width" constant="35" id="LUB-b2-fkV"/>
                             </constraints>
-                            <state key="normal" backgroundImage="Icon---Profile"/>
+                            <state key="normal" image="followup-1"/>
                             <connections>
                                 <action selector="btnAction_fellowUp:" destination="-1" eventType="touchUpInside" id="saQ-7A-ao7"/>
                             </connections>
@@ -262,7 +262,7 @@
                                 <constraint firstAttribute="width" constant="35" id="VMS-4v-cCS"/>
                                 <constraint firstAttribute="height" constant="50" id="m9r-QJ-vYa"/>
                             </constraints>
-                            <state key="normal" backgroundImage="Icon---Profile"/>
+                            <state key="normal" image="prescription"/>
                             <connections>
                                 <action selector="btnActionPreception:" destination="-1" eventType="touchUpInside" id="3pb-5H-Wh5"/>
                             </connections>
@@ -402,8 +402,10 @@
         </view>
     </objects>
     <resources>
-        <image name="Icon---Profile" width="44" height="44"/>
         <image name="back" width="55" height="45"/>
+        <image name="diagnose" width="66" height="70"/>
+        <image name="followup-1" width="79" height="70"/>
+        <image name="prescription" width="52" height="70"/>
         <image name="profile" width="218" height="256"/>
     </resources>
 </document>
