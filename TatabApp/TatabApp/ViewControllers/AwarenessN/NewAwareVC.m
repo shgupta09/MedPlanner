@@ -116,7 +116,9 @@
     
     PostData *obj = [dataArray objectAtIndex:indexPath.row];
     if ([obj.type isEqualToString:@"photo"] ) {
-        
+        TextPostCell *cell = [[TextPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TextPostCell"];
+
+        return cell;
     }
     else{
         TextPostCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"TextPostCell"];
