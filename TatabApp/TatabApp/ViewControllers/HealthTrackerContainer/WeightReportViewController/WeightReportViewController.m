@@ -37,14 +37,23 @@
     toDate = [NSDate date];
     
     fromDate = [NSDate date];
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 44179a4deae7e64ec52c68f59fb38af04d08482a
     selectedRowForType = 0;
     selectedRowForWeight = 0;
     selectedRowForheight = 0;
-    selectedRowForHeartRate = 0;
+    selectedRowForHeartRate = 1;
     [_btnWeight setTitle:[NSString stringWithFormat:@"%d",3] forState:UIControlStateNormal];
-    [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",0] forState:UIControlStateNormal];
+    [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",1] forState:UIControlStateNormal];
     [_btnHeight setTitle:[NSString stringWithFormat:@"%d",50] forState:UIControlStateNormal];
+<<<<<<< HEAD
+    _txt_Comment.text = @"comment";
+
+=======
+>>>>>>> 44179a4deae7e64ec52c68f59fb38af04d08482a
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -101,12 +110,7 @@
 }
 
 -(void)resignResponder{
-    [CommonFunction resignFirstResponderOfAView:self.view];
-    if ([viewOverPicker isDescendantOfView:self.view]) {
-        [viewOverPicker removeFromSuperview];
-    }else if ([_popUpView isDescendantOfView:self.view]) {
-        [_popUpView removeFromSuperview];
-    }
+    
 }
 
 - (IBAction)btnAddPressureClicked:(id)sender {
@@ -250,7 +254,7 @@
 }
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    return [[[dataArray objectAtIndex:index] valueForKey:@"temperature"] floatValue]; // The value of the point on the Y-Axis for the index.
+    return [[[dataArray objectAtIndex:index] valueForKey:@"weight"] floatValue]; // The value of the point on the Y-Axis for the index.
 }
 
 
@@ -278,6 +282,8 @@
                     [alertController addAction:ok];
                     [self presentViewController:alertController animated:YES completion:nil];
                     [self removeloder];
+                    [_popUpView removeFromSuperview];
+
                 }
                 else
                 {
@@ -316,14 +322,14 @@
 -(void)getWeight{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
-    [parameterDict setValue:@"" forKey:@"from"];
-    [parameterDict setValue:@"" forKey:@"to"];
+    [parameterDict setValue:fromDateString forKey:@"from"];
+    [parameterDict setValue:toDateString forKey:@"to"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_WEIGHT]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_WEIGHT]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     dataArray = [NSMutableArray new];

@@ -66,12 +66,7 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)resignResponder{
-    [CommonFunction resignFirstResponderOfAView:self.view];
-    if ([viewOverPicker isDescendantOfView:self.view]) {
-        [viewOverPicker removeFromSuperview];
-    }else if ([_popUpView isDescendantOfView:self.view]) {
-        [_popUpView removeFromSuperview];
-    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

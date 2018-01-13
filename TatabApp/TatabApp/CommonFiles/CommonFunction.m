@@ -10,6 +10,20 @@
 
 @implementation CommonFunction
 
++(UIColor*) getColorFor:(NSString*) type{
+    
+    if ([type isEqualToString:@"HR"]){
+        return [UIColor colorWithRed:19.0/255.0 green:141.0/255.0 blue:117.0/255.0 alpha:1];
+    }
+    else if ([type isEqualToString:@"DIA"]){
+         return [UIColor colorWithRed:247.0/255.0 green:164.0/255.0 blue:30.0/255.0 alpha:1];
+    }
+    else if ([type isEqualToString:@"SYS"]){
+         return [UIColor colorWithRed:208.0/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+    }
+     return [UIColor greenColor];
+}
+
 +(BOOL)isValidPassword:(NSString*)password
 {
     //!~`@#$%^&*-+();:={}[],.<>?\\/\"\'

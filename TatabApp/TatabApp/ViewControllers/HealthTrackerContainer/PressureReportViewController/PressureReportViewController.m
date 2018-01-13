@@ -24,9 +24,13 @@
     NSDate *fromDate;
     UIToolbar *toolBar;
     
-    
+    NSInteger selectedRowForType;
     NSInteger heartRate;
+    NSInteger hertRateValue;
 
+    NSMutableArray* arrayType;
+    
+    NSMutableArray* arrayToShowOnGraph;
 
 }
 @end
@@ -48,7 +52,8 @@
     [_sliderView addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     _sliderView.maximumValue = 120.0;
     _sliderView.minimumValue = 65.0;
-    
+    [_btnHeartRate setTitle:@"0" forState:UIControlStateNormal];
+    hertRateValue = 0;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
@@ -61,8 +66,11 @@
     toDateString = [dateFormatter stringFromDate:toDate];
     [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
     
-    
+    arrayToShowOnGraph = [[NSMutableArray alloc] init];
 
+    arrayType = [[NSMutableArray alloc] initWithObjects:@"HR",@"DIA",@"SYS", nil];
+    selectedRowForType = 0;
+    
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)sliderValueChanged:(UISlider *)sender {
@@ -131,12 +139,15 @@
     [self uploadBloodPressure] ;
 }
 
+- (IBAction)btnSelectTypeGraphClicked:(id)sender {
+}
 
 -(void)uploadBloodPressure{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
-    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
-    [parameterDict setValue:[NSString stringWithFormat:@"%d",heartRate] forKey:@"heart_rate"];
+    [parameterDict setValue:[NSString stringWithFormat:@"%d",hertRateValue] forKey:@"heart_rate"];
+    [parameterDict setValue:[NSString stringWithFormat:@"%.1f",_sliderView.value+60] forKey:@"sys"];
+    [parameterDict setValue:[NSString stringWithFormat:@"%.1f",_sliderView.value] forKey:@"dia"];
     [parameterDict setValue:_txtComments.text forKey:@"comment"];
     NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
     Formatter.dateFormat = @"yyyy-MM-dd";
@@ -217,6 +228,8 @@
                         bloodObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         bloodObj.heart_rate = [obj valueForKey:@"heart_rate"];
                         bloodObj.comment = [obj valueForKey:@"comment"];
+                        bloodObj.sys = [obj valueForKey:@"sys"];
+                        bloodObj.dis = [obj valueForKey:@"dis"];
                         bloodObj.date = [obj valueForKey:@"date"];
                         [dataArray addObject:bloodObj];
                     }];
@@ -257,6 +270,8 @@
     
 }
 
+- (IBAction)btnSelectGraphTypeClcked:(id)sender {
+}
 
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
@@ -375,6 +390,44 @@
     [viewOverPicker removeFromSuperview];
     
 }
+- (IBAction)btnHeartRateSelect:(id)sender {
+    
+    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerObj.delegate = self;
+    pickerObj.dataSource = self;
+    pickerObj.showsSelectionIndicator = YES;
+    pickerObj.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    UIToolbar *toolBarForTitle;
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             space,doneButton, nil];
+    pickerObj.hidden = false;
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:toolBar];
+    pickerObj.tag = 3;
+    [pickerObj  selectRow:selectedRowForType inComponent:0 animated:true];
+    
+    
+    [viewOverPicker addSubview:pickerObj];
+    [self.view addSubview:viewOverPicker];
+    [pickerObj reloadAllComponents];
+    
+
+    
+}
 // value change of the date picker
 -(void) dueDateChanged:(UIDatePicker *)sender {
     
@@ -397,13 +450,64 @@
     }
     
 }
+- (IBAction)selectTypeClicked:(id)sender {
+    
+    
+    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerObj.delegate = self;
+    pickerObj.dataSource = self;
+    pickerObj.showsSelectionIndicator = YES;
+    pickerObj.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    UIToolbar *toolBarForTitle;
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             space,doneButton, nil];
+    pickerObj.hidden = false;
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:toolBar];
+    pickerObj.tag = 2;
+    [pickerObj  selectRow:selectedRowForType inComponent:0 animated:true];
+    
+    
+    [viewOverPicker addSubview:pickerObj];
+    [self.view addSubview:viewOverPicker];
+    [pickerObj reloadAllComponents];
+    
+    
+}
 
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    return [dataArray count]; // Number of points in the graph.
+   
+        return [dataArray count];
+     // Number of points in the graph.
 }
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    return [[[dataArray objectAtIndex:index] valueForKey:@"heart_rate"] floatValue]; // The value of the point on the Y-Axis for the index.
+    
+    if (selectedRowForType == 0)
+    {
+        return [[[dataArray objectAtIndex:index] valueForKey:@"heart_rate"] floatValue]; // The value of the point on the Y-Axis for the index.
+    }
+    else if (selectedRowForType == 1){
+        return [[[dataArray objectAtIndex:index] valueForKey:@"dis"] floatValue]; // The value of the point on the Y-Axis for the index.
+    }
+    else if (selectedRowForType == 2){
+        return [[[dataArray objectAtIndex:index] valueForKey:@"sys"] floatValue]; // The value of the point on the Y-Axis for the index.
+    }
+    return 0;
 }
 
 #pragma mark - add loder
@@ -432,20 +536,47 @@
 }
 -(NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component{
-    
-    return 200;
+    if (pickerObj.tag == 2){
+        return 3;
+
+    }
+    else{
+        return 200;
+    }
+    return 1;
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
 (NSInteger)row forComponent:(NSInteger)component{
-    
-    return [NSString stringWithFormat:@"%d",row];
+    if (pickerObj.tag == 2){
+return [arrayType objectAtIndex:row];
+    }
+    else{
+return [NSString stringWithFormat:@"%ld",(long)row];    }
+    return @"";
     
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component{
     
-    [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",row] forState:UIControlStateNormal];
-    heartRate = row;
+    if (pickerObj.tag == 2){
+        [_btnSelectType setTitle:[arrayType objectAtIndex:row] forState:UIControlStateNormal];
+        selectedRowForType = row;
+        [self.graphView reloadGraph];
+    }
+    
+    if (pickerObj.tag == 3){
+        [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",row] forState:UIControlStateNormal];
+        hertRateValue = row;
+        [self.graphView reloadGraph];
+    }
+    
+    
+    else{
+        [_btnHeartRate setTitle:[NSString stringWithFormat:@"%ld",(long)row] forState:UIControlStateNormal];
+        heartRate = row;
+    }
+    
+    
         
     
     

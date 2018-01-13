@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -233,7 +233,7 @@
                                         <outlet property="delegate" destination="-1" id="Sk1-Zl-AeA"/>
                                     </connections>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1a-pB-tPI" customClass="CustomButton">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1a-pB-tPI" customClass="CustomButton3">
                                     <rect key="frame" x="253" y="59" width="105" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="105" id="OBm-ib-1Dp"/>
@@ -244,7 +244,7 @@
                                         <action selector="btnSelectYearClicked:" destination="-1" eventType="touchUpInside" id="soP-7Q-QP6"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfc-f0-Yap" customClass="CustomButton">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfc-f0-Yap" customClass="CustomButton3">
                                     <rect key="frame" x="50" y="351" width="105" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="105" id="yeQ-UY-SMh"/>
@@ -254,7 +254,7 @@
                                         <action selector="btnSelectFromDateClicked:" destination="-1" eventType="touchUpInside" id="t0N-MR-T8p"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeG-4d-SpX" customClass="CustomButton">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeG-4d-SpX" customClass="CustomButton3">
                                     <rect key="frame" x="220" y="349" width="105" height="32"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="32" id="TOI-ds-agU"/>
@@ -480,14 +480,14 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYu-Ld-4QQ" customClass="CustomButton">
-                                            <rect key="frame" x="10" y="350" width="314" height="40"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYu-Ld-4QQ" customClass="CustomButton3">
+                                            <rect key="frame" x="10" y="350" width="147" height="40"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="r3X-8e-Kdg"/>
                                             </constraints>
                                             <state key="normal" title="Submit">
-                                                <color key="titleColor" red="0.272356778383255" green="0.68184441328048706" blue="0.83073687553405762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
                                                 <action selector="btnSubmitFeverreport:" destination="-1" eventType="touchUpInside" id="UTr-ym-OzB"/>
@@ -516,6 +516,17 @@
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="19" id="vX1-jQ-cVd"/>
                                             </constraints>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOq-6f-FLU">
+                                            <rect key="frame" x="177" y="350" width="147" height="40"/>
+                                            <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="Tb3-bT-vNC"/>
+                                            </constraints>
+                                            <state key="normal" title="Cancel"/>
+                                            <connections>
+                                                <action selector="btnBackPopUp:" destination="-1" eventType="touchUpInside" id="R4u-5Y-wWI"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -523,41 +534,31 @@
                                         <constraint firstItem="ZYu-Ld-4QQ" firstAttribute="top" secondItem="5jA-jE-YoN" secondAttribute="bottom" constant="8" id="7Sr-0a-Paf"/>
                                         <constraint firstItem="5jA-jE-YoN" firstAttribute="top" secondItem="I3a-rA-H7A" secondAttribute="bottom" constant="8" id="7bN-ks-3u0"/>
                                         <constraint firstItem="Bjk-2z-43N" firstAttribute="leading" secondItem="q3N-Gb-ZYE" secondAttribute="trailing" constant="-64" id="7vw-o4-W7e"/>
+                                        <constraint firstItem="eOq-6f-FLU" firstAttribute="leading" secondItem="ZYu-Ld-4QQ" secondAttribute="trailing" constant="20" id="8YC-8a-gNq"/>
                                         <constraint firstAttribute="bottom" secondItem="ZYu-Ld-4QQ" secondAttribute="bottom" constant="9" id="CzG-9Y-ScW"/>
                                         <constraint firstItem="QgM-Tv-4RU" firstAttribute="centerY" secondItem="q3N-Gb-ZYE" secondAttribute="centerY" id="JEY-Dr-JDF"/>
                                         <constraint firstAttribute="trailing" secondItem="QgM-Tv-4RU" secondAttribute="trailing" constant="8" id="LR8-d4-eCh"/>
                                         <constraint firstItem="I3a-rA-H7A" firstAttribute="leading" secondItem="0y9-AU-sTI" secondAttribute="trailing" constant="1" id="MrZ-os-6m5"/>
                                         <constraint firstItem="I3a-rA-H7A" firstAttribute="width" secondItem="4mx-Ze-hCN" secondAttribute="width" multiplier="0.5" id="PAE-6J-jbc"/>
                                         <constraint firstItem="0y9-AU-sTI" firstAttribute="centerY" secondItem="q3N-Gb-ZYE" secondAttribute="centerY" id="TYh-0Y-k2M"/>
+                                        <constraint firstAttribute="trailing" secondItem="eOq-6f-FLU" secondAttribute="trailing" constant="10" id="U8y-y1-8tJ"/>
                                         <constraint firstItem="77n-sX-3a5" firstAttribute="top" secondItem="4mx-Ze-hCN" secondAttribute="top" constant="8" id="YR9-Uy-QAz"/>
+                                        <constraint firstItem="eOq-6f-FLU" firstAttribute="width" secondItem="ZYu-Ld-4QQ" secondAttribute="width" id="ZSz-W9-H9Y"/>
                                         <constraint firstItem="77n-sX-3a5" firstAttribute="centerX" secondItem="4mx-Ze-hCN" secondAttribute="centerX" id="aC7-Rs-dTo"/>
                                         <constraint firstItem="Bjk-2z-43N" firstAttribute="centerY" secondItem="q3N-Gb-ZYE" secondAttribute="centerY" id="aiH-0N-jsZ"/>
-                                        <constraint firstAttribute="trailing" secondItem="ZYu-Ld-4QQ" secondAttribute="trailing" constant="10" id="emY-qb-HVW"/>
+                                        <constraint firstAttribute="bottom" secondItem="eOq-6f-FLU" secondAttribute="bottom" constant="9" id="niq-sG-5Y0"/>
                                         <constraint firstItem="5jA-jE-YoN" firstAttribute="leading" secondItem="4mx-Ze-hCN" secondAttribute="leading" constant="10" id="qVY-yW-WKV"/>
                                         <constraint firstItem="I3a-rA-H7A" firstAttribute="top" secondItem="77n-sX-3a5" secondAttribute="bottom" constant="7.5" id="qrW-dM-xAV"/>
                                         <constraint firstItem="ZYu-Ld-4QQ" firstAttribute="leading" secondItem="4mx-Ze-hCN" secondAttribute="leading" constant="10" id="xcd-qQ-1Uz"/>
                                         <constraint firstAttribute="trailing" secondItem="5jA-jE-YoN" secondAttribute="trailing" constant="10" id="ywJ-KD-WUt"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOq-6f-FLU">
-                                    <rect key="frame" x="20" y="26" width="40" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="Tb3-bT-vNC"/>
-                                        <constraint firstAttribute="width" constant="40" id="hQA-1N-goJ"/>
-                                    </constraints>
-                                    <state key="normal" image="back"/>
-                                    <connections>
-                                        <action selector="btnBackPopUp:" destination="-1" eventType="touchUpInside" id="R4u-5Y-wWI"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="4mx-Ze-hCN" firstAttribute="leading" secondItem="qTv-3D-squ" secondAttribute="leading" constant="20" id="1o3-OA-Blu"/>
                                 <constraint firstAttribute="trailing" secondItem="4mx-Ze-hCN" secondAttribute="trailing" constant="21" id="Awn-ix-i9B"/>
-                                <constraint firstItem="eOq-6f-FLU" firstAttribute="top" secondItem="qTv-3D-squ" secondAttribute="top" constant="26" id="O9h-me-aKh"/>
                                 <constraint firstItem="4mx-Ze-hCN" firstAttribute="top" secondItem="qTv-3D-squ" secondAttribute="top" constant="140" id="ODj-35-KvI"/>
-                                <constraint firstItem="eOq-6f-FLU" firstAttribute="leading" secondItem="qTv-3D-squ" secondAttribute="leading" constant="20" id="Yw6-am-tLu"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -584,7 +585,6 @@
     </objects>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
-        <image name="back" width="55" height="45"/>
         <image name="pointer" width="102" height="87"/>
         <image name="thermometer" width="516" height="519"/>
     </resources>
