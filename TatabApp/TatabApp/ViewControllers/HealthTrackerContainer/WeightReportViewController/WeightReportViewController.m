@@ -37,7 +37,11 @@
     toDate = [NSDate date];
     
     fromDate = [NSDate date];
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 44179a4deae7e64ec52c68f59fb38af04d08482a
     selectedRowForType = 0;
     selectedRowForWeight = 0;
     selectedRowForheight = 0;
@@ -45,8 +49,11 @@
     [_btnWeight setTitle:[NSString stringWithFormat:@"%d",3] forState:UIControlStateNormal];
     [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",1] forState:UIControlStateNormal];
     [_btnHeight setTitle:[NSString stringWithFormat:@"%d",50] forState:UIControlStateNormal];
+<<<<<<< HEAD
     _txt_Comment.text = @"comment";
 
+=======
+>>>>>>> 44179a4deae7e64ec52c68f59fb38af04d08482a
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];

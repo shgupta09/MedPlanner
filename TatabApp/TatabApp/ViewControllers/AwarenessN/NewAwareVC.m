@@ -7,7 +7,7 @@
 //
 
 #import "NewAwareVC.h"
-
+#import "MediaPostCell.h"
 @interface NewAwareVC (){
     SWRevealViewController *revealController;
     BOOL isOpen;
@@ -18,6 +18,10 @@
      NSMutableArray *imageDataArray;
     LoderView *loderObj;
       NSMutableArray *categoryArray;
+    NSMutableArray *dataArray;
+    NSString *imageUrl;
+    bool is_Media;
+    
 }
 @end
 
@@ -25,6 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    imageUrl = @"";
+    is_Media = false;
     categoryArray = [[NSMutableArray alloc] init] ;
     imageDataArray = [NSMutableArray new];
     picker = [[UIImagePickerController alloc] init];
@@ -36,6 +42,8 @@
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 100;
     _tbl_View.multipleTouchEnabled = NO;
+    [self geAllPost];
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -49,8 +57,14 @@
     self.navigationController.navigationBar.hidden = true;
     isOpen = false;
     if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-        _btn_Post.hidden = true;
-        _btn_Post.userInteractionEnabled = false;
+        if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
+            _btn_Post.hidden = true;
+            _btn_Post.userInteractionEnabled = false;
+        }else{
+            _btn_Post.hidden = false;
+            _btn_Post.userInteractionEnabled = true;
+        }
+        
     }
 }
 //The event handling method
@@ -95,24 +109,33 @@
 #pragma mark- tableView delegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return dataArray.count;
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TextPostCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"TextPostCell"];
     
-    if (cell == nil) {
-        cell = [[TextPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TextPostCell"];
+    PostData *obj = [dataArray objectAtIndex:indexPath.row];
+    if ([obj.type isEqualToString:@"photo"] ) {
         
     }
-    cell.viewForImage.layer.cornerRadius = 5;
-    cell.viewForImage.layer.masksToBounds = true;
-    cell.doctorImageView.layer.cornerRadius = 5;
-    cell.doctorImageView.layer.masksToBounds = true;
-    cell.clinicImageView.layer.cornerRadius = 5;
-    cell.clinicImageView.layer.masksToBounds = true;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    else{
+        TextPostCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"TextPostCell"];
+        
+        if (cell == nil) {
+            cell = [[TextPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TextPostCell"];
+            
+        }
+        cell.viewForImage.layer.cornerRadius = 5;
+        cell.viewForImage.layer.masksToBounds = true;
+        cell.doctorImageView.layer.cornerRadius = 5;
+        cell.doctorImageView.layer.masksToBounds = true;
+        cell.clinicImageView.layer.cornerRadius = 5;
+        cell.clinicImageView.layer.masksToBounds = true;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+
+    }
+    
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -158,6 +181,7 @@
 }
 
 - (IBAction)btnActionSendPost:(id)sender {
+    [self uploadPost];
     
 }
 - (IBAction)btnAction_Attatchment:(id)sender {
@@ -265,7 +289,9 @@
     
     [imageDataArray addObject:imageData];
     UIImage *processedImage = [UIImage imageWithData:imageData];
-  //  [self hitImageUploadApi];
+    is_Media = true;
+    [self hitImageUploadApi];
+    
     return processedImage;
     
 }
@@ -307,13 +333,12 @@
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     [self removeloder];
                     
-                    NSDictionary *dict = @{@"type":@"image",
-                                           @"url": [[responseObj valueForKey:@"urls"] valueForKey:@"photo"]};
+                    NSDictionary *dict = [[responseObj valueForKey:@"urls"] valueForKey:@"photo"];
                     
-                    NSString *newMessage = [NSString stringWithFormat:@"%@",dict];
-                    
-                    //                    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shuam" andMessageId:@"34"];
-                    
+                    imageUrl = [NSString stringWithFormat:@"%@",dict];
+                    [self uploadPost];
+                   
+                    [self removeloder];
                     
                 }
                 else
@@ -369,5 +394,137 @@
     }
     
 }
+
+-(void)geAllPost{
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"posts"]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                    is_Media = false;
+                    dataArray = [NSMutableArray new];
+                    NSArray *tempArray = [responseObj valueForKey:@"data"];
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        PostData *postData = [PostData new];
+                        postData.tags = [obj valueForKey:@"tags"];
+                        postData.type = [obj valueForKey:@"type"];
+                        postData.url = [obj valueForKey:@"url"];
+                        postData.content = [obj valueForKey:@"content"];
+                        postData.post_by = [obj valueForKey:@"post_by"];
+                        postData.total_likes = [obj valueForKey:@"total_likes"];
+                        postData.liked_on = [obj valueForKey:@"liked_on"];
+                        postData.post_id = [obj valueForKey:@"post_id"];
+                        postData.is_liked = [obj valueForKey:@"is_liked"];
+                        [dataArray addObject:postData];
+                    }];
+                    [self removeloder];
+                }
+                else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                
+                
+                
+            }
+            
+            else {
+                [self removeloder];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:[error description] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction:ok];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+            
+            
+        }];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+    
+    
+}
+-(void)uploadPost{
+    NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
+    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"user_id"];
+    [parameterDict setValue:@"1" forKey:@"awareness_id"];
+    if (!is_Media) {
+        [parameterDict setValue:@"text" forKey:@"type"];
+        [parameterDict setValue:@"" forKey:@"url"];
+
+    }else{
+        [parameterDict setValue:@"photo" forKey:@"type"];
+        [parameterDict setValue:imageUrl forKey:@"url"];
+
+    }
+    [parameterDict setValue:@"text" forKey:@"tags"];
+    //Text/Media
+    
+    [parameterDict setValue:_txt_txtView.text forKey:@"content"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"addpost"]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        [_popUpView removeFromSuperview];
+                    }];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self geAllPost];
+                    [self removeloder];
+                }
+                else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                
+                
+                
+            }
+            
+            else {
+                [self removeloder];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:[error description] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction:ok];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+            
+            
+        }];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+    
+    
+}
+
+
 
 @end

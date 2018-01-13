@@ -10,6 +10,7 @@
 #import "TextPostCell.h"
 @interface NewAwareVC : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITextView *txt_txtView;
 @property (weak, nonatomic) IBOutlet UITextField *txt_Search;
 @property (weak, nonatomic) IBOutlet UITableView *tbl_View;
 @property (weak, nonatomic) IBOutlet UIButton *btn_Post;

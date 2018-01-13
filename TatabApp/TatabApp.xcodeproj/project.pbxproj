@@ -95,6 +95,7 @@
 		D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84DF2021F8A0D9C00234070 /* RegisterViewController.xib */; };
 		D8E1C79F2007C790007172F5 /* NewAwareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E1C79D2007C790007172F5 /* NewAwareVC.m */; };
 		D8E1C7A02007C790007172F5 /* NewAwareVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8E1C79E2007C790007172F5 /* NewAwareVC.xib */; };
+		D8E1C7A3200902A8007172F5 /* PostData.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E1C7A2200902A8007172F5 /* PostData.m */; };
 		D8EE8B161F95E564006A018E /* Specialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE8B151F95E564006A018E /* Specialization.m */; };
 		D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE8B191F966FA8006A018E /* CustomAlert.m */; };
 		D8EE8B1C1F966FB8006A018E /* CustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8EE8B1B1F966FB8006A018E /* CustomAlert.xib */; };
@@ -272,6 +273,8 @@
 		D8E1C79C2007C790007172F5 /* NewAwareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAwareVC.h; sourceTree = "<group>"; };
 		D8E1C79D2007C790007172F5 /* NewAwareVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAwareVC.m; sourceTree = "<group>"; };
 		D8E1C79E2007C790007172F5 /* NewAwareVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewAwareVC.xib; sourceTree = "<group>"; };
+		D8E1C7A1200902A8007172F5 /* PostData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostData.h; sourceTree = "<group>"; };
+		D8E1C7A2200902A8007172F5 /* PostData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostData.m; sourceTree = "<group>"; };
 		D8EE8B141F95E564006A018E /* Specialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Specialization.h; sourceTree = "<group>"; };
 		D8EE8B151F95E564006A018E /* Specialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Specialization.m; sourceTree = "<group>"; };
 		D8EE8B181F966FA8006A018E /* CustomAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlert.h; sourceTree = "<group>"; };
@@ -714,6 +717,8 @@
 				5FD369141FFE954A00FC6C3F /* CommonInfoPatient.m */,
 				D842065D2005444D00459FC2 /* Report.h */,
 				D842065E2005444D00459FC2 /* Report.m */,
+				D8E1C7A1200902A8007172F5 /* PostData.h */,
+				D8E1C7A2200902A8007172F5 /* PostData.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -937,7 +942,7 @@
 				TargetAttributes = {
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = MK5HXMKD83;
+						DevelopmentTeam = H7RFM2VSMC;
 						ProvisioningStyle = Automatic;
 					};
 					5FBBBAFB1F72401C00C03813 = {
@@ -1244,6 +1249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F4F6C5F1F828E5A000C65A0 /* AwarenessCategoryViewController.m in Sources */,
+				D8E1C7A3200902A8007172F5 /* PostData.m in Sources */,
 				9C8FE6D71F8B53270003003C /* RCDoctor3.m in Sources */,
 				5FD369151FFE954A00FC6C3F /* CommonInfoPatient.m in Sources */,
 				5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */,
@@ -1439,7 +1445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = MK5HXMKD83;
+				DEVELOPMENT_TEAM = H7RFM2VSMC;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1461,7 +1467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = MK5HXMKD83;
+				DEVELOPMENT_TEAM = H7RFM2VSMC;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

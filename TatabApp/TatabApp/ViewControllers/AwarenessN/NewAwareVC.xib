@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,6 +16,7 @@
                 <outlet property="popUpView2" destination="3aD-F7-kBG" id="0mY-I5-HcJ"/>
                 <outlet property="tbl_View" destination="pxH-EF-6ak" id="EfZ-xR-55G"/>
                 <outlet property="txt_Search" destination="6zo-YR-AGj" id="rHz-LG-DYH"/>
+                <outlet property="txt_txtView" destination="dSa-fY-Bey" id="BNx-kz-gfq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -148,7 +149,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbk-T1-X91">
-                                            <rect key="frame" x="5" y="234.5" width="40" height="40"/>
+                                            <rect key="frame" x="5" y="234" width="40" height="40"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="Mjs-af-gk7"/>
@@ -215,7 +216,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UvX-Ne-7ZI">
-                                    <rect key="frame" x="20" y="313.5" width="334" height="40"/>
+                                    <rect key="frame" x="20" y="314" width="334" height="40"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6zo-YR-AGj">
                                             <rect key="frame" x="2" y="2" width="304" height="36"/>
@@ -225,7 +226,7 @@
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8b-OB-W3h">
-                                            <rect key="frame" x="308" y="7.5" width="25" height="25"/>
+                                            <rect key="frame" x="308" y="7" width="25" height="25"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="jqK-mZ-g8b"/>
@@ -249,7 +250,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDu-zX-uhG">
-                                    <rect key="frame" x="32" y="358.5" width="52" height="30"/>
+                                    <rect key="frame" x="32" y="359" width="52" height="30"/>
                                     <state key="normal" title="obgyne">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -288,7 +289,7 @@
                                     </state>
                                 </button>
                                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV3-2S-Kir">
-                                    <rect key="frame" x="109.5" y="393.5" width="156" height="30"/>
+                                    <rect key="frame" x="110" y="394" width="156" height="30"/>
                                     <state key="normal" title="Family and Community">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
