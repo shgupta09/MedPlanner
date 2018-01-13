@@ -18,9 +18,5 @@
 @property (weak, nonatomic) IBOutlet CustomTextField *txtComments;
 @property (weak, nonatomic) IBOutlet CustomButton *btnWeightPopup;
 @property (weak, nonatomic) IBOutlet CustomButton *btnReadingPopup;
-<<<<<<< HEAD
-=======
-//@property (weak, nonatomic) IBOutlet CustomTextField *txtComments;
->>>>>>> cf43df7af86cc2086feaffa85bb3a0d496884b16
 
 @end

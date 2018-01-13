@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons_imgViewSYS;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons_imageviewDIA;
 @property (weak, nonatomic) IBOutlet UIButton *btnHeartRate;
+@property (weak, nonatomic) IBOutlet CustomButton3 *btnSelectType;
 
 @end
