@@ -18,6 +18,8 @@
                 <outlet property="txt_Search" destination="6zo-YR-AGj" id="rHz-LG-DYH"/>
                 <outlet property="txt_txtView" destination="dSa-fY-Bey" id="BNx-kz-gfq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewToClip" destination="3rX-Vy-A5L" id="Y3m-Uc-Ptx"/>
+                <outlet property="viewToClip2" destination="UvX-Ne-7ZI" id="8ri-Ez-4gr"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -124,6 +126,18 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bA1-2F-s4O">
+                                            <rect key="frame" x="301" y="8" width="25" height="25"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="GJv-wY-wAY"/>
+                                                <constraint firstAttribute="width" constant="25" id="zBK-To-W9B"/>
+                                            </constraints>
+                                            <state key="normal" image="error"/>
+                                            <connections>
+                                                <action selector="btnAction_Cancel:" destination="-1" eventType="touchUpInside" id="Le0-vM-CjJ"/>
+                                            </connections>
+                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgg-en-tTH">
                                             <rect key="frame" x="289" y="234" width="40" height="40"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -134,18 +148,6 @@
                                             <state key="normal" image="sendTweet"/>
                                             <connections>
                                                 <action selector="btnActionSendPost:" destination="-1" eventType="touchUpInside" id="2GV-OH-MbL"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bA1-2F-s4O">
-                                            <rect key="frame" x="221" y="234" width="60" height="40"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="4Gc-hf-4ql"/>
-                                                <constraint firstAttribute="width" constant="60" id="81d-pM-7Xt"/>
-                                            </constraints>
-                                            <state key="normal" title="Cancel"/>
-                                            <connections>
-                                                <action selector="btnAction_Cancel:" destination="-1" eventType="touchUpInside" id="Le0-vM-CjJ"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbk-T1-X91">
@@ -162,20 +164,32 @@
                                                 <action selector="btnAction_Attatchment:" destination="-1" eventType="touchUpInside" id="cWQ-WY-bzo"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg3-j0-skZ">
+                                            <rect key="frame" x="288.5" y="-4.5" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="OgU-V9-shm"/>
+                                                <constraint firstAttribute="width" constant="50" id="kCS-2U-oqJ"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="btnAction_Cancel:" destination="-1" eventType="touchUpInside" id="Y2o-Zp-1d3"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstItem="rbk-T1-X91" firstAttribute="centerY" secondItem="bA1-2F-s4O" secondAttribute="centerY" id="0Ws-ah-L9o"/>
                                         <constraint firstItem="jgg-en-tTH" firstAttribute="trailing" secondItem="dSa-fY-Bey" secondAttribute="trailing" id="2uK-V4-va5"/>
                                         <constraint firstItem="dSa-fY-Bey" firstAttribute="leading" secondItem="3rX-Vy-A5L" secondAttribute="leading" constant="5" id="3Ud-Kc-PQi"/>
                                         <constraint firstItem="rbk-T1-X91" firstAttribute="leading" secondItem="dSa-fY-Bey" secondAttribute="leading" id="5eP-aw-9dd"/>
+                                        <constraint firstItem="rbk-T1-X91" firstAttribute="centerY" secondItem="jgg-en-tTH" secondAttribute="centerY" id="Btw-Z8-0ck"/>
                                         <constraint firstAttribute="bottom" secondItem="jgg-en-tTH" secondAttribute="bottom" constant="5" id="CX2-Qa-P8Y"/>
+                                        <constraint firstItem="qg3-j0-skZ" firstAttribute="centerY" secondItem="bA1-2F-s4O" secondAttribute="centerY" id="Nm4-hJ-vFh"/>
                                         <constraint firstItem="dSa-fY-Bey" firstAttribute="top" secondItem="3rX-Vy-A5L" secondAttribute="top" constant="5" id="O61-VZ-L3O"/>
-                                        <constraint firstItem="jgg-en-tTH" firstAttribute="leading" secondItem="bA1-2F-s4O" secondAttribute="trailing" constant="8" id="YdE-HA-X6M"/>
+                                        <constraint firstAttribute="trailing" secondItem="bA1-2F-s4O" secondAttribute="trailing" constant="8" id="OeL-Ih-klL"/>
                                         <constraint firstItem="jgg-en-tTH" firstAttribute="top" secondItem="dSa-fY-Bey" secondAttribute="bottom" constant="5" id="ZoP-s3-0PQ"/>
-                                        <constraint firstItem="bA1-2F-s4O" firstAttribute="centerY" secondItem="jgg-en-tTH" secondAttribute="centerY" id="a1F-bH-9V6"/>
                                         <constraint firstAttribute="trailing" secondItem="dSa-fY-Bey" secondAttribute="trailing" constant="5" id="bok-5Y-Rgb"/>
+                                        <constraint firstItem="qg3-j0-skZ" firstAttribute="centerX" secondItem="bA1-2F-s4O" secondAttribute="centerX" id="e4s-Ef-bxQ"/>
                                         <constraint firstAttribute="height" constant="279" id="fhE-j6-Yn1"/>
+                                        <constraint firstItem="bA1-2F-s4O" firstAttribute="top" secondItem="3rX-Vy-A5L" secondAttribute="top" constant="8" id="gJY-81-Scy"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -229,14 +243,14 @@
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8b-OB-W3h">
                                             <rect key="frame" x="308" y="7" width="25" height="25"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="jqK-mZ-g8b"/>
                                                 <constraint firstAttribute="width" constant="25" id="psG-jg-IDC"/>
                                             </constraints>
-                                            <state key="normal" image="pointer"/>
+                                            <state key="normal" image="sendButton"/>
                                             <connections>
-                                                <action selector="btnActionSendPost:" destination="-1" eventType="touchUpInside" id="6W9-6k-puH"/>
+                                                <action selector="btnAction_ApplySearch:" destination="-1" eventType="touchUpInside" id="kjE-Wv-Po0"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -271,6 +285,9 @@
                                     <state key="selected" title="pediatric">
                                         <color key="titleColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="btnAction_SearchCategory:" destination="-1" eventType="touchUpInside" id="DLF-Bw-qGY"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeR-pI-PHC">
                                     <rect key="frame" x="175" y="359" width="72" height="30"/>
@@ -280,6 +297,9 @@
                                     <state key="selected">
                                         <color key="titleColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="btnAction_SearchCategory:" destination="-1" eventType="touchUpInside" id="c8u-cR-1kG"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XlA-Xc-u9p">
                                     <rect key="frame" x="262" y="359" width="85" height="30"/>
@@ -289,6 +309,9 @@
                                     <state key="selected">
                                         <color key="titleColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="btnAction_SearchCategory:" destination="-1" eventType="touchUpInside" id="aig-Ly-O1U"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV3-2S-Kir">
                                     <rect key="frame" x="110" y="394" width="156" height="30"/>
@@ -298,15 +321,42 @@
                                     <state key="selected">
                                         <color key="titleColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="btnAction_SearchCategory:" destination="-1" eventType="touchUpInside" id="epw-bj-YZy"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0UI-p8-zd4">
+                                    <rect key="frame" x="318.5" y="273.5" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="ELf-H8-2IQ"/>
+                                        <constraint firstAttribute="height" constant="50" id="deo-Vr-FqR"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="btnAction_Cancel2:" destination="-1" eventType="touchUpInside" id="GQI-Qq-xYe"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2H7-ej-8p5">
+                                    <rect key="frame" x="331" y="286" width="25" height="25"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="25" id="45g-xb-gU4"/>
+                                        <constraint firstAttribute="height" constant="25" id="ebM-cw-mXh"/>
+                                    </constraints>
+                                    <state key="normal" image="error"/>
+                                    <connections>
+                                        <action selector="btnAction_Cancel2:" destination="-1" eventType="touchUpInside" id="X8Y-C7-XVS"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="wV3-2S-Kir" firstAttribute="top" secondItem="tDu-zX-uhG" secondAttribute="bottom" constant="5" id="0zG-xY-QSr"/>
+                                <constraint firstItem="2H7-ej-8p5" firstAttribute="trailing" secondItem="6zo-YR-AGj" secondAttribute="trailing" constant="30" id="1II-05-Rdd"/>
                                 <constraint firstItem="jeR-pI-PHC" firstAttribute="leading" secondItem="fzY-fA-wdW" secondAttribute="trailing" constant="15" id="2H0-wc-pcW"/>
                                 <constraint firstItem="UvX-Ne-7ZI" firstAttribute="centerY" secondItem="kvo-aK-l6f" secondAttribute="centerY" id="Bgb-sc-jLq"/>
                                 <constraint firstAttribute="trailing" secondItem="UvX-Ne-7ZI" secondAttribute="trailing" constant="21" id="FnO-Pz-A8H"/>
                                 <constraint firstItem="tDu-zX-uhG" firstAttribute="top" secondItem="UvX-Ne-7ZI" secondAttribute="bottom" constant="5" id="SGH-hV-tB0"/>
+                                <constraint firstItem="2H7-ej-8p5" firstAttribute="top" secondItem="6zo-YR-AGj" secondAttribute="top" constant="-30" id="Tuz-UJ-mVp"/>
                                 <constraint firstItem="UvX-Ne-7ZI" firstAttribute="leading" secondItem="kvo-aK-l6f" secondAttribute="leading" constant="20" id="ZOg-V8-yTF"/>
                                 <constraint firstItem="XlA-Xc-u9p" firstAttribute="centerY" secondItem="jeR-pI-PHC" secondAttribute="centerY" id="ZQD-5l-8fg"/>
                                 <constraint firstItem="UvX-Ne-7ZI" firstAttribute="centerX" secondItem="kvo-aK-l6f" secondAttribute="centerX" id="b7N-UB-cwo"/>
@@ -314,8 +364,10 @@
                                 <constraint firstItem="wV3-2S-Kir" firstAttribute="centerX" secondItem="kvo-aK-l6f" secondAttribute="centerX" id="cig-uw-atc"/>
                                 <constraint firstItem="fzY-fA-wdW" firstAttribute="leading" secondItem="tDu-zX-uhG" secondAttribute="trailing" constant="15" id="exq-Ov-JcH"/>
                                 <constraint firstItem="jeR-pI-PHC" firstAttribute="centerY" secondItem="fzY-fA-wdW" secondAttribute="centerY" id="mhz-Zf-FEm"/>
+                                <constraint firstItem="0UI-p8-zd4" firstAttribute="centerY" secondItem="2H7-ej-8p5" secondAttribute="centerY" id="n67-o5-mfV"/>
                                 <constraint firstItem="XlA-Xc-u9p" firstAttribute="leading" secondItem="jeR-pI-PHC" secondAttribute="trailing" constant="15" id="vpf-Rj-Gjt"/>
                                 <constraint firstItem="tDu-zX-uhG" firstAttribute="leading" secondItem="6zo-YR-AGj" secondAttribute="leading" constant="10" id="wv8-qe-8kY"/>
+                                <constraint firstItem="0UI-p8-zd4" firstAttribute="centerX" secondItem="2H7-ej-8p5" secondAttribute="centerX" id="zJQ-69-fuD"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -344,8 +396,9 @@
         <image name="Icon---Menu" width="42" height="34"/>
         <image name="Icon---Search" width="43" height="45"/>
         <image name="cameraWhite" width="45" height="37"/>
+        <image name="error" width="204" height="204"/>
         <image name="filter" width="57" height="51"/>
-        <image name="pointer" width="102" height="87"/>
+        <image name="sendButton" width="70" height="71"/>
         <image name="sendTweet" width="57" height="57"/>
         <image name="writeTweetBlue" width="57" height="57"/>
     </resources>

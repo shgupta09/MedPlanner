@@ -21,6 +21,7 @@
     NSMutableArray *dataArray;
     NSString *imageUrl;
     bool is_Media;
+    NSString *postId;
     
 }
 @end
@@ -29,6 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _viewToClip.layer.cornerRadius = 5;
+    _viewToClip.layer.masksToBounds = true;
+    _viewToClip2.layer.cornerRadius = 5;
+    _viewToClip2.layer.masksToBounds = true;
     dataArray = [NSMutableArray new];
     imageUrl = @"";
     is_Media = false;
@@ -37,6 +42,7 @@
     picker = [[UIImagePickerController alloc] init];
     isOpen = false;
     revealController = [self revealViewController];
+    
     singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                               action:@selector(handleSingleTap:)];
     [_tbl_View registerNib:[UINib nibWithNibName:@"TextPostCell" bundle:nil]forCellReuseIdentifier:@"TextPostCell"];
@@ -60,7 +66,7 @@
     self.navigationController.navigationBar.hidden = true;
     isOpen = false;
     if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-        if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
+        if (![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
             _btn_Post.hidden = true;
             _btn_Post.userInteractionEnabled = false;
         }else{
@@ -68,6 +74,9 @@
             _btn_Post.userInteractionEnabled = true;
         }
         
+    }else{
+        _btn_Post.hidden = true;
+        _btn_Post.userInteractionEnabled = false;
     }
 }
 //The event handling method
@@ -132,6 +141,16 @@
         cell.doctorImageView.layer.masksToBounds = true;
         cell.clinicImageView.layer.cornerRadius = 5;
         cell.clinicImageView.layer.masksToBounds = true;
+        [cell.btn_Like addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.btn_Like.tag = 1000+indexPath.row;
+        [cell.btn_Comment addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.btn_Comment.tag = 2000+indexPath.row;
+        [cell.btn_Share addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.btn_Share.tag = 3000+indexPath.row;
+        cell.lbl_LikeCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
+        cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
+        cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
+
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -150,11 +169,32 @@
         cell.clinicImageView.layer.cornerRadius = 5;
         cell.clinicImageView.layer.masksToBounds = true;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.btn_Like addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.btn_Like.tag = 1000+indexPath.row;
+        [cell.btn_Comment addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.btn_Comment.tag = 2000+indexPath.row;
+        [cell.btn_Share addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.btn_Share.tag = 3000+indexPath.row;
+        cell.lbl_LikeCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
+        cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
+        cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         return cell;
 
     }
     TextPostCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"TextPostCell"];
     return cell;
+}
+-(void)btnClicked:(id)sender{
+    if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
+        PostData *obj= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
+        postId= obj.post_id;
+        [self hitAPiTolikeAPost];
+    }else{
+        LoginViewController* vc ;
+        vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:true];
+    }
+    
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -163,6 +203,8 @@
 
 #pragma mark-BtnAction
 - (IBAction)btnAction_Search:(id)sender {
+    _txt_Search.text = @"";
+    [self addPopupview2];
     
     
 }
@@ -170,18 +212,21 @@
     
     switch (((UIButton *)sender).tag) {
         case 0:
+            _txt_Search.text = @"obgyne";
             break;
         case 1:
+            _txt_Search.text = @"pediatric";
             break;
         case 2:
+            _txt_Search.text = @"abodminal";
             break;
         case 3:
+            _txt_Search.text = @"psycological";
             break;
         case 4:
+            _txt_Search.text = @"Family and Community";
             break;
-            
-            break;
-            
+                        
         default:
             break;
     }
@@ -198,6 +243,9 @@
 - (IBAction)btnAction_Cancel:(id)sender {
     [_popUpView removeFromSuperview];
 }
+- (IBAction)btnAction_Cancel2:(id)sender {
+    [_popUpView2 removeFromSuperview];
+}
 
 - (IBAction)btnActionSendPost:(id)sender {
     [self uploadPost];
@@ -205,6 +253,9 @@
 }
 - (IBAction)btnAction_Attatchment:(id)sender {
     [self showActionSheet];
+}
+- (IBAction)btnAction_ApplySearch:(id)sender {
+    [_popUpView2 removeFromSuperview];
 }
 
 #pragma mark-Other
@@ -326,6 +377,17 @@
     [[self popUpView] setFrame:frame];
     [self.view addSubview:_popUpView];
 }
+
+-(void)addPopupview2{
+    //     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
+    [[self popUpView2] setAutoresizesSubviews:true];
+    [[self popUpView2] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
+    frame.origin.y = 0.0f;
+    self.popUpView2.center = CGPointMake(self.view.center.x, self.view.center.y);
+    [[self popUpView2] setFrame:frame];
+    [self.view addSubview:_popUpView2];
+}
 #pragma mark - add loder
 
 -(void)addLoder{
@@ -411,6 +473,62 @@
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
     }
+    
+}
+
+-(void)hitAPiTolikeAPost{
+    NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
+    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"user_id"];
+    [parameterDict setValue:postId forKey:@"post_id"];
+    [parameterDict setValue:@"true" forKey:@"is_liked"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"posts"]  postResponse:parameterDict postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                    
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        [_popUpView removeFromSuperview];
+                    }];
+                    [alertController addAction:ok];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                    
+                    [self geAllPost];
+                }
+                else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                
+                
+                
+            }
+            
+            else {
+                [self removeloder];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:[error description] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction:ok];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+            
+            
+        }];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+    
     
 }
 

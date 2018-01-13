@@ -32,6 +32,7 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jk7-C5-hsp">
                         <rect key="frame" x="50" y="173.5" width="20" height="20"/>
+                        <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="kiF-Jm-Nil"/>
                             <constraint firstAttribute="width" constant="20" id="s8A-Mh-mZW"/>
@@ -39,6 +40,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfM-9r-pCJ">
                         <rect key="frame" x="250" y="173.5" width="20" height="20"/>
+                        <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="Sv1-3w-FFr"/>
                             <constraint firstAttribute="height" constant="20" id="ZjL-zJ-70C"/>
@@ -46,6 +48,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4D-ZS-1EF">
                         <rect key="frame" x="150" y="173.5" width="20" height="20"/>
+                        <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="NiQ-UK-tbS"/>
                             <constraint firstAttribute="width" constant="20" id="nFe-Da-nhz"/>

@@ -70,6 +70,7 @@
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE7-4m-aRt">
                         <rect key="frame" x="150" y="153.5" width="20" height="20"/>
+                        <color key="backgroundColor" red="1" green="0.74886067708333337" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="l7R-yh-vNY"/>
                             <constraint firstAttribute="height" constant="20" id="z25-MA-Kyd"/>
@@ -83,6 +84,7 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cg9-IR-DPd">
                         <rect key="frame" x="250" y="153.5" width="20" height="20"/>
+                        <color key="backgroundColor" red="1" green="0.74886067708333337" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="17e-15-QfV"/>
                             <constraint firstAttribute="height" constant="20" id="L51-Vs-tcH"/>
@@ -96,6 +98,7 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ly-SV-fz4">
                         <rect key="frame" x="50" y="153.5" width="20" height="20"/>
+                        <color key="backgroundColor" red="1" green="0.74886067708333337" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="QcT-MG-dwF"/>
                             <constraint firstAttribute="width" constant="20" id="zwa-cA-GS2"/>

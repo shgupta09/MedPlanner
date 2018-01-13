@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TextPostCell.h"
 @interface NewAwareVC : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIView *viewToClip;
+@property (weak, nonatomic) IBOutlet UIView *viewToClip2;
 
 @property (weak, nonatomic) IBOutlet UITextView *txt_txtView;
 @property (weak, nonatomic) IBOutlet UITextField *txt_Search;
