@@ -128,8 +128,9 @@
     
     PostData *obj = [dataArray objectAtIndex:indexPath.row];
     if ([obj.type isEqualToString:@"photo"] ) {
+
+
         MediaPostCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"MediaPostCell"];
-        
         if (cell == nil) {
             cell = [[MediaPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MediaPostCell"];
         }
@@ -150,13 +151,24 @@
         cell.lbl_LikeCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
-
+        [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
+        [cell.clinicImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
+        if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
+            [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
+            
+        }else{
+            if ([obj.is_liked isEqualToString:@"0"]) {
+                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
+            }
+            else{
+                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
+            }
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     else{
         TextPostCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"TextPostCell"];
-        
         if (cell == nil) {
             cell = [[TextPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TextPostCell"];
         }
@@ -178,6 +190,20 @@
         cell.lbl_LikeCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
+        [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
+        [cell.clinicImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
+        if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
+            [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
+
+        }else{
+            if ([obj.is_liked isEqualToString:@"0"]) {
+                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
+            }
+            else{
+                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
+            }
+        }
+        
         return cell;
 
     }
@@ -185,10 +211,21 @@
     return cell;
 }
 -(void)btnClicked:(id)sender{
+   
     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
-        PostData *obj= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
-        postId= obj.post_id;
-        [self hitAPiTolikeAPost];
+        if (((UIButton *)sender).tag /1000 == 1){
+            PostData *obj= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
+            postId= obj.post_id;
+            if ([obj.is_liked isEqualToString:@"0"]) {
+                 [self hitAPiTolikeAPost:@"true"];
+            }
+            else{
+                 [self hitAPiTolikeAPost:@"false"];
+            }
+           
+           
+        }
+        
     }else{
         LoginViewController* vc ;
         vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
@@ -476,15 +513,15 @@
     
 }
 
--(void)hitAPiTolikeAPost{
+-(void)hitAPiTolikeAPost:(NSString *)likeBool{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"user_id"];
     [parameterDict setValue:postId forKey:@"post_id"];
-    [parameterDict setValue:@"true" forKey:@"is_liked"];
+    [parameterDict setValue:likeBool forKey:@"is_liked"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"posts"]  postResponse:parameterDict postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"postlike"]  postResponse:parameterDict postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     
@@ -553,6 +590,7 @@
                         postData.liked_on = [obj valueForKey:@"liked_on"];
                         postData.post_id = [obj valueForKey:@"post_id"];
                         postData.is_liked = [obj valueForKey:@"is_liked"];
+                        postData.icon_url = [obj valueForKey:@"user_pic"];
                         [dataArray addObject:postData];
                     }];
                     [_tbl_View reloadData];

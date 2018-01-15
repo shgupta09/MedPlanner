@@ -46,8 +46,6 @@
     [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",1] forState:UIControlStateNormal];
     [_btnHeight setTitle:[NSString stringWithFormat:@"%d",50] forState:UIControlStateNormal];
     _txt_Comment.text = @"comment";
-
-
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];

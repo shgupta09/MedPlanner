@@ -61,7 +61,10 @@
     [_btnFromDate setTitle:fromDateString forState:UIControlStateNormal];
     toDateString = [dateFormatter stringFromDate:toDate];
     [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
-    
+
+    [_btnWeightPopup setTitle:@"0"  forState:UIControlStateNormal];
+    [_btnReadingPopup setTitle:[arrayreading objectAtIndex:0] forState:UIControlStateNormal];
+
     
     // Do any additional setup after loading the view from its nib.
 }

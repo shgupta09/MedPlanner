@@ -30,7 +30,7 @@
                         <constraint firstAttribute="width" constant="30" id="7XO-tr-uIv"/>
                         <constraint firstAttribute="height" constant="30" id="vCG-IX-ZhE"/>
                     </constraints>
-                    <state key="normal" backgroundImage="Icon---Menu"/>
+                    <state key="normal" image="Icon---Menu"/>
                     <connections>
                         <action selector="revealAction:" destination="-1" eventType="touchUpInside" id="lwI-w7-xyv"/>
                     </connections>
