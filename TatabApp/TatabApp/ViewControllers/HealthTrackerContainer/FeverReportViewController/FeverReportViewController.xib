@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -385,7 +385,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mx-Ze-hCN">
-                                    <rect key="frame" x="20" y="140" width="334" height="399"/>
+                                    <rect key="frame" x="20" y="134" width="334" height="399"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77n-sX-3a5">
                                             <rect key="frame" x="91" y="8" width="153" height="20"/>
@@ -516,7 +516,7 @@
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="19" id="vX1-jQ-cVd"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOq-6f-FLU">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOq-6f-FLU" customClass="CustomButton3">
                                             <rect key="frame" x="177" y="350" width="147" height="40"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -558,7 +558,7 @@
                             <constraints>
                                 <constraint firstItem="4mx-Ze-hCN" firstAttribute="leading" secondItem="qTv-3D-squ" secondAttribute="leading" constant="20" id="1o3-OA-Blu"/>
                                 <constraint firstAttribute="trailing" secondItem="4mx-Ze-hCN" secondAttribute="trailing" constant="21" id="Awn-ix-i9B"/>
-                                <constraint firstItem="4mx-Ze-hCN" firstAttribute="top" secondItem="qTv-3D-squ" secondAttribute="top" constant="140" id="ODj-35-KvI"/>
+                                <constraint firstItem="4mx-Ze-hCN" firstAttribute="centerY" secondItem="qTv-3D-squ" secondAttribute="centerY" id="MaN-f3-zwX"/>
                             </constraints>
                         </view>
                     </subviews>

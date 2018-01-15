@@ -40,8 +40,16 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
       if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
-    titleArray  = [[NSArray alloc]initWithObjects:@"SETTING",@"EMR & HEALTH",@"PROFILE",@"Logout", nil];
-    titleImageArray = [[NSArray alloc] initWithObjects:@"Icon---Setttings",@"Icon---Setttings",@"Icon---Profile",@"", nil];
+          
+          if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+              titleArray  = [[NSArray alloc]initWithObjects:@"SETTING",@"EMR & HEALTH",@"PROFILE",@"Logout", nil];
+              titleImageArray = [[NSArray alloc] initWithObjects:@"Icon---Setttings",@"Icon---Setttings",@"Icon---Profile",@"", nil];
+          }
+          else{
+              titleArray  = [[NSArray alloc]initWithObjects:@"SETTING",@"PROFILE",@"Logout", nil];
+              titleImageArray = [[NSArray alloc] initWithObjects:@"Icon---Setttings",@"Icon---Profile",@"", nil];
+          }
+   
       }else{
           titleArray = [[NSArray alloc]initWithObjects:@"Login", nil];
           titleImageArray = [[NSArray alloc] initWithObjects:@"Icon---Setttings",nil];
@@ -74,7 +82,8 @@
     if (indexPath.row<categoryArray.count) {
         AwarenessCategory *obj = [categoryArray objectAtIndex:indexPath.row];
         rearCell.lbl_title.text = obj.category_name;
-//        rearCell.imgView.image = [CommonFunction getImageWithUrlString:obj.icon_url];
+
+        rearCell.imgView.image = [CommonFunction getImageWithUrlString:obj.icon_url];
         
         [rearCell.imgView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
     }else{
@@ -100,59 +109,115 @@
         vc.awarenessObj = [categoryArray objectAtIndex:indexPath.row];
         [self.navigationController pushViewController:vc animated:true];
     }else{
-        switch (indexPath.row-categoryArray.count) {
-                
-            case 0:
-                break;
-            case 1:
-            {
-                EMRHealthContainerVC* vc ;
-                vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
-                [self.navigationController pushViewController:vc animated:true];
-            }
-                
-                break;
-            case 3 :{
-                
-                UIAlertController * alert=   [UIAlertController
-                                              alertControllerWithTitle:@"Logout"
-                                              message:@"Are you sure you want to Logout?"
-                                              preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction* ok = [UIAlertAction
-                                     actionWithTitle:@"OK"
-                                     style:UIAlertActionStyleDefault
-                                     handler:^(UIAlertAction * action)
-                                     {
-                                         [_tbl_View reloadData];
-                                         [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:false];
-                                         [alert dismissViewControllerAnimated:YES completion:nil];
-                                         [[NSNotificationCenter defaultCenter]
-                                          postNotificationName:@"LogoutNotification"
-                                          object:self];
-                                         
-                                     }];
-                UIAlertAction* cancel = [UIAlertAction
-                                         actionWithTitle:@"Cancel"
+        
+        if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+            switch (indexPath.row-categoryArray.count) {
+                case 0:
+                    break;
+                case 1:
+                {
+                    EMRHealthContainerVC* vc ;
+                    vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
+                    [self.navigationController pushViewController:vc animated:true];
+                }
+                    
+                    break;
+                case 3 :{
+                    
+                    UIAlertController * alert=   [UIAlertController
+                                                  alertControllerWithTitle:@"Logout"
+                                                  message:@"Are you sure you want to Logout?"
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* ok = [UIAlertAction
+                                         actionWithTitle:@"OK"
                                          style:UIAlertActionStyleDefault
                                          handler:^(UIAlertAction * action)
                                          {
+                                             [_tbl_View reloadData];
+                                             [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:false];
                                              [alert dismissViewControllerAnimated:YES completion:nil];
                                              [[NSNotificationCenter defaultCenter]
-                                              postNotificationName:@"CancelNotification"
+                                              postNotificationName:@"LogoutNotification"
                                               object:self];
                                              
                                          }];
-                
-                [alert addAction:ok];
-                [alert addAction:cancel];
-                
-                [self presentViewController:alert animated:YES completion:nil];
-                
-            }break;
-            default:
-                break;
+                    UIAlertAction* cancel = [UIAlertAction
+                                             actionWithTitle:@"Cancel"
+                                             style:UIAlertActionStyleDefault
+                                             handler:^(UIAlertAction * action)
+                                             {
+                                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                                 [[NSNotificationCenter defaultCenter]
+                                                  postNotificationName:@"CancelNotification"
+                                                  object:self];
+                                                 
+                                             }];
+                    
+                    [alert addAction:ok];
+                    [alert addAction:cancel];
+                    
+                    [self presentViewController:alert animated:YES completion:nil];
+                    
+                }break;
+                default:
+                    break;
+            }
         }
+        else
+        {
+            switch (indexPath.row-categoryArray.count) {
+                case 0:
+                    break;
+                case 1:
+                {
+                    
+                }
+                    
+                    break;
+                case 2 :{
+                    
+                    UIAlertController * alert=   [UIAlertController
+                                                  alertControllerWithTitle:@"Logout"
+                                                  message:@"Are you sure you want to Logout?"
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* ok = [UIAlertAction
+                                         actionWithTitle:@"OK"
+                                         style:UIAlertActionStyleDefault
+                                         handler:^(UIAlertAction * action)
+                                         {
+                                             [_tbl_View reloadData];
+                                             [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:false];
+                                             [alert dismissViewControllerAnimated:YES completion:nil];
+                                             [[NSNotificationCenter defaultCenter]
+                                              postNotificationName:@"LogoutNotification"
+                                              object:self];
+                                             
+                                         }];
+                    UIAlertAction* cancel = [UIAlertAction
+                                             actionWithTitle:@"Cancel"
+                                             style:UIAlertActionStyleDefault
+                                             handler:^(UIAlertAction * action)
+                                             {
+                                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                                 [[NSNotificationCenter defaultCenter]
+                                                  postNotificationName:@"CancelNotification"
+                                                  object:self];
+                                                 
+                                             }];
+                    
+                    [alert addAction:ok];
+                    [alert addAction:cancel];
+                    
+                    [self presentViewController:alert animated:YES completion:nil];
+                    
+                }break;
+                default:
+                    break;
+            }
+        }
+        
 
     }
     

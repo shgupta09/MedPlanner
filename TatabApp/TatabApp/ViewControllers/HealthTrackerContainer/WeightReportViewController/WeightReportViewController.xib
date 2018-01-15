@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -384,10 +384,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Nu-2c-wNu">
-                                    <rect key="frame" x="20" y="119.5" width="334" height="429.5"/>
+                                    <rect key="frame" x="20" y="119" width="334" height="430"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHk-1B-9gr" customClass="CustomButton3">
-                                            <rect key="frame" x="10" y="381" width="145.5" height="40"/>
+                                            <rect key="frame" x="10" y="382" width="146" height="40"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="f0D-Hp-rxc"/>
@@ -406,16 +406,16 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight in kg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ry-VY-CKP">
-                                            <rect key="frame" x="16" y="145.5" width="148" height="20"/>
+                                            <rect key="frame" x="16" y="146" width="148" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKW-dO-4vX">
-                                            <rect key="frame" x="15" y="64" width="307" height="52.5"/>
+                                            <rect key="frame" x="15" y="64" width="307" height="53"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEO-2e-kY3">
-                                                    <rect key="frame" x="1" y="1" width="76" height="50.5"/>
+                                                    <rect key="frame" x="1" y="1" width="76" height="51"/>
                                                     <color key="backgroundColor" red="0.75336378810000004" green="0.17055004839999999" blue="0.15347826480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <string key="text">Medical Emergency
 &gt;180</string>
@@ -424,7 +424,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPr-cX-xkr">
-                                                    <rect key="frame" x="78" y="0.0" width="75.5" height="52.5"/>
+                                                    <rect key="frame" x="78" y="0.0" width="76" height="53"/>
                                                     <color key="backgroundColor" red="0.92891609669999997" green="0.21953278779999999" blue="0.19875350589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <string key="text">High BP
 Stage 2
@@ -434,7 +434,7 @@ Stage 2
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzQ-0D-6nu">
-                                                    <rect key="frame" x="154.5" y="0.0" width="76" height="52.5"/>
+                                                    <rect key="frame" x="155" y="0.0" width="76" height="53"/>
                                                     <color key="backgroundColor" red="0.94609433409999999" green="0.51441049579999998" blue="0.2302145958" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <string key="text">High BP
 Stage 1
@@ -443,7 +443,7 @@ Stage 1
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lh-FJ-MrE">
-                                                    <rect key="frame" x="231.5" y="0.0" width="75.5" height="52.5"/>
+                                                    <rect key="frame" x="232" y="0.0" width="75" height="53"/>
                                                     <color key="backgroundColor" red="0.99023944139999998" green="0.87143629789999999" blue="0.29691877960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <string key="text">Prehyper-tension
 120-129</string>
@@ -474,7 +474,7 @@ Stage 1
                                             </constraints>
                                         </view>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="comments.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ADs-c4-m1W" customClass="CustomTextField">
-                                            <rect key="frame" x="10" y="332.5" width="314" height="40"/>
+                                            <rect key="frame" x="10" y="333" width="314" height="40"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="Z87-0H-sir"/>
@@ -484,7 +484,7 @@ Stage 1
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTG-Wl-KjX" customClass="CustomButton3">
-                                            <rect key="frame" x="172" y="138.5" width="148" height="35"/>
+                                            <rect key="frame" x="172" y="139" width="148" height="35"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="g08-ma-7Rf"/>
@@ -497,13 +497,13 @@ Stage 1
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rest Hr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B77-fs-3q8">
-                                            <rect key="frame" x="16" y="204.5" width="148" height="20"/>
+                                            <rect key="frame" x="16" y="205" width="148" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2U-iN-k4a" customClass="CustomButton3">
-                                            <rect key="frame" x="172" y="196.5" width="148" height="35"/>
+                                            <rect key="frame" x="172" y="197" width="148" height="35"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="2Oa-ba-0Oz"/>
@@ -516,13 +516,13 @@ Stage 1
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height in CM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJS-4b-6h9">
-                                            <rect key="frame" x="16" y="265.5" width="148" height="20"/>
+                                            <rect key="frame" x="16" y="266" width="148" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EA6-qK-oFK" customClass="CustomButton3">
-                                            <rect key="frame" x="172" y="257.5" width="148" height="35"/>
+                                            <rect key="frame" x="172" y="258" width="148" height="35"/>
                                             <color key="backgroundColor" red="0.27058823529411763" green="0.68235294117647061" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="1gy-NU-UNo"/>
@@ -535,7 +535,7 @@ Stage 1
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TS1-Qd-XPL" customClass="CustomButton3">
-                                            <rect key="frame" x="178.5" y="380" width="145.5" height="40"/>
+                                            <rect key="frame" x="179" y="381" width="145" height="40"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="1Lh-aa-D4z"/>
