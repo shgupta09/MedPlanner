@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/HealthTrackerContainer/PressureReportViewController/PressureReportViewController.m"
-            timestampString = "537475157.431429"
+            filePath = "TatabApp/ViewControllers/HealthTrackerContainer/SugarReportViewController/SugarReportViewController.m"
+            timestampString = "537455727.4444849"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "-getBloodPressure"
+            startingLineNumber = "428"
+            endingLineNumber = "428"
+            landmarkName = "-getBloodSugar"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -31,11 +31,9 @@
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 100;
     _tbl_View.multipleTouchEnabled = NO;
-    if (![CommonFunction getBoolValueFromDefaultWithKey:isAwarenessApiHIt]) {
-        [self getData];
-    }else{
-        categoryArray = [AwarenessCategory sharedInstance].myDataArray;
-    }
+    
+    categoryArray = [AwarenessCategory sharedInstance].myDataArray;
+    
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -69,7 +67,16 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
    
      if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
-         return categoryArray.count+4;
+         
+         if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+             return categoryArray.count+4;
+         }
+         else{
+             return categoryArray.count+3;
+         }
+
+         
+         
      }else{
          return 1;
      }
@@ -85,7 +92,7 @@
 
         rearCell.imgView.image = [CommonFunction getImageWithUrlString:obj.icon_url];
         
-        [rearCell.imgView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
+        [rearCell.imgView setImage:[UIImage imageNamed:obj.icon_url]];
     }else{
         rearCell.lbl_title.text = [titleArray objectAtIndex:indexPath.row-categoryArray.count];
         rearCell.imgView.image = [UIImage imageNamed:[titleImageArray objectAtIndex:indexPath.row-categoryArray.count]];
@@ -231,44 +238,6 @@
     
 }
 
--(void) getData
-{
-    
-    
-    if ([ CommonFunction reachability]) {
-        [self addLoder];
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"awareness"]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
-            if (error == nil) {
-                [CommonFunction stroeBoolValueForKey:isAwarenessApiHIt withBoolValue:true];
-                for (NSDictionary* sub in [responseObj objectForKey:@"awareness"]) {
-                    
-                    AwarenessCategory* s = [[AwarenessCategory alloc] init  ];
-                    [sub enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop){
-                        [s setValue:obj forKey:(NSString *)key];
-                    }];
-                    
-                    [[AwarenessCategory sharedInstance].myDataArray addObject:s];
-                }
-                categoryArray = [AwarenessCategory sharedInstance].myDataArray;
-                
-                [_tbl_View reloadData];
-                [self removeloder];
-                
-            }
-            
-            
-            
-        }];
-    } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
-    
-}
 #pragma mark - add loder
 
 -(void)addLoder{
