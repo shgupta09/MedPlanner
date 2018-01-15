@@ -152,7 +152,7 @@
         cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
-        [cell.clinicImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
+        [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
         if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
             [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
             
@@ -191,7 +191,7 @@
         cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
-        [cell.clinicImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
+        [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
         if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
             [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
 
@@ -210,6 +210,29 @@
     TextPostCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"TextPostCell"];
     return cell;
 }
+
+-(UIImage*) setImageFor:(NSString*) clinicName{
+
+    if ([clinicName isEqualToString:@"Abdominal Clinic"]) {
+        return [UIImage imageNamed:@"sec-abdomen-1"];
+    }
+    else if ([clinicName isEqualToString:@"Psychological Clinic"]) {
+        return [UIImage imageNamed:@"sec-psy-1"];
+    }
+    else if ([clinicName isEqualToString:@"Family and Community Clinic"]) {
+        return [UIImage imageNamed:@"sec-family-1"];
+    }
+    else if ([clinicName isEqualToString:@"Obgyne Clinic"]) {
+        return [UIImage imageNamed:@"sec-obgyen-1"];
+    }
+    else if ([clinicName isEqualToString:@"Pediatrics Clinic"]) {
+        return [UIImage imageNamed:@"section-children"];
+    }
+    
+    return [UIImage imageNamed:@""];
+}
+
+
 -(void)btnClicked:(id)sender{
    
     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
@@ -591,6 +614,7 @@
                         postData.post_id = [obj valueForKey:@"post_id"];
                         postData.is_liked = [obj valueForKey:@"is_liked"];
                         postData.icon_url = [obj valueForKey:@"user_pic"];
+                        postData.clinicName = [obj valueForKey:@"specialist"];
                         [dataArray addObject:postData];
                     }];
                     [_tbl_View reloadData];
