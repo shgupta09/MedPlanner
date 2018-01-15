@@ -152,13 +152,9 @@
         cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
-<<<<<<< HEAD
         [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
-        if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
-=======
-        [cell.clinicImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
+        
         if (![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
->>>>>>> a5429cb93c4b77b8337a61df4fccc5c9b9942ece
             [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
             
         }else{
@@ -196,13 +192,10 @@
         cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
-<<<<<<< HEAD
         [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
+        
         if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
-=======
-        [cell.clinicImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
-        if (![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
->>>>>>> a5429cb93c4b77b8337a61df4fccc5c9b9942ece
+
             [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
 
         }else{
