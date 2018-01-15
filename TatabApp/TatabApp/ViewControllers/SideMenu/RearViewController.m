@@ -67,7 +67,16 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
    
      if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
-         return categoryArray.count+4;
+         
+         if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+             return categoryArray.count+4;
+         }
+         else{
+             return categoryArray.count+3;
+         }
+
+         
+         
      }else{
          return 1;
      }
