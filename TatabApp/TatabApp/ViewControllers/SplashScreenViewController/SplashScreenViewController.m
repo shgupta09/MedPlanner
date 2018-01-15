@@ -16,6 +16,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    AwarenessCategory* s = [[AwarenessCategory alloc] init  ];
+    
+    s.category_id = @"1";
+    s.category_name  = @"Family and Community Clinic";
+    s.icon_url = @"menu-family";
+    [[AwarenessCategory sharedInstance].myDataArray addObject:s];
+    
+    s = [[AwarenessCategory alloc] init  ];
+    
+    s.category_id = @"1";
+    s.category_name  = @"Psychological Clinic";
+    s.icon_url = @"menu-psy";
+    [[AwarenessCategory sharedInstance].myDataArray addObject:s];
+    
+    s = [[AwarenessCategory alloc] init  ];
+    
+    s.category_id = @"1";
+    s.category_name  = @"Abdominal Clinic";
+    s.icon_url = @"menu-stomach";
+    [[AwarenessCategory sharedInstance].myDataArray addObject:s];
+    
+    s = [[AwarenessCategory alloc] init  ];
+    
+    s.category_id = @"1";
+    s.category_name  = @"Obgyne Clinic";
+    s.icon_url = @"menu-fetus";
+    [[AwarenessCategory sharedInstance].myDataArray addObject:s];
+    
+    s = [[AwarenessCategory alloc] init  ];
+    
+    s.category_id = @"1";
+    s.category_name  = @"Pediatrics Clinic";
+    s.icon_url = @"menu-children";
+    [[AwarenessCategory sharedInstance].myDataArray addObject:s];
+    
+    [CommonFunction stroeBoolValueForKey:isAwarenessApiHIt withBoolValue:true];
+
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -26,7 +65,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidLoad];
-    [self getData];
     
 //        sleep(1);
     
@@ -44,41 +82,6 @@
     
     
 }
--(void) getData
-{
-    
-    
-    if ([ CommonFunction reachability]) {
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"awareness"]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
-            if (error == nil) {
-                [CommonFunction stroeBoolValueForKey:isAwarenessApiHIt withBoolValue:true];
-                for (NSDictionary* sub in [responseObj objectForKey:@"awareness"]) {
-                    
-                    AwarenessCategory* s = [[AwarenessCategory alloc] init  ];
-                    [sub enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop){
-                        [s setValue:obj forKey:(NSString *)key];
-                    }];
-                    
-                    [[AwarenessCategory sharedInstance].myDataArray addObject:s];
-                }
-                
-            }
-            
-            
-            
-        }];
-    } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-//        [self presentViewController:alertController animated:YES completion:nil];
-        
-    }
-    
-}
-
 
 
 
