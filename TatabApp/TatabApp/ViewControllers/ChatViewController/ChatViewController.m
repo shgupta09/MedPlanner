@@ -41,7 +41,8 @@
     [super viewDidLoad];
     [_mySwitch
      setOn:YES animated:YES];
-
+    _viewToClip.layer.cornerRadius = 5;
+    _viewToClip.layer.masksToBounds = true;
     doctorListArray = [NSMutableArray new];
     [self.mySwitch setOn:NO animated:YES];
 
@@ -218,6 +219,27 @@
     
 
 }
+
+#pragma mark - textviewDelegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"Add some text..."]) {
+        textView.text = @"";
+        textView.textColor = [UIColor whiteColor]; //optional
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Add some text...";
+        textView.textColor = [UIColor darkGrayColor]; //optional
+    }
+    [textView resignFirstResponder];
+}
+
 #pragma mark - hit Api
 -(void)hitImageUploadApi{
     
@@ -286,6 +308,7 @@
     }
 }
 - (IBAction)btnAction_Cancel:(id)sender {
+    textView_advice.text = @"";
     [_popUpView removeFromSuperview];
 }
 - (IBAction)btnActionPreception:(id)sender {
@@ -453,6 +476,9 @@
 
 -(void)addPopupview{
 //     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
+    textView_advice.text = @"Add some text...";
+    textView_advice.textColor = [UIColor darkGrayColor]; //optional
+
     [[self popUpView] setAutoresizesSubviews:true];
     [[self popUpView] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
@@ -681,6 +707,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [[AppDelegate getDelegate]showStatusBar];
     [self dismissViewControllerAnimated:YES completion:nil];

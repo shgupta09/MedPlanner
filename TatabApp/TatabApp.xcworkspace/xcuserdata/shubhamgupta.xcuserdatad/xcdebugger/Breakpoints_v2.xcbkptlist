@@ -28,11 +28,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
-            timestampString = "537820993.681789"
+            timestampString = "537822553.6762021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "-switch_btn:"
             landmarkType = "7">
          </BreakpointContent>
@@ -44,11 +44,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
-            timestampString = "537821233.9583319"
+            timestampString = "537822553.6762021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "-switch_btn:"
             landmarkType = "7">
          </BreakpointContent>
@@ -60,11 +60,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
-            timestampString = "537820993.681789"
+            timestampString = "537822553.6762021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "-btnActionSubmit:"
             landmarkType = "7">
          </BreakpointContent>
@@ -76,11 +76,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
-            timestampString = "537821233.9583319"
+            timestampString = "537821701.170344"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "-notficationRecieved:"
             landmarkType = "7">
          </BreakpointContent>
@@ -92,11 +92,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
-            timestampString = "537821233.9583319"
+            timestampString = "537821701.170344"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "-notficationRecieved:"
             landmarkType = "7">
          </BreakpointContent>
