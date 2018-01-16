@@ -137,7 +137,7 @@
     
     hm = [[XMPPHandler alloc] init];
     hm.userId = fromId;
-    hm.userPassword = [CommonFunction getValueFromDefaultWithKey:loginPassword];
+    hm.userPassword = @"Admin@123";
     hm.hostName = @"35.154.181.86";
     hm.hostPort = [NSNumber numberWithInteger:5222];
     [hm connectToXMPPServer];
