@@ -353,7 +353,7 @@
                         NSString* foo = [NSString stringWithFormat:@"%@%@",[[[_parameterDict valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[_parameterDict valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         NSString* userID = foo;
                         hm.userId = userID;
-                        hm.userPassword = [_parameterDict valueForKey:@"password"];
+                        hm.userPassword = @"Admin@123";
                         hm.hostName = @"35.154.181.86";
                         hm.hostPort = [NSNumber numberWithInteger:5222];
                         [hm setupXMPPStream];
