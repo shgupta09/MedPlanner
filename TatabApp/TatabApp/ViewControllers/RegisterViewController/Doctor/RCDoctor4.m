@@ -11,7 +11,7 @@
 
 
 
-@interface RCDoctor4 ()
+@interface RCDoctor4 ()<SWRevealViewControllerDelegate>
 {
     BOOL iscaptured;
     LoderView *loderObj;
@@ -301,23 +301,26 @@
                         [alertController dismissViewControllerAnimated:true completion:nil];
                         [hm disconnectFromXMPPServer];
                         [hm clearXMPPStream];
+                        
                         [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
-                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginemail]  andKey:loginemail];
-                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginfirstname] andKey:loginfirstname];
-                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginUserToken] andKey:loginUserToken];
-                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginuserId] andKey:loginuserId];
-                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginuserType] andKey:loginuserType];
                         
-                        [CommonFunction storeValueInDefault:[_parameterDict valueForKey:loginPassword] andKey:loginPassword];
-                        HomeViewController *frontViewController = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserId] andKey:loginuserId];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserType] andKey:loginuserType];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserGender] andKey:loginuserGender];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuseIsComplete] andKey:loginuseIsComplete];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginemail] andKey:loginemail];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginUserToken] andKey:loginUserToken];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
+                        SWRevealViewController *mainRevealController;
+                        NewAwareVC *frontViewController = [[NewAwareVC alloc]initWithNibName:@"NewAwareVC" bundle:nil];
+                        mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
                         
-                        
-                        SWRevealViewController *mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
                         mainRevealController.delegate = self;
                         mainRevealController.view.backgroundColor = [UIColor blackColor];
+                        //            [frontViewController.view addSubview:[CommonFunction setStatusBarColor]];
                         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mainRevealController];
-                       ((AppDelegate *)[[UIApplication sharedApplication] delegate]).window.rootViewController = nav;
+                        ((AppDelegate *)[[UIApplication sharedApplication] delegate]).window.rootViewController = nav;
                         
                     } afterDelay:1.5];
                     

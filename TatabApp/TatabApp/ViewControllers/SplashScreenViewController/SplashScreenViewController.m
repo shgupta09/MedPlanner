@@ -26,28 +26,28 @@
     
     s = [[AwarenessCategory alloc] init  ];
     
-    s.category_id = @"1";
+    s.category_id = @"2";
     s.category_name  = @"Psychological Clinic";
     s.icon_url = @"menu-psy";
     [[AwarenessCategory sharedInstance].myDataArray addObject:s];
     
     s = [[AwarenessCategory alloc] init  ];
     
-    s.category_id = @"1";
+    s.category_id = @"3";
     s.category_name  = @"Abdominal Clinic";
     s.icon_url = @"menu-stomach";
     [[AwarenessCategory sharedInstance].myDataArray addObject:s];
     
     s = [[AwarenessCategory alloc] init  ];
     
-    s.category_id = @"1";
+    s.category_id = @"4";
     s.category_name  = @"Obgyne Clinic";
     s.icon_url = @"menu-fetus";
     [[AwarenessCategory sharedInstance].myDataArray addObject:s];
     
     s = [[AwarenessCategory alloc] init  ];
     
-    s.category_id = @"1";
+    s.category_id = @"5";
     s.category_name  = @"Pediatrics Clinic";
     s.icon_url = @"menu-children";
     [[AwarenessCategory sharedInstance].myDataArray addObject:s];

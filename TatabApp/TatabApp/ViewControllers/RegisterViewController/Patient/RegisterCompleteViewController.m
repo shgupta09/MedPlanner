@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "XMPPHandler.h"
 
-@interface RegisterCompleteViewController ()
+@interface RegisterCompleteViewController ()<SWRevealViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet CustomTextField *txtBirthday;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtCity;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrlView;
@@ -501,21 +501,24 @@
                         [alertController dismissViewControllerAnimated:true completion:nil];
                         
                         
+                        
                         [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
                         
-                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginemail]  andKey:loginemail];
-                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginfirstname] andKey:loginfirstname];
-                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginUserToken] andKey:loginUserToken];
-                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginuserId] andKey:loginuserId];
-                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:@"user"] valueForKey:loginuserType] andKey:loginuserType];
-                        [CommonFunction storeValueInDefault:[_parameterDict valueForKey:loginPassword] andKey:loginPassword];
-                        PatientHomeVC *frontViewController = [[PatientHomeVC alloc]initWithNibName:@"PatientHomeVC" bundle:nil];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserId] andKey:loginuserId];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserType] andKey:loginuserType];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserGender] andKey:loginuserGender];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuseIsComplete] andKey:loginuseIsComplete];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginemail] andKey:loginemail];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginUserToken] andKey:loginUserToken];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
+                        SWRevealViewController *mainRevealController;
+                        NewAwareVC *frontViewController = [[NewAwareVC alloc]initWithNibName:@"NewAwareVC" bundle:nil];
+                        mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
                         
-                        
-                        SWRevealViewController *mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
                         mainRevealController.delegate = self;
                         mainRevealController.view.backgroundColor = [UIColor blackColor];
+                        //            [frontViewController.view addSubview:[CommonFunction setStatusBarColor]];
                         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mainRevealController];
                         ((AppDelegate *)[[UIApplication sharedApplication] delegate]).window.rootViewController = nav;
                         

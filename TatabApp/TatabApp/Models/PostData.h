@@ -17,7 +17,7 @@
 @property(nonatomic ,strong) NSString *total_likes;
 @property(nonatomic ,strong) NSString *liked_on;
 @property(nonatomic ,strong) NSString *post_id;
-@property(nonatomic) BOOL is_liked;
+@property(nonatomic ,strong) NSString *is_liked;
 @property(nonatomic ,strong) NSString *icon_url;
 @property(nonatomic ,strong) NSString *clinicName;
 @end

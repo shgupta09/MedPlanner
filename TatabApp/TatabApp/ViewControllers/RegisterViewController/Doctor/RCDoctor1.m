@@ -93,7 +93,7 @@
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
         NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
         [parameterDict setValue:[CommonFunction trimString:_txtName.text] forKey:loginfirstname];
-        [parameterDict setValue:@"LastName" forKey:loginlastname];
+        [parameterDict setValue:@"" forKey:loginlastname];
         [parameterDict setValue:[CommonFunction trimString:_txtEmail.text] forKey:loginemail];
         [parameterDict setValue:[CommonFunction trimString:_txtPassword.text] forKey:@"password"];
         [parameterDict setValue:[CommonFunction trimString:_txtMobile.text] forKey:loginmobile];

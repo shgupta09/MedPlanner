@@ -51,7 +51,6 @@
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 200;
     _tbl_View.multipleTouchEnabled = NO;
-    [self geAllPost];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -78,6 +77,8 @@
         _btn_Post.hidden = true;
         _btn_Post.userInteractionEnabled = false;
     }
+    [self geAllPost];
+
 }
 //The event handling method
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer
@@ -158,11 +159,11 @@
             [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
             
         }else{
-            if (!obj.is_liked) {
-                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
+            if ([obj.is_liked intValue] >0) {
+                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
             }
             else{
-                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
+                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
             }
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -194,16 +195,16 @@
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
         [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
         
-        if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
+        if (![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
 
             [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
 
         }else{
-            if (!obj.is_liked) {
-                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
+            if ([obj.is_liked intValue] >0) {
+                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
             }
             else{
-                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
+                [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
             }
         }
         
@@ -242,11 +243,11 @@
         if (((UIButton *)sender).tag /1000 == 1){
             PostData *obj= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
             postId= obj.post_id;
-            if (!obj.is_liked) {
-                 [self hitAPiTolikeAPost:@"1"];
+            if ([obj.is_liked intValue] >0 ) {
+                 [self hitAPiTolikeAPost:@"0"];
             }
             else{
-                 [self hitAPiTolikeAPost:@"0"];
+                 [self hitAPiTolikeAPost:@"1"];
             }
         }
         
@@ -587,9 +588,20 @@
 
 -(void)geAllPost{
     
+    NSMutableDictionary *parameterDict;
+    if (![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
+        parameterDict = [[NSMutableDictionary alloc]init];
+        parameterDict = nil;
+    }else{
+        parameterDict = [[NSMutableDictionary alloc]init];
+        [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"user_id"];
+        
+    }
+
+    
     if ([ CommonFunction reachability]) {
         [self addLoder];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"posts"]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"posts"]  postResponse:parameterDict postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     is_Media = false;
@@ -605,9 +617,10 @@
                         postData.total_likes = [obj valueForKey:@"total_likes"];
                         postData.liked_on = [obj valueForKey:@"liked_on"];
                         postData.post_id = [obj valueForKey:@"post_id"];
-                        postData.is_liked = [[obj valueForKey:@"is_liked"] boolValue];
+                        postData.is_liked = [obj valueForKey:@"is_liked"]  ;
                         postData.icon_url = [obj valueForKey:@"user_pic"];
                         postData.clinicName = [obj valueForKey:@"specialist"];
+                        
                         [dataArray addObject:postData];
                     }];
                     [_tbl_View reloadData];

@@ -113,7 +113,9 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-    
+    [hm disconnectFromXMPPServer];
+    [hm clearXMPPStream];
+
 }
 
 -(void)setUpRegisterUser{
@@ -700,7 +702,7 @@
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_CHAT_GROUP]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
-                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] || [[responseObj valueForKey:@"status_code"] isEqualToString:@"HK002"]) {
                     
                    __block bool tempBool = false;
                     doctorListArray = [NSMutableArray new];
@@ -712,7 +714,7 @@
                         }
                         
                     }];
-                    if (!tempBool) {
+                    if (!tempBool || tempArray.count == 0) {
                         UIAlertController* alertController = [UIAlertController
                                                               alertControllerWithTitle:@"Add to Chat list"
                                                               message:@"Do you wish to add this doctor into your chat list? Will be added into your EMR secton."
