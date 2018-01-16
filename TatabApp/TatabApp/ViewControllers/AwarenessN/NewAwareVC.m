@@ -303,9 +303,11 @@
 }
 
 - (IBAction)btnAction_Cancel:(id)sender {
+    _txt_txtView.text =@"";
     [_popUpView removeFromSuperview];
 }
 - (IBAction)btnAction_Cancel2:(id)sender {
+    _txt_Search.text = 0;
     [_popUpView2 removeFromSuperview];
 }
 
@@ -508,7 +510,7 @@
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+//      loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"awareness"]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 [CommonFunction stroeBoolValueForKey:isAwarenessApiHIt withBoolValue:true];
@@ -523,11 +525,7 @@
                 }
                 categoryArray = [AwarenessCategory sharedInstance].myDataArray;
                 [self removeloder];
-                
             }
-            
-            
-            
         }];
     } else {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
@@ -687,6 +685,7 @@
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                         [_popUpView removeFromSuperview];
+                        _txt_txtView.text = @"";
                     }];
                     [alertController addAction:ok];
                     //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];

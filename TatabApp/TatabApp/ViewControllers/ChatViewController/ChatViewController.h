@@ -13,6 +13,7 @@
 @interface ChatViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>{
     __weak IBOutlet UILabel *lbl_title;
 }
+@property (weak, nonatomic) IBOutlet UISwitch *mySwitch;
 @property (strong, nonatomic) Specialization *objDoctor;
 @property (nonatomic,strong)AwarenessCategory *awarenessObj;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;

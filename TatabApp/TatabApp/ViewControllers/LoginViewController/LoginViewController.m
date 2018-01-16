@@ -27,7 +27,7 @@
     _txtUsername.leftImgView.image = [UIImage imageNamed:@"d"];
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
     _txtPassword.text = @"Admin@123";
-    _txtUsername.text = @"demo1patient@yopmail.com";
+    _txtUsername.text = @"qwerty@yopmail.com";
     // Do any additional setup after loading the view from its nib.
    
   

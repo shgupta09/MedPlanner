@@ -39,10 +39,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_mySwitch
+     setOn:YES animated:YES];
+
     doctorListArray = [NSMutableArray new];
-   
+    [self.mySwitch setOn:NO animated:YES];
+
     picker = [[UIImagePickerController alloc] init];
-    lbl_title.text = [NSString stringWithFormat:@"Dr. %@",_objDoctor.first_name];
+    lbl_title.text = @"Chat";
    imageDataArray = [NSMutableArray new];
     _lbl_Name.text = [NSString stringWithFormat:@"Dr. %@",_objDoctor.first_name];
     NSString* email = [CommonFunction getValueFromDefaultWithKey:loginemail];
@@ -58,6 +62,7 @@
     _txtField.layer.masksToBounds = true;
     messagesArray = [[NSMutableArray alloc] init];
     _addOptionBtnAction.tintColor = [UIColor whiteColor];
+    
     UIImage * image = [UIImage imageNamed:@"Plus"];
     [_addOptionBtnAction setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     
@@ -74,9 +79,6 @@
     _tblView.estimatedRowHeight = 225;
     cameraGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(removeImage)];
     [cameraGesture setNumberOfTapsRequired:1];
-   
-    [self setChat];
-    
     if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
         _viewPatient.hidden = false;
         _viewDoctor.hidden = true;
@@ -256,6 +258,21 @@
     
 }
 #pragma mark - btn Actions
+
+- (IBAction)switch_btn:(id)sender {
+    if ([_mySwitch isOn]) {
+        
+        NSLog(@"Switch is on");
+        [self setChat];
+        [self.mySwitch setOn:YES animated:YES];
+    } else {
+        NSLog(@"Switch is off");
+        [hm disconnectFromXMPPServer];
+        [self.mySwitch setOn:NO animated:YES];
+    }
+}
+
+
 - (IBAction)btnBackClicked:(id)sender {
     [hm disconnectFromXMPPServer];
     [hm clearXMPPStream];
@@ -522,10 +539,19 @@
     return context;
 }
 - (IBAction)sendMessage {
-    NSString *messageStr = _txtField.text;
-    if([messageStr length] > 0) {
-        [hm sendMessage:messageStr toFriendWithFriendId:_toId andMessageId:@"34"];
+    if ([_mySwitch isOn]) {
+        NSString *messageStr = _txtField.text;
+        if([messageStr length] > 0) {
+            [hm sendMessage:messageStr toFriendWithFriendId:_toId andMessageId:@"34"];
+        }
+    }else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"You have to be Online to send the message." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
+    
 }
 
 
@@ -537,8 +563,15 @@
 }
 
 - (IBAction)btnAddFileClicked:(id)sender {
-    
-    [self showActionSheet];
+    if ([_mySwitch isOn]) {
+        [self showActionSheet];
+    }else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"You have to be Online to send the message." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
 
