@@ -97,7 +97,8 @@
         _viewPatient.hidden = true;
         _viewDoctor.hidden = false;
     }
-    
+    [self setChat];
+
     
     
     
@@ -184,6 +185,7 @@
        }
     else if ([notification.name isEqualToString:XMPPStreamDidReceivePresence])
     {
+
 //        XMPPPresence* presence = notification.object;
 //        
 //        NSString *presenceType = [presence type]; // online/offline
@@ -261,10 +263,9 @@
 
 - (IBAction)switch_btn:(id)sender {
     if ([_mySwitch isOn]) {
-        
-        NSLog(@"Switch is on");
-        [self setChat];
         [self.mySwitch setOn:YES animated:YES];
+
+        NSLog(@"Switch is on");
     } else {
         NSLog(@"Switch is off");
         [hm disconnectFromXMPPServer];
