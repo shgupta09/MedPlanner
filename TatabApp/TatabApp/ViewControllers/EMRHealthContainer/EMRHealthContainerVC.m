@@ -177,7 +177,7 @@
                         [array addObject:object];
                     }];
                     DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-                    vc.detailType = @"diagnosis";
+                    vc.detailType = @"Diagnosis";
                     vc.detailArray = array;
                     [self presentViewController:vc animated:false completion:^{
                         [self removeloder];
@@ -239,7 +239,7 @@
                         [array addObject:object];
                     }];
                     DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-                    vc.detailType = @"diagnosis";
+                    vc.detailType = @"Prescription";
                     vc.detailArray = array;
                     [self presentViewController:vc animated:false completion:^{
                         [self removeloder];
@@ -300,7 +300,7 @@
                         [array addObject:object];
                     }];
                     DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-                    vc.detailType = @"followup";
+                    vc.detailType = @"Follow Up";
                     vc.detailArray = array;
                     [self presentViewController:vc animated:false completion:^{
                         [self removeloder];

@@ -76,6 +76,7 @@ _txtComments.text = @"comment";
     [_sliderView setMaximumTrackImage:[white stretchableImageWithLeftCapWidth:3.0 topCapHeight:0.0] forState:UIControlStateNormal];
     
     [_sliderView setThumbImage:[UIImage imageNamed:@"slider_small"] forState:UIControlStateNormal];
+    
     [_sliderView trackRectForBounds:_sliderView.bounds]; 
     // Do any additional setup after loading the view from its nib.
 }
@@ -106,7 +107,9 @@ _txtComments.text = @"comment";
     
 }
 
-
+-(void)viewDidAppear:(BOOL)animated{
+    [self getFeverReport];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

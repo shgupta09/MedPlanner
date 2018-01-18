@@ -84,8 +84,24 @@
     _graphView.enableReferenceAxisFrame = YES;
     
     
+    UIImage * white = [[UIImage imageNamed:@"blood-pressure-slider"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    
+    [_sliderView setMinimumTrackImage:[white stretchableImageWithLeftCapWidth:3.0 topCapHeight:0.0] forState:UIControlStateNormal];
+    
+    [_sliderView setMaximumTrackImage:[white stretchableImageWithLeftCapWidth:3.0 topCapHeight:0.0] forState:UIControlStateNormal];
+    
+    [_sliderView setThumbImage:[UIImage imageNamed:@"slider_small"] forState:UIControlStateNormal];
+    
+    [_sliderView trackRectForBounds:_sliderView.bounds];
+
+    
     // Do any additional setup after loading the view from its nib.
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self getBloodPressure];
+}
+
 - (IBAction)sliderValueChanged:(UISlider *)sender {
     NSLog(@"slider value = %f", sender.value);
     _lblDIAValue.text = [NSString stringWithFormat:@"%.f",roundf(_sliderView.value)];

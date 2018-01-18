@@ -78,6 +78,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [self getWeight];
+}
+
+
 #pragma mark - btn Actions
 - (IBAction)btnHealthTrackerClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:false];

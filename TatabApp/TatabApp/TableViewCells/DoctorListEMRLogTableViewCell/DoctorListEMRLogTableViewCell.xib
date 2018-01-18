@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -65,21 +65,22 @@
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7m-0c-oRA">
                         <rect key="frame" x="176" y="0.0" width="48" height="60"/>
-                        <state key="normal" title="Button" image="details"/>
+                        <state key="normal" image="details"/>
                         <connections>
                             <action selector="btnDetailsClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4vM-ig-DUy"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O62-dz-5qo">
-                        <rect key="frame" x="224" y="0.0" width="48" height="60"/>
-                        <state key="normal" title="Button" image="FollowUp"/>
+                        <rect key="frame" x="224" y="0.0" width="48" height="59.5"/>
+                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                        <state key="normal" image="prescription"/>
                         <connections>
                             <action selector="btnPrescriptionClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="niY-rM-eUS"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSL-Kl-8vI">
                         <rect key="frame" x="272" y="0.0" width="48" height="60"/>
-                        <state key="normal" title="Button" image="FollowUp"/>
+                        <state key="normal" image="FollowUp"/>
                         <connections>
                             <action selector="btnFollowClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ibV-0Z-CS0"/>
                         </connections>
@@ -123,6 +124,7 @@
     <resources>
         <image name="FollowUp" width="72" height="77"/>
         <image name="details" width="79" height="82"/>
+        <image name="prescription" width="52" height="70"/>
         <image name="profile" width="218" height="256"/>
     </resources>
 </document>
