@@ -65,6 +65,17 @@
     [_btnWeightPopup setTitle:@"0"  forState:UIControlStateNormal];
     [_btnReadingPopup setTitle:[arrayreading objectAtIndex:0] forState:UIControlStateNormal];
 
+    // Enable and disable various graph properties and axis displays
+    
+    _graphView.enableTouchReport = YES;
+    _graphView.enablePopUpReport = YES;
+    _graphView.enableYAxisLabel = YES;
+    _graphView.autoScaleYAxis = YES;
+    _graphView.alwaysDisplayDots = NO;
+    _graphView.enableReferenceXAxisLines = YES;
+    _graphView.enableReferenceYAxisLines = YES;
+    _graphView.enableReferenceAxisFrame = YES;
+    
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -77,9 +88,13 @@
 }
 
 #pragma mark - btn Actions
-- (IBAction)btnBackClicked:(id)sender {
+- (IBAction)btnHealthTrackerClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:false];
 }
+- (IBAction)btnBackClicked:(id)sender {
+    [self.navigationController dismissViewControllerAnimated:false completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PopBackNow" object:nil];
+    }];}
 
 - (IBAction)btnEMRClcked:(id)sender {
     
@@ -302,14 +317,37 @@
     
 }
 
+
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    return [dataArray count]; // Number of points in the graph.
+    if ([dataArray count] == 1) {
+        return 2;
+    }
+    else
+    {
+        return [dataArray count]; // Number of points in the graph.
+        
+    }
 }
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    float reading = ([[[[[dataArray objectAtIndex:index] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:index] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
-    return reading; // The value of the point on the Y-Axis for the index.
+    if ([dataArray count] == 1) {
+        if (index == 0) {
+            return 106.0;
+        }
+        else
+        {
+            float reading = ([[[[[dataArray objectAtIndex:index-1] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:index-1] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
+            return reading;
+        }
+    }
+    else
+    {
+        float reading = ([[[[[dataArray objectAtIndex:index] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:index] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
+        return reading;
+    }
+    
 }
+
 
 - (IBAction)btnSelectType:(id)sender {
     

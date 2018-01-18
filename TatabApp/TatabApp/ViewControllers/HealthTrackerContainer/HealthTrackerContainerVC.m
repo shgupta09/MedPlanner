@@ -28,8 +28,9 @@
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
     
-        [self.navigationController dismissViewControllerAnimated:false completion:nil];
-}
+    [self.navigationController dismissViewControllerAnimated:false completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PopBackNow" object:nil];
+    }];}
 - (IBAction)btnEMRClcked:(id)sender {
     
     [self dismissViewControllerAnimated:false completion:nil];

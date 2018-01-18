@@ -58,7 +58,17 @@
     [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
     
     
-  
+    // Enable and disable various graph properties and axis displays
+    
+    _graphView.enableTouchReport = YES;
+    _graphView.enablePopUpReport = YES;
+    _graphView.enableYAxisLabel = YES;
+    _graphView.autoScaleYAxis = YES;
+    _graphView.alwaysDisplayDots = NO;
+    _graphView.enableReferenceXAxisLines = YES;
+    _graphView.enableReferenceYAxisLines = YES;
+    _graphView.enableReferenceAxisFrame = YES;
+    
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -69,6 +79,9 @@
 }
 
 #pragma mark - btn Actions
+- (IBAction)btnHealthTrackerClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:false];
+}
 - (IBAction)btnActionEnterData:(id)sender {
     switch (((UIButton *)sender).tag) {
         case 0:
@@ -92,8 +105,9 @@
 
 
 - (IBAction)btnBackClicked:(id)sender {
-    [self.navigationController popViewControllerAnimated:false];
-}
+    [self.navigationController dismissViewControllerAnimated:false completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PopBackNow" object:nil];
+    }];}
 
 - (IBAction)btnEMRClcked:(id)sender {
     
@@ -241,12 +255,36 @@
     
 }
 
+
+
+
+
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    return [dataArray count]; // Number of points in the graph.
+    if ([dataArray count] == 1) {
+        return 2;
+    }
+    else
+    {
+        return [dataArray count]; // Number of points in the graph.
+        
+    }
 }
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    return [[[dataArray objectAtIndex:index] valueForKey:@"weight"] floatValue]; // The value of the point on the Y-Axis for the index.
+    if ([dataArray count] == 1) {
+        if (index == 0) {
+            return 0.0;
+        }
+        else
+        {
+            return [[[dataArray objectAtIndex:index-1] valueForKey:@"weight"] floatValue]; // The value of the point on the Y-Axis for the index.
+        }
+    }
+    else
+    {
+        return [[[dataArray objectAtIndex:index] valueForKey:@"weight"] floatValue]; // The value of the point on the Y-Axis for the index.
+    }
+    
 }
 
 

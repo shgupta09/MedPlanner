@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -76,6 +76,9 @@
                                 <constraint firstAttribute="height" constant="35" id="soS-wD-zSr"/>
                             </constraints>
                             <state key="normal" title="Health Tracker"/>
+                            <connections>
+                                <action selector="btnHealthTrackerClicked:" destination="-1" eventType="touchUpInside" id="a71-Qk-AYw"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQg-Ss-N93">
                             <rect key="frame" x="0.0" y="138" width="70" height="21"/>
@@ -493,7 +496,7 @@
                                                 <action selector="btnSubmitFeverreport:" destination="-1" eventType="touchUpInside" id="UTr-ym-OzB"/>
                                             </connections>
                                         </button>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bjk-2z-43N">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bjk-2z-43N" customClass="CustomSlider">
                                             <rect key="frame" x="126" y="150" width="262" height="31"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="258" id="dyB-PN-t04"/>
@@ -573,7 +576,7 @@
                     </constraints>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="aH2-c3-eXK" secondAttribute="bottom" id="NFR-c9-ADB"/>
                 <constraint firstItem="aH2-c3-eXK" firstAttribute="top" secondItem="NxM-qy-n28" secondAttribute="top" id="dBE-b7-rVV"/>

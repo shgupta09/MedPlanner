@@ -71,6 +71,19 @@
     arrayType = [[NSMutableArray alloc] initWithObjects:@"HR",@"DIA",@"SYS", nil];
     selectedRowForType = 0;
     
+    
+    // Enable and disable various graph properties and axis displays
+    
+    _graphView.enableTouchReport = YES;
+    _graphView.enablePopUpReport = YES;
+    _graphView.enableYAxisLabel = YES;
+    _graphView.autoScaleYAxis = YES;
+    _graphView.alwaysDisplayDots = NO;
+    _graphView.enableReferenceXAxisLines = YES;
+    _graphView.enableReferenceYAxisLines = YES;
+    _graphView.enableReferenceAxisFrame = YES;
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)sliderValueChanged:(UISlider *)sender {
@@ -275,8 +288,14 @@
 
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
+    [self.navigationController dismissViewControllerAnimated:false completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PopBackNow" object:nil];
+    }];}
+#pragma mark - btn Actions
+- (IBAction)btnHealthTrackerClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:false];
 }
+
 - (IBAction)btnEMRClcked:(id)sender {
     
     [self dismissViewControllerAnimated:false completion:nil];
@@ -491,23 +510,66 @@
 
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
    
-        return [dataArray count];
-     // Number of points in the graph.
+    if ([dataArray count] == 1) {
+        return 2;
+    }
+    else
+    {
+        return [dataArray count]; // Number of points in the graph.
+        
+    }
+         // Number of points in the graph.
 }
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
     
-    if (selectedRowForType == 0)
+    if ([dataArray count] == 1) {
+        if (index == 0) {
+            
+            if (selectedRowForType == 0)
+            {
+                return 0; // The value of the point on the Y-Axis for the index.
+            }
+            else if (selectedRowForType == 1){
+                return 65.0; // The value of the point on the Y-Axis for the index.
+            }
+            else if (selectedRowForType == 2){
+                return 125.0; // The value of the point on the Y-Axis for the index.
+            }
+            return 0;
+        }
+        else
+        {
+            if (selectedRowForType == 0)
+            {
+                return [[[dataArray objectAtIndex:index-1] valueForKey:@"heart_rate"] floatValue]; // The value of the point on the Y-Axis for the index.
+            }
+            else if (selectedRowForType == 1){
+                return [[[dataArray objectAtIndex:index-1] valueForKey:@"dis"] floatValue]; // The value of the point on the Y-Axis for the index.
+            }
+            else if (selectedRowForType == 2){
+                return [[[dataArray objectAtIndex:index-1] valueForKey:@"sys"] floatValue]; // The value of the point on the Y-Axis for the index.
+            }
+            return 0;
+            
+        }
+    }
+    else
     {
-        return [[[dataArray objectAtIndex:index] valueForKey:@"heart_rate"] floatValue]; // The value of the point on the Y-Axis for the index.
+        if (selectedRowForType == 0)
+        {
+            return [[[dataArray objectAtIndex:index] valueForKey:@"heart_rate"] floatValue]; // The value of the point on the Y-Axis for the index.
+        }
+        else if (selectedRowForType == 1){
+            return [[[dataArray objectAtIndex:index] valueForKey:@"dis"] floatValue]; // The value of the point on the Y-Axis for the index.
+        }
+        else if (selectedRowForType == 2){
+            return [[[dataArray objectAtIndex:index] valueForKey:@"sys"] floatValue]; // The value of the point on the Y-Axis for the index.
+        }
+        return 0;
+    
     }
-    else if (selectedRowForType == 1){
-        return [[[dataArray objectAtIndex:index] valueForKey:@"dis"] floatValue]; // The value of the point on the Y-Axis for the index.
-    }
-    else if (selectedRowForType == 2){
-        return [[[dataArray objectAtIndex:index] valueForKey:@"sys"] floatValue]; // The value of the point on the Y-Axis for the index.
-    }
-    return 0;
+ 
 }
 
 #pragma mark - add loder
@@ -561,13 +623,29 @@ return [NSString stringWithFormat:@"%ld",(long)row];    }
     if (pickerObj.tag == 2){
         [_btnSelectType setTitle:[arrayType objectAtIndex:row] forState:UIControlStateNormal];
         selectedRowForType = row;
+        switch (row) {
+            case 0:
+                _graphView.colorLine = [CommonFunction getColorFor:@"HR"];
+                
+                break;
+            case 1:
+                _graphView.colorLine = [CommonFunction getColorFor:@"DIA"];
+                
+                break;
+            case 2:
+                _graphView.colorLine = [CommonFunction getColorFor:@"SYS"];
+                
+                break;
+                
+            default:
+                break;
+        }
         [self.graphView reloadGraph];
     }
     
     if (pickerObj.tag == 3){
         [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",row] forState:UIControlStateNormal];
         hertRateValue = row;
-        [self.graphView reloadGraph];
     }
     
     

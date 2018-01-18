@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -80,6 +80,9 @@
                                 <constraint firstAttribute="height" constant="35" id="egz-I2-W6n"/>
                             </constraints>
                             <state key="normal" title="Health Tracker"/>
+                            <connections>
+                                <action selector="btnHealthTrackerClicked:" destination="-1" eventType="touchUpInside" id="NIg-u4-sxj"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmj-gF-0bv">
                             <rect key="frame" x="0.0" y="138" width="70" height="21"/>
@@ -227,6 +230,9 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="color" keyPath="colorYaxisLabel">
                                             <color key="value" red="0.81568627449999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="widthLine">
+                                            <real key="value" value="3"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
@@ -441,7 +447,7 @@
                                     <rect key="frame" x="20" y="70" width="334" height="571"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaT-gl-89o" customClass="CustomButton3">
-                                            <rect key="frame" x="10" y="521" width="150" height="40"/>
+                                            <rect key="frame" x="10" y="521" width="149.5" height="40"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="PlU-7a-kys"/>
@@ -683,7 +689,7 @@ Stage 1
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wym-9X-b7c" customClass="CustomButton3">
-                                            <rect key="frame" x="177" y="522" width="149" height="40"/>
+                                            <rect key="frame" x="176.5" y="522" width="149.5" height="40"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="FAj-e1-x3y"/>
@@ -738,7 +744,7 @@ Stage 1
                                     </constraints>
                                 </view>
                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="C6z-wf-CDO">
-                                    <rect key="frame" x="161" y="277" width="262" height="31"/>
+                                    <rect key="frame" x="161" y="276.5" width="262" height="31"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="258" id="Ko1-hp-XCm"/>
                                     </constraints>
@@ -765,7 +771,7 @@ Stage 1
                     </constraints>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="gTj-lt-RIF" secondAttribute="trailing" id="4eu-3Q-hwE"/>
                 <constraint firstItem="gTj-lt-RIF" firstAttribute="top" secondItem="wjz-RE-7PD" secondAttribute="top" id="B1w-9C-s5l"/>

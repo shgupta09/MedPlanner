@@ -41,4 +41,5 @@
 +(NSDate *)convertStringToDate:(NSString *)dtrDate;
 +(NSString *)getThePrice:(NSString *)price;
 +(UIImage *)getImageWithUrlString:(NSString*)urlString;
++(UIColor*) getColorFor:(NSString*) type;
 @end

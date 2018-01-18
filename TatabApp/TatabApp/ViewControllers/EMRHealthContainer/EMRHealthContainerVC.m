@@ -29,7 +29,8 @@
     _tblView.multipleTouchEnabled = NO;
     
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:@"PopBackNow" object:nil];
+
 //    [CommonFunction storeValueInDefault:[CommonFunction trimString:_txtUsername.text] andKey:loginfirstname];
 //    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserId] andKey:loginuserId];
 //    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserType] andKey:loginuserType];
@@ -60,6 +61,12 @@
     navVC.navigationBarHidden = true;
     [self.navigationController presentViewController:navVC animated:false completion:nil];
     
+}
+
+
+-(void) notficationRecieved:(NSNotification*) notification{
+    [self.navigationController popViewControllerAnimated:true];
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

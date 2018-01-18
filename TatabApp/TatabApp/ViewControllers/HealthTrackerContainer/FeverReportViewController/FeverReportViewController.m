@@ -54,8 +54,29 @@ _txtComments.text = @"comment";
         toDateString = [dateFormatter stringFromDate:toDate];
         [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
 
+    // Enable and disable various graph properties and axis displays
     
-
+    _graphView.enableTouchReport = YES;
+    _graphView.enablePopUpReport = YES;
+    _graphView.enableYAxisLabel = YES;
+    _graphView.autoScaleYAxis = YES;
+    _graphView.alwaysDisplayDots = NO;
+    _graphView.enableReferenceXAxisLines = YES;
+    _graphView.enableReferenceYAxisLines = YES;
+    _graphView.enableReferenceAxisFrame = YES;
+    
+    
+    // Set the graph's animation style to draw, fade, or none
+    _graphView.animationGraphStyle = BEMLineAnimationDraw;
+    
+    UIImage * white = [[UIImage imageNamed:@"tempratuer-slider"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    
+    [_sliderView setMinimumTrackImage:[white stretchableImageWithLeftCapWidth:3.0 topCapHeight:0.0] forState:UIControlStateNormal];
+    
+    [_sliderView setMaximumTrackImage:[white stretchableImageWithLeftCapWidth:3.0 topCapHeight:0.0] forState:UIControlStateNormal];
+    
+    [_sliderView setThumbImage:[UIImage imageNamed:@"slider_small"] forState:UIControlStateNormal];
+    [_sliderView trackRectForBounds:_sliderView.bounds]; 
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -100,6 +121,13 @@ _txtComments.text = @"comment";
 
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
+    [self.navigationController dismissViewControllerAnimated:false completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PopBackNow" object:nil];
+    }];
+}
+
+#pragma mark - btn Actions
+- (IBAction)btnHealthTrackerClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:false];
 }
 
@@ -182,15 +210,49 @@ _txtComments.text = @"comment";
     
     
 }
+
+
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    return [dataArray count]; // Number of points in the graph.
+    if ([dataArray count] == 1) {
+        return 2;
+    }
+    else
+    {
+        return [dataArray count]; // Number of points in the graph.
+ 
+    }
 }
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    return [[[dataArray objectAtIndex:index] valueForKey:@"temperature"] floatValue]; // The value of the point on the Y-Axis for the index.
+    if ([dataArray count] == 1) {
+        if (index == 0) {
+            return 32.0;
+        }
+        else
+        {
+            return [[[dataArray objectAtIndex:index-1] valueForKey:@"temperature"] floatValue];
+        }
+    }
+    else
+    {
+        return [[[dataArray objectAtIndex:index] valueForKey:@"temperature"] floatValue];
+    }
+    
+}
+// The value of the point on the Y-Axis for the index.
+
+
+- (NSInteger)numberOfYAxisLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph{
+    return 5;
 }
 
+- (CGFloat)baseValueForYAxisOnLineGraph:(BEMSimpleLineGraphView *)graph{
+    return 32.0;
+}
 
+- (CGFloat)incrementValueForYAxisOnLineGraph:(BEMSimpleLineGraphView *)graph{
+    return 2.0;
+}
 
 
 -(void)getFeverReport{

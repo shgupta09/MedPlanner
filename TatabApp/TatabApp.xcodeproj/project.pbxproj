@@ -60,6 +60,7 @@
 		5FBBBB1B1F72720800C03813 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FBBBB191F72720800C03813 /* LoginViewController.xib */; };
 		5FC496DC1FCBDC1B004E537A /* ChatPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC496DB1FCBDC1B004E537A /* ChatPatient.m */; };
 		5FD369151FFE954A00FC6C3F /* CommonInfoPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD369141FFE954A00FC6C3F /* CommonInfoPatient.m */; };
+		5FE2757E2010C05900EC875E /* CustomSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE2757D2010C05900EC875E /* CustomSlider.m */; };
 		6B88C8AAED0F77BF5245AA06 /* Pods_TatabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */; };
 		884FE13F103CA6FC743E4912 /* Pods_TatabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */; };
 		9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */; };
@@ -219,6 +220,8 @@
 		5FC496DB1FCBDC1B004E537A /* ChatPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatPatient.m; sourceTree = "<group>"; };
 		5FD369131FFE954A00FC6C3F /* CommonInfoPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonInfoPatient.h; sourceTree = "<group>"; };
 		5FD369141FFE954A00FC6C3F /* CommonInfoPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonInfoPatient.m; sourceTree = "<group>"; };
+		5FE2757C2010C05900EC875E /* CustomSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlider.h; sourceTree = "<group>"; };
+		5FE2757D2010C05900EC875E /* CustomSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlider.m; sourceTree = "<group>"; };
 		9C4C5ECC1F792725003D84BD /* RegistrationDpendency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationDpendency.h; sourceTree = "<group>"; };
 		9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationDpendency.m; sourceTree = "<group>"; };
 		9C55056920088C650037F07F /* TextPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextPostCell.h; sourceTree = "<group>"; };
@@ -598,6 +601,7 @@
 		5FBBBB0B1F726FC400C03813 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				5FE274D92010C02700EC875E /* CustomSlider */,
 				5F5DF3781FB31D0F00956B62 /* ChatsRelatedViews */,
 				D8EE8B171F966F77006A018E /* CustomAlert */,
 				D84B6BB81F77837500F37660 /* Loder VIew */,
@@ -692,6 +696,15 @@
 				5F1E9B391F763C73009FECDD /* UserSelectViewController.xib */,
 			);
 			path = UserSelectViewController;
+			sourceTree = "<group>";
+		};
+		5FE274D92010C02700EC875E /* CustomSlider */ = {
+			isa = PBXGroup;
+			children = (
+				5FE2757C2010C05900EC875E /* CustomSlider.h */,
+				5FE2757D2010C05900EC875E /* CustomSlider.m */,
+			);
+			path = CustomSlider;
 			sourceTree = "<group>";
 		};
 		9C4C5ECB1F792717003D84BD /* Models */ = {
@@ -943,7 +956,7 @@
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = H7RFM2VSMC;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					5FBBBAFB1F72401C00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1279,6 +1292,7 @@
 				5F1E9B4E1F764568009FECDD /* CustomButton.m in Sources */,
 				D8EE8B161F95E564006A018E /* Specialization.m in Sources */,
 				5FB51C442003E5BE00E4889B /* PressureReportViewController.m in Sources */,
+				5FE2757E2010C05900EC875E /* CustomSlider.m in Sources */,
 				D8F108C11FC09A140049296C /* Chat+CoreDataClass.m in Sources */,
 				5F1E9B301F763C49009FECDD /* SplashScreenViewController.m in Sources */,
 				9C6DE73C1F83A61A00635102 /* VideoListObject.m in Sources */,
@@ -1456,8 +1470,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e72d8c76-0eec-4490-9a9c-b9b6371a2167";
+				PROVISIONING_PROFILE_SPECIFIER = "medplanner development";
 			};
 			name = Debug;
 		};
@@ -1478,8 +1492,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e72d8c76-0eec-4490-9a9c-b9b6371a2167";
+				PROVISIONING_PROFILE_SPECIFIER = "medplanner development";
 			};
 			name = Release;
 		};
