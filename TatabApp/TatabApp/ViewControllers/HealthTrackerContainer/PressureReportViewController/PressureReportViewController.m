@@ -313,7 +313,7 @@
     self.popUpView.center = CGPointMake(self.view.center.x, self.view.center.y);
     [[self popUpView] setFrame:frame];
     [self.view addSubview:_popUpView];
-    
+    [CommonFunction addAnimationToview:_popUpView];
     
 }
 - (IBAction)btnSelectYearClicked:(id)sender {

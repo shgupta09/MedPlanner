@@ -41,5 +41,10 @@
 +(NSDate *)convertStringToDate:(NSString *)dtrDate;
 +(NSString *)getThePrice:(NSString *)price;
 +(UIImage *)getImageWithUrlString:(NSString*)urlString;
+<<<<<<< HEAD
 +(UIColor*) getColorFor:(NSString*) type;
+=======
++(void)addAnimationToview:(UIView *)viewToAnimate;
++(void)removeAnimationFromView:(UIView *)viewToRemoveAnimation;
+>>>>>>> c483823444e6fa709e189df587b5fca06fd3a2db
 @end

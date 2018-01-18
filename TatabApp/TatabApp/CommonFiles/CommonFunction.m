@@ -355,5 +355,23 @@
     UIImage *img =  [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
     return img;
 }
++(void)addAnimationToview:(UIView *)viewToAnimate{
+    viewToAnimate.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        // animate it to the identity transform (100% scale)
+        viewToAnimate.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished){
+        // if you want to do something once the animation finishes, put it here
+    }];
+}
++(void)removeAnimationFromView:(UIView *)viewToRemoveAnimation{
+    /*[UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        // animate it to the identity transform (100% scale)
+        viewToRemoveAnimation.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    } completion:^(BOOL finished){
+        [viewToRemoveAnimation removeFromSuperview];
+            }];*/
+    [viewToRemoveAnimation removeFromSuperview];
 
+}
 @end

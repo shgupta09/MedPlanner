@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MediaPostCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *profileBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView_Content;
 @property (weak, nonatomic) IBOutlet UIView *viewForImage;
 @property (weak, nonatomic) IBOutlet UIImageView *doctorImageView;
@@ -19,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn_Like;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_ShareCount;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_CommentCount;
+@property (weak, nonatomic) IBOutlet UIButton *contentBtn;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_LikeCount;
 @end

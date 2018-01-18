@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,20 +19,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvm-mx-STk">
-                        <rect key="frame" x="10" y="20" width="100" height="100"/>
+                        <rect key="frame" x="10" y="20" width="80" height="80"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section-children" translatesAutoresizingMaskIntoConstraints="NO" id="Lsm-A2-TYs">
-                                <rect key="frame" x="1" y="1" width="98" height="98"/>
+                                <rect key="frame" x="1" y="1" width="78" height="78"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section-children" translatesAutoresizingMaskIntoConstraints="NO" id="m7S-bx-QiL">
-                                <rect key="frame" x="1" y="75" width="24" height="24"/>
+                                <rect key="frame" x="1" y="55" width="24" height="24"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="62U-3n-6Om"/>
                                     <constraint firstAttribute="height" constant="24" id="jB4-rV-JKt"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mV7-km-n5R">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.90406558390000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -40,20 +43,24 @@
                             <constraint firstAttribute="bottom" secondItem="Lsm-A2-TYs" secondAttribute="bottom" constant="1" id="DOd-nK-LZT"/>
                             <constraint firstAttribute="bottom" secondItem="m7S-bx-QiL" secondAttribute="bottom" constant="1" id="DUM-l4-lLP"/>
                             <constraint firstAttribute="trailing" secondItem="Lsm-A2-TYs" secondAttribute="trailing" constant="1" id="FNN-f4-5rD"/>
+                            <constraint firstAttribute="trailing" secondItem="mV7-km-n5R" secondAttribute="trailing" id="M1E-rH-KHG"/>
+                            <constraint firstItem="mV7-km-n5R" firstAttribute="leading" secondItem="Gvm-mx-STk" secondAttribute="leading" id="Mlw-lY-PZR"/>
                             <constraint firstItem="Lsm-A2-TYs" firstAttribute="leading" secondItem="Gvm-mx-STk" secondAttribute="leading" constant="1" id="QXB-Pb-0qq"/>
-                            <constraint firstAttribute="width" constant="100" id="SYe-Xm-OOR"/>
+                            <constraint firstAttribute="width" constant="80" id="SYe-Xm-OOR"/>
+                            <constraint firstItem="mV7-km-n5R" firstAttribute="top" secondItem="Gvm-mx-STk" secondAttribute="top" id="YoM-hI-GeO"/>
                             <constraint firstItem="Lsm-A2-TYs" firstAttribute="top" secondItem="Gvm-mx-STk" secondAttribute="top" constant="1" id="c8f-na-jjg"/>
-                            <constraint firstAttribute="height" constant="100" id="vHm-B9-Flg"/>
+                            <constraint firstAttribute="bottom" secondItem="mV7-km-n5R" secondAttribute="bottom" id="fDj-cb-rae"/>
+                            <constraint firstAttribute="height" constant="80" id="vHm-B9-Flg"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxE-YQ-9rd">
-                        <rect key="frame" x="112" y="26" width="198" height="21"/>
+                        <rect key="frame" x="92" y="26" width="218" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" text="jfghads " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFK-1u-giK">
-                        <rect key="frame" x="112" y="57" width="198" height="85.5"/>
+                        <rect key="frame" x="92" y="57" width="218" height="85.5"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="85.5" id="5Qd-5w-gJE"/>
                         </constraints>
@@ -163,6 +170,7 @@
                 <outlet property="lbl_DoctorName" destination="XxE-YQ-9rd" id="Y19-c1-9P9"/>
                 <outlet property="lbl_LikeCount" destination="Tlc-e4-qmC" id="yYr-DS-WcS"/>
                 <outlet property="lbl_ShareCount" destination="k8j-oG-z04" id="PtW-AM-mav"/>
+                <outlet property="profileContent" destination="mV7-km-n5R" id="7sf-dV-R2R"/>
                 <outlet property="viewForImage" destination="Gvm-mx-STk" id="1uy-eO-tas"/>
             </connections>
             <point key="canvasLocation" x="-565" y="-61"/>
