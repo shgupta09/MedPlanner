@@ -9,6 +9,9 @@
 #import "NewAwareVC.h"
 #import "MediaPostCell.h"
 @interface NewAwareVC (){
+    
+    UIView *addSubView;
+    UIImageView *imgView;
     SWRevealViewController *revealController;
     BOOL isOpen;
     UIView *tempView;
@@ -51,11 +54,26 @@
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 200;
     _tbl_View.multipleTouchEnabled = NO;
-
+    addSubView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width-40, [UIScreen mainScreen].bounds.size.width-40)];
+    imgView.center = addSubView.center;
+    imgView.center = CGPointMake(imgView.center.x, imgView.center.y-50) ;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification)
+                                                 name:@"LogoutNotification"
+                                               object:nil];
     // Do any additional setup after loading the view from its nib.
 }
 
-
+-(void)receiveNotification{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"Logout Successfully" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self viewWillAppear:TRUE];
+    }];
+    [alertController addAction:ok];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -68,16 +86,24 @@
         if (![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
             _btn_Post.hidden = true;
             _btn_Post.userInteractionEnabled = false;
+            _btn_Post.hidden = true;
+            _btn_Post.userInteractionEnabled = false;
+            [_imgView_Profile removeFromSuperview];
+            [_btn_Post removeFromSuperview];
         }else{
             _btn_Post.hidden = false;
             _btn_Post.userInteractionEnabled = true;
+             // [_imgView_Profile sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
         }
-        
     }else{
         _btn_Post.hidden = true;
         _btn_Post.userInteractionEnabled = false;
+        [_imgView_Profile removeFromSuperview];
     }
-    [self geAllPost];
+    if (!is_Media) {
+    [self geAllPost];    
+    }
+    
 
 }
 //The event handling method
@@ -90,6 +116,58 @@
         [tempView removeFromSuperview];
         isOpen = false;
     }
+    
+}
+
+
+#pragma mark - ZoomImage
+-(void)addTapAtZoomedImage{
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(zoomOut)];
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [addSubView addGestureRecognizer:singleTap];
+}
+
+-(void)zoomWithImage:(NSString *)imageUrlString{
+    [imgView sd_setImageWithURL:[NSURL URLWithString:imageUrlString]];
+    addSubView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    [addSubView setBackgroundColor:[UIColor colorWithRed:0.5/255.0f green:0.5/255.0f blue:0.5/255.0f alpha:.8]];
+    [addSubView addSubview:imgView];
+    addSubView.tag = 101;
+    imgView.tag = 102;
+    [self.view addSubview:addSubView];
+    
+    addSubView.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        // animate it to the identity transform (100% scale)
+        addSubView.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished){
+        // if you want to do something once the animation finishes, put it here
+    }];
+    [self addTapAtZoomedImage];
+    
+    
+}
+
+-(void)zoomOut{
+    //    [addSubView setFrame:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2, 0, 0)];
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        // animate it to the identity transform (100% scale)
+        addSubView.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    } completion:^(BOOL finished){
+        [addSubView removeFromSuperview];
+        [imgView removeFromSuperview];
+        [addSubView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.tag == 102) {
+                [obj removeFromSuperview];
+            }
+        }];
+        [[self.view subviews] enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.tag == 101) {
+                [obj removeFromSuperview];
+            }
+        }];
+    }];
     
 }
 
@@ -174,7 +252,10 @@
         cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
         [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
-        
+        cell.profileBtn.tag = 5000+indexPath.row;
+        [cell.profileBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.contentBtn.tag = 4000+indexPath.row;
+        [cell.contentBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         if (![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
             [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
             
@@ -214,7 +295,9 @@
         cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
         [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
-        
+        cell.profileContent.tag = 5000+indexPath.row;
+        [cell.profileContent addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+
         if (![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
 
             [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
@@ -258,24 +341,33 @@
 
 
 -(void)btnClicked:(id)sender{
-   
-    if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
-        if (((UIButton *)sender).tag /1000 == 1){
-            PostData *obj= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
-            postId= obj.post_id;
-            if ([obj.is_liked intValue] >0 ) {
-                 [self hitAPiTolikeAPost:@"0"];
-            }
-            else{
-                 [self hitAPiTolikeAPost:@"1"];
-            }
-        }
+    if (((UIButton *)sender).tag /1000 == 5){
+        PostData *obj= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
+        [self zoomWithImage:obj.icon_url];
         
+    }else if (((UIButton *)sender).tag /1000 == 4){
+              PostData *obj2= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
+              [self zoomWithImage:obj2.url];
     }else{
-        LoginViewController* vc ;
-        vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-        [self.navigationController pushViewController:vc animated:true];
-    }
+            if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
+                if (((UIButton *)sender).tag /1000 == 1){
+                    PostData *obj= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
+                    postId= obj.post_id;
+                    if ([obj.is_liked intValue] >0 ) {
+                        [self hitAPiTolikeAPost:@"0"];
+                    }
+                    else{
+                        [self hitAPiTolikeAPost:@"1"];
+                    }
+                }
+                
+            }else{
+                LoginViewController* vc ;
+                vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+                [self.navigationController pushViewController:vc animated:true];
+            }
+
+        }
     
     
 }
@@ -324,25 +416,36 @@
 
 - (IBAction)btnAction_Cancel:(id)sender {
     _txt_txtView.text =@"";
-    [_popUpView removeFromSuperview];
+    [CommonFunction removeAnimationFromView:_popUpView];
 }
 - (IBAction)btnAction_Cancel2:(id)sender {
     _txt_Search.text = 0;
-    [_popUpView2 removeFromSuperview];
+    [CommonFunction removeAnimationFromView:_popUpView2];
 }
 
 - (IBAction)btnActionSendPost:(id)sender {
-    [self uploadPost];
+    if ([_txt_txtView.text isEqualToString:PlaceHolder]||[_txt_txtView.text isEqualToString:@""]){
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Please enter some text" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }else{
+        [self uploadPost];
+    }
+    
     
 }
 - (IBAction)btnAction_Attatchment:(id)sender {
     [self showActionSheet];
 }
 - (IBAction)btnAction_ApplySearch:(id)sender {
-    [_popUpView2 removeFromSuperview];
+    [CommonFunction removeAnimationFromView:_popUpView2];
 }
 
 #pragma mark-Other
+
+
+
 -(void)showActionSheet{
     [CommonFunction resignFirstResponderOfAView:self.view];
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Options"
@@ -462,6 +565,7 @@
     self.popUpView.center = CGPointMake(self.view.center.x, self.view.center.y);
     [[self popUpView] setFrame:frame];
     [self.view addSubview:_popUpView];
+    [CommonFunction addAnimationToview:_popUpView];
 }
 
 -(void)addPopupview2{
@@ -473,6 +577,7 @@
     self.popUpView2.center = CGPointMake(self.view.center.x, self.view.center.y);
     [[self popUpView2] setFrame:frame];
     [self.view addSubview:_popUpView2];
+     [CommonFunction addAnimationToview:_popUpView2];
 }
 #pragma mark - add loder
 
@@ -498,7 +603,6 @@
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UploadDocument] postResponse:nil withImageData:nil isImageChanged:false requestType:POST requiredAuthorization:false ImageKey:@"photo" DataArray:imageDataArray completetion:^(BOOL status, id responseObj, NSString *tag, NSError *error, NSInteger statusCode) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
-                    [self removeloder];
                     
                     NSDictionary *dict = [[responseObj valueForKey:@"urls"] valueForKey:@"photo"];
                     
@@ -706,7 +810,7 @@
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        [_popUpView removeFromSuperview];
+                        [CommonFunction removeAnimationFromView:_popUpView];
                         _txt_txtView.text = @"";
                     }];
                     [alertController addAction:ok];

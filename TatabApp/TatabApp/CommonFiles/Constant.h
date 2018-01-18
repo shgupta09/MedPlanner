@@ -33,6 +33,7 @@
 #define loginPassword @"password"
 #define loginemail @"email"
 #define loginfirstname @"first_name"
+#define logInImageUrl @"imageUrl"
 #define loginlastname @"last_name"
 #define loginmobile @"mobile_number"
 #define loginusergroup @"user_group"
@@ -91,7 +92,7 @@
 #define NPHeaderName @"np-usr-rest:internal@123"
 #define ShreeHeaderName @"np-appusr-rest:Xy#!@#@123"
 #define LocationHeaderName @"np-loc-rest:internal@123"
-
+#define PlaceHolder @"Add some text..."
 
 
 #define selected_Nationality @"Nationality"

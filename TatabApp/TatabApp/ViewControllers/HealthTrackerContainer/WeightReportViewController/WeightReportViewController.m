@@ -114,7 +114,7 @@
     self.popUpView.center = CGPointMake(self.view.center.x, self.view.center.y);
     [[self popUpView] setFrame:frame];
     [self.view addSubview:_popUpView];
-    
+    [CommonFunction addAnimationToview:_popUpView];
     
 }
 - (IBAction)btnSelectYearClicked:(id)sender {
@@ -254,6 +254,7 @@
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
     [parameterDict setValue:_btnWeight.titleLabel.text forKey:@"weight"];
+    
     [parameterDict setValue:_btnHeartRate.titleLabel.text forKey:@"rest_hr"];
     [parameterDict setValue:_btnHeight.titleLabel.text forKey:@"height"];
     [parameterDict setValue:_txt_Comment.text forKey:@"comment"];

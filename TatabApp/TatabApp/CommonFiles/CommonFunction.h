@@ -41,4 +41,6 @@
 +(NSDate *)convertStringToDate:(NSString *)dtrDate;
 +(NSString *)getThePrice:(NSString *)price;
 +(UIImage *)getImageWithUrlString:(NSString*)urlString;
++(void)addAnimationToview:(UIView *)viewToAnimate;
++(void)removeAnimationFromView:(UIView *)viewToRemoveAnimation;
 @end

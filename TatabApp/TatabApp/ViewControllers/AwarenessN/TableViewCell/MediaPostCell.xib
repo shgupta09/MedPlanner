@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -78,15 +78,22 @@
                                     <constraint firstAttribute="width" constant="24" id="kPj-uO-v6X"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0b-xf-92q">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.42745098040000001" green="0.74901960779999999" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="VC6-A0-GcJ" secondAttribute="bottom" constant="1" id="6Up-sk-qFD"/>
+                            <constraint firstAttribute="bottom" secondItem="g0b-xf-92q" secondAttribute="bottom" id="7Jv-12-Xda"/>
                             <constraint firstItem="VC6-A0-GcJ" firstAttribute="top" secondItem="Elg-oR-n6W" secondAttribute="top" constant="1" id="AUS-nn-Zra"/>
                             <constraint firstItem="Mvo-YR-inN" firstAttribute="leading" secondItem="Elg-oR-n6W" secondAttribute="leading" constant="1" id="IHO-WK-Vzh"/>
                             <constraint firstAttribute="width" constant="100" id="MTi-fq-bVm"/>
                             <constraint firstAttribute="trailing" secondItem="VC6-A0-GcJ" secondAttribute="trailing" constant="1" id="Q1c-ik-bFl"/>
                             <constraint firstItem="VC6-A0-GcJ" firstAttribute="leading" secondItem="Elg-oR-n6W" secondAttribute="leading" constant="1" id="QDg-qE-TKH"/>
+                            <constraint firstItem="g0b-xf-92q" firstAttribute="leading" secondItem="Elg-oR-n6W" secondAttribute="leading" id="ZsU-30-6qB"/>
+                            <constraint firstAttribute="trailing" secondItem="g0b-xf-92q" secondAttribute="trailing" id="a1X-mH-2Wu"/>
+                            <constraint firstItem="g0b-xf-92q" firstAttribute="top" secondItem="Elg-oR-n6W" secondAttribute="top" id="tMU-8g-gIT"/>
                             <constraint firstAttribute="bottom" secondItem="Mvo-YR-inN" secondAttribute="bottom" constant="1" id="wij-BG-BMW"/>
                             <constraint firstAttribute="height" constant="100" id="zYe-sJ-HkE"/>
                         </constraints>
@@ -121,13 +128,20 @@
                                     <constraint firstAttribute="height" constant="114.5" id="sIX-vg-HBS"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ol-Ay-ZHg">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="114.5"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4Ol-Ay-ZHg" firstAttribute="bottom" secondItem="6Sd-lr-7kU" secondAttribute="bottom" id="4XJ-vh-sfg"/>
+                            <constraint firstItem="4Ol-Ay-ZHg" firstAttribute="trailing" secondItem="6Sd-lr-7kU" secondAttribute="trailing" id="A9S-b0-wxV"/>
                             <constraint firstAttribute="bottom" secondItem="6Sd-lr-7kU" secondAttribute="bottom" id="FVS-X1-Eto"/>
+                            <constraint firstItem="4Ol-Ay-ZHg" firstAttribute="top" secondItem="6Sd-lr-7kU" secondAttribute="top" id="HD1-d8-4tl"/>
                             <constraint firstItem="6Sd-lr-7kU" firstAttribute="top" secondItem="zj0-KF-hOE" secondAttribute="top" id="Oj9-LQ-kGZ"/>
                             <constraint firstAttribute="trailing" secondItem="6Sd-lr-7kU" secondAttribute="trailing" id="UAo-68-EB4"/>
                             <constraint firstItem="6Sd-lr-7kU" firstAttribute="leading" secondItem="zj0-KF-hOE" secondAttribute="leading" id="XXf-81-SkM"/>
+                            <constraint firstItem="4Ol-Ay-ZHg" firstAttribute="leading" secondItem="6Sd-lr-7kU" secondAttribute="leading" id="eZm-s2-KaM"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -169,12 +183,14 @@
                 <outlet property="btn_Like" destination="Jk7-C5-hsp" id="B1T-gK-KtO"/>
                 <outlet property="btn_Share" destination="YfM-9r-pCJ" id="6qv-GJ-JaH"/>
                 <outlet property="clinicImageView" destination="Mvo-YR-inN" id="fFf-bM-tye"/>
+                <outlet property="contentBtn" destination="4Ol-Ay-ZHg" id="wDM-JT-6tl"/>
                 <outlet property="doctorImageView" destination="VC6-A0-GcJ" id="VGY-rB-DXc"/>
                 <outlet property="imgView_Content" destination="6Sd-lr-7kU" id="ei4-2b-xgS"/>
                 <outlet property="lbl_CommentCount" destination="Xvm-n3-F9u" id="0Yc-K4-bh7"/>
                 <outlet property="lbl_DoctorName" destination="A2s-Zh-mdx" id="kUt-Zc-dLD"/>
                 <outlet property="lbl_LikeCount" destination="Rle-aW-4g8" id="XPs-sj-3CY"/>
                 <outlet property="lbl_ShareCount" destination="w5l-DT-XkJ" id="y7Q-I3-wkg"/>
+                <outlet property="profileBtn" destination="g0b-xf-92q" id="pQk-jl-9RP"/>
                 <outlet property="viewForImage" destination="Elg-oR-n6W" id="sDA-ME-OcY"/>
             </connections>
             <point key="canvasLocation" x="-12" y="42"/>

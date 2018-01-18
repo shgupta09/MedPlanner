@@ -303,13 +303,21 @@
 }
 
 - (IBAction)btnActionSubmit:(id)sender {
-    if (![textView_advice.text isEqualToString:@""]) {
-        [self hitApiForUpload];
+   
+    
+    
+    if ([textView_advice.text isEqualToString:PlaceHolder] ||[textView_advice.text isEqualToString:@""]){
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Please enter some text" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }else{
+     [self hitApiForUpload];
     }
 }
 - (IBAction)btnAction_Cancel:(id)sender {
     textView_advice.text = @"";
-    [_popUpView removeFromSuperview];
+    [CommonFunction removeAnimationFromView:_popUpView];
 }
 - (IBAction)btnActionPreception:(id)sender {
     uploadType = @"prescription";
@@ -486,6 +494,7 @@
     self.popUpView.center = CGPointMake(self.view.center.x, self.view.center.y);
     [[self popUpView] setFrame:frame];
     [self.view addSubview:_popUpView];
+    [CommonFunction addAnimationToview:_popUpView];
 }
 -(void)setMessageArray:(BOOL)isScroll{
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
@@ -898,7 +907,7 @@
                     
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        [_popUpView removeFromSuperview];
+                        [CommonFunction removeAnimationFromView:_popUpView];
                         textView_advice.text = @"";
                     }];
                     [alertController addAction:ok];
