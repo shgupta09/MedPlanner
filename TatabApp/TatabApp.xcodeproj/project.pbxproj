@@ -82,6 +82,7 @@
 		9C8FE6D81F8B53270003003C /* RCDoctor3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8FE6D61F8B53270003003C /* RCDoctor3.xib */; };
 		9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */; };
 		9C8FE6DD1F8B8DCF0003003C /* RCDoctor4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8FE6DB1F8B8DCF0003003C /* RCDoctor4.xib */; };
+		9CEA820820121B7800F84450 /* CustomButton4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA820720121B7800F84450 /* CustomButton4.m */; };
 		D82354AA1F8A37790097A94C /* RCDoctor1.m in Sources */ = {isa = PBXBuildFile; fileRef = D82354A81F8A37790097A94C /* RCDoctor1.m */; };
 		D82354AB1F8A37790097A94C /* RCDoctor1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82354A91F8A37790097A94C /* RCDoctor1.xib */; };
 		D82354AF1F8A6C2E0097A94C /* RCDoctor2.m in Sources */ = {isa = PBXBuildFile; fileRef = D82354AD1F8A6C2E0097A94C /* RCDoctor2.m */; };
@@ -252,6 +253,8 @@
 		9C8FE6D91F8B8DCF0003003C /* RCDoctor4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoctor4.h; sourceTree = "<group>"; };
 		9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDoctor4.m; sourceTree = "<group>"; };
 		9C8FE6DB1F8B8DCF0003003C /* RCDoctor4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDoctor4.xib; sourceTree = "<group>"; };
+		9CEA820620121B7800F84450 /* CustomButton4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton4.h; sourceTree = "<group>"; };
+		9CEA820720121B7800F84450 /* CustomButton4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton4.m; sourceTree = "<group>"; };
 		A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TatabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB844014A999876E3EEA5CD /* Pods-TatabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TatabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TatabApp/Pods-TatabApp.release.xcconfig"; sourceTree = "<group>"; };
 		D82354A71F8A37790097A94C /* RCDoctor1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoctor1.h; sourceTree = "<group>"; };
@@ -618,6 +621,8 @@
 				D8F5A5711F920B1C00E36160 /* CustomButton2.m */,
 				9C5505732008E2FC0037F07F /* CustomButton3.h */,
 				9C5505742008E2FC0037F07F /* CustomButton3.m */,
+				9CEA820620121B7800F84450 /* CustomButton4.h */,
+				9CEA820720121B7800F84450 /* CustomButton4.m */,
 			);
 			path = CommonFiles;
 			sourceTree = "<group>";
@@ -1282,6 +1287,7 @@
 				5F1E9B4A1F76442C009FECDD /* CommonFunction.m in Sources */,
 				5FB51C482003E5BE00E4889B /* WeightReportViewController.m in Sources */,
 				D8F5A5681F9202AF00E36160 /* DoctorListVC.m in Sources */,
+				9CEA820820121B7800F84450 /* CustomButton4.m in Sources */,
 				D8E1C79F2007C790007172F5 /* NewAwareVC.m in Sources */,
 				5F1E9B5D1F76AAB4009FECDD /* DependantDetailTableViewCell.m in Sources */,
 				5FBBBAE81F72401B00C03813 /* AppDelegate.m in Sources */,
