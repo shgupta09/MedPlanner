@@ -152,13 +152,11 @@
     if (mobile.length == 0){
         return false;
     }
-    NSString *emailRegex = @"[0-9]{8,11}";
+    NSString *emailRegex = @"[0-9]{8,15}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     BOOL isValidMobile = [emailTest evaluateWithObject:mobile];
     NSString *firstCharacter = [mobile substringToIndex:1];
     if (isValidMobile != true){
-        return false;
-    }else if ([firstCharacter isEqual: @"0"]){
         return false;
     }
     return true;

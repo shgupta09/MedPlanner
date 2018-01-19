@@ -419,9 +419,9 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEO-2e-kY3">
                                                     <rect key="frame" x="1" y="1" width="76" height="50.5"/>
-                                                    <color key="backgroundColor" red="0.75336378810000004" green="0.17055004839999999" blue="0.15347826480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Medical Emergency
-&gt;180</string>
+                                                    <color key="backgroundColor" red="0.93798881769180298" green="0.69651740789413452" blue="0.11602773517370224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <string key="text">Under Weight
+Bmi&lt;18.5</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -432,12 +432,11 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPr-cX-xkr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPr-cX-xkr">
                                                     <rect key="frame" x="78" y="0.0" width="75.5" height="52.5"/>
-                                                    <color key="backgroundColor" red="0.92891609669999997" green="0.21953278779999999" blue="0.19875350589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">High BP
-Stage 2
-&gt;140</string>
+                                                    <color key="backgroundColor" red="0.11899352818727493" green="0.80357092618942261" blue="0.04539104551076889" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <string key="text">Normal Weight
+18.5-24.9</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -450,11 +449,11 @@ Stage 2
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzQ-0D-6nu">
                                                     <rect key="frame" x="154.5" y="0.0" width="76" height="52.5"/>
-                                                    <color key="backgroundColor" red="0.94609433409999999" green="0.51441049579999998" blue="0.2302145958" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">High BP
-Stage 1
-130 - 139</string>
+                                                    <color key="backgroundColor" red="0.93817079067230225" green="0.44578015804290771" blue="0.11685750633478165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <string key="text">Over Weight
+25-29.9</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -465,10 +464,11 @@ Stage 1
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lh-FJ-MrE">
                                                     <rect key="frame" x="231.5" y="0.0" width="75.5" height="52.5"/>
-                                                    <color key="backgroundColor" red="0.99023944139999998" green="0.87143629789999999" blue="0.29691877960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Prehyper-tension
-120-129</string>
+                                                    <color key="backgroundColor" red="0.8727225661277771" green="0.01261503342539072" blue="0.10204603523015976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <string key="text">Obesity
+Bmi&gt;30</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
