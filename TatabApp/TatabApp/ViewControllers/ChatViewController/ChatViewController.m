@@ -24,6 +24,8 @@
     NSMutableArray *doctorListArray;
     NSString *uploadType;
     __weak IBOutlet UITextView *textView_advice;
+    
+    Boolean ifphoto;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *btnSend;
@@ -41,10 +43,10 @@
     [super viewDidLoad];
     [_mySwitch
      setOn:YES animated:YES];
+    ifphoto = true;
     _viewToClip.layer.cornerRadius = 5;
     _viewToClip.layer.masksToBounds = true;
     doctorListArray = [NSMutableArray new];
-    [self.mySwitch setOn:NO animated:YES];
 
     picker = [[UIImagePickerController alloc] init];
     lbl_title.text = @"Chat";
@@ -117,10 +119,9 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-    [hm disconnectFromXMPPServer];
-    [hm clearXMPPStream];
-
+   
 }
+
 
 -(void)setUpRegisterUser{
     hm = [[XMPPHandler alloc] init];
@@ -148,8 +149,10 @@
     [hm setMyStatus:MyStatusAvailable];
     [self.tblView registerClass:[MessageCell class] forCellReuseIdentifier: @"MessageCell"];
     [self.tblView registerClass:[ImageMessageCell class] forCellReuseIdentifier: @"ImageMessageCell"];
-    [CommonFunction setViewBackground:_tblView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
+    [_tblView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BackgroundGeneral"]]];
   
+    
+    
     // You may need to alter these settings depending on the server you're connecting to
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidReceiveMessage object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:XMPPStreamDidSendMessage object:nil];
@@ -299,6 +302,8 @@
 - (IBAction)btnBackClicked:(id)sender {
     [hm disconnectFromXMPPServer];
     [hm clearXMPPStream];
+    ifphoto = false;
+
     [self.navigationController popViewControllerAnimated:true];
 }
 
@@ -574,6 +579,8 @@
     
     return context;
 }
+
+
 - (IBAction)sendMessage {
     if ([_mySwitch isOn]) {
         NSString *messageStr = _txtField.text;
