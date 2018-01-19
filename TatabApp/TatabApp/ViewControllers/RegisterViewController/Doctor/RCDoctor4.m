@@ -311,7 +311,7 @@
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginemail] andKey:loginemail];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginUserToken] andKey:loginUserToken];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
-                        //[CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:logInImageUrl] andKey:logInImageUrl];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:logInImageUrl] andKey:logInImageUrl];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
                         SWRevealViewController *mainRevealController;
                         NewAwareVC *frontViewController = [[NewAwareVC alloc]initWithNibName:@"NewAwareVC" bundle:nil];

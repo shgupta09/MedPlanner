@@ -103,7 +103,7 @@
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginemail] andKey:loginemail];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginUserToken] andKey:loginUserToken];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
-                        //[CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:logInImageUrl] andKey:logInImageUrl];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:logInImageUrl] andKey:logInImageUrl];
                         
                         [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];

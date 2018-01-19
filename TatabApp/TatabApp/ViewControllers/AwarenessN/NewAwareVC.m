@@ -25,6 +25,8 @@
     NSString *imageUrl;
     bool is_Media;
     NSString *postId;
+    NSMutableArray *sortedArray;
+    NSMutableArray *unsortedArray;
     
 }
 @end
@@ -33,6 +35,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _tbl_Constraint.constant = 0;
+    _lbl_SearchedText.hidden = true;
+    _btnClearSearch.hidden = true;
+    sortedArray = [NSMutableArray new];
+    unsortedArray = [NSMutableArray new];
     _viewToClip.layer.cornerRadius = 5;
     _viewToClip.layer.masksToBounds = true;
     _viewToClip2.layer.cornerRadius = 5;
@@ -93,7 +100,7 @@
         }else{
             _btn_Post.hidden = false;
             _btn_Post.userInteractionEnabled = true;
-             // [_imgView_Profile sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
+              [_imgView_Profile sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
         }
     }else{
         _btn_Post.hidden = true;
@@ -220,6 +227,11 @@
 #pragma mark- tableView delegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (dataArray.count == 0) {
+        _lbl_NoData.hidden = false;
+        return 0;
+    }
+    _lbl_NoData.hidden = true;
     return dataArray.count;
     
 }
@@ -439,7 +451,28 @@
     [self showActionSheet];
 }
 - (IBAction)btnAction_ApplySearch:(id)sender {
+     NSString *strToSearch = _txt_Search.text;
+    sortedArray = [NSMutableArray new];
+    [unsortedArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       PostData *tempObj = (PostData *)obj;
+        if ([[tempObj.clinicName lowercaseString] containsString:[strToSearch lowercaseString]]) {
+            [sortedArray addObject:obj];
+        }
+    }];
+    dataArray = sortedArray;
+    [_tbl_View reloadData];
     [CommonFunction removeAnimationFromView:_popUpView2];
+    _btnClearSearch.hidden = false;
+    _lbl_SearchedText.hidden = false;
+    _lbl_SearchedText.text = [NSString stringWithFormat:@"search phrase: %@",[strToSearch capitalizedString]];
+    _tbl_Constraint.constant = 25;
+}
+- (IBAction)btnAction_CalearSearch:(id)sender {
+    dataArray = unsortedArray;
+    [_tbl_View reloadData];
+    _btnClearSearch.hidden = true;
+    _lbl_SearchedText.hidden = true;
+    _tbl_Constraint.constant = 0;
 }
 
 #pragma mark-Other
@@ -607,9 +640,10 @@
                     NSDictionary *dict = [[responseObj valueForKey:@"urls"] valueForKey:@"photo"];
                     
                     imageUrl = [NSString stringWithFormat:@"%@",dict];
+                    [self removeloder];
                     [self uploadPost];
                    
-                    [self removeloder];
+                   
                     
                 }
                 else
@@ -729,7 +763,7 @@
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     is_Media = false;
-                    dataArray = [NSMutableArray new];
+                    unsortedArray = [NSMutableArray new];
                     NSArray *tempArray = [responseObj valueForKey:@"posts"];
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         PostData *postData = [PostData new];
@@ -745,8 +779,9 @@
                         postData.icon_url = [obj valueForKey:@"user_pic"];
                         postData.clinicName = [obj valueForKey:@"specialist"];
                         
-                        [dataArray addObject:postData];
+                        [unsortedArray addObject:postData];
                     }];
+                    dataArray = unsortedArray;
                     [_tbl_View reloadData];
                     [self removeloder];
                 }

@@ -33,7 +33,7 @@
 #define loginPassword @"password"
 #define loginemail @"email"
 #define loginfirstname @"first_name"
-#define logInImageUrl @"imageUrl"
+#define logInImageUrl @"user_pic"
 #define loginlastname @"last_name"
 #define loginmobile @"mobile_number"
 #define loginusergroup @"user_group"
