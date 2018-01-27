@@ -129,16 +129,11 @@
                     [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
-<<<<<<< HEAD
-
-                case 2:
-=======
                 case 2:{
                     PatientHomeVC* vc ;
                     vc = [[PatientHomeVC alloc] initWithNibName:@"PatientHomeVC" bundle:nil];
                     [self.navigationController pushViewController:vc animated:true];
                 }
->>>>>>> a734322e65176826f392f1dfe8e7f63c6ebbdc35
                     break;
                 case 3:
                 {
@@ -184,10 +179,7 @@
                     [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
-<<<<<<< HEAD
 
-=======
->>>>>>> a734322e65176826f392f1dfe8e7f63c6ebbdc35
                 case 2:{
                     HomeViewController* vc ;
                     vc = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
