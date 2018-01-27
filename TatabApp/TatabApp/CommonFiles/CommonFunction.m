@@ -372,4 +372,24 @@
     [viewToRemoveAnimation removeFromSuperview];
 
 }
+
++(NSString *)getIDFromClinic:(NSString *)stringNAme{
+    
+    if ([stringNAme isEqualToString:@"Abdominal Clinic"]) {
+        return @"1";
+    }
+    else if ([stringNAme isEqualToString:@"Psychological Clinic"]) {
+        return @"2";
+    }
+    else if ([stringNAme isEqualToString:@"Family and Community Clinic"]) {
+        return @"3";
+    }
+    else if ([stringNAme isEqualToString:@"Obgyne Clinic"]) {
+        return @"4";
+    }
+    else if ([stringNAme isEqualToString:@"Pediatrics Clinic"]) {
+        return @"5";
+    }
+    return @"";
+}
 @end

@@ -10,5 +10,9 @@
 
 @interface RearViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tbl_View;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *lblNAme;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Loguot;
+@property (weak, nonatomic) IBOutlet UIView *viewToClip;
 
 @end

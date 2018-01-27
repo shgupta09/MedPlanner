@@ -10,10 +10,12 @@
 #import "CustomButton2.h"
 @interface HomeViewController : UIViewController
 @property (weak, nonatomic) IBOutlet CustomButton2 *btn_MedicalCases;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Sep;
 
 @property (weak, nonatomic) IBOutlet CustomButton2 *btn_ManageAwareness;
 @property (weak, nonatomic) IBOutlet CustomButton2 *btn_Pationts;
 @property (weak, nonatomic) IBOutlet CustomButton2 *btn_CasesHistory;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Name;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 @end

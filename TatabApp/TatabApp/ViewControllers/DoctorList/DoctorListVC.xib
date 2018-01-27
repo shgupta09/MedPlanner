@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,13 +30,13 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="Kjn-XF-Ref">
                     <rect key="frame" x="-0.5" y="289" width="375" height="378"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naE-Xn-0Uy" customClass="CustomButton">
-                    <rect key="frame" x="10" y="32" width="50" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naE-Xn-0Uy">
+                    <rect key="frame" x="10" y="32" width="30" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="91u-PB-bhj"/>
-                        <constraint firstAttribute="height" constant="50" id="pcr-fX-qOO"/>
+                        <constraint firstAttribute="width" constant="30" id="91u-PB-bhj"/>
+                        <constraint firstAttribute="height" constant="30" id="pcr-fX-qOO"/>
                     </constraints>
-                    <state key="normal" title="Back"/>
+                    <state key="normal" backgroundImage="back"/>
                     <connections>
                         <action selector="btnBackClicked:" destination="-1" eventType="touchUpInside" id="xMS-yx-BfG"/>
                     </connections>
@@ -83,5 +83,6 @@
     </objects>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
+        <image name="back" width="55" height="45"/>
     </resources>
 </document>

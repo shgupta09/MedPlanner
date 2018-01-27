@@ -44,4 +44,5 @@
 +(UIColor*) getColorFor:(NSString*) type;
 +(void)addAnimationToview:(UIView *)viewToAnimate;
 +(void)removeAnimationFromView:(UIView *)viewToRemoveAnimation;
++(NSString *)getIDFromClinic:(NSString *)stringNAme;
 @end

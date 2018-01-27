@@ -27,6 +27,7 @@
     NSString *postId;
     NSMutableArray *sortedArray;
     NSMutableArray *unsortedArray;
+    BOOL ISFirsTime;
     
 }
 @end
@@ -35,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    ISFirsTime = true;
     _tbl_Constraint.constant = 0;
     _lbl_SearchedText.hidden = true;
     _btnClearSearch.hidden = true;
@@ -62,7 +64,7 @@
     _tbl_View.estimatedRowHeight = 200;
     _tbl_View.multipleTouchEnabled = NO;
     addSubView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width-40, [UIScreen mainScreen].bounds.size.width-40)];
+    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width-40, [UIScreen mainScreen].bounds.size.height-40)];
     imgView.center = addSubView.center;
     imgView.center = CGPointMake(imgView.center.x, imgView.center.y-50) ;
     
@@ -758,11 +760,15 @@
 
     
     if ([ CommonFunction reachability]) {
+        if (ISFirsTime) {
         [self addLoder];
+        }
+        
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"posts"]  postResponse:parameterDict postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     is_Media = false;
+                    ISFirsTime = false;
                     unsortedArray = [NSMutableArray new];
                     NSArray *tempArray = [responseObj valueForKey:@"posts"];
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

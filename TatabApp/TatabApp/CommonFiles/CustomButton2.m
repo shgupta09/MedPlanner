@@ -25,7 +25,7 @@
         [self setImageEdgeInsets:UIEdgeInsetsMake(10, -10, 10,100)];
 //        [self setTitleEdgeInsets:UIEdgeInsetsMake(0
 //                                                  ,-100,0,0)];
-        [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
     }
     return self;
 }

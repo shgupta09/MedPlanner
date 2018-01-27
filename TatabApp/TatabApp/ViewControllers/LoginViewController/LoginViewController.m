@@ -26,8 +26,8 @@
       [CommonFunction setResignTapGestureToView:self.view andsender:self];
     _txtUsername.leftImgView.image = [UIImage imageNamed:@"d"];
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
-//    _txtPassword.text = @"Admin@123";
-//    _txtUsername.text = @"qwerty@yopmail.com";
+    _txtPassword.text = @"Admin@123";
+    _txtUsername.text = @"qwerty@yopmail.com";
     //_txtUsername.text = @"rahul@gmail.com";
     //_txtUsername.text = @"shagun@gmail.com";
     // Do any additional setup after loading the view from its nib.
@@ -104,6 +104,7 @@
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginUserToken] andKey:loginUserToken];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:logInImageUrl] andKey:logInImageUrl];
+                        [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:Specialist] andKey:Specialist];
                         
                         [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];

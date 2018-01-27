@@ -34,7 +34,8 @@
     revealController = [self revealViewController];
     singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                               action:@selector(handleSingleTap:)];
-    
+    [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
+    _lbl_Sep.text = [CommonFunction getValueFromDefaultWithKey:Specialist];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveNotification)
                                                  name:@"LogoutNotification"
@@ -57,6 +58,24 @@
         isOpen = false;
     }
     
+}
+
+#pragma mark- Btn Action
+- (IBAction)btnBackClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:true];
+}
+- (IBAction)btnQueue:(id)sender {
+    DoctorListVC* vc ;
+    vc = [[DoctorListVC alloc] initWithNibName:@"DoctorListVC" bundle:nil];
+    
+    AwarenessCategory *awarenessObj = [AwarenessCategory new];
+    awarenessObj.category_name = [CommonFunction getValueFromDefaultWithKey:Specialist];
+    awarenessObj.category_id = [CommonFunction getIDFromClinic:awarenessObj.category_name];
+    vc.awarenessObj = awarenessObj;
+    [self.navigationController pushViewController:vc animated:true];
+}
+- (IBAction)btn_Awareness:(id)sender {
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 #pragma mark- SWRevealViewController
