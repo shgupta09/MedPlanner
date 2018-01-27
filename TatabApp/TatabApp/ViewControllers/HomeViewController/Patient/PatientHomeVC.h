@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet CustomButton2 *btn_ElectronicMR;
 @property (weak, nonatomic) IBOutlet CustomButton2 *btn_RecordHistory;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Name;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 @end

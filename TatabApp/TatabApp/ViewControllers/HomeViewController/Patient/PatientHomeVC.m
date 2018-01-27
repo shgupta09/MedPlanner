@@ -25,10 +25,10 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)setData{
-    [_btn_MedicalConsultant setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
-    [_btn_ElectronicMR setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
-    [_btn_registerSubRegords setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
-    [_btn_RecordHistory setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
+    [_btn_MedicalConsultant setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
+    [_btn_ElectronicMR setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
+    [_btn_registerSubRegords setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
+    [_btn_RecordHistory setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
     _lbl_Name.text = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
     isOpen = false;
     revealController = [self revealViewController];
@@ -100,14 +100,11 @@
     [alertController addAction:ok];
     [self presentViewController:alertController animated:YES completion:nil];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+#pragma mark- Btn Action
+- (IBAction)btnBackClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:true];
 }
-*/
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "RearViewController.h"
-
 @interface RearViewController ()
 {
     NSMutableArray *titleArray;
@@ -51,14 +50,9 @@
               [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
           }
            _lblNAme.text = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
-          _lblNAme.hidden = false;
-          _lbl_Loguot.hidden = false;
-          _imgView.hidden = false;
-   
+          _viewToClip.hidden = false;
       }else{
-          _lblNAme.hidden = true;
-          _lbl_Loguot.hidden = true;
-          _imgView.hidden = true;
+          _viewToClip.hidden = true;
           titleArray = [[NSMutableArray alloc]initWithObjects:@"Login", nil];
           titleImageArray = [[NSMutableArray alloc] initWithObjects:@"Icon---Setttings",nil];
       }
@@ -134,7 +128,12 @@
                     vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
                     [self.navigationController pushViewController:vc animated:true];
                 }
-                case 2:
+                    break;
+                case 2:{
+                    PatientHomeVC* vc ;
+                    vc = [[PatientHomeVC alloc] initWithNibName:@"PatientHomeVC" bundle:nil];
+                    [self.navigationController pushViewController:vc animated:true];
+                }
                     break;
                 case 3:
                 {
@@ -143,10 +142,10 @@
                     [self.navigationController pushViewController:vc animated:true];
                 }
                 
-                case 4:
+                case 4:{
+                }
                     break;
-                case 5:
-                {
+                case 5:{
                     EMRHealthContainerVC* vc ;
                     vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
                     [self.navigationController pushViewController:vc animated:true];
@@ -177,6 +176,7 @@
 //                    vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
 //                    [self.navigationController pushViewController:vc animated:true];
                 }
+                    break;
                 case 2:{
                     HomeViewController* vc ;
                     vc = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
@@ -184,7 +184,6 @@
                 }
                     break;
                 case 3:{
-                    
                 }
                     break;
                 case 4:{

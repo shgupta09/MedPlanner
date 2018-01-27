@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -45,13 +45,13 @@
                                 <constraint firstAttribute="height" constant="2" id="HnX-kl-HpX"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zI6-9G-RnW" customClass="CustomButton">
-                            <rect key="frame" x="20" y="20" width="50" height="50"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zI6-9G-RnW">
+                            <rect key="frame" x="10" y="40" width="30" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="6HQ-48-Luu"/>
-                                <constraint firstAttribute="width" constant="50" id="JJi-gs-OrH"/>
+                                <constraint firstAttribute="height" constant="30" id="6HQ-48-Luu"/>
+                                <constraint firstAttribute="width" constant="30" id="JJi-gs-OrH"/>
                             </constraints>
-                            <state key="normal" title="Back"/>
+                            <state key="normal" backgroundImage="back"/>
                             <connections>
                                 <action selector="btnBackClicked:" destination="-1" eventType="touchUpInside" id="mJ6-av-PLo"/>
                             </connections>
@@ -414,7 +414,7 @@
                         <constraint firstItem="s20-EQ-aZC" firstAttribute="centerY" secondItem="jmj-gF-0bv" secondAttribute="centerY" id="qbQ-7J-4VP"/>
                         <constraint firstItem="dq8-V1-w7c" firstAttribute="leading" secondItem="bm2-z1-y9W" secondAttribute="trailing" constant="8" id="sRg-HM-lUi"/>
                         <constraint firstItem="ZPk-Nv-azd" firstAttribute="leading" secondItem="jmj-gF-0bv" secondAttribute="trailing" constant="-70" id="tZp-6V-8qQ"/>
-                        <constraint firstItem="ZPk-Nv-azd" firstAttribute="leading" secondItem="zI6-9G-RnW" secondAttribute="trailing" constant="-70" id="u7U-1y-9EP"/>
+                        <constraint firstItem="ZPk-Nv-azd" firstAttribute="leading" secondItem="zI6-9G-RnW" secondAttribute="trailing" constant="-40" id="u7U-1y-9EP"/>
                         <constraint firstItem="257-4r-Nwq" firstAttribute="top" secondItem="zI6-9G-RnW" secondAttribute="bottom" constant="7" id="u8k-Zb-oXV"/>
                         <constraint firstItem="s20-EQ-aZC" firstAttribute="trailing" secondItem="TIG-9F-W83" secondAttribute="trailing" id="uID-i2-Zzt"/>
                         <constraint firstItem="ZPk-Nv-azd" firstAttribute="top" secondItem="vDh-jJ-9Im" secondAttribute="bottom" constant="-43.5" id="wDM-fm-hzy"/>
@@ -855,6 +855,7 @@ Stage 1
     </objects>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
+        <image name="back" width="55" height="45"/>
         <image name="pointer" width="102" height="87"/>
         <image name="pressureAdd" width="363" height="312"/>
     </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,13 +40,13 @@
                                 <constraint firstAttribute="height" constant="2" id="JFL-Eo-Sba"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTK-0a-xvh" customClass="CustomButton">
-                            <rect key="frame" x="20" y="20" width="50" height="50"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTK-0a-xvh">
+                            <rect key="frame" x="10" y="40" width="30" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="GvC-TB-NtA"/>
-                                <constraint firstAttribute="height" constant="50" id="TBQ-od-Z3F"/>
+                                <constraint firstAttribute="width" constant="30" id="GvC-TB-NtA"/>
+                                <constraint firstAttribute="height" constant="30" id="TBQ-od-Z3F"/>
                             </constraints>
-                            <state key="normal" title="Back"/>
+                            <state key="normal" backgroundImage="back"/>
                             <connections>
                                 <action selector="btnBackClicked:" destination="-1" eventType="touchUpInside" id="R6I-hA-MLY"/>
                             </connections>
@@ -346,7 +346,7 @@
                         <constraint firstItem="erC-5q-gqK" firstAttribute="top" secondItem="JU8-3Y-6uQ" secondAttribute="top" constant="20" id="Yky-gP-6Ok"/>
                         <constraint firstItem="hGE-8J-QkX" firstAttribute="centerY" secondItem="cSH-zh-b8o" secondAttribute="centerY" id="aiK-hA-mMc"/>
                         <constraint firstItem="erC-5q-gqK" firstAttribute="top" secondItem="JU8-3Y-6uQ" secondAttribute="top" constant="20" id="bH1-Cl-PtG"/>
-                        <constraint firstItem="erC-5q-gqK" firstAttribute="leading" secondItem="GTK-0a-xvh" secondAttribute="trailing" constant="-70" id="c4N-ZW-2R4"/>
+                        <constraint firstItem="erC-5q-gqK" firstAttribute="leading" secondItem="GTK-0a-xvh" secondAttribute="trailing" constant="-40" id="c4N-ZW-2R4"/>
                         <constraint firstItem="mKi-2Y-FQY" firstAttribute="top" secondItem="cSH-zh-b8o" secondAttribute="bottom" constant="7" id="e2R-lz-4eI"/>
                         <constraint firstAttribute="bottom" secondItem="tAS-f5-7wx" secondAttribute="bottom" id="eK0-sj-h7v"/>
                         <constraint firstItem="tAS-f5-7wx" firstAttribute="top" secondItem="3Rb-QT-i8G" secondAttribute="bottom" constant="7" id="fMg-xG-nbS"/>
@@ -654,6 +654,7 @@ Bmi&gt;30</string>
     </objects>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
+        <image name="back" width="55" height="45"/>
         <image name="weightAdd" width="414" height="315"/>
     </resources>
 </document>
