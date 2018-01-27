@@ -34,12 +34,18 @@
     NSMutableArray *dependencyArray;
     LoderView *loderObj;
     XMPPHandler* hm;
+    UIPickerView *pickerObj;
+    NSInteger selectedRowForSpeciality;
+    NSMutableArray *relationArray;
+    NSString *relationshipId ;
 
 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    selectedRowForSpeciality = 0;
+    relationArray = [NSMutableArray new];
     [CommonFunction setResignTapGestureToView:self.view andsender:self];
     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
     isMale = true;
@@ -70,7 +76,12 @@
     departDate = [NSDate date];
   
     [self setUpRegisterUser];
-
+    if (![CommonFunction getBoolValueFromDefaultWithKey:RelationApi]) {
+        [self getData];
+    }
+    else{
+        relationArray = [Relation sharedInstance].myDataArray;
+    }
        // Do any additional setup after loading the view from its nib.
 }
 
@@ -214,8 +225,65 @@
     [viewOverPicker removeFromSuperview];
     
 }
-
+#pragma mark - picker data Source
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 1;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component{
+    
+    return [relationArray count];
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
+(NSInteger)row forComponent:(NSInteger)component{
+    
+    Relation* relationObj = [relationArray objectAtIndex:row];
+    return relationObj.name;
+    
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component{
+        Relation* relationObj = [relationArray objectAtIndex:row];
+        _txt_Relationship.text = relationObj.name;
+        relationshipId= relationObj.idValue;
+        selectedRowForSpeciality = row;
+}
 #pragma mark- Btn Actions
+- (IBAction)btnAcion_relationShip:(id)sender {
+    
+    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerObj.delegate = self;
+    pickerObj.dataSource = self;
+    pickerObj.showsSelectionIndicator = YES;
+    pickerObj.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    UIToolbar *toolBarForTitle;
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             space,doneButton, nil];
+    pickerObj.hidden = false;
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:toolBar];
+    [pickerObj  selectRow:selectedRowForSpeciality inComponent:0 animated:true];
+    [viewOverPicker addSubview:pickerObj];
+    [self.view addSubview:viewOverPicker];
+    [pickerObj reloadAllComponents];
+}
+
+
 - (IBAction)btnActionConfirmAdd:(id)sender {
     NSDictionary *dictForValidation = [self validateData];
     
@@ -226,6 +294,7 @@
         dependencyObj.name = [CommonFunction trimString:_txtName.text];
         dependencyObj.birthDay = _txt_BirthDate.text;
         dependencyObj.isMale = isMale;
+        dependencyObj.depedant_id =relationshipId;
         [dependencyArray addObject:dependencyObj];
         [_tblView reloadData];
 
@@ -331,7 +400,7 @@
             [tempDict setValue:@"F" forKey:loginuserGender];
         }
         [tempDict setValue:obj.birthDay forKey:@"dob"];
-        [tempDict setValue:@"2" forKey:@"relationship_id"];
+        [tempDict setValue:obj.depedant_id forKey:@"relationship_id"];
         
         [tempArray addObject:tempDict];
     }
@@ -480,6 +549,30 @@
 }
 
 #pragma mark - hit api
+
+-(void) getData
+{
+    if ([ CommonFunction reachability]) {
+        
+        //      loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FOR_GET_RELATIONSHIP]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                    [CommonFunction stroeBoolValueForKey:RelationApi withBoolValue:true];
+                    NSMutableArray *dataArray = [responseObj objectForKey:@"data"];
+                    [dataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        Relation* s = [[Relation alloc] init];
+                        s.idValue = [obj valueForKey:@"id"];
+                        s.name = [obj valueForKey:@"name"];
+                        [[Relation sharedInstance].myDataArray addObject:s];
+                    }];
+                    relationArray = [Relation sharedInstance].myDataArray;
+                }
+            }
+        }];
+    }
+}
+
 -(void) loginFunction {
     NSMutableDictionary *parameterDicts = [[NSMutableDictionary alloc]init];
     [parameterDicts setValue:[_parameterDict valueForKey:loginemail] forKey:loginemail];

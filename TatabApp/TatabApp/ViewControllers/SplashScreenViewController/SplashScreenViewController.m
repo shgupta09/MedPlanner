@@ -67,7 +67,7 @@
     [super viewDidLoad];
     
 //        sleep(1);
-    
+    [CommonFunction stroeBoolValueForKey:RelationApi withBoolValue:false];
     RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
     SWRevealViewController *mainRevealController;
     NewAwareVC *frontViewController = [[NewAwareVC alloc]initWithNibName:@"NewAwareVC" bundle:nil];
@@ -81,6 +81,32 @@
 
     
     
+}
+
+-(void) getData
+{
+    if ([ CommonFunction reachability]) {
+        
+        //      loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FOR_GET_RELATIONSHIP]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+
+                
+                [CommonFunction stroeBoolValueForKey:RelationApi withBoolValue:true];
+              
+                
+                NSMutableArray *dataArray = [responseObj objectForKey:@"data"];
+                    [dataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                         Relation* s = [[Relation alloc] init];
+                        s.idValue = [obj valueForKey:@"id"];
+                        s.name = [obj valueForKey:@"name"];
+                        [[Relation sharedInstance].myDataArray addObject:s];
+                    }];
+            }
+        }
+    }];
+  }
 }
 
 
