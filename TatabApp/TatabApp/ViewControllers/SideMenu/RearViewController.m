@@ -134,6 +134,8 @@
                     vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
                     [self.navigationController pushViewController:vc animated:true];
                 }
+                    break;
+
                 case 2:
                     break;
                 case 3:
@@ -142,6 +144,8 @@
                     vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
                     [self.navigationController pushViewController:vc animated:true];
                 }
+                    break;
+
                 
                 case 4:
                     break;
@@ -173,10 +177,12 @@
                     break;
                 case 1:
                 {
-//                    EMRHealthContainerVC* vc ;
-//                    vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
-//                    [self.navigationController pushViewController:vc animated:true];
+                    ChoosePatientViewController* vc ;
+                    vc = [[ChoosePatientViewController alloc] initWithNibName:@"ChoosePatientViewController" bundle:nil];
+                    [self.navigationController pushViewController:vc animated:true];
                 }
+                    break;
+
                 case 2:{
                     HomeViewController* vc ;
                     vc = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];

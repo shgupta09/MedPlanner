@@ -134,6 +134,7 @@ static NSString* const API_WEATHER = @"list/Weather";
 
 static NSString* const API_UploadDocument = @"upload";
 static NSString* const API_FETCH_PATIENTS = @"patients";
+static NSString* const API_FETCH_DEPENDANTS = @"fetchpatient";
 static NSString* const API_GET_CHAT_GROUP = @"getchatgroup";
 static NSString* const API_ADD_CHAT_GROUP = @"chatgroup";
 static NSString* const API_GET_PRES_FOLLOW_UP_DETAILS = @"getprescription";

@@ -17,5 +17,6 @@
 @property(nonatomic ,strong) NSString *name;
 @property(nonatomic ,strong) NSString *email;
 @property(nonatomic ,strong) NSString *jabberId;
+@property(nonatomic ,strong) NSMutableArray *dependants;
 
 @end

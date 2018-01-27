@@ -10,6 +10,8 @@
 
 @interface RegistrationDpendency : NSObject
 @property(nonatomic ,strong) NSString *name;
+@property(nonatomic ,strong) NSString *depedant_id;
+@property(nonatomic ,strong) NSString *gender;
 @property(nonatomic ,strong) NSString *birthDay;
 @property(nonatomic ,strong) NSString *Hospitalname;
 @property(nonatomic ,strong) NSString *workedSince;
