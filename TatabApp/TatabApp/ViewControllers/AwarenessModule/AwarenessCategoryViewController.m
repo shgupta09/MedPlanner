@@ -104,18 +104,47 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     AwarenessCategory* category = [categoryArray objectAtIndex:indexPath.row];
-    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:category.icon_url] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
+    cell.imgView.image = [self setImageFor:category.category_name];
     cell.lblName.text = category.category_name;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    AwarenessVideoListViewController* vc;
-    vc = [[AwarenessVideoListViewController alloc] initWithNibName:@"AwarenessVideoListViewController" bundle:nil];
+//    AwarenessVideoListViewController* vc;
+//    vc = [[AwarenessVideoListViewController alloc] initWithNibName:@"AwarenessVideoListViewController" bundle:nil];
+//    [self.navigationController pushViewController:vc animated:true];
+
+    DoctorListVC* vc ;
+    vc = [[DoctorListVC alloc] initWithNibName:@"DoctorListVC" bundle:nil];
+    
+    AwarenessCategory* category = [categoryArray objectAtIndex:indexPath.row];
+    vc.awarenessObj = category;
     [self.navigationController pushViewController:vc animated:true];
     
 }
+
+-(UIImage*) setImageFor:(NSString*) clinicName{
+    
+    if ([clinicName isEqualToString:@"Abdominal Clinic"]) {
+        return [UIImage imageNamed:@"sec-abdomen-1"];
+    }
+    else if ([clinicName isEqualToString:@"Psychological Clinic"]) {
+        return [UIImage imageNamed:@"sec-psy-1"];
+    }
+    else if ([clinicName isEqualToString:@"Family and Community Clinic"]) {
+        return [UIImage imageNamed:@"sec-family-1"];
+    }
+    else if ([clinicName isEqualToString:@"Obgyne Clinic"]) {
+        return [UIImage imageNamed:@"sec-obgyen-1"];
+    }
+    else if ([clinicName isEqualToString:@"Pediatrics Clinic"]) {
+        return [UIImage imageNamed:@"section-children"];
+    }
+    
+    return [UIImage imageNamed:@""];
+}
+
 
 #pragma mark - add loder
 
@@ -136,7 +165,7 @@
 
 - (IBAction)btnBackClicked:(id)sender {
     
-    [self dismissViewControllerAnimated:true completion:nil];
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 @end
