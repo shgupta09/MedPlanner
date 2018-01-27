@@ -331,6 +331,8 @@
             [tempDict setValue:@"F" forKey:loginuserGender];
         }
         [tempDict setValue:obj.birthDay forKey:@"dob"];
+        [tempDict setValue:@"2" forKey:@"relationship_id"];
+        
         [tempArray addObject:tempDict];
     }
     
