@@ -7,7 +7,6 @@
 //
 
 #import "RearViewController.h"
-
 @interface RearViewController ()
 {
     NSMutableArray *titleArray;
@@ -51,14 +50,9 @@
               [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
           }
            _lblNAme.text = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
-          _lblNAme.hidden = false;
-          _lbl_Loguot.hidden = false;
-          _imgView.hidden = false;
-   
+          _viewToClip.hidden = false;
       }else{
-          _lblNAme.hidden = true;
-          _lbl_Loguot.hidden = true;
-          _imgView.hidden = true;
+          _viewToClip.hidden = true;
           titleArray = [[NSMutableArray alloc]initWithObjects:@"Login", nil];
           titleImageArray = [[NSMutableArray alloc] initWithObjects:@"Icon---Setttings",nil];
       }
@@ -135,8 +129,16 @@
                     [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
+<<<<<<< HEAD
 
                 case 2:
+=======
+                case 2:{
+                    PatientHomeVC* vc ;
+                    vc = [[PatientHomeVC alloc] initWithNibName:@"PatientHomeVC" bundle:nil];
+                    [self.navigationController pushViewController:vc animated:true];
+                }
+>>>>>>> a734322e65176826f392f1dfe8e7f63c6ebbdc35
                     break;
                 case 3:
                 {
@@ -147,10 +149,10 @@
                     break;
 
                 
-                case 4:
+                case 4:{
+                }
                     break;
-                case 5:
-                {
+                case 5:{
                     EMRHealthContainerVC* vc ;
                     vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
                     [self.navigationController pushViewController:vc animated:true];
@@ -182,7 +184,10 @@
                     [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a734322e65176826f392f1dfe8e7f63c6ebbdc35
                 case 2:{
                     HomeViewController* vc ;
                     vc = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
@@ -190,7 +195,6 @@
                 }
                     break;
                 case 3:{
-                    
                 }
                     break;
                 case 4:{

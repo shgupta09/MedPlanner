@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="btn_CasesHistory" destination="tUa-ct-b0T" id="AS1-Fa-4VI"/>
+                <outlet property="btn_ManageAwareness" destination="v0T-Rq-0Ys" id="h6p-YJ-HPo"/>
+                <outlet property="btn_MedicalQueue" destination="bID-Mk-TaP" id="dlk-Ne-WjY"/>
                 <outlet property="imgView" destination="rzc-T8-Kbj" id="ZTh-Js-2qZ"/>
                 <outlet property="lbl_Name" destination="h8Q-XH-GZ2" id="PU2-Rs-snd"/>
                 <outlet property="lbl_Sep" destination="zaC-UH-9d8" id="F44-Kh-HYD"/>

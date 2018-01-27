@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,13 +34,13 @@
                                 <constraint firstAttribute="height" constant="2" id="SY8-qu-g56"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRq-af-dVj" customClass="CustomButton">
-                            <rect key="frame" x="20" y="20" width="50" height="50"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRq-af-dVj">
+                            <rect key="frame" x="10" y="40" width="30" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="CHV-uT-780"/>
-                                <constraint firstAttribute="height" constant="50" id="SuK-ZU-Ohs"/>
+                                <constraint firstAttribute="width" constant="30" id="CHV-uT-780"/>
+                                <constraint firstAttribute="height" constant="30" id="SuK-ZU-Ohs"/>
                             </constraints>
-                            <state key="normal" title="Back"/>
+                            <state key="normal" backgroundImage="back"/>
                             <connections>
                                 <action selector="btnBackClicked:" destination="-1" eventType="touchUpInside" id="G0N-n3-ae8"/>
                             </connections>
@@ -363,7 +363,7 @@
                         <constraint firstItem="xwf-GL-sh3" firstAttribute="centerY" secondItem="3DO-tn-FGb" secondAttribute="centerY" id="49b-ZL-Qih"/>
                         <constraint firstItem="Z5a-nG-1Tv" firstAttribute="leading" secondItem="rvj-kN-0yU" secondAttribute="leading" constant="16" id="5FB-vk-EYx"/>
                         <constraint firstItem="0Rn-9D-iJR" firstAttribute="trailing" secondItem="Lal-3r-Gef" secondAttribute="trailing" id="5pN-eq-rif"/>
-                        <constraint firstItem="oek-xq-ZWm" firstAttribute="leading" secondItem="mRq-af-dVj" secondAttribute="trailing" constant="-70" id="6eg-Cy-hdX"/>
+                        <constraint firstItem="oek-xq-ZWm" firstAttribute="leading" secondItem="mRq-af-dVj" secondAttribute="trailing" constant="-40" id="6eg-Cy-hdX"/>
                         <constraint firstItem="Lal-3r-Gef" firstAttribute="centerY" secondItem="3DO-tn-FGb" secondAttribute="centerY" id="7Cx-LK-vtf"/>
                         <constraint firstItem="Ggj-LH-xAe" firstAttribute="leading" secondItem="rvj-kN-0yU" secondAttribute="leading" id="7rg-jo-7fz"/>
                         <constraint firstItem="h4f-It-x6Y" firstAttribute="leading" secondItem="xwf-GL-sh3" secondAttribute="trailing" constant="8" id="8Iw-OW-f8a"/>
@@ -423,6 +423,7 @@
         <image name="001-scale" width="531" height="531"/>
         <image name="002-sugar-blood-level" width="525" height="525"/>
         <image name="BackgroundGeneral" width="750" height="1334"/>
+        <image name="back" width="55" height="45"/>
         <image name="blood-pressure" width="525" height="525"/>
         <image name="thermometer" width="516" height="519"/>
     </resources>

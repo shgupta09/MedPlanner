@@ -15,6 +15,7 @@
                 <outlet property="btn_MedicalConsultant" destination="S2R-72-WJa" id="VmZ-6Q-zve"/>
                 <outlet property="btn_RecordHistory" destination="VBc-S4-qAF" id="tyH-Vp-Aww"/>
                 <outlet property="btn_registerSubRegords" destination="vuJ-Is-sg1" id="5YZ-Yq-Lww"/>
+                <outlet property="imgView" destination="u57-hP-d82" id="QbZ-2V-Vh0"/>
                 <outlet property="lbl_Name" destination="eIS-gg-10T" id="o3d-Iw-en0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -38,9 +39,9 @@
                         <constraint firstAttribute="width" constant="30" id="dXL-bu-bDT"/>
                         <constraint firstAttribute="height" constant="30" id="tu2-ch-Id2"/>
                     </constraints>
-                    <state key="normal" backgroundImage="Icon---Menu"/>
+                    <state key="normal" backgroundImage="back"/>
                     <connections>
-                        <action selector="revealAction:" destination="-1" eventType="touchUpInside" id="NuK-b7-KXs"/>
+                        <action selector="btnBackClicked:" destination="-1" eventType="touchUpInside" id="dfL-8l-1FA"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfV-AL-RzK">
@@ -75,6 +76,12 @@
                         <constraint firstAttribute="height" constant="60" id="7AP-Fi-xbX"/>
                         <constraint firstAttribute="width" constant="60" id="WLO-4S-18o"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBound" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2R-72-WJa" customClass="CustomButton2">
                     <rect key="frame" x="28" y="184" width="319" height="55"/>
@@ -90,7 +97,7 @@
                         <constraint firstAttribute="height" constant="55" id="D4s-VI-0xE"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="Register Sub Regords"/>
+                    <state key="normal" title="Manage Dependents"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Shubham Gupta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-gg-10T">
                     <rect key="frame" x="98" y="104" width="249" height="21"/>
@@ -135,7 +142,7 @@
     </objects>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
-        <image name="Icon---Menu" width="42" height="34"/>
+        <image name="back" width="55" height="45"/>
         <image name="doctor" width="135" height="135"/>
         <image name="profile" width="218" height="256"/>
     </resources>

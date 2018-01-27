@@ -25,17 +25,18 @@
 }
 
 -(void)setData{
-    [_btn_Pationts setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
-    [_btn_CasesHistory setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
-    [_btn_MedicalCases setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
-    [_btn_ManageAwareness setImage:[UIImage imageNamed:@"sec-family"] forState:UIControlStateNormal];
+    
+    [_btn_CasesHistory setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
+    [_btn_MedicalQueue setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
+    [_btn_ManageAwareness setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
+    
     _lbl_Name.text = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
+    _lbl_Sep.text = [CommonFunction getValueFromDefaultWithKey:Specialist];
     isOpen = false;
     revealController = [self revealViewController];
     singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                               action:@selector(handleSingleTap:)];
     [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
-    _lbl_Sep.text = [CommonFunction getValueFromDefaultWithKey:Specialist];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveNotification)
                                                  name:@"LogoutNotification"
@@ -47,9 +48,9 @@
     self.navigationController.navigationBar.hidden = true;
      isOpen = false;
 }
+
 //The event handling method
-- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer
-{
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer{
     self.navigationController.navigationBar.userInteractionEnabled = true;
     if (isOpen){
         [revealController revealToggle:nil];
@@ -57,7 +58,6 @@
         [tempView removeFromSuperview];
         isOpen = false;
     }
-    
 }
 
 #pragma mark- Btn Action
@@ -67,13 +67,13 @@
 - (IBAction)btnQueue:(id)sender {
     DoctorListVC* vc ;
     vc = [[DoctorListVC alloc] initWithNibName:@"DoctorListVC" bundle:nil];
-    
     AwarenessCategory *awarenessObj = [AwarenessCategory new];
     awarenessObj.category_name = [CommonFunction getValueFromDefaultWithKey:Specialist];
     awarenessObj.category_id = [CommonFunction getIDFromClinic:awarenessObj.category_name];
     vc.awarenessObj = awarenessObj;
     [self.navigationController pushViewController:vc animated:true];
 }
+
 - (IBAction)btn_Awareness:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
 }
@@ -83,12 +83,8 @@
 - (IBAction)revealAction:(id)sender {
     //    self.view.userInteractionEnabled = false;
     self.navigationController.navigationBar.userInteractionEnabled = true;
-    
-    
     if (isOpen) {
-        
         [revealController revealToggle:nil];
-        
         [tempView removeGestureRecognizer:singleFingerTap];
         [tempView removeFromSuperview];
         isOpen = false;
