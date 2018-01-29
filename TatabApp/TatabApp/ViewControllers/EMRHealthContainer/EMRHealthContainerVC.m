@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     doctorListArray = [NSMutableArray new];
     [_tblView registerNib:[UINib nibWithNibName:@"DoctorListEMRLogTableViewCell" bundle:nil]forCellReuseIdentifier:@"DoctorListEMRLogTableViewCell"];
     _tblView.rowHeight = UITableViewAutomaticDimension;
@@ -41,9 +42,17 @@
 //    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
 //    [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
 
-    
-    [_lblPatientName setText:[CommonFunction getValueFromDefaultWithKey:loginfirstname]];
-    [_lblgender setText:[CommonFunction getValueFromDefaultWithKey:loginuserGender]];
+    if (_isdependant) {
+        [_lblPatientName setText:_dependant.name];
+        [_lblgender setText:_dependant.gender];
+
+    }
+    else
+    {
+        [_lblPatientName setText:_patient.name];
+        [_lblgender setText:_patient.gender];
+
+    }
     
     [self hitApiForSpeciality];
     // Do any additional setup after loading the view from its nib.
@@ -57,6 +66,18 @@
 - (IBAction)btnHealthTrackerClicked:(id)sender {
     HealthTrackerContainerVC* vc ;
     vc = [[HealthTrackerContainerVC alloc] initWithNibName:@"HealthTrackerContainerVC" bundle:nil];
+   
+    if (!_isdependant){
+        vc.isdependant = _isdependant;
+        vc.patient = _patient;
+    }
+    else
+    {
+        vc.patient = _patient;
+        vc.dependant = _dependant;
+        vc.isdependant = _isdependant;
+    }
+
     UINavigationController* navVC = [[UINavigationController alloc ] initWithRootViewController:vc];
     navVC.navigationBarHidden = true;
     [self.navigationController presentViewController:navVC animated:false completion:nil];
@@ -151,7 +172,7 @@
 -(void)hitApiForDetails:(int)doctorId{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    [parameter setValue:_patient.patient_id forKey:@"patient_id"];
     [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
     
     if ([ CommonFunction reachability]) {
@@ -213,7 +234,7 @@
 -(void)hitApiForPrescription:(int)doctorId{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    [parameter setValue:_patient.patient_id forKey:@"patient_id"];
     [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
     
     if ([ CommonFunction reachability]) {
@@ -276,7 +297,7 @@
 -(void)hitApiForFollowUp:(int)doctorId{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    [parameter setValue:_patient.patient_id forKey:@"patient_id"];
     [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
 
     if ([ CommonFunction reachability]) {
@@ -339,7 +360,7 @@
     
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    [parameter setValue:_patient.patient_id forKey:@"patient_id"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];

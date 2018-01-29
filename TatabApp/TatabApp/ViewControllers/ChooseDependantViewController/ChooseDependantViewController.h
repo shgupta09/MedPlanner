@@ -10,6 +10,11 @@
 
 @interface ChooseDependantViewController : UIViewController
 
-@property (nonatomic,strong) ChatPatient* patient;
-
+@property (nonatomic,strong) NSString* patientID;
+@property (nonatomic,strong) NSString* patientName;
+@property (nonatomic,strong) id classObj;
+@property (strong, nonatomic) IBOutlet UIView *popUpView;
+@property (weak, nonatomic) IBOutlet CustomTextField *txt_Relationship;
+@property (weak, nonatomic) IBOutlet UIButton *btnAdd;
+@property bool isManageDependants;
 @end

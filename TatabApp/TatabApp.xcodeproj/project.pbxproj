@@ -110,6 +110,7 @@
 		D8F108B61FBFF4580049296C /* TatabApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8F108B41FBFF4580049296C /* TatabApp.xcdatamodeld */; };
 		D8F108C11FC09A140049296C /* Chat+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F108BE1FC09A140049296C /* Chat+CoreDataClass.m */; };
 		D8F108C21FC09A140049296C /* Chat+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F108C01FC09A140049296C /* Chat+CoreDataProperties.m */; };
+		D8F3351C201CE282000C6FAE /* Relation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F3351B201CE282000C6FAE /* Relation.m */; };
 		D8F5A55D1F92020300E36160 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A55B1F92020300E36160 /* HomeViewController.m */; };
 		D8F5A55E1F92020300E36160 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F5A55C1F92020300E36160 /* HomeViewController.xib */; };
 		D8F5A5621F92021A00E36160 /* PatientHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A5601F92021A00E36160 /* PatientHomeVC.m */; };
@@ -306,6 +307,8 @@
 		D8F108BE1FC09A140049296C /* Chat+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Chat+CoreDataClass.m"; sourceTree = "<group>"; };
 		D8F108BF1FC09A140049296C /* Chat+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Chat+CoreDataProperties.h"; sourceTree = "<group>"; };
 		D8F108C01FC09A140049296C /* Chat+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Chat+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D8F3351A201CE282000C6FAE /* Relation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Relation.h; sourceTree = "<group>"; };
+		D8F3351B201CE282000C6FAE /* Relation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Relation.m; sourceTree = "<group>"; };
 		D8F5A55A1F92020300E36160 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D8F5A55B1F92020300E36160 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D8F5A55C1F92020300E36160 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -785,6 +788,8 @@
 				D842065E2005444D00459FC2 /* Report.m */,
 				D8E1C7A1200902A8007172F5 /* PostData.h */,
 				D8E1C7A2200902A8007172F5 /* PostData.m */,
+				D8F3351A201CE282000C6FAE /* Relation.h */,
+				D8F3351B201CE282000C6FAE /* Relation.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1336,6 +1341,7 @@
 				9C6DE7381F83A60600635102 /* AwarenessVideoListViewController.m in Sources */,
 				5FB2D742201C6ECB00D60DE8 /* ChooseDependantViewController.m in Sources */,
 				5F9F49BF1FB1D791009E1418 /* XMPPHandler.m in Sources */,
+				D8F3351C201CE282000C6FAE /* Relation.m in Sources */,
 				5FB51C462003E5BE00E4889B /* SugarReportViewController.m in Sources */,
 				5F1E9B4A1F76442C009FECDD /* CommonFunction.m in Sources */,
 				5FB51C482003E5BE00E4889B /* WeightReportViewController.m in Sources */,
@@ -1530,7 +1536,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
+=======
+				PROVISIONING_PROFILE = "d737fe5d-6ad4-4523-a0c0-c9428a76d544";
+>>>>>>> c92c33eefbb02edadf25a5d3dfc79fb8dd4b3089
 				PROVISIONING_PROFILE_SPECIFIER = Medplanner_underground;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1553,7 +1563,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
+=======
+				PROVISIONING_PROFILE = "d737fe5d-6ad4-4523-a0c0-c9428a76d544";
+>>>>>>> c92c33eefbb02edadf25a5d3dfc79fb8dd4b3089
 				PROVISIONING_PROFILE_SPECIFIER = Medplanner_underground;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

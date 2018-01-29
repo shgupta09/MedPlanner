@@ -26,7 +26,7 @@
     
     _viewToClip.layer.cornerRadius = 5;
     _viewToClip.layer.masksToBounds = true;
-    _viewToClip.layer.borderColor = [UIColor blackColor].CGColor;
+    _viewToClip.layer.borderColor = [UIColor whiteColor].CGColor;
     _viewToClip.layer.borderWidth = 1;
      [_tbl_View registerNib:[UINib nibWithNibName:@"RearCell" bundle:nil]forCellReuseIdentifier:@"RearCell"];
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
@@ -41,11 +41,11 @@
       if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
           
           if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"Depentents",@"EMR and tracker",@"Profile",@"Awareness",@"Setting",@"Notificatios", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"Dependants",@"EMR and tracker",@"Profile",@"Awareness",@"Settings",@"Notifications", nil];
               titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-general",@"menu-general",@"Icon---Profile",@"menu-general",@"Icon---Setttings",@"Icon---Setttings", nil];
           }
           else{
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"Queue",@"EMR and tracker",@"Profile",@"Awareness",@"Setting",@"Notificatios", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"Queue",@"EMR and tracker",@"Profile",@"Awareness",@"Settings",@"Notifications", nil];
               titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queue",@"menu-general",@"Icon---Profile",@"menu-general",@"Icon---Setttings",@"Icon---Setttings", nil];
               [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
           }
@@ -119,13 +119,24 @@
         
         if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
             switch (indexPath.row) {
-                case 0:
+                case 0:{
+                    ChooseDependantViewController* vc ;
+                    vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+                    vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+                    vc.classObj = self;
+                    vc.isManageDependants = true;
+                    [self.navigationController pushViewController:vc animated:true];
+                }
                     break;
                     
                 case 1:
                 {
-                    EMRHealthContainerVC* vc ;
-                    vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
+                    ChooseDependantViewController* vc ;
+                    vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+                    vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+                    vc.classObj = self;
+                    vc.isManageDependants = false;
+
                     [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
@@ -137,9 +148,7 @@
                     break;
                 case 3:
                 {
-                    EMRHealthContainerVC* vc ;
-                    vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
-                    [self.navigationController pushViewController:vc animated:true];
+                    
                 }
                     break;
 
@@ -148,10 +157,7 @@
                 }
                     break;
                 case 5:{
-                    EMRHealthContainerVC* vc ;
-                    vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
-                    [self.navigationController pushViewController:vc animated:true];
-                }
+                   }
                     break;
 
                 default:
@@ -208,6 +214,66 @@
      }
     
 }
+
+//#pragma mark - Api Related
+//-(void)hitApiForDependants:(NSString*)patientId{
+//    NSMutableDictionary *parameter = [NSMutableDictionary new];
+//    [parameter setValue:patientId forKey:@"user_id"];
+//
+//    if ([ CommonFunction reachability]) {
+//        [self addLoder];
+//        
+//        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+//        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DEPENDANTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+//            if (error == nil) {
+//                
+//                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+//                    NSArray *tempArray = [NSArray new];
+//                    NSMutableArray *dependantListArray = [NSMutableArray new];
+//                    ChatPatient* patient = [ChatPatient new];
+//                    
+//                    patient.patient_id = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+//                    
+//                    
+//                    tempArray  = [[responseObj valueForKey:@"patient"] valueForKey:@"childrens"];
+//                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                        RegistrationDpendency *dependencyObj = [RegistrationDpendency new];
+//                        dependencyObj.name = [obj valueForKey:@"name"];
+//                        dependencyObj.depedant_id = [obj valueForKey:@"id"];
+//                        dependencyObj.gender = [obj valueForKey:@"gender"];
+//                        
+//                        [dependantListArray addObject:dependencyObj];
+//                    }];
+//                    
+//                    patient.dependants = dependantListArray;
+//                
+//                    
+//                }else
+//                {
+//                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+//                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+//                    [alertController addAction:ok];
+//                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+//                    [self presentViewController:alertController animated:YES completion:nil];
+//                    [self removeloder];
+//                }
+//                [self removeloder];
+//                
+//            }
+//            
+//            
+//            
+//        }];
+//    } else {
+//        [self removeloder];
+//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+//        [alertController addAction:ok];
+//        [self presentViewController:alertController animated:YES completion:nil];
+//    }
+//}
+
+
 - (IBAction)btn_Logout:(id)sender {
     
     UIAlertController * alert=   [UIAlertController

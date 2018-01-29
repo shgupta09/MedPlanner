@@ -16,6 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (_isdependant) {
+        [_lblPatientName setText:_dependant.name];
+        [_lblgender setText:_dependant.gender];
+        
+    }
+    else
+    {
+        [_lblPatientName setText:_patient.name];
+        [_lblgender setText:_patient.gender];
+        
+    }
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -40,23 +52,65 @@
 - (IBAction)btnWeightClicked:(id)sender {
 
     WeightReportViewController* vc = [[WeightReportViewController alloc] initWithNibName:@"WeightReportViewController" bundle:nil];
+    
+    if (!_isdependant){
+        vc.isdependant = false;
+        vc.patient = _patient;
+    }
+    else
+    {
+        vc.isdependant = true;
+        vc.patient = _patient;
+        vc.dependant = _dependant;
+    }
+    
     [self.navigationController pushViewController:vc animated:false];
     
 }
 - (IBAction)btnBloodPressureClicked:(id)sender {
 
     PressureReportViewController* vc = [[PressureReportViewController alloc] initWithNibName:@"PressureReportViewController" bundle:nil];
+    if (!_isdependant){
+        vc.isdependant = false;
+        vc.patient = _patient;
+    }
+    else
+    {
+        vc.isdependant = true;
+        vc.patient = _patient;
+        vc.dependant = _dependant;
+    }
     [self.navigationController pushViewController:vc animated:false];
 
 }
 - (IBAction)btnFeverClicked:(id)sender {
     FeverReportViewController* vc = [[FeverReportViewController alloc] initWithNibName:@"FeverReportViewController" bundle:nil];
+    if (!_isdependant){
+        vc.isdependant = false;
+        vc.patient = _patient;
+    }
+    else
+    {
+        vc.isdependant = true;
+        vc.patient = _patient;
+        vc.dependant = _dependant;
+    }
     [self.navigationController pushViewController:vc animated:false];
 
 }
 - (IBAction)btnBloodSugar:(id)sender {
 
     SugarReportViewController* vc = [[SugarReportViewController alloc] initWithNibName:@"SugarReportViewController" bundle:nil];
+    if (!_isdependant){
+        vc.isdependant = false;
+        vc.patient = _patient;
+    }
+    else
+    {
+        vc.isdependant = true;
+        vc.patient = _patient;
+        vc.dependant = _dependant;
+    }
     [self.navigationController pushViewController:vc animated:false];
 }
 

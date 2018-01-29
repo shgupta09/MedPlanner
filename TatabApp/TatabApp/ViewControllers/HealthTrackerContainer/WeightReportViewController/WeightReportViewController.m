@@ -70,6 +70,24 @@
     _graphView.enableReferenceAxisFrame = YES;
     
 
+    
+    if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+        _btnAdd.hidden = true;
+    }
+
+    
+    if (_isdependant) {
+        [_lblPatientName setText:_dependant.name];
+        [_lblgender setText:_dependant.gender];
+        
+    }
+    else
+    {
+        [_lblPatientName setText:_patient.name];
+        [_lblgender setText:_patient.gender];
+        
+    }
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -295,7 +313,17 @@
 
 -(void)uploadWeight{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
-    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
+
+    if (!_isdependant){
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:@"" forKey:DEPENDANT_ID];
+  }
+    else
+    {
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
+    }
+    
     [parameterDict setValue:_btnWeight.titleLabel.text forKey:@"weight"];
     
     [parameterDict setValue:_btnHeartRate.titleLabel.text forKey:@"rest_hr"];
@@ -357,7 +385,20 @@
 
 -(void)getWeight{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
-    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
+    
+    
+    if (!_isdependant){
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:@"" forKey:DEPENDANT_ID];
+
+    }
+    else
+    {
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
+    }
+    
+    
     [parameterDict setValue:fromDateString forKey:@"from"];
     [parameterDict setValue:toDateString forKey:@"to"];
     

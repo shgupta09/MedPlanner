@@ -13,13 +13,14 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
    
-    self.overlayView.backgroundColor = [UIColor clearColor];
+    self.overlayView.backgroundColor = [UIColor whiteColor];
     self.overlayView.layer.borderColor = [[CommonFunction colorWithHexString:@"7ac430"] CGColor];
     self.overlayView.tintColor = [CommonFunction colorWithHexString:@"7ac430"];
-    self.overlayView.layer.borderWidth = 2;
+    self.overlayView.layer.borderWidth = 1;
     self.overlayView.layer.cornerRadius = self.overlayView.bounds.size.height/2;
     self.overlayView.layer.masksToBounds = true;
-    
+    self.lblName.adjustsFontSizeToFitWidth = true;
+    self.lblName.lineBreakMode = NSLineBreakByClipping;
     // Initialization code
 }
 

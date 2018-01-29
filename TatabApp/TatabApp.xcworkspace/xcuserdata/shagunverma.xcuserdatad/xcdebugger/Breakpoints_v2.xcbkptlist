@@ -9,46 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/ChoosePatientViewController/ChoosePatientViewController.m"
-            timestampString = "538744766.757584"
+            filePath = "TatabApp/ViewControllers/HealthTrackerContainer/PressureReportViewController/PressureReportViewController.m"
+            timestampString = "538930886.564088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "-hitApiForDependants:"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "-getBloodPressure"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__51-[ChoosePatientViewController hitApiForDependants:]_block_invoke"
-                  moduleName = "TatabApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shagunverma/Work/My%20Projects/Freelance%20Work/GitHub/MedPlanner/TatabApp/TatabApp/ViewControllers/ChoosePatientViewController/ChoosePatientViewController.m"
-                  timestampString = "538748884.170657"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
-                  offsetFromSymbolStart = "1356">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__51-[ChoosePatientViewController hitApiForDependants:]_block_invoke_2"
-                  moduleName = "TatabApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shagunverma/Work/My%20Projects/Freelance%20Work/GitHub/MedPlanner/TatabApp/TatabApp/ViewControllers/ChoosePatientViewController/ChoosePatientViewController.m"
-                  timestampString = "538748884.17427"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -10,4 +10,13 @@
 
 @interface HealthTrackerContainerVC : UIViewController
 
+@property (nonatomic,strong) ChatPatient* patient;
+@property (nonatomic,strong) RegistrationDpendency* dependant;
+@property bool isdependant;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *lblPatientName;
+@property (weak, nonatomic) IBOutlet UILabel *lblbirthDate;
+@property (weak, nonatomic) IBOutlet UILabel *lblgender;
+
 @end

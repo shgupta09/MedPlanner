@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PressureReportViewController">
             <connections>
+                <outlet property="btnAdd" destination="hDn-mf-Pfj" id="hEQ-Qs-JQB"/>
                 <outlet property="btnFromDate" destination="kEo-Sb-Z4F" id="5yh-XF-Cz8"/>
                 <outlet property="btnHeartRate" destination="b6x-q4-gnu" id="LJf-9E-azf"/>
                 <outlet property="btnSelectType" destination="9zF-VI-Tqn" id="ZZ5-JY-cf8"/>
@@ -20,7 +21,9 @@
                 <outlet property="cons_imgViewSYS" destination="VTQ-YZ-sQX" id="RBb-cq-7oG"/>
                 <outlet property="graphView" destination="oH4-OY-B0R" id="5wb-wh-bPl"/>
                 <outlet property="lblDIAValue" destination="xTg-pU-C2O" id="3dE-FC-TKE"/>
+                <outlet property="lblPatientName" destination="s20-EQ-aZC" id="mgR-eb-0sP"/>
                 <outlet property="lblSYSValue" destination="2XZ-hT-VC1" id="tKf-JT-VSb"/>
+                <outlet property="lblgender" destination="xTQ-9g-yjh" id="VKC-ib-Gjk"/>
                 <outlet property="popUpView" destination="wjz-RE-7PD" id="iNL-Jp-0hL"/>
                 <outlet property="sliderView" destination="C6z-wf-CDO" id="6lc-Gg-jQI"/>
                 <outlet property="txtComments" destination="Kye-am-2ZY" id="QG9-pi-6ek"/>
@@ -57,9 +60,9 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDh-jJ-9Im">
-                            <rect key="frame" x="132" y="43" width="112" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <rect key="frame" x="129.5" y="43" width="117.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIG-9F-W83" customClass="CustomButton4">

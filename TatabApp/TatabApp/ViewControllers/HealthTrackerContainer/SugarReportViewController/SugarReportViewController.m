@@ -76,7 +76,22 @@
     _graphView.enableReferenceYAxisLines = YES;
     _graphView.enableReferenceAxisFrame = YES;
     
+    if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+        _btnAdd.hidden = true;
+    }
     
+    if (_isdependant) {
+        [_lblPatientName setText:_dependant.name];
+        [_lblgender setText:_dependant.gender];
+        
+    }
+    else
+    {
+        [_lblPatientName setText:_patient.name];
+        [_lblgender setText:_patient.gender];
+        
+    }
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -394,7 +409,17 @@
 
 -(void)uploadBloodSugar{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
-    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
+    
+    if (!_isdependant){
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:@"" forKey:DEPENDANT_ID];
+  }
+    else
+    {
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
+    }
+    
 //    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
     [parameterDict setValue:[arrayType objectAtIndex:selectedRowForTiming] forKey:@"timing"];
     [parameterDict setValue:[arrayreading objectAtIndex:selectedRowForReading] forKey:@"reading"];
@@ -456,7 +481,17 @@
 
 -(void)getBloodSugar{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
-    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
+    
+    if (!_isdependant){
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:@"" forKey:DEPENDANT_ID];
+    }
+    else
+    {
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
+    }
+    
     [parameterDict setValue:fromDateString forKey:@"from"];
     [parameterDict setValue:toDateString forKey:@"to"];
     

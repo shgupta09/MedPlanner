@@ -106,5 +106,37 @@
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
 }
+- (IBAction)btn_MedicalConsultaionAction:(id)sender {
+    AwarenessCategoryViewController *vc = [[AwarenessCategoryViewController alloc]initWithNibName:@"AwarenessCategoryViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:true];
+    
+    
+}
+- (IBAction)btnAction_manageDependents:(id)sender {
+    
+    ChooseDependantViewController* vc ;
+    vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+    vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+    vc.classObj = self;
+    vc.isManageDependants = true;
+    [self.navigationController pushViewController:vc animated:true];
+    
+    
+}
+- (IBAction)btnAction_MedicalReports:(id)sender {
+    ChooseDependantViewController* vc ;
+    vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+    vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+    vc.classObj = self;
+    vc.isManageDependants = false;
+
+    [self.navigationController pushViewController:vc animated:true];
+    
+    
+}
+- (IBAction)btnAction_CaseHistory:(id)sender {
+    
+    
+}
 
 @end
