@@ -26,7 +26,7 @@
     
     _viewToClip.layer.cornerRadius = 5;
     _viewToClip.layer.masksToBounds = true;
-    _viewToClip.layer.borderColor = [UIColor blackColor].CGColor;
+    _viewToClip.layer.borderColor = [UIColor whiteColor].CGColor;
     _viewToClip.layer.borderWidth = 1;
      [_tbl_View registerNib:[UINib nibWithNibName:@"RearCell" bundle:nil]forCellReuseIdentifier:@"RearCell"];
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
@@ -119,7 +119,13 @@
         
         if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
             switch (indexPath.row) {
-                case 0:
+                case 0:{
+                    ChooseDependantViewController* vc ;
+                    vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+                    vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+                    vc.classObj = self;
+                    [self.navigationController pushViewController:vc animated:true];
+                }
                     break;
                     
                 case 1:
