@@ -19,7 +19,7 @@
     
     if (_isdependant) {
         [_lblPatientName setText:_dependant.name];
-        [_lblgender setText:_dependant.name];
+        [_lblgender setText:_dependant.gender];
         
     }
     else
