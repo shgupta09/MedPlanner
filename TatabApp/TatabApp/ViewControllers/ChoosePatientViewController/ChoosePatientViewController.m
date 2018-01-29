@@ -140,7 +140,7 @@
 #pragma mark - Api Related
 -(void)hitApiForDependants:(NSString*)patientId{
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:patientId forKey:@"user_id"];
+    [parameter setValue:@"22" forKey:@"user_id"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
