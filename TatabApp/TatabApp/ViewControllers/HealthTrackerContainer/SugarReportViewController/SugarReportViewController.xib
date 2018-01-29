@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SugarReportViewController">
             <connections>
+                <outlet property="btnAdd" destination="3ot-Gk-NTx" id="jzN-fz-5Kq"/>
                 <outlet property="btnFromDate" destination="yAW-6P-ruu" id="pM9-j2-kwz"/>
                 <outlet property="btnReadingPopup" destination="fPA-p2-Osd" id="1Ct-Mb-nex"/>
                 <outlet property="btnSelectType" destination="Ce7-tk-cum" id="IJM-84-r8m"/>
@@ -441,7 +442,7 @@
                                     <rect key="frame" x="20" y="162" width="334" height="344"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxJ-hs-S4A" customClass="CustomButton3">
-                                            <rect key="frame" x="10" y="295" width="150.5" height="40"/>
+                                            <rect key="frame" x="10" y="295" width="151" height="40"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="CFM-2T-nAx"/>
@@ -524,7 +525,7 @@ mg/DL</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHR-AY-vGk" customClass="CustomButton3">
-                                            <rect key="frame" x="173.5" y="296" width="150.5" height="40"/>
+                                            <rect key="frame" x="174" y="296" width="150" height="40"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="Eo4-3f-lWo"/>

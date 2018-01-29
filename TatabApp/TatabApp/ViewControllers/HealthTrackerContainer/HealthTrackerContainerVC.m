@@ -40,23 +40,65 @@
 - (IBAction)btnWeightClicked:(id)sender {
 
     WeightReportViewController* vc = [[WeightReportViewController alloc] initWithNibName:@"WeightReportViewController" bundle:nil];
+    
+    if (!_isdependant){
+        _isdependant = false;
+        vc.patient = _patient;
+    }
+    else
+    {
+        _isdependant = true;
+        vc.patient = _patient;
+        vc.dependant = _dependant;
+    }
+    
     [self.navigationController pushViewController:vc animated:false];
     
 }
 - (IBAction)btnBloodPressureClicked:(id)sender {
 
     PressureReportViewController* vc = [[PressureReportViewController alloc] initWithNibName:@"PressureReportViewController" bundle:nil];
+    if (!_isdependant){
+        _isdependant = false;
+        vc.patient = _patient;
+    }
+    else
+    {
+        _isdependant = true;
+        vc.patient = _patient;
+        vc.dependant = _dependant;
+    }
     [self.navigationController pushViewController:vc animated:false];
 
 }
 - (IBAction)btnFeverClicked:(id)sender {
     FeverReportViewController* vc = [[FeverReportViewController alloc] initWithNibName:@"FeverReportViewController" bundle:nil];
+    if (!_isdependant){
+        _isdependant = false;
+        vc.patient = _patient;
+    }
+    else
+    {
+        _isdependant = true;
+        vc.patient = _patient;
+        vc.dependant = _dependant;
+    }
     [self.navigationController pushViewController:vc animated:false];
 
 }
 - (IBAction)btnBloodSugar:(id)sender {
 
     SugarReportViewController* vc = [[SugarReportViewController alloc] initWithNibName:@"SugarReportViewController" bundle:nil];
+    if (!_isdependant){
+        _isdependant = false;
+        vc.patient = _patient;
+    }
+    else
+    {
+        _isdependant = true;
+        vc.patient = _patient;
+        vc.dependant = _dependant;
+    }
     [self.navigationController pushViewController:vc animated:false];
 }
 

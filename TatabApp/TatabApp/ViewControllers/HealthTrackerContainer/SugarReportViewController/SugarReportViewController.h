@@ -19,5 +19,10 @@
 @property (weak, nonatomic) IBOutlet CustomButton *btnWeightPopup;
 @property (weak, nonatomic) IBOutlet CustomButton *btnReadingPopup;
 
+@property (nonatomic,strong) ChatPatient* patient;
+@property (nonatomic,strong) RegistrationDpendency* dependant;
+@property bool isdependant;
+@property (weak, nonatomic) IBOutlet UIButton *btnAdd;
+
 
 @end

@@ -11,8 +11,6 @@
 @interface ChooseDependantViewController ()
 {
     LoderView *loderObj;
-    NSMutableArray *doctorListArray;
-    NSMutableArray *patientListArray;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tbl_View;
@@ -23,21 +21,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setData];
+
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
 }
 -(void)setData{
-    doctorListArray = [NSMutableArray new];
     [_tbl_View registerNib:[UINib nibWithNibName:@"SelectUserTableViewCell" bundle:nil]forCellReuseIdentifier:@"SelectUserTableViewCell"];
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 100;
     _tbl_View.multipleTouchEnabled = NO;
-    
-    
-    [self hitApiForPatientList];
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +43,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return patientListArray.count;
+    return _patient.dependants.count+1;
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -56,35 +51,55 @@
     
     if (cell == nil) {
         cell = [[SelectUserTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SelectUserTableViewCell"];
-        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    ChatPatient *obj = [patientListArray objectAtIndex:indexPath.row];
-    cell.lbl_name.text = [NSString stringWithFormat:@"Mr. %@",obj.name];
-    
-    //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
-    [cell.profileImageView setImage:[UIImage imageNamed:@"profile.png"]];
-    
-    cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2;
-    cell.profileImageView.clipsToBounds = true;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (indexPath.row == 0) {
+        cell.lbl_name.text = [NSString stringWithFormat:@"My Profile"];
+        //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
+        [cell.profileImageView setImage:[UIImage imageNamed:@"profile.png"]];
+        
+        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2;
+        cell.profileImageView.clipsToBounds = true;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    }
+    else
+    {
+        RegistrationDpendency* dependant = [_patient.dependants objectAtIndex:indexPath.row-1];
+        cell.lbl_name.text = [NSString stringWithFormat:@"%@ Profile",dependant.name];
+        
+        //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
+        [cell.profileImageView setImage:[UIImage imageNamed:@"profile.png"]];
+        
+        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2;
+        cell.profileImageView.clipsToBounds = true;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    }
+   
     return cell;
     
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //    ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
-    //        ChatPatient *obj = [patientListArray objectAtIndex:indexPath.row];
-    //        Specialization* temp = [Specialization new];
-    //        temp.first_name = obj.name;
-    //        temp.doctor_id = [obj.patient_id integerValue];
-    //        vc.objDoctor  = temp;
-    //
-    //        vc.awarenessObj = _awarenessObj;
-    //        vc.toId = obj.jabberId;
-    //        [self.navigationController pushViewController:vc animated:true];
-    
+    if (indexPath.row == 0) {
+        EMRHealthContainerVC* vc ;
+        vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
+        vc.isdependant = false;
+        vc.patient = _patient;
+        [self.navigationController pushViewController:vc animated:true];
+    }
+    else
+    {
+        EMRHealthContainerVC* vc ;
+        vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
+        vc.isdependant = true;
+        vc.patient = _patient;
+        vc.dependant = [_patient.dependants objectAtIndex:indexPath.row-1];
+        [self.navigationController pushViewController:vc animated:true];
+
+    }
     
 }
 
@@ -93,12 +108,6 @@
     [self.navigationController popViewControllerAnimated:true];
 }
 
-
-#pragma mark - Api Related
--(void)hitApiForPatientList{
-    
-    [patientListArray addObject:_patient];
-}
 
 -(void)addLoder{
     self.view.userInteractionEnabled = NO;

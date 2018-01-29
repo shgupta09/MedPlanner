@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     toDate = [NSDate date];
-_txtComments.text = @"comment";
+    _txtComments.text = @"comment";
     fromDate = [NSDate date];
     
     CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);
@@ -77,7 +77,13 @@ _txtComments.text = @"comment";
     
     [_sliderView setThumbImage:[UIImage imageNamed:@"slider_small"] forState:UIControlStateNormal];
     
-    [_sliderView trackRectForBounds:_sliderView.bounds]; 
+    [_sliderView trackRectForBounds:_sliderView.bounds];
+    
+    if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+        _btnAdd.hidden = true;
+    }
+
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -157,7 +163,16 @@ _txtComments.text = @"comment";
 
 -(void)uploadFeaverReport{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
-    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
+    
+    if (!_isdependant){
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+    }
+    else
+    {
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
+    }
+    
 //    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
     NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
     Formatter.dateFormat = @"yyyy-MM-dd";
@@ -260,7 +275,16 @@ _txtComments.text = @"comment";
 
 -(void)getFeverReport{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
-    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
+    
+    if (!_isdependant){
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+    }
+    else
+    {
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
+    }
+    
     [parameterDict setValue:fromDateString forKey:@"from"];
     [parameterDict setValue:toDateString forKey:@"to"];
     

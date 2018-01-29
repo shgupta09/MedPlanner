@@ -94,7 +94,10 @@
     
     [_sliderView trackRectForBounds:_sliderView.bounds];
 
-    
+    if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+        _btnAdd.hidden = true;
+    }
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -173,7 +176,16 @@
 
 -(void)uploadBloodPressure{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
-    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
+    
+    if (!_isdependant){
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+    }
+    else
+    {
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
+    }
+    
     [parameterDict setValue:[NSString stringWithFormat:@"%d",hertRateValue] forKey:@"heart_rate"];
     [parameterDict setValue:[NSString stringWithFormat:@"%.1f",_sliderView.value+60] forKey:@"sys"];
     [parameterDict setValue:[NSString stringWithFormat:@"%.1f",_sliderView.value] forKey:@"dia"];
@@ -239,7 +251,16 @@
 
 -(void)getBloodPressure{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
-    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:PATIENT_ID];
+    
+    if (!_isdependant){
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+    }
+    else
+    {
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
+    }
+    
     [parameterDict setValue:fromDateString forKey:@"from"];
     [parameterDict setValue:toDateString forKey:@"to"];
     

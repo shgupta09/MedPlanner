@@ -14,4 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblgender;
 @property (weak, nonatomic) IBOutlet UILabel *lblChronic;
 
+@property (nonatomic,strong) ChatPatient* patient;
+@property (nonatomic,strong) RegistrationDpendency* dependant;
+@property bool isdependant;
+
 @end

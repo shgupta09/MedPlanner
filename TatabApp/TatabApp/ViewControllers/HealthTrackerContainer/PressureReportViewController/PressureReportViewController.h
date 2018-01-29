@@ -24,4 +24,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnHeartRate;
 @property (weak, nonatomic) IBOutlet CustomButton3 *btnSelectType;
 
+@property (nonatomic,strong) ChatPatient* patient;
+@property (nonatomic,strong) RegistrationDpendency* dependant;
+@property bool isdependant;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnAdd;
+
 @end

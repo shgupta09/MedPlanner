@@ -29,6 +29,7 @@
 //Api related
 
 #define PATIENT_ID @"patient_id"
+#define DEPENDANT_ID @"dependent_id"
 #define DOCTOR_ID @"doctor_id"
 #define loginPassword @"password"
 #define loginemail @"email"

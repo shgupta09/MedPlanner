@@ -19,4 +19,10 @@
 @property (weak, nonatomic) IBOutlet CustomTextField *txtComments;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons_imgView;
 
+@property (nonatomic,strong) ChatPatient* patient;
+@property (nonatomic,strong) RegistrationDpendency* dependant;
+@property bool isdependant;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnAdd;
+
 @end

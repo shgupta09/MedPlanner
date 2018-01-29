@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     doctorListArray = [NSMutableArray new];
     [_tblView registerNib:[UINib nibWithNibName:@"DoctorListEMRLogTableViewCell" bundle:nil]forCellReuseIdentifier:@"DoctorListEMRLogTableViewCell"];
     _tblView.rowHeight = UITableViewAutomaticDimension;
@@ -57,6 +58,18 @@
 - (IBAction)btnHealthTrackerClicked:(id)sender {
     HealthTrackerContainerVC* vc ;
     vc = [[HealthTrackerContainerVC alloc] initWithNibName:@"HealthTrackerContainerVC" bundle:nil];
+   
+    if (!_isdependant){
+        _isdependant = false;
+        vc.patient = _patient;
+    }
+    else
+    {
+        _isdependant = true;
+        vc.patient = _patient;
+        vc.dependant = _dependant;
+    }
+
     UINavigationController* navVC = [[UINavigationController alloc ] initWithRootViewController:vc];
     navVC.navigationBarHidden = true;
     [self.navigationController presentViewController:navVC animated:false completion:nil];

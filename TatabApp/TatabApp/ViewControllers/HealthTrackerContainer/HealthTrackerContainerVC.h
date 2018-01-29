@@ -10,4 +10,8 @@
 
 @interface HealthTrackerContainerVC : UIViewController
 
+@property (nonatomic,strong) ChatPatient* patient;
+@property (nonatomic,strong) RegistrationDpendency* dependant;
+@property bool isdependant;
+
 @end

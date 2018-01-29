@@ -19,4 +19,9 @@
 @property (weak, nonatomic) IBOutlet CustomButton3 *btnHeartRate;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_Comment;
 
+@property (nonatomic,strong) ChatPatient* patient;
+@property (nonatomic,strong) RegistrationDpendency* dependant;
+@property bool isdependant;
+@property (weak, nonatomic) IBOutlet UIButton *btnAdd;
+
 @end

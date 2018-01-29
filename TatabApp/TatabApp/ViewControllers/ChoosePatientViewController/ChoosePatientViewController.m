@@ -24,6 +24,9 @@
     [self setData];
     dependantListArray = [NSMutableArray new];
 
+    
+    
+        
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewDidLayoutSubviews{
@@ -74,7 +77,7 @@
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self hitApiForDependants:[[patientListArray objectAtIndex:indexPath.row] valueForKey:@"patient_id"] ];
+    [self hitApiForDependants:[patientListArray objectAtIndex:indexPath.row] ];
 
 }
 
@@ -138,9 +141,9 @@
 
 
 #pragma mark - Api Related
--(void)hitApiForDependants:(NSString*)patientId{
+-(void)hitApiForDependants:(ChatPatient*)patient{
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:@"22" forKey:@"user_id"];
+    [parameter setValue:patient.patient_id forKey:@"user_id"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -152,12 +155,7 @@
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     patientListArray = [NSMutableArray new];
                     NSArray *tempArray = [NSArray new];
-                        ChatPatient *specializationObj = [ChatPatient new];
-                        specializationObj.gender = [[responseObj valueForKey:@"patient"] valueForKey:@"gender"];
-                        specializationObj.patient_id = [[responseObj valueForKey:@"patient"] valueForKey:@"patient_id"];
-                        specializationObj.name = [NSString stringWithFormat:@"%@ %@",[[responseObj valueForKey:@"patient"] valueForKey:@"first_name"],[[responseObj valueForKey:@"patient"] valueForKey:@"last_name"]];
-                        specializationObj.dob = [[responseObj valueForKey:@"patient"] valueForKey:@"date_of_birth"];
-                   
+ 
                     tempArray  = [[responseObj valueForKey:@"patient"] valueForKey:@"childrens"];
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         RegistrationDpendency *dependencyObj = [RegistrationDpendency new];
@@ -165,15 +163,26 @@
                         dependencyObj.depedant_id = [obj valueForKey:@"id"];
                         dependencyObj.gender = [obj valueForKey:@"gender"];
                         
-                        [dependantListArray addObject:specializationObj];
+                        [dependantListArray addObject:dependencyObj];
                     }];
                     
-                    specializationObj.dependants = dependantListArray;
+                    patient.dependants = dependantListArray;
                     
-                    ChooseDependantViewController* vc ;
-                    vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
-                    vc.patient = specializationObj;
-                    [self.navigationController pushViewController:vc animated:true];
+                    if (patient.dependants.count>0) {
+                        ChooseDependantViewController* vc ;
+                        vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+                        vc.patient = patient;
+                        [self.navigationController pushViewController:vc animated:true];
+
+                    }
+                    else
+                    {
+                        EMRHealthContainerVC* vc ;
+                        vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
+                        vc.isdependant = false;
+                        vc.patient = patient;
+                        [self.navigationController pushViewController:vc animated:true];
+                    }
                
                 
                 }else
