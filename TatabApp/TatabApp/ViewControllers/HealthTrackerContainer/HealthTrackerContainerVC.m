@@ -42,12 +42,12 @@
     WeightReportViewController* vc = [[WeightReportViewController alloc] initWithNibName:@"WeightReportViewController" bundle:nil];
     
     if (!_isdependant){
-        _isdependant = false;
+        vc.isdependant = false;
         vc.patient = _patient;
     }
     else
     {
-        _isdependant = true;
+        vc.isdependant = true;
         vc.patient = _patient;
         vc.dependant = _dependant;
     }
@@ -59,12 +59,12 @@
 
     PressureReportViewController* vc = [[PressureReportViewController alloc] initWithNibName:@"PressureReportViewController" bundle:nil];
     if (!_isdependant){
-        _isdependant = false;
+        vc.isdependant = false;
         vc.patient = _patient;
     }
     else
     {
-        _isdependant = true;
+        vc.isdependant = true;
         vc.patient = _patient;
         vc.dependant = _dependant;
     }
@@ -74,12 +74,12 @@
 - (IBAction)btnFeverClicked:(id)sender {
     FeverReportViewController* vc = [[FeverReportViewController alloc] initWithNibName:@"FeverReportViewController" bundle:nil];
     if (!_isdependant){
-        _isdependant = false;
+        vc.isdependant = false;
         vc.patient = _patient;
     }
     else
     {
-        _isdependant = true;
+        vc.isdependant = true;
         vc.patient = _patient;
         vc.dependant = _dependant;
     }
@@ -90,12 +90,12 @@
 
     SugarReportViewController* vc = [[SugarReportViewController alloc] initWithNibName:@"SugarReportViewController" bundle:nil];
     if (!_isdependant){
-        _isdependant = false;
+        vc.isdependant = false;
         vc.patient = _patient;
     }
     else
     {
-        _isdependant = true;
+        vc.isdependant = true;
         vc.patient = _patient;
         vc.dependant = _dependant;
     }
