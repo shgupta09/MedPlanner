@@ -57,6 +57,20 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
         RegistrationDpendency* dependant = [patient.dependants objectAtIndex:indexPath.row];
+    if ([_classObj isKindOfClass:[RearViewController class]]) {
+        cell.btn_Cross.hidden = false;
+        cell.sideImageView.hidden = true;
+        [cell.btn_Cross addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.btn_Cross.tag = indexPath.row;
+        cell.btn_Cross.userInteractionEnabled = true;
+        if (indexPath.row==0) {
+            cell.btn_Cross.hidden = true;
+            cell.btn_Cross.userInteractionEnabled = false;
+        }
+    }else{
+        cell.btn_Cross.hidden = true;
+        cell.sideImageView.hidden = false;
+    }
         cell.lbl_name.text = [NSString stringWithFormat:@"%@",dependant.name];
         
         //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
@@ -65,6 +79,19 @@
         cell.profileImageView.clipsToBounds = true;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+-(void)btnClicked:(id)sender{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[NSString stringWithFormat:@"Are you sure you want to delete %@ ?",((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).name] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self hitApiForRemoveDependants:((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).depedant_id];
+        }];
+        [alertController addAction:ok];
+        UIAlertAction* no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:no];
+        //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+        [self presentViewController:alertController animated:YES completion:nil];
+
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   
@@ -159,6 +186,53 @@
         [self presentViewController:alertController animated:YES completion:nil];
     }
 }
+-(void)hitApiForRemoveDependants:(NSString *)dependentID{
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:_patientID forKey:@"user_id"];
+     [parameter setValue:dependentID forKey:@"Dependent_id"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DEPENDANTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Dependent remove successfully." preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    [self hitApiForDependants];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+
+                }else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        [self removeloder];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
+
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];

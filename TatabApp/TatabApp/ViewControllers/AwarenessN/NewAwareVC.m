@@ -332,6 +332,7 @@
     return cell;
 }
 
+
 -(UIImage*) setImageFor:(NSString*) clinicName{
 
     if ([clinicName isEqualToString:@"Abdominal Clinic"]) {
