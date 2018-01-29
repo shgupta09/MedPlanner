@@ -118,7 +118,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBound" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awareness" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6E2-qA-vrd">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AWARENESS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6E2-qA-vrd">
                     <rect key="frame" x="108" y="34" width="152" height="26.5"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                     <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
