@@ -114,8 +114,11 @@
         }
     }else{
         cell.btn_Cross.hidden = true;
+            cell.add
         cell.sideImageView.hidden = false;
     }
+    
+    
         cell.lbl_name.text = [NSString stringWithFormat:@"%@",dependant.name];
         
         //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];

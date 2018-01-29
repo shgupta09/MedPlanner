@@ -146,11 +146,7 @@
                     break;
                 case 3:
                 {
-                    EMRHealthContainerVC* vc ;
-                    vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
-                    [self.navigationController pushViewController:vc animated:true];
-
-                   
+                    
                 }
                     break;
 
@@ -159,10 +155,7 @@
                 }
                     break;
                 case 5:{
-                    EMRHealthContainerVC* vc ;
-                    vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
-                    [self.navigationController pushViewController:vc animated:true];
-                }
+                   }
                     break;
 
                 default:
