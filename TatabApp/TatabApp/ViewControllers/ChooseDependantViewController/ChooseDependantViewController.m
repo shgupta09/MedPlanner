@@ -21,6 +21,9 @@
     UIView *viewOverPicker;
     NSString *relationshipId ;
     NSInteger selectedRowForSpeciality;
+     UIDatePicker* pickerForDate;
+    UIToolbar *toolBar;
+    RegistrationDpendency *dependencyObj ;
 }
 @property (weak, nonatomic) IBOutlet UIButton *addOptionBtnAction;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtName;
@@ -52,7 +55,7 @@
     _txt_BirthDate.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
 
     _addOptionBtnAction.tintColor = [CommonFunction colorWithHexString:@"45AED4"];
-    
+    [CommonFunction setResignTapGestureToView:self.view andsender:self];
     UIImage * image = [UIImage imageNamed:@"Plus"];
     [_addOptionBtnAction setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     selectedRowForSpeciality = 0;
@@ -80,8 +83,11 @@
 }
 -(void)resignResponder{
     [CommonFunction resignFirstResponderOfAView:self.view];
-    [_popUpView removeFromSuperview];
-   
+    if ([viewOverPicker isDescendantOfView:self.view]) {
+        [viewOverPicker removeFromSuperview];
+    }else if ([_popUpView isDescendantOfView:self.view]) {
+        [_popUpView removeFromSuperview];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -302,10 +308,72 @@
         [self presentViewController:alertController animated:YES completion:nil];
     }
 }
+-(void)hitApiForAddDependants{
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:_patientID forKey:@"user_id"];
+    [parameter setValue:dependencyObj.birthDay forKey:@"dob"];
+    if (dependencyObj.isMale) {
+        [parameter setValue:@"M" forKey:@"gender"];
+    }else{
+        [parameter setValue:@"F" forKey:@"gender"];
+    }
+    
+    [parameter setValue:dependencyObj.name forKey:@"name"];
+    [parameter setValue:relationshipId forKey:@"relationship_id"];
+    
+    
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DEPENDANTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Dependent added successfully." preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    [_popUpView removeFromSuperview];
+                    [self hitApiForDependants];
+                    
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    
+                }else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        [self removeloder];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
 
 
 #pragma mark - btn Actions
-
+-(void)doneForPicker:(id)sender
+{
+    [viewOverPicker removeFromSuperview];
+    
+}
 - (IBAction)btnActionGender:(id)sender {
     if (((UIButton *)sender).tag == 10) {
         isMale = true;
@@ -379,22 +447,50 @@
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
 }
-
-
--(void)addLoder{
-    self.view.userInteractionEnabled = NO;
-    //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-    loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
-    loderObj.lbl_title.text = @"Please wait...";
-    [self.view addSubview:loderObj];
+- (IBAction)btnActionBirthDay:(id)sender {
+    
+    [CommonFunction resignFirstResponderOfAView:self.view];
+    pickerForDate = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerForDate.datePickerMode = UIDatePickerModeDate;
+    pickerForDate.tag = ((UIButton *)sender).tag;
+    
+    [pickerForDate setDate:departDate];
+    [pickerForDate setMaximumDate: [NSDate date]];
+    
+    
+    
+    [pickerForDate addTarget:self action:@selector(dueDateChanged:)
+            forControlEvents:UIControlEventValueChanged];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    pickerForDate.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    toolBar = [[UIToolbar alloc]initWithFrame:
+               CGRectMake(0, self.view.frame.size.height-
+                          pickerForDate.frame.size.height-50, self.view.frame.size.width, 50)];
+    //    [toolBar setBarTintColor:[UIColor redColor]];
+    UIBarButtonItem *doneButton2 = [[UIBarButtonItem alloc]
+                                    initWithTitle:@"" style:UIBarButtonItemStyleDone
+                                    target:nil action:nil];
+    //    doneButton2.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    NSDictionary *barButtonAppearanceDict = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0], NSForegroundColorAttributeName: [CommonFunction colorWithHexString:@"f7a41e"]};
+    [doneButton2 setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    NSArray *toolbarItems = [NSArray arrayWithObjects:space,doneButton2,
+                             space,doneButton, nil];
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:pickerForDate];
+    [viewOverPicker addSubview:toolBar];
+    [self.view addSubview:viewOverPicker];
 }
 
--(void)removeloder{
-    //loderObj = nil;
-    [loderObj removeFromSuperview];
-    //[loaderView removeFromSuperview];
-    self.view.userInteractionEnabled = YES;
-}
+
+
 
 - (IBAction)btnActionConfirmAdd:(id)sender {
     NSDictionary *dictForValidation = [self validateData];
@@ -402,12 +498,11 @@
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
         [_popUpView removeFromSuperview];
         
-        RegistrationDpendency *dependencyObj = [RegistrationDpendency new];
+        dependencyObj = [RegistrationDpendency new];
         dependencyObj.name = [CommonFunction trimString:_txtName.text];
         dependencyObj.birthDay = _txt_BirthDate.text;
         dependencyObj.isMale = isMale;
-        dependencyObj.depedant_id =relationshipId;
-        
+        //[self hitApiForAddDependants];
     }
     else{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[dictForValidation valueForKey:AlertKey] preferredStyle:UIAlertControllerStyleAlert];
@@ -458,7 +553,21 @@
    
     
 }
+#pragma mark - loder
+-(void)addLoder{
+    self.view.userInteractionEnabled = NO;
+    //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+    loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
+    loderObj.lbl_title.text = @"Please wait...";
+    [self.view addSubview:loderObj];
+}
 
+-(void)removeloder{
+    //loderObj = nil;
+    [loderObj removeFromSuperview];
+    //[loaderView removeFromSuperview];
+    self.view.userInteractionEnabled = YES;
+}
 #pragma mark - picker data Source
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     

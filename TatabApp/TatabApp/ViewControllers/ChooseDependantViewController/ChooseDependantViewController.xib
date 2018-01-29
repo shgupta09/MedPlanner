@@ -163,6 +163,9 @@
                                         </button>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agl-ol-HfY">
                                             <rect key="frame" x="10" y="214" width="314" height="45"/>
+                                            <connections>
+                                                <action selector="btnActionBirthDay:" destination="-1" eventType="touchUpInside" id="UGI-P9-kp9"/>
+                                            </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Relationship" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXJ-7a-wTP" customClass="CustomTextField">
                                             <rect key="frame" x="10" y="85" width="314" height="45"/>
