@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,7 +42,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Patient" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baG-Ra-gal">
-                    <rect key="frame" x="120" y="21" width="135" height="23"/>
+                    <rect key="frame" x="120" y="23.5" width="135" height="23"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                     <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -60,12 +60,12 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Y9U-Yi-JLG" secondAttribute="bottom" id="2Kp-1C-mxy"/>
                 <constraint firstItem="Y9U-Yi-JLG" firstAttribute="top" secondItem="ssH-y7-nve" secondAttribute="bottom" id="3Dj-oT-jMI"/>
-                <constraint firstItem="ssH-y7-nve" firstAttribute="top" secondItem="baG-Ra-gal" secondAttribute="bottom" constant="13.5" id="7N4-hd-wlZ"/>
                 <constraint firstItem="TaM-0j-fdN" firstAttribute="top" secondItem="ssH-y7-nve" secondAttribute="bottom" id="8Wu-kF-pdu"/>
                 <constraint firstItem="ssH-y7-nve" firstAttribute="top" secondItem="XjO-Ds-Y3U" secondAttribute="bottom" constant="7" id="Glj-HN-skX"/>
                 <constraint firstItem="Y9U-Yi-JLG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hof-Vq-75H"/>
                 <constraint firstAttribute="bottom" secondItem="TaM-0j-fdN" secondAttribute="bottom" id="JRP-TV-34z"/>
                 <constraint firstAttribute="trailing" secondItem="Y9U-Yi-JLG" secondAttribute="trailing" id="Npy-0Q-l4m"/>
+                <constraint firstItem="baG-Ra-gal" firstAttribute="centerY" secondItem="XjO-Ds-Y3U" secondAttribute="centerY" id="R65-ps-DhM"/>
                 <constraint firstItem="XjO-Ds-Y3U" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Yg2-bV-4Wb"/>
                 <constraint firstItem="ssH-y7-nve" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Yzh-Xn-IZR"/>
                 <constraint firstItem="baG-Ra-gal" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bDx-DR-Vza"/>

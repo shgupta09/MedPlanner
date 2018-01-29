@@ -11,6 +11,8 @@
 @interface ChooseDependantViewController ()
 {
     LoderView *loderObj;
+    NSMutableArray *dependantListArray;
+    ChatPatient *patient;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tbl_View;
@@ -28,11 +30,12 @@
     loderObj.frame = self.view.frame;
 }
 -(void)setData{
+    patient = [ChatPatient new];
     [_tbl_View registerNib:[UINib nibWithNibName:@"SelectUserTableViewCell" bundle:nil]forCellReuseIdentifier:@"SelectUserTableViewCell"];
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 100;
     _tbl_View.multipleTouchEnabled = NO;
-
+    [self hitApiForDependants];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +46,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return _patient.dependants.count+1;
+    return patient.dependants.count;
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -53,56 +56,83 @@
         cell = [[SelectUserTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SelectUserTableViewCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    
-    if (indexPath.row == 0) {
-        cell.lbl_name.text = [NSString stringWithFormat:@"My Profile"];
-        //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
-        [cell.profileImageView setImage:[UIImage imageNamed:@"profile.png"]];
-        
-        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2;
-        cell.profileImageView.clipsToBounds = true;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-    }
-    else
-    {
-        RegistrationDpendency* dependant = [_patient.dependants objectAtIndex:indexPath.row-1];
-        cell.lbl_name.text = [NSString stringWithFormat:@"%@ Profile",dependant.name];
+        RegistrationDpendency* dependant = [patient.dependants objectAtIndex:indexPath.row];
+        cell.lbl_name.text = [NSString stringWithFormat:@"%@",dependant.name];
         
         //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
         [cell.profileImageView setImage:[UIImage imageNamed:@"profile.png"]];
-        
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2;
         cell.profileImageView.clipsToBounds = true;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-    }
-   
     return cell;
-    
-    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
-        EMRHealthContainerVC* vc ;
-        vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
-        vc.isdependant = false;
-        vc.patient = _patient;
-        [self.navigationController pushViewController:vc animated:true];
-    }
-    else
-    {
-        EMRHealthContainerVC* vc ;
-        vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
-        vc.isdependant = true;
-        vc.patient = _patient;
-        vc.dependant = [_patient.dependants objectAtIndex:indexPath.row-1];
-        [self.navigationController pushViewController:vc animated:true];
-
-    }
-    
+  
 }
 
+
+#pragma mark - Api Related
+-(void)hitApiForDependants{
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:_patientID forKey:@"user_id"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DEPENDANTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    NSArray *tempArray = [NSArray new];
+                    dependantListArray = [NSMutableArray new];
+                    RegistrationDpendency *dependencyObj = [RegistrationDpendency new];
+                   // dependencyObj.name = [[responseObj valueForKey:@"patient"] valueForKey:@"name"];
+                     dependencyObj.name = @"Main Profile";
+                    dependencyObj.depedant_id = [[responseObj valueForKey:@"patient"] valueForKey:@"id"];
+                    dependencyObj.gender = [[responseObj valueForKey:@"patient"] valueForKey:@"gender"];
+                    dependencyObj.isMainProfile = true;
+                    [dependantListArray addObject: dependencyObj];
+                    tempArray  = [[responseObj valueForKey:@"patient"] valueForKey:@"childrens"];
+                    
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        RegistrationDpendency *dependencyObj = [RegistrationDpendency new];
+                        dependencyObj.name = [obj valueForKey:@"name"];
+                        dependencyObj.depedant_id = [obj valueForKey:@"id"];
+                        dependencyObj.gender = [obj valueForKey:@"gender"];
+                         dependencyObj.relation = [CommonFunction checkForNull:[obj valueForKey:@"relation"]];
+                        dependencyObj.isMainProfile = false;
+                        [dependantListArray addObject:dependencyObj];
+                    }];
+                    patient.dependants = dependantListArray;
+                    
+                    [_tbl_View reloadData];
+                    
+                    
+                }else
+                {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self removeloder];
+                }
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        [self removeloder];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];

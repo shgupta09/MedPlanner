@@ -16,5 +16,7 @@
 @property(nonatomic ,strong) NSString *Hospitalname;
 @property(nonatomic ,strong) NSString *workedSince;
 @property(nonatomic ,strong) NSString *resignedSince;
+@property(nonatomic ,strong) NSString *relation;
 @property(nonatomic ) BOOL isMale;
+@property(nonatomic )BOOL isMainProfile;
 @end

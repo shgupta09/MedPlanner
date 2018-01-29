@@ -77,7 +77,11 @@
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self hitApiForDependants:[patientListArray objectAtIndex:indexPath.row] ];
+    ChooseDependantViewController* vc ;
+    vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+    vc.patientID = ((ChatPatient *)[patientListArray objectAtIndex:indexPath.row]).patient_id;
+    [self.navigationController pushViewController:vc animated:true];
+   
 
 }
 
@@ -141,7 +145,7 @@
 
 
 #pragma mark - Api Related
--(void)hitApiForDependants:(ChatPatient*)patient{
+/*-(void)hitApiForDependants:(ChatPatient*)patient{
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:patient.patient_id forKey:@"user_id"];
     
@@ -209,7 +213,7 @@
         [self presentViewController:alertController animated:YES completion:nil];
     }
 }
-
+*/
 -(void)addLoder{
     self.view.userInteractionEnabled = NO;
     //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
