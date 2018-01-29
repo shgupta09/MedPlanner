@@ -246,7 +246,7 @@
 -(void)addStatusIcon
 {
     CGRect time_frame = _timeLabel.frame;
-    CGRect status_frame = CGRectMake(0, 0, 15, 14);
+    CGRect status_frame = CGRectMake(0, 0, 13, 13);
     status_frame.origin.x = time_frame.origin.x + time_frame.size.width + 5;
     status_frame.origin.y = time_frame.origin.y;
     _statusIcon.frame = status_frame;
@@ -258,9 +258,9 @@
     if (self.message.status == MessageStatusSending)
         _statusIcon.image = [self imageNamed:@"status_sending"];
     else if (self.message.status == MessageStatusSent)
-        _statusIcon.image = [self imageNamed:@"status_sent"];
-    else if (self.message.status == MessageStatusReceived)
-        _statusIcon.image = [self imageNamed:@"status_notified"];
+        _statusIcon.image = [self imageNamed:@"sent-chat"];
+    else if (self.message.status == MessageStateDelivered)
+        _statusIcon.image = [self imageNamed:@"delivered-chat"];
     else if (self.message.status == MessageStatusRead)
         _statusIcon.image = [self imageNamed:@"status_read"];
     if (self.message.status == MessageStatusFailed)

@@ -158,8 +158,8 @@ NSString * const XMPPActiveDuringOfflienMessageId = @"XMPPOfflienActiveMessageId
             
             //initialize XMPPMessageDeliveryReceipts
             XMPPMessageDeliveryReceipts *xmppMessageDeliveryReceipts = [[XMPPMessageDeliveryReceipts alloc] initWithDispatchQueue:dispatch_get_main_queue()];
-            [xmppMessageDeliveryReceipts setAutoSendMessageDeliveryReceipts:NO];
-            [xmppMessageDeliveryReceipts setAutoSendMessageDeliveryRequests:NO];
+            [xmppMessageDeliveryReceipts setAutoSendMessageDeliveryReceipts:YES];
+            [xmppMessageDeliveryReceipts setAutoSendMessageDeliveryRequests:YES];
             [xmppMessageDeliveryReceipts activate:_xmppStream];
             
             //Client to Server Connection

@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *message;
 @property (nullable, nonatomic, copy) NSString *senderId;
 @property (nullable, nonatomic, copy) NSString *isReceive;
+@property (nullable, nonatomic, copy) NSString *delivered;
 @property (nullable, nonatomic, copy) NSString *recieverId;
 @property (nullable, nonatomic, copy) NSDate *date;
 @end
