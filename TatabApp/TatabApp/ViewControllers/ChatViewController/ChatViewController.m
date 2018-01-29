@@ -54,9 +54,27 @@
     _lbl_Name.text = [NSString stringWithFormat:@"Dr. %@",_objDoctor.first_name];
     NSString* email = [CommonFunction getValueFromDefaultWithKey:loginemail];
     
-    NSString* foo = [NSString stringWithFormat:@"%@%@",[[email componentsSeparatedByString:@"@"] objectAtIndex:0],[[email componentsSeparatedByString:@"@"] objectAtIndex:1]];
-    NSString* userID = foo;
-    fromId = userID;
+   
+    
+    //test
+//    NSString* foo = [NSString stringWithFormat:@"%@%@",[[email componentsSeparatedByString:@"@"] objectAtIndex:0],[[email componentsSeparatedByString:@"@"] objectAtIndex:1]];
+//    NSString* userID = foo;
+//    fromId = userID;
+    
+    
+    //abhinav
+    _toId = @"shagdep";
+    fromId = @"ddhh";
+//
+    //iphone 6
+//    _toId = @"ddhh";
+//    fromId = @"shagdep";
+    
+    
+    
+    
+    
+    
     _viewShowStatus.layer.cornerRadius = 5;
     _viewShowStatus.layer.masksToBounds = true;
     _btnSend.layer.cornerRadius = 5;
@@ -145,6 +163,7 @@
     hm.userPassword = @"Admin@123";
     hm.hostName = @"35.154.181.86";
     hm.hostPort = [NSNumber numberWithInteger:5222];
+    
     [hm connectToXMPPServer];
     [hm setMyStatus:MyStatusAvailable];
     [self.tblView registerClass:[MessageCell class] forCellReuseIdentifier: @"MessageCell"];
@@ -172,12 +191,21 @@
     
     if ([notification.name isEqualToString:XMPPStreamDidReceiveMessage])
     {
+        
+        
         XMPPMessage* messageContent = notification.object;
         
+        if(messageContent.hasReceiptResponse){
+            [self setDeliveryTrueForMessageid:messageContent.receiptResponseID];
+            [self setMessageArray:false];
+
+            DebugLog(@"XMPPStreamDelegate : Message Receipt Response for Message - %@",messageContent.receiptResponseID);
+        }
+        else{
+            [self saveMessage:@"1" senderId:messageContent andeMessage:messageContent.body];
+            [self setMessageArray:true];
+        }
         
-        [self saveMessage:@"1" senderId:messageContent andeMessage:messageContent.body];
-        [self setMessageArray:true];
-      
     }
     
     else if ([notification.name isEqualToString:XMPPStreamDidSendMessage])
@@ -261,7 +289,8 @@
                     
                     //                    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shuam" andMessageId:@"34"];
                     
-                    [hm sendMessage:newMessage toFriendWithFriendId:_toId andMessageId:@"34"];
+                    [hm sendMessage:newMessage toFriendWithFriendId:_toId andMessageId:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] ]];
+
                     
                 }
                 else
@@ -289,7 +318,7 @@
 - (IBAction)switch_btn:(id)sender {
     if ([_mySwitch isOn]) {
         [self.mySwitch setOn:YES animated:YES];
-
+        [hm connectToXMPPServer];
         NSLog(@"Switch is on");
     } else {
         NSLog(@"Switch is off");
@@ -417,6 +446,11 @@
         }
         else{
             msg.sender = MessageSenderMyself;
+            msg.status = MessageStatusSent;
+
+        }
+        if ([s.delivered  isEqual: @"1"] ) {
+            msg.status = MessageStateDelivered;
         }
         msg.imgURL = [dictOfMedia objectForKey:@"url"];
         cell.message = msg;
@@ -440,12 +474,16 @@
         msg.text = message;
         if ([s.isReceive isEqualToString:@"1"]){
             msg.sender = MessageSenderSomeone;
+//            msg.status = MessageStatusSent;
         }
         else{
             msg.sender = MessageSenderMyself;
+            msg.status = MessageStatusSent;
         }
         
-        
+        if ([s.delivered  isEqual: @"1"] ) {
+            msg.status = MessageStateDelivered;
+        }
         cell.message = msg;
         
         
@@ -527,6 +565,10 @@
     
 }
 
+
+#pragma mark xml parser delegate methods
+
+
 -(void)saveMessage:(NSString *)isReceive senderId:(XMPPMessage *)messageContent andeMessage:(NSString *)messageString{
     NSManagedObjectContext *context = [self managedObjectContext];
     
@@ -534,11 +576,13 @@
     NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Chat" inManagedObjectContext:context];
     [newDevice setValue:messageString forKey:@"message"];
     [newDevice setValue:isReceive forKey:@"isReceive"];
+  
+    DDXMLElement* element = [[messageContent elementsForName:@"request"] firstObject];
+    
+    [newDevice setValue:[[element attributesAsDictionary] valueForKey:@"id"] forKey:@"messageId"];
 
-    
-    
     [newDevice setValue:isReceive forKey:@"isReceive"];
-
+    
     if (![isReceive  isEqual: @"0"] ){
         
         BOOL ischat = messageContent.isChatMessage;
@@ -554,11 +598,11 @@
     }
     else
     {
-
+        
         [newDevice setValue:[fromId lowercaseString] forKey:@"senderId"];
         [newDevice setValue:[_toId lowercaseString] forKey:@"recieverId"];
     }
-
+    
     
     [newDevice setValue:[NSDate date] forKey:@"date"];
     NSError *error = nil;
@@ -568,6 +612,28 @@
     }
     
 }
+
+-(void)setDeliveryTrueForMessageid:(NSString *)messageId{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Chat"];
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"messageId==%@",messageId];
+    
+    NSError *fetchError;
+    NSArray *fetchResultArray = [context executeFetchRequest:fetchRequest error:&fetchError];
+ 
+    // Create a new managed object
+    NSManagedObject *newDevice = [fetchResultArray firstObject];
+    [newDevice setValue:@"1" forKey:@"delivered"];
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    
+}
+    
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
     id delegate = [[UIApplication sharedApplication] delegate];
@@ -585,7 +651,7 @@
     if ([_mySwitch isOn]) {
         NSString *messageStr = _txtField.text;
         if([messageStr length] > 0) {
-            [hm sendMessage:messageStr toFriendWithFriendId:_toId andMessageId:@"34"];
+            [hm sendMessage:messageStr toFriendWithFriendId:_toId andMessageId:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] ]];
         }
     }else{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"You have to be Online to send the message." preferredStyle:UIAlertControllerStyleAlert];
