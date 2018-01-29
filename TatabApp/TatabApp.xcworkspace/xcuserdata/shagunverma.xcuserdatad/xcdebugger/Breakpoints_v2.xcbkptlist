@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/HealthTrackerContainer/PressureReportViewController/PressureReportViewController.m"
-            timestampString = "538930886.564088"
+            filePath = "TatabApp/ViewControllers/ChooseDependantViewController/ChooseDependantViewController.m"
+            timestampString = "538929586.621013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
-            landmarkName = "-getBloodPressure"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

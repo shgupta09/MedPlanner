@@ -1540,6 +1540,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
 =======
 				PROVISIONING_PROFILE = "d737fe5d-6ad4-4523-a0c0-c9428a76d544";
@@ -1557,6 +1558,10 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 >>>>>>> parent of de75cd9... test
+=======
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+>>>>>>> parent of c92c33e... Final build
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1582,6 +1587,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
 =======
 				PROVISIONING_PROFILE = "d737fe5d-6ad4-4523-a0c0-c9428a76d544";
@@ -1599,6 +1605,10 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 >>>>>>> parent of de75cd9... test
+=======
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+>>>>>>> parent of c92c33e... Final build
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

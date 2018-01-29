@@ -101,7 +101,7 @@
     
     if (_isdependant) {
         [_lblPatientName setText:_dependant.name];
-        [_lblgender setText:_dependant.gender];
+        [_lblgender setText:_dependant.name];
         
     }
     else
@@ -191,7 +191,6 @@
     
     if (!_isdependant){
         [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
-        [parameterDict setValue:@"" forKey:DEPENDANT_ID];
     }
     else
     {

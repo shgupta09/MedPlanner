@@ -44,7 +44,7 @@
                                 <constraint firstAttribute="height" constant="2" id="Ykj-tr-XrA"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hw7-iJ-6jb">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hw7-iJ-6jb" customClass="CustomButton">
                             <rect key="frame" x="20" y="40" width="30" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="8Iq-HY-Xwo"/>

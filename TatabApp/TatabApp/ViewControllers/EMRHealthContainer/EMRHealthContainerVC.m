@@ -44,7 +44,7 @@
 
     if (_isdependant) {
         [_lblPatientName setText:_dependant.name];
-        [_lblgender setText:_dependant.gender];
+        [_lblgender setText:_dependant.name];
 
     }
     else
@@ -172,7 +172,7 @@
 -(void)hitApiForDetails:(int)doctorId{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:_patient.patient_id forKey:@"patient_id"];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
     
     if ([ CommonFunction reachability]) {
@@ -234,7 +234,7 @@
 -(void)hitApiForPrescription:(int)doctorId{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:_patient.patient_id forKey:@"patient_id"];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
     
     if ([ CommonFunction reachability]) {
@@ -297,7 +297,7 @@
 -(void)hitApiForFollowUp:(int)doctorId{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:_patient.patient_id forKey:@"patient_id"];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
 
     if ([ CommonFunction reachability]) {
@@ -360,7 +360,7 @@
     
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:_patient.patient_id forKey:@"patient_id"];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];

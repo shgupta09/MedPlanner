@@ -139,7 +139,7 @@
 -(void)btnClicked:(id)sender{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[NSString stringWithFormat:@"Are you sure you want to delete %@ ?",((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).name] preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            [self hitApiForRemoveDependants:((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).depedant_id];
+            [self hitApiForRemoveDependants:((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).depedant_id];
         }];
         [alertController addAction:ok];
         UIAlertAction* no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:nil];
