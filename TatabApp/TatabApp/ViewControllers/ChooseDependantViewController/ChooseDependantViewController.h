@@ -12,4 +12,6 @@
 
 @property (nonatomic,strong) NSString* patientID;
 @property (nonatomic,strong) id classObj;
+@property (strong, nonatomic) IBOutlet UIView *popUpView;
+@property (weak, nonatomic) IBOutlet CustomTextField *txt_Relationship;
 @end

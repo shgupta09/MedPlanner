@@ -519,6 +519,11 @@ numberOfRowsInComponent:(NSInteger)component{
             [validationDict setValue:@"Oops! It seems that this is not a valid First Name." forKey:AlertKey];
         }
         
+    }else if ([_txt_Relationship.text isEqualToString:@""]){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        if ([CommonFunction trimString:_txtName.text].length == 0){
+            [validationDict setValue:@"We need a Relationship" forKey:AlertKey];
+        }
     }
     else if(_txt_BirthDate.text.length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];

@@ -13,8 +13,20 @@
     LoderView *loderObj;
     NSMutableArray *dependantListArray;
     ChatPatient *patient;
+    NSDate *departDate;
+    NSString *departDateString;
+    NSMutableArray *relationArray;
+    UIPickerView *pickerObj;
+    BOOL isMale;
+    UIView *viewOverPicker;
+    NSString *relationshipId ;
+    NSInteger selectedRowForSpeciality;
 }
-
+@property (weak, nonatomic) IBOutlet UIButton *addOptionBtnAction;
+@property (weak, nonatomic) IBOutlet CustomTextField *txtName;
+@property (weak, nonatomic) IBOutlet CustomTextField *txt_BirthDate;
+@property (weak, nonatomic) IBOutlet UIButton *btnFemale;
+@property (weak, nonatomic) IBOutlet UIButton *btnMAle;
 @property (weak, nonatomic) IBOutlet UITableView *tbl_View;
 @end
 
@@ -30,14 +42,41 @@
     loderObj.frame = self.view.frame;
 }
 -(void)setData{
+    _txtName.leftImgView.image = [UIImage imageNamed:@"b"];
+    _txt_BirthDate.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
+
+    _addOptionBtnAction.tintColor = [CommonFunction colorWithHexString:@"45AED4"];
+    
+    UIImage * image = [UIImage imageNamed:@"Plus"];
+    [_addOptionBtnAction setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    selectedRowForSpeciality = 0;
+    isMale = true;
+    relationArray = [NSMutableArray new];
+    [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
     patient = [ChatPatient new];
     [_tbl_View registerNib:[UINib nibWithNibName:@"SelectUserTableViewCell" bundle:nil]forCellReuseIdentifier:@"SelectUserTableViewCell"];
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 100;
     _tbl_View.multipleTouchEnabled = NO;
+    _btnFemale.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btnMAle.layer.cornerRadius = 22;
+    _btnFemale.layer.cornerRadius = 22;
+    _btnMAle.layer.borderWidth = 3;
+    _btnFemale.layer.borderWidth = 3;
+    _btnFemale.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
+    _btnMAle.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
+    
+    _btnMAle.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btnMAle.tintColor = [UIColor whiteColor];
+    
+    departDate = [NSDate date];
     [self hitApiForDependants];
 }
-
+-(void)resignResponder{
+    [CommonFunction resignFirstResponderOfAView:self.view];
+    [_popUpView removeFromSuperview];
+   
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -99,6 +138,29 @@
 
 
 #pragma mark - Api Related
+-(void) getData
+{
+    if ([ CommonFunction reachability]) {
+        
+        //      loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FOR_GET_RELATIONSHIP]  postResponse:nil postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                    [CommonFunction stroeBoolValueForKey:RelationApi withBoolValue:true];
+                    NSMutableArray *dataArray = [responseObj objectForKey:@"data"];
+                    [dataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        Relation* s = [[Relation alloc] init];
+                        s.idValue = [obj valueForKey:@"id"];
+                        s.name = [obj valueForKey:@"name"];
+                        [[Relation sharedInstance].myDataArray addObject:s];
+                    }];
+                    relationArray = [Relation sharedInstance].myDataArray;
+                }
+            }
+        }];
+    }
+}
+
 -(void)hitApiForDependants{
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:_patientID forKey:@"user_id"];
@@ -208,6 +270,77 @@
 
 
 #pragma mark - btn Actions
+
+- (IBAction)btnActionGender:(id)sender {
+    if (((UIButton *)sender).tag == 10) {
+        isMale = true;
+        _btnMAle.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+        _btnMAle.tintColor = [UIColor whiteColor];
+        _btnFemale.backgroundColor = [UIColor whiteColor];
+        _btnFemale.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+        
+    }else{
+        isMale = false;
+        _btnFemale.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+        _btnFemale.tintColor = [UIColor whiteColor];
+        _btnMAle.backgroundColor = [UIColor whiteColor];
+        _btnMAle.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    }
+}
+
+- (IBAction)btnAcion_relationShip:(id)sender {
+    
+    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerObj.delegate = self;
+    pickerObj.dataSource = self;
+    pickerObj.showsSelectionIndicator = YES;
+    pickerObj.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    UIToolbar *toolBarForTitle;
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             space,doneButton, nil];
+    pickerObj.hidden = false;
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:toolBar];
+    [pickerObj  selectRow:selectedRowForSpeciality inComponent:0 animated:true];
+    [viewOverPicker addSubview:pickerObj];
+    [self.view addSubview:viewOverPicker];
+    [pickerObj reloadAllComponents];
+}
+- (IBAction)btnAddFileClicked:(id)sender{
+    if (![CommonFunction getBoolValueFromDefaultWithKey:RelationApi]) {
+        [self getData];
+    }
+    else{
+        relationArray = [Relation sharedInstance].myDataArray;
+    }
+    _txtName.text = @"";
+    _txt_BirthDate.text = @"";
+    isMale = true;
+   
+    [[self popUpView] setAutoresizesSubviews:true];
+    [[self popUpView] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
+    frame.origin.y = 0.0f;
+    self.popUpView.center = CGPointMake(self.view.center.x, self.view.center.y);
+    [[self popUpView] setFrame:frame];
+    [self.view addSubview:_popUpView];
+    [CommonFunction addAnimationToview:_popUpView];
+    [_txtName becomeFirstResponder];
+}
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
 }
@@ -228,6 +361,91 @@
     self.view.userInteractionEnabled = YES;
 }
 
+- (IBAction)btnActionConfirmAdd:(id)sender {
+    NSDictionary *dictForValidation = [self validateData];
+    
+    if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
+        [_popUpView removeFromSuperview];
+        
+        RegistrationDpendency *dependencyObj = [RegistrationDpendency new];
+        dependencyObj.name = [CommonFunction trimString:_txtName.text];
+        dependencyObj.birthDay = _txt_BirthDate.text;
+        dependencyObj.isMale = isMale;
+        dependencyObj.depedant_id =relationshipId;
+        
+    }
+    else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[dictForValidation valueForKey:AlertKey] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+-(NSDictionary *)validateData{
+    NSMutableDictionary *validationDict = [[NSMutableDictionary alloc] init];
+    [validationDict setValue:@"1" forKey:BoolValueKey];
+    if (![CommonFunction validateName:_txtName.text]){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        if ([CommonFunction trimString:_txtName.text].length == 0){
+            [validationDict setValue:@"We need a First Name" forKey:AlertKey];
+        }else{
+            [validationDict setValue:@"Oops! It seems that this is not a valid First Name." forKey:AlertKey];
+        }
+        
+    }else if ([_txt_Relationship.text isEqualToString:@""]){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        if ([CommonFunction trimString:_txtName.text].length == 0){
+            [validationDict setValue:@"We need a Relationship" forKey:AlertKey];
+        }
+    }
+    else if(_txt_BirthDate.text.length == 0){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        [validationDict setValue:@"We need a birth date" forKey:AlertKey];
+    }
+    return validationDict.mutableCopy;
+    
+}
 
+// value change of the date picker
+-(void) dueDateChanged:(UIDatePicker *)sender {
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    //self.myLabel.text = [dateFormatter stringFromDate:[dueDatePickerView date]];
+    NSLog(@"Picked the date %@", [dateFormatter stringFromDate:[sender date]]);
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    departDateString = [dateFormatter stringFromDate:[sender date]];
+    departDate = sender.date;
+    _txt_BirthDate.text = departDateString;
+   
+    
+}
 
+#pragma mark - picker data Source
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 1;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component{
+    
+    return [relationArray count];
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
+(NSInteger)row forComponent:(NSInteger)component{
+    
+    Relation* relationObj = [relationArray objectAtIndex:row];
+    return relationObj.name;
+    
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component{
+    Relation* relationObj = [relationArray objectAtIndex:row];
+    _txt_Relationship.text = relationObj.name;
+    relationshipId= relationObj.idValue;
+    selectedRowForSpeciality = row;
+}
 @end
