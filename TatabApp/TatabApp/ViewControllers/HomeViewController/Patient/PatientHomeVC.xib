@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,6 @@
             <connections>
                 <outlet property="btn_ElectronicMR" destination="Sr9-az-eee" id="7iv-El-Ric"/>
                 <outlet property="btn_MedicalConsultant" destination="S2R-72-WJa" id="VmZ-6Q-zve"/>
-                <outlet property="btn_RecordHistory" destination="VBc-S4-qAF" id="tyH-Vp-Aww"/>
                 <outlet property="btn_registerSubRegords" destination="vuJ-Is-sg1" id="5YZ-Yq-Lww"/>
                 <outlet property="imgView" destination="u57-hP-d82" id="QbZ-2V-Vh0"/>
                 <outlet property="lbl_Name" destination="eIS-gg-10T" id="o3d-Iw-en0"/>
@@ -72,9 +71,6 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Request History"/>
-                    <connections>
-                        <action selector="btnAction_CaseHistory:" destination="-1" eventType="touchUpInside" id="dgl-1E-AE1"/>
-                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="u57-hP-d82">
                     <rect key="frame" x="28" y="94" width="60" height="60"/>
@@ -159,6 +155,11 @@
                 <constraint firstItem="5nD-bX-64i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mG1-XM-Vkq"/>
                 <constraint firstItem="eIS-gg-10T" firstAttribute="leading" secondItem="u57-hP-d82" secondAttribute="trailing" constant="10" id="tcT-Oe-PfX"/>
             </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="VBc-S4-qAF"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>
