@@ -240,23 +240,7 @@
                     }];
                     
                     patient.dependants = dependantListArray;
-                    
-                    if (patient.dependants.count>0) {
-                        ChooseDependantViewController* vc ;
-                        vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
-                        vc.patient = patient;
-                        [self.navigationController pushViewController:vc animated:true];
-                        
-                    }
-                    else
-                    {
-                        EMRHealthContainerVC* vc ;
-                        vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
-                        vc.isdependant = false;
-                        vc.patient = patient;
-                        [self.navigationController pushViewController:vc animated:true];
-                    }
-                    
+                
                     
                 }else
                 {

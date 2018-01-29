@@ -139,7 +139,7 @@
 
 -(void)zoomWithImage:(NSString *)imageUrlString{
     [imgView sd_setImageWithURL:[NSURL URLWithString:imageUrlString]];
-    addSubView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    addSubView = [[UIView alloc]initWithFrame:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-40)];
     [addSubView setBackgroundColor:[UIColor colorWithRed:0.5/255.0f green:0.5/255.0f blue:0.5/255.0f alpha:.8]];
     [addSubView addSubview:imgView];
     addSubView.tag = 101;

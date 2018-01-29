@@ -10,6 +10,6 @@
 
 @interface ChooseDependantViewController : UIViewController
 
-@property (nonatomic,strong) ChatPatient* patient;
-
+@property (nonatomic,strong) NSString* patientID;
+@property (nonatomic,strong) id classObj;
 @end
