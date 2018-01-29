@@ -57,7 +57,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
         RegistrationDpendency* dependant = [patient.dependants objectAtIndex:indexPath.row];
-    if ([_classObj isKindOfClass:[RearViewController class]]) {
+    if ([_classObj isKindOfClass:[RearViewController class]] && _isManageDependants) {
         cell.btn_Cross.hidden = false;
         cell.sideImageView.hidden = true;
         [cell.btn_Cross addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -95,7 +95,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   
-    if ([_classObj isKindOfClass:[ChoosePatientViewController class]]){
+    if (!_isManageDependants){
         if (indexPath.row == 0) {
             EMRHealthContainerVC* vc ;
             vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
@@ -141,7 +141,7 @@
                     dependantListArray = [NSMutableArray new];
                     RegistrationDpendency *dependencyObj = [RegistrationDpendency new];
                    // dependencyObj.name = [[responseObj valueForKey:@"patient"] valueForKey:@"name"];
-                     dependencyObj.name = _patientName;
+                     dependencyObj.name = @"Main Profile";
                     dependencyObj.depedant_id = [[responseObj valueForKey:@"patient"] valueForKey:@"id"];
                     dependencyObj.gender = [[responseObj valueForKey:@"patient"] valueForKey:@"gender"];
                     dependencyObj.isMainProfile = true;

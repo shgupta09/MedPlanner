@@ -254,6 +254,8 @@
     
     if (!_isdependant){
         [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:@"" forKey:DEPENDANT_ID];
+
     }
     else
     {

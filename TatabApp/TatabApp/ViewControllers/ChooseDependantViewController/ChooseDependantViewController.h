@@ -13,4 +13,5 @@
 @property (nonatomic,strong) NSString* patientID;
 @property (nonatomic,strong) NSString* patientName;
 @property (nonatomic,strong) id classObj;
+@property bool isManageDependants;
 @end

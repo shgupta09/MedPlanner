@@ -124,13 +124,18 @@
                     vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
                     vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
                     vc.classObj = self;
+                    vc.isManageDependants = true;
                     [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
                     
                 case 1:
                 {
-                    [self hitApiForDependants:[CommonFunction getValueFromDefaultWithKey:loginuserId]];
+                    ChooseDependantViewController* vc ;
+                    vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+                    vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+                    vc.classObj = self;
+                    [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
                 case 2:{
@@ -215,63 +220,63 @@
     
 }
 
-#pragma mark - Api Related
--(void)hitApiForDependants:(NSString*)patientId{
-    NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:patientId forKey:@"user_id"];
-
-    if ([ CommonFunction reachability]) {
-        [self addLoder];
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DEPENDANTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
-            if (error == nil) {
-                
-                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    NSArray *tempArray = [NSArray new];
-                    NSMutableArray *dependantListArray = [NSMutableArray new];
-                    ChatPatient* patient = [ChatPatient new];
-                    
-                    patient.patient_id = [CommonFunction getValueFromDefaultWithKey:loginuserId];
-                    
-                    
-                    tempArray  = [[responseObj valueForKey:@"patient"] valueForKey:@"childrens"];
-                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        RegistrationDpendency *dependencyObj = [RegistrationDpendency new];
-                        dependencyObj.name = [obj valueForKey:@"name"];
-                        dependencyObj.depedant_id = [obj valueForKey:@"id"];
-                        dependencyObj.gender = [obj valueForKey:@"gender"];
-                        
-                        [dependantListArray addObject:dependencyObj];
-                    }];
-                    
-                    patient.dependants = dependantListArray;
-                
-                    
-                }else
-                {
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction:ok];
-                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
-                    [self presentViewController:alertController animated:YES completion:nil];
-                    [self removeloder];
-                }
-                [self removeloder];
-                
-            }
-            
-            
-            
-        }];
-    } else {
-        [self removeloder];
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
-}
+//#pragma mark - Api Related
+//-(void)hitApiForDependants:(NSString*)patientId{
+//    NSMutableDictionary *parameter = [NSMutableDictionary new];
+//    [parameter setValue:patientId forKey:@"user_id"];
+//
+//    if ([ CommonFunction reachability]) {
+//        [self addLoder];
+//        
+//        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+//        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DEPENDANTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+//            if (error == nil) {
+//                
+//                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+//                    NSArray *tempArray = [NSArray new];
+//                    NSMutableArray *dependantListArray = [NSMutableArray new];
+//                    ChatPatient* patient = [ChatPatient new];
+//                    
+//                    patient.patient_id = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+//                    
+//                    
+//                    tempArray  = [[responseObj valueForKey:@"patient"] valueForKey:@"childrens"];
+//                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                        RegistrationDpendency *dependencyObj = [RegistrationDpendency new];
+//                        dependencyObj.name = [obj valueForKey:@"name"];
+//                        dependencyObj.depedant_id = [obj valueForKey:@"id"];
+//                        dependencyObj.gender = [obj valueForKey:@"gender"];
+//                        
+//                        [dependantListArray addObject:dependencyObj];
+//                    }];
+//                    
+//                    patient.dependants = dependantListArray;
+//                
+//                    
+//                }else
+//                {
+//                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+//                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+//                    [alertController addAction:ok];
+//                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+//                    [self presentViewController:alertController animated:YES completion:nil];
+//                    [self removeloder];
+//                }
+//                [self removeloder];
+//                
+//            }
+//            
+//            
+//            
+//        }];
+//    } else {
+//        [self removeloder];
+//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+//        [alertController addAction:ok];
+//        [self presentViewController:alertController animated:YES completion:nil];
+//    }
+//}
 
 
 - (IBAction)btn_Logout:(id)sender {
