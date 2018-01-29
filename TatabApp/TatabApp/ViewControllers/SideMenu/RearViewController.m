@@ -135,10 +135,14 @@
                     break;
                 case 3:
                 {
+<<<<<<< HEAD
                     EMRHealthContainerVC* vc ;
                     vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
                     [self.navigationController pushViewController:vc animated:true];
 
+=======
+                   
+>>>>>>> 8a56e545a5d0001d1211051df52701e6a7ced207
                 }
                     break;
 

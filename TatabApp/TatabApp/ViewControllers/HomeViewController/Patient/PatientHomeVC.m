@@ -106,5 +106,23 @@
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
 }
+- (IBAction)btn_MedicalConsultaionAction:(id)sender {
+    AwarenessCategoryViewController *vc = [[AwarenessCategoryViewController alloc]initWithNibName:@"AwarenessCategoryViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:true];
+    
+    
+}
+- (IBAction)btnAction_manageDependents:(id)sender {
+    
+    
+}
+- (IBAction)btnAction_MedicalReports:(id)sender {
+    
+    
+}
+- (IBAction)btnAction_CaseHistory:(id)sender {
+    
+    
+}
 
 @end

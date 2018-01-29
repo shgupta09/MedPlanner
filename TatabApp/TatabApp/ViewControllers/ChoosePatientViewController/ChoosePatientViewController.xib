@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,36 +20,35 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="TaM-0j-fdN">
-                    <rect key="frame" x="0.0" y="10" width="375" height="647"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="TaM-0j-fdN">
+                    <rect key="frame" x="0.0" y="59" width="375" height="608"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssH-y7-nve">
-                    <rect key="frame" x="0.0" y="77" width="375" height="2"/>
+                    <rect key="frame" x="0.0" y="57" width="375" height="2"/>
                     <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="0VC-Ov-yz5"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjO-Ds-Y3U" customClass="CustomButton">
-                    <rect key="frame" x="20" y="20" width="50" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjO-Ds-Y3U">
+                    <rect key="frame" x="20" y="20" width="30" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="DTs-l1-AZf"/>
-                        <constraint firstAttribute="height" constant="50" id="Oyc-pN-PmR"/>
+                        <constraint firstAttribute="width" constant="30" id="DTs-l1-AZf"/>
+                        <constraint firstAttribute="height" constant="30" id="Oyc-pN-PmR"/>
                     </constraints>
-                    <state key="normal" title="Back"/>
+                    <state key="normal" image="back"/>
                     <connections>
                         <action selector="btnBackClicked:" destination="-1" eventType="touchUpInside" id="XW1-t5-Q3p"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Patient" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baG-Ra-gal">
-                    <rect key="frame" x="120" y="41" width="135" height="23"/>
+                    <rect key="frame" x="120" y="21" width="135" height="23"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                     <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y9U-Yi-JLG">
-                    <rect key="frame" x="0.0" y="79" width="375" height="588"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y9U-Yi-JLG">
+                    <rect key="frame" x="0.0" y="59" width="375" height="608"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="AjB-Jb-pHi"/>
@@ -62,12 +61,16 @@
                 <constraint firstAttribute="bottom" secondItem="Y9U-Yi-JLG" secondAttribute="bottom" id="2Kp-1C-mxy"/>
                 <constraint firstItem="Y9U-Yi-JLG" firstAttribute="top" secondItem="ssH-y7-nve" secondAttribute="bottom" id="3Dj-oT-jMI"/>
                 <constraint firstItem="ssH-y7-nve" firstAttribute="top" secondItem="baG-Ra-gal" secondAttribute="bottom" constant="13.5" id="7N4-hd-wlZ"/>
+                <constraint firstItem="TaM-0j-fdN" firstAttribute="top" secondItem="ssH-y7-nve" secondAttribute="bottom" id="8Wu-kF-pdu"/>
                 <constraint firstItem="ssH-y7-nve" firstAttribute="top" secondItem="XjO-Ds-Y3U" secondAttribute="bottom" constant="7" id="Glj-HN-skX"/>
                 <constraint firstItem="Y9U-Yi-JLG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hof-Vq-75H"/>
+                <constraint firstAttribute="bottom" secondItem="TaM-0j-fdN" secondAttribute="bottom" id="JRP-TV-34z"/>
                 <constraint firstAttribute="trailing" secondItem="Y9U-Yi-JLG" secondAttribute="trailing" id="Npy-0Q-l4m"/>
                 <constraint firstItem="XjO-Ds-Y3U" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Yg2-bV-4Wb"/>
                 <constraint firstItem="ssH-y7-nve" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Yzh-Xn-IZR"/>
                 <constraint firstItem="baG-Ra-gal" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bDx-DR-Vza"/>
+                <constraint firstItem="TaM-0j-fdN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iuZ-Pu-NQH"/>
+                <constraint firstAttribute="trailing" secondItem="TaM-0j-fdN" secondAttribute="trailing" id="umY-QH-yEx"/>
                 <constraint firstAttribute="trailing" secondItem="ssH-y7-nve" secondAttribute="trailing" id="x5B-fh-o9q"/>
                 <constraint firstItem="XjO-Ds-Y3U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="yKj-Fa-fEx"/>
             </constraints>
@@ -75,5 +78,6 @@
     </objects>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
+        <image name="back" width="55" height="45"/>
     </resources>
 </document>

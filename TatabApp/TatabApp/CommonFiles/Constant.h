@@ -63,7 +63,7 @@
 #define Photo @"photo"
 #define Document @"document"
 #define isAwarenessApiHIt @"Api"
-
+#define RelationApi@"IsRelationApiHIt"
 //Alert Related Constant
 #define Tag_For_Remove_Alert 100
 #define OK_Btn @"Ok"
@@ -149,4 +149,5 @@ static NSString* const API_GET_WEIGHT = @"getreportweight";
 static NSString* const API_UPLOAD_WEIGHT = @"reportweight";
 static NSString* const API_GET_FEVER_REPORT = @"getreportfever";
 static NSString* const API_UPLOAD_FEVER_REPORT = @"reportfever";
+static NSString* const API_FOR_GET_RELATIONSHIP = @"getrelationships";
 #endif /* Constant_h */
