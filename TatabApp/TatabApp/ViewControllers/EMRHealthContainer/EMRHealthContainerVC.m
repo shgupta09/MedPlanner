@@ -60,14 +60,14 @@
     vc = [[HealthTrackerContainerVC alloc] initWithNibName:@"HealthTrackerContainerVC" bundle:nil];
    
     if (!_isdependant){
-        _isdependant = false;
+        vc.isdependant = _isdependant;
         vc.patient = _patient;
     }
     else
     {
-        _isdependant = true;
         vc.patient = _patient;
         vc.dependant = _dependant;
+        vc.isdependant = _isdependant;
     }
 
     UINavigationController* navVC = [[UINavigationController alloc ] initWithRootViewController:vc];

@@ -80,6 +80,8 @@
     ChooseDependantViewController* vc ;
     vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
     vc.patientID = ((ChatPatient *)[patientListArray objectAtIndex:indexPath.row]).patient_id;
+    vc.patientName = ((ChatPatient *)[patientListArray objectAtIndex:indexPath.row]).name;
+    vc.classObj = self;
     [self.navigationController pushViewController:vc animated:true];
    
 

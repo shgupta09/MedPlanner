@@ -68,6 +68,32 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   
+    if ([_classObj isKindOfClass:[ChoosePatientViewController class]]){
+        if (indexPath.row == 0) {
+            EMRHealthContainerVC* vc ;
+            vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
+            ChatPatient* pat = [ChatPatient new];
+            pat.patient_id = _patientID;
+            vc.patient = pat;
+            vc.isdependant = false;
+            [self.navigationController pushViewController:vc animated:true];
+        }
+        else
+        {
+            EMRHealthContainerVC* vc ;
+            vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
+            ChatPatient* pat = [ChatPatient new];
+            pat.patient_id = _patientID;
+            vc.patient = pat;
+            vc.dependant = [patient.dependants objectAtIndex:indexPath.row];
+            vc.isdependant = true;
+            [self.navigationController pushViewController:vc animated:true];
+
+        }
+
+    }
+    
+    
 }
 
 
@@ -88,7 +114,7 @@
                     dependantListArray = [NSMutableArray new];
                     RegistrationDpendency *dependencyObj = [RegistrationDpendency new];
                    // dependencyObj.name = [[responseObj valueForKey:@"patient"] valueForKey:@"name"];
-                     dependencyObj.name = @"Main Profile";
+                     dependencyObj.name = _patientName;
                     dependencyObj.depedant_id = [[responseObj valueForKey:@"patient"] valueForKey:@"id"];
                     dependencyObj.gender = [[responseObj valueForKey:@"patient"] valueForKey:@"gender"];
                     dependencyObj.isMainProfile = true;

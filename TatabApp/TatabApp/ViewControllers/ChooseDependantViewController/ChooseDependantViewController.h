@@ -11,5 +11,6 @@
 @interface ChooseDependantViewController : UIViewController
 
 @property (nonatomic,strong) NSString* patientID;
+@property (nonatomic,strong) NSString* patientName;
 @property (nonatomic,strong) id classObj;
 @end
