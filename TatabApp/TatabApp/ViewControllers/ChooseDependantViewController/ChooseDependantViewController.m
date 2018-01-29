@@ -36,6 +36,12 @@
     [super viewDidLoad];
     [self setData];
 
+    if ([_classObj isKindOfClass:[RearViewController class]] && _isManageDependants) {
+    }
+    else
+    {
+        _btnAdd.hidden = true;
+    }
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewDidLayoutSubviews{
@@ -108,7 +114,7 @@
         }
     }else{
         cell.btn_Cross.hidden = true;
-            cell.add
+        
         cell.sideImageView.hidden = false;
     }
     

@@ -65,7 +65,8 @@
     
             ChatPatient *obj = [patientListArray objectAtIndex:indexPath.row];
         cell.lbl_name.text = [NSString stringWithFormat:@"Mr. %@",obj.name];
-    
+    cell.btn_Cross.hidden = true;
+
         //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
         [cell.profileImageView setImage:[UIImage imageNamed:@"profile.png"]];
         

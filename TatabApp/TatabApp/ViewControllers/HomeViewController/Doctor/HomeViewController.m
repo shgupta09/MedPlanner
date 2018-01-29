@@ -77,6 +77,14 @@
 - (IBAction)btn_Awareness:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
 }
+- (IBAction)btnCaseHistory:(id)sender {
+    
+    ChoosePatientViewController* vc ;
+    vc = [[ChoosePatientViewController alloc] initWithNibName:@"ChoosePatientViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:true];
+
+    
+}
 
 #pragma mark- SWRevealViewController
 

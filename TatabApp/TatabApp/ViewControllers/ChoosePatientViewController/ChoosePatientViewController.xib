@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,17 +21,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="TaM-0j-fdN">
-                    <rect key="frame" x="0.0" y="59" width="375" height="608"/>
+                    <rect key="frame" x="0.0" y="69" width="375" height="598"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssH-y7-nve">
-                    <rect key="frame" x="0.0" y="57" width="375" height="2"/>
+                    <rect key="frame" x="0.0" y="67" width="375" height="2"/>
                     <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="0VC-Ov-yz5"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjO-Ds-Y3U">
-                    <rect key="frame" x="20" y="20" width="30" height="30"/>
+                    <rect key="frame" x="20" y="30" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="DTs-l1-AZf"/>
                         <constraint firstAttribute="height" constant="30" id="Oyc-pN-PmR"/>
@@ -42,13 +42,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Patient" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baG-Ra-gal">
-                    <rect key="frame" x="120" y="23.5" width="135" height="23"/>
+                    <rect key="frame" x="120" y="33.5" width="135" height="23"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                     <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y9U-Yi-JLG">
-                    <rect key="frame" x="0.0" y="59" width="375" height="608"/>
+                    <rect key="frame" x="0.0" y="69" width="375" height="598"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="AjB-Jb-pHi"/>
@@ -72,7 +72,7 @@
                 <constraint firstItem="TaM-0j-fdN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iuZ-Pu-NQH"/>
                 <constraint firstAttribute="trailing" secondItem="TaM-0j-fdN" secondAttribute="trailing" id="umY-QH-yEx"/>
                 <constraint firstAttribute="trailing" secondItem="ssH-y7-nve" secondAttribute="trailing" id="x5B-fh-o9q"/>
-                <constraint firstItem="XjO-Ds-Y3U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="yKj-Fa-fEx"/>
+                <constraint firstItem="XjO-Ds-Y3U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="yKj-Fa-fEx"/>
             </constraints>
         </view>
     </objects>

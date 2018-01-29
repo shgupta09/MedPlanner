@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -47,9 +47,9 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVc-H2-uA0">
-                    <rect key="frame" x="170" y="43" width="35" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="169.5" y="44.5" width="36.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSi-Bo-uSA" customClass="CustomButton3">
@@ -265,7 +265,6 @@
                 <constraint firstItem="Oqt-d3-tlK" firstAttribute="centerY" secondItem="gkZ-6M-LbE" secondAttribute="centerY" id="NEc-eY-zlq"/>
                 <constraint firstItem="j9X-oO-pEM" firstAttribute="top" secondItem="ka6-PR-nfq" secondAttribute="bottom" id="NEx-vT-UrD"/>
                 <constraint firstItem="0Dd-Bk-LjH" firstAttribute="top" secondItem="uqO-vh-f3E" secondAttribute="bottom" constant="-50" id="Nvn-Eq-5Py"/>
-                <constraint firstItem="aN5-AZ-NNv" firstAttribute="top" secondItem="rVc-H2-uA0" secondAttribute="bottom" constant="13.5" id="OHU-yw-T5o"/>
                 <constraint firstItem="4AE-xs-JOY" firstAttribute="centerY" secondItem="G5q-r2-7Xx" secondAttribute="centerY" id="Ob0-Ma-SFW"/>
                 <constraint firstItem="Cph-Fq-vWp" firstAttribute="leading" secondItem="G5q-r2-7Xx" secondAttribute="trailing" constant="8" id="QoZ-x5-6T9"/>
                 <constraint firstItem="j9X-oO-pEM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qox-vh-ywY"/>
@@ -285,6 +284,7 @@
                 <constraint firstItem="jJN-VP-XZG" firstAttribute="centerY" secondItem="iqk-3H-9KA" secondAttribute="centerY" id="d9X-1i-Tzr"/>
                 <constraint firstItem="41w-xP-zv3" firstAttribute="centerY" secondItem="4AE-xs-JOY" secondAttribute="centerY" id="eJ3-4o-Cv6"/>
                 <constraint firstItem="xhQ-1B-fCS" firstAttribute="leading" secondItem="fjS-YP-m9x" secondAttribute="trailing" constant="8" id="eby-jt-bef"/>
+                <constraint firstItem="rVc-H2-uA0" firstAttribute="centerY" secondItem="uqO-vh-f3E" secondAttribute="centerY" id="egH-Vm-eJc"/>
                 <constraint firstItem="iqk-3H-9KA" firstAttribute="top" secondItem="4AE-xs-JOY" secondAttribute="bottom" constant="7" id="fo8-O1-cU2"/>
                 <constraint firstAttribute="trailing" secondItem="0Dd-Bk-LjH" secondAttribute="trailing" id="gkb-nx-57D"/>
                 <constraint firstItem="0Dd-Bk-LjH" firstAttribute="leading" secondItem="fjS-YP-m9x" secondAttribute="trailing" constant="-70" id="h7R-ZH-Aqx"/>
@@ -296,7 +296,6 @@
                 <constraint firstItem="gkZ-6M-LbE" firstAttribute="top" secondItem="G5q-r2-7Xx" secondAttribute="bottom" constant="7" id="nWW-PA-6gX"/>
                 <constraint firstItem="ka6-PR-nfq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="q2N-j3-Vh9"/>
                 <constraint firstItem="iqk-3H-9KA" firstAttribute="leading" secondItem="4AE-xs-JOY" secondAttribute="leading" id="rFf-5o-c7p"/>
-                <constraint firstItem="0Dd-Bk-LjH" firstAttribute="top" secondItem="rVc-H2-uA0" secondAttribute="bottom" constant="-43.5" id="uxF-HU-lEE"/>
                 <constraint firstItem="0Dd-Bk-LjH" firstAttribute="leading" secondItem="uqO-vh-f3E" secondAttribute="trailing" constant="-50" id="vIU-lg-sfH"/>
                 <constraint firstItem="rIg-vA-aJH" firstAttribute="leading" secondItem="4ha-nx-vaI" secondAttribute="trailing" constant="8" id="vbv-fi-vft"/>
                 <constraint firstItem="Oqt-d3-tlK" firstAttribute="leading" secondItem="gkZ-6M-LbE" secondAttribute="trailing" constant="8" id="w20-t4-BjA"/>

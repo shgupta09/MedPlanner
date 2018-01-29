@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseDependantViewController">
             <connections>
                 <outlet property="addOptionBtnAction" destination="WeV-iU-qX6" id="tay-tT-Ubn"/>
+                <outlet property="btnAdd" destination="WeV-iU-qX6" id="lWV-Tk-4ah"/>
                 <outlet property="btnFemale" destination="Ue9-n8-Kmt" id="rpS-wN-XTP"/>
                 <outlet property="btnMAle" destination="PgG-r2-Sc4" id="7xY-q9-JNU"/>
                 <outlet property="popUpView" destination="QDa-GM-u1A" id="Nn1-9M-NR5"/>

@@ -53,9 +53,9 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCp-Qe-xLD">
-                            <rect key="frame" x="132" y="43" width="112" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <rect key="frame" x="129.5" y="43" width="117.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHX-qM-aqx" customClass="CustomButton4">
@@ -449,7 +449,7 @@ Bmi&lt;18.5</string>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzQ-0D-6nu">
-                                                    <rect key="frame" x="155" y="0.0" width="76" height="53"/>
+                                                    <rect key="frame" x="155" y="0.0" width="75" height="53"/>
                                                     <color key="backgroundColor" red="0.93817079067230225" green="0.44578015804290771" blue="0.11685750633478165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <string key="text">Over Weight
 25-29.9</string>
@@ -464,7 +464,7 @@ Bmi&lt;18.5</string>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lh-FJ-MrE">
-                                                    <rect key="frame" x="232" y="0.0" width="75" height="53"/>
+                                                    <rect key="frame" x="231" y="0.0" width="76" height="53"/>
                                                     <color key="backgroundColor" red="0.8727225661277771" green="0.01261503342539072" blue="0.10204603523015976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <string key="text">Obesity
 Bmi&gt;30</string>

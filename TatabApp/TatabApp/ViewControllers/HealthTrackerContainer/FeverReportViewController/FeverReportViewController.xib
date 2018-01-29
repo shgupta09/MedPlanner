@@ -43,20 +43,20 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hw7-iJ-6jb" customClass="CustomButton">
-                            <rect key="frame" x="20" y="20" width="50" height="50"/>
+                            <rect key="frame" x="20" y="40" width="30" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="8Iq-HY-Xwo"/>
-                                <constraint firstAttribute="width" constant="50" id="Sg6-Og-KbV"/>
+                                <constraint firstAttribute="height" constant="30" id="8Iq-HY-Xwo"/>
+                                <constraint firstAttribute="width" constant="30" id="Sg6-Og-KbV"/>
                             </constraints>
-                            <state key="normal" title="Back"/>
+                            <state key="normal" backgroundImage="back"/>
                             <connections>
                                 <action selector="btnBackClicked:" destination="-1" eventType="touchUpInside" id="7iZ-Dd-hAU"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHd-go-P9a">
-                            <rect key="frame" x="132" y="43" width="112" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <rect key="frame" x="129.5" y="43" width="117.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5M-DO-kXu" customClass="CustomButton4">
@@ -320,7 +320,7 @@
                         <constraint firstAttribute="trailing" secondItem="bWx-Is-u5Y" secondAttribute="trailing" id="63Q-ow-DiG"/>
                         <constraint firstItem="c5M-DO-kXu" firstAttribute="leading" secondItem="LJh-3G-UjG" secondAttribute="leading" constant="16" id="6py-0Q-KRx"/>
                         <constraint firstItem="x1O-FO-S64" firstAttribute="centerY" secondItem="rmQ-Pm-ygE" secondAttribute="centerY" id="7Ab-cP-3G8"/>
-                        <constraint firstItem="zlJ-Sa-V14" firstAttribute="leading" secondItem="hw7-iJ-6jb" secondAttribute="trailing" constant="-70" id="8nt-wM-zb8"/>
+                        <constraint firstItem="zlJ-Sa-V14" firstAttribute="leading" secondItem="hw7-iJ-6jb" secondAttribute="trailing" constant="-50" id="8nt-wM-zb8"/>
                         <constraint firstItem="bWx-Is-u5Y" firstAttribute="leading" secondItem="MDW-7t-bgg" secondAttribute="trailing" constant="8" id="BD7-2I-q2G"/>
                         <constraint firstItem="yAS-Mu-6YQ" firstAttribute="top" secondItem="MDW-7t-bgg" secondAttribute="bottom" constant="7" id="COb-5H-G6G"/>
                         <constraint firstItem="cM5-dL-UGB" firstAttribute="trailing" secondItem="bWx-Is-u5Y" secondAttribute="trailing" id="DLP-hX-hFb"/>
@@ -637,6 +637,7 @@
     </objects>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
+        <image name="back" width="55" height="45"/>
         <image name="pointer" width="102" height="87"/>
         <image name="thermometer" width="516" height="519"/>
     </resources>

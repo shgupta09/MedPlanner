@@ -117,6 +117,11 @@
     
 }
 - (IBAction)btnAction_MedicalReports:(id)sender {
+    ChooseDependantViewController* vc ;
+    vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+    vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+    vc.classObj = self;
+    [self.navigationController pushViewController:vc animated:true];
     
     
 }
