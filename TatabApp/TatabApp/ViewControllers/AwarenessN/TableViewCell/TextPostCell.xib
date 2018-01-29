@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="117"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="116.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvm-mx-STk">
@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.58832287788391113" green="0.76530295610427856" blue="0.36485511064529419" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.90406558390000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="m7S-bx-QiL" firstAttribute="leading" secondItem="Gvm-mx-STk" secondAttribute="leading" constant="1" id="9Ck-XR-bGE"/>
                             <constraint firstAttribute="bottom" secondItem="Lsm-A2-TYs" secondAttribute="bottom" constant="1" id="DOd-nK-LZT"/>
@@ -97,7 +97,7 @@
                             <constraint firstAttribute="width" constant="20" id="17e-15-QfV"/>
                             <constraint firstAttribute="height" constant="20" id="L51-Vs-tcH"/>
                         </constraints>
-                        <state key="normal" backgroundImage="share"/>
+                        <state key="normal" backgroundImage="sendButton"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8j-oG-z04">
                         <rect key="frame" x="227" y="94.5" width="18" height="12"/>
@@ -180,6 +180,6 @@
         <image name="Like" width="33" height="31"/>
         <image name="comment" width="35" height="29"/>
         <image name="section-children" width="94" height="78"/>
-        <image name="share" width="31" height="35"/>
+        <image name="sendButton" width="70" height="71"/>
     </resources>
 </document>

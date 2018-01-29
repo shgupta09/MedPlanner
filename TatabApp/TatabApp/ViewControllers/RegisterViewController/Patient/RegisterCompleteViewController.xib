@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
 =======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
 >>>>>>> c92c33eefbb02edadf25a5d3dfc79fb8dd4b3089
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+>>>>>>> parent of de75cd9... test
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -368,7 +372,7 @@
                 <constraint firstItem="o82-fa-aFw" firstAttribute="leading" secondItem="sQu-TM-l9G" secondAttribute="leading" id="Q3P-Ng-ZYq"/>
                 <constraint firstAttribute="bottom" secondItem="o82-fa-aFw" secondAttribute="bottom" id="xPK-xo-NiI"/>
             </constraints>
-            <point key="canvasLocation" x="-417" y="862"/>
+            <point key="canvasLocation" x="-388.5" y="820.5"/>
         </view>
     </objects>
     <resources>
