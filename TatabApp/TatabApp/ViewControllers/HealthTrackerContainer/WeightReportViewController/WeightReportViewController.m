@@ -70,10 +70,24 @@
     _graphView.enableReferenceAxisFrame = YES;
     
 
+    
     if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
         _btnAdd.hidden = true;
     }
 
+    
+    if (_isdependant) {
+        [_lblPatientName setText:_dependant.name];
+        [_lblgender setText:_dependant.name];
+        
+    }
+    else
+    {
+        [_lblPatientName setText:_patient.name];
+        [_lblgender setText:_patient.gender];
+        
+    }
+    
     // Do any additional setup after loading the view from its nib.
 }
 

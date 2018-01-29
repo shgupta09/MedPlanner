@@ -17,6 +17,8 @@
                 <outlet property="btnToDate" destination="BeG-4d-SpX" id="oCl-dd-peN"/>
                 <outlet property="cons_imgView" destination="TYh-0Y-k2M" id="BFN-gU-UEB"/>
                 <outlet property="graphView" destination="Jzk-x1-0Cl" id="1c6-yJ-5N8"/>
+                <outlet property="lblPatientName" destination="Vyb-Kk-xOk" id="0B5-is-Cu7"/>
+                <outlet property="lblgender" destination="bWx-Is-u5Y" id="HWg-KX-6uY"/>
                 <outlet property="popUpView" destination="NxM-qy-n28" id="hoE-qp-8i8"/>
                 <outlet property="sliderValue" destination="QgM-Tv-4RU" id="T5n-RT-Rhz"/>
                 <outlet property="sliderView" destination="Bjk-2z-43N" id="YRy-kx-VrL"/>

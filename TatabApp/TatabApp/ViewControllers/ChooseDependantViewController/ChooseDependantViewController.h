@@ -15,11 +15,6 @@
 @property (nonatomic,strong) id classObj;
 @property (strong, nonatomic) IBOutlet UIView *popUpView;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_Relationship;
-<<<<<<< HEAD
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 @property bool isManageDependants;
-=======
-@property bool isManageDependants;
-
->>>>>>> 8e4d1c6637128185333db4613191062b1fe200c2
 @end

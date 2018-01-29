@@ -135,6 +135,8 @@
                     vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
                     vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
                     vc.classObj = self;
+                    vc.isManageDependants = false;
+
                     [self.navigationController pushViewController:vc animated:true];
                 }
                     break;

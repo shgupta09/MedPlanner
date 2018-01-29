@@ -30,4 +30,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblPatientName;
+@property (weak, nonatomic) IBOutlet UILabel *lblbirthDate;
+@property (weak, nonatomic) IBOutlet UILabel *lblgender;
+
+
 @end

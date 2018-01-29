@@ -18,6 +18,8 @@
                 <outlet property="btnToDate" destination="vXa-Bi-p3A" id="6u2-Ih-UPK"/>
                 <outlet property="btnWeight" destination="LTG-Wl-KjX" id="hpQ-NK-26A"/>
                 <outlet property="graphView" destination="gBw-uR-Hf9" id="ot4-jN-SXp"/>
+                <outlet property="lblPatientName" destination="x9n-8q-zre" id="bUZ-q9-Sde"/>
+                <outlet property="lblgender" destination="Yof-e2-JgW" id="1dQ-Pu-BGq"/>
                 <outlet property="popUpView" destination="INF-g5-JHj" id="ZTk-hn-GZb"/>
                 <outlet property="txt_Comment" destination="ADs-c4-m1W" id="7zc-IT-e0x"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -18,6 +18,8 @@
                 <outlet property="btnToDate" destination="3Zd-St-INf" id="VWS-Wx-Azt"/>
                 <outlet property="btnWeightPopup" destination="dIL-1v-22D" id="91Y-4i-VmL"/>
                 <outlet property="graphView" destination="G83-eC-7bA" id="RLM-BK-7N5"/>
+                <outlet property="lblPatientName" destination="Ze4-gs-n2w" id="Y8R-gy-R4X"/>
+                <outlet property="lblgender" destination="vOd-4D-zvq" id="vCv-zG-vH7"/>
                 <outlet property="popUpView" destination="Kba-x7-Oys" id="6v8-RZ-JwQ"/>
                 <outlet property="txtComments" destination="gy9-HZ-5Qs" id="MMv-fa-Tc8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -41,7 +43,7 @@
                                 <constraint firstAttribute="height" constant="2" id="RxC-pb-WsA"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tee-U1-Miz" customClass="CustomButton">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tee-U1-Miz">
                             <rect key="frame" x="10" y="40" width="30" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="3qv-7Q-NtC"/>

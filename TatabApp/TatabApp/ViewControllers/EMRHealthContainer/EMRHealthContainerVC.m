@@ -42,9 +42,17 @@
 //    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
 //    [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
 
-    
-    [_lblPatientName setText:[CommonFunction getValueFromDefaultWithKey:loginfirstname]];
-    [_lblgender setText:[CommonFunction getValueFromDefaultWithKey:loginuserGender]];
+    if (_isdependant) {
+        [_lblPatientName setText:_dependant.name];
+        [_lblgender setText:_dependant.name];
+
+    }
+    else
+    {
+        [_lblPatientName setText:_patient.name];
+        [_lblgender setText:_patient.gender];
+
+    }
     
     [self hitApiForSpeciality];
     // Do any additional setup after loading the view from its nib.

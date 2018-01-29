@@ -39,7 +39,9 @@
     [super viewDidLoad];
     [self setData];
 
-    if ([_classObj isKindOfClass:[RearViewController class]] && _isManageDependants) {
+    if ( _isManageDependants) {
+        [CommonFunction setResignTapGestureToView:self.view andsender:self];
+
     }
     else
     {
@@ -55,7 +57,6 @@
     _txt_BirthDate.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
 
     _addOptionBtnAction.tintColor = [CommonFunction colorWithHexString:@"45AED4"];
-    [CommonFunction setResignTapGestureToView:self.view andsender:self];
     UIImage * image = [UIImage imageNamed:@"Plus"];
     [_addOptionBtnAction setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     selectedRowForSpeciality = 0;
@@ -108,7 +109,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
         RegistrationDpendency* dependant = [patient.dependants objectAtIndex:indexPath.row];
-    if ([_classObj isKindOfClass:[RearViewController class]] && _isManageDependants) {
+    if ( _isManageDependants) {
         cell.btn_Cross.hidden = false;
         cell.sideImageView.hidden = true;
         [cell.btn_Cross addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -155,6 +156,7 @@
             vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
             ChatPatient* pat = [ChatPatient new];
             pat.patient_id = _patientID;
+            pat.name = _patientName;
             vc.patient = pat;
             vc.isdependant = false;
             [self.navigationController pushViewController:vc animated:true];
