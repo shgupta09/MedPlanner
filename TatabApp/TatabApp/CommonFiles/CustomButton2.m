@@ -17,14 +17,14 @@
         self.backgroundColor = [UIColor whiteColor];
         self.layer.borderColor = [[CommonFunction colorWithHexString:@"7ac430"] CGColor];
         self.tintColor = [CommonFunction colorWithHexString:@"7ac430"];
-        self.titleLabel.adjustsFontSizeToFitWidth = true;
-        self.titleLabel.lineBreakMode = NSLineBreakByClipping;
+//        self.titleLabel.adjustsFontSizeToFitWidth = true;
+//        self.titleLabel.lineBreakMode = NSLineBreakByClipping;
         self.layer.borderWidth = 1;
         self.layer.cornerRadius = self.frame.size.height/2;
         self.layer.masksToBounds = true;
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 //        [self setImage: [UIImage imageNamed:@"icon-map-location"] forState:UIControlStateNormal];
-        [self setImageEdgeInsets:UIEdgeInsetsMake(10, -10, 10,100)];
+        [self setImageEdgeInsets:UIEdgeInsetsMake(10, -10, 10,30)];
 //        [self setTitleEdgeInsets:UIEdgeInsetsMake(0
 //                                                  ,-100,0,0)];
         [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];

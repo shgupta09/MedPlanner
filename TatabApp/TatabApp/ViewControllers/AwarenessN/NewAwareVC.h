@@ -23,5 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnClearSearch;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_SearchedText;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tbl_Constraint;
+@property (weak, nonatomic) IBOutlet UIButton *searchOptionBtnAction;
+@property (weak, nonatomic) IBOutlet UILabel *LBLCHARACTERCOUNT;
 
 @end

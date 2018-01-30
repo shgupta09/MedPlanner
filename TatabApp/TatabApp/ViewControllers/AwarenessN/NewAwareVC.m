@@ -8,7 +8,7 @@
 
 #import "NewAwareVC.h"
 #import "MediaPostCell.h"
-@interface NewAwareVC (){
+@interface NewAwareVC ()<UITextViewDelegate>{
     
     UIView *addSubView;
     UIImageView *imgView;
@@ -36,6 +36,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _searchOptionBtnAction.tintColor = [UIColor whiteColor];
+    
+    UIImage * image = [UIImage imageNamed:@"Icon---Search"];
+    [_searchOptionBtnAction setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     ISFirsTime = true;
     _tbl_Constraint.constant = 0;
     _lbl_SearchedText.hidden = true;
@@ -262,8 +266,8 @@
         [cell.btn_Share addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         cell.btn_Share.tag = 3000+indexPath.row;
         cell.lbl_LikeCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
-        cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
-        cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
+//        cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
+//        cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
         [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
         cell.profileBtn.tag = 5000+indexPath.row;
@@ -305,8 +309,8 @@
         [cell.btn_Share addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         cell.btn_Share.tag = 3000+indexPath.row;
         cell.lbl_LikeCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
-        cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
-        cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
+//        cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
+//        cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
         [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
         cell.profileContent.tag = 5000+indexPath.row;
@@ -593,6 +597,7 @@
 -(void)addPopupview{
     //     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
     _txt_txtView.text = @"Add some text...";
+     [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%d",250]];
     _txt_txtView.textColor = [UIColor darkGrayColor]; //optional
     [[self popUpView] setAutoresizesSubviews:true];
     [[self popUpView] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
@@ -897,6 +902,18 @@
     
 }
 
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    if (textView.text.length == 250) {
+        return false;
+    }
+    
+    [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%d",textView.text.length-250]];
+    
+    return true;
+    
+}
 
 
 @end

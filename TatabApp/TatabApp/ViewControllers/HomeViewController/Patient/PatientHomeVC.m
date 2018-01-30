@@ -25,6 +25,10 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)setData{
+//    [_btn_MedicalConsultant setImage:[UIImage imageNamed:@"medicalConsultation"] forState:UIControlStateNormal];
+//    [_btn_ElectronicMR setImage:[UIImage imageNamed:@"EMR-Icons"] forState:UIControlStateNormal];
+//    [_btn_registerSubRegords setImage:[UIImage imageNamed:@"section-children"] forState:UIControlStateNormal];
+//    [_btn_RecordHistory setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
     [_btn_MedicalConsultant setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
     [_btn_ElectronicMR setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
     [_btn_registerSubRegords setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];

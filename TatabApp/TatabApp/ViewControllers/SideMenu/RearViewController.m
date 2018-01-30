@@ -16,6 +16,7 @@
     LoderView *loderObj;
 
 }
+@property (weak, nonatomic) IBOutlet UIView *lblSectionSeparator;
 @end
 
 @implementation RearViewController
@@ -24,10 +25,10 @@
     [super viewDidLoad];
      revealController = [self revealViewController];
     
-    _viewToClip.layer.cornerRadius = 5;
-    _viewToClip.layer.masksToBounds = true;
-    _viewToClip.layer.borderColor = [UIColor whiteColor].CGColor;
-    _viewToClip.layer.borderWidth = 1;
+//    _viewToClip.layer.cornerRadius = 5;
+//    _viewToClip.layer.masksToBounds = true;
+//    _viewToClip.layer.borderColor = [UIColor whiteColor].CGColor;
+//    _viewToClip.layer.borderWidth = 1;
      [_tbl_View registerNib:[UINib nibWithNibName:@"RearCell" bundle:nil]forCellReuseIdentifier:@"RearCell"];
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 100;
@@ -41,19 +42,21 @@
       if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
           
           if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"Dependants",@"EMR and tracker",@"Profile",@"Awareness",@"Settings",@"Notifications", nil];
-              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-general",@"menu-general",@"Icon---Profile",@"menu-general",@"Icon---Setttings",@"Icon---Setttings", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"DEPENDANTS",@"EMR AND TRACKER",@"PROFILE",@"AWARENESS",@"SETTINGS",@"NOTIFICATIONS", nil];
+              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-children",@"menu-general",@"Icon---Profile",@"mngawarenessMENU",@"Icon---Setttings",@"Icon---Setttings", nil];
           }
           else{
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"Queue",@"EMR and tracker",@"Profile",@"Awareness",@"Settings",@"Notifications", nil];
-              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queue",@"menu-general",@"Icon---Profile",@"menu-general",@"Icon---Setttings",@"Icon---Setttings", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"QUEUE",@"EMR AND TRACKER",@"PROFILE",@"AWARENESS",@"SETTINGS",@"NOTIFICATIONS", nil];
+              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queue",@"menu-general",@"Icon---Profile",@"mngawarenessMENU",@"Icon---Setttings",@"Icon---Setttings", nil];
               [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
           }
            _lblNAme.text = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
           _viewToClip.hidden = false;
+          _lblSectionSeparator.hidden = false;
       }else{
           _viewToClip.hidden = true;
-          titleArray = [[NSMutableArray alloc]initWithObjects:@"Login", nil];
+          _lblSectionSeparator.hidden = true;
+          titleArray = [[NSMutableArray alloc]initWithObjects:@"LOGIN", nil];
           titleImageArray = [[NSMutableArray alloc] initWithObjects:@"Icon---Setttings",nil];
       }
     [_tbl_View reloadData];

@@ -139,7 +139,7 @@
 -(void)btnClicked:(id)sender{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[NSString stringWithFormat:@"Are you sure you want to delete %@ ?",((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).name] preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            [self hitApiForRemoveDependants:((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).depedant_id];
+            [self hitApiForRemoveDependants:((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).depedant_id];
         }];
         [alertController addAction:ok];
         UIAlertAction* no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:nil];
@@ -267,14 +267,14 @@
 }
 -(void)hitApiForRemoveDependants:(NSString *)dependentID{
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:_patientID forKey:@"user_id"];
-     [parameter setValue:dependentID forKey:@"Dependent_id"];
+    [parameter setValue:_patientID forKey:loginuserId];
+     [parameter setValue:dependentID forKey:DEPENDANT_ID];
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DEPENDANTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_DELETE_DEPENDANTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
@@ -282,6 +282,8 @@
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Dependent remove successfully." preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                     [alertController addAction:ok];
+                    [self removeloder];
+
                     [self hitApiForDependants];
                     //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
                     [self presentViewController:alertController animated:YES completion:nil];
@@ -298,7 +300,8 @@
                 [self removeloder];
                 
             }
-            
+            [self removeloder];
+
             
             
         }];
@@ -329,7 +332,7 @@
         [self addLoder];
         
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FETCH_DEPENDANTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_ADD_DEPENDANTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
@@ -338,6 +341,8 @@
                     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                     [alertController addAction:ok];
                     [_popUpView removeFromSuperview];
+                    [self removeloder];
+
                     [self hitApiForDependants];
                     
                     //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
@@ -355,7 +360,8 @@
                 [self removeloder];
                 
             }
-            
+            [self removeloder];
+
             
             
         }];
@@ -504,7 +510,7 @@
         dependencyObj.name = [CommonFunction trimString:_txtName.text];
         dependencyObj.birthDay = _txt_BirthDate.text;
         dependencyObj.isMale = isMale;
-        //[self hitApiForAddDependants];
+        [self hitApiForAddDependants];
     }
     else{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[dictForValidation valueForKey:AlertKey] preferredStyle:UIAlertControllerStyleAlert];
