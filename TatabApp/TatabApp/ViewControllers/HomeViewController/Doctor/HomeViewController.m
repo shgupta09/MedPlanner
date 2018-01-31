@@ -27,7 +27,7 @@
 -(void)setData{
     
     [_btn_CasesHistory setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
-    [_btn_MedicalQueue setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
+    [_btn_MedicalQueue setImage:[UIImage imageNamed:@"queueWhite"] forState:UIControlStateNormal];
     [_btn_ManageAwareness setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
 //    [_btn_CasesHistory setImage:[UIImage imageNamed:@"requestsHistory"] forState:UIControlStateNormal];
 //    [_btn_MedicalQueue setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];

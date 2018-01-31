@@ -48,7 +48,7 @@
     unsortedArray = [NSMutableArray new];
     _viewToClip.layer.cornerRadius = 5;
     _viewToClip.layer.masksToBounds = true;
-    _viewToClip2.layer.cornerRadius = 50;
+    _viewToClip2.layer.cornerRadius = 20;
     _viewToClip2.layer.masksToBounds = true;
     dataArray = [NSMutableArray new];
     imageUrl = @"";

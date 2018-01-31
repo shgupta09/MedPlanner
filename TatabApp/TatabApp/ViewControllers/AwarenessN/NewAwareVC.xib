@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewAwareVC">
             <connections>
@@ -200,7 +205,7 @@
                                             <rect key="frame" x="20" y="20" width="294" height="199"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="XI2-Jp-HXK"/>
@@ -257,7 +262,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-250" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK4-OU-f8o">
                                             <rect key="frame" x="20" y="238" width="42" height="23"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
-                                            <color key="textColor" red="0.87272256609999999" green="0.01261503343" blue="0.1020460352" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -516,7 +521,7 @@
                                     <rect key="frame" x="50" y="80" width="275" height="537"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2A-85-LOZ">
-                                    <rect key="frame" x="300" y="47" width="25" height="25"/>
+                                    <rect key="frame" x="300" y="592" width="25" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="25" id="csf-0A-DVj"/>
                                         <constraint firstAttribute="height" constant="25" id="pbi-t0-Qdx"/>
@@ -535,7 +540,7 @@
                                 <constraint firstAttribute="bottom" secondItem="6rq-jT-ZPc" secondAttribute="bottom" constant="50" id="hbd-2B-wO9"/>
                                 <constraint firstItem="6rq-jT-ZPc" firstAttribute="leading" secondItem="HUx-xr-FMK" secondAttribute="leading" constant="50" id="o9I-4d-Ai3"/>
                                 <constraint firstAttribute="trailing" secondItem="6rq-jT-ZPc" secondAttribute="trailing" constant="50" id="qCv-bY-jME"/>
-                                <constraint firstItem="6rq-jT-ZPc" firstAttribute="top" secondItem="F2A-85-LOZ" secondAttribute="bottom" constant="8" id="xtM-h6-m0O"/>
+                                <constraint firstItem="F2A-85-LOZ" firstAttribute="bottom" secondItem="6rq-jT-ZPc" secondAttribute="bottom" id="w8D-8T-haw"/>
                             </constraints>
                         </view>
                     </subviews>
