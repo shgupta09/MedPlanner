@@ -283,7 +283,7 @@
                                                 <action selector="btnActionBirthDay:" destination="-1" eventType="touchUpInside" id="N0t-ni-B8P"/>
                                             </connections>
                                         </button>
-                                        <textField opaque="NO" clipsSubviews="YES" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Relationship" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0dJ-jK-4bQ" customClass="CustomTextField">
+                                        <textField opaque="NO" clipsSubviews="YES" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Relationship" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0dJ-jK-4bQ" customClass="CustomTFWithLeftRight">
                                             <rect key="frame" x="10" y="85" width="314" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="0hW-wB-2cG"/>

@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _searchOptionBtnAction.tintColor = [UIColor whiteColor];
-    
+    tempView = [UIView new];
     UIImage * image = [UIImage imageNamed:@"Icon---Search"];
     [_searchOptionBtnAction setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     ISFirsTime = true;
@@ -48,7 +48,7 @@
     unsortedArray = [NSMutableArray new];
     _viewToClip.layer.cornerRadius = 5;
     _viewToClip.layer.masksToBounds = true;
-    _viewToClip2.layer.cornerRadius = 5;
+    _viewToClip2.layer.cornerRadius = 50;
     _viewToClip2.layer.masksToBounds = true;
     dataArray = [NSMutableArray new];
     imageUrl = @"";
@@ -67,10 +67,10 @@
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 200;
     _tbl_View.multipleTouchEnabled = NO;
-    addSubView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width-40, [UIScreen mainScreen].bounds.size.height-40)];
+    addSubView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 80, self.view.frame.size.width-40, self.view.frame.size.height-160)];
     imgView.center = addSubView.center;
-    imgView.center = CGPointMake(imgView.center.x, imgView.center.y-50) ;
+   // imgView.center = CGPointMake(imgView.center.x, imgView.center.y-50) ;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveNotification)
@@ -143,13 +143,13 @@
 
 -(void)zoomWithImage:(NSString *)imageUrlString{
     [imgView sd_setImageWithURL:[NSURL URLWithString:imageUrlString]];
-    addSubView = [[UIView alloc]initWithFrame:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-40)];
+    addSubView = [[UIView alloc]initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
     [addSubView setBackgroundColor:[UIColor colorWithRed:0.5/255.0f green:0.5/255.0f blue:0.5/255.0f alpha:.8]];
     [addSubView addSubview:imgView];
     addSubView.tag = 101;
     imgView.tag = 102;
     [self.view addSubview:addSubView];
-    
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
     addSubView.transform = CGAffineTransformMakeScale(0.01, 0.01);
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         // animate it to the identity transform (100% scale)
@@ -204,6 +204,17 @@
     [textView resignFirstResponder];
 }
 
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    if (textView.text.length == 250 && ![text isEqualToString: @""]) {
+        return false;
+    }
+    
+    [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%d",textView.text.length-250]];
+    
+    return true;
+    
+}
 #pragma mark- SWRevealViewController
 
 - (IBAction)revealAction:(id)sender {
@@ -223,6 +234,7 @@
         
         [revealController revealToggle:nil];
         tempView.frame  =CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height);
+        //tempView.backgroundColor = [UIColor redColor];
         [tempView addGestureRecognizer:singleFingerTap];
         [self.view addSubview:tempView];
         isOpen = true;
@@ -402,22 +414,34 @@
     
 }
 - (IBAction)btnAction_SearchCategory:(id)sender {
+    [_btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+     [_btn2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+     [_btn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+     [_btn4 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+     [_btn5 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
     
     switch (((UIButton *)sender).tag) {
         case 0:
             _txt_Search.text = @"obgyne";
+             [_btn1 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
+           
             break;
         case 1:
             _txt_Search.text = @"pediatric";
+             [_btn2 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
             break;
         case 2:
             _txt_Search.text = @"abodminal";
+             [_btn3 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
             break;
         case 3:
             _txt_Search.text = @"psycological";
+           [_btn4 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
             break;
         case 4:
             _txt_Search.text = @"Family and Community";
+             [_btn5 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
             break;
                         
         default:
@@ -434,11 +458,11 @@
 }
 
 - (IBAction)btnAction_Cancel:(id)sender {
-    _txt_txtView.text =@"";
+    //_txt_txtView.text =@"";
     [CommonFunction removeAnimationFromView:_popUpView];
 }
 - (IBAction)btnAction_Cancel2:(id)sender {
-    _txt_Search.text = 0;
+    _txt_Search.text = @"";
     [CommonFunction removeAnimationFromView:_popUpView2];
 }
 
@@ -482,6 +506,9 @@
     _tbl_Constraint.constant = 0;
 }
 
+- (IBAction)btnAction_ImageToSend:(id)sender {
+    [self imageToCompress:_imgView_ToShow.image];
+}
 #pragma mark-Other
 
 
@@ -527,7 +554,7 @@
     picker.sourceType = sourceType;
     picker.cameraDevice=UIImagePickerControllerCameraDeviceRear;
     picker.videoQuality = UIImagePickerControllerQualityType640x480;
-    UIView *cameraOverlayView = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 100.0f, 5.0f, 100.0f, 35.0f)];
+    UIView *cameraOverlayView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 100.0f, 5.0f, 100.0f, 35.0f)];
     [cameraOverlayView setBackgroundColor:[UIColor blackColor]];
     UIButton *emptyBlackButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 35.0f)];
     [emptyBlackButton setBackgroundColor:[UIColor blackColor]];
@@ -545,9 +572,11 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [[AppDelegate getDelegate]showStatusBar];
     
-    UIImage *capturedImage = [self imageToCompress:[info valueForKey:@"UIImagePickerControllerOriginalImage"]];
+    UIImage *capturedImage =[info valueForKey:@"UIImagePickerControllerOriginalImage"];;
+    [self addPopupview3:capturedImage];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
@@ -592,13 +621,28 @@
     return processedImage;
     
 }
+-(void)resignResponder{
+    [CommonFunction resignFirstResponderOfAView:self.view];
+    if ([_popUpView isDescendantOfView:self.view]) {
+        [_popUpView removeFromSuperview];
+    }else if ([_popUpView2 isDescendantOfView:self.view]) {
+        [_popUpView2 removeFromSuperview];
+    }
+    else if ([_popUpView3 isDescendantOfView:self.view]) {
+        [_popUpView3 removeFromSuperview];
+    }
+}
 
 
 -(void)addPopupview{
-    //     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
+    [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
+    if ([_txt_txtView.text isEqualToString:@"Add some text..."]){
     _txt_txtView.text = @"Add some text...";
-     [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%d",250]];
-    _txt_txtView.textColor = [UIColor darkGrayColor]; //optional
+        [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%d",250]];
+        // _txt_txtView.textColor = [UIColor darkGrayColor]; //optional
+    }
+    [_txt_txtView becomeFirstResponder];
+   
     [[self popUpView] setAutoresizesSubviews:true];
     [[self popUpView] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
@@ -610,7 +654,8 @@
 }
 
 -(void)addPopupview2{
-    //     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
+     [CommonFunction setResignTapGestureToView:_popUpView2 andsender:self];
+    [_txt_Search becomeFirstResponder];
     [[self popUpView2] setAutoresizesSubviews:true];
     [[self popUpView2] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
@@ -619,6 +664,13 @@
     [[self popUpView2] setFrame:frame];
     [self.view addSubview:_popUpView2];
      [CommonFunction addAnimationToview:_popUpView2];
+}
+-(void)addPopupview3:(UIImage *)image{
+     [CommonFunction setResignTapGestureToView:_popUpView3 andsender:self];
+
+    _imgView_ToShow.image = image;
+    [_popUpView removeFromSuperview];
+    [self.view addSubview:_popUpView3];
 }
 #pragma mark - add loder
 
@@ -649,24 +701,16 @@
                     
                     imageUrl = [NSString stringWithFormat:@"%@",dict];
                     [self removeloder];
+                    [_popUpView3 removeFromSuperview];
                     [self uploadPost];
-                   
-                   
-                    
-                }
-                else
-                {
+                   }
+                else{
                     [self removeloder];
-                    
                 }
-                
             }
-            else
-            {
+            else{
                 [self removeloder];
-                
             }
-            
         }];
     }
 }
@@ -903,17 +947,6 @@
 }
 
 
--(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-    
-    if (textView.text.length == 250) {
-        return false;
-    }
-    
-    [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%d",textView.text.length-250]];
-    
-    return true;
-    
-}
 
 
 @end
