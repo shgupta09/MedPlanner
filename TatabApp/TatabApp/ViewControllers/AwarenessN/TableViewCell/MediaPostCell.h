@@ -22,4 +22,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_CommentCount;
 @property (weak, nonatomic) IBOutlet UIButton *contentBtn;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_LikeCount;
+@property (weak, nonatomic) IBOutlet UIView *imgViewContentContainer;
 @end

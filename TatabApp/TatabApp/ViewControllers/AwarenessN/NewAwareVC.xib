@@ -190,7 +190,7 @@
                                     <rect key="frame" x="20" y="140" width="334" height="279"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add some text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dSa-fY-Bey">
-                                            <rect key="frame" x="5" y="5" width="324" height="224"/>
+                                            <rect key="frame" x="5" y="5" width="324" height="229"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -212,11 +212,11 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgg-en-tTH">
-                                            <rect key="frame" x="289" y="234" width="40" height="40"/>
+                                            <rect key="frame" x="294" y="239" width="35" height="35"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="s9q-Pg-5cN"/>
-                                                <constraint firstAttribute="height" constant="40" id="xej-2x-43L"/>
+                                                <constraint firstAttribute="width" constant="35" id="s9q-Pg-5cN"/>
+                                                <constraint firstAttribute="height" constant="35" id="xej-2x-43L"/>
                                             </constraints>
                                             <state key="normal" image="sendTweet"/>
                                             <connections>
@@ -224,11 +224,11 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbk-T1-X91">
-                                            <rect key="frame" x="85" y="234" width="40" height="40"/>
+                                            <rect key="frame" x="55" y="241.5" width="35" height="30"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="Mjs-af-gk7"/>
-                                                <constraint firstAttribute="height" constant="40" id="TKL-a3-q9R"/>
+                                                <constraint firstAttribute="width" constant="35" id="Mjs-af-gk7"/>
+                                                <constraint firstAttribute="height" constant="30" id="TKL-a3-q9R"/>
                                             </constraints>
                                             <state key="normal" image="cameraWhite">
                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -248,7 +248,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-250" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK4-OU-f8o">
-                                            <rect key="frame" x="5" y="243" width="42" height="23"/>
+                                            <rect key="frame" x="5" y="245.5" width="42" height="23"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
                                             <color key="textColor" red="0.87272256609999999" green="0.01261503343" blue="0.1020460352" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -258,7 +258,7 @@
                                     <constraints>
                                         <constraint firstItem="jgg-en-tTH" firstAttribute="trailing" secondItem="dSa-fY-Bey" secondAttribute="trailing" id="2uK-V4-va5"/>
                                         <constraint firstItem="dSa-fY-Bey" firstAttribute="leading" secondItem="3rX-Vy-A5L" secondAttribute="leading" constant="5" id="3Ud-Kc-PQi"/>
-                                        <constraint firstItem="rbk-T1-X91" firstAttribute="leading" secondItem="dSa-fY-Bey" secondAttribute="leading" constant="80" id="5eP-aw-9dd"/>
+                                        <constraint firstItem="rbk-T1-X91" firstAttribute="leading" secondItem="dSa-fY-Bey" secondAttribute="leading" constant="50" id="5eP-aw-9dd"/>
                                         <constraint firstItem="rbk-T1-X91" firstAttribute="centerY" secondItem="jgg-en-tTH" secondAttribute="centerY" id="Btw-Z8-0ck"/>
                                         <constraint firstAttribute="bottom" secondItem="jgg-en-tTH" secondAttribute="bottom" constant="5" id="CX2-Qa-P8Y"/>
                                         <constraint firstItem="aK4-OU-f8o" firstAttribute="leading" secondItem="dSa-fY-Bey" secondAttribute="leading" id="Kd7-Kc-eLV"/>

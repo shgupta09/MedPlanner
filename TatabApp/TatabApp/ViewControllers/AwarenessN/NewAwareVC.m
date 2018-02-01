@@ -131,7 +131,13 @@
     }
     
 }
-
+-(void)viewWillDisappear:(BOOL)animated{
+    [revealController revealToggle:nil];
+    
+    [tempView removeGestureRecognizer:singleFingerTap];
+    [tempView removeFromSuperview];
+    isOpen = false;
+}
 
 #pragma mark - ZoomImage
 -(void)addTapAtZoomedImage{
@@ -251,8 +257,18 @@
         if (cell == nil) {
             cell = [[MediaPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MediaPostCell"];
         }
+        
         cell.lbl_DoctorName.text = [NSString stringWithFormat:@"Dr. %@",obj.post_by];
         [cell.imgView_Content sd_setImageWithURL:[NSURL URLWithString:obj.url]];
+        cell.imgViewContentContainer.layer.shadowRadius  = 2.0f;
+        cell.imgViewContentContainer.layer.shadowColor   = [UIColor colorWithRed:176.f/255.f green:199.f/255.f blue:226.f/255.f alpha:1.f].CGColor;
+        cell.imgViewContentContainer.layer.shadowOffset  = CGSizeMake(0.0f, 0.0f);
+        cell.imgViewContentContainer.layer.shadowOpacity = 0.9f;
+        cell.imgViewContentContainer.layer.masksToBounds = NO;
+        
+        UIEdgeInsets shadowInsets     = UIEdgeInsetsMake(0, 0, -1.5f, 0);
+        UIBezierPath *shadowPath      = [UIBezierPath bezierPathWithRect:UIEdgeInsetsInsetRect(cell.imgViewContentContainer.bounds, shadowInsets)];
+        cell.imgViewContentContainer.layer.shadowPath    = shadowPath.CGPath;
         cell.viewForImage.layer.cornerRadius = 5;
         cell.viewForImage.layer.masksToBounds = true;
         cell.doctorImageView.layer.cornerRadius = 5;

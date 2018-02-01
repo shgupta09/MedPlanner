@@ -113,22 +113,22 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2s-Zh-mdx">
-                        <rect key="frame" x="75" y="26" width="240" height="21"/>
+                        <rect key="frame" x="79" y="21" width="236" height="26"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zj0-KF-hOE">
-                        <rect key="frame" x="75" y="50" width="220" height="115"/>
+                        <rect key="frame" x="79" y="51" width="216" height="110"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Sd-lr-7kU">
-                                <rect key="frame" x="0.0" y="0.0" width="220" height="115"/>
+                                <rect key="frame" x="0.0" y="0.0" width="216" height="110"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="114.5" id="sIX-vg-HBS"/>
+                                    <constraint firstAttribute="height" constant="110" id="sIX-vg-HBS"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ol-Ay-ZHg">
-                                <rect key="frame" x="0.0" y="0.0" width="220" height="115"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ol-Ay-ZHg">
+                                <rect key="frame" x="0.0" y="0.0" width="216" height="110"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -142,23 +142,37 @@
                             <constraint firstItem="6Sd-lr-7kU" firstAttribute="leading" secondItem="zj0-KF-hOE" secondAttribute="leading" id="XXf-81-SkM"/>
                             <constraint firstItem="4Ol-Ay-ZHg" firstAttribute="leading" secondItem="6Sd-lr-7kU" secondAttribute="leading" id="eZm-s2-KaM"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                <real key="value" value="1.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                <size key="value" width="0.0" height="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                <real key="value" value="0.90000000000000002"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="dfP-A9-nuG" secondAttribute="trailing" id="8AO-Zu-jae"/>
                     <constraint firstItem="Rle-aW-4g8" firstAttribute="centerY" secondItem="Jk7-C5-hsp" secondAttribute="centerY" id="92r-m0-3yY"/>
-                    <constraint firstItem="Sg3-rm-d6z" firstAttribute="top" secondItem="zj0-KF-hOE" secondAttribute="bottom" constant="3" id="9oD-Gk-zDz"/>
+                    <constraint firstItem="Sg3-rm-d6z" firstAttribute="top" secondItem="zj0-KF-hOE" secondAttribute="bottom" constant="7" id="9oD-Gk-zDz"/>
                     <constraint firstItem="dfP-A9-nuG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Dc2-a0-hXg"/>
                     <constraint firstItem="YfM-9r-pCJ" firstAttribute="centerY" secondItem="H4D-ZS-1EF" secondAttribute="centerY" id="Ewk-w7-bBm"/>
-                    <constraint firstItem="A2s-Zh-mdx" firstAttribute="leading" secondItem="Elg-oR-n6W" secondAttribute="trailing" constant="5" id="F2s-em-b6j"/>
+                    <constraint firstItem="A2s-Zh-mdx" firstAttribute="leading" secondItem="Elg-oR-n6W" secondAttribute="trailing" constant="9" id="F2s-em-b6j"/>
                     <constraint firstAttribute="trailing" secondItem="Sg3-rm-d6z" secondAttribute="trailing" id="Fbr-bD-WJ1"/>
                     <constraint firstItem="H4D-ZS-1EF" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="I2G-X8-cQP"/>
-                    <constraint firstItem="zj0-KF-hOE" firstAttribute="top" secondItem="A2s-Zh-mdx" secondAttribute="bottom" constant="3" id="INv-DL-fBi"/>
+                    <constraint firstItem="zj0-KF-hOE" firstAttribute="top" secondItem="A2s-Zh-mdx" secondAttribute="bottom" constant="4" id="INv-DL-fBi"/>
                     <constraint firstAttribute="bottom" secondItem="dfP-A9-nuG" secondAttribute="bottom" id="Ihq-3y-Ql8"/>
                     <constraint firstItem="Jk7-C5-hsp" firstAttribute="centerY" secondItem="H4D-ZS-1EF" secondAttribute="centerY" id="JDM-Gf-oRB"/>
                     <constraint firstItem="YfM-9r-pCJ" firstAttribute="leading" secondItem="H4D-ZS-1EF" secondAttribute="trailing" constant="80" id="KuN-AU-nt1"/>
-                    <constraint firstItem="A2s-Zh-mdx" firstAttribute="top" secondItem="VC6-A0-GcJ" secondAttribute="top" constant="5" id="LwG-62-pka"/>
+                    <constraint firstItem="A2s-Zh-mdx" firstAttribute="top" secondItem="VC6-A0-GcJ" secondAttribute="top" id="LwG-62-pka"/>
                     <constraint firstItem="Elg-oR-n6W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="PQ2-Fk-EUW"/>
                     <constraint firstItem="Jk7-C5-hsp" firstAttribute="leading" secondItem="Rle-aW-4g8" secondAttribute="trailing" constant="5" id="QJb-4H-FGx"/>
                     <constraint firstItem="dfP-A9-nuG" firstAttribute="top" secondItem="H4D-ZS-1EF" secondAttribute="bottom" constant="5" id="Rm3-6l-WYg"/>
@@ -184,6 +198,7 @@
                 <outlet property="clinicImageView" destination="Mvo-YR-inN" id="fFf-bM-tye"/>
                 <outlet property="contentBtn" destination="4Ol-Ay-ZHg" id="wDM-JT-6tl"/>
                 <outlet property="doctorImageView" destination="VC6-A0-GcJ" id="VGY-rB-DXc"/>
+                <outlet property="imgViewContentContainer" destination="zj0-KF-hOE" id="Tia-5A-Kx8"/>
                 <outlet property="imgView_Content" destination="6Sd-lr-7kU" id="ei4-2b-xgS"/>
                 <outlet property="lbl_CommentCount" destination="Xvm-n3-F9u" id="0Yc-K4-bh7"/>
                 <outlet property="lbl_DoctorName" destination="A2s-Zh-mdx" id="kUt-Zc-dLD"/>
