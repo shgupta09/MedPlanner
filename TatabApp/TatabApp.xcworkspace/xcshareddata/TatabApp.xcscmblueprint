@@ -2,7 +2,9 @@
   "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8289a3ed-7895-4553-886e-87c2beee11fb++8881",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
     "8289a3ed-7895-4553-886e-87c2beee11fb++8881" : {
-
+      "DVTSourceControlWorkingCopyRepositoryBranchesLocationKey" : "branches",
+      "DVTSourceControlWorkingCopyRepositoryTagsLocationKey" : "tags",
+      "DVTSourceControlWorkingCopyRepositoryPrimaryBranchLocationKey" : "trunk"
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {

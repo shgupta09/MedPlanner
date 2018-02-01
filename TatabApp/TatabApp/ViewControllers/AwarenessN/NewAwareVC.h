@@ -20,10 +20,17 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn_Post;
 @property (strong, nonatomic) IBOutlet UIView *popUpView;
 @property (strong, nonatomic) IBOutlet UIView *popUpView2;
+@property (strong, nonatomic) IBOutlet UIView *popUpView3;
 @property (weak, nonatomic) IBOutlet UIButton *btnClearSearch;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_SearchedText;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tbl_Constraint;
 @property (weak, nonatomic) IBOutlet UIButton *searchOptionBtnAction;
 @property (weak, nonatomic) IBOutlet UILabel *LBLCHARACTERCOUNT;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView_ToShow;
+@property (weak, nonatomic) IBOutlet UIButton *btn1;
+@property (weak, nonatomic) IBOutlet UIButton *btn2;
+@property (weak, nonatomic) IBOutlet UIButton *btn3;
+@property (weak, nonatomic) IBOutlet UIButton *btn4;
+@property (weak, nonatomic) IBOutlet UIButton *btn5;
 
 @end

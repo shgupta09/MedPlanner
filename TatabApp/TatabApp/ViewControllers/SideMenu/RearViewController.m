@@ -47,7 +47,7 @@
           }
           else{
               titleArray  = [[NSMutableArray alloc]initWithObjects:@"QUEUE",@"EMR AND TRACKER",@"PROFILE",@"AWARENESS",@"SETTINGS",@"NOTIFICATIONS", nil];
-              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queue",@"menu-general",@"Icon---Profile",@"mngawarenessMENU",@"Icon---Setttings",@"Icon---Setttings", nil];
+              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queueWhite",@"menu-general",@"Icon---Profile",@"mngawarenessMENU",@"Icon---Setttings",@"Icon---Setttings", nil];
               [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
           }
            _lblNAme.text = [CommonFunction getValueFromDefaultWithKey:loginfirstname];

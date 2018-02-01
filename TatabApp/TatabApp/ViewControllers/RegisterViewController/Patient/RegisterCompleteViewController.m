@@ -600,10 +600,7 @@ numberOfRowsInComponent:(NSInteger)component{
                     
                     [self performBlock:^{
                         [alertController dismissViewControllerAnimated:true completion:nil];
-                        
-                        
-                        
-                        [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
+                       [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
                         
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserId] andKey:loginuserId];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserType] andKey:loginuserType];

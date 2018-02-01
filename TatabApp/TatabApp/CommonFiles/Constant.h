@@ -114,7 +114,7 @@
 
 static NSString* const COLORCODE = @"#d22424";
 static NSString* const COLORCODE_FOR_TEXTFIELD = @"#00b1dd";
-
+static NSString* const COLORCODE_FOR_BUTTON = @"7ac430";
 
 static NSString* const API_BASE_URL = @"http://www.dataheadstudio.com/test/api/";
 static NSString* const API_FETCH_DOCTOR = @"specialization";
