@@ -40,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     toDate = [NSDate date];
-    _txtComments.text = @"comment";
+//    _txtComments.text = @"comment";
     heartRate = 0;
     
     fromDate = [NSDate date];
@@ -202,8 +202,15 @@
     [parameterDict setValue:[NSString stringWithFormat:@"%d",hertRateValue] forKey:@"heart_rate"];
     [parameterDict setValue:[NSString stringWithFormat:@"%.1f",_sliderView.value+60] forKey:@"sys"];
     [parameterDict setValue:[NSString stringWithFormat:@"%.1f",_sliderView.value] forKey:@"dia"];
-    [parameterDict setValue:_txtComments.text forKey:@"comment"];
-    NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
+    if ([_txtComments.text  isEqual: @""]){
+        [parameterDict setValue:@"comment" forKey:@"comment"];
+        
+    }
+    else
+    {
+        [parameterDict setValue:_txtComments.text forKey:@"comment"];
+        
+    }    NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
     Formatter.dateFormat = @"yyyy-MM-dd";
     NSString *stringFor = [Formatter stringFromDate:[NSDate date]];
     [parameterDict setValue:stringFor forKey:@"date"];

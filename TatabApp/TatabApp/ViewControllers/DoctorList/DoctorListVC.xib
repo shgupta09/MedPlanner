@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.otf">
+            <string>Montserrat-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DoctorListVC">
             <connections>
@@ -26,6 +31,9 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iJq-8u-pnb">
                     <rect key="frame" x="0.0" y="22" width="375" height="267"/>
                     <color key="backgroundColor" red="0.59602463250000004" green="0.59611290689999996" blue="0.59600526089999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="uvv-Ew-Sg3">
+                    <rect key="frame" x="0.0" y="22" width="375" height="267"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="Kjn-XF-Ref">
                     <rect key="frame" x="-0.5" y="289" width="375" height="378"/>
@@ -51,9 +59,9 @@
                     </connections>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABDOMINAL CLINIC" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed9-YO-voW">
-                    <rect key="frame" x="10" y="255" width="355" height="24"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="10" y="255.5" width="355" height="23.5"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="19"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -65,11 +73,15 @@
                 <constraint firstItem="Kjn-XF-Ref" firstAttribute="height" secondItem="ENN-Mt-Yqr" secondAttribute="height" id="Dxl-DU-ROu"/>
                 <constraint firstItem="ENN-Mt-Yqr" firstAttribute="top" secondItem="iJq-8u-pnb" secondAttribute="bottom" id="JBY-e0-QBV"/>
                 <constraint firstAttribute="trailing" secondItem="ENN-Mt-Yqr" secondAttribute="trailing" id="JLo-Fy-xRu"/>
+                <constraint firstAttribute="trailing" secondItem="uvv-Ew-Sg3" secondAttribute="trailing" id="Kt6-pB-lGY"/>
                 <constraint firstItem="Kjn-XF-Ref" firstAttribute="centerX" secondItem="ENN-Mt-Yqr" secondAttribute="centerX" id="Pz2-M1-P6U"/>
                 <constraint firstItem="naE-Xn-0Uy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="RhS-mA-2iO"/>
                 <constraint firstItem="ENN-Mt-Yqr" firstAttribute="top" secondItem="Ed9-YO-voW" secondAttribute="bottom" constant="10" id="Tfu-Ty-ddW"/>
+                <constraint firstItem="uvv-Ew-Sg3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aqN-Wz-UFk"/>
                 <constraint firstItem="ENN-Mt-Yqr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gHc-md-btW"/>
+                <constraint firstItem="uvv-Ew-Sg3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="jUr-em-ESh"/>
                 <constraint firstItem="Ed9-YO-voW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="kix-L0-hLU"/>
+                <constraint firstItem="ENN-Mt-Yqr" firstAttribute="top" secondItem="uvv-Ew-Sg3" secondAttribute="bottom" id="mDq-6Y-kjM"/>
                 <constraint firstItem="Kjn-XF-Ref" firstAttribute="centerY" secondItem="ENN-Mt-Yqr" secondAttribute="centerY" id="n9q-8N-ndI"/>
                 <constraint firstItem="iJq-8u-pnb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="orP-BW-TvV"/>
                 <constraint firstItem="naE-Xn-0Uy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="s7E-NO-HOs"/>
@@ -78,11 +90,12 @@
                 <constraint firstItem="ENN-Mt-Yqr" firstAttribute="top" secondItem="iJq-8u-pnb" secondAttribute="bottom" id="x2M-gB-tHc"/>
                 <constraint firstItem="Kjn-XF-Ref" firstAttribute="width" secondItem="ENN-Mt-Yqr" secondAttribute="width" id="yNo-RQ-xio"/>
             </constraints>
-            <point key="canvasLocation" x="-184" y="55"/>
+            <point key="canvasLocation" x="-184.5" y="54.5"/>
         </view>
     </objects>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
         <image name="back" width="55" height="45"/>
+        <image name="slider-gradient" width="2200" height="1136"/>
     </resources>
 </document>

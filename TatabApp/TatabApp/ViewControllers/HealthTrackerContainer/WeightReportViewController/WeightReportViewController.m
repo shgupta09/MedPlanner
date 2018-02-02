@@ -45,7 +45,7 @@
     [_btnWeight setTitle:[NSString stringWithFormat:@"%d",3] forState:UIControlStateNormal];
     [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",1] forState:UIControlStateNormal];
     [_btnHeight setTitle:[NSString stringWithFormat:@"%d",50] forState:UIControlStateNormal];
-    _txt_Comment.text = @"comment";
+//    _txt_Comment.text = @"comment";
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -328,7 +328,16 @@
     
     [parameterDict setValue:_btnHeartRate.titleLabel.text forKey:@"rest_hr"];
     [parameterDict setValue:_btnHeight.titleLabel.text forKey:@"height"];
-    [parameterDict setValue:_txt_Comment.text forKey:@"comment"];
+    
+    if ([_txt_Comment.text  isEqual: @""]){
+        [parameterDict setValue:@"comment" forKey:@"comment"];
+
+    }
+    else
+    {
+        [parameterDict setValue:_txt_Comment.text forKey:@"comment"];
+
+    }
     NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
     Formatter.dateFormat = @"yyyy-MM-dd";
     NSString *stringFor = [Formatter stringFromDate:[NSDate date]];

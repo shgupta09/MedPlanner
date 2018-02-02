@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -44,7 +44,7 @@
                             <constraint firstAttribute="height" constant="2" id="ATu-Av-VLg"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointer" translatesAutoresizingMaskIntoConstraints="NO" id="RTf-8Z-l4y">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointer" translatesAutoresizingMaskIntoConstraints="NO" id="RTf-8Z-l4y">
                         <rect key="frame" x="265" y="10.5" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="CdI-Sq-EMh"/>
@@ -88,7 +88,7 @@
     </objects>
     <resources>
         <image name="error" width="204" height="204"/>
-        <image name="pointer" width="102" height="87"/>
+        <image name="pointer" width="45" height="77"/>
         <image name="profile" width="218" height="256"/>
     </resources>
 </document>

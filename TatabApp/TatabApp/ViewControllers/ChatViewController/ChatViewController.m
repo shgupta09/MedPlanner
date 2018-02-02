@@ -57,15 +57,15 @@
    
     
     //test
-//    NSString* foo = [NSString stringWithFormat:@"%@%@",[[email componentsSeparatedByString:@"@"] objectAtIndex:0],[[email componentsSeparatedByString:@"@"] objectAtIndex:1]];
-//    NSString* userID = foo;
-//    fromId = userID;
+    NSString* foo = [NSString stringWithFormat:@"%@%@",[[email componentsSeparatedByString:@"@"] objectAtIndex:0],[[email componentsSeparatedByString:@"@"] objectAtIndex:1]];
+    NSString* userID = foo;
+    fromId = userID;
     
     
     //abhinav
-    _toId = @"shagdep";
-    fromId = @"ddhh";
-//
+//    _toId = @"shagdep";
+//    fromId = @"ddhh";
+////
     //iphone 6
 //    _toId = @"ddhh";
 //    fromId = @"shagdep";

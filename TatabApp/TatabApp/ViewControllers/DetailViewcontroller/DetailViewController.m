@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     _lblHeader.text =_detailType;
     
     if ([_detailArray count]>0) {

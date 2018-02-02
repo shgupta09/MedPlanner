@@ -28,7 +28,7 @@
 }
 -(void)setData{
     doctorListArray = [NSMutableArray new];
-    _lbl_title.text = _awarenessObj.category_name;
+    _lbl_title.text = [_awarenessObj.category_name uppercaseString];
     [_tbl_View registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil]forCellReuseIdentifier:@"HomeCell"];
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 100;
@@ -89,7 +89,14 @@
         ChatPatient *obj = [patientListArray objectAtIndex:indexPath.row];
         cell.lbl_name.text = [NSString stringWithFormat:@"Mr. %@",obj.name];
         cell.lbl_specialization.text = @"Patient";
-        cell.lbl_sub_specialization.text = obj.gender;
+        if ([obj.gender  isEqual: @"M"]){
+            cell.lbl_sub_specialization.text = @"Male";
+
+        }
+        else{
+            cell.lbl_sub_specialization.text = @"Female";
+  
+        }
         //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
         [cell.profileImageView setImage:[UIImage imageNamed:@"profile.png"]];
         

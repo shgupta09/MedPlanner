@@ -51,6 +51,7 @@
     isMale = true;
     dependencyArray = [NSMutableArray new];
     _txtBirthday.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
+    _txt_Relationship.rightImgView.image = [UIImage imageNamed:@"icon-drop-down"];
     _txtCity.leftImgView.image = [UIImage imageNamed:@"b"];
     _txtName.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_BirthDate.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "XMPPHandler.h"
+#import "CustomTFWithLeftRight.h"
 
 @interface RegisterCompleteViewController : UIViewController<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,XMPPStreamDelegate>
-@property (weak, nonatomic) IBOutlet CustomTextField *txt_Relationship;
+@property (weak, nonatomic) IBOutlet CustomTFWithLeftRight *txt_Relationship;
 @property(nonatomic,strong)NSMutableDictionary *parameterDict;
 @end

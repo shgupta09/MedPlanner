@@ -49,7 +49,7 @@
     selectedRowForType = 0;
     selectedRowForTiming = 0;
     selectedRowForReading = 0;
-    _txtComments.text = @"comment";
+//    _txtComments.text = @"comment";
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
@@ -423,7 +423,15 @@
 //    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
     [parameterDict setValue:[arrayType objectAtIndex:selectedRowForTiming] forKey:@"timing"];
     [parameterDict setValue:[arrayreading objectAtIndex:selectedRowForReading] forKey:@"reading"];
-    [parameterDict setValue:_txtComments.text forKey:@"comment"];
+    if ([_txtComments.text  isEqual: @""]){
+        [parameterDict setValue:@"comment" forKey:@"comment"];
+        
+    }
+    else
+    {
+        [parameterDict setValue:_txtComments.text forKey:@"comment"];
+        
+    }
     NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
     Formatter.dateFormat = @"yyyy-MM-dd";
     NSString *stringFor = [Formatter stringFromDate:[NSDate date]];

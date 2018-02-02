@@ -444,7 +444,7 @@
                                     <rect key="frame" x="20" y="162" width="334" height="344"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxJ-hs-S4A" customClass="CustomButton3">
-                                            <rect key="frame" x="10" y="295" width="151" height="40"/>
+                                            <rect key="frame" x="10" y="295" width="150.5" height="40"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="CFM-2T-nAx"/>
@@ -485,6 +485,13 @@
                                                 <action selector="btnWeightClicked:" destination="-1" eventType="touchUpInside" id="jkj-2T-ljh"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-drop-down" translatesAutoresizingMaskIntoConstraints="NO" id="5Zu-l9-GqO">
+                                            <rect key="frame" x="126" y="176.5" width="26" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="26" id="Ga3-9f-b88"/>
+                                                <constraint firstAttribute="height" constant="25" id="PBe-ug-lP8"/>
+                                            </constraints>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LU-ZK-nXR">
                                             <rect key="frame" x="216" y="123" width="59" height="39"/>
                                             <string key="text">Reading
@@ -527,7 +534,7 @@ mg/DL</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHR-AY-vGk" customClass="CustomButton3">
-                                            <rect key="frame" x="174" y="296" width="150" height="40"/>
+                                            <rect key="frame" x="173.5" y="296" width="150.5" height="40"/>
                                             <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="Eo4-3f-lWo"/>
@@ -537,6 +544,13 @@ mg/DL</string>
                                                 <action selector="btnBackPopUp:" destination="-1" eventType="touchUpInside" id="c08-ms-uXc"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-drop-down" translatesAutoresizingMaskIntoConstraints="NO" id="xe5-O4-8uQ">
+                                            <rect key="frame" x="281" y="177" width="26" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="GXP-Wt-v2h"/>
+                                                <constraint firstAttribute="width" constant="26" id="Pqe-Ca-2nb"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -545,6 +559,7 @@ mg/DL</string>
                                         <constraint firstItem="UHR-AY-vGk" firstAttribute="width" secondItem="CxJ-hs-S4A" secondAttribute="width" id="2pn-vb-8jA"/>
                                         <constraint firstItem="WAE-iT-0vy" firstAttribute="height" secondItem="4LU-ZK-nXR" secondAttribute="height" id="3gC-Ic-Sjj"/>
                                         <constraint firstItem="4LU-ZK-nXR" firstAttribute="top" secondItem="WAE-iT-0vy" secondAttribute="top" id="3lC-Fx-44R"/>
+                                        <constraint firstItem="xe5-O4-8uQ" firstAttribute="leading" secondItem="fPA-p2-Osd" secondAttribute="trailing" constant="-28" id="7u0-Wv-4iC"/>
                                         <constraint firstItem="q0B-cp-PEv" firstAttribute="top" secondItem="Y9R-GA-1jz" secondAttribute="bottom" constant="21.5" id="8l3-j9-zAk"/>
                                         <constraint firstItem="dIL-1v-22D" firstAttribute="width" secondItem="fPA-p2-Osd" secondAttribute="width" id="9y6-u0-I8V"/>
                                         <constraint firstItem="fPA-p2-Osd" firstAttribute="centerY" secondItem="dIL-1v-22D" secondAttribute="centerY" id="A6H-Xx-Tsp"/>
@@ -555,12 +570,15 @@ mg/DL</string>
                                         <constraint firstItem="WAE-iT-0vy" firstAttribute="centerX" secondItem="dIL-1v-22D" secondAttribute="centerX" id="LzJ-xm-HhN"/>
                                         <constraint firstItem="CxJ-hs-S4A" firstAttribute="top" secondItem="gy9-HZ-5Qs" secondAttribute="bottom" constant="8" id="Oos-MF-3fN"/>
                                         <constraint firstItem="dIL-1v-22D" firstAttribute="top" secondItem="WAE-iT-0vy" secondAttribute="bottom" constant="9.5" id="SDt-oo-6Pd"/>
+                                        <constraint firstItem="5Zu-l9-GqO" firstAttribute="leading" secondItem="dIL-1v-22D" secondAttribute="trailing" constant="-26" id="Uiu-Vu-bGR"/>
                                         <constraint firstItem="gy9-HZ-5Qs" firstAttribute="top" secondItem="dIL-1v-22D" secondAttribute="bottom" constant="40" id="YHb-V6-Qwr"/>
                                         <constraint firstAttribute="bottom" secondItem="CxJ-hs-S4A" secondAttribute="bottom" constant="9" id="YZ6-8y-m4J"/>
+                                        <constraint firstItem="5Zu-l9-GqO" firstAttribute="centerY" secondItem="dIL-1v-22D" secondAttribute="centerY" id="Yes-UH-IJr"/>
                                         <constraint firstItem="WAE-iT-0vy" firstAttribute="width" secondItem="dIL-1v-22D" secondAttribute="width" id="bpt-oT-WQ7"/>
                                         <constraint firstItem="CxJ-hs-S4A" firstAttribute="leading" secondItem="1yz-Vx-6Uk" secondAttribute="leading" constant="10" id="cwX-pN-Ak1"/>
                                         <constraint firstAttribute="trailing" secondItem="UHR-AY-vGk" secondAttribute="trailing" constant="10" id="deN-ep-b9M"/>
                                         <constraint firstAttribute="trailing" secondItem="fPA-p2-Osd" secondAttribute="trailing" constant="25" id="dg6-Lm-XQd"/>
+                                        <constraint firstItem="xe5-O4-8uQ" firstAttribute="centerY" secondItem="fPA-p2-Osd" secondAttribute="centerY" id="dsa-Vn-iXT"/>
                                         <constraint firstAttribute="bottom" secondItem="UHR-AY-vGk" secondAttribute="bottom" constant="8" id="dt4-xL-TGZ"/>
                                         <constraint firstItem="UHR-AY-vGk" firstAttribute="leading" secondItem="CxJ-hs-S4A" secondAttribute="trailing" constant="13" id="goz-KZ-r61"/>
                                         <constraint firstItem="WAE-iT-0vy" firstAttribute="top" secondItem="q0B-cp-PEv" secondAttribute="bottom" constant="27" id="n7t-OK-E55"/>
@@ -609,6 +627,7 @@ mg/DL</string>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
         <image name="back" width="55" height="45"/>
+        <image name="icon-drop-down" width="31" height="55"/>
         <image name="sugarAdd" width="381" height="291"/>
     </resources>
 </document>

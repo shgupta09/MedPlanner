@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     toDate = [NSDate date];
-    _txtComments.text = @"comment";
+    //_txtComments.text = @"comment";
     fromDate = [NSDate date];
     
     CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI * 0.5);
@@ -191,7 +191,17 @@
     Formatter.dateFormat = @"yyyy-MM-dd";
     NSString *stringFor = [Formatter stringFromDate:[NSDate date]];
     [parameterDict setValue:[NSString stringWithFormat:@"%.1f", _sliderView.value] forKey:@"temperature"];
-    [parameterDict setValue:@"normal" forKey:@"comment"];
+   
+    if ([_txtComments.text  isEqual: @""]){
+        [parameterDict setValue:@"comment" forKey:@"comment"];
+        
+    }
+    else
+    {
+        [parameterDict setValue:_txtComments.text forKey:@"comment"];
+        
+    }
+    
     [parameterDict setValue:stringFor forKey:@"date"];
     
     if ([ CommonFunction reachability]) {

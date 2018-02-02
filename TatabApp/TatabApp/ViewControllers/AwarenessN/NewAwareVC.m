@@ -8,7 +8,7 @@
 
 #import "NewAwareVC.h"
 #import "MediaPostCell.h"
-@interface NewAwareVC ()<UITextViewDelegate>{
+@interface NewAwareVC ()<UITextViewDelegate,UITextFieldDelegate>{
     
     UIView *addSubView;
     UIImageView *imgView;
@@ -132,7 +132,6 @@
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
-    [revealController revealToggle:nil];
     
     [tempView removeGestureRecognizer:singleFingerTap];
     [tempView removeFromSuperview];
@@ -216,7 +215,7 @@
         return false;
     }
     
-    [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%d",textView.text.length-250]];
+    [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%lu",250-textView.text.length]];
     
     return true;
     
@@ -495,7 +494,8 @@
     
 }
 - (IBAction)btnAction_Attatchment:(id)sender {
-    [self showActionSheet];
+    sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self imageCapture];
 }
 - (IBAction)btnAction_ApplySearch:(id)sender {
      NSString *strToSearch = _txt_Search.text;
@@ -520,6 +520,10 @@
     _btnClearSearch.hidden = true;
     _lbl_SearchedText.hidden = true;
     _tbl_Constraint.constant = 0;
+}
+- (IBAction)btnDocumentAttachment:(id)sender {
+    [self selectPhoto];
+    
 }
 
 - (IBAction)btnAction_ImageToSend:(id)sender {
@@ -962,7 +966,12 @@
     
 }
 
-
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (textField.tag == 100){
+        return false;
+    }
+    return true;
+}
 
 
 @end
