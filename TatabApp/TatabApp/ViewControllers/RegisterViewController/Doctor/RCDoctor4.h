@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCDoctor4 : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface RCDoctor4 : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UIButton *captureBtn;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_IBAN;

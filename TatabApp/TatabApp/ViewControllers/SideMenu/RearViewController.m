@@ -14,6 +14,8 @@
      SWRevealViewController *revealController;
    // NSMutableArray *categoryArray;
     LoderView *loderObj;
+    CustomAlert *alertObj;
+
 
 }
 @property (weak, nonatomic) IBOutlet UIView *lblSectionSeparator;
@@ -278,7 +280,12 @@
 
 
 - (IBAction)btn_Logout:(id)sender {
-    
+     [revealController revealToggle:nil];
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"LogOutTapped"
+     object:self];
+     
+    /*
     UIAlertController * alert=   [UIAlertController
                                                                                     alertControllerWithTitle:@"Logout"
                                                                                     message:@"Are you sure you want to Logout?"
@@ -315,7 +322,7 @@
                                                       [alert addAction:cancel];
                                                       
                                                       [self presentViewController:alert animated:YES completion:nil];
-                                                      
+*/
 
 }
 
@@ -334,6 +341,75 @@
     [loderObj removeFromSuperview];
     //[loaderView removeFromSuperview];
     self.view.userInteractionEnabled = YES;
+}
+
+#pragma mark- Custom Loder
+-(void)addAlertWithTitle:(NSString *)titleString andMessage:(NSString *)messageString isTwoButtonNeeded:(BOOL)isTwoBUtoonNeeded firstbuttonTag:(NSInteger)firstButtonTag secondButtonTag:(NSInteger)secondButtonTag firstbuttonTitle:(NSString *)firstButtonTitle secondButtonTitle:(NSString *)secondButtonTitle image:(NSString *)imageName{
+    [CommonFunction resignFirstResponderOfAView:self.view];
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+    alertObj.lbl_title.text = titleString;
+    alertObj.lbl_message.text = messageString;
+    alertObj.iconImage.image = [UIImage imageNamed:imageName];
+    if (isTwoBUtoonNeeded) {
+        alertObj.btn1.hidden = true;
+        [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
+        [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
+        alertObj.btn2.tag = firstButtonTag;
+        alertObj.btn3.tag = secondButtonTag;
+        [alertObj.btn2 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
+        [alertObj.btn3 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }else{
+        alertObj.btn2.hidden = true;
+        alertObj.btn3.hidden = true;
+        alertObj.btn1.tag = firstButtonTag;
+        [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
+        [alertObj.btn1 addTarget:self
+                          action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    alertObj.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    [self.view addSubview:alertObj];
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        // animate it to the identity transform (100% scale)
+        alertObj.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished){
+        // if you want to do something once the animation finishes, put it here
+    }];
+    
+    
+}
+-(void)removeAlert{
+    if ([alertObj isDescendantOfView:self.view]) {
+        [alertObj removeFromSuperview];
+    }
+    
+}
+
+-(IBAction)btnActionForCustomAlert:(id)sender{
+    switch (((UIButton *)sender).tag) {
+        case Tag_For_Remove_Alert:{
+           
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"CancelNotification"
+             object:self];
+            [self removeAlert];
+        }
+            break;
+        case 101:{
+            [self removeAlert];
+            [revealController revealToggle:nil];
+            
+            [_tbl_View reloadData];
+            [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:false];
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"LogoutNotification"
+             object:self];
+        }
+            break;
+        default:
+            
+            break;
+    }
 }
 
 /*

@@ -28,6 +28,7 @@
     NSMutableArray *sortedArray;
     NSMutableArray *unsortedArray;
     BOOL ISFirsTime;
+    CustomAlert *alertObj;
     
 }
 @end
@@ -73,19 +74,31 @@
    // imgView.center = CGPointMake(imgView.center.x, imgView.center.y-50) ;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveNotification)
+                                             selector:@selector(receiveNotification:)
                                                  name:@"LogoutNotification"
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"LogOutTapped"
+                                               object:nil];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
--(void)receiveNotification{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"Logout Successfully" preferredStyle:UIAlertControllerStyleAlert];
+-(void)receiveNotification:(NSNotification*)notObj{
+    if ([notObj.name isEqualToString:@"LogoutNotification"]) {
+        [self addAlertWithTitle:AlertKey andMessage:@"Logout Successfully" isTwoButtonNeeded:false firstbuttonTag:103 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }else if([notObj.name isEqualToString:@"LogOutTapped"]){
+     [self addAlertWithTitle:@"Logout" andMessage:@"Are you sure you want to Logout?"   isTwoButtonNeeded:true firstbuttonTag:101 secondButtonTag:104 firstbuttonTitle:OK_Btn secondButtonTitle:@"Cancel" image:Warning_Key_For_Image];
+    }
+  /*  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"Logout Successfully" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self viewWillAppear:TRUE];
     }];
     [alertController addAction:ok];
     [self presentViewController:alertController animated:YES completion:nil];
+    */
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -212,6 +225,7 @@
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     
     if (textView.text.length == 250 && ![text isEqualToString: @""]) {
+         [self addAlertWithTitle:AlertKey andMessage:@"The content length is more than 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
         return false;
     }
     
@@ -220,6 +234,14 @@
     return true;
     
 }
+#pragma mark - textField Delegate
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (textField.tag == 100){
+        return false;
+    }
+    return true;
+}
+
 #pragma mark- SWRevealViewController
 
 - (IBAction)revealAction:(id)sender {
@@ -483,10 +505,12 @@
 
 - (IBAction)btnActionSendPost:(id)sender {
     if ([_txt_txtView.text isEqualToString:PlaceHolder]||[_txt_txtView.text isEqualToString:@""]){
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Please enter some text" preferredStyle:UIAlertControllerStyleAlert];
+       /* UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Please enter some text" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
+        */
+         [self addAlertWithTitle:AlertKey andMessage:@"Please enter some text" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }else{
         [self uploadPost];
     }
@@ -760,10 +784,7 @@
             }
         }];
     } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+        [self addAlertWithTitle:Network_Issue_Message andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
 }
@@ -784,11 +805,8 @@
                 }
                 else
                 {
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction:ok];
-                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
-                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self removeloder];
                     [self removeloder];
                 }
                 
@@ -798,19 +816,13 @@
             
             else {
                 [self removeloder];
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:[error description] preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                [alertController addAction:ok];
-                [self presentViewController:alertController animated:YES completion:nil];
+            [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
             }
             
             
         }];
     } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+        [self addAlertWithTitle:Network_Issue_Message andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
     
@@ -863,11 +875,8 @@
                 }
                 else
                 {
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction:ok];
-                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
-                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self removeloder];
                     [self removeloder];
                 }
                 
@@ -877,19 +886,13 @@
             
             else {
                 [self removeloder];
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:[error description] preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                [alertController addAction:ok];
-                [self presentViewController:alertController animated:YES completion:nil];
+           [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
             }
             
             
         }];
     } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+        [self addAlertWithTitle:Network_Issue_Message andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
     
@@ -919,26 +922,23 @@
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"addpost"]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        [CommonFunction removeAnimationFromView:_popUpView];
-                        _txt_txtView.text = @"";
-                    }];
-                    [alertController addAction:ok];
+                  
+                    
+                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [CommonFunction removeAnimationFromView:_popUpView];
+                    _txt_txtView.text = @"";
+                   
                     //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
                     
-                    [self presentViewController:alertController animated:YES completion:nil];
+                    
                     [self removeloder];
 
                     [self geAllPost];
                 }
                 else
                 {
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction:ok];
-                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
-                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self removeloder];
                     [self removeloder];
                 }
                 
@@ -948,29 +948,93 @@
             
             else {
                 [self removeloder];
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:[error description] preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                [alertController addAction:ok];
-                [self presentViewController:alertController animated:YES completion:nil];
+           [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
             }
             
             
         }];
     } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+        [self addAlertWithTitle:Network_Issue_Message andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
     
 }
 
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    if (textField.tag == 100){
-        return false;
+
+
+#pragma mark- Custom Loder
+-(void)addAlertWithTitle:(NSString *)titleString andMessage:(NSString *)messageString isTwoButtonNeeded:(BOOL)isTwoBUtoonNeeded firstbuttonTag:(NSInteger)firstButtonTag secondButtonTag:(NSInteger)secondButtonTag firstbuttonTitle:(NSString *)firstButtonTitle secondButtonTitle:(NSString *)secondButtonTitle image:(NSString *)imageName{
+    [CommonFunction resignFirstResponderOfAView:self.view];
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+    alertObj.lbl_title.text = titleString;
+    alertObj.lbl_message.text = messageString;
+    alertObj.iconImage.image = [UIImage imageNamed:imageName];
+    if (isTwoBUtoonNeeded) {
+        alertObj.btn1.hidden = true;
+        [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
+        [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
+        alertObj.btn2.tag = firstButtonTag;
+        alertObj.btn3.tag = secondButtonTag;
+        [alertObj.btn2 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
+        [alertObj.btn3 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }else{
+        alertObj.btn2.hidden = true;
+        alertObj.btn3.hidden = true;
+        alertObj.btn1.tag = firstButtonTag;
+        [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
+        [alertObj.btn1 addTarget:self
+                          action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
     }
-    return true;
+    alertObj.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    [self.view addSubview:alertObj];
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        // animate it to the identity transform (100% scale)
+        alertObj.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished){
+        // if you want to do something once the animation finishes, put it here
+    }];
+    
+    
+}
+-(void)removeAlert{
+    if ([alertObj isDescendantOfView:self.view]) {
+        [alertObj removeFromSuperview];
+    }
+    
+}
+
+-(IBAction)btnActionForCustomAlert:(id)sender{
+    switch (((UIButton *)sender).tag) {
+        case Tag_For_Remove_Alert:
+            [self removeAlert];
+            break;
+        case 103:{
+            [self removeAlert];
+         [self viewWillAppear:TRUE];
+        }
+            break;
+        case 104:{
+            
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"CancelNotification"
+             object:self];
+            [self removeAlert];
+        }
+            break;
+        case 101:{
+            [self removeAlert];
+            [_tbl_View reloadData];
+            [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:false];
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"LogoutNotification"
+             object:self];
+        }
+            break;
+        default:
+            
+            break;
+    }
 }
 
 

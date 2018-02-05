@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CustomButton.h"
 @interface CustomAlert : UIView
 @property (strong, nonatomic) IBOutlet UIView *view;
 

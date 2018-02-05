@@ -63,13 +63,18 @@
 #define Photo @"photo"
 #define Document @"document"
 #define isAwarenessApiHIt @"Api"
-#define RelationApi@"IsRelationApiHIt"
+#define RelationApi @"IsRelationApiHIt"
 //Alert Related Constant
 #define Tag_For_Remove_Alert 100
 #define OK_Btn @"Ok"
 #define Cancel_Btn @"Cancel"
 #define AlertKey @"Alert"
 #define Warning_Key @"Warning"
+#define Warning_Key_For_Image @"warning"
+#define Error_Key_For_Image @"error"
+#define Sevrer_Issue_Message @"Some network issue. Try Again."
+
+#define Network_Issue_Message @"No Network Access"
 
 #define codeForActivatedAccount @"NP001"
 //Color related

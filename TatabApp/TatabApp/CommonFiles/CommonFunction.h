@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "CustomAlert.h"
 @interface CommonFunction : NSObject
 +(BOOL)isValidPassword:(NSString*)password;
 +(UIView *)setStatusBarColor;

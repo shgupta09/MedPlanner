@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,6 +8,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.otf">
+            <string>Montserrat-Bold</string>
+        </array>
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomAlert">
             <connections>
@@ -27,56 +35,56 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtB-P7-l5c">
-                    <rect key="frame" x="50" y="232.5" width="275" height="203"/>
+                    <rect key="frame" x="50" y="221" width="275" height="225"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sz-um-WV9">
                             <rect key="frame" x="88" y="-50" width="100" height="100"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="xZX-mT-IVc" customClass="doctor">
-                                    <rect key="frame" x="7.5" y="7.5" width="85" height="85"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="xZX-mT-IVc" customClass="doctor">
+                                    <rect key="frame" x="2.5" y="2.5" width="95" height="95"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="Fa9-Du-aKK"/>
                                 <constraint firstAttribute="width" constant="100" id="JGj-in-Tit"/>
-                                <constraint firstItem="xZX-mT-IVc" firstAttribute="width" secondItem="2sz-um-WV9" secondAttribute="width" constant="-15" id="f3b-eT-7db"/>
+                                <constraint firstItem="xZX-mT-IVc" firstAttribute="width" secondItem="2sz-um-WV9" secondAttribute="width" constant="-5" id="f3b-eT-7db"/>
                                 <constraint firstItem="xZX-mT-IVc" firstAttribute="centerY" secondItem="2sz-um-WV9" secondAttribute="centerY" id="hFZ-pA-qJd"/>
                                 <constraint firstItem="xZX-mT-IVc" firstAttribute="centerX" secondItem="2sz-um-WV9" secondAttribute="centerX" id="pOO-Yw-nsW"/>
-                                <constraint firstItem="xZX-mT-IVc" firstAttribute="height" secondItem="2sz-um-WV9" secondAttribute="height" constant="-15" id="yxf-PV-Ebn"/>
+                                <constraint firstItem="xZX-mT-IVc" firstAttribute="height" secondItem="2sz-um-WV9" secondAttribute="height" constant="-5" id="yxf-PV-Ebn"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxC-U9-ihr">
-                            <rect key="frame" x="98" y="60" width="80" height="24"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <rect key="frame" x="99.5" y="60" width="77.5" height="21"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert Title sgsdf gfsd gsdf gsdfg sd fgsdf g" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sry-ER-Fpo">
-                            <rect key="frame" x="10" y="94" width="255" height="41"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Alert Title sgsdf gfsd gsdf gsdfg sd fgsdf g" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sry-ER-Fpo">
+                            <rect key="frame" x="10" y="91" width="255" height="59"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJP-Sz-bth" customClass="CustomButton">
-                            <rect key="frame" x="10" y="148" width="113" height="50"/>
+                            <rect key="frame" x="10" y="160" width="113" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="6Xs-JF-xEe"/>
                             </constraints>
                             <state key="normal" title="dsfsd"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1X-PX-gYE">
-                            <rect key="frame" x="133" y="143" width="9" height="41"/>
+                            <rect key="frame" x="133" y="179.5" width="9" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhj-jT-G5c" customClass="CustomButton">
-                            <rect key="frame" x="152" y="148" width="113" height="50"/>
+                            <rect key="frame" x="152" y="160" width="113" height="50"/>
                             <state key="normal" title="ds"/>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eek-LT-rvN" customClass="CustomButton">
-                            <rect key="frame" x="81" y="148" width="113" height="50"/>
+                            <rect key="frame" x="81" y="160" width="113" height="50"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,16 +100,16 @@
                         <constraint firstItem="b1X-PX-gYE" firstAttribute="leading" secondItem="GJP-Sz-bth" secondAttribute="trailing" constant="10" id="S0p-ST-w8f"/>
                         <constraint firstItem="2sz-um-WV9" firstAttribute="top" secondItem="QtB-P7-l5c" secondAttribute="top" constant="-50" id="SQt-WU-Z6P"/>
                         <constraint firstItem="rhj-jT-G5c" firstAttribute="bottom" secondItem="GJP-Sz-bth" secondAttribute="bottom" id="So1-Dr-eQw"/>
+                        <constraint firstAttribute="height" constant="225" id="XnR-s5-G7M"/>
                         <constraint firstItem="rhj-jT-G5c" firstAttribute="top" secondItem="GJP-Sz-bth" secondAttribute="top" id="at7-hN-rjG"/>
-                        <constraint firstAttribute="bottom" secondItem="GJP-Sz-bth" secondAttribute="bottom" constant="5" id="baX-rv-ggc"/>
-                        <constraint firstItem="GJP-Sz-bth" firstAttribute="top" secondItem="Sry-ER-Fpo" secondAttribute="bottom" constant="13" id="eBZ-By-8rf"/>
+                        <constraint firstAttribute="bottom" secondItem="GJP-Sz-bth" secondAttribute="bottom" constant="15" id="baX-rv-ggc"/>
                         <constraint firstAttribute="trailing" secondItem="Sry-ER-Fpo" secondAttribute="trailing" constant="10" id="edA-K5-vZQ"/>
                         <constraint firstItem="b1X-PX-gYE" firstAttribute="centerX" secondItem="QtB-P7-l5c" secondAttribute="centerX" id="hoF-Iw-ucl"/>
                         <constraint firstItem="Eek-LT-rvN" firstAttribute="width" secondItem="rhj-jT-G5c" secondAttribute="width" id="hw1-Ys-LfR"/>
                         <constraint firstItem="Eek-LT-rvN" firstAttribute="top" secondItem="rhj-jT-G5c" secondAttribute="top" id="lEW-mJ-AI0"/>
                         <constraint firstItem="wxC-U9-ihr" firstAttribute="top" secondItem="2sz-um-WV9" secondAttribute="bottom" constant="10" id="q5k-fy-WyO"/>
-                        <constraint firstItem="b1X-PX-gYE" firstAttribute="top" secondItem="Sry-ER-Fpo" secondAttribute="bottom" constant="8" id="rQr-Ih-69W"/>
-                        <constraint firstAttribute="bottom" secondItem="b1X-PX-gYE" secondAttribute="bottom" constant="19" id="ugV-3C-SdF"/>
+                        <constraint firstItem="GJP-Sz-bth" firstAttribute="top" secondItem="Sry-ER-Fpo" secondAttribute="bottom" constant="10" id="uFC-cj-Trg"/>
+                        <constraint firstAttribute="bottom" secondItem="b1X-PX-gYE" secondAttribute="bottom" constant="25" id="ugV-3C-SdF"/>
                     </constraints>
                 </view>
             </subviews>
@@ -116,6 +124,6 @@
         </view>
     </objects>
     <resources>
-        <image name="doctor" width="135" height="135"/>
+        <image name="warning" width="204" height="204"/>
     </resources>
 </document>

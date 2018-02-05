@@ -13,6 +13,7 @@
     LoderView *loderObj;
     NSMutableArray *doctorListArray;
     NSMutableArray *patientListArray;
+    CustomAlert *alertObj;
 }
 @end
 
@@ -174,11 +175,8 @@
                     [_tbl_View reloadData];
                 }else
                 {
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction:ok];
-                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
-                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self removeloder];
                     [self removeloder];
                 }
                 [self removeloder];
@@ -190,10 +188,7 @@
         }];
     } else {
         [self removeloder];
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+        [self addAlertWithTitle:Network_Issue_Message andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 }
 
@@ -227,11 +222,8 @@
                     [_tbl_View reloadData];
                 }else
                 {
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction:ok];
-                    //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
-                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self removeloder];
                     [self removeloder];
                 }
                 [self removeloder];
@@ -243,10 +235,7 @@
         }];
     } else {
         [self removeloder];
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"No Network Access" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+        [self addAlertWithTitle:Network_Issue_Message andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 }
 
@@ -263,6 +252,60 @@
     [loderObj removeFromSuperview];
     //[loaderView removeFromSuperview];
     self.view.userInteractionEnabled = YES;
+}
+
+#pragma mark- Custom Loder
+-(void)addAlertWithTitle:(NSString *)titleString andMessage:(NSString *)messageString isTwoButtonNeeded:(BOOL)isTwoBUtoonNeeded firstbuttonTag:(NSInteger)firstButtonTag secondButtonTag:(NSInteger)secondButtonTag firstbuttonTitle:(NSString *)firstButtonTitle secondButtonTitle:(NSString *)secondButtonTitle image:(NSString *)imageName{
+    [CommonFunction resignFirstResponderOfAView:self.view];
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+    alertObj.lbl_title.text = titleString;
+    alertObj.lbl_message.text = messageString;
+    alertObj.iconImage.image = [UIImage imageNamed:imageName];
+    if (isTwoBUtoonNeeded) {
+        alertObj.btn1.hidden = true;
+        [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
+        [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
+        alertObj.btn2.tag = firstButtonTag;
+        alertObj.btn3.tag = secondButtonTag;
+        [alertObj.btn2 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
+        [alertObj.btn3 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }else{
+        alertObj.btn2.hidden = true;
+        alertObj.btn3.hidden = true;
+        alertObj.btn1.tag = firstButtonTag;
+        [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
+        [alertObj.btn1 addTarget:self
+                          action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    alertObj.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    [self.view addSubview:alertObj];
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        // animate it to the identity transform (100% scale)
+        alertObj.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished){
+        // if you want to do something once the animation finishes, put it here
+    }];
+    
+    
+}
+-(void)removeAlert{
+    if ([alertObj isDescendantOfView:self.view]) {
+        [alertObj removeFromSuperview];
+    }
+    
+}
+
+-(IBAction)btnActionForCustomAlert:(id)sender{
+    switch (((UIButton *)sender).tag) {
+        case Tag_For_Remove_Alert:
+            [self removeAlert];
+            break;
+            
+        default:
+            
+            break;
+    }
 }
 
 
