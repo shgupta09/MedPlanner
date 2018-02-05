@@ -204,6 +204,13 @@
 
 #pragma mark - textviewDelegate
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (textField.tag == 100){
+        return false;
+    }
+    return true;
+}
+
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@"Add some text..."]) {
@@ -224,23 +231,22 @@
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     
-    if (textView.text.length == 250 && ![text isEqualToString: @""]) {
-         [self addAlertWithTitle:AlertKey andMessage:@"The content length is more than 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+
+  
+        
+
+    if (textView.text.length + text.length >= 250 && ![text isEqualToString: @""]) {
+        [self addAlertWithTitle:AlertKey andMessage:@"The content length is more than 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
         return false;
     }
     
-    [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%lu",250-textView.text.length]];
+    [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%lu",251-textView.text.length- text.length]];
     
     return true;
     
 }
 #pragma mark - textField Delegate
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    if (textField.tag == 100){
-        return false;
-    }
-    return true;
-}
+
 
 #pragma mark- SWRevealViewController
 

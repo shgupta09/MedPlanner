@@ -163,11 +163,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
-            timestampString = "539519397.354105"
+            timestampString = "539519756.7103339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "645"
-            endingLineNumber = "645"
+            startingLineNumber = "640"
+            endingLineNumber = "640"
             landmarkName = "-imageToCompress:"
             landmarkType = "7">
          </BreakpointContent>
@@ -403,12 +403,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
-            timestampString = "539519397.354105"
+            timestampString = "539519756.7103339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1014"
-            endingLineNumber = "1014"
-            landmarkName = "-btnActionForCustomAlert:"
+            startingLineNumber = "1008"
+            endingLineNumber = "1008"
+            landmarkName = "-removeAlert"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
