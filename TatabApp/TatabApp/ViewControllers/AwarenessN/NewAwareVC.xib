@@ -587,7 +587,7 @@
     </objects>
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
-        <image name="Icon---Menu" width="42" height="34"/>
+        <image name="Icon---Menu" width="63" height="51"/>
         <image name="Icon---Search" width="43" height="45"/>
         <image name="cameraWhite" width="45" height="37"/>
         <image name="documentWhite" width="23" height="45"/>

@@ -21,6 +21,7 @@
 		5F1E9B521F76482D009FECDD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B511F76482D009FECDD /* Reachability.m */; };
 		5F1E9B5D1F76AAB4009FECDD /* DependantDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9B5B1F76AAB4009FECDD /* DependantDetailTableViewCell.m */; };
 		5F1E9B5E1F76AAB4009FECDD /* DependantDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E9B5C1F76AAB4009FECDD /* DependantDetailTableViewCell.xib */; };
+		5F40CDB920288280009260D8 /* CustomButtonWithoutBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F40CDB820288280009260D8 /* CustomButtonWithoutBorder.m */; };
 		5F415F422003E13500862F0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F415F412003E13500862F0B /* Assets.xcassets */; };
 		5F4F6C5F1F828E5A000C65A0 /* AwarenessCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F6C5D1F828E5A000C65A0 /* AwarenessCategoryViewController.m */; };
 		5F4F6C601F828E5A000C65A0 /* AwarenessCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F4F6C5E1F828E5A000C65A0 /* AwarenessCategoryViewController.xib */; };
@@ -164,6 +165,8 @@
 		5F1E9B5A1F76AAB4009FECDD /* DependantDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DependantDetailTableViewCell.h; sourceTree = "<group>"; };
 		5F1E9B5B1F76AAB4009FECDD /* DependantDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DependantDetailTableViewCell.m; sourceTree = "<group>"; };
 		5F1E9B5C1F76AAB4009FECDD /* DependantDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DependantDetailTableViewCell.xib; sourceTree = "<group>"; };
+		5F40CDB720288280009260D8 /* CustomButtonWithoutBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButtonWithoutBorder.h; sourceTree = "<group>"; };
+		5F40CDB820288280009260D8 /* CustomButtonWithoutBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButtonWithoutBorder.m; sourceTree = "<group>"; };
 		5F415F412003E13500862F0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F4F6C5C1F828E5A000C65A0 /* AwarenessCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwarenessCategoryViewController.h; sourceTree = "<group>"; };
 		5F4F6C5D1F828E5A000C65A0 /* AwarenessCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwarenessCategoryViewController.m; sourceTree = "<group>"; };
@@ -714,6 +717,8 @@
 				9CEA820720121B7800F84450 /* CustomButton4.m */,
 				9C6D8CD42021A2F5004CA1B4 /* CustomTFWithLeftRight.h */,
 				9C6D8CD52021A2F5004CA1B4 /* CustomTFWithLeftRight.m */,
+				5F40CDB720288280009260D8 /* CustomButtonWithoutBorder.h */,
+				5F40CDB820288280009260D8 /* CustomButtonWithoutBorder.m */,
 			);
 			path = CommonFiles;
 			sourceTree = "<group>";
@@ -1099,7 +1104,7 @@
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = H7RFM2VSMC;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					5FBBBAFB1F72401C00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1424,6 +1429,7 @@
 				5F9F49BD1FB1D791009E1418 /* README.md in Sources */,
 				9C6D8CD62021A2F5004CA1B4 /* CustomTFWithLeftRight.m in Sources */,
 				9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */,
+				5F40CDB920288280009260D8 /* CustomButtonWithoutBorder.m in Sources */,
 				9C6DE7381F83A60600635102 /* AwarenessVideoListViewController.m in Sources */,
 				5FB2D742201C6ECB00D60DE8 /* ChooseDependantViewController.m in Sources */,
 				5F9F49BF1FB1D791009E1418 /* XMPPHandler.m in Sources */,
@@ -1611,7 +1617,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H7RFM2VSMC;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1622,8 +1628,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
+				PROVISIONING_PROFILE_SPECIFIER = Medplanner_underground;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1634,7 +1640,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H7RFM2VSMC;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1645,8 +1651,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
+				PROVISIONING_PROFILE_SPECIFIER = Medplanner_underground;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

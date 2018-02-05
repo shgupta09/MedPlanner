@@ -68,8 +68,10 @@
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 200;
     _tbl_View.multipleTouchEnabled = NO;
-    addSubView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 80, self.view.frame.size.width-40, self.view.frame.size.height-160)];
+    addSubView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
+    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 80, [[UIScreen mainScreen] bounds].size.width-40, [[UIScreen mainScreen] bounds].size.height-160)];
+    [imgView setContentMode:UIViewContentModeCenter];
+
     imgView.center = addSubView.center;
    // imgView.center = CGPointMake(imgView.center.x, imgView.center.y-50) ;
     
@@ -231,11 +233,7 @@
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     
-
-  
-        
-
-    if (textView.text.length + text.length >= 250 && ![text isEqualToString: @""]) {
+    if (textView.text.length + text.length > 250 && ![text isEqualToString: @""]) {
         [self addAlertWithTitle:AlertKey andMessage:@"The content length is more than 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
         return false;
     }
@@ -245,6 +243,7 @@
     return true;
     
 }
+
 #pragma mark - textField Delegate
 
 
@@ -462,29 +461,42 @@
      [_btn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
      [_btn4 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
      [_btn5 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
+    [_btn1.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
+    [_btn2.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
+    [_btn3.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
+    [_btn4.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
+    [_btn5.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
+
     
     switch (((UIButton *)sender).tag) {
         case 0:
             _txt_Search.text = @"obgyne";
              [_btn1 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
-           
+            [_btn1.titleLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
             break;
         case 1:
             _txt_Search.text = @"pediatric";
              [_btn2 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
+            [_btn2.titleLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
+
             break;
         case 2:
             _txt_Search.text = @"abodminal";
              [_btn3 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
+            [_btn3.titleLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
+
             break;
         case 3:
             _txt_Search.text = @"psycological";
            [_btn4 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
+            [_btn4.titleLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
+
             break;
         case 4:
             _txt_Search.text = @"Family and Community";
              [_btn5 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
+            [_btn5.titleLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
+
             break;
                         
         default:
@@ -790,7 +802,7 @@
             }
         }];
     } else {
-        [self addAlertWithTitle:Network_Issue_Message andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
 }
@@ -811,7 +823,7 @@
                 }
                 else
                 {
-                    [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -828,7 +840,7 @@
             
         }];
     } else {
-        [self addAlertWithTitle:Network_Issue_Message andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
     
@@ -881,7 +893,7 @@
                 }
                 else
                 {
-                    [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -898,7 +910,7 @@
             
         }];
     } else {
-        [self addAlertWithTitle:Network_Issue_Message andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
     
@@ -943,7 +955,7 @@
                 }
                 else
                 {
-                    [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -960,7 +972,7 @@
             
         }];
     } else {
-        [self addAlertWithTitle:Network_Issue_Message andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
     
