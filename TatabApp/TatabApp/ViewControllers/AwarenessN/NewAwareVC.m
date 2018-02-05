@@ -191,6 +191,13 @@
 
 #pragma mark - textviewDelegate
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (textField.tag == 100){
+        return false;
+    }
+    return true;
+}
+
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@"Add some text..."]) {
@@ -211,11 +218,11 @@
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     
-    if (textView.text.length == 250 && ![text isEqualToString: @""]) {
+    if (textView.text.length + text.length >= 250 && ![text isEqualToString: @""]) {
         return false;
     }
     
-    [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%lu",250-textView.text.length]];
+    [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%lu",251-textView.text.length- text.length]];
     
     return true;
     
@@ -966,12 +973,6 @@
     
 }
 
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    if (textField.tag == 100){
-        return false;
-    }
-    return true;
-}
 
 
 @end

@@ -211,9 +211,16 @@
     else if ([notification.name isEqualToString:XMPPStreamDidSendMessage])
     {
         XMPPMessage* messageContent = notification.object;
-        [self saveMessage:@"0" senderId:messageContent andeMessage:messageContent.body];
-        [self setMessageArray:true];
-        _txtField.text = @"";
+        if(messageContent.hasReceiptResponse){
+      
+        }
+        else
+        {
+            [self saveMessage:@"0" senderId:messageContent andeMessage:messageContent.body];
+            [self setMessageArray:true];
+            _txtField.text = @"";
+        }
+        
        }
     else if ([notification.name isEqualToString:XMPPStreamDidReceivePresence])
     {
@@ -270,6 +277,7 @@
     }
     [textView resignFirstResponder];
 }
+
 
 #pragma mark - hit Api
 -(void)hitImageUploadApi{
@@ -526,7 +534,7 @@
 #pragma mark -other
 
 -(void)addPopupview{
-//     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
+     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
     textView_advice.text = @"Add some text...";
     textView_advice.textColor = [UIColor darkGrayColor]; //optional
 
@@ -539,6 +547,13 @@
     [self.view addSubview:_popUpView];
     [CommonFunction addAnimationToview:_popUpView];
 }
+-(void)resignResponder{
+    [CommonFunction resignFirstResponderOfAView:self.view];
+    if ([_popUpView isDescendantOfView:self.view]) {
+        [_popUpView removeFromSuperview];
+    }
+}
+
 -(void)setMessageArray:(BOOL)isScroll{
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     

@@ -15,6 +15,7 @@
 @property (nonatomic,strong) id classObj;
 @property (strong, nonatomic) IBOutlet UIView *popUpView;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_Relationship;
+@property (weak, nonatomic) IBOutlet UILabel *lblHeader;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 @property bool isManageDependants;
 @end
