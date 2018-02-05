@@ -42,10 +42,11 @@
 
     if ( _isManageDependants) {
         [CommonFunction setResignTapGestureToView:self.view andsender:self];
-
+        _lblHeader.text = @"Dependants";
     }
     else
     {
+        _lblHeader.text = @"Choose Dependant";
         _btnAdd.hidden = true;
     }
     // Do any additional setup after loading the view from its nib.

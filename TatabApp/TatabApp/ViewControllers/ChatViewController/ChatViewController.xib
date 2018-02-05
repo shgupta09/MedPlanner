@@ -333,7 +333,7 @@
                                     <rect key="frame" x="20" y="140" width="334" height="279"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add some text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7lX-rx-Ijy">
-                                            <rect key="frame" x="5" y="5" width="324" height="257"/>
+                                            <rect key="frame" x="20" y="20" width="294" height="227"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -379,16 +379,21 @@
                                     <constraints>
                                         <constraint firstItem="pFN-1E-qqX" firstAttribute="centerX" secondItem="sJM-dG-pDR" secondAttribute="centerX" id="0Sl-qN-Vhm"/>
                                         <constraint firstItem="pFN-1E-qqX" firstAttribute="top" secondItem="MpN-hf-lra" secondAttribute="bottom" constant="8" id="5iv-gf-NIP"/>
-                                        <constraint firstAttribute="trailing" secondItem="7lX-rx-Ijy" secondAttribute="trailing" constant="5" id="6cS-AK-d4m"/>
+                                        <constraint firstAttribute="trailing" secondItem="7lX-rx-Ijy" secondAttribute="trailing" constant="20" id="6cS-AK-d4m"/>
                                         <constraint firstAttribute="height" constant="279" id="78f-qV-k3u"/>
                                         <constraint firstAttribute="trailing" secondItem="OC1-dA-cOn" secondAttribute="trailing" constant="8" id="J64-Xu-VHx"/>
-                                        <constraint firstItem="7lX-rx-Ijy" firstAttribute="leading" secondItem="sJM-dG-pDR" secondAttribute="leading" constant="5" id="J6W-yv-5hS"/>
+                                        <constraint firstItem="7lX-rx-Ijy" firstAttribute="leading" secondItem="sJM-dG-pDR" secondAttribute="leading" constant="20" id="J6W-yv-5hS"/>
                                         <constraint firstAttribute="trailing" secondItem="MpN-hf-lra" secondAttribute="trailing" constant="8" id="Kwl-VY-yLp"/>
-                                        <constraint firstItem="pFN-1E-qqX" firstAttribute="top" secondItem="7lX-rx-Ijy" secondAttribute="bottom" constant="5" id="dNz-CR-7At"/>
+                                        <constraint firstItem="pFN-1E-qqX" firstAttribute="top" secondItem="7lX-rx-Ijy" secondAttribute="bottom" constant="20" id="dNz-CR-7At"/>
                                         <constraint firstItem="OC1-dA-cOn" firstAttribute="top" secondItem="sJM-dG-pDR" secondAttribute="top" constant="8" id="i47-0P-KQC"/>
                                         <constraint firstAttribute="bottom" secondItem="pFN-1E-qqX" secondAttribute="bottom" constant="2" id="wbY-Pc-KMj"/>
-                                        <constraint firstItem="7lX-rx-Ijy" firstAttribute="top" secondItem="sJM-dG-pDR" secondAttribute="top" constant="5" id="wpy-5Z-z4k"/>
+                                        <constraint firstItem="7lX-rx-Ijy" firstAttribute="top" secondItem="sJM-dG-pDR" secondAttribute="top" constant="20" id="wpy-5Z-z4k"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="OC1-dA-cOn"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
