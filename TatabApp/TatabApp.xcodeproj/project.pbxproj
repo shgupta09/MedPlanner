@@ -90,6 +90,9 @@
 		9C8FE6D81F8B53270003003C /* RCDoctor3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8FE6D61F8B53270003003C /* RCDoctor3.xib */; };
 		9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */; };
 		9C8FE6DD1F8B8DCF0003003C /* RCDoctor4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8FE6DB1F8B8DCF0003003C /* RCDoctor4.xib */; };
+		9CDCD8282029BC1200E0B6B8 /* CommentClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCD8272029BC1200E0B6B8 /* CommentClass.m */; };
+		9CDCD82D2029BF9100E0B6B8 /* CommentVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCD82B2029BF9100E0B6B8 /* CommentVCViewController.m */; };
+		9CDCD82E2029BF9100E0B6B8 /* CommentVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCD82C2029BF9100E0B6B8 /* CommentVCViewController.xib */; };
 		9CEA820820121B7800F84450 /* CustomButton4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA820720121B7800F84450 /* CustomButton4.m */; };
 		D82354AA1F8A37790097A94C /* RCDoctor1.m in Sources */ = {isa = PBXBuildFile; fileRef = D82354A81F8A37790097A94C /* RCDoctor1.m */; };
 		D82354AB1F8A37790097A94C /* RCDoctor1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82354A91F8A37790097A94C /* RCDoctor1.xib */; };
@@ -311,6 +314,11 @@
 		9C8FE6D91F8B8DCF0003003C /* RCDoctor4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoctor4.h; sourceTree = "<group>"; };
 		9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDoctor4.m; sourceTree = "<group>"; };
 		9C8FE6DB1F8B8DCF0003003C /* RCDoctor4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDoctor4.xib; sourceTree = "<group>"; };
+		9CDCD8262029BC1200E0B6B8 /* CommentClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentClass.h; sourceTree = "<group>"; };
+		9CDCD8272029BC1200E0B6B8 /* CommentClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentClass.m; sourceTree = "<group>"; };
+		9CDCD82A2029BF9100E0B6B8 /* CommentVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentVCViewController.h; sourceTree = "<group>"; };
+		9CDCD82B2029BF9100E0B6B8 /* CommentVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentVCViewController.m; sourceTree = "<group>"; };
+		9CDCD82C2029BF9100E0B6B8 /* CommentVCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentVCViewController.xib; sourceTree = "<group>"; };
 		9CEA820620121B7800F84450 /* CustomButton4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton4.h; sourceTree = "<group>"; };
 		9CEA820720121B7800F84450 /* CustomButton4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton4.m; sourceTree = "<group>"; };
 		A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TatabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -735,6 +743,7 @@
 		5FBBBB111F726FC400C03813 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9CDCD8292029BF7500E0B6B8 /* CommentVC */,
 				5FB2D73E201C6EB300D60DE8 /* ChooseDependantViewController */,
 				5F90A45B201C62C500DA259B /* ChoosePatientViewController */,
 				D8E1C79B2007C77C007172F5 /* AwarenessN */,
@@ -837,6 +846,8 @@
 				D8E1C7A2200902A8007172F5 /* PostData.m */,
 				D8F3351A201CE282000C6FAE /* Relation.h */,
 				D8F3351B201CE282000C6FAE /* Relation.m */,
+				9CDCD8262029BC1200E0B6B8 /* CommentClass.h */,
+				9CDCD8272029BC1200E0B6B8 /* CommentClass.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -936,6 +947,16 @@
 				9C6DE7401F83A6B100635102 /* VideoListTableViewCell.xib */,
 			);
 			path = VideoListTableViewCell;
+			sourceTree = "<group>";
+		};
+		9CDCD8292029BF7500E0B6B8 /* CommentVC */ = {
+			isa = PBXGroup;
+			children = (
+				9CDCD82A2029BF9100E0B6B8 /* CommentVCViewController.h */,
+				9CDCD82B2029BF9100E0B6B8 /* CommentVCViewController.m */,
+				9CDCD82C2029BF9100E0B6B8 /* CommentVCViewController.xib */,
+			);
+			path = CommentVC;
 			sourceTree = "<group>";
 		};
 		D84B6BB81F77837500F37660 /* Loder VIew */ = {
@@ -1104,7 +1125,7 @@
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = H7RFM2VSMC;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					5FBBBAFB1F72401C00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1159,6 +1180,7 @@
 				5F4F6C691F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib in Resources */,
 				D8F5A56F1F9202D300E36160 /* HomeCell.xib in Resources */,
 				D8EE8B1C1F966FB8006A018E /* CustomAlert.xib in Resources */,
+				9CDCD82E2029BF9100E0B6B8 /* CommentVCViewController.xib in Resources */,
 				D84B6BBD1F77837500F37660 /* LoderView.xib in Resources */,
 				5F1E9B311F763C49009FECDD /* SplashScreenViewController.xib in Resources */,
 				5F1E9B5E1F76AAB4009FECDD /* DependantDetailTableViewCell.xib in Resources */,
@@ -1437,6 +1459,7 @@
 				5F9F49BF1FB1D791009E1418 /* XMPPHandler.m in Sources */,
 				D8F3351C201CE282000C6FAE /* Relation.m in Sources */,
 				5FB51C462003E5BE00E4889B /* SugarReportViewController.m in Sources */,
+				9CDCD82D2029BF9100E0B6B8 /* CommentVCViewController.m in Sources */,
 				5F1E9B4A1F76442C009FECDD /* CommonFunction.m in Sources */,
 				5FB51C482003E5BE00E4889B /* WeightReportViewController.m in Sources */,
 				D8F5A5681F9202AF00E36160 /* DoctorListVC.m in Sources */,
@@ -1448,6 +1471,7 @@
 				D82354AA1F8A37790097A94C /* RCDoctor1.m in Sources */,
 				D84B6BBC1F77837500F37660 /* LoderView.m in Sources */,
 				D8F5A5621F92021A00E36160 /* PatientHomeVC.m in Sources */,
+				9CDCD8282029BC1200E0B6B8 /* CommentClass.m in Sources */,
 				5F1E9B4E1F764568009FECDD /* CustomButton.m in Sources */,
 				D8EE8B161F95E564006A018E /* Specialization.m in Sources */,
 				5FB51C442003E5BE00E4889B /* PressureReportViewController.m in Sources */,
@@ -1619,7 +1643,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H7RFM2VSMC;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1630,8 +1654,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
-				PROVISIONING_PROFILE_SPECIFIER = Medplanner_underground;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1642,7 +1666,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H7RFM2VSMC;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1653,8 +1677,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
-				PROVISIONING_PROFILE_SPECIFIER = Medplanner_underground;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

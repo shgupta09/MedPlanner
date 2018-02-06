@@ -421,7 +421,23 @@
     }else if (((UIButton *)sender).tag /1000 == 4){
               PostData *obj2= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
               [self zoomWithImage:obj2.url];
-    }else{
+    }else if (((UIButton *)sender).tag /1000 == 2){
+         if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
+          
+                PostData *obj= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
+                postId= obj.post_id;
+             CommentVCViewController* vc ;
+             vc = [[CommentVCViewController alloc] initWithNibName:@"CommentVCViewController" bundle:nil];
+             vc.postId = obj.post_id;
+             [self.navigationController pushViewController:vc animated:true];
+         }else{
+             LoginViewController* vc ;
+             vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+             [self.navigationController pushViewController:vc animated:true];
+         }
+
+    }
+    else{
             if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
                 if (((UIButton *)sender).tag /1000 == 1){
                     PostData *obj= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
@@ -729,6 +745,10 @@
 }
 -(void)addPopupview3:(UIImage *)image{
      [CommonFunction setResignTapGestureToView:_popUpView3 andsender:self];
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
+    frame.origin.y = 0.0f;
+    self.popUpView3.center = CGPointMake(self.view.center.x, self.view.center.y);
+    [[self popUpView3] setFrame:frame];
 
     _imgView_ToShow.image = image;
     [_popUpView removeFromSuperview];

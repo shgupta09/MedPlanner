@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -537,11 +537,11 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUx-xr-FMK">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6rq-jT-ZPc">
-                                    <rect key="frame" x="50" y="80" width="275" height="537"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6rq-jT-ZPc">
+                                    <rect key="frame" x="30" y="50" width="315" height="567"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2A-85-LOZ">
-                                    <rect key="frame" x="300" y="592" width="25" height="25"/>
+                                    <rect key="frame" x="320" y="592" width="25" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="25" id="csf-0A-DVj"/>
                                         <constraint firstAttribute="height" constant="25" id="pbi-t0-Qdx"/>
@@ -556,10 +556,10 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="F2A-85-LOZ" firstAttribute="trailing" secondItem="6rq-jT-ZPc" secondAttribute="trailing" id="9j6-ms-NXP"/>
-                                <constraint firstItem="6rq-jT-ZPc" firstAttribute="top" secondItem="HUx-xr-FMK" secondAttribute="top" constant="80" id="AVk-GZ-td6"/>
+                                <constraint firstItem="6rq-jT-ZPc" firstAttribute="top" secondItem="HUx-xr-FMK" secondAttribute="top" constant="50" id="AVk-GZ-td6"/>
                                 <constraint firstAttribute="bottom" secondItem="6rq-jT-ZPc" secondAttribute="bottom" constant="50" id="hbd-2B-wO9"/>
-                                <constraint firstItem="6rq-jT-ZPc" firstAttribute="leading" secondItem="HUx-xr-FMK" secondAttribute="leading" constant="50" id="o9I-4d-Ai3"/>
-                                <constraint firstAttribute="trailing" secondItem="6rq-jT-ZPc" secondAttribute="trailing" constant="50" id="qCv-bY-jME"/>
+                                <constraint firstItem="6rq-jT-ZPc" firstAttribute="leading" secondItem="HUx-xr-FMK" secondAttribute="leading" constant="30" id="o9I-4d-Ai3"/>
+                                <constraint firstAttribute="trailing" secondItem="6rq-jT-ZPc" secondAttribute="trailing" constant="30" id="qCv-bY-jME"/>
                                 <constraint firstItem="F2A-85-LOZ" firstAttribute="bottom" secondItem="6rq-jT-ZPc" secondAttribute="bottom" id="w8D-8T-haw"/>
                             </constraints>
                         </view>
