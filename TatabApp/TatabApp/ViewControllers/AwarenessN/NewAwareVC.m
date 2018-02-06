@@ -421,7 +421,23 @@
     }else if (((UIButton *)sender).tag /1000 == 4){
               PostData *obj2= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
               [self zoomWithImage:obj2.url];
-    }else{
+    }else if (((UIButton *)sender).tag /1000 == 2){
+         if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
+          
+                PostData *obj= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
+                postId= obj.post_id;
+             CommentVCViewController* vc ;
+             vc = [[CommentVCViewController alloc] initWithNibName:@"CommentVCViewController" bundle:nil];
+             vc.postId = obj.post_id;
+             [self.navigationController pushViewController:vc animated:true];
+         }else{
+             LoginViewController* vc ;
+             vc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+             [self.navigationController pushViewController:vc animated:true];
+         }
+
+    }
+    else{
             if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
                 if (((UIButton *)sender).tag /1000 == 1){
                     PostData *obj= [dataArray objectAtIndex:((UIButton *)sender).tag%1000];
