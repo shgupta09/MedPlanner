@@ -729,6 +729,10 @@
 }
 -(void)addPopupview3:(UIImage *)image{
      [CommonFunction setResignTapGestureToView:_popUpView3 andsender:self];
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
+    frame.origin.y = 0.0f;
+    self.popUpView3.center = CGPointMake(self.view.center.x, self.view.center.y);
+    [[self popUpView3] setFrame:frame];
 
     _imgView_ToShow.image = image;
     [_popUpView removeFromSuperview];
