@@ -8,13 +8,15 @@
 
 #import "CommentVCViewController.h"
 
-@interface CommentVCViewController ()
+@interface CommentVCViewController ()<UITextFieldDelegate>
 {
     LoderView *loderObj;
     CustomAlert *alertObj;
     NSMutableArray *dataArray;
 
 }
+@property (weak, nonatomic) IBOutlet UIButton *btnLike;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewCurrentUser;
 @end
 
 @implementation CommentVCViewController
@@ -23,6 +25,35 @@
     [super viewDidLoad];
     [self setData];
     dataArray = [NSMutableArray new];
+    
+    [_imgViewCurrentUser sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
+    _lblPostDataTitle.text = _postObj.post_by;
+    if([_postObj.type isEqualToString:@"photo"]){
+        _lblPostDataContent.hidden = true;
+        _imgViewContent.hidden = false;
+        [_imgViewContent sd_setImageWithURL:[NSURL URLWithString:_postObj.url]];
+        _cons_imgViewHeiht.active = true;
+
+    }
+    else
+    {
+        _cons_imgViewHeiht.active = false ;
+        _lblPostDataContent.hidden = false;
+        _imgViewContent.hidden = true;
+
+        _lblPostDataContent.text = _postObj.content;
+    }
+    
+    if ([_postObj.is_liked intValue] >0) {
+        [_btnLike setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
+    }
+    else{
+        [_btnLike setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
+    }
+
+    _lblLikesCount.text = [NSString stringWithFormat:@"%@",_postObj.total_likes];
+    _lblCommentCount.text = [NSString stringWithFormat:@"%@",_postObj.total_comments];
+    _lblShareCount.text = @"0";
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -30,7 +61,7 @@
     loderObj.frame = self.view.frame;
 }
 -(void)setData{
-    [_tbl_View registerNib:[UINib nibWithNibName:@"TextPostCell" bundle:nil]forCellReuseIdentifier:@"TextPostCell"];
+    [_tbl_View registerNib:[UINib nibWithNibName:@"CommentTableViewCell" bundle:nil]forCellReuseIdentifier:@"CommentTableViewCell"];
     _tbl_View.rowHeight = UITableViewAutomaticDimension;
     _tbl_View.estimatedRowHeight = 100;
     _tbl_View.multipleTouchEnabled = NO;
@@ -49,55 +80,19 @@
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TextPostCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"TextPostCell"];
+    CommentTableViewCell *cell = [_tbl_View dequeueReusableCellWithIdentifier:@"CommentTableViewCell"];
     if (cell == nil) {
-        cell = [[TextPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TextPostCell"];
+        cell = [[CommentTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CommentTableViewCell"];
     }
     CommentClass *obj = [dataArray objectAtIndex:indexPath.row];
-    cell.lbl_DoctorName.text = [NSString stringWithFormat:@"Dr. %@",obj.comment_by];
-    cell.lbl_Content.text = obj.comment;
-    cell.viewForImage.layer.cornerRadius = 5;
-    cell.viewForImage.layer.masksToBounds = true;
-    cell.doctorImageView.layer.cornerRadius = 5;
-    cell.doctorImageView.layer.masksToBounds = true;
-    cell.clinicImageView.layer.cornerRadius = 5;
-    cell.clinicImageView.layer.masksToBounds = true;
+    cell.lblUserName.text = [NSString stringWithFormat:@"Dr. %@",obj.comment_by];
+    cell.lblComment.text = obj.comment;
+    cell.imgViewUser.layer.cornerRadius = 5;
+    cell.imgViewUser.layer.masksToBounds = true;
+    cell.imgViewType.layer.cornerRadius = 5;
+    cell.imgViewType.layer.masksToBounds = true;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.btn_Like.hidden = true;
-    cell.btn_Share.hidden = true;
-    cell.btn_Comment.hidden = true;
-    cell.lbl_LikeCount.hidden = true;
-    cell.lbl_ShareCount.hidden = true;
-    cell.lbl_CommentCount.hidden = true;
-    cell.seperator_View1.hidden = true;
-    /*[cell.btn_Like addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    cell.btn_Like.tag = 1000+indexPath.row;
-    [cell.btn_Comment addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    cell.btn_Comment.tag = 2000+indexPath.row;
-    [cell.btn_Share addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    cell.btn_Share.tag = 3000+indexPath.row;
-    cell.lbl_LikeCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
-           cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
-        cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
-     */
-    //[cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
-    //[cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
-   // cell.profileContent.tag = 5000+indexPath.row;
-   // [cell.profileContent addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-   /* if (![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
-        
-        [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
-        
-    }else{
-        if ([obj.is_liked intValue] >0) {
-            [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
-        }
-        else{
-            [cell.btn_Like setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
-        }
-    }
-   */
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
@@ -134,6 +129,41 @@
                     [self removeloder];
                 }else
                 {
+                    [self removeloder];
+                    [self removeloder];
+                }
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        [self removeloder];
+        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }
+}
+
+-(void)hitApiForAddComment{
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:_postId forKey:@"post_id"];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"user_id"];
+    [parameter setValue:_txtFieldComment.text forKey:@"comment"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FOR_ADD_COMMENTS]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    [self removeloder];
+                    [self.view endEditing:true];
+                    _txtFieldComment.text = @"";
+                    [self hitApiForComments];
+                }else
+                {
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
@@ -150,6 +180,7 @@
         [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -226,12 +257,38 @@
     }
 }
 
+#pragma marl - textfield delegate methods
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if (textField.text.length + string.length > 250 && ![string isEqualToString: @""]) {
+        [self addAlertWithTitle:AlertKey andMessage:@"The comment length is more than 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        return false;
+    }
+    
+
+    
+    return true;
+}
+
 
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
 }
+- (IBAction)btnCommentSend:(id)sender {
+    if ([_txtFieldComment.text  isEqual: @""]){
+
+    }
+    else
+    {
+        [self hitApiForAddComment];
+    }
+}
 
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return true;
+}
 
 @end

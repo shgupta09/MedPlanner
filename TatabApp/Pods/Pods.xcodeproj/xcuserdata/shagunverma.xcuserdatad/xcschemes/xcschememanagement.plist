@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Charts.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>CocoaAsyncSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,22 +67,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>011388BE1847E8583D816FF7A6700C4B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>0BD659E21DA1CDA96BE2DD70EBA13298</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>18BA2236A99612BA5479A70A018915AA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>19B3B08B90C0E520E09DE1BD6DFA7651</key>
+		<key>2737E4054365069F967211C8A76AB24E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,7 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8E311C1151946FB648DFC91BA002EEBC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>968CE34E72B461EC7CCC2CAD44D84570</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A40A4387148E3EAE1932934098DAD3C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,22 +107,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C89C489544494F02BD3D27303E524C5A</key>
+		<key>BD3903A559C056E37F010254E79A7BC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D19344005370CFF37D501C72F06194EF</key>
+		<key>E969C8D2B58D77644E418112F080225D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>EA2A920A891C4D3535867E5C3EF3D793</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F307B842FF76B2DE6C55DB67C0885325</key>
 		<dict>
 			<key>primary</key>
 			<true/>

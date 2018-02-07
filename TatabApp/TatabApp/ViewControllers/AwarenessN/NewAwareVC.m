@@ -429,6 +429,7 @@
              CommentVCViewController* vc ;
              vc = [[CommentVCViewController alloc] initWithNibName:@"CommentVCViewController" bundle:nil];
              vc.postId = obj.post_id;
+             vc.postObj = obj;
              [self.navigationController pushViewController:vc animated:true];
          }else{
              LoginViewController* vc ;
