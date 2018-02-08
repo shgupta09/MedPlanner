@@ -27,6 +27,26 @@
     dataArray = [NSMutableArray new];
     
     [_imgViewCurrentUser sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
+    _imgViewCurrentUser.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
+    _imgViewCurrentUser.layer.borderWidth = 1;
+    _imgViewPostDataType.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
+    _imgViewPostDataType.layer.borderWidth = 1;
+    _imgViewPostDataUser.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
+    _imgViewPostDataUser.layer.borderWidth = 1;
+    _txtFieldComment.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
+    _txtFieldComment.layer.borderWidth = 1;
+    [_imgViewPostDataUser sd_setImageWithURL:[NSURL URLWithString:_postObj.icon_url]];
+    [_imgViewPostDataType setImage:[self setImageFor:_postObj.clinicName]];
+    _txtFieldComment.layer.cornerRadius = 5;
+    _imgViewCurrentUser.layer.cornerRadius = 5;
+    _imgViewPostDataType.layer.cornerRadius = 5;
+    _imgViewPostDataUser.layer.cornerRadius = 5;
+    
+    _imgViewPostDataType.layer.masksToBounds = true;
+    _imgViewPostDataUser.layer.masksToBounds = true;
+    _imgViewCurrentUser.layer.masksToBounds = true;
+     _txtFieldComment.layer.masksToBounds = true;
+    
     _lblPostDataTitle.text = _postObj.post_by;
     if([_postObj.type isEqualToString:@"photo"]){
         _lblPostDataContent.hidden = true;
@@ -53,6 +73,7 @@
 
     _lblLikesCount.text = [NSString stringWithFormat:@"%@",_postObj.total_likes];
     _lblCommentCount.text = [NSString stringWithFormat:@"%@",_postObj.total_comments];
+      _lblCommentCount.text = @"0";
     _lblShareCount.text = @"0";
     // Do any additional setup after loading the view from its nib.
 }
@@ -73,8 +94,10 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (dataArray.count == 0) {
         _lbl_NoComment.hidden = false;
+        _noCommentSeperator.hidden = true;
     }else{
         _lbl_NoComment.hidden = true;
+        _noCommentSeperator.hidden = false;
     }
     return dataArray.count;
     
@@ -290,5 +313,29 @@
     [textField resignFirstResponder];
     return true;
 }
+
+
+#pragma mark - other
+-(UIImage*) setImageFor:(NSString*) clinicName{
+    
+    if ([clinicName isEqualToString:@"Abdominal Clinic"]) {
+        return [UIImage imageNamed:@"sec-abdomen-1"];
+    }
+    else if ([clinicName isEqualToString:@"Psychological Clinic"]) {
+        return [UIImage imageNamed:@"sec-psy-1"];
+    }
+    else if ([clinicName isEqualToString:@"Family and Community Clinic"]) {
+        return [UIImage imageNamed:@"sec-family-1"];
+    }
+    else if ([clinicName isEqualToString:@"Obgyne Clinic"]) {
+        return [UIImage imageNamed:@"sec-obgyen-1"];
+    }
+    else if ([clinicName isEqualToString:@"Pediatrics Clinic"]) {
+        return [UIImage imageNamed:@"section-children"];
+    }
+    
+    return [UIImage imageNamed:@""];
+}
+
 
 @end
