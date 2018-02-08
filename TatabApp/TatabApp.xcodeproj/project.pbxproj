@@ -1133,7 +1133,7 @@
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = H7RFM2VSMC;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					5FBBBAFB1F72401C00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1651,7 +1651,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H7RFM2VSMC;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1662,8 +1662,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
-				PROVISIONING_PROFILE_SPECIFIER = Medplanner_underground;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1674,7 +1674,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H7RFM2VSMC;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1685,8 +1685,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
-				PROVISIONING_PROFILE_SPECIFIER = Medplanner_underground;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

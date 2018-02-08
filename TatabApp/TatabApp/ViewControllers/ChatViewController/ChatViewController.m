@@ -257,7 +257,18 @@
     
 
 }
+#pragma mark - textField Delegate
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+
+    if ([string isEqualToString:@""] && textField.text.length == 1 ) {
+          [_btnSend setBackgroundImage:[UIImage imageNamed:@"cameraWhite"] forState:UIControlStateNormal];
+    }else{
+        [_btnSend setBackgroundImage:[UIImage imageNamed:@"sendButton-1"] forState:UIControlStateNormal];
+    }
+    return true;
+
+}
 #pragma mark - textviewDelegate
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -265,6 +276,7 @@
     if ([textView.text isEqualToString:@"Add some text..."]) {
         textView.text = @"";
         textView.textColor = [UIColor whiteColor]; //optional
+        
     }
     [textView becomeFirstResponder];
 }
@@ -274,6 +286,7 @@
     if ([textView.text isEqualToString:@""]) {
         textView.text = @"Add some text...";
         textView.textColor = [UIColor darkGrayColor]; //optional
+      
     }
     [textView resignFirstResponder];
 }
@@ -322,6 +335,19 @@
     
 }
 #pragma mark - btn Actions
+- (IBAction)btnAddFileClicked:(id)sender {
+    if ([_mySwitch isOn]) {
+        [self showActionSheet];
+    }else{
+        /*UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"You have to be Online to send the message." preferredStyle:UIAlertControllerStyleAlert];
+         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+         [alertController addAction:ok];
+         //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
+         [self presentViewController:alertController animated:YES completion:nil];*/
+        
+        [self addAlertWithTitle:AlertKey andMessage:@"You have to be Online to send the message." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }
+}
 
 - (IBAction)switch_btn:(id)sender {
     if ([_mySwitch isOn]) {
@@ -397,15 +423,9 @@
                                      error:NULL];
         
         
-        if (dictOfMedia!=nil && [dictOfMedia isKindOfClass:[NSDictionary class]] && [dictOfMedia objectForKey:@"type"])
-        {
-            
-            
+        if (dictOfMedia!=nil && [dictOfMedia isKindOfClass:[NSDictionary class]] && [dictOfMedia objectForKey:@"type"]){
             return 170;
-            
-        }
-        else
-        {
+        }else{
             MessageCell *cell = [[MessageCell alloc] init];
             Chat *s = (Chat *) [messagesArray objectAtIndex:indexPath.row];
             Message *msg = [[Message alloc] init];
@@ -413,11 +433,8 @@
             msg.text = s.message;
             cell.message = msg;
             return [cell height];
-            
-
         }
-
-    }
+     }
     return 10;
 }
 
@@ -692,19 +709,6 @@
     return YES;
 }
 
-- (IBAction)btnAddFileClicked:(id)sender {
-    if ([_mySwitch isOn]) {
-        [self showActionSheet];
-    }else{
-        /*UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"You have to be Online to send the message." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
-        [self presentViewController:alertController animated:YES completion:nil];*/
-        
-        [self addAlertWithTitle:AlertKey andMessage:@"You have to be Online to send the message." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-    }
-}
 
 
 #pragma mark - keyboard notification
@@ -748,13 +752,15 @@
 
 -(void)showActionSheet{
     [CommonFunction resignFirstResponderOfAView:self.view];
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Options"
+   /* UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Options"
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:@"Camera"
                                                     otherButtonTitles:@"Library", nil];
     
     [actionSheet showInView:self.view];
+    */
+     [self selectPhoto];
 }
 
 

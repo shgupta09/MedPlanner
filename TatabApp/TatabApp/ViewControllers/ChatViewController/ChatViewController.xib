@@ -111,17 +111,17 @@
                     <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOB-Z6-Mna">
-                            <rect key="frame" x="14" y="10" width="40" height="40"/>
+                            <rect key="frame" x="5" y="15" width="30" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="40" id="ICh-yc-12t"/>
-                                <constraint firstAttribute="height" constant="40" id="zYk-db-Aru"/>
+                                <constraint firstAttribute="width" constant="30" id="ICh-yc-12t"/>
+                                <constraint firstAttribute="height" constant="30" id="zYk-db-Aru"/>
                             </constraints>
                             <connections>
                                 <action selector="btnAddFileClicked:" destination="-1" eventType="touchUpInside" id="RhV-wG-EJI"/>
                             </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="When i can have next Visit?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lfh-Jx-FjD">
-                            <rect key="frame" x="59" y="10" width="256" height="40"/>
+                            <rect key="frame" x="40" y="10" width="295" height="40"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -135,14 +135,14 @@
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcB-yl-rdg">
-                            <rect key="frame" x="320" y="15" width="45" height="30"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="340" y="17.5" width="25" height="25"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="Sxs-nb-djh"/>
-                                <constraint firstAttribute="width" constant="45" id="jGf-ck-w6z"/>
+                                <constraint firstAttribute="height" constant="25" id="Sxs-nb-djh"/>
+                                <constraint firstAttribute="width" constant="25" id="jGf-ck-w6z"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
-                            <state key="normal" title="send">
+                            <state key="normal" backgroundImage="cameraWhite">
                                 <color key="titleColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
@@ -157,7 +157,7 @@
                         <constraint firstItem="Lfh-Jx-FjD" firstAttribute="centerY" secondItem="UiN-VW-ZJs" secondAttribute="centerY" id="C58-DK-XzL"/>
                         <constraint firstAttribute="height" constant="60" id="PN5-hA-rBq"/>
                         <constraint firstItem="QOB-Z6-Mna" firstAttribute="centerY" secondItem="RcB-yl-rdg" secondAttribute="centerY" id="RmK-aJ-JYR"/>
-                        <constraint firstItem="QOB-Z6-Mna" firstAttribute="leading" secondItem="UiN-VW-ZJs" secondAttribute="leading" constant="14" id="bPt-xO-RQk"/>
+                        <constraint firstItem="QOB-Z6-Mna" firstAttribute="leading" secondItem="UiN-VW-ZJs" secondAttribute="leading" constant="5" id="bPt-xO-RQk"/>
                         <constraint firstItem="RcB-yl-rdg" firstAttribute="leading" secondItem="Lfh-Jx-FjD" secondAttribute="trailing" constant="5" id="gl6-Zh-51P"/>
                         <constraint firstAttribute="trailing" secondItem="RcB-yl-rdg" secondAttribute="trailing" constant="10" id="qoM-i6-LOh"/>
                     </constraints>
@@ -435,6 +435,7 @@
     </objects>
     <resources>
         <image name="back" width="55" height="45"/>
+        <image name="cameraWhite" width="45" height="37"/>
         <image name="diagnose" width="66" height="70"/>
         <image name="error" width="204" height="204"/>
         <image name="followup-1" width="79" height="70"/>

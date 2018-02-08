@@ -10,7 +10,7 @@
 
 
 
-@interface ChatViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,UITextViewDelegate>{
+@interface ChatViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,UITextViewDelegate,UITextFieldDelegate>{
     __weak IBOutlet UILabel *lbl_title;
 }
 @property (weak, nonatomic) IBOutlet UIView *viewToClip;
