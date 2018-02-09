@@ -686,6 +686,9 @@
         NSString *messageStr = _txtField.text;
         if([messageStr length] > 0) {
             [hm sendMessage:messageStr toFriendWithFriendId:_toId andMessageId:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] ]];
+        }else{
+            sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self imageCapture];
         }
     }else{
         
