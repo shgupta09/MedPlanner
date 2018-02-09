@@ -84,7 +84,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/netprophetsmac/Projects/Abhinav&apos;s/MedPlanner/TatabApp/TatabApp/ViewControllers/ChooseDependantViewController/ChooseDependantViewController.m"
-                  timestampString = "539612096.355724"
+                  timestampString = "539788883.287177"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "302"
@@ -95,11 +95,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.360"
+                  symbolName = "__copy_helper_block_.362"
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/netprophetsmac/Projects/Abhinav&apos;s/MedPlanner/TatabApp/TatabApp/ViewControllers/ChooseDependantViewController/ChooseDependantViewController.m"
-                  timestampString = "539612096.3570549"
+                  timestampString = "539788883.2883559"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "302"
@@ -110,11 +110,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.361"
+                  symbolName = "__destroy_helper_block_.363"
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/netprophetsmac/Projects/Abhinav&apos;s/MedPlanner/TatabApp/TatabApp/ViewControllers/ChooseDependantViewController/ChooseDependantViewController.m"
-                  timestampString = "539612096.3583"
+                  timestampString = "539788883.289597"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "302"
@@ -451,12 +451,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/CommentVC/CommentVCViewController.m"
-            timestampString = "539612316.630348"
+            timestampString = "539783015.133464"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-hitApiForComments"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
+            timestampString = "539782843.1012909"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "432"
+            endingLineNumber = "432"
+            landmarkName = "-btnClicked:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/CommentVC/CommentVCViewController.m"
+            timestampString = "539783169.1508631"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
+            timestampString = "539788883.065588"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "-btnAddFileClicked:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
+            timestampString = "539788883.065588"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "-textViewDidEndEditing:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
+            timestampString = "539788908.046379"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "-textField:shouldChangeCharactersInRange:replacementString:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

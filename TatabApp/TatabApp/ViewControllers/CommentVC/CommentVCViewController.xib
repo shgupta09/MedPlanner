@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,6 +29,7 @@
                 <outlet property="lblPostDataTitle" destination="mCa-nu-vXI" id="Gm3-Zp-wOs"/>
                 <outlet property="lblShareCount" destination="9LC-NO-EMM" id="6YB-iX-58P"/>
                 <outlet property="lbl_NoComment" destination="Als-UR-EZX" id="oor-TD-Omk"/>
+                <outlet property="noCommentSeperator" destination="pec-Ia-NeI" id="GsJ-ad-VHT"/>
                 <outlet property="tbl_View" destination="eBj-NF-WFW" id="bpc-C3-hly"/>
                 <outlet property="txtFieldComment" destination="TFN-r5-MdT" id="oCB-70-bDD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -76,7 +77,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Comment Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Als-UR-EZX">
-                    <rect key="frame" x="99" y="355" width="177" height="21"/>
+                    <rect key="frame" x="99.5" y="355" width="176.5" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -202,21 +203,9 @@
                         <constraint firstAttribute="height" constant="41" id="sCh-bR-Zl1"/>
                         <constraint firstAttribute="width" constant="41" id="ukT-LI-43C"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                            <color key="value" red="0.56401550769805908" green="0.74656456708908081" blue="0.33255988359451294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                            <integer key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type your comment here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TFN-r5-MdT">
-                    <rect key="frame" x="81" y="300" width="245" height="35"/>
+                    <rect key="frame" x="81" y="308" width="250" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="KPL-Iz-bSa"/>
                     </constraints>
@@ -228,17 +217,17 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duE-57-tpP">
-                    <rect key="frame" x="334" y="300" width="35" height="35"/>
+                    <rect key="frame" x="339" y="310.5" width="30" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="35" id="b2e-mI-RpJ"/>
-                        <constraint firstAttribute="height" constant="35" id="cWK-ui-2Gb"/>
+                        <constraint firstAttribute="width" constant="30" id="b2e-mI-RpJ"/>
+                        <constraint firstAttribute="height" constant="30" id="cWK-ui-2Gb"/>
                     </constraints>
                     <state key="normal" image="writeTweetBlue"/>
                     <connections>
                         <action selector="btnCommentSend:" destination="-1" eventType="touchUpInside" id="cz3-la-acL"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LGC-7K-mbv">
+                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LGC-7K-mbv">
                     <rect key="frame" x="84" y="105" width="271" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="1V0-bW-g0s"/>
@@ -261,6 +250,7 @@
                 <constraint firstItem="x1w-AK-Swh" firstAttribute="leading" secondItem="yvZ-oA-z4U" secondAttribute="trailing" constant="80" id="5fq-6Q-fQr"/>
                 <constraint firstItem="nTi-UA-Ia7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="7GU-Ar-hfj"/>
                 <constraint firstItem="Bpc-2c-rBz" firstAttribute="leading" secondItem="mCa-nu-vXI" secondAttribute="leading" id="8g3-tI-5Rx"/>
+                <constraint firstItem="TFN-r5-MdT" firstAttribute="top" secondItem="cPS-qV-aM5" secondAttribute="top" constant="5" id="9sF-Pr-mXV"/>
                 <constraint firstItem="yvZ-oA-z4U" firstAttribute="leading" secondItem="f19-US-bKJ" secondAttribute="trailing" constant="5" id="A0z-qq-cOv"/>
                 <constraint firstItem="x1w-AK-Swh" firstAttribute="leading" secondItem="nfE-rv-w6b" secondAttribute="trailing" constant="5" id="Ahf-se-ZPi"/>
                 <constraint firstItem="pec-Ia-NeI" firstAttribute="top" secondItem="cPS-qV-aM5" secondAttribute="bottom" constant="1" id="B0D-Se-Z78"/>
@@ -271,7 +261,7 @@
                 <constraint firstItem="hnP-5Q-y1U" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EX1-AM-row"/>
                 <constraint firstItem="x1w-AK-Swh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FQK-QO-fcW"/>
                 <constraint firstAttribute="trailing" secondItem="LGC-7K-mbv" secondAttribute="trailing" constant="20" id="GHE-h1-jTL"/>
-                <constraint firstItem="duE-57-tpP" firstAttribute="top" secondItem="Xi5-zE-I0H" secondAttribute="bottom" constant="5" id="I4d-b9-GB7"/>
+                <constraint firstItem="duE-57-tpP" firstAttribute="centerY" secondItem="TFN-r5-MdT" secondAttribute="centerY" id="I4X-RC-586"/>
                 <constraint firstItem="AFB-sW-Hg3" firstAttribute="centerY" secondItem="x1w-AK-Swh" secondAttribute="centerY" id="JyO-ZA-wOy"/>
                 <constraint firstItem="Xi5-zE-I0H" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="K2b-RA-Dn9"/>
                 <constraint firstItem="nfE-rv-w6b" firstAttribute="centerY" secondItem="x1w-AK-Swh" secondAttribute="centerY" id="NBg-kQ-DHa"/>
@@ -309,7 +299,6 @@
                 <constraint firstItem="rbg-gi-TqM" firstAttribute="bottom" secondItem="eBj-NF-WFW" secondAttribute="bottom" id="tVp-ne-Yd7"/>
                 <constraint firstItem="mCa-nu-vXI" firstAttribute="top" secondItem="UCp-eA-gA5" secondAttribute="top" id="tW0-Lp-Xm2"/>
                 <constraint firstItem="8VZ-3w-E9c" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tvM-2i-FVV"/>
-                <constraint firstItem="TFN-r5-MdT" firstAttribute="top" secondItem="Xi5-zE-I0H" secondAttribute="bottom" constant="5" id="u3c-rA-X2z"/>
                 <constraint firstItem="AFB-sW-Hg3" firstAttribute="leading" secondItem="9LC-NO-EMM" secondAttribute="trailing" constant="5" id="vdh-Gd-0c7"/>
                 <constraint firstAttribute="trailing" secondItem="mCa-nu-vXI" secondAttribute="trailing" constant="20" id="zyO-6O-pJC"/>
             </constraints>
@@ -321,7 +310,7 @@
         <image name="back" width="55" height="45"/>
         <image name="comment" width="35" height="29"/>
         <image name="section-children" width="94" height="78"/>
-        <image name="share" width="62" height="70"/>
+        <image name="share" width="31" height="35"/>
         <image name="writeTweetBlue" width="57" height="57"/>
     </resources>
 </document>
