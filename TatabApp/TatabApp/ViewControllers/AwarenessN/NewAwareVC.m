@@ -91,6 +91,7 @@
                                                object:nil];
     
     [self addCustomTabBar];
+    tabBarObj.btnAwareness.highlighted = true;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -1155,11 +1156,8 @@
                 }
             }];
             if (!isFound) {
-                ChooseDependantViewController* vc ;
-                vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
-                vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
-                vc.classObj = self;
-                vc.isManageDependants = false;
+                ChoosePatientViewController* vc ;
+                vc = [[ChoosePatientViewController alloc] initWithNibName:@"ChoosePatientViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:true];
             }
             
@@ -1174,11 +1172,8 @@
                 }
             }];
             if (!isFound) {
-                ChooseDependantViewController* vc ;
-                vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
-                vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
-                vc.classObj = self;
-                vc.isManageDependants = false;
+                ChoosePatientViewController* vc ;
+                vc = [[ChoosePatientViewController alloc] initWithNibName:@"ChoosePatientViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:true];
             }
             

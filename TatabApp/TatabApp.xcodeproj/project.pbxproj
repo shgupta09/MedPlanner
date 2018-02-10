@@ -110,6 +110,7 @@
 		D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84DF2021F8A0D9C00234070 /* RegisterViewController.xib */; };
 		D86A3735202E1CAC009EA562 /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D86A3734202E1CAC009EA562 /* CustomTabBar.xib */; };
 		D86A3738202E2E57009EA562 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A3737202E2E57009EA562 /* CustomTabBar.m */; };
+		D8C46A98202F6006004BAC2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8C46A97202F6005004BAC2C /* GoogleService-Info.plist */; };
 		D8CD7DF2202EE5FA0036A738 /* QueueDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */; };
 		D8E1C79F2007C790007172F5 /* NewAwareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E1C79D2007C790007172F5 /* NewAwareVC.m */; };
 		D8E1C7A02007C790007172F5 /* NewAwareVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8E1C79E2007C790007172F5 /* NewAwareVC.xib */; };
@@ -353,6 +354,7 @@
 		D86A3734202E1CAC009EA562 /* CustomTabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
 		D86A3736202E2E57009EA562 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
 		D86A3737202E2E57009EA562 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
+		D8C46A97202F6005004BAC2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8CD7DF0202EE5FA0036A738 /* QueueDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueDetails.h; sourceTree = "<group>"; };
 		D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueDetails.m; sourceTree = "<group>"; };
 		D8CD7DF3202F0A670036A738 /* TatabApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TatabApp.entitlements; sourceTree = "<group>"; };
@@ -669,6 +671,7 @@
 		5FBBBAD71F72401B00C03813 = {
 			isa = PBXGroup;
 			children = (
+				D8C46A97202F6005004BAC2C /* GoogleService-Info.plist */,
 				D8F108B41FBFF4580049296C /* TatabApp.xcdatamodeld */,
 				5FBBBAE21F72401B00C03813 /* TatabApp */,
 				5FBBBAFF1F72401C00C03813 /* TatabAppTests */,
@@ -1156,6 +1159,7 @@
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = H7RFM2VSMC;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -1213,6 +1217,7 @@
 				9C8FE6DD1F8B8DCF0003003C /* RCDoctor4.xib in Resources */,
 				5FBBBAF61F72401B00C03813 /* LaunchScreen.storyboard in Resources */,
 				D8F5A5691F9202AF00E36160 /* DoctorListVC.xib in Resources */,
+				D8C46A98202F6006004BAC2C /* GoogleService-Info.plist in Resources */,
 				D82354B01F8A6C2E0097A94C /* RCDoctor2.xib in Resources */,
 				9C6DE7421F83A6B100635102 /* VideoListTableViewCell.xib in Resources */,
 				5F4F6C691F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib in Resources */,
@@ -1293,12 +1298,15 @@
 				"${BUILT_PRODUCTS_DIR}/BEMSimpleLineGraph/BEMSimpleLineGraph.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/KissXML/KissXML.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/XMPPFramework/XMPPFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/libidn/libidn.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1306,12 +1314,15 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMSimpleLineGraph.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KissXML.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XMPPFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libidn.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1692,10 +1703,11 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "77210a32-ff2c-483d-996f-6599f65557a6";
-				PROVISIONING_PROFILE_SPECIFIER = "medplanner development";
+				PROVISIONING_PROFILE = "92e4f160-ae12-404c-90b3-baf11e589c5c";
+				PROVISIONING_PROFILE_SPECIFIER = Provisioning_Development_Medplanners;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1716,10 +1728,11 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "77210a32-ff2c-483d-996f-6599f65557a6";
-				PROVISIONING_PROFILE_SPECIFIER = "medplanner development";
+				PROVISIONING_PROFILE = "92e4f160-ae12-404c-90b3-baf11e589c5c";
+				PROVISIONING_PROFILE_SPECIFIER = Provisioning_Development_Medplanners;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

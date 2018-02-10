@@ -11,9 +11,10 @@ target 'TatabApp' do
   pod 'SDWebImage', '~> 4.1'
   pod 'SWRevealViewController', '~> 2.3'
   # Pods for TatabApp
-pod 'BEMSimpleLineGraph'
+  pod 'BEMSimpleLineGraph'
   pod 'XMPPFramework', :git => "https://github.com/robbiehanson/XMPPFramework.git", :branch => 'master'
-
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
 
   # Pods for TatabApp
