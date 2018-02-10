@@ -497,10 +497,10 @@
 }
 - (IBAction)btnAction_SearchCategory:(id)sender {
     [_btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-     [_btn2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-     [_btn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-     [_btn4 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-     [_btn5 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btn2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btn4 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btn5 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_btn1.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
     [_btn2.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
     [_btn3.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
