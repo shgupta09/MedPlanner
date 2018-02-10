@@ -10,9 +10,10 @@
 
 
 
-@interface ChatViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,UITextViewDelegate,UITextFieldDelegate>{
+@interface ChatViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,UITextViewDelegate>{
     __weak IBOutlet UILabel *lbl_title;
 }
+@property (weak, nonatomic) IBOutlet UIButton *btn_EndChat;
 @property (weak, nonatomic) IBOutlet UIView *viewToClip;
 @property (weak, nonatomic) IBOutlet UISwitch *mySwitch;
 @property (strong, nonatomic) Specialization *objDoctor;
@@ -28,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgView_PatientDoctor;
 @property (weak, nonatomic) IBOutlet UIView *viewPatient;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
+
+@property (strong, nonatomic) NSString* queue_id ;
 
 @property (strong, nonatomic) NSString* toId ;
 

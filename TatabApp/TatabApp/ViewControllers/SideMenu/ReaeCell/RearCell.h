@@ -11,5 +11,6 @@
 @interface RearCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_title;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
 
 @end

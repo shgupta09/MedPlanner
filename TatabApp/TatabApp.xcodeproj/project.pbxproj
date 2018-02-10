@@ -95,7 +95,6 @@
 		9C8FE6D81F8B53270003003C /* RCDoctor3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8FE6D61F8B53270003003C /* RCDoctor3.xib */; };
 		9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */; };
 		9C8FE6DD1F8B8DCF0003003C /* RCDoctor4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8FE6DB1F8B8DCF0003003C /* RCDoctor4.xib */; };
-		9CD94CFA202D7D6D0093F850 /* ButtonWithRightImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD94CF9202D7D6D0093F850 /* ButtonWithRightImage.m */; };
 		9CEA820820121B7800F84450 /* CustomButton4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA820720121B7800F84450 /* CustomButton4.m */; };
 		D82354AA1F8A37790097A94C /* RCDoctor1.m in Sources */ = {isa = PBXBuildFile; fileRef = D82354A81F8A37790097A94C /* RCDoctor1.m */; };
 		D82354AB1F8A37790097A94C /* RCDoctor1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82354A91F8A37790097A94C /* RCDoctor1.xib */; };
@@ -109,6 +108,9 @@
 		D84DF2041F8A0D9C00234070 /* RegisterCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84DF1FF1F8A0D9C00234070 /* RegisterCompleteViewController.xib */; };
 		D84DF2051F8A0D9C00234070 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84DF2011F8A0D9C00234070 /* RegisterViewController.m */; };
 		D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84DF2021F8A0D9C00234070 /* RegisterViewController.xib */; };
+		D86A3735202E1CAC009EA562 /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D86A3734202E1CAC009EA562 /* CustomTabBar.xib */; };
+		D86A3738202E2E57009EA562 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A3737202E2E57009EA562 /* CustomTabBar.m */; };
+		D8CD7DF2202EE5FA0036A738 /* QueueDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */; };
 		D8E1C79F2007C790007172F5 /* NewAwareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E1C79D2007C790007172F5 /* NewAwareVC.m */; };
 		D8E1C7A02007C790007172F5 /* NewAwareVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8E1C79E2007C790007172F5 /* NewAwareVC.xib */; };
 		D8E1C7A3200902A8007172F5 /* PostData.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E1C7A2200902A8007172F5 /* PostData.m */; };
@@ -325,8 +327,6 @@
 		9C8FE6D91F8B8DCF0003003C /* RCDoctor4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoctor4.h; sourceTree = "<group>"; };
 		9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDoctor4.m; sourceTree = "<group>"; };
 		9C8FE6DB1F8B8DCF0003003C /* RCDoctor4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDoctor4.xib; sourceTree = "<group>"; };
-		9CD94CF8202D7D6D0093F850 /* ButtonWithRightImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonWithRightImage.h; sourceTree = "<group>"; };
-		9CD94CF9202D7D6D0093F850 /* ButtonWithRightImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonWithRightImage.m; sourceTree = "<group>"; };
 		9CEA820620121B7800F84450 /* CustomButton4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton4.h; sourceTree = "<group>"; };
 		9CEA820720121B7800F84450 /* CustomButton4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton4.m; sourceTree = "<group>"; };
 		A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TatabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -350,6 +350,12 @@
 		D84DF2001F8A0D9C00234070 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		D84DF2011F8A0D9C00234070 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		D84DF2021F8A0D9C00234070 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		D86A3734202E1CAC009EA562 /* CustomTabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
+		D86A3736202E2E57009EA562 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
+		D86A3737202E2E57009EA562 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
+		D8CD7DF0202EE5FA0036A738 /* QueueDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueDetails.h; sourceTree = "<group>"; };
+		D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueDetails.m; sourceTree = "<group>"; };
+		D8CD7DF3202F0A670036A738 /* TatabApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TatabApp.entitlements; sourceTree = "<group>"; };
 		D8E1C79C2007C790007172F5 /* NewAwareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAwareVC.h; sourceTree = "<group>"; };
 		D8E1C79D2007C790007172F5 /* NewAwareVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAwareVC.m; sourceTree = "<group>"; };
 		D8E1C79E2007C790007172F5 /* NewAwareVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewAwareVC.xib; sourceTree = "<group>"; };
@@ -684,6 +690,7 @@
 		5FBBBAE21F72401B00C03813 /* TatabApp */ = {
 			isa = PBXGroup;
 			children = (
+				D8CD7DF3202F0A670036A738 /* TatabApp.entitlements */,
 				9C4C5ECB1F792717003D84BD /* Models */,
 				5F1E9B581F76AA62009FECDD /* TableViewCells */,
 				5FBBBB0B1F726FC400C03813 /* CommonFiles */,
@@ -721,6 +728,7 @@
 		5FBBBB0B1F726FC400C03813 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				D86A372E202E1BF1009EA562 /* CustomTabBar */,
 				9C6D8CD72021F470004CA1B4 /* Font */,
 				5FE274D92010C02700EC875E /* CustomSlider */,
 				5F5DF3781FB31D0F00956B62 /* ChatsRelatedViews */,
@@ -745,8 +753,6 @@
 				9C6D8CD52021A2F5004CA1B4 /* CustomTFWithLeftRight.m */,
 				5F40CDB720288280009260D8 /* CustomButtonWithoutBorder.h */,
 				5F40CDB820288280009260D8 /* CustomButtonWithoutBorder.m */,
-				9CD94CF8202D7D6D0093F850 /* ButtonWithRightImage.h */,
-				9CD94CF9202D7D6D0093F850 /* ButtonWithRightImage.m */,
 			);
 			path = CommonFiles;
 			sourceTree = "<group>";
@@ -868,6 +874,8 @@
 				D8E1C7A2200902A8007172F5 /* PostData.m */,
 				D8F3351A201CE282000C6FAE /* Relation.h */,
 				D8F3351B201CE282000C6FAE /* Relation.m */,
+				D8CD7DF0202EE5FA0036A738 /* QueueDetails.h */,
+				D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1014,6 +1022,16 @@
 			path = Patient;
 			sourceTree = "<group>";
 		};
+		D86A372E202E1BF1009EA562 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				D86A3736202E2E57009EA562 /* CustomTabBar.h */,
+				D86A3737202E2E57009EA562 /* CustomTabBar.m */,
+				D86A3734202E1CAC009EA562 /* CustomTabBar.xib */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
 		D8E1C79B2007C77C007172F5 /* AwarenessN */ = {
 			isa = PBXGroup;
 			children = (
@@ -1138,19 +1156,12 @@
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = H7RFM2VSMC;
-<<<<<<< HEAD
 						ProvisioningStyle = Manual;
-<<<<<<< HEAD
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
 							};
 						};
-=======
-						ProvisioningStyle = Automatic;
->>>>>>> a005e067b967ae2e94e027a81f29391cd2623690
-=======
->>>>>>> parent of 5c2ea78... notification needed
 					};
 					5FBBBAFB1F72401C00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1210,6 +1221,7 @@
 				D84B6BBD1F77837500F37660 /* LoderView.xib in Resources */,
 				5F1E9B311F763C49009FECDD /* SplashScreenViewController.xib in Resources */,
 				5F1E9B5E1F76AAB4009FECDD /* DependantDetailTableViewCell.xib in Resources */,
+				D86A3735202E1CAC009EA562 /* CustomTabBar.xib in Resources */,
 				5FB773F41FF525F300982102 /* DoctorListEMRLogTableViewCell.xib in Resources */,
 				D8E1C7A02007C790007172F5 /* NewAwareVC.xib in Resources */,
 				5FB51C472003E5BE00E4889B /* SugarReportViewController.xib in Resources */,
@@ -1279,7 +1291,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TatabApp/Pods-TatabApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/BEMSimpleLineGraph/BEMSimpleLineGraph.framework",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/KissXML/KissXML.framework",
@@ -1293,7 +1304,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMSimpleLineGraph.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KissXML.framework",
@@ -1510,10 +1520,12 @@
 				5FC496DC1FCBDC1B004E537A /* ChatPatient.m in Sources */,
 				5F1E9B3A1F763C73009FECDD /* UserSelectViewController.m in Sources */,
 				D84DF2031F8A0D9C00234070 /* RegisterCompleteViewController.m in Sources */,
+				D8CD7DF2202EE5FA0036A738 /* QueueDetails.m in Sources */,
 				5F90A45F201C62DD00DA259B /* ChoosePatientViewController.m in Sources */,
 				5F0B0FD01FB1EC82006468AA /* ChatViewController.m in Sources */,
 				D8F5A56E1F9202D300E36160 /* HomeCell.m in Sources */,
 				9C5505712008B8090037F07F /* MediaPostCell.m in Sources */,
+				D86A3738202E2E57009EA562 /* CustomTabBar.m in Sources */,
 				5F70ABDB2029D6FC007E69A5 /* CommentTableViewCell.m in Sources */,
 				5FBBBAE51F72401B00C03813 /* main.m in Sources */,
 				D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */,
@@ -1534,7 +1546,6 @@
 				D8F5A5721F920B1C00E36160 /* CustomButton2.m in Sources */,
 				D842065F2005444D00459FC2 /* Report.m in Sources */,
 				9C6DE7411F83A6B100635102 /* VideoListTableViewCell.m in Sources */,
-				9CD94CFA202D7D6D0093F850 /* ButtonWithRightImage.m in Sources */,
 				9C6DE72C1F8399CD00635102 /* RearViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1580,7 +1591,6 @@
 		5FBBBB031F72401C00C03813 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1628,7 +1638,6 @@
 		5FBBBB041F72401C00C03813 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1672,8 +1681,9 @@
 			baseConfigurationReference = EC3D829D93651C6DE55E17FC /* Pods-TatabApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TatabApp/TatabApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H7RFM2VSMC;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1684,18 +1694,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
-<<<<<<< HEAD
 				PROVISIONING_PROFILE = "77210a32-ff2c-483d-996f-6599f65557a6";
 				PROVISIONING_PROFILE_SPECIFIER = "medplanner development";
-=======
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
->>>>>>> a005e067b967ae2e94e027a81f29391cd2623690
-=======
-				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
-				PROVISIONING_PROFILE_SPECIFIER = Medplanner_underground;
->>>>>>> parent of 5c2ea78... notification needed
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1705,8 +1705,9 @@
 			baseConfigurationReference = BBB844014A999876E3EEA5CD /* Pods-TatabApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TatabApp/TatabApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H7RFM2VSMC;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1717,18 +1718,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
-<<<<<<< HEAD
 				PROVISIONING_PROFILE = "77210a32-ff2c-483d-996f-6599f65557a6";
 				PROVISIONING_PROFILE_SPECIFIER = "medplanner development";
-=======
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
->>>>>>> a005e067b967ae2e94e027a81f29391cd2623690
-=======
-				PROVISIONING_PROFILE = "10cd1012-65b7-4376-8f81-4baedba71285";
-				PROVISIONING_PROFILE_SPECIFIER = Medplanner_underground;
->>>>>>> parent of 5c2ea78... notification needed
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

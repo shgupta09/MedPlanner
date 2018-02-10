@@ -14,7 +14,7 @@ target 'TatabApp' do
 pod 'BEMSimpleLineGraph'
   pod 'XMPPFramework', :git => "https://github.com/robbiehanson/XMPPFramework.git", :branch => 'master'
 
-pod 'Charts'
+
 
   # Pods for TatabApp
 
