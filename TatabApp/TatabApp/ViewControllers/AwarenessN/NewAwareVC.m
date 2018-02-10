@@ -29,7 +29,6 @@
     NSMutableArray *unsortedArray;
     BOOL ISFirsTime;
     CustomAlert *alertObj;
-    CustomTabBar *tabBarObj;
     
 }
 @end
@@ -38,7 +37,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
     _searchOptionBtnAction.tintColor = [UIColor whiteColor];
     tempView = [UIView new];
     UIImage * image = [UIImage imageNamed:@"Icon---Search"];
@@ -85,26 +83,15 @@
                                              selector:@selector(receiveNotification:)
                                                  name:@"LogOutTapped"
                                                object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveNotification:)
-                                                 name:@"NONE TO CHAT"
-                                               object:nil];
     
-    [self addCustomTabBar];
     // Do any additional setup after loading the view from its nib.
 }
 
--(void)viewDidLayoutSubviews{
-    
-    tabBarObj.frame =CGRectMake(0, self.view.frame.size.height-49, self.view.frame.size.width, 49);
-}
 -(void)receiveNotification:(NSNotification*)notObj{
     if ([notObj.name isEqualToString:@"LogoutNotification"]) {
         [self addAlertWithTitle:AlertKey andMessage:@"Logout Successfully" isTwoButtonNeeded:false firstbuttonTag:103 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }else if([notObj.name isEqualToString:@"LogOutTapped"]){
      [self addAlertWithTitle:@"Logout" andMessage:@"Are you sure you want to Logout?"   isTwoButtonNeeded:true firstbuttonTag:101 secondButtonTag:104 firstbuttonTitle:OK_Btn secondButtonTitle:@"Cancel" image:Warning_Key_For_Image];
-    }else if([notObj.name isEqualToString:@"NONE TO CHAT"]){
-    [self addAlertWithTitle:AlertKey andMessage:@"No patient present in the queue." isTwoButtonNeeded:false firstbuttonTag:103 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
   /*  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"Logout Successfully" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -123,10 +110,7 @@
     [super viewWillAppear:true];
     self.navigationController.navigationBar.hidden = true;
     isOpen = false;
-    if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
-
     if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-        tabBarObj.view.hidden = false;
         if (![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
             _btn_Post.hidden = true;
             _btn_Post.userInteractionEnabled = false;
@@ -138,19 +122,12 @@
             _btn_Post.hidden = false;
             _btn_Post.userInteractionEnabled = true;
               [_imgView_Profile sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
-            [self hitApiForTheQueueCount];
         }
     }else{
         _btn_Post.hidden = true;
         _btn_Post.userInteractionEnabled = false;
         [_imgView_Profile removeFromSuperview];
-        tabBarObj.view.hidden = true;
     }
-    }else{
-        _btn_Post.hidden = true;
-        _btn_Post.userInteractionEnabled = false;
-        [_imgView_Profile removeFromSuperview];
-        tabBarObj.view.hidden = true;    }
     if (!is_Media) {
     [self geAllPost];    
     }
@@ -343,7 +320,7 @@
         [cell.btn_Share addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         cell.btn_Share.tag = 3000+indexPath.row;
         cell.lbl_LikeCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
-        cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_comments];
+//        cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
 //        cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
         [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
@@ -386,7 +363,7 @@
         [cell.btn_Share addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         cell.btn_Share.tag = 3000+indexPath.row;
         cell.lbl_LikeCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
-        cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_comments];
+//        cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
 //        cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
         [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
@@ -795,39 +772,6 @@
     self.view.userInteractionEnabled = YES;
 }
 #pragma mark- Hit Api
-
-
--(void)hitApiForTheQueueCount{
-    [[QueueDetails sharedInstance].myDataArray removeAllObjects];
-    NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
-        if ([ CommonFunction reachability]) {
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"getallqueuepatient"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
-            if (error == nil) {
-                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    NSArray *tempArray = [responseObj valueForKey:@"data"];
-                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        QueueDetails *queueObj = [QueueDetails new];
-                        queueObj.queue_id = [obj valueForKey:@"queue_id"];
-                        queueObj.name = [obj valueForKey:@"name"];
-                        queueObj.email = [obj valueForKey:@"email"];
-                        queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
-                        queueObj.patient_id = [obj valueForKey:@"patient_id"];
-                        queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
-                        
-                        [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
-                    }];
-                   }
-                
-                }
-            }
-        ];
-    }
-}
-
-
 -(void)hitImageUploadApi{
 
     if ([ CommonFunction reachability]) {
@@ -961,8 +905,6 @@
                         postData.is_liked = [obj valueForKey:@"is_liked"]  ;
                         postData.icon_url = [obj valueForKey:@"user_pic"];
                         postData.clinicName = [obj valueForKey:@"specialist"];
-                        postData.total_comments = [obj valueForKey:@"total_comments"];
-                        
                         
                         [unsortedArray addObject:postData];
                     }];
@@ -1133,69 +1075,6 @@
             break;
     }
 }
-#pragma mark- Custom Tab Bar
 
--(void)addCustomTabBar{
-    tabBarObj = [[CustomTabBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-49, self.view.frame.size.width, 49)];
-    [tabBarObj.btnHealthTracker addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];
-    [tabBarObj.btnAwareness addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];
-    [tabBarObj.btnMedicalRecord addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];
-
-    [self.view addSubview:tabBarObj];
-}
--(IBAction)btnActionForCustomTab:(id)sender{
-    switch (((UIButton *)sender).tag) {
-        
-        case 0:{
-            NSArray * tempArray = self.navigationController.viewControllers;
-            __block BOOL isFound = false;
-            [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([[obj class] isKindOfClass:[ChooseDependantViewController class]]){
-                    isFound = true;
-                }
-            }];
-            if (!isFound) {
-                ChooseDependantViewController* vc ;
-                vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
-                vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
-                vc.classObj = self;
-                vc.isManageDependants = false;
-                [self.navigationController pushViewController:vc animated:true];
-            }
-            
-        }
-            break;
-        case 1:{
-            NSArray * tempArray = self.navigationController.viewControllers;
-            __block BOOL isFound = false;
-            [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([[obj class] isKindOfClass:[ChooseDependantViewController class]]){
-                    isFound = true;
-                }
-            }];
-            if (!isFound) {
-                ChooseDependantViewController* vc ;
-                vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
-                vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
-                vc.classObj = self;
-                vc.isManageDependants = false;
-                [self.navigationController pushViewController:vc animated:true];
-            }
-            
-           
-        }
-            break;
-        case 2:{
-            
-            [self.navigationController popToRootViewControllerAnimated:true];
-
-            
-                   }
-            break;
-        default:
-            
-            break;
-    }
-}
 
 @end

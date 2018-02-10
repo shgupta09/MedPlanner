@@ -88,7 +88,6 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RearCell *rearCell = [_tbl_View dequeueReusableCellWithIdentifier:@"RearCell"];
-    rearCell.countLabel.hidden = true;
      if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
 //    
 //    if (indexPath.row<categoryArray.count) {
@@ -105,10 +104,6 @@
 //    }
          rearCell.lbl_title.text = [titleArray objectAtIndex:indexPath.row];
          rearCell.imgView.image = [UIImage imageNamed:[titleImageArray objectAtIndex:indexPath.row]];
-         if ([rearCell.lbl_title.text isEqualToString:@"QUEUE"] && [[QueueDetails sharedInstance].myDataArray count]>0) {
-             rearCell.countLabel.hidden = false;
-             rearCell.countLabel.text = [NSString stringWithFormat:@"%d",[[QueueDetails sharedInstance].myDataArray count]];
-         }
      }else{
          rearCell.lbl_title.text = [titleArray objectAtIndex:indexPath.row];
          rearCell.imgView.image = [UIImage imageNamed:[titleImageArray objectAtIndex:indexPath.row]];
@@ -130,7 +125,6 @@
         if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
             switch (indexPath.row) {
                 case 0:{
-                    
                     ChooseDependantViewController* vc ;
                     vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
                     vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
@@ -179,41 +173,14 @@
         {
             switch (indexPath.row) {
                 case 0:{
-//                    DoctorListVC* vc ;
-//                    vc = [[DoctorListVC alloc] initWithNibName:@"DoctorListVC" bundle:nil];
-//                    
-//                    AwarenessCategory *awarenessObj = [AwarenessCategory new];
-//                    awarenessObj.category_name = [CommonFunction getValueFromDefaultWithKey:Specialist];
-//                    awarenessObj.category_id = [CommonFunction getIDFromClinic:awarenessObj.category_name];
-//                    vc.awarenessObj = awarenessObj;
-//                    [self.navigationController pushViewController:vc animated:true];
-                    if ([[QueueDetails sharedInstance].myDataArray count]== 0) {
-                        [[NSNotificationCenter defaultCenter]
-                         postNotificationName:@"NONE TO CHAT"
-                         object:self];
-                    }else{
-                        QueueDetails *obj = [[QueueDetails sharedInstance].myDataArray objectAtIndex:0];
-                        ChatPatient *specializationObj = [ChatPatient new];
-                        specializationObj.patient_id = [obj valueForKey:@"patient_id"];
-                        specializationObj.name = [NSString stringWithFormat:@"%@",obj.name];
-                        specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
-                        
-                        
-                        
-                        ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
-                        Specialization* temp = [Specialization new];
-                        temp.first_name = obj.name;
-                        temp.doctor_id = [obj.patient_id integerValue];
-                        vc.objDoctor  = temp;
-                        vc.queue_id = obj.queue_id;
-                        
-                        //                    vc.awarenessObj = _awarenessObj;
-                        vc.toId = obj.jabberId;
-                         [self.navigationController pushViewController:vc animated:true];
-                    }
+                    DoctorListVC* vc ;
+                    vc = [[DoctorListVC alloc] initWithNibName:@"DoctorListVC" bundle:nil];
                     
-                   
-
+                    AwarenessCategory *awarenessObj = [AwarenessCategory new];
+                    awarenessObj.category_name = [CommonFunction getValueFromDefaultWithKey:Specialist];
+                    awarenessObj.category_id = [CommonFunction getIDFromClinic:awarenessObj.category_name];
+                    vc.awarenessObj = awarenessObj;
+                    [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
                 case 1:

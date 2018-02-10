@@ -36,32 +36,7 @@
     
 //    [DDLog addLogger:[DDTTYLogger] withLevel:<#(DDLogLevel)#>]
     [self.window makeKeyAndVisible];
-    if( SYSTEM_VERSION_LESS_THAN( @"10.0" ) )
-    {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound |    UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
-        
-    }
-    else
-    {
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        center.delegate = self;
-        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error)
-         {
-             if( !error )
-             {
-                 [[UIApplication sharedApplication] registerForRemoteNotifications];  // required to get the app to do anything at all about push notifications
-                 NSLog( @"Push registration success." );
-             }
-             else
-             {
-                 NSLog( @"Push registration FAILED" );
-                 NSLog( @"ERROR: %@ - %@", error.localizedFailureReason, error.localizedDescription );
-                 NSLog( @"SUGGESTIONS: %@ - %@", error.localizedRecoveryOptions, error.localizedRecoverySuggestion );  
-             }  
-         }];  
-    } 
-
+    
     return YES;
 }
 
@@ -100,17 +75,8 @@
 {
     return (AppDelegate*)[UIApplication sharedApplication].delegate;
 }
-#pragma mark - push_Notifiactiom
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
-    NSString *str = [NSString stringWithFormat:@"%@",deviceToken];
-    str = [str stringByReplacingOccurrencesOfString:@"<" withString:@""];
-    str = [str stringByReplacingOccurrencesOfString:@">" withString:@""];
-    [CommonFunction storeValueInDefault:str andKey:DEVICE_ID];
-}
 
--(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
 
-}
 #pragma mark -status Bar
 -(void)hideStatusBar{
     UIView *subViewArray = [self.window viewWithTag:100];

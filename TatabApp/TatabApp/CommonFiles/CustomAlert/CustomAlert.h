@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet CustomButton *btn3;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_message;
+
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 
 @end

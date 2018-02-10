@@ -13,11 +13,11 @@
 #import "XMPP.h"
 #import "SMChatDelegate.h"
 #import "SMMessageDelegate.h"
-#import <UserNotifications/UserNotifications.h>
 
 @class SMBuddyListViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,SWRevealViewControllerDelegate,UNUserNotificationCenterDelegate>{
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate,SWRevealViewControllerDelegate>{
     XMPPStream *xmppStream;
     XMPPRoster *xmppRoster;
     NSString *password;
@@ -25,9 +25,6 @@
     __unsafe_unretained NSObject <SMChatDelegate> *_chatDelegate;
     __unsafe_unretained NSObject <SMMessageDelegate> *_messageDelegate;
 }
-// define macro
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;

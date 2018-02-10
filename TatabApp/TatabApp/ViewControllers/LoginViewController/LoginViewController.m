@@ -29,8 +29,8 @@
     _txtPassword.text = @"Admin@123";
     _txtUsername.text = @"qwerty@yopmail.com";
 //    _txtUsername.text = @"rahul@gmail.com";
-//   _txtUsername.text = @"shagun@gmail.com";
-    _txtUsername.text = @"shubham@yopmail.com";
+    //_txtUsername.text = @"shagun@gmail.com";
+//    _txtUsername.text = @"shubham@yopmail.com";
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -44,70 +44,6 @@
 }
 -(void)resignResponder{
     [CommonFunction resignFirstResponderOfAView:self.view];
-}
-
-
-#pragma mark - Api Related
--(void)hitApiForDoctorToBeOnline{
-    
-    
-    NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
-    [parameter setValue:@"1" forKey:@"status_id"];
-    
-    
-    if ([ CommonFunction reachability]) {
-//        [self addLoder];
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"godoctor_online"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
-            if (error == nil) {
-                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-//                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                }else
-                {
-//                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-//                    [self removeloder];
-//                    [self removeloder];
-                }
-//                [self removeloder];
-            }
-        }];
-    } else {
-//        [self removeloder];
-//        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-    }
-}
-
--(void)hitApiForaddingTheDeviceID{
-    
-    
-    NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:DEVICE_ID] forKey:DEVICE_ID];
-    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:loginuserId];
-    
-    
-    if ([ CommonFunction reachability]) {
-        //        [self addLoder];
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"registration_ids"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
-            if (error == nil) {
-                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    //                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                }else
-                {
-                    //                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                    //                    [self removeloder];
-                    //                    [self removeloder];
-                }
-                //                [self removeloder];
-            }
-        }];
-    } else {
-        //        [self removeloder];
-        //        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-    }
 }
 
 #pragma mark - btn Actions
@@ -156,7 +92,7 @@
                    
                     
                     [self performBlock:^{
-                        [self hitApiForaddingTheDeviceID];
+                        
                         
                         [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
                         
@@ -182,10 +118,7 @@
                         //            [frontViewController.view addSubview:[CommonFunction setStatusBarColor]];
                         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mainRevealController];
                         ((AppDelegate *)[[UIApplication sharedApplication] delegate]).window.rootViewController = nav;
-                        [self resignResponder];
-                        if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Doctor"]) {
-                            [self hitApiForDoctorToBeOnline];
-                        }
+                        [self resignResponder];                        
                     } afterDelay:.2];
                     
                     [self removeloder];

@@ -41,7 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_mySwitch setOn:YES animated:YES];
+    [_mySwitch
+     setOn:YES animated:YES];
     ifphoto = true;
     _viewToClip.layer.cornerRadius = 5;
     _viewToClip.layer.masksToBounds = true;
@@ -113,11 +114,9 @@
         _lbl_Patient_Clinic.text = _awarenessObj.category_name;
          [_imgView_PatientDoctor sd_setImageWithURL:[NSURL URLWithString:_objDoctor.photo] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
         [self hitApiForDoctorList];
-        _btn_EndChat.hidden = true;
     }else{
         _viewPatient.hidden = true;
         _viewDoctor.hidden = false;
-        [self hitApiForStartTheChat];
     }
     [self setChat];
 
@@ -337,6 +336,7 @@
 }
 #pragma mark - btn Actions
 <<<<<<< HEAD
+<<<<<<< HEAD
 - (IBAction)btnAction_EndChat:(id)sender {
     [self hitApiForEndTheChat];
     
@@ -355,18 +355,18 @@
     }
 >>>>>>> a005e067b967ae2e94e027a81f29391cd2623690
 }
+=======
+>>>>>>> parent of 5c2ea78... notification needed
 
 - (IBAction)switch_btn:(id)sender {
     if ([_mySwitch isOn]) {
-        [self hitApiForDoctorToBeOnline:@"1"];
-        
-//        [hm connectToXMPPServer];
+        [self.mySwitch setOn:YES animated:YES];
+        [hm connectToXMPPServer];
         NSLog(@"Switch is on");
     } else {
         NSLog(@"Switch is off");
-//        [hm disconnectFromXMPPServer];
-        [self hitApiForDoctorToBeOnline:@"2"];
-        
+        [hm disconnectFromXMPPServer];
+        [self.mySwitch setOn:NO animated:YES];
     }
 }
 
@@ -874,82 +874,6 @@
 
 
 #pragma mark - Api Related
-
--(void)hitApiForStartTheChat{
-    
-    
-    NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
-    [parameter setValue:_queue_id forKey:@"queue_id"];
-    NSDate *date = [NSDate date];
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-    [parameter setValue:[dateFormatter stringFromDate:date] forKey:@"start_datetime"];
-    
-    
-    if ([ CommonFunction reachability]) {
-        [self addLoder];
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"startchat"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
-            if (error == nil) {
-                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:1002 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                    
-                    
-                    
-                }else
-                {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                    [self removeloder];
-                    [self removeloder];
-                }
-                [self removeloder];
-            }
-        }];
-    } else {
-        [self removeloder];
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-    }
-}
--(void)hitApiForEndTheChat{
-    
-    
-    NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
-    [parameter setValue:[NSString stringWithFormat:@"%d",_objDoctor.doctor_id] forKey:@"patient_id"];
-    NSDate *date = [NSDate date];
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-    [parameter setValue:[dateFormatter stringFromDate:date] forKey:@"end_datetime"];
-    
-    
-    if ([ CommonFunction reachability]) {
-        [self addLoder];
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"endchat"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
-            if (error == nil) {
-                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:1001 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                    
-                    
-                    
-                }else
-                {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                    [self removeloder];
-                    [self removeloder];
-                }
-                [self removeloder];
-            }
-        }];
-    } else {
-        [self removeloder];
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-    }
-}
-
 -(void)hitApiForDoctorList{
     
     
@@ -1031,44 +955,6 @@
     }
 }
 
--(void)hitApiForDoctorToBeOnline:(NSString *)statusToChange{
-    
-    
-    NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
-    [parameter setValue:statusToChange forKey:@"status_id"];
-    
-    
-    if ([ CommonFunction reachability]) {
-        [self addLoder];
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
-        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"godoctor_online"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
-            if (error == nil) {
-                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                    if ([statusToChange isEqualToString:@"1"]) {
-                        [self.mySwitch setOn:YES animated:YES];
-                    }else{
-                        [self.mySwitch setOn:NO animated:YES];
-
-                    }
-                   
-                    
-                }else
-                {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                    [self removeloder];
-                    [self removeloder];
-                }
-                [self removeloder];
-            }
-        }];
-    } else {
-        [self removeloder];
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-    }
-}
 
 
 
@@ -1208,18 +1094,6 @@
                     [self removeAlert];
         }
             break;
-        case 1001:{
-            [self.navigationController popToRootViewControllerAnimated:true];
-            [self removeAlert];
-
-            break;
-        }
-        case 1002:{
-            [self removeAlert];
-            
-            break;
-        }
-
         default:
             
             break;

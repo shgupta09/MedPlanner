@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="318" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="318" height="59"/>
+                <rect key="frame" x="0.0" y="0.0" width="318" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2D-hg-0sC">
@@ -34,31 +34,12 @@
                                     <constraint firstAttribute="width" constant="30" id="cVP-HD-Vy4"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CwU-tj-JPB">
-                                <rect key="frame" x="38" y="13" width="15" height="14.5"/>
-                                <color key="backgroundColor" red="0.86118644479999995" green="0.22973942759999999" blue="0.1867988408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="2ag-Nu-z5G"/>
-                                    <constraint firstAttribute="width" constant="15" id="ttl-JJ-hKN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <real key="value" value="7.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Ipr-zT-4Ai" firstAttribute="leading" secondItem="m2D-hg-0sC" secondAttribute="leading" constant="20" id="CJE-kB-rYS"/>
-                            <constraint firstItem="CwU-tj-JPB" firstAttribute="centerY" secondItem="Ipr-zT-4Ai" secondAttribute="centerY" constant="-10" id="CLY-Jo-63g"/>
                             <constraint firstItem="Ipr-zT-4Ai" firstAttribute="top" secondItem="m2D-hg-0sC" secondAttribute="top" constant="15" id="IgI-xc-JDu"/>
                             <constraint firstItem="Ipr-zT-4Ai" firstAttribute="centerY" secondItem="m2D-hg-0sC" secondAttribute="centerY" id="b2O-Py-gzA"/>
-                            <constraint firstItem="CwU-tj-JPB" firstAttribute="centerX" secondItem="Ipr-zT-4Ai" secondAttribute="centerX" constant="10" id="u7t-e5-44o"/>
                             <constraint firstAttribute="bottom" secondItem="Ipr-zT-4Ai" secondAttribute="bottom" constant="14.5" id="vpo-er-Wsp"/>
                         </constraints>
                     </view>
@@ -90,7 +71,6 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="countLabel" destination="CwU-tj-JPB" id="Fu7-q7-ZHB"/>
                 <outlet property="imgView" destination="Ipr-zT-4Ai" id="3fM-OJ-DrY"/>
                 <outlet property="lbl_title" destination="V3P-Hv-pQh" id="3VU-wk-9j8"/>
             </connections>
