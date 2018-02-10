@@ -66,15 +66,19 @@
     
     if ([_postObj.is_liked intValue] >0) {
         [_btnLike setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
+        _btnLike.userInteractionEnabled = false;
+
     }
     else{
         [_btnLike setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
+        
     }
 
     _lblLikesCount.text = [NSString stringWithFormat:@"%@",_postObj.total_likes];
     _lblCommentCount.text = [NSString stringWithFormat:@"%@",_postObj.total_comments];
-      _lblCommentCount.text = @"0";
     _lblShareCount.text = @"0";
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -148,6 +152,8 @@
                         
                         [dataArray addObject:commentObj];
                     }];
+                    _lblCommentCount.text = [NSString stringWithFormat:@"%d",dataArray.count];
+
                     [_tbl_View reloadData];
                     [self removeloder];
                 }else
@@ -208,6 +214,48 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)hitAPiTolikeAPost:(NSString *)likeBool{
+    NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
+    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"user_id"];
+    [parameterDict setValue:_postObj.post_id forKey:@"post_id"];
+    [parameterDict setValue:likeBool forKey:@"is_liked"];
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"postlike"]  postResponse:parameterDict postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                    [_btnLike setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
+                    _btnLike.userInteractionEnabled = false;
+                    _lblLikesCount.text = [NSString stringWithFormat:@"%d   ",[_postObj.total_likes integerValue]+1];
+
+                    [self removeloder];
+                }
+                else
+                {
+                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self removeloder];
+                    [self removeloder];
+                }
+                
+                
+                
+            }
+            
+            else {
+                [self removeloder];
+                [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+            }
+            
+            
+        }];
+    } else {
+        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }
+    
+    
 }
 
 #pragma mark - Loder Related
@@ -297,6 +345,9 @@
 #pragma mark - btn Actions
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
+}
+- (IBAction)likeBtnAction:(id)sender {
+    [self hitAPiTolikeAPost:@"1"];
 }
 - (IBAction)btnCommentSend:(id)sender {
     if ([_txtFieldComment.text  isEqual: @""]){

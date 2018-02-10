@@ -113,6 +113,8 @@
 #define UPCOMING @"upcoming"
 #define COMPLETED @"completed"
 #define CANCELED @"canceled"
+#define DEVICE_ID @"device_id"
+
 
 //testing url
 

@@ -4,131 +4,33 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
-                  <ActionContent
-                     consoleCommand = "">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
-            timestampString = "537822553.6762021"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "-switch_btn:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
-            timestampString = "537822553.6762021"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
-            landmarkName = "-switch_btn:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
-            timestampString = "537822553.6762021"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
-            landmarkName = "-btnBackClicked:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
-            timestampString = "537821701.170344"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "-notficationRecieved:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
-            timestampString = "537821701.170344"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "-notficationRecieved:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
-            timestampString = "538722858.2158051"
+            timestampString = "539958213.594207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "603"
-            endingLineNumber = "603"
-            landmarkName = "-addPopupview"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
-            timestampString = "538722858.2158051"
+            timestampString = "539958213.594207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -139,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
-            timestampString = "538722858.2158051"
+            filePath = "TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
+            timestampString = "539947976.434606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "716"
-            endingLineNumber = "716"
-            landmarkName = "-hitAPiTolikeAPost:"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "-hitApiForSpeciality"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -155,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
-            timestampString = "538722858.2158051"
+            filePath = "TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
+            timestampString = "539948024.04044"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "637"
-            endingLineNumber = "637"
-            landmarkName = "-hitImageUploadApi"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "-hitApiForPatientList"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -171,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/LoginViewController/LoginViewController.m"
-            timestampString = "538767190.226223"
+            filePath = "TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
+            timestampString = "539948036.072963"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-loginFunction"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "-hitApiForPatientList"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -187,12 +89,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/SideMenu/RearViewController.m"
-            timestampString = "538767190.226223"
+            filePath = "TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
+            timestampString = "539948093.608544"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -203,13 +105,39 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/AwarenessModule/AwarenessCategoryViewController.m"
-            timestampString = "538755629.496406"
+            filePath = "TatabApp/ViewControllers/SideMenu/RearViewController.m"
+            timestampString = "539949782.22439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
+            timestampString = "539951163.418402"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "869"
+            endingLineNumber = "869"
+            landmarkName = "-hitApiForStartTheChat"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -219,44 +147,252 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/AwarenessModule/AwarenessCategoryViewController.m"
-            timestampString = "538755722.114285"
+            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
+            timestampString = "539951195.0445091"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "884"
+            endingLineNumber = "884"
+            landmarkName = "-hitApiForStartTheChat"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
+            timestampString = "539951198.080914"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "879"
+            endingLineNumber = "879"
+            landmarkName = "-hitApiForStartTheChat"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/LoginViewController/LoginViewController.m"
+            timestampString = "539953209.905112"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-loginFunction"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[LoginViewController loginFunction]_block_invoke"
+                  moduleName = "TatabApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/LoginViewController/LoginViewController.m"
+                  timestampString = "539958735.2129411"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "312">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[LoginViewController loginFunction]_block_invoke_2"
+                  moduleName = "TatabApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/LoginViewController/LoginViewController.m"
+                  timestampString = "539958735.215605"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/LoginViewController/LoginViewController.m"
+            timestampString = "539953257.540325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
             endingLineNumber = "58"
-            landmarkName = "-getData"
+            landmarkName = "-hitApiForDoctorToBeOnline"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
+            timestampString = "539958213.594207"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "809"
+            endingLineNumber = "809"
+            landmarkName = "-hitApiForTheQueueCount"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
+            timestampString = "539953471.0425"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "-hitApiForAddInTheQueue:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
+            timestampString = "539954206.531841"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "-hitApiForAddInTheQueue:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/LoginViewController/LoginViewController.m"
+            timestampString = "539956674.073086"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-hitApiForaddingTheDeviceID"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/LoginViewController/LoginViewController.m"
+            timestampString = "539956850.519317"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-hitApiForaddingTheDeviceID"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/AppDelegate.m"
+            timestampString = "539957316.506109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-application:didReceiveRemoteNotification:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/AppDelegate.m"
+            timestampString = "539957316.506109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-application:didRegisterForRemoteNotificationsWithDeviceToken:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
+            timestampString = "539958213.594207"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "807"
+            endingLineNumber = "807"
+            landmarkName = "-hitApiForTheQueueCount"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[AwarenessCategoryViewController getData]"
+                  symbolName = "-[NewAwareVC hitApiForTheQueueCount]"
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/AwarenessModule/AwarenessCategoryViewController.m"
-                  timestampString = "538766712.830987"
+                  urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
+                  timestampString = "539958735.259485"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "100">
+                  startingLineNumber = "807"
+                  endingLineNumber = "807"
+                  offsetFromSymbolStart = "372">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__42-[AwarenessCategoryViewController getData]_block_invoke"
+                  symbolName = "__36-[NewAwareVC hitApiForTheQueueCount]_block_invoke"
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/AwarenessModule/AwarenessCategoryViewController.m"
-                  timestampString = "538766712.833547"
+                  urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
+                  timestampString = "539958735.261197"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "267">
+                  startingLineNumber = "808"
+                  endingLineNumber = "808"
+                  offsetFromSymbolStart = "168">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -267,13 +403,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
-            timestampString = "538755801.534009"
+            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
+            timestampString = "539958713.122793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "678"
-            endingLineNumber = "678"
-            landmarkName = "-getData"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
+            landmarkName = "-switch_btn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -283,109 +419,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
-            timestampString = "538755876.059419"
+            filePath = "TatabApp/ViewControllers/ChatViewController/ChatViewController.m"
+            timestampString = "539958715.3363791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "677"
-            endingLineNumber = "677"
-            landmarkName = "-getData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
-            timestampString = "538755877.325242"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "671"
-            endingLineNumber = "671"
-            landmarkName = "-getData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor3.m"
-            timestampString = "538755883.99518"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "464"
-            endingLineNumber = "464"
-            landmarkName = "-hitApiForSpeciality"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[RCDoctor3 hitApiForSpeciality]"
-                  moduleName = "TatabApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor3.m"
-                  timestampString = "538766712.8509361"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "464"
-                  endingLineNumber = "464"
-                  offsetFromSymbolStart = "100">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__32-[RCDoctor3 hitApiForSpeciality]_block_invoke"
-                  moduleName = "TatabApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shubhamgupta/Projects/Abhinav&apos;s%20Project/TabApp/MedPlanner/TatabApp/TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor3.m"
-                  timestampString = "538766712.8533061"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "465"
-                  endingLineNumber = "465"
-                  offsetFromSymbolStart = "267">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/AwarenessModule/AwarenessCategoryViewController.m"
-            timestampString = "538755990.217575"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-getData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TatabApp/ViewControllers/RegisterViewController/Patient/RegisterCompleteViewController.m"
-            timestampString = "538766697.2135561"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "414"
-            endingLineNumber = "414"
-            landmarkName = "-btnCompleteRegistrationClicked:"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "-switch_btn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
