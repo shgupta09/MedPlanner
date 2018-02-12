@@ -504,7 +504,7 @@
                     vc.queue_id = obj.queue_id;
                     
                     //                    vc.awarenessObj = _awarenessObj;
-                    vc.toId = obj.jabberId;
+                    vc.toId = specializationObj.jabberId;
                     [self.navigationController pushViewController:vc animated:true];
                     
                 }

@@ -50,7 +50,12 @@
     picker = [[UIImagePickerController alloc] init];
     lbl_title.text = @"Chat";
    imageDataArray = [NSMutableArray new];
-    _lbl_Name.text = [NSString stringWithFormat:@"Dr. %@",_objDoctor.first_name];
+    if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+        _lbl_Name.text = [NSString stringWithFormat:@"%@",[_objDoctor.first_name capitalizedString]];
+    }else{
+    _lbl_Name.text = [NSString stringWithFormat:@"Dr. %@",[_objDoctor.first_name capitalizedString]];
+    }
+    
     NSString* email = [CommonFunction getValueFromDefaultWithKey:loginemail];
     
    
