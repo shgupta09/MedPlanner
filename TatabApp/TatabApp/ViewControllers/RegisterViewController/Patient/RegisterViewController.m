@@ -37,7 +37,10 @@
     [self setData];
 
 }
-
+-(void)viewDidLayoutSubviews{
+    loderObj.frame = self.view.frame;
+    alertObj.frame = self.view.frame;
+}
 -(void)setData{
 
     _txtName.leftImgView.image = [UIImage imageNamed:@"b"];

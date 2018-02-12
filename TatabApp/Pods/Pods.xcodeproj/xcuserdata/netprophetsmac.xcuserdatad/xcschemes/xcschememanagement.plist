@@ -26,6 +26,11 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>KissXML.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -44,6 +49,11 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>3</integer>
+		</dict>
+		<key>Protobuf.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
@@ -71,6 +81,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>10</integer>
+		</dict>
+		<key>nanopb.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -115,6 +130,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2B33FE2801B9C01F4174CDB0AED95523</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>49FD5D17184F14FFB9D72AFE8A609958</key>
 		<dict>
 			<key>primary</key>
@@ -125,7 +145,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>856FA33F2F56AAA1516F5BBB9C832D06</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8A421C6298CB3DF5D749193BD6FD0B38</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8D99622C18C51AABA45B7DEB385BE61C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -185,6 +215,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C5B80060FE8C664DF08841000F41D515</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C95C45974D77E3E41FE9D2A80E093179</key>
 		<dict>
 			<key>primary</key>
@@ -195,7 +230,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>D0B610C0F6771CB230B1FD925FE3E712</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DF6F3BD7A8D80A843AB371605731E0F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -206,6 +251,16 @@
 			<true/>
 		</dict>
 		<key>EA2A920A891C4D3535867E5C3EF3D793</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EA7D502C83CBB3CF7ED032858FB3B5B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F374ECF2CACAF8A57F07249F14E2A566</key>
 		<dict>
 			<key>primary</key>
 			<true/>

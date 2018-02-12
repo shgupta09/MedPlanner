@@ -25,6 +25,9 @@
     [self setData];
     // Do any additional setup after loading the view from its nib.
 }
+-(void)viewDidLayoutSubviews{
+    alertObj.frame = self.view.frame;
+}
 -(void)setData{
 //    [_btn_MedicalConsultant setImage:[UIImage imageNamed:@"medicalConsultation"] forState:UIControlStateNormal];
 //    [_btn_ElectronicMR setImage:[UIImage imageNamed:@"EMR-Icons"] forState:UIControlStateNormal];

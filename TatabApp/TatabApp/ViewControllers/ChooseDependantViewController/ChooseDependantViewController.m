@@ -53,7 +53,9 @@
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
+    alertObj.frame = self.view.frame;
 }
+
 -(void)setData{
     _txtName.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_BirthDate.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];

@@ -30,6 +30,10 @@
 
     // Do any additional setup after loading the view from its nib.
 }
+-(void)viewDidLayoutSubviews{
+    loderObj.frame = self.view.frame;
+    alertObj.frame = self.view.frame;
+}
 -(void)viewDidDisappear:(BOOL)animated{
     
 }

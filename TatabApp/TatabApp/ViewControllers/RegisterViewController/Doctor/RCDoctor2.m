@@ -22,6 +22,9 @@
     [self setData];
     // Do any additional setup after loading the view from its nib.
 }
+-(void)viewDidLayoutSubviews{
+    alertObj.frame = self.view.frame;
+}
 -(void)setData{
     
     _txtPassport.leftImgView.image = [UIImage imageNamed:@"icon-id-card"];

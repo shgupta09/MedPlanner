@@ -98,7 +98,10 @@
     
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewDidLayoutSubviews{
+    loderObj.frame = self.view.frame;
+    alertObj.frame = self.view.frame;
+}
 - (IBAction)sliderValueChanged:(UISlider *)sender {
     NSLog(@"slider value = %f", sender.value);
     _sliderValue.text = [NSString stringWithFormat:@"%.1f", _sliderView.value];

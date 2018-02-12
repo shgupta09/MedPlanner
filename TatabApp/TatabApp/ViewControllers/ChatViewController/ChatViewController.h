@@ -13,6 +13,8 @@
 @interface ChatViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,UITextViewDelegate>{
     __weak IBOutlet UILabel *lbl_title;
 }
+@property (weak, nonatomic) IBOutlet UILabel *lbl_queueCount;
+@property (weak, nonatomic) IBOutlet UIButton *btn_queue;
 @property (weak, nonatomic) IBOutlet UIButton *btn_EndChat;
 @property (weak, nonatomic) IBOutlet UIView *viewToClip;
 @property (weak, nonatomic) IBOutlet UISwitch *mySwitch;

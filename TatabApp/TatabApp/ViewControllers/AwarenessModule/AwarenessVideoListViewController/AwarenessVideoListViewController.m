@@ -63,6 +63,7 @@
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
+    alertObj.frame = self.view.frame;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -31,13 +31,16 @@
 //    _txtUsername.text = @"abhinav@gmail.com";
 //    _txtUsername.text = @"rahul@gmail.com";
     //   _txtUsername.text = @"abhinav@gmail.com";
-//   _txtUsername.text = @"shagun@gmail.com";
+   _txtUsername.text = @"shagun@gmail.com";
 //   _txtUsername.text = @"shubham@yopmail.com";
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void) viewDidLayoutSubviews {
         [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
+        loderObj.frame = self.view.frame;
+        alertObj.frame = self.view.frame;
+    
 }
 
 - (void)didReceiveMemoryWarning {

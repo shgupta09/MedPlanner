@@ -50,10 +50,20 @@
     picker = [[UIImagePickerController alloc] init];
     lbl_title.text = @"Chat";
    imageDataArray = [NSMutableArray new];
-    if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+    if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
         _lbl_Name.text = [NSString stringWithFormat:@"%@",[_objDoctor.first_name capitalizedString]];
+        _btn_queue.hidden = false;
+        if ([QueueDetails sharedInstance].myDataArray.count>0) {
+            _lbl_queueCount.hidden = false;
+            _lbl_queueCount.text = [NSString stringWithFormat:@"%d",[QueueDetails sharedInstance].myDataArray.count];
+        }else{
+            _lbl_queueCount.hidden = true;
+
+        }
     }else{
     _lbl_Name.text = [NSString stringWithFormat:@"Dr. %@",[_objDoctor.first_name capitalizedString]];
+        _lbl_queueCount.hidden = true;
+        _btn_queue.hidden = true;
     }
     
     NSString* email = [CommonFunction getValueFromDefaultWithKey:loginemail];
@@ -88,7 +98,7 @@
     messagesArray = [[NSMutableArray alloc] init];
     _addOptionBtnAction.tintColor = [UIColor whiteColor];
     _imgView_patient_BackGround.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_Chat",_awarenessObj.category_name]];
-    UIImage * image = [UIImage imageNamed:@"Plus"];
+    UIImage * image = [UIImage imageNamed:@"documentWhite"];
     [_addOptionBtnAction setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -111,7 +121,7 @@
         _imgView_PatientDoctor.layer.borderColor = [UIColor redColor].CGColor;
         _imgView_PatientDoctor.layer.borderWidth = 2;
         _imgView_PatientDoctor.clipsToBounds = true;
-        _lbl_Patient_DoctorName.text = _objDoctor.first_name;
+        _lbl_Patient_DoctorName.text = [_objDoctor.first_name capitalizedString];
         _imgView_patient_BackGround.image = [UIImage imageNamed:_awarenessObj.category_name];
         _imgView_patient_BackGround.alpha = .3;
         _imgView_patient_BackGround.clipsToBounds = true;
@@ -140,6 +150,7 @@
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
+    alertObj.frame = self.view.frame;
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -263,7 +274,19 @@
     
 
 }
-
+#pragma mark - textFieldDelegate
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (textField.text.length == 1 && [string isEqualToString:@""]) {
+        [_btnSend setImage:[UIImage imageNamed:@"cameraWhite"] forState:UIControlStateNormal];
+    }else{
+        [_btnSend setImage:[UIImage imageNamed:@"sendButton-1"] forState:UIControlStateNormal];
+    }
+    return true;
+}
 #pragma mark - textviewDelegate
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -681,6 +704,9 @@
         NSString *messageStr = _txtField.text;
         if([messageStr length] > 0) {
             [hm sendMessage:messageStr toFriendWithFriendId:_toId andMessageId:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] ]];
+        }else{
+            sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self imageCapture];
         }
     }else{
         
@@ -697,16 +723,12 @@
 }
 
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-        [textField resignFirstResponder];
-    
-    return YES;
-}
+
 
 - (IBAction)btnAddFileClicked:(id)sender {
     if ([_mySwitch isOn]) {
-        [self showActionSheet];
+       // [self showActionSheet];
+        [self selectPhoto];
     }else{
         /*UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"You have to be Online to send the message." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];

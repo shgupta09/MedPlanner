@@ -75,6 +75,8 @@
 		5FE2757E2010C05900EC875E /* CustomSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE2757D2010C05900EC875E /* CustomSlider.m */; };
 		6B88C8AAED0F77BF5245AA06 /* Pods_TatabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */; };
 		884FE13F103CA6FC743E4912 /* Pods_TatabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */; };
+		9C16D1B420316AA000D82769 /* AGPushNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D1B220316AA000D82769 /* AGPushNoteView.m */; };
+		9C16D1B520316AA000D82769 /* AGPushNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C16D1B320316AA000D82769 /* AGPushNoteView.xib */; };
 		9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */; };
 		9C55056C20088C650037F07F /* TextPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C55056A20088C650037F07F /* TextPostCell.m */; };
 		9C55056D20088C650037F07F /* TextPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C55056B20088C650037F07F /* TextPostCell.xib */; };
@@ -260,6 +262,9 @@
 		5FD369141FFE954A00FC6C3F /* CommonInfoPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonInfoPatient.m; sourceTree = "<group>"; };
 		5FE2757C2010C05900EC875E /* CustomSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlider.h; sourceTree = "<group>"; };
 		5FE2757D2010C05900EC875E /* CustomSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlider.m; sourceTree = "<group>"; };
+		9C16D1B120316AA000D82769 /* AGPushNoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPushNoteView.h; sourceTree = "<group>"; };
+		9C16D1B220316AA000D82769 /* AGPushNoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPushNoteView.m; sourceTree = "<group>"; };
+		9C16D1B320316AA000D82769 /* AGPushNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGPushNoteView.xib; sourceTree = "<group>"; };
 		9C4C5ECC1F792725003D84BD /* RegistrationDpendency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationDpendency.h; sourceTree = "<group>"; };
 		9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationDpendency.m; sourceTree = "<group>"; };
 		9C55056920088C650037F07F /* TextPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextPostCell.h; sourceTree = "<group>"; };
@@ -731,6 +736,7 @@
 		5FBBBB0B1F726FC400C03813 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9C16D1B020316AA000D82769 /* AGPushNote */,
 				D86A372E202E1BF1009EA562 /* CustomTabBar */,
 				9C6D8CD72021F470004CA1B4 /* Font */,
 				5FE274D92010C02700EC875E /* CustomSlider */,
@@ -846,6 +852,16 @@
 				5FE2757D2010C05900EC875E /* CustomSlider.m */,
 			);
 			path = CustomSlider;
+			sourceTree = "<group>";
+		};
+		9C16D1B020316AA000D82769 /* AGPushNote */ = {
+			isa = PBXGroup;
+			children = (
+				9C16D1B120316AA000D82769 /* AGPushNoteView.h */,
+				9C16D1B220316AA000D82769 /* AGPushNoteView.m */,
+				9C16D1B320316AA000D82769 /* AGPushNoteView.xib */,
+			);
+			path = AGPushNote;
 			sourceTree = "<group>";
 		};
 		9C4C5ECB1F792717003D84BD /* Models */ = {
@@ -1162,6 +1178,9 @@
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1198,6 +1217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C16D1B520316AA000D82769 /* AGPushNoteView.xib in Resources */,
 				D84DF2041F8A0D9C00234070 /* RegisterCompleteViewController.xib in Resources */,
 				5FB51C412003E5BE00E4889B /* FeverReportViewController.xib in Resources */,
 				5FB51C492003E5BE00E4889B /* WeightReportViewController.xib in Resources */,
@@ -1523,6 +1543,7 @@
 				5FB51C442003E5BE00E4889B /* PressureReportViewController.m in Sources */,
 				5FE2757E2010C05900EC875E /* CustomSlider.m in Sources */,
 				D8F108C11FC09A140049296C /* Chat+CoreDataClass.m in Sources */,
+				9C16D1B420316AA000D82769 /* AGPushNoteView.m in Sources */,
 				5F1E9B301F763C49009FECDD /* SplashScreenViewController.m in Sources */,
 				9C6DE73C1F83A61A00635102 /* VideoListObject.m in Sources */,
 				9C5505752008E2FC0037F07F /* CustomButton3.m in Sources */,

@@ -12,6 +12,7 @@
 @import FirebaseMessaging;
 @import FirebaseInstanceID;
 @import UserNotifications;
+#import "AGPushNoteView.h"
 @interface AppDelegate ()
 
 
@@ -200,8 +201,14 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"received");
-    NSLog(@"received");
     NSLog(@"%@", userInfo);
+    
+    if (application.applicationState == UIApplicationStateActive)   {
+        [AGPushNoteView showWithNotificationMessage:[[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"body"] ];
+        [AGPushNoteView setMessageAction:^(NSString *message) {
+            
+        }];
+    }
     if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"New patient"]) {
         
     }else if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"Start Chating"]) {

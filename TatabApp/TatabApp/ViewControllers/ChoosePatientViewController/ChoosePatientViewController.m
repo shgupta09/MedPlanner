@@ -32,6 +32,7 @@
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
+    alertObj.frame = self.view.frame;
 }
 -(void)setData{
     [_tbl_View registerNib:[UINib nibWithNibName:@"SelectUserTableViewCell" bundle:nil]forCellReuseIdentifier:@"SelectUserTableViewCell"];

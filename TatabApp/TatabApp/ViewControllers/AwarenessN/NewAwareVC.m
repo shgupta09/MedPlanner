@@ -96,8 +96,11 @@
 }
 
 -(void)viewDidLayoutSubviews{
-    
+    loderObj.frame = self.view.frame;
+    alertObj.frame = self.view.frame;
     tabBarObj.frame =CGRectMake(0, self.view.frame.size.height-49, self.view.frame.size.width, 49);
+    [tabBarObj layoutIfNeeded];
+    [tabBarObj layoutSubviews];
 }
 -(void)receiveNotification:(NSNotification*)notObj{
     if ([notObj.name isEqualToString:@"LogoutNotification"]) {
