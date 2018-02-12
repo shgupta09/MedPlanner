@@ -363,7 +363,7 @@
                         specializationObj.classificationOfDoctor = [obj valueForKey:@"classification"];
                         specializationObj.created_at = [obj valueForKey:@"created_at"];
                         specializationObj.current_grade = [obj valueForKey:@"current_grade"];
-                        specializationObj.doctor_id = [[obj valueForKey:@"doctor_id"] integerValue];
+                        specializationObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         specializationObj.first_name = [obj valueForKey:@"first_name"];
                         specializationObj.gender = [obj valueForKey:@"gender"];
                         specializationObj.last_name = [obj valueForKey:@"last_name"];

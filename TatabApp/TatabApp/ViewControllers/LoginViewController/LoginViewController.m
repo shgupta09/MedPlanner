@@ -28,10 +28,11 @@
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
     _txtPassword.text = @"Admin@123";
     _txtUsername.text = @"qwerty@yopmail.com";
+    _txtUsername.text = @"abhinav@gmail.com";
 //    _txtUsername.text = @"rahul@gmail.com";
     //   _txtUsername.text = @"abhinav@gmail.com";
-   _txtUsername.text = @"shagun@gmail.com";
-//    _txtUsername.text = @"shubham@yopmail.com";
+//   _txtUsername.text = @"shagun@gmail.com";
+//   _txtUsername.text = @"shubham@yopmail.com";
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -95,6 +96,7 @@
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"registration_ids"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    [CommonFunction storeValueInDefault:[CommonFunction getValueFromDefaultWithKey:DEVICE_ID] andKey:DEVICE_ID_LoginUSer];
                     //                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                 }else
                 {
@@ -157,7 +159,6 @@
                    
                     
                     [self performBlock:^{
-                        [self hitApiForaddingTheDeviceID];
                         
                         [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
                         
@@ -173,6 +174,8 @@
                         [CommonFunction storeValueInDefault:[CommonFunction checkForNull:[[responseObj objectForKey:loginUser] valueForKey:Specialist]] andKey:Specialist];
                         
                         [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
+                        [self hitApiForaddingTheDeviceID];
+
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
                         SWRevealViewController *mainRevealController;
                         NewAwareVC *frontViewController = [[NewAwareVC alloc]initWithNibName:@"NewAwareVC" bundle:nil];

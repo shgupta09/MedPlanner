@@ -19,6 +19,6 @@
 @property(nonatomic ,strong) NSString *sub_specialist;
 @property(nonatomic ,strong) NSString *workplace;
 @property(nonatomic ,strong) NSString *jabberId;
-@property(nonatomic) NSInteger doctor_id;
+@property(nonatomic,strong) NSString *doctor_id;
 
 @end

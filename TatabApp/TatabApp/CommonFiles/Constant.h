@@ -25,7 +25,9 @@
 
 //Cloud Related
 
-
+#define NOTIFICATION_PATIENT_ID @"gcm.notification.patient_id"
+#define NOTIFICATION_DOCTOR_ID @"gcm.notification.doctor_id"
+#define NOTIFICATION_BOOl @"NOTIFICATION_BOOl"
 //Api related
 
 #define PATIENT_ID @"patient_id"
@@ -114,6 +116,7 @@
 #define COMPLETED @"completed"
 #define CANCELED @"canceled"
 #define DEVICE_ID @"device_id"
+#define DEVICE_ID_LoginUSer @"device_id_Login"
 
 
 //testing url

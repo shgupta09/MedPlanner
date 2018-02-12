@@ -111,15 +111,21 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
         
-        
-        ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
         Specialization *obj = [doctorListArray objectAtIndex:indexPath.row];
-        vc.objDoctor = obj;
-        vc.awarenessObj = _awarenessObj;
-        vc.toId = obj.jabberId;
-        [self hitApiForAddInTheQueue:[NSString stringWithFormat:@"%d",obj.doctor_id]];
+        NSString *str1 =[CommonFunction getValueFromDefaultWithKey:NOTIFICATION_DOCTOR_ID];
+        NSString *str2 =[NSString stringWithFormat:@"%@",obj.doctor_id];
        
-//        [self.navigationController pushViewController:vc animated:true];
+        if ([CommonFunction getBoolValueFromDefaultWithKey:NOTIFICATION_BOOl] && [str1 isEqualToString:str2]) {
+            ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
+            vc.objDoctor = obj;
+            vc.awarenessObj = _awarenessObj;
+            vc.toId = obj.jabberId;
+            [self.navigationController pushViewController:vc animated:true];
+        }else{
+            
+            [self hitApiForAddInTheQueue:obj.doctor_id];
+
+        }
     }
     else
     {
@@ -127,7 +133,7 @@
         ChatPatient *obj = [patientListArray objectAtIndex:indexPath.row];
         Specialization* temp = [Specialization new];
         temp.first_name = obj.name;
-        temp.doctor_id = [obj.patient_id integerValue];
+        temp.doctor_id = obj.patient_id ;
         vc.objDoctor  = temp;
         
         vc.awarenessObj = _awarenessObj;
@@ -165,7 +171,7 @@
                         specializationObj.classificationOfDoctor = [obj valueForKey:@"classification"];
                         specializationObj.created_at = [obj valueForKey:@"created_at"];
                         specializationObj.current_grade = [obj valueForKey:@"current_grade"];
-                        specializationObj.doctor_id = [[obj valueForKey:@"doctor_id"] integerValue];
+                        specializationObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         specializationObj.first_name = [obj valueForKey:@"first_name"];
                         specializationObj.gender = [obj valueForKey:@"gender"];
                         specializationObj.last_name = [obj valueForKey:@"last_name"];

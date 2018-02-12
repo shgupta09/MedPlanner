@@ -113,8 +113,44 @@
          NSLog(@"FCM registration token: %@", fcmToken);
     [CommonFunction storeValueInDefault:fcmToken andKey:DEVICE_ID];
 
+    if(![fcmToken isEqualToString:[CommonFunction getValueFromDefaultWithKey:DEVICE_ID_LoginUSer]]&& [CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
+        [self hitApiForaddingTheDeviceID];
+    }
+
+
     // TODO: If necessary send token to application server.
     // Note: This callback is fired at each app startup and whenever a new token is generated.
+}
+-(void)hitApiForaddingTheDeviceID{
+    
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:DEVICE_ID] forKey:DEVICE_ID];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:loginuserId];
+    
+    
+    if ([ CommonFunction reachability]) {
+        //        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"registration_ids"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    [CommonFunction storeValueInDefault:[CommonFunction getValueFromDefaultWithKey:DEVICE_ID] andKey:DEVICE_ID_LoginUSer];
+                    //                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                }else
+                {
+                    //                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    //                    [self removeloder];
+                    //                    [self removeloder];
+                }
+                //                [self removeloder];
+            }
+        }];
+    } else {
+        //        [self removeloder];
+        //        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }
 }
 #pragma mark - push_Notifiactiom
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
@@ -166,25 +202,18 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"received");
     NSLog(@"received");
     NSLog(@"%@", userInfo);
-
-    // If you are receiving a notification message while your app is in the background,
-    // this callback will not be fired till the user taps on the notification launching the application.
-    // TODO: Handle data of notification
-    
-    // With swizzling disabled you must let Messaging know about the message, for Analytics
-    // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
-    
-    // Print message ID.
-//    if (userInfo[kGCMMessageIDKey]) {
-//        NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
-//    }
-//
-//    // Print full message.
-//    NSLog(@"%@", userInfo);
-//
-//    completionHandler(UIBackgroundFetchResultNewData);
+    if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"New patient"]) {
+        
+    }else if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"Start Chating"]) {
+        [CommonFunction stroeBoolValueForKey:NOTIFICATION_BOOl withBoolValue:true];
+    }else if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"End Chat"]){
+        [CommonFunction stroeBoolValueForKey:NOTIFICATION_BOOl withBoolValue:false];
+        [CommonFunction storeValueInDefault:@"0" andKey:NOTIFICATION_DOCTOR_ID];
+        [CommonFunction storeValueInDefault:@"0" andKey:NOTIFICATION_PATIENT_ID];
+    }
+    [CommonFunction storeValueInDefault:[userInfo valueForKey:NOTIFICATION_DOCTOR_ID] andKey:NOTIFICATION_DOCTOR_ID];
+    [CommonFunction storeValueInDefault:[userInfo valueForKey:NOTIFICATION_DOCTOR_ID] andKey:NOTIFICATION_PATIENT_ID];
 }
-
 -(void)refreshToken:(NSNotification *)notification{
     
 }
@@ -238,7 +267,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         }
     }
     
-    return _persistentContainer;
+        return _persistentContainer;
 }
 
 #pragma mark - Core Data Saving support
