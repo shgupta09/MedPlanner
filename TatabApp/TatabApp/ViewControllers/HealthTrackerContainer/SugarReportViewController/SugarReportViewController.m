@@ -12,6 +12,7 @@
 @interface SugarReportViewController ()<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate,UIPickerViewDelegate>
 {
     LoderView *loderObj;
+
     NSMutableArray *dataArray;
     UIView *viewOverPicker;
     NSString *fromDateString;
@@ -59,7 +60,7 @@
     
     //self.myLabel.text = [dateFormatter stringFromDate:[dueDatePickerView date]];
     [dateFormatter setDateFormat:@"YYYY-MM-dd"];
-    fromDateString = [dateFormatter stringFromDate:fromDate];
+    fromDateString = [CommonFunction setOneMonthOldGate];
     [_btnFromDate setTitle:fromDateString forState:UIControlStateNormal];
     toDateString = [dateFormatter stringFromDate:toDate];
     [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
@@ -82,17 +83,9 @@
         _btnAdd.hidden = true;
     }
     
-    if (_isdependant) {
-        [_lblPatientName setText:_dependant.name];
-        [_lblgender setText:_dependant.gender];
-        
-    }
-    else
-    {
-        [_lblPatientName setText:_patient.name];
-        [_lblgender setText:_patient.gender];
-        
-    }
+    [_lblPatientName setText:_dependant.name];
+    [_lblgender setText:_dependant.gender];
+    [_lblbirthDate setText:_dependant.birthDay];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -113,6 +106,44 @@
 }
 
 #pragma mark - btn Actions
+- (IBAction)selectTypeClicked:(id)sender {
+    
+    
+    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerObj.delegate = self;
+    pickerObj.dataSource = self;
+    pickerObj.showsSelectionIndicator = YES;
+    pickerObj.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    UIToolbar *toolBarForTitle;
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             space,doneButton, nil];
+    pickerObj.hidden = false;
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:toolBar];
+    pickerObj.tag = 2;
+    [pickerObj  selectRow:selectedRowForType inComponent:0 animated:true];
+    
+    
+    [viewOverPicker addSubview:pickerObj];
+    [self.view addSubview:viewOverPicker];
+    [pickerObj reloadAllComponents];
+    
+    
+}
 - (IBAction)btnHealthTrackerClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:false];
 }
@@ -460,6 +491,7 @@
                     [_popUpView removeFromSuperview];
                      [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
 
+
                 }
                 else
                 {
@@ -619,7 +651,28 @@ numberOfRowsInComponent:(NSInteger)component{
         //Weight
         [_btnWeightPopup setTitle:[arrayType objectAtIndex:row] forState:UIControlStateNormal];
         selectedRowForTiming = row;
-        
+        if (pickerObj.tag == 2){
+            [_btnSelectType setTitle:[arrayType objectAtIndex:row] forState:UIControlStateNormal];
+            selectedRowForType = row;
+            switch (row) {
+                case 0:
+                    _graphView.colorLine = [CommonFunction getColorFor:@"HR"];
+                    
+                    break;
+                case 1:
+                    _graphView.colorLine = [CommonFunction getColorFor:@"DIA"];
+                    
+                    break;
+                case 2:
+                    _graphView.colorLine = [CommonFunction getColorFor:@"SYS"];
+                    
+                    break;
+                    
+                default:
+                    break;
+            }
+            [self.graphView reloadGraph];
+        }
     }
     else if (pickerObj.tag == 3){
         //reading

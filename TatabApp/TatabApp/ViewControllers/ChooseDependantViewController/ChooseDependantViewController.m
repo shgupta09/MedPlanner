@@ -162,6 +162,10 @@
             ChatPatient* pat = [ChatPatient new];
             pat.patient_id = _patientID;
             pat.name = _patientName;
+            RegistrationDpendency *dependencyObj = [patient.dependants objectAtIndex:indexPath.row];
+            dependencyObj.name = _patientName;
+            vc.dependant = dependencyObj;
+            
             vc.patient = pat;
             vc.isdependant = false;
             [self.navigationController pushViewController:vc animated:true];
@@ -237,6 +241,7 @@
                         dependencyObj.name = [obj valueForKey:@"name"];
                         dependencyObj.depedant_id = [obj valueForKey:@"id"];
                         dependencyObj.gender = [obj valueForKey:@"gender"];
+                        dependencyObj.birthDay = [obj valueForKey:@"dob"];
                          dependencyObj.relation = [CommonFunction checkForNull:[obj valueForKey:@"relation"]];
                         dependencyObj.isMainProfile = false;
                         [dependantListArray addObject:dependencyObj];

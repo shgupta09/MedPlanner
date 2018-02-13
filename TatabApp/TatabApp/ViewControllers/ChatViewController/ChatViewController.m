@@ -1137,7 +1137,7 @@
    
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
-    [parameter setValue:[NSString stringWithFormat:@"%ld", (long)_objDoctor.doctor_id ] forKey:@"patient_id"];
+    [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
     [parameter setValue:uploadType forKey:@"type"];
     [parameter setValue:textView_advice.text forKey:@"detail"];
     
@@ -1149,7 +1149,7 @@
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     
-                    
+                    [_popUpView removeFromSuperview];
                     NSLog(@"Added Successfully into the chat list");
                       [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:101 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                 /*    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];

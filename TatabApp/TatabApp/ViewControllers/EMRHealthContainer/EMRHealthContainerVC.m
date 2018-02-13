@@ -44,17 +44,14 @@
 //    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
 //    [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
 
-    if (_isdependant) {
-        [_lblPatientName setText:_dependant.name];
-        [_lblgender setText:_dependant.gender];
-
+    [_lblPatientName setText:_dependant.name];
+    
+    if ([_dependant.gender isEqualToString:@"M"]) {
+        [_lblgender setText:@"Male"];
+    }else{
+        [_lblgender setText:@"Feale"];
     }
-    else
-    {
-        [_lblPatientName setText:_patient.name];
-        [_lblgender setText:_patient.gender];
-
-    }
+    [_lblbirthDate setText:_dependant.birthDay];
     
     [self hitApiForSpeciality];
     // Do any additional setup after loading the view from its nib.
@@ -176,11 +173,15 @@
 #pragma mark - Api Related
 
 
--(void)hitApiForDetails:(int)doctorId{
+-(void)hitApiForDetails:(NSString *)doctorId{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:_patient.patient_id forKey:@"patient_id"];
-    [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
+    [parameter setValue: doctorId forKey:@"doctor_id"];
+    if (_isdependant) {
+        [parameter setValue: _dependant.depedant_id forKey:@"doctor_id"];
+
+    }
     
     if ([ CommonFunction reachability]) {
         [self addLoder];

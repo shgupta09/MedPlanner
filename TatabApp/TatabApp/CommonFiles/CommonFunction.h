@@ -45,4 +45,5 @@
 +(void)addAnimationToview:(UIView *)viewToAnimate;
 +(void)removeAnimationFromView:(UIView *)viewToRemoveAnimation;
 +(NSString *)getIDFromClinic:(NSString *)stringNAme;
++(NSString *)setOneMonthOldGate;
 @end

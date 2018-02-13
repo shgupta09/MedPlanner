@@ -50,7 +50,7 @@
     
     //self.myLabel.text = [dateFormatter stringFromDate:[dueDatePickerView date]];
     [dateFormatter setDateFormat:@"YYYY-MM-dd"];
-        fromDateString = [dateFormatter stringFromDate:fromDate];
+        fromDateString = [CommonFunction setOneMonthOldGate];
         [_btnFromDate setTitle:fromDateString forState:UIControlStateNormal];
         toDateString = [dateFormatter stringFromDate:toDate];
         [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
@@ -85,17 +85,10 @@
     }
 
     
-    if (_isdependant) {
         [_lblPatientName setText:_dependant.name];
         [_lblgender setText:_dependant.gender];
-        
-    }
-    else
-    {
-        [_lblPatientName setText:_patient.name];
-        [_lblgender setText:_patient.gender];
-        
-    }
+        [_lblbirthDate setText:_dependant.birthDay];
+   
     
     // Do any additional setup after loading the view from its nib.
 }

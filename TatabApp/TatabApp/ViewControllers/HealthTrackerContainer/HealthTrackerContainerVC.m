@@ -17,17 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (_isdependant) {
-        [_lblPatientName setText:_dependant.name];
-        [_lblgender setText:_dependant.gender];
-        
-    }
-    else
-    {
-        [_lblPatientName setText:_patient.name];
-        [_lblgender setText:_patient.gender];
-        
-    }
+    [_lblPatientName setText:_dependant.name];
+    [_lblgender setText:_dependant.gender];
+    [_lblbirthDate setText:_dependant.birthDay];
     // Do any additional setup after loading the view from its nib.
 }
 
