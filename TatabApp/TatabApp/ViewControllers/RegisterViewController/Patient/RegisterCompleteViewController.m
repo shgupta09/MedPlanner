@@ -591,6 +591,7 @@ numberOfRowsInComponent:(NSInteger)component{
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginemail] andKey:loginemail];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginUserToken] andKey:loginUserToken];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
+                        [self hitApiForaddingTheDeviceID];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
                         SWRevealViewController *mainRevealController;
                         NewAwareVC *frontViewController = [[NewAwareVC alloc]initWithNibName:@"NewAwareVC" bundle:nil];
@@ -634,6 +635,39 @@ numberOfRowsInComponent:(NSInteger)component{
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), block);
 }
+
+-(void)hitApiForaddingTheDeviceID{
+    
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:DEVICE_ID] forKey:DEVICE_ID];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:loginuserId];
+    
+    
+    if ([ CommonFunction reachability]) {
+        //        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"registration_ids"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    [CommonFunction storeValueInDefault:[CommonFunction getValueFromDefaultWithKey:DEVICE_ID] andKey:DEVICE_ID_LoginUSer];
+                    //                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                }else
+                {
+                    //                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    //                    [self removeloder];
+                    //                    [self removeloder];
+                }
+                //                [self removeloder];
+            }
+        }];
+    } else {
+        //        [self removeloder];
+        //        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }
+}
+
 
 -(void)addLoder{
     self.view.userInteractionEnabled = NO;

@@ -96,11 +96,13 @@
 }
 
 -(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
     loderObj.frame = self.view.frame;
     alertObj.frame = self.view.frame;
-    tabBarObj.frame =CGRectMake(0, self.view.frame.size.height-49, self.view.frame.size.width, 49);
-    [tabBarObj layoutIfNeeded];
-    [tabBarObj layoutSubviews];
+    tabBarObj.frame =CGRectMake(0, self.view.frame.size.height-49, _tbl_View.frame.size.width, 49);
+//    [tabBarObj layoutIfNeeded];
+//    [tabBarObj layoutSubviews];
+//    [tabBarObj setNeedsLayout];
 }
 -(void)receiveNotification:(NSNotification*)notObj{
     if ([notObj.name isEqualToString:@"LogoutNotification"]) {
@@ -1141,7 +1143,7 @@
 #pragma mark- Custom Tab Bar
 
 -(void)addCustomTabBar{
-    tabBarObj = [[CustomTabBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-49, self.view.frame.size.width, 49)];
+    tabBarObj = [[CustomTabBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-49, _tbl_View.frame.size.width, 49)];
     [tabBarObj.btnHealthTracker addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];
     [tabBarObj.btnAwareness addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];
     [tabBarObj.btnMedicalRecord addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];

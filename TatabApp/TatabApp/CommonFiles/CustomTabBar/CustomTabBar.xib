@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSO-Mt-s0x">
-                    <rect key="frame" x="0.0" y="-0.5" width="125" height="49"/>
+                    <rect key="frame" x="0.0" y="0.0" width="125" height="49"/>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                     <inset key="titleEdgeInsets" minX="-30" minY="25" maxX="20" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="56" minY="13" maxX="56" maxY="20"/>
@@ -34,7 +34,7 @@
                     <state key="highlighted" image="tabHelthTrackerActive"/>
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjp-5l-5Az">
-                    <rect key="frame" x="125" y="-0.5" width="125" height="49"/>
+                    <rect key="frame" x="125" y="0.0" width="125" height="49"/>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                     <inset key="titleEdgeInsets" minX="-25" minY="25" maxX="20" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="56" minY="13" maxX="56" maxY="20"/>
@@ -46,7 +46,7 @@
                     </state>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55I-o1-O95">
-                    <rect key="frame" x="250" y="-0.5" width="125" height="49"/>
+                    <rect key="frame" x="250" y="0.0" width="125" height="49"/>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                     <inset key="titleEdgeInsets" minX="-29" minY="25" maxX="20" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="56" minY="13" maxX="56" maxY="20"/>

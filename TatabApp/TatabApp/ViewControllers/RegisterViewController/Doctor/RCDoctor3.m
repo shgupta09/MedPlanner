@@ -436,7 +436,7 @@ numberOfRowsInComponent:(NSInteger)component{
         }
         
     }
-    else  if (![CommonFunction validateName:_txtClassification.text]){
+    else  if ([CommonFunction trimString:_txtClassification.text].length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtClassification.text].length == 0){
             [validationDict setValue:@"We need a Classification" forKey:AlertKey];
@@ -444,12 +444,13 @@ numberOfRowsInComponent:(NSInteger)component{
             [validationDict setValue:@"Oops! It seems that this is not a valid Classification." forKey:AlertKey];
         }
         
-    } else  if (dependencyArray.count<1){
-        [validationDict setValue:@"0" forKey:BoolValueKey];
-            [validationDict setValue:@"We need a Experience" forKey:AlertKey];
-       
-        
     }
+//    else  if (dependencyArray.count<1){
+//        [validationDict setValue:@"0" forKey:BoolValueKey];
+//            [validationDict setValue:@"We need a Experience" forKey:AlertKey];
+//       
+//        
+//    }
     return validationDict.mutableCopy;
     
 }
