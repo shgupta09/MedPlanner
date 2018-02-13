@@ -67,6 +67,7 @@
 #define isAwarenessApiHIt @"Api"
 #define RelationApi @"IsRelationApiHIt"
 //Alert Related Constant
+#define EjabbrdIP @"ec2-13-127-164-75.ap-south-1.compute.amazonaws.com"
 #define Tag_For_Remove_Alert 100
 #define OK_Btn @"Ok"
 #define Cancel_Btn @"Cancel"

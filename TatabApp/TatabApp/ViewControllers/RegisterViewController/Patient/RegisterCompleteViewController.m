@@ -56,7 +56,8 @@
     _txtName.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_BirthDate.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
     
-    
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+
     [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
     [_tblView registerNib:[UINib nibWithNibName:@"DependantDetailTableViewCell" bundle:nil]forCellReuseIdentifier:@"DependantDetailTableViewCell"];
     _tblView.rowHeight = UITableViewAutomaticDimension;
@@ -100,7 +101,7 @@
     hm = [[XMPPHandler alloc] init];
     hm.userId = @"asdffsadfcccc";
     hm.userPassword = @"willpower";
-    hm.hostName =@"35.154.181.86";
+    hm.hostName =EjabbrdIP;
     [hm.xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
     hm.hostPort = [NSNumber numberWithInteger:5222];
     [hm registerUser];
@@ -427,7 +428,7 @@ numberOfRowsInComponent:(NSInteger)component{
                         NSString* userID = foo;
                         hm.userId = userID;
                         hm.userPassword = @"Admin@123";
-                        hm.hostName = @"35.154.181.86";
+                        hm.hostName = EjabbrdIP;
                         hm.hostPort = [NSNumber numberWithInteger:5222];
                         [hm setupXMPPStream];
                         [hm registerUser];
@@ -523,12 +524,14 @@ numberOfRowsInComponent:(NSInteger)component{
         [validationDict setValue:@"0" forKey:BoolValueKey];
         [validationDict setValue:@"We need a city" forKey:AlertKey];
     }
+    /*
     else  if (dependencyArray.count<1){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         [validationDict setValue:@"We need a Dependent" forKey:AlertKey];
         
         
     }
+     */
     return validationDict.mutableCopy;
     
 }
@@ -687,7 +690,6 @@ numberOfRowsInComponent:(NSInteger)component{
 #pragma mark- Custom Loder
 -(void)addAlertWithTitle:(NSString *)titleString andMessage:(NSString *)messageString isTwoButtonNeeded:(BOOL)isTwoBUtoonNeeded firstbuttonTag:(NSInteger)firstButtonTag secondButtonTag:(NSInteger)secondButtonTag firstbuttonTitle:(NSString *)firstButtonTitle secondButtonTitle:(NSString *)secondButtonTitle image:(NSString *)imageName{
     [CommonFunction resignFirstResponderOfAView:self.view];
-    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
     alertObj.lbl_title.text = titleString;
     alertObj.lbl_message.text = messageString;
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
@@ -709,7 +711,9 @@ numberOfRowsInComponent:(NSInteger)component{
                           action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
     }
     alertObj.transform = CGAffineTransformMakeScale(0.01, 0.01);
-    [self.view addSubview:alertObj];
+   if (![alertObj isDescendantOfView:self.view]) {
+        [self.view addSubview:alertObj];
+    }
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         // animate it to the identity transform (100% scale)
         alertObj.transform = CGAffineTransformIdentity;

@@ -25,7 +25,8 @@
     [super viewDidLoad];
     [self setData];
     dataArray = [NSMutableArray new];
-    
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+
     [_imgViewCurrentUser sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
     _imgViewCurrentUser.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
     _imgViewCurrentUser.layer.borderWidth = 1;
@@ -278,7 +279,6 @@
 #pragma mark- Custom Loder
 -(void)addAlertWithTitle:(NSString *)titleString andMessage:(NSString *)messageString isTwoButtonNeeded:(BOOL)isTwoBUtoonNeeded firstbuttonTag:(NSInteger)firstButtonTag secondButtonTag:(NSInteger)secondButtonTag firstbuttonTitle:(NSString *)firstButtonTitle secondButtonTitle:(NSString *)secondButtonTitle image:(NSString *)imageName{
     [CommonFunction resignFirstResponderOfAView:self.view];
-    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
     alertObj.lbl_title.text = titleString;
     alertObj.lbl_message.text = messageString;
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
@@ -300,7 +300,9 @@
                           action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
     }
     alertObj.transform = CGAffineTransformMakeScale(0.01, 0.01);
-    [self.view addSubview:alertObj];
+   if (![alertObj isDescendantOfView:self.view]) {
+        [self.view addSubview:alertObj];
+    }
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         // animate it to the identity transform (100% scale)
         alertObj.transform = CGAffineTransformIdentity;

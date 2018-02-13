@@ -41,6 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+
     [_mySwitch setOn:YES animated:YES];
     ifphoto = true;
     _viewToClip.layer.cornerRadius = 5;
@@ -162,7 +164,7 @@
     hm = [[XMPPHandler alloc] init];
     hm.userId = @"121214545487878";
     hm.userPassword = @"willpower";
-    hm.hostName = @"35.154.181.86";
+    hm.hostName = EjabbrdIP;
     hm.hostPort = [NSNumber numberWithInteger:5222];
    
      [hm registerUser];
@@ -178,7 +180,7 @@
     hm = [[XMPPHandler alloc] init];
     hm.userId = fromId;
     hm.userPassword = @"Admin@123";
-    hm.hostName = @"35.154.181.86";
+    hm.hostName = EjabbrdIP;
     hm.hostPort = [NSNumber numberWithInteger:5222];
     
     [hm connectToXMPPServer];
@@ -890,6 +892,51 @@
 
 
 #pragma mark - Api Related
+-(void)hitApiForTheQueueCount{
+    [[QueueDetails sharedInstance].myDataArray removeAllObjects];
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
+    if ([ CommonFunction reachability]) {
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"getallqueuepatient"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    NSLog(@"%@",responseObj);
+                    NSArray *tempArray = [responseObj valueForKey:@"data"];
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        QueueDetails *queueObj = [QueueDetails new];
+                        queueObj.queue_id = [obj valueForKey:@"queue_id"];
+                        queueObj.name = [obj valueForKey:@"name"];
+                        queueObj.email = [obj valueForKey:@"email"];
+                        queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
+                        queueObj.patient_id = [obj valueForKey:@"patient_id"];
+                        queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                        
+                        [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
+                        
+                    }];
+                    if ([QueueDetails sharedInstance].myDataArray.count>0) {
+                        _lbl_queueCount.hidden = false;
+                        _lbl_queueCount.text = [NSString stringWithFormat:@"%d",[QueueDetails sharedInstance].myDataArray.count];
+                    }else{
+                        _lbl_queueCount.hidden = true;
+                        
+                    }
+                }
+                if ([QueueDetails sharedInstance].myDataArray.count>0) {
+                    _lbl_queueCount.hidden = false;
+                    _lbl_queueCount.text = [NSString stringWithFormat:@"%d",[QueueDetails sharedInstance].myDataArray.count];
+                }else{
+                    _lbl_queueCount.hidden = true;
+                    
+                }
+                
+            }
+        }
+         ];
+    }
+}
 
 
 -(void)hitApiForEndTheChat{
@@ -913,7 +960,7 @@
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:1001 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                    
+                    [self hitApiForTheQueueCount];
                     
                     
                 }else
@@ -1138,7 +1185,6 @@
 #pragma mark- Custom Loder
 -(void)addAlertWithTitle:(NSString *)titleString andMessage:(NSString *)messageString isTwoButtonNeeded:(BOOL)isTwoBUtoonNeeded firstbuttonTag:(NSInteger)firstButtonTag secondButtonTag:(NSInteger)secondButtonTag firstbuttonTitle:(NSString *)firstButtonTitle secondButtonTitle:(NSString *)secondButtonTitle image:(NSString *)imageName{
     [CommonFunction resignFirstResponderOfAView:self.view];
-    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
     alertObj.lbl_title.text = titleString;
     alertObj.lbl_message.text = messageString;
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
@@ -1160,7 +1206,9 @@
                           action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
     }
     alertObj.transform = CGAffineTransformMakeScale(0.01, 0.01);
-    [self.view addSubview:alertObj];
+   if (![alertObj isDescendantOfView:self.view]) {
+        [self.view addSubview:alertObj];
+    }
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         // animate it to the identity transform (100% scale)
         alertObj.transform = CGAffineTransformIdentity;

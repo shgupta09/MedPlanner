@@ -38,7 +38,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+
     _searchOptionBtnAction.tintColor = [UIColor whiteColor];
     tempView = [UIView new];
     UIImage * image = [UIImage imageNamed:@"Icon---Search"];
@@ -107,6 +108,11 @@
 -(void)receiveNotification:(NSNotification*)notObj{
     if ([notObj.name isEqualToString:@"LogoutNotification"]) {
         [self addAlertWithTitle:AlertKey andMessage:@"Logout Successfully" isTwoButtonNeeded:false firstbuttonTag:103 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        
+        [CommonFunction stroeBoolValueForKey:NOTIFICATION_BOOl withBoolValue:false];
+        [CommonFunction storeValueInDefault:@"0" andKey:NOTIFICATION_DOCTOR_ID];
+        [CommonFunction storeValueInDefault:@"0" andKey:NOTIFICATION_PATIENT_ID];
+        [self hitApiForaddingTheDeviceID];
     }else if([notObj.name isEqualToString:@"LogOutTapped"]){
      [self addAlertWithTitle:@"Logout" andMessage:@"Are you sure you want to Logout?"   isTwoButtonNeeded:true firstbuttonTag:101 secondButtonTag:104 firstbuttonTitle:OK_Btn secondButtonTitle:@"Cancel" image:Warning_Key_For_Image];
     }else if([notObj.name isEqualToString:@"NONE TO CHAT"]){
@@ -121,6 +127,8 @@
     */
     
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -132,7 +140,7 @@
     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
 
     if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-        tabBarObj.view.hidden = false;
+        //tabBarObj.view.hidden = false;
         if (![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
             _btn_Post.hidden = true;
             _btn_Post.userInteractionEnabled = false;
@@ -150,13 +158,14 @@
         _btn_Post.hidden = true;
         _btn_Post.userInteractionEnabled = false;
         [_imgView_Profile removeFromSuperview];
-        tabBarObj.view.hidden = true;
+        //tabBarObj.view.hidden = true;
     }
     }else{
         _btn_Post.hidden = true;
         _btn_Post.userInteractionEnabled = false;
         [_imgView_Profile removeFromSuperview];
-        tabBarObj.view.hidden = true;    }
+        tabBarObj.view.hidden = true;
+    }
     if (!is_Media) {
     [self geAllPost];    
     }
@@ -802,6 +811,37 @@
 }
 #pragma mark- Hit Api
 
+-(void)hitApiForaddingTheDeviceID{
+    
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:@"123" forKey:DEVICE_ID];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:loginuserId];
+    
+    
+    if ([ CommonFunction reachability]) {
+        //        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"registration_ids"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    [CommonFunction storeValueInDefault:[CommonFunction getValueFromDefaultWithKey:DEVICE_ID] andKey:DEVICE_ID_LoginUSer];
+                    //                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                }else
+                {
+                    //                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    //                    [self removeloder];
+                    //                    [self removeloder];
+                }
+                //                [self removeloder];
+            }
+        }];
+    } else {
+        //        [self removeloder];
+        //        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }
+}
 
 -(void)hitApiForTheQueueCount{
     [[QueueDetails sharedInstance].myDataArray removeAllObjects];
@@ -1069,7 +1109,6 @@
 #pragma mark- Custom Loder
 -(void)addAlertWithTitle:(NSString *)titleString andMessage:(NSString *)messageString isTwoButtonNeeded:(BOOL)isTwoBUtoonNeeded firstbuttonTag:(NSInteger)firstButtonTag secondButtonTag:(NSInteger)secondButtonTag firstbuttonTitle:(NSString *)firstButtonTitle secondButtonTitle:(NSString *)secondButtonTitle image:(NSString *)imageName{
     [CommonFunction resignFirstResponderOfAView:self.view];
-    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
     alertObj.lbl_title.text = titleString;
     alertObj.lbl_message.text = messageString;
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
@@ -1091,7 +1130,11 @@
                           action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
     }
     alertObj.transform = CGAffineTransformMakeScale(0.01, 0.01);
-    [self.view addSubview:alertObj];
+   
+       if (![alertObj isDescendantOfView:self.view]) {
+        [self.view addSubview:alertObj];
+    }
+    
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         // animate it to the identity transform (100% scale)
         alertObj.transform = CGAffineTransformIdentity;
@@ -1154,6 +1197,25 @@
     switch (((UIButton *)sender).tag) {
         
         case 0:{
+            
+            if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+                NSArray * tempArray = self.navigationController.viewControllers;
+                __block BOOL isFound = false;
+                [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if ([[obj class] isKindOfClass:[ChooseDependantViewController class]]){
+                        isFound = true;
+                    }
+                }];
+                if (!isFound) {
+                ChooseDependantViewController* vc ;
+                vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+                vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+                vc.classObj = self;
+                vc.isManageDependants = false;
+                
+                [self.navigationController pushViewController:vc animated:true];
+                }
+            }else{
             NSArray * tempArray = self.navigationController.viewControllers;
             __block BOOL isFound = false;
             [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -1166,24 +1228,42 @@
                 vc = [[ChoosePatientViewController alloc] initWithNibName:@"ChoosePatientViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:true];
             }
-            
+            }
         }
             break;
         case 1:{
-            NSArray * tempArray = self.navigationController.viewControllers;
-            __block BOOL isFound = false;
-            [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([[obj class] isKindOfClass:[ChooseDependantViewController class]]){
-                    isFound = true;
-                }
-            }];
-            if (!isFound) {
-                ChoosePatientViewController* vc ;
-                vc = [[ChoosePatientViewController alloc] initWithNibName:@"ChoosePatientViewController" bundle:nil];
-                [self.navigationController pushViewController:vc animated:true];
-            }
             
-           
+            if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+                NSArray * tempArray = self.navigationController.viewControllers;
+                __block BOOL isFound = false;
+                [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if ([[obj class] isKindOfClass:[ChooseDependantViewController class]]){
+                        isFound = true;
+                    }
+                }];
+                if (!isFound) {
+                    ChooseDependantViewController* vc ;
+                    vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+                    vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+                    vc.classObj = self;
+                    vc.isManageDependants = false;
+                    
+                    [self.navigationController pushViewController:vc animated:true];
+                }
+            }else{
+                NSArray * tempArray = self.navigationController.viewControllers;
+                __block BOOL isFound = false;
+                [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if ([[obj class] isKindOfClass:[ChooseDependantViewController class]]){
+                        isFound = true;
+                    }
+                }];
+                if (!isFound) {
+                    ChoosePatientViewController* vc ;
+                    vc = [[ChoosePatientViewController alloc] initWithNibName:@"ChoosePatientViewController" bundle:nil];
+                    [self.navigationController pushViewController:vc animated:true];
+                }
+            }
         }
             break;
         case 2:{

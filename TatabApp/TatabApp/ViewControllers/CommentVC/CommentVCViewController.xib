@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -77,7 +77,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Comment Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Als-UR-EZX">
-                    <rect key="frame" x="99" y="355" width="177" height="21"/>
+                    <rect key="frame" x="99.5" y="355" width="176.5" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -262,6 +262,7 @@
                 <constraint firstItem="yvZ-oA-z4U" firstAttribute="top" secondItem="hnP-5Q-y1U" secondAttribute="bottom" constant="5" id="EVQ-hq-Zg2"/>
                 <constraint firstItem="hnP-5Q-y1U" firstAttribute="top" secondItem="Bpc-2c-rBz" secondAttribute="bottom" constant="8" id="EVm-DB-Jg2"/>
                 <constraint firstItem="hnP-5Q-y1U" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EX1-AM-row"/>
+                <constraint firstItem="Als-UR-EZX" firstAttribute="top" secondItem="TFN-r5-MdT" secondAttribute="bottom" constant="12" id="Emv-s9-B9j"/>
                 <constraint firstItem="x1w-AK-Swh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FQK-QO-fcW"/>
                 <constraint firstAttribute="trailing" secondItem="LGC-7K-mbv" secondAttribute="trailing" constant="20" id="GHE-h1-jTL"/>
                 <constraint firstItem="duE-57-tpP" firstAttribute="centerY" secondItem="TFN-r5-MdT" secondAttribute="centerY" id="I4X-RC-586"/>
@@ -293,7 +294,6 @@
                 <constraint firstItem="8VZ-3w-E9c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="lix-rw-mvd"/>
                 <constraint firstItem="eBj-NF-WFW" firstAttribute="top" secondItem="cPS-qV-aM5" secondAttribute="bottom" constant="11" id="nLR-0p-fMF"/>
                 <constraint firstItem="rbg-gi-TqM" firstAttribute="leading" secondItem="eBj-NF-WFW" secondAttribute="leading" id="nZ1-14-vpe"/>
-                <constraint firstItem="Als-UR-EZX" firstAttribute="centerY" secondItem="rbg-gi-TqM" secondAttribute="centerY" id="nxo-89-vFD"/>
                 <constraint firstAttribute="trailing" secondItem="duE-57-tpP" secondAttribute="trailing" constant="6" id="qAk-og-EAO"/>
                 <constraint firstItem="yvZ-oA-z4U" firstAttribute="centerY" secondItem="x1w-AK-Swh" secondAttribute="centerY" id="qYb-bh-1Mx"/>
                 <constraint firstItem="9LC-NO-EMM" firstAttribute="centerY" secondItem="AFB-sW-Hg3" secondAttribute="centerY" id="qbd-gJ-tQe"/>

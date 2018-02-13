@@ -202,7 +202,8 @@
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"received");
     NSLog(@"%@", userInfo);
-    
+    [CommonFunction storeValueInDefault:[userInfo valueForKey:NOTIFICATION_DOCTOR_ID] andKey:NOTIFICATION_DOCTOR_ID];
+    [CommonFunction storeValueInDefault:[userInfo valueForKey:NOTIFICATION_DOCTOR_ID] andKey:NOTIFICATION_PATIENT_ID];
     if (application.applicationState == UIApplicationStateActive)   {
         [AGPushNoteView showWithNotificationMessage:[[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"body"] ];
         [AGPushNoteView setMessageAction:^(NSString *message) {
@@ -210,6 +211,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         }];
     }
     if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"New patient"]) {
+        [self hitApiForTheQueueCount];
         
     }else if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"Start Chating"]) {
         [CommonFunction stroeBoolValueForKey:NOTIFICATION_BOOl withBoolValue:true];
@@ -218,8 +220,37 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         [CommonFunction storeValueInDefault:@"0" andKey:NOTIFICATION_DOCTOR_ID];
         [CommonFunction storeValueInDefault:@"0" andKey:NOTIFICATION_PATIENT_ID];
     }
-    [CommonFunction storeValueInDefault:[userInfo valueForKey:NOTIFICATION_DOCTOR_ID] andKey:NOTIFICATION_DOCTOR_ID];
-    [CommonFunction storeValueInDefault:[userInfo valueForKey:NOTIFICATION_DOCTOR_ID] andKey:NOTIFICATION_PATIENT_ID];
+    
+}
+-(void)hitApiForTheQueueCount{
+    [[QueueDetails sharedInstance].myDataArray removeAllObjects];
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
+    if ([ CommonFunction reachability]) {
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"getallqueuepatient"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    NSLog(@"%@",responseObj);
+                    NSArray *tempArray = [responseObj valueForKey:@"data"];
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        QueueDetails *queueObj = [QueueDetails new];
+                        queueObj.queue_id = [obj valueForKey:@"queue_id"];
+                        queueObj.name = [obj valueForKey:@"name"];
+                        queueObj.email = [obj valueForKey:@"email"];
+                        queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
+                        queueObj.patient_id = [obj valueForKey:@"patient_id"];
+                        queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                        
+                        [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
+                    }];
+                }
+                
+            }
+        }
+         ];
+    }
 }
 -(void)refreshToken:(NSNotification *)notification{
     

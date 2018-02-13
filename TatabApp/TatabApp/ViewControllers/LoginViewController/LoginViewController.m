@@ -26,13 +26,15 @@
       [CommonFunction setResignTapGestureToView:self.view andsender:self];
     _txtUsername.leftImgView.image = [UIImage imageNamed:@"d"];
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
-    _txtPassword.text = @"Admin@123";
-    _txtUsername.text = @"qwerty@yopmail.com";
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+
+   // _txtPassword.text = @"Admin@123";
+   // _txtUsername.text = @"qwerty@yopmail.com";
 //    _txtUsername.text = @"abhinav@gmail.com";
 //    _txtUsername.text = @"rahul@gmail.com";
     //   _txtUsername.text = @"abhinav@gmail.com";
-//   _txtUsername.text = @"shagun@gmail.com";
-//   _txtUsername.text = @"shubham@yopmail.com";
+ // _txtUsername.text = @"shagun@gmail.com";
+ //  _txtUsername.text = @"shubham@yopmail.com";
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -283,7 +285,6 @@
 
 -(void)addAlertWithTitle:(NSString *)titleString andMessage:(NSString *)messageString isTwoButtonNeeded:(BOOL)isTwoBUtoonNeeded firstbuttonTag:(NSInteger)firstButtonTag secondButtonTag:(NSInteger)secondButtonTag firstbuttonTitle:(NSString *)firstButtonTitle secondButtonTitle:(NSString *)secondButtonTitle image:(NSString *)imageName{
     [CommonFunction resignFirstResponderOfAView:self.view];
-    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
     alertObj.lbl_title.text = titleString;
     alertObj.lbl_message.text = messageString;
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
@@ -305,7 +306,9 @@
                           action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
     }
      alertObj.transform = CGAffineTransformMakeScale(0.01, 0.01);
-      [self.view addSubview:alertObj];
+     if (![alertObj isDescendantOfView:self.view]) {
+        [self.view addSubview:alertObj];
+    }
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         // animate it to the identity transform (100% scale)
         alertObj.transform = CGAffineTransformIdentity;
