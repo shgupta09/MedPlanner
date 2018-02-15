@@ -230,7 +230,7 @@
                         [hm registerUser];
                         
                         
-                        [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                       // [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                         [self performBlock:^{
                             
                             [self loginFunction];
@@ -274,7 +274,7 @@
             if (error == nil) {
                 
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                  // [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self performBlock:^{
                        // [alertController dismissViewControllerAnimated:true completion:nil];
                         [hm disconnectFromXMPPServer];
@@ -291,6 +291,7 @@
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:logInImageUrl] andKey:logInImageUrl];
                          [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:Specialist] andKey:Specialist];
+                        [self hitApiForDoctorToBeOnline];
                         [self hitApiForaddingTheDeviceID];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
                         SWRevealViewController *mainRevealController;
@@ -330,6 +331,39 @@
     }
     
     
+}
+-(void)hitApiForDoctorToBeOnline{
+    
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
+    [parameter setValue:@"1" forKey:@"status_id"];
+    
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"godoctor_online"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                   
+                    
+                    
+                    
+                }else
+                {
+                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self removeloder];
+                    [self removeloder];
+                }
+                [self removeloder];
+            }
+        }];
+    } else {
+        [self removeloder];
+        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }
 }
 
 -(void)hitApiForaddingTheDeviceID{

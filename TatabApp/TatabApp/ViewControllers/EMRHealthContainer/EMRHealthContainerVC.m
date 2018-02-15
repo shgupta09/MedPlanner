@@ -178,10 +178,9 @@
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:_patient.patient_id forKey:@"patient_id"];
     [parameter setValue: doctorId forKey:@"doctor_id"];
-    if (_isdependant) {
-        [parameter setValue: _dependant.depedant_id forKey:@"doctor_id"];
+    [parameter setValue: @"  " forKey:@"dependent_id"];
 
-    }
+    
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -233,12 +232,12 @@
     }
     
 }
--(void)hitApiForPrescription:(int)doctorId{
+-(void)hitApiForPrescription:(NSString *)doctorId{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:_patient.patient_id forKey:@"patient_id"];
-    [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
-    
+    [parameter setValue:doctorId forKey:@"doctor_id"];
+    [parameter setValue:@"" forKey:@"dependent_id"];
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
@@ -290,11 +289,11 @@
     
 }
 
--(void)hitApiForFollowUp:(int)doctorId{
+-(void)hitApiForFollowUp:(NSString *)doctorId{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:_patient.patient_id forKey:@"patient_id"];
-    [parameter setValue:[NSString stringWithFormat:@"%d", doctorId] forKey:@"doctor_id"];
+    [parameter setValue:doctorId forKey:@"doctor_id"];
 
     if ([ CommonFunction reachability]) {
         [self addLoder];

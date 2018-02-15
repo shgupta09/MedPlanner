@@ -432,7 +432,7 @@ numberOfRowsInComponent:(NSInteger)component{
                         hm.hostPort = [NSNumber numberWithInteger:5222];
                         [hm setupXMPPStream];
                         [hm registerUser];
-                         [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                         //[self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                         [self performBlock:^{
                             [self loginFunction];
                             
@@ -582,7 +582,7 @@ numberOfRowsInComponent:(NSInteger)component{
                     }];
                     */
                     
-                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    // [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self performBlock:^{
                         //[alertController dismissViewControllerAnimated:true completion:nil];
                        [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
