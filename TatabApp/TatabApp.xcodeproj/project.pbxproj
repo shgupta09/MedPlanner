@@ -112,6 +112,9 @@
 		D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84DF2021F8A0D9C00234070 /* RegisterViewController.xib */; };
 		D86A3735202E1CAC009EA562 /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D86A3734202E1CAC009EA562 /* CustomTabBar.xib */; };
 		D86A3738202E2E57009EA562 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A3737202E2E57009EA562 /* CustomTabBar.m */; };
+		D8A78E852035FD0D001C2E53 /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A78E842035FD0D001C2E53 /* CustomView.m */; };
+		D8A78E892035FD73001C2E53 /* TestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A78E872035FD73001C2E53 /* TestVC.m */; };
+		D8A78E8A2035FD73001C2E53 /* TestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A78E882035FD73001C2E53 /* TestVC.xib */; };
 		D8C46A98202F6006004BAC2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8C46A97202F6005004BAC2C /* GoogleService-Info.plist */; };
 		D8CD7DF2202EE5FA0036A738 /* QueueDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */; };
 		D8E1C79F2007C790007172F5 /* NewAwareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E1C79D2007C790007172F5 /* NewAwareVC.m */; };
@@ -359,6 +362,11 @@
 		D86A3734202E1CAC009EA562 /* CustomTabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
 		D86A3736202E2E57009EA562 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
 		D86A3737202E2E57009EA562 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
+		D8A78E832035FD0D001C2E53 /* CustomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
+		D8A78E842035FD0D001C2E53 /* CustomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
+		D8A78E862035FD73001C2E53 /* TestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestVC.h; sourceTree = "<group>"; };
+		D8A78E872035FD73001C2E53 /* TestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestVC.m; sourceTree = "<group>"; };
+		D8A78E882035FD73001C2E53 /* TestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestVC.xib; sourceTree = "<group>"; };
 		D8C46A97202F6005004BAC2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8CD7DF0202EE5FA0036A738 /* QueueDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueDetails.h; sourceTree = "<group>"; };
 		D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueDetails.m; sourceTree = "<group>"; };
@@ -736,6 +744,7 @@
 		5FBBBB0B1F726FC400C03813 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				D8A78E822035FCD0001C2E53 /* Creativity */,
 				9C16D1B020316AA000D82769 /* AGPushNote */,
 				D86A372E202E1BF1009EA562 /* CustomTabBar */,
 				9C6D8CD72021F470004CA1B4 /* Font */,
@@ -1051,6 +1060,18 @@
 			path = CustomTabBar;
 			sourceTree = "<group>";
 		};
+		D8A78E822035FCD0001C2E53 /* Creativity */ = {
+			isa = PBXGroup;
+			children = (
+				D8A78E832035FD0D001C2E53 /* CustomView.h */,
+				D8A78E842035FD0D001C2E53 /* CustomView.m */,
+				D8A78E862035FD73001C2E53 /* TestVC.h */,
+				D8A78E872035FD73001C2E53 /* TestVC.m */,
+				D8A78E882035FD73001C2E53 /* TestVC.xib */,
+			);
+			path = Creativity;
+			sourceTree = "<group>";
+		};
 		D8E1C79B2007C77C007172F5 /* AwarenessN */ = {
 			isa = PBXGroup;
 			children = (
@@ -1237,6 +1258,7 @@
 				9C8FE6DD1F8B8DCF0003003C /* RCDoctor4.xib in Resources */,
 				5FBBBAF61F72401B00C03813 /* LaunchScreen.storyboard in Resources */,
 				D8F5A5691F9202AF00E36160 /* DoctorListVC.xib in Resources */,
+				D8A78E8A2035FD73001C2E53 /* TestVC.xib in Resources */,
 				D8C46A98202F6006004BAC2C /* GoogleService-Info.plist in Resources */,
 				D82354B01F8A6C2E0097A94C /* RCDoctor2.xib in Resources */,
 				9C6DE7421F83A6B100635102 /* VideoListTableViewCell.xib in Resources */,
@@ -1515,6 +1537,7 @@
 				5F6DA7031FC3EF4F004F70E4 /* ImageMessageCell.m in Sources */,
 				5F5DF37B1FB31D1800956B62 /* MessageCell.m in Sources */,
 				5FB773ED1FF5189E00982102 /* EMRHealthContainerVC.m in Sources */,
+				D8A78E892035FD73001C2E53 /* TestVC.m in Sources */,
 				5FB5384C1FC31CA500C77713 /* ImageMessageTableViewCell.m in Sources */,
 				5F4F6C681F82915F000C65A0 /* AwarenessCategoryTableViewCell.m in Sources */,
 				5F9F49BD1FB1D791009E1418 /* README.md in Sources */,
@@ -1549,6 +1572,7 @@
 				9C5505752008E2FC0037F07F /* CustomButton3.m in Sources */,
 				9C6DE7321F83A1FC00635102 /* RearCell.m in Sources */,
 				D84DF2051F8A0D9C00234070 /* RegisterViewController.m in Sources */,
+				D8A78E852035FD0D001C2E53 /* CustomView.m in Sources */,
 				5FC496DC1FCBDC1B004E537A /* ChatPatient.m in Sources */,
 				5F1E9B3A1F763C73009FECDD /* UserSelectViewController.m in Sources */,
 				D84DF2031F8A0D9C00234070 /* RegisterCompleteViewController.m in Sources */,

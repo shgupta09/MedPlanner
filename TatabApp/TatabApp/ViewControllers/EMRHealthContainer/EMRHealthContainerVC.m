@@ -182,7 +182,7 @@
         [parameter setValue: _dependant.depedant_id forKey:@"doctor_id"];
 
     }
-    
+    NSLog(@"%@",parameter);
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
