@@ -14,6 +14,9 @@
     LoderView *loderObj;
     NSMutableArray *doctorListArray;
     CustomAlert *alertObj;
+    NSMutableArray *prescriptionArray;
+    NSMutableArray *diagnosysArray;
+    NSMutableArray *followUPArray;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tblView;
 
@@ -118,13 +121,12 @@
         cell.imgViewProfile.layer.cornerRadius = 8;
         cell.imgViewProfile.clipsToBounds = true;
     
-    [cell.btnDetails setTag:indexPath.row];
-    [cell.btnfollowUp setTag:indexPath.row];
-    [cell.btnPrescription setTag:indexPath.row];
+    [cell.btnDetails setTag:1000+indexPath.row];
+    [cell.btnfollowUp setTag:3000+indexPath.row];
+    [cell.btnPrescription setTag:2000+indexPath.row];
     cell.delegate = self;
-    
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
         
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -142,25 +144,25 @@
 
 -(void)btnDetailsTapped:(UIButton *)sender{
     UIButton* btn = sender;
-    Specialization* obj = [doctorListArray objectAtIndex:btn.tag];
+    Specialization* obj = [doctorListArray objectAtIndex:(btn.tag)%1000];
     NSLog(@"%@", obj.first_name);
-    
-    [self hitApiForDetails:obj.doctor_id];
+    NSLog(@"%@", obj.doctor_id);
+    [self hitApiForDetails:obj.doctor_id :1];
 }
 -(void)btnFollowTapped:(UIButton *)sender{
     UIButton* btn = sender;
-    Specialization* obj = [doctorListArray objectAtIndex:btn.tag];
+    Specialization* obj = [doctorListArray objectAtIndex:(btn.tag)%1000];
     NSLog(@"%@", obj.first_name);
-    
-    [self hitApiForFollowUp:obj.doctor_id];
+     NSLog(@"%@", obj.doctor_id);
+    [self hitApiForDetails:obj.doctor_id :2];
 }
 
 -(void)btnPrescriptionTapped:(UIButton *)sender{
     UIButton* btn = sender;
-    Specialization* obj = [doctorListArray objectAtIndex:btn.tag];
+    Specialization* obj = [doctorListArray objectAtIndex:(btn.tag)%1000];
     NSLog(@"%@", obj.first_name);
-    
-    [self hitApiForPrescription:obj.doctor_id];
+     NSLog(@"%@", obj.doctor_id);
+    [self hitApiForDetails:obj.doctor_id :3];
 }
 
 
@@ -173,7 +175,7 @@
 #pragma mark - Api Related
 
 
--(void)hitApiForDetails:(NSString *)doctorId{
+-(void)hitApiForDetails:(NSString *)doctorId :(int)switchINt{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:_patient.patient_id forKey:@"patient_id"];
@@ -191,7 +193,9 @@
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     
                     
-                    NSMutableArray* array = [NSMutableArray new];
+                    prescriptionArray= [NSMutableArray new];
+                    followUPArray= [NSMutableArray new];
+                    diagnosysArray= [NSMutableArray new];
                     NSArray *tempArray = [NSArray new];
                     tempArray  = [[responseObj valueForKey:@"data"] valueForKey:@"diagnosis"];;
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -202,12 +206,53 @@
                         object.type = [obj valueForKey:@"type"];
                         object.details = [obj valueForKey:@"details"];
                         
-                        [array addObject:object];
+                        [diagnosysArray addObject:object];
+                    }];
+                    tempArray = [NSArray new];
+                    tempArray  = [[responseObj valueForKey:@"data"] valueForKey:@"prescription"];;
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        
+                        CommonInfoPatient *object = [CommonInfoPatient new];
+                        object.identifier = [obj valueForKey:@"id"];
+                        object.created_at = [obj valueForKey:@"created_at"];
+                        object.type = [obj valueForKey:@"type"];
+                        object.details = [obj valueForKey:@"details"];
+                        
+                        [prescriptionArray addObject:object];
+                    }];
+                    tempArray = [NSArray new];
+                    tempArray  = [[responseObj valueForKey:@"data"] valueForKey:@"followup"];;
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        
+                        CommonInfoPatient *object = [CommonInfoPatient new];
+                        object.identifier = [obj valueForKey:@"id"];
+                        object.created_at = [obj valueForKey:@"created_at"];
+                        object.type = [obj valueForKey:@"type"];
+                        object.details = [obj valueForKey:@"details"];
+                        
+                        [followUPArray addObject:object];
                     }];
                     DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-                    vc.detailType = @"Diagnosis";
-                    vc.detailArray = array;
-                    [self presentViewController:vc animated:false completion:^{
+                    switch (switchINt) {
+                        case 2:{
+                            vc.detailType = @"Prescription";
+                            vc.detailArray = prescriptionArray;
+                        }
+                            break;
+                        case 3:{
+                            vc.detailType = @"FollowUP";
+                            vc.detailArray = followUPArray;
+                        }break;
+                        case 1:{
+                            vc.detailType = @"Diagnosis";
+                            vc.detailArray = diagnosysArray;
+                        }
+                            break;
+                            break;
+                        default:
+                            break;
+                    }
+                        [self presentViewController:vc animated:false completion:^{
                         [self removeloder];
                         
                     }];
@@ -232,6 +277,7 @@
     }
     
 }
+/*
 -(void)hitApiForPrescription:(NSString *)doctorId{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
@@ -344,7 +390,7 @@
 
 }
 
-
+*/
 -(void)hitApiForSpeciality{
     
     
