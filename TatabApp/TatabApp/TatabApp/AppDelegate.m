@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TestVC.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 @import Firebase;
 @import FirebaseMessaging;
@@ -34,6 +35,8 @@
 
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    //TestVC* vc;
+  //  vc = [[TestVC alloc] initWithNibName:@"TestVC" bundle:nil];
     SplashScreenViewController* vc;
     vc = [[SplashScreenViewController alloc] initWithNibName:@"SplashScreenViewController" bundle:nil];
     _window.rootViewController = vc;

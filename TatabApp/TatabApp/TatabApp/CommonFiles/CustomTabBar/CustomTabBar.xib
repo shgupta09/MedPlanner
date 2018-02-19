@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,58 +22,59 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSO-Mt-s0x">
-                    <rect key="frame" x="0.0" y="0.0" width="125" height="49"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                    <inset key="titleEdgeInsets" minX="-30" minY="25" maxX="20" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
-                    <state key="normal" title="Health Tracker" image="tabHelthTracker">
-                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted" image="tabHelthTrackerActive"/>
-                </button>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjp-5l-5Az">
-                    <rect key="frame" x="125" y="0.0" width="125" height="49"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                    <inset key="titleEdgeInsets" minX="-25" minY="25" maxX="20" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
-                    <state key="normal" title="Medical Record" image="tabMedicalRecord">
-                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted" image="tabMedicalRecordActive">
-                        <color key="titleColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
-                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55I-o1-O95">
-                    <rect key="frame" x="250" y="0.0" width="125" height="49"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                    <inset key="titleEdgeInsets" minX="-29" minY="25" maxX="20" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
-                    <state key="normal" title="Awareness" image="tabAwareness">
-                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted" image="tabAwarenessActive">
-                        <color key="titleColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izL-Im-M5h">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSO-Mt-s0x">
+                            <rect key="frame" x="0.0" y="0.0" width="125" height="49"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <inset key="titleEdgeInsets" minX="-30" minY="25" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
+                            <state key="normal" title="Health Tracker" image="tabHelthTracker">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="tabHelthTrackerActive"/>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjp-5l-5Az">
+                            <rect key="frame" x="125" y="0.0" width="125" height="49"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <inset key="titleEdgeInsets" minX="-25" minY="25" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
+                            <state key="normal" title="Medical Record" image="tabMedicalRecord">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="tabMedicalRecordActive">
+                                <color key="titleColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55I-o1-O95">
+                            <rect key="frame" x="250" y="0.0" width="125" height="49"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <inset key="titleEdgeInsets" minX="-29" minY="25" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
+                            <state key="normal" title="Awareness" image="tabAwareness">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="tabAwarenessActive">
+                                <color key="titleColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="QSO-Mt-s0x" firstAttribute="width" secondItem="jjp-5l-5Az" secondAttribute="width" id="1CY-Jt-Bhl"/>
+                        <constraint firstItem="QSO-Mt-s0x" firstAttribute="width" secondItem="55I-o1-O95" secondAttribute="width" id="wcw-IE-xbP"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="55I-o1-O95" firstAttribute="centerY" secondItem="QSO-Mt-s0x" secondAttribute="centerY" id="195-1I-yAT"/>
-                <constraint firstItem="jjp-5l-5Az" firstAttribute="leading" secondItem="QSO-Mt-s0x" secondAttribute="trailing" id="A5Z-kn-TFv"/>
-                <constraint firstItem="QSO-Mt-s0x" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BpT-5b-FVm"/>
-                <constraint firstItem="55I-o1-O95" firstAttribute="leading" secondItem="jjp-5l-5Az" secondAttribute="trailing" id="F1l-8t-XDU"/>
-                <constraint firstItem="55I-o1-O95" firstAttribute="width" secondItem="QSO-Mt-s0x" secondAttribute="width" id="GTA-Ii-UBc"/>
-                <constraint firstItem="55I-o1-O95" firstAttribute="height" secondItem="QSO-Mt-s0x" secondAttribute="height" id="IFJ-h6-FxP"/>
-                <constraint firstItem="jjp-5l-5Az" firstAttribute="height" secondItem="QSO-Mt-s0x" secondAttribute="height" id="WSn-iS-s9m"/>
-                <constraint firstItem="QSO-Mt-s0x" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="gzG-Mh-mUq"/>
-                <constraint firstItem="QSO-Mt-s0x" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nUT-TJ-wP3"/>
-                <constraint firstItem="jjp-5l-5Az" firstAttribute="centerY" secondItem="QSO-Mt-s0x" secondAttribute="centerY" id="sNA-ye-CRo"/>
-                <constraint firstItem="QSO-Mt-s0x" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.333" id="t59-QM-jeb"/>
-                <constraint firstItem="jjp-5l-5Az" firstAttribute="width" secondItem="QSO-Mt-s0x" secondAttribute="width" id="wRS-2h-OhT"/>
+                <constraint firstAttribute="bottom" secondItem="izL-Im-M5h" secondAttribute="bottom" id="80c-3R-Kra"/>
+                <constraint firstAttribute="trailing" secondItem="izL-Im-M5h" secondAttribute="trailing" id="Ug7-c5-V0J"/>
+                <constraint firstItem="izL-Im-M5h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qnA-HN-mVN"/>
+                <constraint firstItem="izL-Im-M5h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vr0-tr-fkp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="90" y="134"/>
+            <point key="canvasLocation" x="89.5" y="133.5"/>
         </view>
     </objects>
     <resources>
