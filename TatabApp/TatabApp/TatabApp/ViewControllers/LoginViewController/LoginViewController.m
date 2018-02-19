@@ -28,11 +28,19 @@
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
+<<<<<<< HEAD
     _txtPassword.text = @"Admin@123";
     _txtUsername.text = @"qwerty@yopmail.com";
 //    _txtUsername.text = @"abhinav@gmail.com";
     _txtUsername.text = @"rahul@gmail.com";
      _txtUsername.text = @"abhinav@gmail.com";
+=======
+   _txtPassword.text = @"Admin@123";
+   _txtUsername.text = @"qwerty@yopmail.com";
+//    _txtUsername.text = @"abhinav@gmail.com";
+//    _txtUsername.text = @"rahul@gmail.com";
+      _txtUsername.text = @"abhinav@gmail.com";
+>>>>>>> 1eb33d5e046c6c886aaa295efc75e9d8eb09d141
  // _txtUsername.text = @"shagun@gmail.com";
  //  _txtUsername.text = @"shubham@yopmail.com";
     // Do any additional setup after loading the view from its nib.

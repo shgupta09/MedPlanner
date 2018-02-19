@@ -24,7 +24,7 @@
     _lblHeader.text =_detailType;
     
     if ([_detailArray count]>0) {
-        _lblDetail.text = [[_detailArray objectAtIndex:0] valueForKey:@"details"];
+        _lblDetail.text = [[_detailArray lastObject] valueForKey:@"details"];
     }
     else{
         _lblDetail.text = @"Oopss..!! No details to display..!!";
