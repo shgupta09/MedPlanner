@@ -18,7 +18,7 @@
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "TatabApp",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TatabApp\/TatabApp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TatabApp\/TatabApp\/TatabApp.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/coreapps.npglobal.in\/svn\/ShreeAirlines",

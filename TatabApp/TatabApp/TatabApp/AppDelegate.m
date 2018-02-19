@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "TestVC.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 @import Firebase;
 @import FirebaseMessaging;
