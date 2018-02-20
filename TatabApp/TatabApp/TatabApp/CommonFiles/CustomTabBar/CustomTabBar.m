@@ -17,17 +17,6 @@
         UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"CustomTabBar" owner:self options:nil] objectAtIndex:0];
         view.frame = CGRectMake(0, self.view.frame.size.height-49, self.view.frame.size.width, 49);
         view.userInteractionEnabled = true;
-        NSLog(@"%d",_btnMedicalRecord.frame.size.width);
-        if((_btnAwareness.frame.size.width/2-20)<53){
-            _btnAwareness.imageEdgeInsets = UIEdgeInsetsMake(9, _btnAwareness.frame.size.width/2-20, 20, _btnAwareness.frame.size.width/2-20);
-            _btnHealthTracker.imageEdgeInsets = UIEdgeInsetsMake(9, _btnHealthTracker.frame.size.width/2-20, 20, _btnHealthTracker.frame.size.width/2-20);
-            _btnMedicalRecord.imageEdgeInsets = UIEdgeInsetsMake(9, _btnMedicalRecord.frame.size.width/2-20, 20, _btnMedicalRecord.frame.size.width/2-20);
-            [_btnAwareness setContentMode:UIViewContentModeCenter];
-            [_btnMedicalRecord setContentMode:UIViewContentModeCenter];
-            [_btnHealthTracker setContentMode:UIViewContentModeCenter];
-        }
-        
-
         [self addSubview:view];
         return self;
     }

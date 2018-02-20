@@ -161,11 +161,12 @@
             vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
             ChatPatient* pat = [ChatPatient new];
             pat.patient_id = _patientID;
-            pat.name = _patientName;
+            pat.name = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
+            pat.gender = [CommonFunction getValueFromDefaultWithKey:loginuserGender];
+            pat.dob = [CommonFunction getValueFromDefaultWithKey:loginDOB];
             RegistrationDpendency *dependencyObj = [patient.dependants objectAtIndex:indexPath.row];
-            dependencyObj.name = _patientName;
+            dependencyObj.name = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
             vc.dependant = dependencyObj;
-            
             vc.patient = pat;
             vc.isdependant = false;
             [self.navigationController pushViewController:vc animated:true];

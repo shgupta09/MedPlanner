@@ -23,6 +23,7 @@
                 <outlet property="lblDIAValue" destination="xTg-pU-C2O" id="3dE-FC-TKE"/>
                 <outlet property="lblPatientName" destination="s20-EQ-aZC" id="mgR-eb-0sP"/>
                 <outlet property="lblSYSValue" destination="2XZ-hT-VC1" id="tKf-JT-VSb"/>
+                <outlet property="lblbirthDate" destination="J1k-pt-wjH" id="MGm-Ya-LBM"/>
                 <outlet property="lblgender" destination="xTQ-9g-yjh" id="VKC-ib-Gjk"/>
                 <outlet property="popUpView" destination="wjz-RE-7PD" id="iNL-Jp-0hL"/>
                 <outlet property="sliderView" destination="C6z-wf-CDO" id="6lc-Gg-jQI"/>

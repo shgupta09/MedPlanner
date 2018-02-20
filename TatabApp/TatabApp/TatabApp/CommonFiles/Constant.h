@@ -33,6 +33,7 @@
 #define PATIENT_ID @"patient_id"
 #define DEPENDANT_ID @"dependent_id"
 #define DOCTOR_ID @"doctor_id"
+#define loginDOB @"date_of_birth"
 #define loginPassword @"password"
 #define loginemail @"email"
 #define loginfirstname @"first_name"

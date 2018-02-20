@@ -78,10 +78,16 @@
     }
 
     
-    [_lblPatientName setText:_dependant.name];
-    [_lblgender setText:_dependant.gender];
-    [_lblbirthDate setText:_dependant.birthDay];
-    
+    if (_isdependant) {
+        [_lblPatientName setText:_dependant.name];
+        [_lblgender setText:_dependant.gender];
+        [_lblbirthDate setText:_dependant.birthDay];
+    }else{
+        [_lblPatientName setText:_patient.name];
+        [_lblgender setText:_patient.gender];
+        [_lblbirthDate setText:_patient.dob];
+        
+    }
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewDidLayoutSubviews{

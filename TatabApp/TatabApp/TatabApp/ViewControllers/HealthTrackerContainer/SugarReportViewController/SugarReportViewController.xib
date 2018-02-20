@@ -19,6 +19,7 @@
                 <outlet property="btnWeightPopup" destination="dIL-1v-22D" id="91Y-4i-VmL"/>
                 <outlet property="graphView" destination="G83-eC-7bA" id="RLM-BK-7N5"/>
                 <outlet property="lblPatientName" destination="Ze4-gs-n2w" id="Y8R-gy-R4X"/>
+                <outlet property="lblbirthDate" destination="4xh-49-Tpx" id="T83-wd-Les"/>
                 <outlet property="lblgender" destination="vOd-4D-zvq" id="vCv-zG-vH7"/>
                 <outlet property="popUpView" destination="Kba-x7-Oys" id="6v8-RZ-JwQ"/>
                 <outlet property="txtComments" destination="gy9-HZ-5Qs" id="MMv-fa-Tc8"/>

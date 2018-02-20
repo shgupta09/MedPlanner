@@ -47,14 +47,26 @@
 //    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
 //    [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
 
-    [_lblPatientName setText:_dependant.name];
-    
-    if ([_dependant.gender isEqualToString:@"M"]) {
-        [_lblgender setText:@"Male"];
+//    [_lblPatientName setText:_dependant.name];
+//    
+//    if ([_dependant.gender isEqualToString:@"M"]) {
+//        [_lblgender setText:@"Male"];
+//    }else{
+//        [_lblgender setText:@"Feale"];
+//    }
+//    [_lblbirthDate setText:_dependant.birthDay];
+    if (_isdependant) {
+        [_lblPatientName setText:_dependant.name];
+        [_lblgender setText:_dependant.gender];
+        [_lblbirthDate setText:_dependant.birthDay];
     }else{
-        [_lblgender setText:@"Feale"];
+        [_lblPatientName setText:_patient.name];
+        [_lblgender setText:_patient.gender];
+        [_lblbirthDate setText:_patient.dob];
+        
     }
-    [_lblbirthDate setText:_dependant.birthDay];
+    
+    
     
     [self hitApiForSpeciality];
     // Do any additional setup after loading the view from its nib.

@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HealthTrackerContainerVC">
             <connections>
                 <outlet property="lblPatientName" destination="Lal-3r-Gef" id="e6c-Wa-MJz"/>
+                <outlet property="lblbirthDate" destination="0Rn-9D-iJR" id="rZa-uA-kky"/>
                 <outlet property="lblgender" destination="h4f-It-x6Y" id="xX5-nE-anc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

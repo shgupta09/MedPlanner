@@ -753,7 +753,7 @@
     
    
     _bottomConstraint.constant = keyboardFrameBeginRect.size.height;
-    
+//    [_tblView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:true ];
     [_tblView reloadData];
 }
 
