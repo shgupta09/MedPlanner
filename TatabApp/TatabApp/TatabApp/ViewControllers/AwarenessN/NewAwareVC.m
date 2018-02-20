@@ -100,10 +100,17 @@
     [super viewDidLayoutSubviews];
     loderObj.frame = self.view.frame;
     alertObj.frame = self.view.frame;
-    tabBarObj.frame =CGRectMake(0, self.view.frame.size.height-49, _tbl_View.frame.size.width, 49);
-//    [tabBarObj layoutIfNeeded];
-//    [tabBarObj layoutSubviews];
-//    [tabBarObj setNeedsLayout];
+    tabBarObj.frame =CGRectMake(0, self.view.frame.size.height-49, self.view.frame.size.width, 49);
+        tabBarObj.btnAwareness.imageEdgeInsets = UIEdgeInsetsMake(9, (tabBarObj.btnAwareness.frame.size.width/2)-10, 20, (tabBarObj.btnAwareness.frame.size.width/2)-10);
+        tabBarObj.btnHealthTracker.imageEdgeInsets = UIEdgeInsetsMake(9, (tabBarObj.btnHealthTracker.frame.size.width/2)-10, 20, (tabBarObj.btnAwareness.frame.size.width/2)-10);
+        tabBarObj.btnMedicalRecord.imageEdgeInsets = UIEdgeInsetsMake(9, (tabBarObj.btnMedicalRecord.frame.size.width/2)-10, 20,(tabBarObj.btnAwareness.frame.size.width/2)-10);
+        [tabBarObj.btnAwareness setContentMode:UIViewContentModeCenter];
+        [tabBarObj.btnMedicalRecord setContentMode:UIViewContentModeCenter];
+        [tabBarObj.btnHealthTracker setContentMode:UIViewContentModeCenter];
+    
+    [tabBarObj layoutIfNeeded];
+    [tabBarObj layoutSubviews];
+    [tabBarObj setNeedsLayout];
 }
 -(void)receiveNotification:(NSNotification*)notObj{
     if ([notObj.name isEqualToString:@"LogoutNotification"]) {

@@ -25,7 +25,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izL-Im-M5h">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSO-Mt-s0x">
+                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSO-Mt-s0x">
                             <rect key="frame" x="0.0" y="0.0" width="125" height="49"/>
                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <inset key="titleEdgeInsets" minX="-30" minY="25" maxX="20" maxY="0.0"/>
