@@ -394,8 +394,6 @@
 }
 
 +(NSString *)setOneMonthOldGate{
-    
-    
     NSDate *today = [[NSDate alloc] init];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
@@ -407,5 +405,6 @@
     [dateFormatter setDateFormat:@"YYYY-MM-dd"];
     return [dateFormatter stringFromDate:endOfWorldWar3];
 }
+
 
 @end

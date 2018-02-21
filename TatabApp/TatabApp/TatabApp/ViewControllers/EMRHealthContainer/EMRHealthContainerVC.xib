@@ -242,6 +242,20 @@
                         <outlet property="delegate" destination="-1" id="e7S-MM-VI8"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1l-Bg-vtT">
+                    <rect key="frame" x="335" y="30" width="30" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="?">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -282,6 +296,7 @@
                 <constraint firstItem="Zj4-mP-i56" firstAttribute="top" secondItem="aN5-AZ-NNv" secondAttribute="bottom" constant="16" id="ZuU-wH-N7V"/>
                 <constraint firstItem="Cph-Fq-vWp" firstAttribute="centerY" secondItem="G5q-r2-7Xx" secondAttribute="centerY" id="bVm-cj-Twd"/>
                 <constraint firstItem="jJN-VP-XZG" firstAttribute="centerY" secondItem="iqk-3H-9KA" secondAttribute="centerY" id="d9X-1i-Tzr"/>
+                <constraint firstItem="G1l-Bg-vtT" firstAttribute="centerY" secondItem="rVc-H2-uA0" secondAttribute="centerY" id="dgr-IG-EFy"/>
                 <constraint firstItem="41w-xP-zv3" firstAttribute="centerY" secondItem="4AE-xs-JOY" secondAttribute="centerY" id="eJ3-4o-Cv6"/>
                 <constraint firstItem="xhQ-1B-fCS" firstAttribute="leading" secondItem="fjS-YP-m9x" secondAttribute="trailing" constant="8" id="eby-jt-bef"/>
                 <constraint firstItem="iqk-3H-9KA" firstAttribute="top" secondItem="4AE-xs-JOY" secondAttribute="bottom" constant="7" id="fo8-O1-cU2"/>
@@ -291,6 +306,7 @@
                 <constraint firstAttribute="trailing" secondItem="j9X-oO-pEM" secondAttribute="trailing" id="hHA-Y5-EUs"/>
                 <constraint firstItem="1I3-Cd-0J8" firstAttribute="centerX" secondItem="0Dd-Bk-LjH" secondAttribute="centerX" id="heq-YJ-jBr"/>
                 <constraint firstItem="jSi-Bo-uSA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="luy-ks-cTY"/>
+                <constraint firstAttribute="trailing" secondItem="G1l-Bg-vtT" secondAttribute="trailing" constant="10" id="mkp-77-TRD"/>
                 <constraint firstItem="aN5-AZ-NNv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nQs-qZ-chl"/>
                 <constraint firstItem="gkZ-6M-LbE" firstAttribute="top" secondItem="G5q-r2-7Xx" secondAttribute="bottom" constant="7" id="nWW-PA-6gX"/>
                 <constraint firstItem="rVc-H2-uA0" firstAttribute="centerY" secondItem="uqO-vh-f3E" secondAttribute="centerY" id="o2R-RL-1a8"/>
