@@ -73,6 +73,7 @@
 		5FC496DC1FCBDC1B004E537A /* ChatPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC496DB1FCBDC1B004E537A /* ChatPatient.m */; };
 		5FD369151FFE954A00FC6C3F /* CommonInfoPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD369141FFE954A00FC6C3F /* CommonInfoPatient.m */; };
 		5FE2757E2010C05900EC875E /* CustomSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE2757D2010C05900EC875E /* CustomSlider.m */; };
+		5FE822DC203D507C00F20F4D /* TatabApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FE822DA203D507C00F20F4D /* TatabApp.xcdatamodeld */; };
 		6B88C8AAED0F77BF5245AA06 /* Pods_TatabApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */; };
 		884FE13F103CA6FC743E4912 /* Pods_TatabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */; };
 		9C16D1B420316AA000D82769 /* AGPushNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D1B220316AA000D82769 /* AGPushNoteView.m */; };
@@ -120,7 +121,6 @@
 		D8EE8B161F95E564006A018E /* Specialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE8B151F95E564006A018E /* Specialization.m */; };
 		D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE8B191F966FA8006A018E /* CustomAlert.m */; };
 		D8EE8B1C1F966FB8006A018E /* CustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8EE8B1B1F966FB8006A018E /* CustomAlert.xib */; };
-		D8F108B61FBFF4580049296C /* TatabApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8F108B41FBFF4580049296C /* TatabApp.xcdatamodeld */; };
 		D8F108C11FC09A140049296C /* Chat+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F108BE1FC09A140049296C /* Chat+CoreDataClass.m */; };
 		D8F108C21FC09A140049296C /* Chat+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F108C01FC09A140049296C /* Chat+CoreDataProperties.m */; };
 		D8F3351C201CE282000C6FAE /* Relation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F3351B201CE282000C6FAE /* Relation.m */; };
@@ -262,6 +262,9 @@
 		5FD369141FFE954A00FC6C3F /* CommonInfoPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonInfoPatient.m; sourceTree = "<group>"; };
 		5FE2757C2010C05900EC875E /* CustomSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlider.h; sourceTree = "<group>"; };
 		5FE2757D2010C05900EC875E /* CustomSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlider.m; sourceTree = "<group>"; };
+		5FE822DB203D507C00F20F4D /* TatabApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TatabApp.xcdatamodel; sourceTree = "<group>"; };
+		5FE822E5203D7C4D00F20F4D /* TatabApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TatabApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		5FE822ED203D7E7F00F20F4D /* TatabApp-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TatabApp-Swift.h"; sourceTree = "<group>"; };
 		9C16D1B120316AA000D82769 /* AGPushNoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPushNoteView.h; sourceTree = "<group>"; };
 		9C16D1B220316AA000D82769 /* AGPushNoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPushNoteView.m; sourceTree = "<group>"; };
 		9C16D1B320316AA000D82769 /* AGPushNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGPushNoteView.xib; sourceTree = "<group>"; };
@@ -373,7 +376,6 @@
 		D8EE8B181F966FA8006A018E /* CustomAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlert.h; sourceTree = "<group>"; };
 		D8EE8B191F966FA8006A018E /* CustomAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlert.m; sourceTree = "<group>"; };
 		D8EE8B1B1F966FB8006A018E /* CustomAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlert.xib; sourceTree = "<group>"; };
-		D8F108B51FBFF4580049296C /* TatabApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TatabApp.xcdatamodel; sourceTree = "<group>"; };
 		D8F108BD1FC09A140049296C /* Chat+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Chat+CoreDataClass.h"; sourceTree = "<group>"; };
 		D8F108BE1FC09A140049296C /* Chat+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Chat+CoreDataClass.m"; sourceTree = "<group>"; };
 		D8F108BF1FC09A140049296C /* Chat+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Chat+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -677,7 +679,7 @@
 			isa = PBXGroup;
 			children = (
 				D8C46A97202F6005004BAC2C /* GoogleService-Info.plist */,
-				D8F108B41FBFF4580049296C /* TatabApp.xcdatamodeld */,
+				5FE822DA203D507C00F20F4D /* TatabApp.xcdatamodeld */,
 				5FBBBAE21F72401B00C03813 /* TatabApp */,
 				5FBBBAFF1F72401C00C03813 /* TatabAppTests */,
 				5FBBBAE11F72401B00C03813 /* Products */,
@@ -711,6 +713,8 @@
 				5FBBBAF71F72401B00C03813 /* Info.plist */,
 				5FBBBAE31F72401B00C03813 /* Supporting Files */,
 				5F415F412003E13500862F0B /* Assets.xcassets */,
+				5FE822E5203D7C4D00F20F4D /* TatabApp-Bridging-Header.h */,
+				5FE822ED203D7E7F00F20F4D /* TatabApp-Swift.h */,
 			);
 			path = TatabApp;
 			sourceTree = "<group>";
@@ -1316,6 +1320,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TatabApp/Pods-TatabApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/BEMSimpleLineGraph/BEMSimpleLineGraph.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -1332,6 +1337,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMSimpleLineGraph.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -1505,6 +1511,7 @@
 			files = (
 				5F4F6C5F1F828E5A000C65A0 /* AwarenessCategoryViewController.m in Sources */,
 				D8E1C7A3200902A8007172F5 /* PostData.m in Sources */,
+				5FE822DC203D507C00F20F4D /* TatabApp.xcdatamodeld in Sources */,
 				9C8FE6D71F8B53270003003C /* RCDoctor3.m in Sources */,
 				5FD369151FFE954A00FC6C3F /* CommonInfoPatient.m in Sources */,
 				5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */,
@@ -1568,7 +1575,6 @@
 				D8F108C21FC09A140049296C /* Chat+CoreDataProperties.m in Sources */,
 				5F1E9B4B1F76442C009FECDD /* CustomTextField.m in Sources */,
 				5F9F49BE1FB1D791009E1418 /* XMPPCoreDataHandler.m in Sources */,
-				D8F108B61FBFF4580049296C /* TatabApp.xcdatamodeld in Sources */,
 				9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */,
 				5FB773E81FF5185F00982102 /* DoctorListEMRLogVC.m in Sources */,
 				5FB51C422003E5BE00E4889B /* HealthTrackerContainerVC.m in Sources */,
@@ -1623,6 +1629,7 @@
 		5FBBBB031F72401C00C03813 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1670,6 +1677,7 @@
 		5FBBBB041F72401C00C03813 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1723,13 +1731,14 @@
 					"\"${PODS_ROOT}/Headers/Public\"",
 				);
 				INFOPLIST_FILE = TatabApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/sandeepnegi/Desktop/Desktop/Shagun/Practice/My Projects/Gracery/MedPlanner/TatabApp/TatabApp/TatabApp/TatabApp-Bridging-Header.h";
+				SWIFT_VERSION = 3.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1749,13 +1758,14 @@
 					"\"${PODS_ROOT}/Headers/Public\"",
 				);
 				INFOPLIST_FILE = TatabApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/sandeepnegi/Desktop/Desktop/Shagun/Practice/My Projects/Gracery/MedPlanner/TatabApp/TatabApp/TatabApp/TatabApp-Bridging-Header.h";
+				SWIFT_VERSION = 3.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1819,12 +1829,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D8F108B41FBFF4580049296C /* TatabApp.xcdatamodeld */ = {
+		5FE822DA203D507C00F20F4D /* TatabApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D8F108B51FBFF4580049296C /* TatabApp.xcdatamodel */,
+				5FE822DB203D507C00F20F4D /* TatabApp.xcdatamodel */,
 			);
-			currentVersion = D8F108B51FBFF4580049296C /* TatabApp.xcdatamodel */;
+			currentVersion = 5FE822DB203D507C00F20F4D /* TatabApp.xcdatamodel */;
 			path = TatabApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

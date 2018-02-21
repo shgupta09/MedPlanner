@@ -14,12 +14,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CocoaAsyncSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -35,6 +45,11 @@
 			<false/>
 		</dict>
 		<key>Pods-TatabAppTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Protobuf.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -64,69 +79,13 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>nanopb.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>0BD659E21DA1CDA96BE2DD70EBA13298</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2737E4054365069F967211C8A76AB24E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>71ABE2B9B36585016003FD80E69C40F7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8A421C6298CB3DF5D749193BD6FD0B38</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8E311C1151946FB648DFC91BA002EEBC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>968CE34E72B461EC7CCC2CAD44D84570</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A40A4387148E3EAE1932934098DAD3C3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AC0D2D2B4EE7C873431AB3502859CA60</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BD3903A559C056E37F010254E79A7BC7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E969C8D2B58D77644E418112F080225D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EA2A920A891C4D3535867E5C3EF3D793</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F4B8C70379FF442A4FEB6759B3B7F9B8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

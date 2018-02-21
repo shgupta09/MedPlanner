@@ -55,21 +55,21 @@
         toDateString = [dateFormatter stringFromDate:toDate];
         [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
 
-    // Enable and disable various graph properties and axis displays
-    
-    _graphView.enableTouchReport = YES;
-    _graphView.enablePopUpReport = YES;
-    _graphView.enableYAxisLabel = YES;
-    _graphView.autoScaleYAxis = YES;
-    _graphView.alwaysDisplayDots = NO;
-    _graphView.enableReferenceXAxisLines = YES;
-    _graphView.enableReferenceYAxisLines = YES;
-    _graphView.enableReferenceAxisFrame = YES;
-    
-    
-    // Set the graph's animation style to draw, fade, or none
-    _graphView.animationGraphStyle = BEMLineAnimationDraw;
-    
+//    // Enable and disable various graph properties and axis displays
+//
+//    _graphView.s.enableTouchReport = YES;
+//    _graphView.enablePopUpReport = YES;
+//    _graphView.enableYAxisLabel = YES;
+//    _graphView.autoScaleYAxis = YES;
+//    _graphView.alwaysDisplayDots = NO;
+//    _graphView.enableReferenceXAxisLines = YES;
+//    _graphView.enableReferenceYAxisLines = YES;
+//    _graphView.enableReferenceAxisFrame = YES;
+//
+//
+//    // Set the graph's animation style to draw, fade, or none
+//    _graphView.animationGraphStyle = BEMLineAnimationDraw;
+//
     UIImage * white = [[UIImage imageNamed:@"tempratuer-slider"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
     [_sliderView setMinimumTrackImage:[white stretchableImageWithLeftCapWidth:3.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -97,12 +97,49 @@
     }
    
     
+    
+    
+    
+    
+    
+    
+    
+    
+    self.title = @"Multiple Lines Chart";
+        
+    _graphView.delegate = self;
+    
+    _graphView.chartDescription.enabled = NO;
+    _graphView.leftAxis.enabled = YES;
+    _graphView.rightAxis.enabled = NO;
+    _graphView.rightAxis.drawAxisLineEnabled = NO;
+    _graphView.rightAxis.drawGridLinesEnabled = NO;
+    _graphView.xAxis.drawAxisLineEnabled = NO;
+    _graphView.xAxis.drawGridLinesEnabled = NO;
+    
+    _graphView.drawGridBackgroundEnabled = NO;
+    _graphView.drawBordersEnabled = NO;
+    _graphView.dragEnabled = YES;
+    [_graphView setScaleEnabled:YES];
+    _graphView.pinchZoomEnabled = NO;
+    _graphView.legend.enabled = NO;
+    //    ChartLegend *l = _graphView.legend;
+    //    l.horizontalAlignment = ChartLegendHorizontalAlignmentRight;
+    //    l.verticalAlignment = ChartLegendVerticalAlignmentTop;
+    //    l.orientation = ChartLegendOrientationVertical;
+    //    l.drawInside = NO;
+    
+    [self slidersValueChanged:nil];
+
+    
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
     alertObj.frame = self.view.frame;
 }
+
+
 - (IBAction)sliderValueChanged:(UISlider *)sender {
     NSLog(@"slider value = %f", sender.value);
     _sliderValue.text = [NSString stringWithFormat:@"%.1f", _sliderView.value];
@@ -140,6 +177,7 @@
 -(void)resignResponder{
     
 }
+
 - (IBAction)btnBackPopUp:(id)sender {
      [_popUpView removeFromSuperview];
 }
@@ -173,6 +211,7 @@
     [CommonFunction addAnimationToview:_popUpView];
     
 }
+
 - (IBAction)btnSubmitFeverreport:(id)sender {
     [self uploadFeaverReport] ;
 }
@@ -252,49 +291,6 @@
 }
 
 
-- (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    if ([dataArray count] == 1) {
-        return 2;
-    }
-    else
-    {
-        return [dataArray count]; // Number of points in the graph.
- 
-    }
-}
-
-- (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    if ([dataArray count] == 1) {
-        if (index == 0) {
-            return 32.0;
-        }
-        else
-        {
-            return [[[dataArray objectAtIndex:index-1] valueForKey:@"temperature"] floatValue];
-        }
-    }
-    else
-    {
-        return [[[dataArray objectAtIndex:index] valueForKey:@"temperature"] floatValue];
-    }
-    
-}
-// The value of the point on the Y-Axis for the index.
-
-
-- (NSInteger)numberOfYAxisLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph{
-    return 5;
-}
-
-- (CGFloat)baseValueForYAxisOnLineGraph:(BEMSimpleLineGraphView *)graph{
-    return 32.0;
-}
-
-- (CGFloat)incrementValueForYAxisOnLineGraph:(BEMSimpleLineGraphView *)graph{
-    return 2.0;
-}
-
-
 -(void)getFeverReport{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     
@@ -330,7 +326,7 @@
                         [dataArray addObject:bloodObj];
                     }];
                     [self removeloder];
-                    [self.graphView reloadGraph];
+                    [self updateChartData];
                 }
                 else
                 {
@@ -552,15 +548,69 @@
     }
 }
 
+#pragma mark MultipleLinesChartViewController
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+
+- (void)updateChartData
+{
+    NSArray *colors = @[ChartColorTemplates.vordiplom[0], ChartColorTemplates.vordiplom[1], ChartColorTemplates.vordiplom[2]];
+    
+    NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+    
+    
+    NSMutableArray *values = [[NSMutableArray alloc] init];
+        
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        float val = [[[dataArray objectAtIndex:i] valueForKey:@"temperature"] floatValue];
+        [values addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
+    }
+    
+    LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:values label:@"fever"];
+    d.lineWidth = 3;
+    d.circleRadius = 2.0;
+    d.circleHoleRadius = 0.5;
+    
+    UIColor *color = [UIColor redColor];
+    [d setColor:color];
+    
+    d.mode = LineChartModeCubicBezier;
+    d.drawValuesEnabled =  false;
+    [d setCircleColor:color];
+    [dataSets addObject:d];
+   
+    
+    ((LineChartDataSet *)dataSets[0]).colors = ChartColorTemplates.vordiplom;
+    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+    
+    LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
+    [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
+    _graphView.data = data;
 }
-*/
+
+
+#pragma mark - Actions
+
+- (IBAction)slidersValueChanged:(id)sender
+{
+    
+    [self updateChartData];
+}
+
+#pragma mark - ChartViewDelegate
+
+- (void)chartValueSelected:(ChartViewBase * __nonnull)chartView entry:(ChartDataEntry * __nonnull)entry highlight:(ChartHighlight * __nonnull)highlight
+{
+    NSLog(@"chartValueSelected");
+}
+
+- (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView
+{
+    NSLog(@"chartValueNothingSelected");
+}
+
+
 
 @end
