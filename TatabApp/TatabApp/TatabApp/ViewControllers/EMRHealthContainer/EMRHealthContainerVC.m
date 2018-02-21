@@ -56,11 +56,11 @@
 //    }
 //    [_lblbirthDate setText:_dependant.birthDay];
     if (_isdependant) {
-        [_lblPatientName setText:_dependant.name];
+        [_lblPatientName setText:[_dependant.name capitalizedString]];
         [_lblgender setText:_dependant.gender];
         [_lblbirthDate setText:_dependant.birthDay];
     }else{
-        [_lblPatientName setText:_patient.name];
+        [_lblPatientName setText:[_patient.name capitalizedString]];
         [_lblgender setText:_patient.gender];
         [_lblbirthDate setText:_patient.dob];
         
@@ -129,7 +129,7 @@
         cell.lblCategoryName.text = obj.sub_specialist;
         //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
         [cell.imgViewProfile sd_setImageWithURL:[NSURL URLWithString:obj.photo] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
-    cell.lblDate.text = obj.created_at;
+    cell.lblDate.text = obj.created_at  ;
         cell.imgViewProfile.layer.cornerRadius = 8;
         cell.imgViewProfile.clipsToBounds = true;
     
@@ -179,6 +179,13 @@
 
 
 #pragma mark - btn Actions
+
+- (IBAction)btnAction_instructions:(id)sender {
+    
+    [self addAlertWithTitle:AlertKey andMessage:@"For more instructions about using TatabApp tracker please visit www.tatabapp.com" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+}
+
+
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
 }

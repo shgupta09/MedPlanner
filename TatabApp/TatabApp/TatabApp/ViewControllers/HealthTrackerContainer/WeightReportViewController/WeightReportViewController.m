@@ -79,11 +79,11 @@
 
     
     if (_isdependant) {
-        [_lblPatientName setText:_dependant.name];
+        [_lblPatientName setText:[_dependant.name capitalizedString]];
         [_lblgender setText:_dependant.gender];
         [_lblbirthDate setText:_dependant.birthDay];
     }else{
-        [_lblPatientName setText:_patient.name];
+        [_lblPatientName setText:[_patient.name capitalizedString]];
         [_lblgender setText:_patient.gender];
         [_lblbirthDate setText:_patient.dob];
         
