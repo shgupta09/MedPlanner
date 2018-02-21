@@ -279,7 +279,7 @@ numberOfRowsInComponent:(NSInteger)component{
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
         [_parameterDict setValue:speciality.category_id forKey:Specialist];
         [_parameterDict setValue:[CommonFunction trimString:_txt_currentGrade.text] forKey:currentGrade];
-        [_parameterDict setValue:speciality.category_id forKey:SubSpecialist];
+        [_parameterDict setValue:_txt_subSpeciality.text forKey:SubSpecialist];
         [_parameterDict setValue:[NSString stringWithFormat:@"%@",[CommonFunction trimString:_txtClassification.text] ] forKey:classification];
         
         

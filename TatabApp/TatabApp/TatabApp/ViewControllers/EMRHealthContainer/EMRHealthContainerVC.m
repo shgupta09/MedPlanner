@@ -129,7 +129,7 @@
         cell.lblCategoryName.text = obj.sub_specialist;
         //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
         [cell.imgViewProfile sd_setImageWithURL:[NSURL URLWithString:obj.photo] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
-    cell.lblDate.text = obj.created_at;
+    cell.lblDate.text = obj.created_at  ;
         cell.imgViewProfile.layer.cornerRadius = 8;
         cell.imgViewProfile.clipsToBounds = true;
     

@@ -46,4 +46,5 @@
 +(void)removeAnimationFromView:(UIView *)viewToRemoveAnimation;
 +(NSString *)getIDFromClinic:(NSString *)stringNAme;
 +(NSString *)setOneMonthOldGate;
++(NSString *)ConvertDateTime:(NSString *)dateStr;
 @end
