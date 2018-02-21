@@ -443,8 +443,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9w-EU-fdH">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <subviews>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySb-BT-hyO">
-                                    <rect key="frame" x="20" y="70" width="334" height="571"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySb-BT-hyO">
+                                    <rect key="frame" x="20" y="48.5" width="334" height="570"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaT-gl-89o" customClass="CustomButton3">
                                             <rect key="frame" x="10" y="521" width="149.5" height="40"/>
@@ -595,8 +595,8 @@ Stage 1
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSG-Or-jLh">
-                                            <rect key="frame" x="130" y="32" width="74" height="29"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSG-Or-jLh">
+                                            <rect key="frame" x="130" y="32" width="40.5" height="29"/>
                                             <string key="text">DIA
 mm Hg</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -721,15 +721,15 @@ Stage 1
                                             <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="marker" translatesAutoresizingMaskIntoConstraints="NO" id="ebW-9c-g0Y">
-                                            <rect key="frame" x="107" y="235" width="22" height="19"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marker" translatesAutoresizingMaskIntoConstraints="NO" id="ebW-9c-g0Y">
+                                            <rect key="frame" x="107" y="233.5" width="22" height="19"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="19" id="Egi-vn-pF7"/>
                                                 <constraint firstAttribute="width" constant="22" id="KtU-aW-XLj"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="marker" translatesAutoresizingMaskIntoConstraints="NO" id="drQ-ja-3LM">
-                                            <rect key="frame" x="2" y="235" width="22" height="19"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marker" translatesAutoresizingMaskIntoConstraints="NO" id="drQ-ja-3LM">
+                                            <rect key="frame" x="2" y="233.5" width="22" height="19"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="22" id="d2d-aQ-nPO"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19" id="f5F-CO-HHs"/>

@@ -113,6 +113,9 @@
     [tabBarObj setNeedsLayout];
 }
 -(void)receiveNotification:(NSNotification*)notObj{
+    [tempView removeGestureRecognizer:singleFingerTap];
+    [tempView removeFromSuperview];
+    isOpen = false;
     if ([notObj.name isEqualToString:@"LogoutNotification"]) {
         [self addAlertWithTitle:AlertKey andMessage:@"Logout Successfully" isTwoButtonNeeded:false firstbuttonTag:103 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
         
@@ -188,6 +191,9 @@
         [tempView removeGestureRecognizer:singleFingerTap];
         [tempView removeFromSuperview];
         isOpen = false;
+    }else{
+        [tempView removeGestureRecognizer:singleFingerTap];
+        [tempView removeFromSuperview];
     }
     
 }
@@ -1277,10 +1283,7 @@
         }
             break;
         case 2:{
-            
             [self.navigationController popToRootViewControllerAnimated:true];
-
-            
                    }
             break;
         default:

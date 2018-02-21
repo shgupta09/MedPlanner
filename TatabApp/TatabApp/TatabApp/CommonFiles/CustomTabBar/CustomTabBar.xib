@@ -8,6 +8,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomTabBar">
             <connections>
@@ -27,20 +35,20 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSO-Mt-s0x">
                             <rect key="frame" x="0.0" y="0.0" width="125" height="49"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
                             <inset key="titleEdgeInsets" minX="-30" minY="25" maxX="20" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
-                            <state key="normal" title="Health Tracker" image="tabHelthTracker">
+                            <state key="normal" title="EMR/Tracker." image="tabHelthTracker">
                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="highlighted" image="tabHelthTrackerActive"/>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjp-5l-5Az">
                             <rect key="frame" x="125" y="0.0" width="125" height="49"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
                             <inset key="titleEdgeInsets" minX="-25" minY="25" maxX="20" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
-                            <state key="normal" title="Medical Record" image="tabMedicalRecord">
+                            <state key="normal" title="Consultation" image="tabMedicalRecord">
                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="highlighted" image="tabMedicalRecordActive">
@@ -49,7 +57,7 @@
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55I-o1-O95">
                             <rect key="frame" x="250" y="0.0" width="125" height="49"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
                             <inset key="titleEdgeInsets" minX="-29" minY="25" maxX="20" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
                             <state key="normal" title="Awareness" image="tabAwareness">

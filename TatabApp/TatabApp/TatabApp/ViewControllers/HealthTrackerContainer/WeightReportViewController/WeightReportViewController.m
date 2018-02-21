@@ -43,10 +43,10 @@
     selectedRowForType = 0;
     selectedRowForWeight = 0;
     selectedRowForheight = 0;
-    selectedRowForHeartRate = 1;
-    [_btnWeight setTitle:[NSString stringWithFormat:@"%d",3] forState:UIControlStateNormal];
-    [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",1] forState:UIControlStateNormal];
-    [_btnHeight setTitle:[NSString stringWithFormat:@"%d",50] forState:UIControlStateNormal];
+    selectedRowForHeartRate = 0;
+    [_btnWeight setTitle:[NSString stringWithFormat:@"%d",60] forState:UIControlStateNormal];
+    [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",90] forState:UIControlStateNormal];
+    [_btnHeight setTitle:[NSString stringWithFormat:@"%d",150] forState:UIControlStateNormal];
 //    _txt_Comment.text = @"comment";
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
@@ -499,19 +499,19 @@ numberOfRowsInComponent:(NSInteger)component{
     
     if (pickerObj.tag == 0){
         if (row == 0){
-            return [NSString stringWithFormat:@"%d",3];
+            return [NSString stringWithFormat:@"%d",60];
         }
-        return [NSString stringWithFormat:@"%d",3+row];
+        return [NSString stringWithFormat:@"%d",60+row];
     }
     else if (pickerObj.tag == 1){
         //Weight
-        return [NSString stringWithFormat:@"%d",row];
+        return [NSString stringWithFormat:@"%d",row+90];
     }
     else if (pickerObj.tag == 2){
         if (row == 0){
-            return [NSString stringWithFormat:@"%d",50];
+            return [NSString stringWithFormat:@"%d",150];
         }
-        return [NSString stringWithFormat:@"%d",50+row];
+        return [NSString stringWithFormat:@"%d",150+row];
     }
     
     
@@ -522,19 +522,19 @@ numberOfRowsInComponent:(NSInteger)component{
 (NSInteger)row inComponent:(NSInteger)component{
     
     if (pickerObj.tag == 0){
-        [_btnWeight setTitle:[NSString stringWithFormat:@"%d",3+row] forState:UIControlStateNormal];
+        [_btnWeight setTitle:[NSString stringWithFormat:@"%d",60+row] forState:UIControlStateNormal];
         selectedRowForWeight = row;
         
     }
     else if (pickerObj.tag == 1){
         //Weight
-        [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",row] forState:UIControlStateNormal];
+        [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",90+row] forState:UIControlStateNormal];
         selectedRowForHeartRate = row;
         
     }
     else if (pickerObj.tag == 2){
         //reading
-        [_btnHeight setTitle:[NSString stringWithFormat:@"%d",50+row] forState:UIControlStateNormal];
+        [_btnHeight setTitle:[NSString stringWithFormat:@"%d",150+row] forState:UIControlStateNormal];
         selectedRowForheight = row;
         
     }
