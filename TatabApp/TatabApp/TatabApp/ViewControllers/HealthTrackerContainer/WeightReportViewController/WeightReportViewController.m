@@ -9,7 +9,7 @@
 #import "WeightReportViewController.h"
 #import <BEMSimpleLineGraph/BEMSimpleLineGraphView.h>
 
-@interface WeightReportViewController ()<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate,UIPickerViewDelegate>
+@interface WeightReportViewController ()<ChartViewDelegate,UIPickerViewDelegate>
 {
     LoderView *loderObj;
     NSMutableArray *dataArray;
@@ -62,14 +62,32 @@
     
     // Enable and disable various graph properties and axis displays
     
-    _graphView.enableTouchReport = YES;
-    _graphView.enablePopUpReport = YES;
-    _graphView.enableYAxisLabel = YES;
-    _graphView.autoScaleYAxis = YES;
-    _graphView.alwaysDisplayDots = NO;
-    _graphView.enableReferenceXAxisLines = YES;
-    _graphView.enableReferenceYAxisLines = YES;
-    _graphView.enableReferenceAxisFrame = YES;
+    self.title = @"Multiple Lines Chart";
+    
+    _graphView.delegate = self;
+    
+    _graphView.chartDescription.enabled = NO;
+    _graphView.leftAxis.enabled = YES;
+    _graphView.rightAxis.enabled = NO;
+    _graphView.rightAxis.drawAxisLineEnabled = NO;
+    _graphView.rightAxis.drawGridLinesEnabled = NO;
+    _graphView.xAxis.drawAxisLineEnabled = NO;
+    _graphView.xAxis.drawGridLinesEnabled = NO;
+    _graphView.xAxis.labelTextColor = [UIColor clearColor];
+    _graphView.drawGridBackgroundEnabled = NO;
+    _graphView.drawBordersEnabled = NO;
+    _graphView.dragEnabled = NO;
+    [_graphView setScaleEnabled:NO];
+    _graphView.pinchZoomEnabled = NO;
+    _graphView.legend.enabled = NO;
+    //    ChartLegend *l = _graphView.legend;
+    //    l.horizontalAlignment = ChartLegendHorizontalAlignmentRight;
+    //    l.verticalAlignment = ChartLegendVerticalAlignmentTop;
+    //    l.orientation = ChartLegendOrientationVertical;
+    //    l.drawInside = NO;
+    
+    [self slidersValueChanged:nil];
+
     
 
     
@@ -285,34 +303,6 @@
 
 
 
-- (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    if ([dataArray count] == 1) {
-        return 2;
-    }
-    else
-    {
-        return [dataArray count]; // Number of points in the graph.
-        
-    }
-}
-
-- (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    if ([dataArray count] == 1) {
-        if (index == 0) {
-            return 0.0;
-        }
-        else
-        {
-            return [[[dataArray objectAtIndex:index-1] valueForKey:@"weight"] floatValue]; // The value of the point on the Y-Axis for the index.
-        }
-    }
-    else
-    {
-        return [[[dataArray objectAtIndex:index] valueForKey:@"weight"] floatValue]; // The value of the point on the Y-Axis for the index.
-    }
-    
-}
-
 
 -(void)uploadWeight{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
@@ -360,7 +350,7 @@
                    */
                     [self removeloder];
                     [_popUpView removeFromSuperview];
-
+                    [self getWeight];
                      [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
 
                 }
@@ -428,7 +418,7 @@
                         [dataArray addObject:bloodObj];
                     }];
                     [self removeloder];
-                    [self.graphView reloadGraph];
+                    [self updateChartData];
                 }
                 else
                 {
@@ -637,6 +627,89 @@ numberOfRowsInComponent:(NSInteger)component{
             break;
     }
 }
+
+
+
+#pragma mark MultipleLinesChartViewController
+
+- (IBAction)slidersValueChanged:(id)sender
+{
+    
+    [self updateChartData];
+}
+
+#pragma mark - ChartViewDelegate
+- (void)updateChartData
+{
+    NSArray *colors = @[ChartColorTemplates.vordiplom[0], ChartColorTemplates.vordiplom[1], ChartColorTemplates.vordiplom[2]];
+    
+    NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+    NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        float val = [[[dataArray objectAtIndex:i] valueForKey:@"rest_hr"] floatValue];
+        [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
+    }
+    
+    LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
+    d.lineWidth = 3;
+    d.circleRadius = 0;
+    d.circleHoleRadius = 0.5;
+    
+    UIColor *color = [UIColor redColor];
+    [d setColor:color];
+    
+    d.mode = LineChartModeCubicBezier;
+    d.drawValuesEnabled =  false;
+    [d setCircleColor:color];
+    [dataSets addObject:d];
+    
+    
+    
+    NSMutableArray *valuesSYS = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        float val = [[[dataArray objectAtIndex:i] valueForKey:@"weight"] floatValue];
+        [valuesSYS addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
+    }
+    
+    LineChartDataSet *dSYS = [[LineChartDataSet alloc] initWithValues:valuesSYS label:@"weight"];
+    dSYS.lineWidth = 3;
+    dSYS.circleRadius = 0;
+    dSYS.circleHoleRadius = 0.5;
+    
+    color = [UIColor redColor];
+    [dSYS setColor:color];
+    
+    dSYS.mode = LineChartModeCubicBezier;
+    dSYS.drawValuesEnabled =  false;
+    [dSYS setCircleColor:color];
+    [dataSets addObject:dSYS];
+    
+    
+    ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
+    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+    ((LineChartDataSet *)dataSets[1]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
+    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+    
+    LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
+    [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
+    _graphView.data = data;
+}
+
+
+- (void)chartValueSelected:(ChartViewBase * __nonnull)chartView entry:(ChartDataEntry * __nonnull)entry highlight:(ChartHighlight * __nonnull)highlight
+{
+    NSLog(@"chartValueSelected");
+}
+
+- (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView
+{
+    NSLog(@"chartValueNothingSelected");
+}
+
 
 
 @end

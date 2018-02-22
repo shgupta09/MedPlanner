@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <BEMSimpleLineGraph/BEMSimpleLineGraphView.h>
+
+#import <Charts/Charts-Swift.h>
 
 @interface PressureReportViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *popUpView;
 @property (weak, nonatomic) IBOutlet UIButton *btnFromDate;
 @property (weak, nonatomic) IBOutlet UIButton *btnToDate;
-@property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *graphView;
+@property (weak, nonatomic) IBOutlet LineChartView *graphView;
 @property (weak, nonatomic) IBOutlet UISlider *sliderView;
 @property (weak, nonatomic) IBOutlet UILabel *sliderValue;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtComments;
@@ -22,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons_imgViewSYS;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons_imageviewDIA;
 @property (weak, nonatomic) IBOutlet UIButton *btnHeartRate;
-@property (weak, nonatomic) IBOutlet CustomButton3 *btnSelectType;
 
 @property (nonatomic,strong) ChatPatient* patient;
 @property (nonatomic,strong) RegistrationDpendency* dependant;

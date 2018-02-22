@@ -76,15 +76,33 @@
     
     // Enable and disable various graph properties and axis displays
     
-    _graphView.enableTouchReport = YES;
-    _graphView.enablePopUpReport = YES;
-    _graphView.enableYAxisLabel = YES;
-    _graphView.autoScaleYAxis = YES;
-    _graphView.alwaysDisplayDots = NO;
-    _graphView.enableReferenceXAxisLines = YES;
-    _graphView.enableReferenceYAxisLines = YES;
-    _graphView.enableReferenceAxisFrame = YES;
     
+    self.title = @"Multiple Lines Chart";
+    
+    _graphView.delegate = self;
+    
+    _graphView.chartDescription.enabled = NO;
+    _graphView.leftAxis.enabled = YES;
+    _graphView.rightAxis.enabled = NO;
+    _graphView.rightAxis.drawAxisLineEnabled = NO;
+    _graphView.rightAxis.drawGridLinesEnabled = NO;
+    _graphView.xAxis.drawAxisLineEnabled = NO;
+    _graphView.xAxis.drawGridLinesEnabled = NO;
+    _graphView.xAxis.labelTextColor = [UIColor clearColor];
+    _graphView.drawGridBackgroundEnabled = NO;
+    _graphView.drawBordersEnabled = NO;
+    _graphView.dragEnabled = NO;
+    [_graphView setScaleEnabled:NO];
+    _graphView.pinchZoomEnabled = NO;
+    _graphView.legend.enabled = NO;
+    //    ChartLegend *l = _graphView.legend;
+    //    l.horizontalAlignment = ChartLegendHorizontalAlignmentRight;
+    //    l.verticalAlignment = ChartLegendVerticalAlignmentTop;
+    //    l.orientation = ChartLegendOrientationVertical;
+    //    l.drawInside = NO;
+    
+    [self slidersValueChanged:nil];
+
     
     UIImage * white = [[UIImage imageNamed:@"blood-pressure-slider"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
@@ -229,6 +247,7 @@
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     [self removeloder];
                     [_popUpView removeFromSuperview];
+                    [self getBloodPressure];
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                    
 
@@ -300,7 +319,7 @@
                         [dataArray addObject:bloodObj];
                     }];
                     [self removeloder];
-                    [self.graphView reloadGraph];
+                    [self updateChartData];
                 }
                 else
                 {
@@ -513,108 +532,8 @@
     }
     
 }
-- (IBAction)selectTypeClicked:(id)sender {
-    
-    
-    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
-    pickerObj.delegate = self;
-    pickerObj.dataSource = self;
-    pickerObj.showsSelectionIndicator = YES;
-    pickerObj.backgroundColor = [UIColor lightGrayColor];
-    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
-    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
-                          CGRectMake(0, self.view.frame.size.height-
-                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
-    [toolBar setBarStyle:UIBarStyleBlackOpaque];
-    UIToolbar *toolBarForTitle;
-    viewOverPicker.backgroundColor = [UIColor clearColor];
-    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
-    
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
-                                   target:self action:@selector(doneForPicker:)];
-    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
-    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
-    NSArray *toolbarItems = [NSArray arrayWithObjects:
-                             space,doneButton, nil];
-    pickerObj.hidden = false;
-    [toolBar setItems:toolbarItems];
-    [viewOverPicker addSubview:toolBar];
-    pickerObj.tag = 2;
-    [pickerObj  selectRow:selectedRowForType inComponent:0 animated:true];
-    
-    
-    [viewOverPicker addSubview:pickerObj];
-    [self.view addSubview:viewOverPicker];
-    [pickerObj reloadAllComponents];
-    
-    
-}
 
-- (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-   
-    if ([dataArray count] == 1) {
-        return 2;
-    }
-    else
-    {
-        return [dataArray count]; // Number of points in the graph.
-        
-    }
-         // Number of points in the graph.
-}
 
-- (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    
-    if ([dataArray count] == 1) {
-        if (index == 0) {
-            
-            if (selectedRowForType == 0)
-            {
-                return 0; // The value of the point on the Y-Axis for the index.
-            }
-            else if (selectedRowForType == 1){
-                return 65.0; // The value of the point on the Y-Axis for the index.
-            }
-            else if (selectedRowForType == 2){
-                return 125.0; // The value of the point on the Y-Axis for the index.
-            }
-            return 0;
-        }
-        else
-        {
-            if (selectedRowForType == 0)
-            {
-                return [[[dataArray objectAtIndex:index-1] valueForKey:@"heart_rate"] floatValue]; // The value of the point on the Y-Axis for the index.
-            }
-            else if (selectedRowForType == 1){
-                return [[[dataArray objectAtIndex:index-1] valueForKey:@"dis"] floatValue]; // The value of the point on the Y-Axis for the index.
-            }
-            else if (selectedRowForType == 2){
-                return [[[dataArray objectAtIndex:index-1] valueForKey:@"sys"] floatValue]; // The value of the point on the Y-Axis for the index.
-            }
-            return 0;
-            
-        }
-    }
-    else
-    {
-        if (selectedRowForType == 0)
-        {
-            return [[[dataArray objectAtIndex:index] valueForKey:@"heart_rate"] floatValue]; // The value of the point on the Y-Axis for the index.
-        }
-        else if (selectedRowForType == 1){
-            return [[[dataArray objectAtIndex:index] valueForKey:@"dis"] floatValue]; // The value of the point on the Y-Axis for the index.
-        }
-        else if (selectedRowForType == 2){
-            return [[[dataArray objectAtIndex:index] valueForKey:@"sys"] floatValue]; // The value of the point on the Y-Axis for the index.
-        }
-        return 0;
-    
-    }
- 
-}
 
 #pragma mark - add loder
 
@@ -665,26 +584,7 @@ return [NSString stringWithFormat:@"%ld",(long)row];    }
 (NSInteger)row inComponent:(NSInteger)component{
     
     if (pickerObj.tag == 2){
-        [_btnSelectType setTitle:[arrayType objectAtIndex:row] forState:UIControlStateNormal];
-        selectedRowForType = row;
-        switch (row) {
-            case 0:
-                _graphView.colorLine = [CommonFunction getColorFor:@"HR"];
-                
-                break;
-            case 1:
-                _graphView.colorLine = [CommonFunction getColorFor:@"DIA"];
-                
-                break;
-            case 2:
-                _graphView.colorLine = [CommonFunction getColorFor:@"SYS"];
-                
-                break;
-                
-            default:
-                break;
-        }
-        [self.graphView reloadGraph];
+       
     }
     
     if (pickerObj.tag == 3){
@@ -755,5 +655,108 @@ return [NSString stringWithFormat:@"%ld",(long)row];    }
             break;
     }
 }
+
+
+#pragma mark MultipleLinesChartViewController
+
+- (IBAction)slidersValueChanged:(id)sender
+{
+    
+    [self updateChartData];
+}
+
+#pragma mark - ChartViewDelegate
+- (void)updateChartData
+{
+    NSArray *colors = @[ChartColorTemplates.vordiplom[0], ChartColorTemplates.vordiplom[1], ChartColorTemplates.vordiplom[2]];
+    
+    NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+    NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        float val = [[[dataArray objectAtIndex:i] valueForKey:@"heart_rate"] floatValue];
+        [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
+    }
+    
+    LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
+    d.lineWidth = 3;
+    d.circleRadius = 0;
+    d.circleHoleRadius = 0.5;
+    
+    UIColor *color = [UIColor redColor];
+    [d setColor:color];
+    
+    d.mode = LineChartModeCubicBezier;
+    d.drawValuesEnabled =  false;
+    [d setCircleColor:color];
+    [dataSets addObject:d];
+    
+    NSMutableArray *valuesDIA = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        float val = [[[dataArray objectAtIndex:i] valueForKey:@"dis"] floatValue];
+        [valuesDIA addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
+    }
+    
+    LineChartDataSet *dDIA = [[LineChartDataSet alloc] initWithValues:valuesDIA label:@"DIA"];
+    dDIA.lineWidth = 3;
+    dDIA.circleRadius = 0;
+    dDIA.circleHoleRadius = 0.5;
+    
+    color = [UIColor redColor];
+    [dDIA setColor:color];
+    
+    dDIA.mode = LineChartModeCubicBezier;
+    dDIA.drawValuesEnabled =  false;
+    [dDIA setCircleColor:color];
+    [dataSets addObject:dDIA];
+    
+    NSMutableArray *valuesSYS = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        float val = [[[dataArray objectAtIndex:i] valueForKey:@"sys"] floatValue];
+        [valuesSYS addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
+    }
+    
+    LineChartDataSet *dSYS = [[LineChartDataSet alloc] initWithValues:valuesSYS label:@"SYS"];
+    dSYS.lineWidth = 3;
+    dSYS.circleRadius = 0;
+    dSYS.circleHoleRadius = 0.5;
+    
+    color = [UIColor redColor];
+    [dSYS setColor:color];
+    
+    dSYS.mode = LineChartModeCubicBezier;
+    dSYS.drawValuesEnabled =  false;
+    [dSYS setCircleColor:color];
+    [dataSets addObject:dSYS];
+    
+
+    ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
+    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+    ((LineChartDataSet *)dataSets[1]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"DIA"]];
+    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+    ((LineChartDataSet *)dataSets[2]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
+    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+
+    LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
+    [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
+    _graphView.data = data;
+}
+
+
+- (void)chartValueSelected:(ChartViewBase * __nonnull)chartView entry:(ChartDataEntry * __nonnull)entry highlight:(ChartHighlight * __nonnull)highlight
+{
+    NSLog(@"chartValueSelected");
+}
+
+- (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView
+{
+    NSLog(@"chartValueNothingSelected");
+}
+
 
 @end

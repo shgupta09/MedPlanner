@@ -8,7 +8,7 @@
 
 #import "FeverReportViewController.h"
 
-@interface FeverReportViewController ()<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate,UIPickerViewDelegate>{
+@interface FeverReportViewController ()<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate,UIPickerViewDelegate,ChartViewDelegate>{
     LoderView *loderObj;
     NSMutableArray *dataArray;
     UIView *viewOverPicker;
@@ -55,21 +55,7 @@
         toDateString = [dateFormatter stringFromDate:toDate];
         [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
 
-//    // Enable and disable various graph properties and axis displays
-//
-//    _graphView.s.enableTouchReport = YES;
-//    _graphView.enablePopUpReport = YES;
-//    _graphView.enableYAxisLabel = YES;
-//    _graphView.autoScaleYAxis = YES;
-//    _graphView.alwaysDisplayDots = NO;
-//    _graphView.enableReferenceXAxisLines = YES;
-//    _graphView.enableReferenceYAxisLines = YES;
-//    _graphView.enableReferenceAxisFrame = YES;
-//
-//
-//    // Set the graph's animation style to draw, fade, or none
-//    _graphView.animationGraphStyle = BEMLineAnimationDraw;
-//
+
     UIImage * white = [[UIImage imageNamed:@"tempratuer-slider"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
     [_sliderView setMinimumTrackImage:[white stretchableImageWithLeftCapWidth:3.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -116,11 +102,11 @@
     _graphView.rightAxis.drawGridLinesEnabled = NO;
     _graphView.xAxis.drawAxisLineEnabled = NO;
     _graphView.xAxis.drawGridLinesEnabled = NO;
-    
+    _graphView.xAxis.labelTextColor = [UIColor clearColor];
     _graphView.drawGridBackgroundEnabled = NO;
     _graphView.drawBordersEnabled = NO;
-    _graphView.dragEnabled = YES;
-    [_graphView setScaleEnabled:YES];
+    _graphView.dragEnabled = NO;
+    [_graphView setScaleEnabled:NO];
     _graphView.pinchZoomEnabled = NO;
     _graphView.legend.enabled = NO;
     //    ChartLegend *l = _graphView.legend;
@@ -260,6 +246,7 @@
                     [self presentViewController:alertController animated:YES completion:nil];
                     */
                     [self removeloder];
+                    [self getFeverReport];
                     [_popUpView removeFromSuperview];
 
                     
@@ -548,11 +535,16 @@
     }
 }
 
+
 #pragma mark MultipleLinesChartViewController
 
+- (IBAction)slidersValueChanged:(id)sender
+{
+    
+    [self updateChartData];
+}
 
-
-
+#pragma mark - ChartViewDelegate
 - (void)updateChartData
 {
     NSArray *colors = @[ChartColorTemplates.vordiplom[0], ChartColorTemplates.vordiplom[1], ChartColorTemplates.vordiplom[2]];
@@ -561,7 +553,7 @@
     
     
     NSMutableArray *values = [[NSMutableArray alloc] init];
-        
+    
     for (int i = 0; i < dataArray.count; i++)
     {
         float val = [[[dataArray objectAtIndex:i] valueForKey:@"temperature"] floatValue];
@@ -570,7 +562,7 @@
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:values label:@"fever"];
     d.lineWidth = 3;
-    d.circleRadius = 2.0;
+    d.circleRadius = 0;
     d.circleHoleRadius = 0.5;
     
     UIColor *color = [UIColor redColor];
@@ -580,9 +572,9 @@
     d.drawValuesEnabled =  false;
     [d setCircleColor:color];
     [dataSets addObject:d];
-   
     
-    ((LineChartDataSet *)dataSets[0]).colors = ChartColorTemplates.vordiplom;
+    
+    ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
     ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
     
     LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
@@ -590,16 +582,6 @@
     _graphView.data = data;
 }
 
-
-#pragma mark - Actions
-
-- (IBAction)slidersValueChanged:(id)sender
-{
-    
-    [self updateChartData];
-}
-
-#pragma mark - ChartViewDelegate
 
 - (void)chartValueSelected:(ChartViewBase * __nonnull)chartView entry:(ChartDataEntry * __nonnull)entry highlight:(ChartHighlight * __nonnull)highlight
 {
