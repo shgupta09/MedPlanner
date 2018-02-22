@@ -45,7 +45,7 @@
     selectedRowForheight = 0;
     selectedRowForHeartRate = 0;
     [_btnWeight setTitle:[NSString stringWithFormat:@"%d",60] forState:UIControlStateNormal];
-    [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",90] forState:UIControlStateNormal];
+    [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",40] forState:UIControlStateNormal];
     [_btnHeight setTitle:[NSString stringWithFormat:@"%d",150] forState:UIControlStateNormal];
 //    _txt_Comment.text = @"comment";
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -500,7 +500,7 @@ numberOfRowsInComponent:(NSInteger)component{
     }
     else if (pickerObj.tag == 1){
         //Weight
-        return [NSString stringWithFormat:@"%d",row+90];
+        return [NSString stringWithFormat:@"%d",row+40];
     }
     else if (pickerObj.tag == 2){
         if (row == 0){
@@ -523,7 +523,7 @@ numberOfRowsInComponent:(NSInteger)component{
     }
     else if (pickerObj.tag == 1){
         //Weight
-        [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",90+row] forState:UIControlStateNormal];
+        [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",40+row] forState:UIControlStateNormal];
         selectedRowForHeartRate = row;
         
     }
@@ -659,8 +659,8 @@ numberOfRowsInComponent:(NSInteger)component{
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
     d.lineWidth = 3;
-    d.circleRadius = 0;
-    d.circleHoleRadius = 0.5;
+    d.circleRadius = 3.0;
+    d.circleHoleRadius = 0.0;
     
     UIColor *color = [UIColor redColor];
     [d setColor:color];
@@ -682,8 +682,9 @@ numberOfRowsInComponent:(NSInteger)component{
     
     LineChartDataSet *dSYS = [[LineChartDataSet alloc] initWithValues:valuesSYS label:@"weight"];
     dSYS.lineWidth = 3;
-    dSYS.circleRadius = 0;
-    dSYS.circleHoleRadius = 0.5;
+    dSYS.circleRadius = 3.0;
+    dSYS.circleHoleRadius = 0.0;
+    
     
     color = [UIColor redColor];
     [dSYS setColor:color];
@@ -695,8 +696,10 @@ numberOfRowsInComponent:(NSInteger)component{
     
     
     ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
+    ((LineChartDataSet *)dataSets[0]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
     //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
     ((LineChartDataSet *)dataSets[1]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
+    ((LineChartDataSet *)dataSets[1]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
     //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
     
     LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];

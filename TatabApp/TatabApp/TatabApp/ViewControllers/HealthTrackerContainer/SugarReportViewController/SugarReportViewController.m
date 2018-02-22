@@ -53,6 +53,7 @@
     arrayType = [[NSMutableArray alloc] initWithObjects:@"Pre-meal",@"Sleep",@"Post-sleep", nil];
     arrayTypeFilter = [[NSMutableArray alloc] initWithObjects:@"All",@"Pre-meal",@"Sleep",@"Post-sleep", nil];
     selectedRowForType = 0;
+    selectedRowForTypeFilter = 0;
     selectedRowForTiming = 0;
     selectedRowForReading = 0;
     //    _txtComments.text = @"comment";
@@ -68,9 +69,10 @@
     toDateString = [dateFormatter stringFromDate:toDate];
     [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
     
-    [_btnWeightPopup setTitle:@"0"  forState:UIControlStateNormal];
+    [_btnWeightPopup setTitle:[arrayType objectAtIndex:0]  forState:UIControlStateNormal];
     [_btnReadingPopup setTitle:[arrayreading objectAtIndex:0] forState:UIControlStateNormal];
-    
+    [_btnSelectType setTitle:[arrayTypeFilter objectAtIndex:0] forState:UIControlStateNormal];
+
     // Enable and disable various graph properties and axis displays
     
     self.title = @"Multiple Lines Chart";
@@ -769,20 +771,22 @@ numberOfRowsInComponent:(NSInteger)component{
     
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];
     NSMutableArray *valuesPresleep = [[NSMutableArray alloc] init];
-    
+    int index = 0;
+
     for (int i = 0; i < dataArray.count; i++)
     {
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Pre-meal"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
             
-            [valuesPresleep addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+            [valuesPresleep addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
+            index++;
         }
     }
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesPresleep label:@"HR"];
     d.lineWidth = 3;
-    d.circleRadius = 0;
-    d.circleHoleRadius = 0.5;
+    d.circleRadius = 3.0;
+    d.circleHoleRadius = 0.0;
     
     UIColor *color = [UIColor redColor];
     [d setColor:color];
@@ -793,13 +797,15 @@ numberOfRowsInComponent:(NSInteger)component{
     [dataSets addObject:d];
     
     NSMutableArray *valuesSleep = [[NSMutableArray alloc] init];
-    
+    index = 0;
+
     for (int i = 0; i < dataArray.count; i++)
     {
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Sleep"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
             
-            [valuesPresleep addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+            [valuesSleep addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
+            index++;
         }
 
         
@@ -808,9 +814,9 @@ numberOfRowsInComponent:(NSInteger)component{
     
     LineChartDataSet *dDIA = [[LineChartDataSet alloc] initWithValues:valuesSleep label:@"DIA"];
     dDIA.lineWidth = 3;
-    dDIA.circleRadius = 0;
-    dDIA.circleHoleRadius = 0.5;
-    
+    dDIA.circleRadius = 3.0;
+    dDIA.circleHoleRadius = 0.0;
+
     color = [UIColor redColor];
     [dDIA setColor:color];
     
@@ -820,21 +826,23 @@ numberOfRowsInComponent:(NSInteger)component{
     [dataSets addObject:dDIA];
     
     NSMutableArray *valuesPostSleep = [[NSMutableArray alloc] init];
-    
+    index = 0;
+
     for (int i = 0; i < dataArray.count; i++)
     {
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Post-sleep"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
             
-            [valuesPostSleep addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+            [valuesPostSleep addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
+            index++;
         }
     }
     
     LineChartDataSet *dSYS = [[LineChartDataSet alloc] initWithValues:valuesPostSleep label:@"SYS"];
     dSYS.lineWidth = 3;
-    dSYS.circleRadius = 0;
-    dSYS.circleHoleRadius = 0.5;
-    
+    dSYS.circleRadius = 3.0;
+    dSYS.circleHoleRadius = 0.0;
+
     color = [UIColor redColor];
     [dSYS setColor:color];
     
@@ -845,10 +853,13 @@ numberOfRowsInComponent:(NSInteger)component{
     
     
     ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
+    ((LineChartDataSet *)dataSets[0]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
     //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
     ((LineChartDataSet *)dataSets[1]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"DIA"]];
+    ((LineChartDataSet *)dataSets[1]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"DIA"]];
     //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
     ((LineChartDataSet *)dataSets[2]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
+    ((LineChartDataSet *)dataSets[2]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
     //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
     
     LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
@@ -862,21 +873,23 @@ numberOfRowsInComponent:(NSInteger)component{
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];
     NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
     
+    int index = 0;
     for (int i = 0; i < dataArray.count; i++)
     {
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Pre-meal"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
             
-            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
+            index++;
         }
         
     }
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
     d.lineWidth = 3;
-    d.circleRadius = 0;
-    d.circleHoleRadius = 0.5;
-    
+    d.circleRadius = 3.0;
+    d.circleHoleRadius = 0.0;
+
     UIColor *color = [UIColor redColor];
     [d setColor:color];
     
@@ -888,7 +901,7 @@ numberOfRowsInComponent:(NSInteger)component{
     
     
     ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
-    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+    ((LineChartDataSet *)dataSets[0]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
     
     LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
     [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
@@ -901,21 +914,23 @@ numberOfRowsInComponent:(NSInteger)component{
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];
     NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
     
+    int index = 0;
     for (int i = 0; i < dataArray.count; i++)
     {
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Sleep"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
             
-            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
+            index++;
         }
         
     }
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
     d.lineWidth = 3;
-    d.circleRadius = 0;
-    d.circleHoleRadius = 0.5;
-    
+    d.circleRadius = 3.0;
+    d.circleHoleRadius = 0.0;
+
     UIColor *color = [UIColor redColor];
     [d setColor:color];
     
@@ -925,8 +940,8 @@ numberOfRowsInComponent:(NSInteger)component{
     [dataSets addObject:d];
 
     ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"DIA"]];
-    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
-   
+    ((LineChartDataSet *)dataSets[0]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"DIA"]];
+ 
     LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
     [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
     _graphView.data = data;
@@ -938,20 +953,23 @@ numberOfRowsInComponent:(NSInteger)component{
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];
     NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
     
+    int index = 0;
+
     for (int i = 0; i < dataArray.count; i++)
     {
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Post-sleep"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
             
-            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
+            index++;
         }
     }
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
     d.lineWidth = 3;
-    d.circleRadius = 0;
-    d.circleHoleRadius = 0.5;
-    
+    d.circleRadius = 3.0;
+    d.circleHoleRadius = 0.0;
+
     UIColor *color = [UIColor redColor];
     [d setColor:color];
     
@@ -962,6 +980,7 @@ numberOfRowsInComponent:(NSInteger)component{
 
     
     ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
+    ((LineChartDataSet *)dataSets[0]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
     //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
     
     LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];

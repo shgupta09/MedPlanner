@@ -558,9 +558,9 @@
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:values label:@"fever"];
     d.lineWidth = 3;
-    d.circleRadius = 0;
-    d.circleHoleRadius = 0.5;
-    
+    d.circleRadius = 3.0;
+    d.circleHoleRadius = 0.0;
+
     UIColor *color = [UIColor redColor];
     [d setColor:color];
     
@@ -571,8 +571,8 @@
     
     
     ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
-    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
-    
+    ((LineChartDataSet *)dataSets[0]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
+ 
     LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
     [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
     _graphView.data = data;

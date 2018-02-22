@@ -41,7 +41,7 @@
     [super viewDidLoad];
     toDate = [NSDate date];
 //    _txtComments.text = @"comment";
-    heartRate = 0;
+    heartRate = 40;
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
     
@@ -54,8 +54,8 @@
     [_sliderView addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     _sliderView.maximumValue = 120.0;
     _sliderView.minimumValue = 65.0;
-    [_btnHeartRate setTitle:@"1" forState:UIControlStateNormal];
-    hertRateValue = 1;
+    [_btnHeartRate setTitle:@"40" forState:UIControlStateNormal];
+    hertRateValue = 40;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
@@ -581,7 +581,7 @@ numberOfRowsInComponent:(NSInteger)component{
 return [arrayType objectAtIndex:row];
     }
     else{
-return [NSString stringWithFormat:@"%ld",(long)row];    }
+return [NSString stringWithFormat:@"%ld",(long)row+40];    }
     return @"";
     
 }
@@ -593,14 +593,14 @@ return [NSString stringWithFormat:@"%ld",(long)row];    }
     }
     
     if (pickerObj.tag == 3){
-        [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",row] forState:UIControlStateNormal];
-        hertRateValue = row;
+        [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",row+40] forState:UIControlStateNormal];
+        hertRateValue = row+40;
     }
     
     
     else{
-        [_btnHeartRate setTitle:[NSString stringWithFormat:@"%ld",(long)row] forState:UIControlStateNormal];
-        heartRate = row;
+        [_btnHeartRate setTitle:[NSString stringWithFormat:@"%ld",(long)row+40] forState:UIControlStateNormal];
+        heartRate = row+40;
     }
     
 }
@@ -661,7 +661,7 @@ return [NSString stringWithFormat:@"%ld",(long)row];    }
     }
 }
 
-
+selectedRowForType = 0;
 #pragma mark MultipleLinesChartViewController
 
 - (IBAction)slidersValueChanged:(id)sender
@@ -686,9 +686,9 @@ return [NSString stringWithFormat:@"%ld",(long)row];    }
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
     d.lineWidth = 3;
-    d.circleRadius = 0;
-    d.circleHoleRadius = 0.5;
-    
+    d.circleRadius = 3.0;
+    d.circleHoleRadius = 0.0;
+
     UIColor *color = [UIColor redColor];
     [d setColor:color];
     
@@ -707,9 +707,9 @@ return [NSString stringWithFormat:@"%ld",(long)row];    }
     
     LineChartDataSet *dDIA = [[LineChartDataSet alloc] initWithValues:valuesDIA label:@"DIA"];
     dDIA.lineWidth = 3;
-    dDIA.circleRadius = 0;
-    dDIA.circleHoleRadius = 0.5;
-    
+    dDIA.circleRadius = 3.0;
+    dDIA.circleHoleRadius = 0.0;
+
     color = [UIColor redColor];
     [dDIA setColor:color];
     
@@ -728,9 +728,9 @@ return [NSString stringWithFormat:@"%ld",(long)row];    }
     
     LineChartDataSet *dSYS = [[LineChartDataSet alloc] initWithValues:valuesSYS label:@"SYS"];
     dSYS.lineWidth = 3;
-    dSYS.circleRadius = 0;
-    dSYS.circleHoleRadius = 0.5;
-    
+    dSYS.circleRadius = 3.0;
+    dSYS.circleHoleRadius = 0.0;
+
     color = [UIColor redColor];
     [dSYS setColor:color];
     
@@ -741,10 +741,13 @@ return [NSString stringWithFormat:@"%ld",(long)row];    }
     
 
     ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
+    ((LineChartDataSet *)dataSets[0]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
     //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
     ((LineChartDataSet *)dataSets[1]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"DIA"]];
+    ((LineChartDataSet *)dataSets[1]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"DIA"]];
     //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
     ((LineChartDataSet *)dataSets[2]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
+    ((LineChartDataSet *)dataSets[2]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
     //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
 
     LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
