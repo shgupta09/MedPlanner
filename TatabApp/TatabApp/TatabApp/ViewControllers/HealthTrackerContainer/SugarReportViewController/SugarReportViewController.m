@@ -113,6 +113,11 @@
 }
 
 #pragma mark - btn Actions
+- (IBAction)btnAction_instructions:(id)sender {
+    
+    [self addAlertWithTitle:AlertKey andMessage:@"For more instructions about using TatabApp tracker please visit www.tatabapp.com" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+}
+
 - (IBAction)selectTypeClicked:(id)sender {
     
     

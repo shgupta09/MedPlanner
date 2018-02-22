@@ -41,7 +41,7 @@
 //    [_btn_MedicalQueue setImage:[UIImage imageNamed:@"queue"] forState:UIControlStateNormal];
 //    [_btn_ManageAwareness setImage:[UIImage imageNamed:@"mngawareness"] forState:UIControlStateNormal];
     
-    _lbl_Name.text = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
+    _lbl_Name.text = [NSString stringWithFormat:@"Dr. %@",[[CommonFunction getValueFromDefaultWithKey:loginfirstname] capitalizedString]];
     _lbl_Sep.text = [CommonFunction getValueFromDefaultWithKey:Specialist];
     isOpen = false;
     revealController = [self revealViewController];
