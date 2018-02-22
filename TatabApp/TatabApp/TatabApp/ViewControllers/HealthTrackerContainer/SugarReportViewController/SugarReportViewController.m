@@ -9,10 +9,10 @@
 #import "SugarReportViewController.h"
 #import <BEMSimpleLineGraph/BEMSimpleLineGraphView.h>
 
-@interface SugarReportViewController ()<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate,UIPickerViewDelegate>
+@interface SugarReportViewController ()<ChartViewDelegate,UIPickerViewDelegate>
 {
     LoderView *loderObj;
-
+    
     NSMutableArray *dataArray;
     UIView *viewOverPicker;
     NSString *fromDateString;
@@ -26,7 +26,9 @@
     UIToolbar *toolBar;
     
     NSMutableArray* arrayType;
+    NSMutableArray* arrayTypeFilter;
     NSInteger selectedRowForType;
+    NSInteger selectedRowForTypeFilter;
     
     NSInteger ansWeight;
     NSString *ansReading;
@@ -42,18 +44,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
-
+    
     toDate = [NSDate date];
     ansWeight = 0;
     ansReading = @"101-111";
     arrayreading = [[NSMutableArray alloc] initWithObjects:@"101-111",@"111-121",@"121-131",@"131-141",@"141-151",@"151-161",@"161-171",@"171-181",@"181-191",@"191-201", nil];
     fromDate = [NSDate date];
     arrayType = [[NSMutableArray alloc] initWithObjects:@"Pre-meal",@"Sleep",@"Post-sleep", nil];
+    arrayTypeFilter = [[NSMutableArray alloc] initWithObjects:@"All",@"Pre-meal",@"Sleep",@"Post-sleep", nil];
     selectedRowForType = 0;
     selectedRowForTiming = 0;
     selectedRowForReading = 0;
-//    _txtComments.text = @"comment";
-
+    //    _txtComments.text = @"comment";
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -64,20 +67,37 @@
     [_btnFromDate setTitle:fromDateString forState:UIControlStateNormal];
     toDateString = [dateFormatter stringFromDate:toDate];
     [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
-
+    
     [_btnWeightPopup setTitle:@"0"  forState:UIControlStateNormal];
     [_btnReadingPopup setTitle:[arrayreading objectAtIndex:0] forState:UIControlStateNormal];
-
+    
     // Enable and disable various graph properties and axis displays
     
-    _graphView.enableTouchReport = YES;
-    _graphView.enablePopUpReport = YES;
-    _graphView.enableYAxisLabel = YES;
-    _graphView.autoScaleYAxis = YES;
-    _graphView.alwaysDisplayDots = NO;
-    _graphView.enableReferenceXAxisLines = YES;
-    _graphView.enableReferenceYAxisLines = YES;
-    _graphView.enableReferenceAxisFrame = YES;
+    self.title = @"Multiple Lines Chart";
+    
+    _graphView.delegate = self;
+    
+    _graphView.chartDescription.enabled = NO;
+    _graphView.leftAxis.enabled = YES;
+    _graphView.rightAxis.enabled = NO;
+    _graphView.rightAxis.drawAxisLineEnabled = NO;
+    _graphView.rightAxis.drawGridLinesEnabled = NO;
+    _graphView.xAxis.drawAxisLineEnabled = NO;
+    _graphView.xAxis.drawGridLinesEnabled = NO;
+    _graphView.xAxis.labelTextColor = [UIColor clearColor];
+    _graphView.drawGridBackgroundEnabled = NO;
+    _graphView.drawBordersEnabled = NO;
+    _graphView.dragEnabled = NO;
+    [_graphView setScaleEnabled:NO];
+    _graphView.pinchZoomEnabled = NO;
+    _graphView.legend.enabled = NO;
+    //    ChartLegend *l = _graphView.legend;
+    //    l.horizontalAlignment = ChartLegendHorizontalAlignmentRight;
+    //    l.verticalAlignment = ChartLegendVerticalAlignmentTop;
+    //    l.orientation = ChartLegendOrientationVertical;
+    //    l.drawInside = NO;
+    
+    [self slidersValueChanged:nil];
     
     if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
         _btnAdd.hidden = true;
@@ -93,7 +113,7 @@
         [_lblbirthDate setText:_patient.dob];
         
     }
-
+    
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewDidLayoutSubviews{
@@ -141,7 +161,7 @@
     pickerObj.hidden = false;
     [toolBar setItems:toolbarItems];
     [viewOverPicker addSubview:toolBar];
-    pickerObj.tag = 2;
+    pickerObj.tag = 1;
     [pickerObj  selectRow:selectedRowForType inComponent:0 animated:true];
     
     
@@ -381,37 +401,6 @@
 }
 
 
-- (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    if ([dataArray count] == 1) {
-        return 2;
-    }
-    else
-    {
-        return [dataArray count]; // Number of points in the graph.
-        
-    }
-}
-
-- (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    if ([dataArray count] == 1) {
-        if (index == 0) {
-            return 106.0;
-        }
-        else
-        {
-            float reading = ([[[[[dataArray objectAtIndex:index-1] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:index-1] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
-            return reading;
-        }
-    }
-    else
-    {
-        float reading = ([[[[[dataArray objectAtIndex:index] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:index] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
-        return reading;
-    }
-    
-}
-
-
 - (IBAction)btnSelectType:(id)sender {
     
     pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
@@ -456,14 +445,14 @@
     if (!_isdependant){
         [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
         [parameterDict setValue:@"" forKey:DEPENDANT_ID];
-  }
+    }
     else
     {
         [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
         [parameterDict setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
     }
     
-//    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
+    //    [parameterDict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:DOCTOR_ID];
     [parameterDict setValue:[arrayType objectAtIndex:selectedRowForTiming] forKey:@"timing"];
     [parameterDict setValue:[arrayreading objectAtIndex:selectedRowForReading] forKey:@"reading"];
     if ([_txtComments.text  isEqual: @""]){
@@ -478,7 +467,7 @@
     NSDateFormatter *Formatter = [[NSDateFormatter alloc] init];
     Formatter.dateFormat = @"yyyy-MM-dd";
     NSString *stringFor = [Formatter stringFromDate:[NSDate date]];
-
+    
     [parameterDict setValue:stringFor forKey:@"date"];
     
     if ([ CommonFunction reachability]) {
@@ -488,17 +477,17 @@
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UPLOAD_BLOODSUGAR]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
-                   /* UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction:ok];
-                    [self presentViewController:alertController animated:YES completion:nil];
-                    [self removeloder];
-                    [_popUpView removeFromSuperview];*/
+                    /* UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                     [alertController addAction:ok];
+                     [self presentViewController:alertController animated:YES completion:nil];
+                     [self removeloder];
+                     [_popUpView removeFromSuperview];*/
                     [self removeloder];
                     [_popUpView removeFromSuperview];
-                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-
-
+                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    
+                    
                 }
                 else
                 {
@@ -513,7 +502,7 @@
             
             else {
                 [self removeloder];
-           [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
             }
             
             
@@ -560,12 +549,12 @@
                         [dataArray addObject:bloodObj];
                     }];
                     [self removeloder];
-                    [self.graphView reloadGraph];
+                    [self updateChartData];
                 }
                 else
                 {
                     [self removeloder];
-
+                    
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                 }
@@ -576,7 +565,7 @@
             
             else {
                 [self removeloder];
-           [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
             }
             
             
@@ -614,7 +603,7 @@
 -(NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component{
     if (pickerObj.tag == 1){
-        return [arrayType count];
+        return [arrayTypeFilter count];
     }
     else if (pickerObj.tag == 2){
         //Weight
@@ -631,7 +620,7 @@ numberOfRowsInComponent:(NSInteger)component{
 (NSInteger)row forComponent:(NSInteger)component{
     
     if (pickerObj.tag == 1){
-        return [arrayType objectAtIndex:row];
+        return [arrayTypeFilter objectAtIndex:row];
     }
     else if (pickerObj.tag == 2){
         //Weight
@@ -650,42 +639,21 @@ numberOfRowsInComponent:(NSInteger)component{
 (NSInteger)row inComponent:(NSInteger)component{
     
     if (pickerObj.tag == 1){
-        [_btnSelectType setTitle:[arrayType objectAtIndex:row] forState:UIControlStateNormal];
-        selectedRowForType = row;
+        [_btnSelectType setTitle:[arrayTypeFilter objectAtIndex:row] forState:UIControlStateNormal];
+        selectedRowForTypeFilter = row;
         
     }
     else if (pickerObj.tag == 2){
         //Weight
         [_btnWeightPopup setTitle:[arrayType objectAtIndex:row] forState:UIControlStateNormal];
         selectedRowForTiming = row;
-        if (pickerObj.tag == 2){
-            [_btnSelectType setTitle:[arrayType objectAtIndex:row] forState:UIControlStateNormal];
-            selectedRowForType = row;
-            switch (row) {
-                case 0:
-                    _graphView.colorLine = [CommonFunction getColorFor:@"HR"];
-                    
-                    break;
-                case 1:
-                    _graphView.colorLine = [CommonFunction getColorFor:@"DIA"];
-                    
-                    break;
-                case 2:
-                    _graphView.colorLine = [CommonFunction getColorFor:@"SYS"];
-                    
-                    break;
-                    
-                default:
-                    break;
-            }
-            [self.graphView reloadGraph];
-        }
+        
     }
     else if (pickerObj.tag == 3){
         //reading
         [_btnReadingPopup setTitle:[arrayreading objectAtIndex:row] forState:UIControlStateNormal];
         selectedRowForReading = row;
-    
+        
     }
     
     
@@ -715,7 +683,7 @@ numberOfRowsInComponent:(NSInteger)component{
                           action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
     }
     alertObj.transform = CGAffineTransformMakeScale(0.01, 0.01);
-   if (![alertObj isDescendantOfView:self.view]) {
+    if (![alertObj isDescendantOfView:self.view]) {
         [self.view addSubview:alertObj];
     }
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -752,4 +720,261 @@ numberOfRowsInComponent:(NSInteger)component{
 
 
 
+#pragma mark MultipleLinesChartViewController
+
+- (IBAction)slidersValueChanged:(id)sender
+{
+    
+    [self updateChartData];
+}
+
+#pragma mark - ChartViewDelegate
+
+- (void)updateChartData
+{
+    switch (selectedRowForTypeFilter) {
+        case 0:
+        {
+            [self updateChartDataForAll];
+        }
+            break;
+        case 1:
+        {
+            [self updateChartDataForPreSleep];
+        }
+            break;
+        case 2:
+        {
+            [self updateChartDataForSleep];
+        }
+            break;
+        case 3:
+        {
+            [self updateChartDataPostSleep];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+- (void)updateChartDataForAll
+{
+    NSArray *colors = @[ChartColorTemplates.vordiplom[0], ChartColorTemplates.vordiplom[1], ChartColorTemplates.vordiplom[2]];
+    
+    NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+    NSMutableArray *valuesPresleep = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Pre-meal"]){
+            float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
+            
+            [valuesPresleep addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+        }
+    }
+    
+    LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesPresleep label:@"HR"];
+    d.lineWidth = 3;
+    d.circleRadius = 0;
+    d.circleHoleRadius = 0.5;
+    
+    UIColor *color = [UIColor redColor];
+    [d setColor:color];
+    
+    d.mode = LineChartModeCubicBezier;
+    d.drawValuesEnabled =  false;
+    [d setCircleColor:color];
+    [dataSets addObject:d];
+    
+    NSMutableArray *valuesSleep = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Sleep"]){
+            float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
+            
+            [valuesPresleep addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+        }
+
+        
+        
+    }
+    
+    LineChartDataSet *dDIA = [[LineChartDataSet alloc] initWithValues:valuesSleep label:@"DIA"];
+    dDIA.lineWidth = 3;
+    dDIA.circleRadius = 0;
+    dDIA.circleHoleRadius = 0.5;
+    
+    color = [UIColor redColor];
+    [dDIA setColor:color];
+    
+    dDIA.mode = LineChartModeCubicBezier;
+    dDIA.drawValuesEnabled =  false;
+    [dDIA setCircleColor:color];
+    [dataSets addObject:dDIA];
+    
+    NSMutableArray *valuesPostSleep = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Post-sleep"]){
+            float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
+            
+            [valuesPostSleep addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+        }
+    }
+    
+    LineChartDataSet *dSYS = [[LineChartDataSet alloc] initWithValues:valuesPostSleep label:@"SYS"];
+    dSYS.lineWidth = 3;
+    dSYS.circleRadius = 0;
+    dSYS.circleHoleRadius = 0.5;
+    
+    color = [UIColor redColor];
+    [dSYS setColor:color];
+    
+    dSYS.mode = LineChartModeCubicBezier;
+    dSYS.drawValuesEnabled =  false;
+    [dSYS setCircleColor:color];
+    [dataSets addObject:dSYS];
+    
+    
+    ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
+    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+    ((LineChartDataSet *)dataSets[1]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"DIA"]];
+    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+    ((LineChartDataSet *)dataSets[2]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
+    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+    
+    LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
+    [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
+    _graphView.data = data;
+}
+- (void)updateChartDataForPreSleep
+{
+    NSArray *colors = @[ChartColorTemplates.vordiplom[0], ChartColorTemplates.vordiplom[1], ChartColorTemplates.vordiplom[2]];
+    
+    NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+    NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Pre-meal"]){
+            float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
+            
+            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+        }
+        
+    }
+    
+    LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
+    d.lineWidth = 3;
+    d.circleRadius = 0;
+    d.circleHoleRadius = 0.5;
+    
+    UIColor *color = [UIColor redColor];
+    [d setColor:color];
+    
+    d.mode = LineChartModeCubicBezier;
+    d.drawValuesEnabled =  false;
+    [d setCircleColor:color];
+    [dataSets addObject:d];
+    
+    
+    
+    ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"HR"]];
+    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+    
+    LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
+    [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
+    _graphView.data = data;
+}
+- (void)updateChartDataForSleep
+{
+    NSArray *colors = @[ChartColorTemplates.vordiplom[0], ChartColorTemplates.vordiplom[1], ChartColorTemplates.vordiplom[2]];
+    
+    NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+    NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Sleep"]){
+            float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
+            
+            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+        }
+        
+    }
+    
+    LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
+    d.lineWidth = 3;
+    d.circleRadius = 0;
+    d.circleHoleRadius = 0.5;
+    
+    UIColor *color = [UIColor redColor];
+    [d setColor:color];
+    
+    d.mode = LineChartModeCubicBezier;
+    d.drawValuesEnabled =  false;
+    [d setCircleColor:color];
+    [dataSets addObject:d];
+
+    ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"DIA"]];
+    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+   
+    LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
+    [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
+    _graphView.data = data;
+}
+- (void)updateChartDataPostSleep
+{
+    NSArray *colors = @[ChartColorTemplates.vordiplom[0], ChartColorTemplates.vordiplom[1], ChartColorTemplates.vordiplom[2]];
+    
+    NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+    NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dataArray.count; i++)
+    {
+        if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Post-sleep"]){
+            float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
+            
+            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i y:reading]];
+        }
+    }
+    
+    LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
+    d.lineWidth = 3;
+    d.circleRadius = 0;
+    d.circleHoleRadius = 0.5;
+    
+    UIColor *color = [UIColor redColor];
+    [d setColor:color];
+    
+    d.mode = LineChartModeCubicBezier;
+    d.drawValuesEnabled =  false;
+    [d setCircleColor:color];
+    [dataSets addObject:d];
+
+    
+    ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"SYS"]];
+    //    ((LineChartDataSet *)dataSets[0]).circleColors = ChartColorTemplates.vordiplom;
+    
+    LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
+    [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
+    _graphView.data = data;
+}
+
+
+- (void)chartValueSelected:(ChartViewBase * __nonnull)chartView entry:(ChartDataEntry * __nonnull)entry highlight:(ChartHighlight * __nonnull)highlight
+{
+    NSLog(@"chartValueSelected");
+}
+
+- (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView
+{
+    NSLog(@"chartValueNothingSelected");
+}
+
+
 @end
+

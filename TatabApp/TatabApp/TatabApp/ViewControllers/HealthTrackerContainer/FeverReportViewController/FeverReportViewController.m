@@ -82,15 +82,6 @@
         
     }
    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     self.title = @"Multiple Lines Chart";
         
     _graphView.delegate = self;

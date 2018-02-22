@@ -17,7 +17,7 @@
                 <outlet property="btnSelectType" destination="Ce7-tk-cum" id="IJM-84-r8m"/>
                 <outlet property="btnToDate" destination="3Zd-St-INf" id="VWS-Wx-Azt"/>
                 <outlet property="btnWeightPopup" destination="dIL-1v-22D" id="91Y-4i-VmL"/>
-                <outlet property="graphView" destination="G83-eC-7bA" id="RLM-BK-7N5"/>
+                <outlet property="graphView" destination="G83-eC-7bA" id="UDI-WE-Pkl"/>
                 <outlet property="lblPatientName" destination="Ze4-gs-n2w" id="Y8R-gy-R4X"/>
                 <outlet property="lblbirthDate" destination="4xh-49-Tpx" id="T83-wd-Les"/>
                 <outlet property="lblgender" destination="vOd-4D-zvq" id="vCv-zG-vH7"/>
@@ -205,8 +205,8 @@
                                         <action selector="btnAddPressureClicked:" destination="-1" eventType="touchUpInside" id="1pq-TV-6R7"/>
                                     </connections>
                                 </button>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G83-eC-7bA" customClass="BEMSimpleLineGraphView">
-                                    <rect key="frame" x="14" y="96" width="348" height="244"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G83-eC-7bA" customClass="LineChartView" customModule="Charts">
+                                    <rect key="frame" x="14" y="96" width="348" height="280"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="YES"/>
@@ -226,10 +226,6 @@
                                             <real key="value" value="3"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <outlet property="dataSource" destination="-1" id="En9-Je-yox"/>
-                                        <outlet property="delegate" destination="-1" id="Bp5-Y5-Qf2"/>
-                                    </connections>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQ5-SP-y75" customClass="CustomButton3">
                                     <rect key="frame" x="257" y="56" width="105" height="20"/>
@@ -243,7 +239,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAW-6P-ruu" customClass="CustomButton3">
-                                    <rect key="frame" x="51" y="356" width="105" height="30"/>
+                                    <rect key="frame" x="51" y="384" width="105" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="105" id="Tfb-WI-QMN"/>
                                     </constraints>
@@ -253,7 +249,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zd-St-INf" customClass="CustomButton3">
-                                    <rect key="frame" x="221" y="356" width="105" height="30"/>
+                                    <rect key="frame" x="221" y="384" width="105" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="105" id="wYW-PK-f74"/>
                                     </constraints>
@@ -371,14 +367,14 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="G83-eC-7bA" firstAttribute="centerY" secondItem="n3Q-Z4-YA0" secondAttribute="centerY" constant="6.5" id="06Y-J4-GpN"/>
                                 <constraint firstItem="G83-eC-7bA" firstAttribute="top" secondItem="eQ5-SP-y75" secondAttribute="bottom" constant="20" id="0aS-jI-xJr"/>
                                 <constraint firstItem="ykX-kt-cyP" firstAttribute="centerY" secondItem="jKi-PX-a8S" secondAttribute="centerY" id="0is-dZ-j3o"/>
-                                <constraint firstAttribute="bottom" secondItem="yAW-6P-ruu" secondAttribute="bottom" constant="37" id="16e-gU-QhF"/>
+                                <constraint firstAttribute="bottom" secondItem="yAW-6P-ruu" secondAttribute="bottom" constant="9" id="16e-gU-QhF"/>
                                 <constraint firstItem="oIh-9N-ezt" firstAttribute="centerY" secondItem="jKi-PX-a8S" secondAttribute="centerY" id="1BS-qk-uZZ"/>
                                 <constraint firstItem="xqf-PE-HUh" firstAttribute="leading" secondItem="XbR-nL-SVt" secondAttribute="trailing" constant="4" id="3Av-mf-TgR"/>
                                 <constraint firstItem="xqf-PE-HUh" firstAttribute="centerY" secondItem="XbR-nL-SVt" secondAttribute="centerY" id="56I-fb-RSy"/>
                                 <constraint firstItem="Ce7-tk-cum" firstAttribute="leading" secondItem="n3Q-Z4-YA0" secondAttribute="leading" constant="14" id="575-EN-YIu"/>
+                                <constraint firstItem="yAW-6P-ruu" firstAttribute="top" secondItem="G83-eC-7bA" secondAttribute="bottom" constant="8" id="5c1-hr-LRq"/>
                                 <constraint firstItem="ykX-kt-cyP" firstAttribute="leading" secondItem="jKi-PX-a8S" secondAttribute="trailing" constant="6" id="5uL-8v-fIm"/>
                                 <constraint firstItem="Gx6-SP-VbK" firstAttribute="centerY" secondItem="ZLg-YO-Xc1" secondAttribute="centerY" id="6dT-9o-uBb"/>
                                 <constraint firstItem="G83-eC-7bA" firstAttribute="leading" secondItem="n3Q-Z4-YA0" secondAttribute="leading" constant="14" id="7gE-je-rcT"/>
@@ -393,7 +389,7 @@
                                 <constraint firstAttribute="trailing" secondItem="3ot-Gk-NTx" secondAttribute="trailing" constant="8" id="Jp1-Ai-MLV"/>
                                 <constraint firstItem="G83-eC-7bA" firstAttribute="centerX" secondItem="n3Q-Z4-YA0" secondAttribute="centerX" id="MYD-2O-0WV"/>
                                 <constraint firstItem="ZLg-YO-Xc1" firstAttribute="leading" secondItem="Gx6-SP-VbK" secondAttribute="trailing" constant="5" id="N4j-bV-Mup"/>
-                                <constraint firstAttribute="bottom" secondItem="3Zd-St-INf" secondAttribute="bottom" constant="37" id="Oxu-9E-axb"/>
+                                <constraint firstAttribute="bottom" secondItem="3Zd-St-INf" secondAttribute="bottom" constant="9" id="Oxu-9E-axb"/>
                                 <constraint firstItem="AaZ-Ib-Aw5" firstAttribute="top" secondItem="6yj-jH-Ev2" secondAttribute="bottom" constant="6" id="Qdh-Bn-AYN"/>
                                 <constraint firstAttribute="trailing" secondItem="3Zd-St-INf" secondAttribute="trailing" constant="49" id="QuN-yi-QNn"/>
                                 <constraint firstItem="jKi-PX-a8S" firstAttribute="leading" secondItem="oIh-9N-ezt" secondAttribute="trailing" constant="5" id="SCa-na-MU0"/>

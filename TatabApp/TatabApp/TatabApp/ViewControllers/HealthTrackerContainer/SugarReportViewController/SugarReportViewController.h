@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <BEMSimpleLineGraph/BEMSimpleLineGraphView.h>
+#import <Charts/Charts-Swift.h>
 
 @interface SugarReportViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *popUpView;
 @property (weak, nonatomic) IBOutlet UIButton *btnFromDate;
 @property (weak, nonatomic) IBOutlet UIButton *btnToDate;
-@property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *graphView;
+@property (weak, nonatomic) IBOutlet LineChartView *graphView;
 @property (weak, nonatomic) IBOutlet UIButton *btnSelectType;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtComments;
 @property (weak, nonatomic) IBOutlet CustomButton *btnWeightPopup;
