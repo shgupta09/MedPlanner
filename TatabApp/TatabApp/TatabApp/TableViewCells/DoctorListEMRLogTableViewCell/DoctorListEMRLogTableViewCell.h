@@ -20,6 +20,8 @@
     
 
 @interface DoctorListEMRLogTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *clinicImage;
+
 @property (weak, nonatomic) IBOutlet UILabel *lblDate;
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewProfile;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;

@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Montserrat-Bold.otf">
+            <string>Montserrat-Bold</string>
+        </array>
         <array key="Montserrat-Regular.otf">
             <string>Montserrat-Regular</string>
         </array>
@@ -54,8 +57,8 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDx-ao-27g">
-                            <rect key="frame" x="129" y="34.5" width="117" height="21"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <rect key="frame" x="123" y="34.5" width="129" height="21"/>
+                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -68,6 +71,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="TLt-qh-CKu"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                             <state key="normal" title="EMR"/>
                             <connections>
                                 <action selector="btnEMRClcked:" destination="-1" eventType="touchUpInside" id="0tC-eR-Psd"/>
@@ -79,6 +83,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="k5E-4M-u4Q"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                             <state key="normal" title="Health Tracker"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DO-tn-FGb">
@@ -187,8 +192,8 @@
                             <rect key="frame" x="0.0" y="244" width="375" height="423"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEALTH TRACKER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1u-LD-gcn">
-                                    <rect key="frame" x="114" y="8" width="148" height="21"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <rect key="frame" x="92.5" y="8" width="190" height="24.5"/>
+                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                     <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -200,7 +205,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xx-u2-pjt">
-                                    <rect key="frame" x="178" y="37" width="18" height="161"/>
+                                    <rect key="frame" x="178" y="40.5" width="18" height="157.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="18" id="FiH-OD-hk5"/>
@@ -214,10 +219,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1E3-o4-E2w">
-                                    <rect key="frame" x="8" y="37" width="162" height="161"/>
+                                    <rect key="frame" x="8" y="40.5" width="162" height="157.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wJ-QH-kKM">
-                                            <rect key="frame" x="25" y="24.5" width="113" height="113"/>
+                                            <rect key="frame" x="25" y="23" width="113" height="113"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="5wJ-QH-kKM" secondAttribute="height" multiplier="1:1" id="k50-Tc-b4z"/>
                                             </constraints>
@@ -227,7 +232,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxc-37-wjn">
-                                            <rect key="frame" x="41.5" y="145.5" width="81.5" height="14.5"/>
+                                            <rect key="frame" x="41.5" y="144" width="81.5" height="14.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -243,10 +248,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qtd-pw-KIi">
-                                    <rect key="frame" x="204" y="37" width="162" height="161"/>
+                                    <rect key="frame" x="204" y="40.5" width="162" height="157.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yR2-xW-EeX">
-                                            <rect key="frame" x="25" y="24.5" width="113" height="113"/>
+                                            <rect key="frame" x="25" y="23" width="113" height="113"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="yR2-xW-EeX" secondAttribute="height" multiplier="1:1" id="8jZ-Kv-gaZ"/>
                                             </constraints>
@@ -256,7 +261,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fever Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="us4-Fs-RG2">
-                                            <rect key="frame" x="45" y="144.5" width="73" height="15"/>
+                                            <rect key="frame" x="45" y="143" width="73" height="15"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>

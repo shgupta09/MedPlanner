@@ -129,10 +129,10 @@
         cell.lblCategoryName.text = obj.sub_specialist;
         //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
         [cell.imgViewProfile sd_setImageWithURL:[NSURL URLWithString:obj.photo] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
-    cell.lblDate.text = obj.created_at  ;
+    cell.lblDate.text = [CommonFunction ConvertDateTime:obj.created_at]  ;
         cell.imgViewProfile.layer.cornerRadius = 8;
         cell.imgViewProfile.clipsToBounds = true;
-    
+     [cell.clinicImage setImage:[self setImageFor:obj.sub_specialist]];
     [cell.btnDetails setTag:1000+indexPath.row];
     [cell.btnfollowUp setTag:3000+indexPath.row];
     [cell.btnPrescription setTag:2000+indexPath.row];
@@ -141,6 +141,27 @@
     return cell;
         
 }
+-(UIImage*) setImageFor:(NSString*) clinicName{
+    
+    if ([clinicName isEqualToString:@"Abdominal Clinic"]) {
+        return [UIImage imageNamed:@"sec-abdomen-1"];
+    }
+    else if ([clinicName isEqualToString:@"Psychological Clinic"]) {
+        return [UIImage imageNamed:@"sec-psy-1"];
+    }
+    else if ([clinicName isEqualToString:@"Family and Community Clinic"]) {
+        return [UIImage imageNamed:@"sec-family-1"];
+    }
+    else if ([clinicName isEqualToString:@"Obgyne Clinic"]) {
+        return [UIImage imageNamed:@"sec-obgyen-1"];
+    }
+    else if ([clinicName isEqualToString:@"Pediatrics Clinic"]) {
+        return [UIImage imageNamed:@"section-children"];
+    }
+    
+    return [UIImage imageNamed:@""];
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 //    ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];

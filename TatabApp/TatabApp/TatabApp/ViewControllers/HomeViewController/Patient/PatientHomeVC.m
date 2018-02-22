@@ -39,7 +39,7 @@
     [_btn_ElectronicMR setImage:[UIImage imageNamed:@"EMR-Icons"] forState:UIControlStateNormal];
     [_btn_registerSubRegords setImage:[UIImage imageNamed:@"mndDependants"] forState:UIControlStateNormal];
     [_btn_RecordHistory setImage:[UIImage imageNamed:@"requestsHistory"] forState:UIControlStateNormal];
-    _lbl_Name.text = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
+    _lbl_Name.text = [[CommonFunction getValueFromDefaultWithKey:loginfirstname] capitalizedString];
     isOpen = false;
     revealController = [self revealViewController];
     singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self

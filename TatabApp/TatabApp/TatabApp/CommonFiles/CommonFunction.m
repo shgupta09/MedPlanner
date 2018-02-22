@@ -312,10 +312,10 @@
 +(NSString *)ConvertDateTime:(NSString *)dateStr{
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-mm-dd"];
-    
-    NSDate *newDate = [formatter dateFromString:[dateStr substringFromIndex:11]];
-      [formatter setDateFormat:@"dd MMM, YYYY"];
+ 
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *newDate = [formatter dateFromString:dateStr];
+    [formatter setDateFormat:@"dd/MM/YYYY"];
     return [formatter stringFromDate:newDate];
 }
 

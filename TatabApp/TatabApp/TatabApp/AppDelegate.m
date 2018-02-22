@@ -13,6 +13,7 @@
 @import FirebaseInstanceID;
 @import UserNotifications;
 #import "AGPushNoteView.h"
+#import "RatingVC.h"
 @interface AppDelegate ()
 
 
@@ -218,6 +219,9 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     }else if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"Start Chating"]) {
         [CommonFunction stroeBoolValueForKey:NOTIFICATION_BOOl withBoolValue:true];
     }else if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"End Chat"]){
+        
+        RatingVC *vc = [[RatingVC alloc]initWithNibName:@"RatingVC" bundle:nil];
+        [[self topViewController] presentViewController:vc animated:true completion:nil];
         [CommonFunction stroeBoolValueForKey:NOTIFICATION_BOOl withBoolValue:false];
         [CommonFunction storeValueInDefault:@"0" andKey:NOTIFICATION_DOCTOR_ID];
         [CommonFunction storeValueInDefault:@"0" andKey:NOTIFICATION_PATIENT_ID];
@@ -387,6 +391,26 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
+}
+#pragma mark- Top ViewController
+
+- (UIViewController *)topViewController{
+    return [self topViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
+- (UIViewController *)topViewController:(UIViewController *)rootViewController
+{
+    if (rootViewController.presentedViewController == nil) {
+        return rootViewController;
+    }
+    
+    if ([rootViewController.presentedViewController isMemberOfClass:[UINavigationController class]]) {
+        UINavigationController *navigationController = (UINavigationController *)rootViewController.presentedViewController;
+        UIViewController *lastViewController = [[navigationController viewControllers] lastObject];
+        return [self topViewController:lastViewController];
+    }
+    
+    UIViewController *presentedViewController = (UIViewController *)rootViewController.presentedViewController;
+    return [self topViewController:presentedViewController];
 }
 
 @end
