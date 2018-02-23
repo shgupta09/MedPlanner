@@ -25,7 +25,12 @@
                 <outlet property="btnHeight" destination="EA6-qK-oFK" id="FTO-Mw-gsh"/>
                 <outlet property="btnToDate" destination="vXa-Bi-p3A" id="6u2-Ih-UPK"/>
                 <outlet property="btnWeight" destination="LTG-Wl-KjX" id="hpQ-NK-26A"/>
+                <outlet property="cons__bmi_normalWeightCentre" destination="jlY-JK-gAb" id="pAK-Rr-Jiv"/>
+                <outlet property="cons__bmi_obesityCentre" destination="PVU-Ll-Qfk" id="0AJ-VH-EeO"/>
+                <outlet property="cons__bmi_overWeightCentre" destination="kCC-Uk-9Pp" id="67l-YG-AT9"/>
+                <outlet property="cons__bmi_underWeightCentre" destination="3K2-we-nGz" id="jll-xJ-EnK"/>
                 <outlet property="graphView" destination="gBw-uR-Hf9" id="vNZ-KG-d5X"/>
+                <outlet property="imgPointer" destination="3Ib-5R-kvB" id="Iad-9w-oFO"/>
                 <outlet property="lblPatientName" destination="x9n-8q-zre" id="bUZ-q9-Sde"/>
                 <outlet property="lblgender" destination="Yof-e2-JgW" id="1dQ-Pu-BGq"/>
                 <outlet property="popUpView" destination="INF-g5-JHj" id="ZTk-hn-GZb"/>
@@ -648,12 +653,20 @@ Bmi&gt;30</string>
                                                 <constraint firstAttribute="height" constant="25" id="PtZ-f0-GOI"/>
                                             </constraints>
                                         </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointerUPDOWN" translatesAutoresizingMaskIntoConstraints="NO" id="3Ib-5R-kvB">
+                                            <rect key="frame" x="43" y="38" width="21" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="21" id="mqs-Uz-iE5"/>
+                                                <constraint firstAttribute="height" constant="25" id="uA8-B6-o71"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="LTG-Wl-KjX" secondAttribute="trailing" constant="14" id="15e-Z8-3Fq"/>
                                         <constraint firstItem="Xxb-nx-v8c" firstAttribute="centerX" secondItem="3Nu-2c-wNu" secondAttribute="centerX" id="2YL-EE-LDW"/>
                                         <constraint firstItem="x2U-iN-k4a" firstAttribute="trailing" secondItem="LTG-Wl-KjX" secondAttribute="trailing" id="3Gc-rf-xaf"/>
+                                        <constraint firstItem="3Ib-5R-kvB" firstAttribute="centerX" secondItem="ZEO-2e-kY3" secondAttribute="centerX" id="3K2-we-nGz"/>
                                         <constraint firstItem="wg7-gA-UBF" firstAttribute="leading" secondItem="EA6-qK-oFK" secondAttribute="trailing" constant="-36" id="5ln-8P-DwY"/>
                                         <constraint firstItem="EA6-qK-oFK" firstAttribute="trailing" secondItem="x2U-iN-k4a" secondAttribute="trailing" id="6lR-oO-FeG"/>
                                         <constraint firstItem="EA6-qK-oFK" firstAttribute="leading" secondItem="CJS-4b-6h9" secondAttribute="trailing" constant="8" id="7KV-q7-Tcz"/>
@@ -666,9 +679,11 @@ Bmi&gt;30</string>
                                         <constraint firstItem="irC-17-78Y" firstAttribute="leading" secondItem="LTG-Wl-KjX" secondAttribute="trailing" constant="-36" id="IHz-U0-GIs"/>
                                         <constraint firstItem="cKW-dO-4vX" firstAttribute="leading" secondItem="3Nu-2c-wNu" secondAttribute="leading" constant="15" id="Iaw-8P-fhp"/>
                                         <constraint firstItem="2Ry-VY-CKP" firstAttribute="width" secondItem="LTG-Wl-KjX" secondAttribute="width" id="JKz-CX-jxw"/>
+                                        <constraint firstItem="cKW-dO-4vX" firstAttribute="top" secondItem="3Ib-5R-kvB" secondAttribute="bottom" constant="1" id="KVQ-Q7-ufi"/>
                                         <constraint firstItem="B77-fs-3q8" firstAttribute="width" secondItem="x2U-iN-k4a" secondAttribute="width" id="MlL-LH-0Bn"/>
                                         <constraint firstItem="x2U-iN-k4a" firstAttribute="leading" secondItem="B77-fs-3q8" secondAttribute="trailing" constant="8" id="N06-JR-zax"/>
                                         <constraint firstItem="LTG-Wl-KjX" firstAttribute="leading" secondItem="2Ry-VY-CKP" secondAttribute="trailing" constant="8" id="PPt-3h-UbO"/>
+                                        <constraint firstItem="3Ib-5R-kvB" firstAttribute="centerX" secondItem="1Lh-FJ-MrE" secondAttribute="centerX" id="PVU-Ll-Qfk"/>
                                         <constraint firstAttribute="bottom" secondItem="iHk-1B-9gr" secondAttribute="bottom" constant="9" id="SKO-WV-yww"/>
                                         <constraint firstItem="irC-17-78Y" firstAttribute="centerY" secondItem="LTG-Wl-KjX" secondAttribute="centerY" id="YDU-Qa-FOR"/>
                                         <constraint firstItem="iHk-1B-9gr" firstAttribute="top" secondItem="ADs-c4-m1W" secondAttribute="bottom" constant="8" id="ZcU-GS-r1C"/>
@@ -681,7 +696,9 @@ Bmi&gt;30</string>
                                         <constraint firstItem="EA6-qK-oFK" firstAttribute="top" secondItem="x2U-iN-k4a" secondAttribute="bottom" constant="26" id="f7f-UN-Uby"/>
                                         <constraint firstAttribute="trailing" secondItem="TS1-Qd-XPL" secondAttribute="trailing" constant="10" id="h35-Pq-EWS"/>
                                         <constraint firstItem="ADs-c4-m1W" firstAttribute="top" secondItem="EA6-qK-oFK" secondAttribute="bottom" constant="40" id="j63-iB-mIS"/>
+                                        <constraint firstItem="3Ib-5R-kvB" firstAttribute="centerX" secondItem="vPr-cX-xkr" secondAttribute="centerX" id="jlY-JK-gAb"/>
                                         <constraint firstItem="cKW-dO-4vX" firstAttribute="top" secondItem="Xxb-nx-v8c" secondAttribute="bottom" constant="36" id="jpZ-9l-Ivh"/>
+                                        <constraint firstItem="3Ib-5R-kvB" firstAttribute="centerX" secondItem="OzQ-0D-6nu" secondAttribute="centerX" id="kCC-Uk-9Pp"/>
                                         <constraint firstItem="B77-fs-3q8" firstAttribute="leading" secondItem="2Ry-VY-CKP" secondAttribute="leading" id="rtu-QG-FTa"/>
                                         <constraint firstAttribute="trailing" secondItem="cKW-dO-4vX" secondAttribute="trailing" constant="12" id="t1e-Vb-nZX"/>
                                         <constraint firstItem="2Ry-VY-CKP" firstAttribute="top" secondItem="ZEO-2e-kY3" secondAttribute="bottom" constant="30" id="twv-bf-641"/>
@@ -739,6 +756,7 @@ Bmi&gt;30</string>
         <image name="BackgroundGeneral" width="750" height="1334"/>
         <image name="back" width="55" height="45"/>
         <image name="icon-drop-down" width="31" height="55"/>
+        <image name="pointerUPDOWN" width="87" height="102"/>
         <image name="weightAdd" width="414" height="315"/>
     </resources>
 </document>

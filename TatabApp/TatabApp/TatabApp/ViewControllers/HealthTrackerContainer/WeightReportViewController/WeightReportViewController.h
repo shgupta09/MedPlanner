@@ -28,5 +28,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblbirthDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblgender;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons__bmi_underWeightCentre;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons__bmi_obesityCentre;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons__bmi_normalWeightCentre;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons__bmi_overWeightCentre;
+@property (weak, nonatomic) IBOutlet UIImageView *imgPointer;
 
 @end
