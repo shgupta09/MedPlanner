@@ -280,6 +280,8 @@
 }
 
 -(void)doneForPicker:(id)sender{
+    [self updateChartData];
+
     [viewOverPicker removeFromSuperview];
     
 }
