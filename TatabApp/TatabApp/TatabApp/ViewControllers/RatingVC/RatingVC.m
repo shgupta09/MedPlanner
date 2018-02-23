@@ -35,9 +35,58 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)btnActionRating:(id)sender {
+    
     if (((UIButton *)sender).tag/100==1) {
+        _btn1.alpha = 0.5;
+        _btn2.alpha = 0.5;
+        _btn3.alpha = 0.5;
+        _btn4.alpha = 0.5;
+        _btn5.alpha = 0.5;
+        switch (((UIButton *)sender).tag%100) {
+            case 1:
+                _btn1.alpha = 1;
+                break;
+            case 2:
+                _btn2.alpha = 1;
+                break;
+            case 3:
+                _btn3.alpha = 1;
+                break;
+            case 4:
+                _btn4.alpha = 1;
+                break;
+            case 5:
+                _btn5.alpha = 1;
+                break;
+            default:
+                break;
+        }
         isServiceRated = true;
     }else if  (((UIButton *)sender).tag/100==2){
+        _btn6.alpha = 0.5;
+        _btn7.alpha = 0.5;
+        _btn8.alpha = 0.5;
+        _btn9.alpha = 0.5;
+        _btn10.alpha = 0.5;
+        switch (((UIButton *)sender).tag%100) {
+            case 6:
+                _btn6.alpha = 1;
+                break;
+            case 7:
+                _btn7.alpha = 1;
+                break;
+            case 8:
+                _btn8.alpha = 1;
+                break;
+            case 9:
+                _btn9.alpha = 1;
+                break;
+            case 10:
+                _btn10.alpha = 1;
+                break;
+            default:
+                break;
+        }
         isQueueRated = true;
     }
     

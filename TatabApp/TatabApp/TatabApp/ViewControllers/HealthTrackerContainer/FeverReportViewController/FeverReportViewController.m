@@ -74,14 +74,13 @@
     if (_isdependant) {
         [_lblPatientName setText:[_dependant.name capitalizedString]];
         [_lblgender setText:_dependant.gender];
-        [_lblbirthDate setText:_dependant.birthDay];
+        [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_dependant.birthDay]];
     }else{
         [_lblPatientName setText:[_patient.name capitalizedString]];
         [_lblgender setText:_patient.gender];
-        [_lblbirthDate setText:_patient.dob];
-        
+        [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_patient.dob]];
     }
-   
+    
     self.title = @"Multiple Lines Chart";
         
     _graphView.delegate = self;

@@ -58,11 +58,11 @@
     if (_isdependant) {
         [_lblPatientName setText:[_dependant.name capitalizedString]];
         [_lblgender setText:_dependant.gender];
-        [_lblbirthDate setText:_dependant.birthDay];
+        [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_dependant.birthDay]];
     }else{
         [_lblPatientName setText:[_patient.name capitalizedString]];
         [_lblgender setText:_patient.gender];
-        [_lblbirthDate setText:_patient.dob];
+        [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_patient.dob]];
         
     }
     
@@ -123,7 +123,12 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    
+    if (indexPath.row%2==0) {
+        cell.viewBack.backgroundColor = [UIColor whiteColor];
+    }else{
+        
+        cell.viewBack.backgroundColor = [UIColor colorWithRed:245.0/255.0f green:245.0/255.0f blue:245.0/255.0f alpha:1];
+    }
     Specialization *obj = [doctorListArray objectAtIndex:indexPath.row];
         cell.lblName.text = [NSString stringWithFormat:@"Dr. %@",obj.first_name];
         cell.lblCategoryName.text = obj.sub_specialist;
