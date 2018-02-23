@@ -71,7 +71,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="TLt-qh-CKu"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="15"/>
                             <state key="normal" title="EMR"/>
                             <connections>
                                 <action selector="btnEMRClcked:" destination="-1" eventType="touchUpInside" id="0tC-eR-Psd"/>
@@ -83,7 +83,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="k5E-4M-u4Q"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="15"/>
                             <state key="normal" title="Health Tracker"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DO-tn-FGb">
