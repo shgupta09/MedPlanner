@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RatingVC : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *btn1;
 
 @end
