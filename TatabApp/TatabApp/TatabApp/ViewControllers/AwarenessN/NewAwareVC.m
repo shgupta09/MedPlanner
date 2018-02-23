@@ -30,6 +30,7 @@
     BOOL ISFirsTime;
     CustomAlert *alertObj;
     CustomTabBar *tabBarObj;
+    NSString *strToSearch;
     
 }
 @end
@@ -39,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
-
+    strToSearch = @"";
     _searchOptionBtnAction.tintColor = [UIColor whiteColor];
     tempView = [UIView new];
     UIImage * image = [UIImage imageNamed:@"Icon---Search"];
@@ -518,7 +519,7 @@
 
 #pragma mark-BtnAction
 - (IBAction)btnAction_Search:(id)sender {
-    _txt_Search.text = @"";
+    _txt_Search.text = strToSearch ;
     [self addPopupview2];
     
     
@@ -608,7 +609,7 @@
     [self imageCapture];
 }
 - (IBAction)btnAction_ApplySearch:(id)sender {
-     NSString *strToSearch = _txt_Search.text;
+     strToSearch = _txt_Search.text;
     sortedArray = [NSMutableArray new];
     [unsortedArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
        PostData *tempObj = (PostData *)obj;
@@ -622,7 +623,7 @@
     _btnClearSearch.hidden = false;
     _lbl_SearchedText.hidden = false;
     _lbl_SearchedText.text = [NSString stringWithFormat:@"search phrase: %@",[strToSearch capitalizedString]];
-    _tbl_Constraint.constant = 25;
+    _tbl_Constraint.constant = 40;
 }
 - (IBAction)btnAction_CalearSearch:(id)sender {
     dataArray = unsortedArray;
@@ -794,6 +795,7 @@
     [[self popUpView2] setFrame:frame];
     [self.view addSubview:_popUpView2];
      [CommonFunction addAnimationToview:_popUpView2];
+    
 }
 -(void)addPopupview3:(UIImage *)image{
      [CommonFunction setResignTapGestureToView:_popUpView3 andsender:self];
@@ -1327,8 +1329,7 @@
         case 1:{
             
             if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-                PatientHomeVC* vc ;
-                vc = [[PatientHomeVC alloc] initWithNibName:@"PatientHomeVC" bundle:nil];
+                AwarenessCategoryViewController *vc = [[AwarenessCategoryViewController alloc]initWithNibName:@"AwarenessCategoryViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:true];
             }else{
                 if ([[QueueDetails sharedInstance].myDataArray count]== 0) {

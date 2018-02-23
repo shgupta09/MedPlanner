@@ -47,4 +47,5 @@
 +(NSString *)getIDFromClinic:(NSString *)stringNAme;
 +(NSString *)setOneMonthOldGate;
 +(NSString *)ConvertDateTime:(NSString *)dateStr;
++(NSString *)ConvertDateTime2:(NSString *)dateStr;
 @end

@@ -18,6 +18,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatingVC">
             <connections>
                 <outlet property="btn1" destination="S0h-RG-PST" id="zHZ-Nc-yQu"/>
+                <outlet property="btn10" destination="GTa-HQ-Bck" id="IG4-D6-VZh"/>
+                <outlet property="btn2" destination="Wdn-bD-dkU" id="6eE-6y-zOW"/>
+                <outlet property="btn3" destination="EBe-rO-5Bk" id="n6U-K2-J0Q"/>
+                <outlet property="btn4" destination="QLm-2k-KYh" id="XZG-Og-cZ0"/>
+                <outlet property="btn5" destination="w9N-G3-vC5" id="M2s-uR-GRQ"/>
+                <outlet property="btn6" destination="OWh-C0-Ayw" id="IpT-Hy-6uj"/>
+                <outlet property="btn7" destination="MIk-8k-kEs" id="CGW-mT-Mfd"/>
+                <outlet property="btn8" destination="1g7-Cp-SKj" id="q3E-U6-u68"/>
+                <outlet property="btn9" destination="GV2-8A-X5r" id="NcK-Hx-J2Y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -47,7 +56,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0op-m6-ASH">
                             <rect key="frame" x="0.0" y="0.0" width="67" height="80"/>
                             <subviews>
-                                <button opaque="NO" tag="101" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0h-RG-PST">
+                                <button opaque="NO" alpha="0.5" tag="101" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0h-RG-PST">
                                     <rect key="frame" x="10" y="10" width="47" height="60"/>
                                     <state key="normal" backgroundImage="SMILY1"/>
                                     <connections>
@@ -66,7 +75,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aba-oP-pN1">
                             <rect key="frame" x="67" y="0.0" width="67" height="80"/>
                             <subviews>
-                                <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdn-bD-dkU">
+                                <button opaque="NO" alpha="0.5" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdn-bD-dkU">
                                     <rect key="frame" x="10" y="10" width="47" height="60"/>
                                     <state key="normal" image="SMILY2"/>
                                     <connections>
@@ -85,7 +94,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TA4-9h-ybU">
                             <rect key="frame" x="134" y="0.0" width="67" height="80"/>
                             <subviews>
-                                <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBe-rO-5Bk">
+                                <button opaque="NO" alpha="0.5" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBe-rO-5Bk">
                                     <rect key="frame" x="10" y="10" width="47" height="60"/>
                                     <state key="normal" image="SMILY3"/>
                                     <connections>
@@ -104,7 +113,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1g-h9-zF7">
                             <rect key="frame" x="201" y="0.0" width="67" height="80"/>
                             <subviews>
-                                <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLm-2k-KYh">
+                                <button opaque="NO" alpha="0.5" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLm-2k-KYh">
                                     <rect key="frame" x="10" y="10" width="47" height="60"/>
                                     <state key="normal" image="SMILY4"/>
                                     <connections>
@@ -123,7 +132,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCW-87-c0C">
                             <rect key="frame" x="268" y="0.0" width="67" height="80"/>
                             <subviews>
-                                <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9N-G3-vC5">
+                                <button opaque="NO" alpha="0.5" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9N-G3-vC5">
                                     <rect key="frame" x="10" y="10" width="47" height="60"/>
                                     <state key="normal" image="SMILY5"/>
                                     <connections>
@@ -164,7 +173,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scJ-EP-pxS">
                             <rect key="frame" x="0.0" y="0.0" width="67" height="80"/>
                             <subviews>
-                                <button opaque="NO" tag="201" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWh-C0-Ayw">
+                                <button opaque="NO" alpha="0.5" tag="201" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWh-C0-Ayw">
                                     <rect key="frame" x="10" y="10" width="47" height="60"/>
                                     <state key="normal" backgroundImage="SMILY1"/>
                                     <connections>
@@ -183,7 +192,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMB-k6-eaB">
                             <rect key="frame" x="67" y="0.0" width="67" height="80"/>
                             <subviews>
-                                <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIk-8k-kEs">
+                                <button opaque="NO" alpha="0.5" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIk-8k-kEs">
                                     <rect key="frame" x="10" y="10" width="47" height="60"/>
                                     <state key="normal" image="SMILY2"/>
                                     <connections>
@@ -202,7 +211,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFY-kd-l77">
                             <rect key="frame" x="134" y="0.0" width="67" height="80"/>
                             <subviews>
-                                <button opaque="NO" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1g7-Cp-SKj">
+                                <button opaque="NO" alpha="0.5" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1g7-Cp-SKj">
                                     <rect key="frame" x="10" y="10" width="47" height="60"/>
                                     <state key="normal" image="SMILY3"/>
                                     <connections>
@@ -221,7 +230,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVb-Ya-D29">
                             <rect key="frame" x="201" y="0.0" width="67" height="80"/>
                             <subviews>
-                                <button opaque="NO" tag="204" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GV2-8A-X5r">
+                                <button opaque="NO" alpha="0.5" tag="204" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GV2-8A-X5r">
                                     <rect key="frame" x="10" y="10" width="47" height="60"/>
                                     <state key="normal" image="SMILY4"/>
                                     <connections>
@@ -240,7 +249,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nT4-Ba-sGs">
                             <rect key="frame" x="268" y="0.0" width="67" height="80"/>
                             <subviews>
-                                <button opaque="NO" tag="205" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTa-HQ-Bck">
+                                <button opaque="NO" alpha="0.5" tag="205" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTa-HQ-Bck">
                                     <rect key="frame" x="10" y="10" width="47" height="60"/>
                                     <state key="normal" image="SMILY5"/>
                                     <connections>

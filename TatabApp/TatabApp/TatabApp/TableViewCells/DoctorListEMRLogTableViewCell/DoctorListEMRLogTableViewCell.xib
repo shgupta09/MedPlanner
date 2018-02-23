@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,7 +68,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mlX-8n-2Mn" secondAttribute="trailing" constant="5" id="6n7-4f-sDQ"/>
                             <constraint firstItem="pfO-wF-WBH" firstAttribute="bottom" secondItem="C4f-SB-qSa" secondAttribute="bottom" id="A7p-nh-LPc"/>
@@ -83,14 +84,17 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7m-0c-oRA">
-                        <rect key="frame" x="210" y="5" width="32" height="49.5"/>
+                        <rect key="frame" x="210" y="14" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="v7m-0c-oRA" secondAttribute="height" multiplier="1:1" id="2Zp-Xq-UFM"/>
+                        </constraints>
                         <state key="normal" image="diagnose"/>
                         <connections>
                             <action selector="btnDetailsClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4vM-ig-DUy"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O62-dz-5qo">
-                        <rect key="frame" x="247" y="5" width="31.5" height="49.5"/>
+                        <rect key="frame" x="247" y="14" width="31.5" height="32"/>
                         <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                         <state key="normal" backgroundImage="prescription"/>
                         <connections>
@@ -98,7 +102,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSL-Kl-8vI">
-                        <rect key="frame" x="283.5" y="5" width="31.5" height="49.5"/>
+                        <rect key="frame" x="283.5" y="14" width="31.5" height="32"/>
                         <state key="normal" backgroundImage="documentBlue"/>
                         <connections>
                             <action selector="btnFollowClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ibV-0Z-CS0"/>
@@ -109,20 +113,19 @@
                     <constraint firstItem="O62-dz-5qo" firstAttribute="leading" secondItem="v7m-0c-oRA" secondAttribute="trailing" constant="5" id="1i7-74-OoQ"/>
                     <constraint firstItem="dXJ-oV-RHW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3lJ-vp-45f"/>
                     <constraint firstItem="v7m-0c-oRA" firstAttribute="leading" secondItem="RAX-58-zHj" secondAttribute="trailing" id="Efv-SP-sij"/>
-                    <constraint firstAttribute="bottom" secondItem="O62-dz-5qo" secondAttribute="bottom" constant="5" id="Hmv-JZ-oB1"/>
+                    <constraint firstItem="TSL-Kl-8vI" firstAttribute="top" secondItem="O62-dz-5qo" secondAttribute="top" id="M1P-YA-aMI"/>
                     <constraint firstAttribute="trailing" secondItem="TSL-Kl-8vI" secondAttribute="trailing" constant="5" id="NVR-9n-JZf"/>
                     <constraint firstItem="dXJ-oV-RHW" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.25" id="NZp-em-t9D"/>
+                    <constraint firstItem="O62-dz-5qo" firstAttribute="top" secondItem="v7m-0c-oRA" secondAttribute="top" id="Nj1-5j-3BS"/>
                     <constraint firstItem="RAX-58-zHj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Of9-15-3fd"/>
+                    <constraint firstItem="O62-dz-5qo" firstAttribute="bottom" secondItem="v7m-0c-oRA" secondAttribute="bottom" id="QeN-hu-UQT"/>
+                    <constraint firstItem="TSL-Kl-8vI" firstAttribute="bottom" secondItem="O62-dz-5qo" secondAttribute="bottom" id="T2w-1k-6wW"/>
                     <constraint firstAttribute="bottom" secondItem="dXJ-oV-RHW" secondAttribute="bottom" id="T5k-YU-9d6"/>
-                    <constraint firstItem="TSL-Kl-8vI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Vtk-L2-Q1o"/>
                     <constraint firstAttribute="bottom" secondItem="RAX-58-zHj" secondAttribute="bottom" id="W80-Z2-b6I"/>
-                    <constraint firstItem="v7m-0c-oRA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="XlI-x8-2Kz"/>
                     <constraint firstItem="TSL-Kl-8vI" firstAttribute="width" secondItem="O62-dz-5qo" secondAttribute="width" id="aPT-Oa-jpI"/>
-                    <constraint firstAttribute="bottom" secondItem="v7m-0c-oRA" secondAttribute="bottom" constant="5" id="cCD-wV-eJj"/>
                     <constraint firstItem="v7m-0c-oRA" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.1" id="cWw-0G-m4I"/>
+                    <constraint firstItem="v7m-0c-oRA" firstAttribute="centerY" secondItem="RAX-58-zHj" secondAttribute="centerY" id="eIq-tf-jtj"/>
                     <constraint firstItem="RAX-58-zHj" firstAttribute="leading" secondItem="dXJ-oV-RHW" secondAttribute="trailing" id="fJY-TP-Odf"/>
-                    <constraint firstItem="O62-dz-5qo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="jOT-HT-TQB"/>
-                    <constraint firstAttribute="bottom" secondItem="TSL-Kl-8vI" secondAttribute="bottom" constant="5" id="koX-cd-Tns"/>
                     <constraint firstItem="dXJ-oV-RHW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="s3X-Tp-UK6"/>
                     <constraint firstItem="O62-dz-5qo" firstAttribute="width" secondItem="v7m-0c-oRA" secondAttribute="width" id="umd-X3-OFx"/>
                     <constraint firstItem="TSL-Kl-8vI" firstAttribute="leading" secondItem="O62-dz-5qo" secondAttribute="trailing" constant="5" id="vbS-N6-B8o"/>
@@ -137,6 +140,7 @@
                 <outlet property="lblCategoryName" destination="Ik2-OA-Fag" id="RHx-li-wAV"/>
                 <outlet property="lblDate" destination="dXJ-oV-RHW" id="NnZ-vl-gp7"/>
                 <outlet property="lblName" destination="mlX-8n-2Mn" id="42w-SX-4Oz"/>
+                <outlet property="viewBack" destination="H2p-sc-9uM" id="R4H-dc-yiv"/>
             </connections>
             <point key="canvasLocation" x="26" y="44"/>
         </tableViewCell>
