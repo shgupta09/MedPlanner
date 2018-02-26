@@ -44,9 +44,9 @@
     selectedRowForWeight = 0;
     selectedRowForheight = 0;
     selectedRowForHeartRate = 0;
-    [_btnWeight setTitle:[NSString stringWithFormat:@"%d",60] forState:UIControlStateNormal];
+    [_btnWeight setTitle:[NSString stringWithFormat:@"%d",20] forState:UIControlStateNormal];
     [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",40] forState:UIControlStateNormal];
-    [_btnHeight setTitle:[NSString stringWithFormat:@"%d",150] forState:UIControlStateNormal];
+    [_btnHeight setTitle:[NSString stringWithFormat:@"%d",30] forState:UIControlStateNormal];
 //    _txt_Comment.text = @"comment";
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
@@ -59,7 +59,41 @@
     toDateString = [dateFormatter stringFromDate:toDate];
     [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
     
+    float bmi = (float)(selectedRowForWeight+20) / (float)(((float)(selectedRowForheight+30)/(float)100)*((float)(selectedRowForheight+30)/(float)100));
+    NSLog(@"%f", bmi);
     
+    if (bmi<18.5){
+        _cons__bmi_obesityCentre.priority = 250;
+        _cons__bmi_overWeightCentre.priority = 250;
+        _cons__bmi_underWeightCentre.priority = 750;
+        _cons__bmi_normalWeightCentre.priority = 250;
+        
+    }
+    else if (bmi>=18.5 && bmi<25)
+    {
+        _cons__bmi_obesityCentre.priority = 250;
+        _cons__bmi_overWeightCentre.priority = 250;
+        _cons__bmi_underWeightCentre.priority = 250;
+        _cons__bmi_normalWeightCentre.priority = 750;
+        
+    }
+    else if (bmi>=25 && bmi<30)
+    {
+        _cons__bmi_obesityCentre.priority = 250;
+        _cons__bmi_overWeightCentre.priority = 750;
+        _cons__bmi_underWeightCentre.priority = 250;
+        _cons__bmi_normalWeightCentre.priority = 250;
+        
+    }
+    else if (bmi>30)
+    {
+        _cons__bmi_obesityCentre.priority = 750;
+        _cons__bmi_overWeightCentre.priority = 250;
+        _cons__bmi_underWeightCentre.priority = 250;
+        _cons__bmi_normalWeightCentre.priority = 250;
+        
+    }
+
     // Enable and disable various graph properties and axis displays
     
     self.title = @"Multiple Lines Chart";
@@ -284,7 +318,9 @@
     [self updateChartData];
 
     [viewOverPicker removeFromSuperview];
-    
+    [self.popUpView layoutIfNeeded];
+    [self.imgPointer layoutIfNeeded];
+    [self.view layoutIfNeeded];
 }
 // value change of the date picker
 -(void) dueDateChanged:(UIDatePicker *)sender {
@@ -500,9 +536,9 @@ numberOfRowsInComponent:(NSInteger)component{
     
     if (pickerObj.tag == 0){
         if (row == 0){
-            return [NSString stringWithFormat:@"%d",60];
+            return [NSString stringWithFormat:@"%d",20];
         }
-        return [NSString stringWithFormat:@"%d",60+row];
+        return [NSString stringWithFormat:@"%d",20+row];
     }
     else if (pickerObj.tag == 1){
         //Weight
@@ -510,9 +546,9 @@ numberOfRowsInComponent:(NSInteger)component{
     }
     else if (pickerObj.tag == 2){
         if (row == 0){
-            return [NSString stringWithFormat:@"%d",150];
+            return [NSString stringWithFormat:@"%d",30];
         }
-        return [NSString stringWithFormat:@"%d",150+row];
+        return [NSString stringWithFormat:@"%d",30+row];
     }
     
     
@@ -523,7 +559,7 @@ numberOfRowsInComponent:(NSInteger)component{
 (NSInteger)row inComponent:(NSInteger)component{
     
     if (pickerObj.tag == 0){
-        [_btnWeight setTitle:[NSString stringWithFormat:@"%d",60+row] forState:UIControlStateNormal];
+        [_btnWeight setTitle:[NSString stringWithFormat:@"%d",20+row] forState:UIControlStateNormal];
         selectedRowForWeight = row;
         
     }
@@ -535,12 +571,58 @@ numberOfRowsInComponent:(NSInteger)component{
     }
     else if (pickerObj.tag == 2){
         //reading
-        [_btnHeight setTitle:[NSString stringWithFormat:@"%d",150+row] forState:UIControlStateNormal];
+        [_btnHeight setTitle:[NSString stringWithFormat:@"%d",30+row] forState:UIControlStateNormal];
         selectedRowForheight = row;
         
     }
     
+    _cons__bmi_obesityCentre.priority = 250;
+    _cons__bmi_overWeightCentre.priority = 250;
+    _cons__bmi_underWeightCentre.priority = 250;
+    _cons__bmi_normalWeightCentre.priority = 250;
+
     
+    float bmi = (float)(selectedRowForWeight+20) / (float)(((float)(selectedRowForheight+30)/(float)100)*((float)(selectedRowForheight+30)/(float)100));
+    NSLog(@"%f", bmi);
+    
+    _cons__bmi_obesityCentre.priority = 250;
+    _cons__bmi_overWeightCentre.priority = 250;
+    _cons__bmi_normalWeightCentre.priority = 250;
+    _cons__bmi_underWeightCentre.priority = 250;
+
+    
+    if (bmi<18.5){
+        _cons__bmi_obesityCentre.priority = 250;
+        _cons__bmi_overWeightCentre.priority = 250;
+        _cons__bmi_normalWeightCentre.priority = 250;
+        _cons__bmi_underWeightCentre.priority = 750;
+
+    }
+    else if (bmi>=18.5 && bmi<25)
+    {
+        _cons__bmi_obesityCentre.priority = 250;
+        _cons__bmi_overWeightCentre.priority = 250;
+        _cons__bmi_underWeightCentre.priority = 250;
+        _cons__bmi_normalWeightCentre.priority = 750;
+
+    }
+    else if (bmi>=25 && bmi<30)
+    {
+        _cons__bmi_obesityCentre.priority = 250;
+        _cons__bmi_underWeightCentre.priority = 250;
+        _cons__bmi_normalWeightCentre.priority = 250;
+        _cons__bmi_overWeightCentre.priority = 750;
+
+    }
+    else if (bmi>30)
+    {
+        _cons__bmi_overWeightCentre.priority = 250;
+        _cons__bmi_underWeightCentre.priority = 250;
+        _cons__bmi_normalWeightCentre.priority = 250;
+        _cons__bmi_obesityCentre.priority = 750;
+
+    }
+    [self.imgPointer layoutIfNeeded];
 }
 
 -(void)showPicker:(int)tag{
