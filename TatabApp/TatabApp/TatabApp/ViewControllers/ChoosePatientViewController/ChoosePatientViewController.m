@@ -71,8 +71,8 @@
     cell.btn_Cross.hidden = true;
 
         //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
-        [cell.profileImageView setImage:[UIImage imageNamed:@"profile.png"]];
-        
+//        [cell.profileImageView setImage:[UIImage imageNamed:@"profile.png"]];
+    
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2;
         cell.profileImageView.clipsToBounds = true;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

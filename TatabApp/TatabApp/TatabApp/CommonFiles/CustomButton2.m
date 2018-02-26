@@ -24,7 +24,8 @@
         self.layer.masksToBounds = true;
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 //        [self setImage: [UIImage imageNamed:@"icon-map-location"] forState:UIControlStateNormal];
-        [self setImageEdgeInsets:UIEdgeInsetsMake(10, -10, 10,30)];
+        [self setImageEdgeInsets:UIEdgeInsetsMake(17, 0, 17,20)];
+        
 //        [self setTitleEdgeInsets:UIEdgeInsetsMake(0
 //                                                  ,-100,0,0)];
         [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];

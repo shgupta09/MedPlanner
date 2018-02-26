@@ -285,12 +285,18 @@
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     
-    if (textView.text.length + text.length > 250 && ![text isEqualToString: @""]) {
-        [self addAlertWithTitle:AlertKey andMessage:@"The content length is more than 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    if (textView.text.length + text.length <= 250) {
+       
+    
+        _LBLCHARACTERCOUNT.textColor = [UIColor whiteColor];
+    }else if(textView.text.length + text.length > 500 && ![text isEqualToString: @""]){
+         [self addAlertWithTitle:AlertKey andMessage:@"The content length is more than 500 characters. Content length should be 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
         return false;
     }
-    
-    [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%lu",251-textView.text.length- text.length]];
+    else{
+        _LBLCHARACTERCOUNT.textColor = [UIColor redColor];
+    }
+    [_LBLCHARACTERCOUNT setText:[NSString stringWithFormat:@"%d",(int)(250-textView.text.length- text.length)]];
     
     return true;
     
@@ -598,7 +604,10 @@
         [self presentViewController:alertController animated:YES completion:nil];
         */
          [self addAlertWithTitle:AlertKey andMessage:@"Please enter some text" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }else if(_txt_txtView.text.length >250){
+           [self addAlertWithTitle:AlertKey andMessage:@"The content length is more than 250 characters. Content length should be 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }else{
+        
         [self uploadPost];
     }
     

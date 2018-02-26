@@ -48,7 +48,7 @@
     _imgViewCurrentUser.layer.masksToBounds = true;
      _txtFieldComment.layer.masksToBounds = true;
     
-    _lblPostDataTitle.text = _postObj.post_by;
+    _lblPostDataTitle.text = [NSString stringWithFormat:@"Dr. %@",_postObj.post_by];
     if([_postObj.type isEqualToString:@"photo"]){
         _lblPostDataContent.hidden = true;
         _imgViewContent.hidden = false;
@@ -120,9 +120,15 @@
     cell.imgViewUser.layer.masksToBounds = true;
     cell.imgViewType.layer.cornerRadius = 5;
     cell.imgViewType.layer.masksToBounds = true;
+    [cell.imgViewUser sd_setImageWithURL:[NSURL URLWithString:obj.profile_pic] placeholderImage:[UIImage imageNamed:@"dependentsuser"]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if(indexPath.row == dataArray.count-1){
+        cell.lowerSeperatorView.hidden = true;
+    }else{
+        cell.lowerSeperatorView.hidden = false;
+    }
     return cell;
     
     
@@ -150,7 +156,7 @@
                         commentObj.comment = [obj valueForKey:@"comment"];
                         commentObj.comment_by = [NSString stringWithFormat:@"%@" ,[obj valueForKey:@"comment_by"]];
                         commentObj.posted_at = [obj valueForKey:@"posted_at"];
-                        
+                        commentObj.profile_pic = [obj valueForKey:@"profile_pic"];
                         
                         [dataArray addObject:commentObj];
                     }];

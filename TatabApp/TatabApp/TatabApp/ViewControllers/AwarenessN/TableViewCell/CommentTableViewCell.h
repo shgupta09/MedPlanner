@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblComment;
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewUser;
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewType;
+@property (weak, nonatomic) IBOutlet UIView *lowerSeperatorView;
 
 @end

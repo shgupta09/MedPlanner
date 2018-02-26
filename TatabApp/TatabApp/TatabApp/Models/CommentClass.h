@@ -13,4 +13,5 @@
 @property(nonatomic ,strong) NSString *comment;
 @property(nonatomic ,strong) NSString *comment_by;
 @property(nonatomic ,strong) NSString *posted_at;
+@property(nonatomic ,strong) NSString *profile_pic;
 @end

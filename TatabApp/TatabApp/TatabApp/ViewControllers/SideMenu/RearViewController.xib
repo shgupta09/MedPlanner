@@ -62,7 +62,7 @@
                                 <action selector="btn_Logout:" destination="-1" eventType="touchUpInside" id="rDO-hL-SYG"/>
                             </connections>
                         </button>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="Vpz-uM-4lZ">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dependentsuser" translatesAutoresizingMaskIntoConstraints="NO" id="Vpz-uM-4lZ">
                             <rect key="frame" x="230" y="10" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="6su-dA-lMa"/>
@@ -119,6 +119,6 @@
         </view>
     </objects>
     <resources>
-        <image name="doctor" width="135" height="135"/>
+        <image name="dependentsuser" width="512" height="512"/>
     </resources>
 </document>
