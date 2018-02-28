@@ -70,13 +70,13 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="WPF-tG-i6y"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                     <state key="normal" title="Case History"/>
                     <connections>
                         <action selector="btnCaseHistory:" destination="-1" eventType="touchUpInside" id="aDu-GY-bhD"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-T8-Kbj">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dependentsuser" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-T8-Kbj">
                     <rect key="frame" x="30" y="101" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="1Sk-8K-5jD"/>
@@ -106,7 +106,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="ACh-lp-tfW"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                     <state key="normal" title="Manage Queue"/>
                     <connections>
                         <action selector="btnQueue:" destination="-1" eventType="touchUpInside" id="pdK-5n-gXb"/>
@@ -117,7 +117,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="AKV-Mm-WwC"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                     <state key="normal" title="Manage Awareness Content"/>
                     <connections>
                         <action selector="btn_Awareness:" destination="-1" eventType="touchUpInside" id="SaH-hK-ZEn"/>
@@ -184,7 +184,7 @@
         <image name="BackgroundGeneral" width="750" height="1334"/>
         <image name="Icon---Menu" width="63" height="51"/>
         <image name="back" width="55" height="45"/>
-        <image name="doctor" width="135" height="135"/>
+        <image name="dependentsuser" width="512" height="512"/>
         <image name="profile" width="218" height="256"/>
     </resources>
 </document>
