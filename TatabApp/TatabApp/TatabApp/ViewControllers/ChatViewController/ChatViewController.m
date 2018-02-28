@@ -446,18 +446,19 @@
     NSString *message = s.message;
     
     if (message){
-        NSDictionary *dictOfMedia = [NSPropertyListSerialization
-                                     propertyListWithData:[message dataUsingEncoding:NSUTF8StringEncoding]
-                                     options:kNilOptions
-                                     format:NULL
-                                     error:NULL];
+        NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error = nil;
         
+        NSDictionary *dictOfMedia = [NSJSONSerialization
+                                     JSONObjectWithData:data
+                                     options:0
+                                     error:&error];
         
         if (dictOfMedia!=nil && [dictOfMedia isKindOfClass:[NSDictionary class]] && [dictOfMedia objectForKey:@"type"])
         {
             
             
-            return 170;
+            return 160;
             
         }
         else
@@ -525,7 +526,14 @@
        
 //        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:[dictOfMedia objectForKey:@"url"]]];
         
-        
+        if (indexPath.row%2 == 0){
+            [cell setBackgroundColor:[UIColor redColor]];
+            
+        }
+        else{
+            [cell setBackgroundColor:[UIColor orangeColor]];
+
+        }
         return cell;
 
     }
@@ -553,7 +561,15 @@
             msg.status = MessageStateDelivered;
         }
         cell.message = msg;
-        
+        if (indexPath.row%2 == 0){
+            [cell setBackgroundColor:[UIColor redColor]];
+            
+        }
+        else{
+            [cell setBackgroundColor:[UIColor orangeColor]];
+            
+        }
+
         
         return cell;
 
@@ -563,16 +579,21 @@
     return [[UITableViewCell alloc] init];
 }
 
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     Chat *s = (Chat *) [messagesArray objectAtIndex:indexPath.row];
     NSString *message = s.message;
     if (message){
-        NSDictionary *dictOfMedia = [NSPropertyListSerialization
-                                     propertyListWithData:[message dataUsingEncoding:NSUTF8StringEncoding]
-                                     options:kNilOptions
-                                     format:NULL
-                                     error:NULL];
+        NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error = nil;
+        
+        NSDictionary *dictOfMedia = [NSJSONSerialization
+                                     JSONObjectWithData:data
+                                     options:0
+                                     error:&error];
+        
         
         
         if (dictOfMedia!=nil && [dictOfMedia isKindOfClass:[NSDictionary class]] && [dictOfMedia objectForKey:@"type"])
