@@ -23,6 +23,8 @@
         self.layer.cornerRadius = self.frame.size.height/2;
         self.layer.masksToBounds = true;
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
+        self.titleLabel.numberOfLines = 0;
 //        [self setImage: [UIImage imageNamed:@"icon-map-location"] forState:UIControlStateNormal];
         [self setImageEdgeInsets:UIEdgeInsetsMake(17, 0, 17,20)];
         
