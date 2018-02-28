@@ -325,29 +325,29 @@
                                            @"url": [[responseObj valueForKey:@"urls"] valueForKey:@"photo"]};
                     
                     
-                    //
-                    //                    NSError *error;
-                    //                    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
-                    //                                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                    //                                                                         error:&error];
-                    //
-                    //                    if (! jsonData) {
-                    //                        NSLog(@"Got an error: %@", error);
-                    //                    } else {
-                    //                        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-                    //                        NSString *newMessage = [NSString stringWithFormat:jsonString];
-                    //
-                    //                        //                    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shuam" andMessageId:@"34"];
-                    //
-                    //                        [hm sendMessage:newMessage toFriendWithFriendId:_toId andMessageId:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] ]];
-                    //                    }
+                    
+                                        NSError *error;
+                                        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
+                                                                                           options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                                                             error:&error];
+                    
+                                        if (! jsonData) {
+                                            NSLog(@"Got an error: %@", error);
+                                        } else {
+                                            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                                            NSString *newMessage = [NSString stringWithFormat:jsonString];
+                    
+                                            //                    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shuam" andMessageId:@"34"];
+                    
+                                            [hm sendMessage:newMessage toFriendWithFriendId:_toId andMessageId:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] ]];
+                                        }
 
                     
-                    NSString *newMessage = [NSString stringWithFormat:@"%@",dict];
-                    
-                    //                    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shuam" andMessageId:@"34"];
-                    
-                    [hm sendMessage:newMessage toFriendWithFriendId:_toId andMessageId:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] ]];
+//                    NSString *newMessage = [NSString stringWithFormat:@"%@",dict];
+//
+//                    //                    [hm sendImage:[UIImage imageNamed:@"BackgroundGeneral"] withMessage:newMessage toFriendWithFriendId:@"shuam" andMessageId:@"34"];
+//
+//                    [hm sendMessage:newMessage toFriendWithFriendId:_toId andMessageId:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] ]];
 
                     
                 }
@@ -487,11 +487,13 @@
     NSString *message = s.message;
     
     if (message){
-    NSDictionary *dictOfMedia = [NSPropertyListSerialization
-                                 propertyListWithData:[message dataUsingEncoding:NSUTF8StringEncoding]
-                                 options:kNilOptions
-                                 format:NULL
-                                 error:NULL];
+        NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error = nil;
+
+        NSDictionary *dictOfMedia = [NSJSONSerialization
+                                     JSONObjectWithData:data
+                                     options:0
+                                     error:&error];
     
     
     if (dictOfMedia!=nil && [dictOfMedia isKindOfClass:[NSDictionary class]] && [dictOfMedia objectForKey:@"type"])
