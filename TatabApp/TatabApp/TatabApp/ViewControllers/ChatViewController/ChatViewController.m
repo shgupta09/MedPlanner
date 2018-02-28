@@ -526,14 +526,7 @@
        
 //        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:[dictOfMedia objectForKey:@"url"]]];
         
-        if (indexPath.row%2 == 0){
-            [cell setBackgroundColor:[UIColor redColor]];
-            
-        }
-        else{
-            [cell setBackgroundColor:[UIColor orangeColor]];
-
-        }
+        
         return cell;
 
     }
@@ -561,15 +554,7 @@
             msg.status = MessageStateDelivered;
         }
         cell.message = msg;
-        if (indexPath.row%2 == 0){
-            [cell setBackgroundColor:[UIColor redColor]];
-            
-        }
-        else{
-            [cell setBackgroundColor:[UIColor orangeColor]];
-            
-        }
-
+        
         
         return cell;
 
