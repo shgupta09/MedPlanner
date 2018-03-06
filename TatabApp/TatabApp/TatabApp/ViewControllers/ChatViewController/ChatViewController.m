@@ -37,6 +37,7 @@
 
 @end
 
+
 @implementation ChatViewController
 
 - (void)viewDidLoad {
@@ -70,7 +71,10 @@
     
     NSString* email = [CommonFunction getValueFromDefaultWithKey:loginemail];
     
-   
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"UpdateCountLAbel"
+                                               object:nil];
     
     //test
     NSString* foo = [NSString stringWithFormat:@"%@%@",[[email componentsSeparatedByString:@"@"] objectAtIndex:0],[[email componentsSeparatedByString:@"@"] objectAtIndex:1]];
@@ -103,15 +107,6 @@
     UIImage * image = [UIImage imageNamed:@"documentWhite"];
     [_addOptionBtnAction setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidShow:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
     _tblView.rowHeight = UITableViewAutomaticDimension;
     _tblView.estimatedRowHeight = 225;
     cameraGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(removeImage)];
@@ -187,8 +182,6 @@
     [hm setMyStatus:MyStatusAvailable];
     [self.tblView registerClass:[MessageCell class] forCellReuseIdentifier: @"MessageCell"];
     [self.tblView registerClass:[ImageMessageCell class] forCellReuseIdentifier: @"ImageMessageCell"];
-    [_tblView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BackgroundGeneral"]]];
-  
     
     
     // You may need to alter these settings depending on the server you're connecting to
@@ -205,7 +198,22 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-
+-(void)receiveNotification:(NSNotification*)notObj{
+    if ([notObj.name isEqualToString:@"UpdateCountLAbel"]){
+        
+        if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+            _lbl_Name.text = [NSString stringWithFormat:@"%@",[_objDoctor.first_name capitalizedString]];
+            _btn_queue.hidden = false;
+            if ([QueueDetails sharedInstance].myDataArray.count>0) {
+                _lbl_queueCount.hidden = false;
+                _lbl_queueCount.text = [NSString stringWithFormat:@"%d",[QueueDetails sharedInstance].myDataArray.count];
+            }else{
+                _lbl_queueCount.hidden = true;
+                
+            }
+        }
+    }
+}
 -(void) notficationRecieved:(NSNotification*) notification{
     
     if ([notification.name isEqualToString:XMPPStreamDidReceiveMessage])
@@ -238,6 +246,8 @@
             [self saveMessage:@"0" senderId:messageContent andeMessage:messageContent.body];
             [self setMessageArray:true];
             _txtField.text = @"";
+            [_btnSend setImage:[UIImage imageNamed:@"cameraWhite"] forState:UIControlStateNormal];
+          
         }
         
        }
@@ -763,23 +773,50 @@
 
 
 #pragma mark - keyboard notification
-- (void)keyboardDidShow: (NSNotification *) notif{
-    // Do something here
-    NSDictionary* keyboardInfo = [notif userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+- (void)viewWillAppear:(BOOL)animated {
     
+    [super viewWillAppear:animated];
     
-   
-    _bottomConstraint.constant = keyboardFrameBeginRect.size.height;
-//    [_tblView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:true ];
-    [_tblView reloadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
 }
 
-- (void)keyboardDidHide: (NSNotification *) notif{
-    // Do something here
-        _bottomConstraint.constant = 0;
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    
 }
+
+
+
+#pragma mark - keyboard movements
+
+- (void)keyboardWillShow:(NSNotification *)notification
+
+{
+    
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    _bottomConstraint.constant = keyboardSize.height;
+    [self.view layoutSubviews];
+    
+}
+
+
+
+-(void)keyboardWillHide:(NSNotification *)notification
+{
+    _bottomConstraint.constant = 0;
+    
+}
+
 
 
 #pragma mark - add loder
@@ -942,6 +979,7 @@
                         _lbl_queueCount.hidden = true;
                         
                     }
+                    
                 }
                 if ([QueueDetails sharedInstance].myDataArray.count>0) {
                     _lbl_queueCount.hidden = false;

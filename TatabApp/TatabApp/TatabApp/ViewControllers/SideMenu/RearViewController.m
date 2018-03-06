@@ -26,7 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"UpdateCountLAbel"
+                                               object:nil];
      revealController = [self revealViewController];
     
 //    _viewToClip.layer.cornerRadius = 5;
@@ -41,6 +44,13 @@
     //categoryArray = [AwarenessCategory sharedInstance].myDataArray;
     
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)receiveNotification:(NSNotification*)notObj{
+    if ([notObj.name isEqualToString:@"UpdateCountLAbel"]){
+        
+        [_tbl_View reloadData];
+    }
 }
 -(void)viewWillAppear:(BOOL)animated{
     [_tbl_View reloadData];

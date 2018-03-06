@@ -128,6 +128,9 @@
      [self addAlertWithTitle:@"Logout" andMessage:@"Are you sure you want to Logout?"   isTwoButtonNeeded:true firstbuttonTag:101 secondButtonTag:104 firstbuttonTitle:OK_Btn secondButtonTitle:@"Cancel" image:Warning_Key_For_Image];
     }else if([notObj.name isEqualToString:@"NONE TO CHAT"]){
     [self addAlertWithTitle:AlertKey andMessage:@"No patient present in the queue." isTwoButtonNeeded:false firstbuttonTag:103 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }else if ([notObj.name isEqualToString:@"UpdateCountLAbel"]){
+        
+        
     }
   /*  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"Logout Successfully" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -353,7 +356,8 @@
         if (cell == nil) {
             cell = [[MediaPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MediaPostCell"];
         }
-        
+        cell.clinicImageView.layer.borderColor = [CommonFunction colorWithHexString:Primary_GreenColor].CGColor;
+        cell.clinicImageView.layer.borderWidth = 1;
         cell.lbl_DoctorName.text = [NSString stringWithFormat:@"Dr. %@",obj.post_by];
         [cell.imgView_Content sd_setImageWithURL:[NSURL URLWithString:obj.url]];
         cell.imgViewContentContainer.layer.shadowRadius  = 2.0f;
@@ -413,6 +417,8 @@
         cell.doctorImageView.layer.masksToBounds = true;
         cell.clinicImageView.layer.cornerRadius = 5;
         cell.clinicImageView.layer.masksToBounds = true;
+        cell.clinicImageView.layer.borderColor = [CommonFunction colorWithHexString:@"7AC430"].CGColor;
+        cell.clinicImageView.layer.borderWidth = 1;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell.btn_Like addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         cell.btn_Like.tag = 1000+indexPath.row;
@@ -956,6 +962,7 @@
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     NSLog(@"%@",responseObj);
                     NSArray *tempArray = [responseObj valueForKey:@"data"];
+                    
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         QueueDetails *queueObj = [QueueDetails new];
                         queueObj.queue_id = [obj valueForKey:@"queue_id"];
@@ -967,6 +974,7 @@
                         
                         [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
                     }];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateCountLAbel" object:nil];
                    }
                 
                 }

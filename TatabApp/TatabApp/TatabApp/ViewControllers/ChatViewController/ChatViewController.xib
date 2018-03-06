@@ -147,6 +147,9 @@
                         <constraint firstAttribute="trailing" secondItem="bb3-Dq-lLw" secondAttribute="trailing" constant="10" id="yTl-am-MfH"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="Uyu-6J-ivY">
+                    <rect key="frame" x="0.0" y="169" width="375" height="438"/>
+                </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Idb-w9-WQW" customClass="TPKeyboardAvoidingTableView">
                     <rect key="frame" x="0.0" y="169" width="375" height="438"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -273,7 +276,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vq-jZ-F80">
                     <rect key="frame" x="0.0" y="64" width="375" height="100"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-vH-322">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dependentsuser" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-vH-322">
                             <rect key="frame" x="300" y="15" width="70" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="1p8-tc-gtn"/>
@@ -381,11 +384,13 @@
                 <constraint firstItem="UiN-VW-ZJs" firstAttribute="top" secondItem="Idb-w9-WQW" secondAttribute="bottom" id="3dn-6z-Mqp"/>
                 <constraint firstItem="0vq-jZ-F80" firstAttribute="centerY" secondItem="N9Q-Sr-acy" secondAttribute="centerY" id="3oj-F4-O7J"/>
                 <constraint firstItem="Idb-w9-WQW" firstAttribute="top" secondItem="N9Q-Sr-acy" secondAttribute="bottom" constant="5" id="7Ft-c9-I3W"/>
+                <constraint firstItem="Uyu-6J-ivY" firstAttribute="top" secondItem="Idb-w9-WQW" secondAttribute="top" id="8nu-2a-kFm"/>
                 <constraint firstItem="N9Q-Sr-acy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FlL-EO-llG"/>
                 <constraint firstAttribute="trailing" secondItem="wN3-GQ-K9o" secondAttribute="trailing" id="FtC-qT-r5d"/>
                 <constraint firstItem="UiN-VW-ZJs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="H1h-Xv-Ub7"/>
                 <constraint firstItem="Idb-w9-WQW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HQl-mm-CUx"/>
                 <constraint firstAttribute="trailing" secondItem="UiN-VW-ZJs" secondAttribute="trailing" id="Hbc-TV-adT"/>
+                <constraint firstItem="Uyu-6J-ivY" firstAttribute="leading" secondItem="Idb-w9-WQW" secondAttribute="leading" id="Kv9-Nv-6dA"/>
                 <constraint firstItem="0vq-jZ-F80" firstAttribute="centerX" secondItem="N9Q-Sr-acy" secondAttribute="centerX" id="MZ4-rc-tBe"/>
                 <constraint firstAttribute="trailing" secondItem="N9Q-Sr-acy" secondAttribute="trailing" id="SmF-Y2-QAp"/>
                 <constraint firstAttribute="bottom" secondItem="UiN-VW-ZJs" secondAttribute="bottom" id="ZgA-fN-JJX"/>
@@ -393,6 +398,8 @@
                 <constraint firstItem="0vq-jZ-F80" firstAttribute="height" secondItem="N9Q-Sr-acy" secondAttribute="height" id="fbo-w6-XAr"/>
                 <constraint firstItem="0vq-jZ-F80" firstAttribute="width" secondItem="N9Q-Sr-acy" secondAttribute="width" id="nYQ-Qq-M43"/>
                 <constraint firstItem="N9Q-Sr-acy" firstAttribute="top" secondItem="wN3-GQ-K9o" secondAttribute="bottom" id="nzt-9L-8Bv"/>
+                <constraint firstAttribute="bottom" secondItem="Uyu-6J-ivY" secondAttribute="bottom" constant="60" id="u5w-ZP-I7i"/>
+                <constraint firstItem="Uyu-6J-ivY" firstAttribute="trailing" secondItem="Idb-w9-WQW" secondAttribute="trailing" id="x2R-Fe-iwp"/>
                 <constraint firstItem="wN3-GQ-K9o" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="x4J-hY-VaD"/>
                 <constraint firstItem="wN3-GQ-K9o" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xxH-ow-RsX"/>
             </constraints>
@@ -505,13 +512,14 @@
         </view>
     </objects>
     <resources>
+        <image name="BackgroundGeneral" width="750" height="1334"/>
         <image name="back" width="55" height="45"/>
         <image name="cameraWhite" width="45" height="37"/>
+        <image name="dependentsuser" width="512" height="512"/>
         <image name="diagnose" width="66" height="70"/>
         <image name="error" width="57" height="57"/>
         <image name="followup-1" width="79" height="70"/>
         <image name="prescription" width="52" height="70"/>
-        <image name="profile" width="218" height="256"/>
         <image name="queue" width="78" height="78"/>
         <image name="sendButton" width="70" height="71"/>
     </resources>

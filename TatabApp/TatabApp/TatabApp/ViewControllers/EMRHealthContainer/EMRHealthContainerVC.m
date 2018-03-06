@@ -141,6 +141,10 @@
     [cell.btnDetails setTag:1000+indexPath.row];
     [cell.btnfollowUp setTag:3000+indexPath.row];
     [cell.btnPrescription setTag:2000+indexPath.row];
+    cell.imgViewProfile.layer.borderColor = [CommonFunction colorWithHexString:Primary_GreenColor].CGColor;
+    cell.imgViewProfile.layer.borderWidth = 1;
+    cell.clinicImage.layer.borderColor = [CommonFunction colorWithHexString:Primary_GreenColor].CGColor;
+    cell.clinicImage.layer.borderWidth = 1;
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

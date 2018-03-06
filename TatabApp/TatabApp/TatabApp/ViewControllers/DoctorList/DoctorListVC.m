@@ -85,6 +85,8 @@
         
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2;
         cell.profileImageView.clipsToBounds = true;
+        
+        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }

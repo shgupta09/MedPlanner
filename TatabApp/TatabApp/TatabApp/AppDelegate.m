@@ -213,7 +213,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
             
         }];
     }
-    if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"New patient"]) {
+    if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"New Patient"]) {
         [self hitApiForTheQueueCount];
         
     }else if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"Start Chating"]) {
@@ -251,6 +251,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
                         
                         [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
                     }];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateCountLAbel" object:nil];
+
                 }
                 
             }
