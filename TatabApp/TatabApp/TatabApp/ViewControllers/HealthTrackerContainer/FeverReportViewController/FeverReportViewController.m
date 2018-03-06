@@ -62,8 +62,7 @@
     
     [_sliderView setMaximumTrackImage:[white stretchableImageWithLeftCapWidth:3.0 topCapHeight:0.0] forState:UIControlStateNormal];
     
-    [_sliderView setThumbImage:[UIImage imageNamed:@"slider_small"] forState:UIControlStateNormal];
-    
+    [_sliderView setThumbImage:[UIImage imageNamed:@"slider-fever"] forState:UIControlStateNormal];
     [_sliderView trackRectForBounds:_sliderView.bounds];
     
     if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
