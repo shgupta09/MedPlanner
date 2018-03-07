@@ -48,4 +48,5 @@
 +(NSString *)setOneMonthOldGate;
 +(NSString *)ConvertDateTime:(NSString *)dateStr;
 +(NSString *)ConvertDateTime2:(NSString *)dateStr;
++(UIImage*)setImageFor:(NSString*) clinicName;
 @end

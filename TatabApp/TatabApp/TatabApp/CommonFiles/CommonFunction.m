@@ -423,6 +423,26 @@
     [dateFormatter setDateFormat:@"YYYY-MM-dd"];
     return [dateFormatter stringFromDate:endOfWorldWar3];
 }
++(UIImage*)setImageFor:(NSString*) clinicName{
+    
+    if ([clinicName isEqualToString:@"Abdominal Clinic"]) {
+        return [UIImage imageNamed:@"sec-abdomen-1"];
+    }
+    else if ([clinicName isEqualToString:@"Psychological Clinic"]) {
+        return [UIImage imageNamed:@"sec-psy-1"];
+    }
+    else if ([clinicName isEqualToString:@"Family and Community Clinic"]) {
+        return [UIImage imageNamed:@"sec-family-1"];
+    }
+    else if ([clinicName isEqualToString:@"Obgyne Clinic"]) {
+        return [UIImage imageNamed:@"sec-obgyen-1"];
+    }
+    else if ([clinicName isEqualToString:@"Pediatrics Clinic"]) {
+        return [UIImage imageNamed:@"section-children"];
+    }
+    
+    return [UIImage imageNamed:@""];
+}
 
 
 @end

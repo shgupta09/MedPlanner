@@ -34,11 +34,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mw7-Wm-Dku">
                         <rect key="frame" x="24" y="16" width="60" height="60"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section-children" translatesAutoresizingMaskIntoConstraints="NO" id="6NC-2b-u0G">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section-children" translatesAutoresizingMaskIntoConstraints="NO" id="6NC-2b-u0G">
                                 <rect key="frame" x="1" y="1" width="58" height="58"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section-children" translatesAutoresizingMaskIntoConstraints="NO" id="Mt9-g2-SCL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section-children" translatesAutoresizingMaskIntoConstraints="NO" id="Mt9-g2-SCL">
                                 <rect key="frame" x="1" y="35" width="24" height="24"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -46,7 +46,7 @@
                                     <constraint firstAttribute="width" constant="24" id="r0b-Gn-QRb"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNj-wI-Yrb">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNj-wI-Yrb">
                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             </button>
                         </subviews>

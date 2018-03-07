@@ -85,11 +85,11 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPd-5F-fAo">
                     <rect key="frame" x="16" y="72" width="60" height="60"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section-children" translatesAutoresizingMaskIntoConstraints="NO" id="UCp-eA-gA5">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section-children" translatesAutoresizingMaskIntoConstraints="NO" id="UCp-eA-gA5">
                             <rect key="frame" x="1" y="1" width="58" height="58"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section-children" translatesAutoresizingMaskIntoConstraints="NO" id="rAe-rj-50z">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section-children" translatesAutoresizingMaskIntoConstraints="NO" id="rAe-rj-50z">
                             <rect key="frame" x="1" y="35" width="24" height="24"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -200,7 +200,7 @@
                         <constraint firstAttribute="height" constant="1" id="zGV-RO-RYh"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dependentsuser" translatesAutoresizingMaskIntoConstraints="NO" id="cPS-qV-aM5">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dependentsuser" translatesAutoresizingMaskIntoConstraints="NO" id="cPS-qV-aM5">
                     <rect key="frame" x="26" y="303" width="41" height="41"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="41" id="sCh-bR-Zl1"/>

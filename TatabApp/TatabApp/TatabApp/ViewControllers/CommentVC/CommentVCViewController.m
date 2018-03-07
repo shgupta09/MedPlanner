@@ -114,16 +114,24 @@
         cell = [[CommentTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CommentTableViewCell"];
     }
     CommentClass *obj = [dataArray objectAtIndex:indexPath.row];
-    cell.lblUserName.text = [NSString stringWithFormat:@"Dr. %@",obj.comment_by];
+    if (![obj.Usertype isEqualToString:@"Patient"]) {
+        cell.lblUserName.text = [NSString stringWithFormat:@"Dr. %@",[obj.comment_by capitalizedString]];
+        cell.imgViewType.layer.cornerRadius = 5;
+        cell.imgViewType.layer.masksToBounds = true;
+        cell.imgViewType.hidden = false;
+        cell.imgViewType.image = [CommonFunction setImageFor:obj.specialization];
+    }else{
+        cell.lblUserName.text = [NSString stringWithFormat:@"%@",[obj.comment_by capitalizedString]];
+        cell.imgViewType.hidden = true;
+    }
     cell.lblComment.text = obj.comment;
     cell.imgViewUser.layer.cornerRadius = 5;
     cell.imgViewUser.layer.masksToBounds = true;
-    cell.imgViewType.layer.cornerRadius = 5;
-    cell.imgViewType.layer.masksToBounds = true;
+  
     [cell.imgViewUser sd_setImageWithURL:[NSURL URLWithString:obj.profile_pic] placeholderImage:[UIImage imageNamed:@"dependentsuser"]];
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if(indexPath.row == dataArray.count-1){
         cell.lowerSeperatorView.hidden = true;
     }else{
@@ -157,6 +165,10 @@
                         commentObj.comment_by = [NSString stringWithFormat:@"%@" ,[obj valueForKey:@"comment_by"]];
                         commentObj.posted_at = [obj valueForKey:@"posted_at"];
                         commentObj.profile_pic = [obj valueForKey:@"profile_pic"];
+                        commentObj.Usertype = [obj valueForKey:@"Usertype"];
+                        if (![commentObj.Usertype isEqualToString:@"Patient"]) {
+                            commentObj.specialization  = [obj valueForKey:@"specialization"];
+                        }
                         
                         [dataArray addObject:commentObj];
                     }];

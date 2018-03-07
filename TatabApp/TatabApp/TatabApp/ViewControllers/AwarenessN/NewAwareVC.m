@@ -385,7 +385,7 @@
         cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_comments];
 //        cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
-        [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
+        [cell.clinicImageView setImage:[CommonFunction setImageFor:obj.clinicName]];
         cell.profileBtn.tag = 5000+indexPath.row;
         [cell.profileBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         cell.contentBtn.tag = 4000+indexPath.row;
@@ -430,7 +430,7 @@
         cell.lbl_CommentCount.text = [NSString stringWithFormat:@"%@",obj.total_comments];
 //        cell.lbl_ShareCount.text = [NSString stringWithFormat:@"%@",obj.total_likes];
         [cell.doctorImageView sd_setImageWithURL:[NSURL URLWithString:obj.icon_url]];
-        [cell.clinicImageView setImage:[self setImageFor:obj.clinicName]];
+        [cell.clinicImageView setImage:[CommonFunction setImageFor:obj.clinicName]];
         cell.profileContent.tag = 5000+indexPath.row;
         [cell.profileContent addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -455,26 +455,6 @@
 }
 
 
--(UIImage*) setImageFor:(NSString*) clinicName{
-
-    if ([clinicName isEqualToString:@"Abdominal Clinic"]) {
-        return [UIImage imageNamed:@"sec-abdomen-1"];
-    }
-    else if ([clinicName isEqualToString:@"Psychological Clinic"]) {
-        return [UIImage imageNamed:@"sec-psy-1"];
-    }
-    else if ([clinicName isEqualToString:@"Family and Community Clinic"]) {
-        return [UIImage imageNamed:@"sec-family-1"];
-    }
-    else if ([clinicName isEqualToString:@"Obgyne Clinic"]) {
-        return [UIImage imageNamed:@"sec-obgyen-1"];
-    }
-    else if ([clinicName isEqualToString:@"Pediatrics Clinic"]) {
-        return [UIImage imageNamed:@"section-children"];
-    }
-    
-    return [UIImage imageNamed:@""];
-}
 
 
 -(void)btnClicked:(id)sender{
