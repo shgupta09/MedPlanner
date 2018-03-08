@@ -230,7 +230,7 @@
                         <action selector="btnCommentSend:" destination="-1" eventType="touchUpInside" id="cz3-la-acL"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LGC-7K-mbv">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LGC-7K-mbv">
                     <rect key="frame" x="84" y="105" width="271" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="1V0-bW-g0s"/>
