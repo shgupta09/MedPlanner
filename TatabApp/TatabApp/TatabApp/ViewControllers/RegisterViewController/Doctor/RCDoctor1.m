@@ -34,10 +34,10 @@
 
 -(void)setData{
     
-//    _txtName.text = @"123456";
-//    _txtPassword.text = @"Admin@123";
-//    _txtEmail.text = @"123456@yopmail.com";
-//    _txtMobile.text = @"9999708178";
+    _txtName.text = @"123456";
+    _txtPassword.text = @"Admin@123";
+    _txtEmail.text = @"123456@yopmail.com";
+    _txtMobile.text = @"9999708178";
 //    
     _txtName.leftImgView.image = [UIImage imageNamed:@"b"];
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
@@ -267,7 +267,7 @@
             [validationDict setValue:@"We need a Password" forKey:AlertKey];
         }
         else{
-            [validationDict setValue:@"Incorrect Password. The correct password must have a minimum of 8 characters; with at least one character in upper case and at least one special character or number." forKey:AlertKey];
+            [validationDict setValue:@"Incorrect Password. The correct password must have a minimum of 8 characters; with at least one character in upper case and number." forKey:AlertKey];
         }
         
         

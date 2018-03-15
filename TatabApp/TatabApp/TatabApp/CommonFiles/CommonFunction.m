@@ -28,7 +28,7 @@
 {
     //!~`@#$%^&*-+();:={}[],.<>?\\/\"\'
     //NSRegularExpression* regex = [[NSRegularExpression alloc] initWithPattern:@"^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z]).*$" options:0 error:nil];
-    NSRegularExpression* regex = [[NSRegularExpression alloc] initWithPattern:@"^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z]).*(?=.[!,@,#,.,$,%,&,*,^])" options:0 error:nil];
+    NSRegularExpression* regex = [[NSRegularExpression alloc] initWithPattern:@"^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])" options:0 error:nil];
     
     return [regex numberOfMatchesInString:password options:0 range:NSMakeRange(0, [password length])] > 0;
 }
@@ -168,6 +168,7 @@
     
     NSString *nameExpression = @"[a-zA-Z. ]{2,50}";
     NSPredicate *regex = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", nameExpression];
+    return true;
     return [regex evaluateWithObject:[self trimString:name]];
    }
 

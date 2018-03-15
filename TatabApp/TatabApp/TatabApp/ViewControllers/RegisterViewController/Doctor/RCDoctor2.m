@@ -35,11 +35,11 @@
     _txt_homeLocation.leftImgView.image = [UIImage imageNamed:@"icon-map-location"];
     _txt_Nationality.leftImgView.image = [UIImage imageNamed:@"b"];
     
-//    _txtPassport.text = @"9999708178";
-//    _txt_Residence.text = @"adfaf";
-//    _txt_workplace.text = @"adfaf";
-//    _txt_homeLocation.text = @"adfaf";
-//    _txt_Nationality.text = @"adfaf";
+    _txtPassport.text = @"9999708178";
+    _txt_Residence.text = @"adfaf";
+    _txt_workplace.text = @"adfaf";
+    _txt_homeLocation.text = @"adfaf";
+    _txt_Nationality.text = @"adfaf";
     
 }
 

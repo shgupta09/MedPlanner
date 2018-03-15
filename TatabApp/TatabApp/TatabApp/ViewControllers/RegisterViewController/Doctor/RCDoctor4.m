@@ -65,6 +65,15 @@
 }
 #pragma mark - TextField Delegate
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (textField.tag == 0||textField.tag == 1) {
+        if (textField.text.length == 0 && ![string isEqualToString:@""]) {
+            textField.text = @"SA";
+        }else if(textField.text.length == 3 && [string isEqualToString:@""])
+        {
+            textField.text = @"";
+        }
+        
+    }
     if ((textField.tag == 0||textField.tag == 1) && ![string isEqualToString:@""] && (textField.text.length + string.length)>15) {
         return false;
     }
@@ -128,24 +137,28 @@
 -(NSDictionary *)validateData{
     NSMutableDictionary *validationDict = [[NSMutableDictionary alloc] init];
     [validationDict setValue:@"1" forKey:BoolValueKey];
-    if (![CommonFunction validateMobile:_txt_IBAN.text]){
+    NSString *iBan = _txt_IBAN.text;
+    iBan =[iBan substringFromIndex:2];
+    NSString *confirmIban = _txt_ConfirmIban.text;
+    confirmIban =[confirmIban substringFromIndex:2];
+    if (![CommonFunction validateMobile:iBan]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        if ([CommonFunction trimString:_txt_IBAN.text].length == 0){
+        if ([CommonFunction trimString:iBan].length == 0){
             [validationDict setValue:@"We need a IBAN" forKey:AlertKey];
         }else{
             [validationDict setValue:@"Oops! It seems that this is not a valid IBAN." forKey:AlertKey];
         }
         
-    }  else  if (![CommonFunction validateMobile:_txt_ConfirmIban.text]){
+    }  else  if (![CommonFunction validateMobile:confirmIban]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        if ([CommonFunction trimString:_txt_ConfirmIban.text].length == 0){
+        if ([CommonFunction trimString:confirmIban].length == 0){
             [validationDict setValue:@"We need a Confirm IBAN" forKey:AlertKey];
         }else{
             [validationDict setValue:@"Oops! It seems that this is not a valid Confirm IBAN." forKey:AlertKey];
         }
         
     }
-    else  if (![_txt_IBAN.text isEqualToString:_txt_ConfirmIban.text]){
+    else  if (![iBan isEqualToString:confirmIban]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         [validationDict setValue:@"IBAN and Confirm IBAN should be same." forKey:AlertKey];
     

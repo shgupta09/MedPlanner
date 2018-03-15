@@ -57,12 +57,12 @@
       if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
           
           if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"DEPENDANTS",@"EMR AND TRACKER",@"PROFILE",@"AWARENESS",@"SETTINGS",@"NOTIFICATIONS", nil];
-              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-children",@"menu-general",@"Icon---Profile",@"mngawarenessMENU",@"Icon---Setttings",@"Icon---Setttings", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"DEPENDANTS",@"EMR AND TRACKER",@"PROFILE",@"SETTINGS",@"NOTIFICATIONS", nil];
+              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-children",@"menu-general",@"Icon---Profile",@"Icon---Setttings",@"Icon---Setttings", nil];
           }
           else{
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"QUEUE",@"EMR AND TRACKER",@"PROFILE",@"AWARENESS",@"SETTINGS",@"NOTIFICATIONS", nil];
-              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queueWhite",@"menu-general",@"Icon---Profile",@"mngawarenessMENU",@"Icon---Setttings",@"Icon---Setttings", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"QUEUE",@"EMR AND TRACKER",@"PROFILE",@"SETTINGS",@"NOTIFICATIONS", nil];
+              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queueWhite",@"menu-general",@"Icon---Profile",@"Icon---Setttings",@"Icon---Setttings", nil];
               [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
           }
            _lblNAme.text = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
@@ -181,9 +181,6 @@
                 case 4:{
                 }
                     break;
-                case 5:{
-                   }
-                    break;
 
                 default:
                     break;
@@ -240,9 +237,7 @@
                 case 4:{
                 }
                     break;
-                case 5:{
-                }
-                    break;
+            
                 default:
                     break;
             }

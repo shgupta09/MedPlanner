@@ -30,9 +30,9 @@
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
     
-   // _txtPassword.text = @"Admin@123";
-   // _txtName.text = @"Rahul";
-   // _txtEmail.text = @"DemoPatientdfs16@yopmail.com";
+    _txtPassword.text = @"Admin@123";
+    _txtName.text = @"Rahul";
+    _txtEmail.text = @"DemoPatientdfs16@yopmail.com";
 
     
     [self setData];
@@ -181,7 +181,7 @@
             [validationDict setValue:@"We need a Password" forKey:AlertKey];
         }
         else{
-            [validationDict setValue:@"Incorrect Password. The correct password must have a minimum of 8 characters; with at least one character in upper case and at least one special character or number." forKey:AlertKey];
+            [validationDict setValue:@"Incorrect Password. The correct password must have a minimum of 8 characters; with at least one character in upper case and number." forKey:AlertKey];
         }
         
         

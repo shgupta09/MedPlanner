@@ -305,7 +305,7 @@
                 <constraint firstItem="AFB-sW-Hg3" firstAttribute="leading" secondItem="9LC-NO-EMM" secondAttribute="trailing" constant="5" id="vdh-Gd-0c7"/>
                 <constraint firstAttribute="trailing" secondItem="mCa-nu-vXI" secondAttribute="trailing" constant="20" id="zyO-6O-pJC"/>
             </constraints>
-            <point key="canvasLocation" x="25.5" y="52.5"/>
+            <point key="canvasLocation" x="235" y="-15"/>
         </view>
     </objects>
     <resources>
