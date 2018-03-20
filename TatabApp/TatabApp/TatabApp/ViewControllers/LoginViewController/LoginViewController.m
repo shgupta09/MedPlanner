@@ -188,6 +188,7 @@
                         [CommonFunction storeValueInDefault:[CommonFunction checkForNull:[[responseObj objectForKey:loginUser] valueForKey:Specialist]] andKey:Specialist];
                         
                         [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
+                        [CommonFunction stroeBoolValueForKey:Notification_Related withBoolValue:true];
                         [self hitApiForaddingTheDeviceID];
 
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];

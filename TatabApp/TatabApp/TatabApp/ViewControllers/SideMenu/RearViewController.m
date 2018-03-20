@@ -7,6 +7,7 @@
 //
 
 #import "RearViewController.h"
+#import "SettingVC.h"
 @interface RearViewController ()
 {
     NSMutableArray *titleArray;
@@ -173,7 +174,9 @@
                     break;
                 case 3:
                 {
-                    
+                    SettingVC* vc ;
+                    vc = [[SettingVC alloc] initWithNibName:@"SettingVC" bundle:nil];
+                    [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
 
@@ -232,6 +235,9 @@
                 }
                     break;
                 case 3:{
+                    SettingVC* vc ;
+                    vc = [[SettingVC alloc] initWithNibName:@"SettingVC" bundle:nil];
+                    [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
                 case 4:{

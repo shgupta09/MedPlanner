@@ -86,6 +86,9 @@
 #define primary_Color @"00b1dd"
 #define Primary_GreenColor @"7ac430"
 
+
+//Notificatio Related
+#define Notification_Related @"Notification"
 //Url Related
 #define firstName @"firstName"
 #define lastName @"lastName"

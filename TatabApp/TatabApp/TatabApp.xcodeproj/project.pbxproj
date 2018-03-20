@@ -136,6 +136,8 @@
 		9C8FE6D81F8B53270003003C /* RCDoctor3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8FE6D61F8B53270003003C /* RCDoctor3.xib */; };
 		9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */; };
 		9C8FE6DD1F8B8DCF0003003C /* RCDoctor4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8FE6DB1F8B8DCF0003003C /* RCDoctor4.xib */; };
+		9CADAD8620612F2000737CAA /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CADAD8420612F2000737CAA /* SettingVC.m */; };
+		9CADAD8720612F2000737CAA /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CADAD8520612F2000737CAA /* SettingVC.xib */; };
 		9CEA820820121B7800F84450 /* CustomButton4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA820720121B7800F84450 /* CustomButton4.m */; };
 		D82354AA1F8A37790097A94C /* RCDoctor1.m in Sources */ = {isa = PBXBuildFile; fileRef = D82354A81F8A37790097A94C /* RCDoctor1.m */; };
 		D82354AB1F8A37790097A94C /* RCDoctor1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82354A91F8A37790097A94C /* RCDoctor1.xib */; };
@@ -377,6 +379,9 @@
 		9C8FE6D91F8B8DCF0003003C /* RCDoctor4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoctor4.h; sourceTree = "<group>"; };
 		9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDoctor4.m; sourceTree = "<group>"; };
 		9C8FE6DB1F8B8DCF0003003C /* RCDoctor4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDoctor4.xib; sourceTree = "<group>"; };
+		9CADAD8320612F2000737CAA /* SettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
+		9CADAD8420612F2000737CAA /* SettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
+		9CADAD8520612F2000737CAA /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		9CEA820620121B7800F84450 /* CustomButton4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton4.h; sourceTree = "<group>"; };
 		9CEA820720121B7800F84450 /* CustomButton4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton4.m; sourceTree = "<group>"; };
 		A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TatabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1007,6 +1012,7 @@
 		9C6DE7281F8399B500635102 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				9CADAD8220612F0E00737CAA /* SettingVC */,
 				9C6DE72E1F83A1FC00635102 /* ReaeCell */,
 				9C6DE7291F8399CD00635102 /* RearViewController.h */,
 				9C6DE72A1F8399CD00635102 /* RearViewController.m */,
@@ -1053,6 +1059,16 @@
 				9C840987203EE56500A7C3C7 /* RatingVC.xib */,
 			);
 			path = RatingVC;
+			sourceTree = "<group>";
+		};
+		9CADAD8220612F0E00737CAA /* SettingVC */ = {
+			isa = PBXGroup;
+			children = (
+				9CADAD8320612F2000737CAA /* SettingVC.h */,
+				9CADAD8420612F2000737CAA /* SettingVC.m */,
+				9CADAD8520612F2000737CAA /* SettingVC.xib */,
+			);
+			path = SettingVC;
 			sourceTree = "<group>";
 		};
 		D84B6BB81F77837500F37660 /* Loder VIew */ = {
@@ -1341,6 +1357,7 @@
 				D86A3735202E1CAC009EA562 /* CustomTabBar.xib in Resources */,
 				5FB773F41FF525F300982102 /* DoctorListEMRLogTableViewCell.xib in Resources */,
 				D8E1C7A02007C790007172F5 /* NewAwareVC.xib in Resources */,
+				9CADAD8720612F2000737CAA /* SettingVC.xib in Resources */,
 				5FB51C472003E5BE00E4889B /* SugarReportViewController.xib in Resources */,
 				9C6DE72D1F8399CD00635102 /* RearViewController.xib in Resources */,
 				5FBBBAEE1F72401B00C03813 /* Main.storyboard in Resources */,
@@ -1599,6 +1616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F4F6C5F1F828E5A000C65A0 /* AwarenessCategoryViewController.m in Sources */,
+				9CADAD8620612F2000737CAA /* SettingVC.m in Sources */,
 				D8E1C7A3200902A8007172F5 /* PostData.m in Sources */,
 				5FE822DC203D507C00F20F4D /* TatabApp.xcdatamodeld in Sources */,
 				9C8FE6D71F8B53270003003C /* RCDoctor3.m in Sources */,
