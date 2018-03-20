@@ -13,4 +13,5 @@
 @interface RegisterCompleteViewController : UIViewController<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,XMPPStreamDelegate>
 @property (weak, nonatomic) IBOutlet CustomTFWithLeftRight *txt_Relationship;
 @property(nonatomic,strong)NSMutableDictionary *parameterDict;
+@property (weak, nonatomic) IBOutlet UIButton *btn_Terms;
 @end

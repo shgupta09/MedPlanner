@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RCDoctor4">
             <connections>
+                <outlet property="btn_Terms" destination="aM6-wW-jQE" id="KGl-uj-V5s"/>
                 <outlet property="imgView" destination="kJa-av-dSk" id="1X0-BA-fVI"/>
                 <outlet property="txt_ConfirmIban" destination="iOs-Cc-EWa" id="W5A-qa-nVl"/>
                 <outlet property="txt_IBAN" destination="eW3-XD-uw8" id="noF-r0-nXT"/>
@@ -30,10 +31,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iev-74-1Wq">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="671"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="664.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0H-iU-XMp">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="168"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="166.5"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator" translatesAutoresizingMaskIntoConstraints="NO" id="FVC-aj-eF6">
                                             <rect key="frame" x="60" y="64" width="255" height="45"/>
@@ -43,7 +44,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAYMENT DETAILS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSH-o8-wnn">
-                                            <rect key="frame" x="105.5" y="131" width="164.5" height="22"/>
+                                            <rect key="frame" x="105.5" y="129.5" width="164.5" height="22"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" red="0.49783343079999998" green="0.68638932699999999" blue="0.2307600081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -72,7 +73,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpV-DQ-DOw">
-                                    <rect key="frame" x="0.0" y="168" width="375" height="503"/>
+                                    <rect key="frame" x="0.0" y="166.5" width="375" height="498"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="IBAN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eW3-XD-uw8" customClass="CustomTextField">
                                             <rect key="frame" x="20" y="14" width="335" height="45"/>
@@ -86,25 +87,6 @@
                                                 <outlet property="delegate" destination="-1" id="IZg-Oy-v4U"/>
                                             </connections>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuf-9q-Hia" customClass="CustomButton">
-                                            <rect key="frame" x="20" y="350" width="335" height="45"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="45" id="LN6-cR-Z8a"/>
-                                            </constraints>
-                                            <state key="normal" title="Complete Registration"/>
-                                            <connections>
-                                                <action selector="btnActionCompleteRegistration:" destination="-1" eventType="touchUpInside" id="ABa-FE-6XT"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZH-5f-8La" customClass="CustomButton">
-                                            <rect key="frame" x="87.5" y="416" width="200" height="37"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="37" id="e3P-jq-Ljk"/>
-                                                <constraint firstAttribute="width" constant="200" id="mQ1-6E-VYZ"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
-                                            <state key="normal" title="Terms &amp; Conditions"/>
-                                        </button>
                                         <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PHOTO UPLOAD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqs-kM-JAW" customClass="CustomTextField">
                                             <rect key="frame" x="20" y="127" width="335" height="45"/>
                                             <constraints>
@@ -147,20 +129,54 @@
                                                 <action selector="captireBtnAction:" destination="-1" eventType="touchUpInside" id="gLg-3H-i0K"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aM6-wW-jQE">
+                                            <rect key="frame" x="20" y="356" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="heH-zN-o1p"/>
+                                                <constraint firstAttribute="width" constant="30" id="yhY-kf-nmT"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="check-passive"/>
+                                            <state key="selected" backgroundImage="check_active"/>
+                                            <connections>
+                                                <action selector="btnAction_Terms:" destination="-1" eventType="touchUpInside" id="M8Z-SP-OVV"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYZ-U3-n7N">
+                                            <rect key="frame" x="58" y="356" width="297" height="30"/>
+                                            <state key="normal" title="Yes, I aggree to terms and condition">
+                                                <color key="titleColor" red="0.49803921569999998" green="0.68627450980000004" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="btnAction_ShowTerms:" destination="-1" eventType="touchUpInside" id="BXe-1D-hWn"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuf-9q-Hia" customClass="CustomButton">
+                                            <rect key="frame" x="20" y="394" width="335" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="LN6-cR-Z8a"/>
+                                            </constraints>
+                                            <state key="normal" title="Complete Registration"/>
+                                            <connections>
+                                                <action selector="btnActionCompleteRegistration:" destination="-1" eventType="touchUpInside" id="ABa-FE-6XT"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="AZH-5f-8La" firstAttribute="top" secondItem="Uuf-9q-Hia" secondAttribute="bottom" constant="21" id="1Bl-IQ-mU6"/>
+                                        <constraint firstItem="Uuf-9q-Hia" firstAttribute="top" secondItem="aM6-wW-jQE" secondAttribute="bottom" constant="8" id="0Ab-NP-sFS"/>
                                         <constraint firstItem="JiE-A9-sos" firstAttribute="height" secondItem="kJa-av-dSk" secondAttribute="height" id="2fG-sm-rP8"/>
+                                        <constraint firstItem="aM6-wW-jQE" firstAttribute="top" secondItem="JiE-A9-sos" secondAttribute="bottom" constant="20" id="3Ff-yG-CIE"/>
                                         <constraint firstAttribute="trailing" secondItem="eW3-XD-uw8" secondAttribute="trailing" constant="20" id="4tA-8k-uM6"/>
                                         <constraint firstItem="kJa-av-dSk" firstAttribute="centerX" secondItem="SpV-DQ-DOw" secondAttribute="centerX" id="4xF-Hp-UED"/>
-                                        <constraint firstItem="AZH-5f-8La" firstAttribute="centerX" secondItem="Uuf-9q-Hia" secondAttribute="centerX" id="CRj-kw-hU3"/>
                                         <constraint firstItem="iOs-Cc-EWa" firstAttribute="top" secondItem="eW3-XD-uw8" secondAttribute="bottom" constant="9" id="D3f-a3-f72"/>
                                         <constraint firstItem="JiE-A9-sos" firstAttribute="centerY" secondItem="kJa-av-dSk" secondAttribute="centerY" id="EEh-B6-HMr"/>
                                         <constraint firstItem="JiE-A9-sos" firstAttribute="width" secondItem="kJa-av-dSk" secondAttribute="width" id="EgC-3g-72X"/>
                                         <constraint firstItem="KfL-kY-cAe" firstAttribute="height" secondItem="yqs-kM-JAW" secondAttribute="height" id="HaZ-mY-Egc"/>
-                                        <constraint firstItem="Uuf-9q-Hia" firstAttribute="top" secondItem="kJa-av-dSk" secondAttribute="bottom" constant="14" id="Hyp-7B-NZm"/>
+                                        <constraint firstItem="cYZ-U3-n7N" firstAttribute="centerY" secondItem="aM6-wW-jQE" secondAttribute="centerY" id="IPy-HU-Tv8"/>
                                         <constraint firstItem="KfL-kY-cAe" firstAttribute="centerX" secondItem="yqs-kM-JAW" secondAttribute="centerX" id="Rju-8F-tn8"/>
+                                        <constraint firstItem="cYZ-U3-n7N" firstAttribute="trailing" secondItem="KfL-kY-cAe" secondAttribute="trailing" id="Sq7-BU-tQ5"/>
+                                        <constraint firstAttribute="bottom" secondItem="Uuf-9q-Hia" secondAttribute="bottom" constant="59" id="Tqc-Za-1Y4"/>
+                                        <constraint firstItem="aM6-wW-jQE" firstAttribute="leading" secondItem="Uuf-9q-Hia" secondAttribute="leading" id="V43-PF-eln"/>
                                         <constraint firstItem="yqs-kM-JAW" firstAttribute="leading" secondItem="eW3-XD-uw8" secondAttribute="leading" id="W5g-CB-GyN"/>
                                         <constraint firstItem="KfL-kY-cAe" firstAttribute="centerY" secondItem="yqs-kM-JAW" secondAttribute="centerY" id="WZ4-fP-7Xa"/>
                                         <constraint firstItem="KfL-kY-cAe" firstAttribute="width" secondItem="yqs-kM-JAW" secondAttribute="width" id="Y7P-Q6-aKB"/>
@@ -168,12 +184,12 @@
                                         <constraint firstItem="yqs-kM-JAW" firstAttribute="top" secondItem="iOs-Cc-EWa" secondAttribute="bottom" constant="14" id="fZT-WG-tlr"/>
                                         <constraint firstItem="eW3-XD-uw8" firstAttribute="leading" secondItem="SpV-DQ-DOw" secondAttribute="leading" constant="20" id="gGU-yS-bx8"/>
                                         <constraint firstItem="yqs-kM-JAW" firstAttribute="trailing" secondItem="eW3-XD-uw8" secondAttribute="trailing" id="giE-PY-N1T"/>
+                                        <constraint firstItem="cYZ-U3-n7N" firstAttribute="leading" secondItem="aM6-wW-jQE" secondAttribute="trailing" constant="8" id="q19-lL-6d2"/>
                                         <constraint firstItem="Uuf-9q-Hia" firstAttribute="leading" secondItem="yqs-kM-JAW" secondAttribute="leading" id="rvn-uH-b83"/>
                                         <constraint firstItem="JiE-A9-sos" firstAttribute="centerX" secondItem="kJa-av-dSk" secondAttribute="centerX" id="ta9-0j-AhX"/>
                                         <constraint firstItem="iOs-Cc-EWa" firstAttribute="trailing" secondItem="eW3-XD-uw8" secondAttribute="trailing" id="uHD-QB-dmD"/>
                                         <constraint firstItem="Uuf-9q-Hia" firstAttribute="trailing" secondItem="yqs-kM-JAW" secondAttribute="trailing" id="urV-r9-WTC"/>
                                         <constraint firstItem="iOs-Cc-EWa" firstAttribute="leading" secondItem="eW3-XD-uw8" secondAttribute="leading" id="vDp-Lp-fGt"/>
-                                        <constraint firstAttribute="bottom" secondItem="AZH-5f-8La" secondAttribute="bottom" constant="50" id="xa6-zy-1of"/>
                                         <constraint firstItem="kJa-av-dSk" firstAttribute="top" secondItem="yqs-kM-JAW" secondAttribute="bottom" constant="14" id="yfK-Fr-ihr"/>
                                     </constraints>
                                 </view>
@@ -219,6 +235,8 @@
     <resources>
         <image name="BackgroundGeneral" width="750" height="1334"/>
         <image name="back" width="55" height="45"/>
+        <image name="check-passive" width="18" height="18"/>
+        <image name="check_active" width="18" height="18"/>
         <image name="dependentsuser" width="512" height="512"/>
         <image name="indicator" width="560" height="108"/>
     </resources>

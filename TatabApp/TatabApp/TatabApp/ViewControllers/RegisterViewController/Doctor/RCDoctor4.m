@@ -110,6 +110,18 @@
 
 
 #pragma mark - Btn Actions
+
+- (IBAction)btnAction_ShowTerms:(id)sender {
+}
+- (IBAction)btnAction_Terms:(id)sender {
+    if (_btn_Terms.isSelected) {
+        [_btn_Terms setSelected:false];
+    }else{
+        [_btn_Terms setSelected:true];
+    }
+}
+
+
 - (IBAction)btnBackClicked:(id)sender {
     [hm disconnectFromXMPPServer];
     [hm clearXMPPStream];
@@ -166,6 +178,10 @@
     else  if (!iscaptured){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         [validationDict setValue:@"We need an Image" forKey:AlertKey];
+    }
+    else  if (!_btn_Terms.isSelected){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        [validationDict setValue:@"Please select the terms and condition" forKey:AlertKey];
     }
     return validationDict.mutableCopy;
     

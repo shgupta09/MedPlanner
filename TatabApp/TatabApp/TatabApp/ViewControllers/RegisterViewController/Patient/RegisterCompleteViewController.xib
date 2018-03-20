@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="btnFemale" destination="9Fn-1y-KbJ" id="9bf-Ta-neJ"/>
                 <outlet property="btnMAle" destination="a1R-vw-y5N" id="xHf-vg-hWC"/>
+                <outlet property="btn_Terms" destination="XlO-w0-SwR" id="bdA-7A-Q4G"/>
                 <outlet property="popUpView" destination="sQu-TM-l9G" id="3bK-Zp-9dY"/>
                 <outlet property="scrlView" destination="Lok-Qt-tei" id="4lL-EC-cuy"/>
                 <outlet property="tblView" destination="9JM-Kp-abk" id="1YP-uw-Amw"/>
@@ -60,7 +61,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PERSONAL DETAILS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi6-n0-Gur">
                                             <rect key="frame" x="87" y="66" width="201" height="26"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                            <color key="textColor" red="0.49783343079999998" green="0.68638932699999999" blue="0.2307600081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.49803921568627452" green="0.68627450980392157" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -110,18 +111,6 @@
                                                 <action selector="btnAddDependentsClciked:" destination="-1" eventType="touchUpInside" id="aoc-ON-gSH"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaA-gC-8ZA" customClass="CustomButton">
-                                            <rect key="frame" x="87" y="436" width="200" height="37"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="37" id="eKI-ne-cPZ"/>
-                                                <constraint firstAttribute="width" constant="200" id="sRl-Tr-IWM"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
-                                            <state key="normal" title="Terms &amp; Conditions"/>
-                                            <connections>
-                                                <action selector="btnTermsClicked:" destination="-1" eventType="touchUpInside" id="mIU-EV-EBq"/>
-                                            </connections>
-                                        </button>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9JM-Kp-abk">
                                             <rect key="frame" x="20" y="206" width="335" height="157"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -131,7 +120,7 @@
                                             </connections>
                                         </tableView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvW-cs-EhX" customClass="CustomButton">
-                                            <rect key="frame" x="20" y="377" width="335" height="45"/>
+                                            <rect key="frame" x="20" y="433" width="335" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="0xr-o6-ezg"/>
                                             </constraints>
@@ -146,31 +135,55 @@
                                                 <action selector="btnActionBirthDay:" destination="-1" eventType="touchUpInside" id="Z1y-Wi-2CT"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XlO-w0-SwR">
+                                            <rect key="frame" x="20" y="383" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="Bem-4U-ymM"/>
+                                                <constraint firstAttribute="height" constant="30" id="k4o-Lj-O35"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="check-passive"/>
+                                            <state key="selected" backgroundImage="check_active"/>
+                                            <connections>
+                                                <action selector="btnAction_Terms:" destination="-1" eventType="touchUpInside" id="fex-Zu-q7p"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEl-0z-VDg">
+                                            <rect key="frame" x="58" y="383" width="297" height="30"/>
+                                            <state key="normal" title="Yes, I aggree to terms and condition">
+                                                <color key="titleColor" red="0.49803921568627452" green="0.68627450980392157" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="btnAction_ShowTerms:" destination="-1" eventType="touchUpInside" id="st7-HQ-4KV"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="hvW-cs-EhX" firstAttribute="centerX" secondItem="gZm-en-wXr" secondAttribute="centerX" id="2gm-Wc-Ifj"/>
                                         <constraint firstItem="FKx-ZV-yO9" firstAttribute="top" secondItem="ob6-h3-hy9" secondAttribute="top" constant="29" id="6W3-1J-35m"/>
                                         <constraint firstItem="gZm-en-wXr" firstAttribute="leading" secondItem="ob6-h3-hy9" secondAttribute="leading" constant="20" id="6ef-LU-5q7"/>
-                                        <constraint firstItem="UaA-gC-8ZA" firstAttribute="top" secondItem="hvW-cs-EhX" secondAttribute="bottom" constant="14" id="OAD-KA-KcD"/>
+                                        <constraint firstItem="bEl-0z-VDg" firstAttribute="leading" secondItem="XlO-w0-SwR" secondAttribute="trailing" constant="8" id="COv-zl-53X"/>
+                                        <constraint firstItem="XlO-w0-SwR" firstAttribute="top" secondItem="9JM-Kp-abk" secondAttribute="bottom" constant="20" id="G3k-Xd-gAi"/>
+                                        <constraint firstItem="bEl-0z-VDg" firstAttribute="centerY" secondItem="XlO-w0-SwR" secondAttribute="centerY" id="IY1-xR-how"/>
                                         <constraint firstItem="hIs-SF-5QM" firstAttribute="centerY" secondItem="FKx-ZV-yO9" secondAttribute="centerY" id="QdC-ic-3JG"/>
                                         <constraint firstAttribute="trailing" secondItem="gZm-en-wXr" secondAttribute="trailing" constant="20" id="Qjb-pk-OOO"/>
-                                        <constraint firstAttribute="bottom" secondItem="UaA-gC-8ZA" secondAttribute="bottom" constant="21" id="UCy-Jb-wWv"/>
                                         <constraint firstItem="hIs-SF-5QM" firstAttribute="width" secondItem="FKx-ZV-yO9" secondAttribute="width" id="V31-dt-4ap"/>
                                         <constraint firstItem="N1I-QT-ucm" firstAttribute="trailing" secondItem="FKx-ZV-yO9" secondAttribute="trailing" id="VYe-3M-qH6"/>
+                                        <constraint firstItem="bEl-0z-VDg" firstAttribute="trailing" secondItem="hvW-cs-EhX" secondAttribute="trailing" id="aZO-Rn-bx2"/>
                                         <constraint firstAttribute="trailing" secondItem="9JM-Kp-abk" secondAttribute="trailing" constant="20" id="abw-wT-3BM"/>
                                         <constraint firstItem="FKx-ZV-yO9" firstAttribute="leading" secondItem="ob6-h3-hy9" secondAttribute="leading" constant="20" id="avb-Vw-J3F"/>
                                         <constraint firstItem="hIs-SF-5QM" firstAttribute="height" secondItem="FKx-ZV-yO9" secondAttribute="height" id="e8b-xT-QkL"/>
                                         <constraint firstItem="9JM-Kp-abk" firstAttribute="leading" secondItem="ob6-h3-hy9" secondAttribute="leading" constant="20" id="eL3-Sk-vJg"/>
+                                        <constraint firstAttribute="bottom" secondItem="hvW-cs-EhX" secondAttribute="bottom" constant="16" id="feV-R9-7YR"/>
+                                        <constraint firstItem="hvW-cs-EhX" firstAttribute="top" secondItem="XlO-w0-SwR" secondAttribute="bottom" constant="20" id="gzC-Fg-GJq"/>
                                         <constraint firstItem="N1I-QT-ucm" firstAttribute="leading" secondItem="FKx-ZV-yO9" secondAttribute="leading" id="hrZ-f9-SWY"/>
                                         <constraint firstItem="hvW-cs-EhX" firstAttribute="width" secondItem="gZm-en-wXr" secondAttribute="width" id="mBH-at-vRR"/>
                                         <constraint firstAttribute="trailing" secondItem="FKx-ZV-yO9" secondAttribute="trailing" constant="20" id="nOL-fH-mKF"/>
                                         <constraint firstItem="9JM-Kp-abk" firstAttribute="top" secondItem="gZm-en-wXr" secondAttribute="bottom" constant="14" id="nri-TT-I3m"/>
+                                        <constraint firstItem="XlO-w0-SwR" firstAttribute="leading" secondItem="hvW-cs-EhX" secondAttribute="leading" id="od7-PL-CoB"/>
                                         <constraint firstItem="gZm-en-wXr" firstAttribute="top" secondItem="N1I-QT-ucm" secondAttribute="bottom" constant="14" id="qGu-RL-Gk7"/>
                                         <constraint firstItem="N1I-QT-ucm" firstAttribute="top" secondItem="FKx-ZV-yO9" secondAttribute="bottom" constant="14" id="r85-cK-uHX"/>
-                                        <constraint firstItem="UaA-gC-8ZA" firstAttribute="centerX" secondItem="gZm-en-wXr" secondAttribute="centerX" id="sRr-om-fl4"/>
                                         <constraint firstItem="hIs-SF-5QM" firstAttribute="centerX" secondItem="FKx-ZV-yO9" secondAttribute="centerX" id="usP-Pn-8PH"/>
-                                        <constraint firstItem="hvW-cs-EhX" firstAttribute="top" secondItem="9JM-Kp-abk" secondAttribute="bottom" constant="14" id="xjK-g9-Dd0"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -369,6 +382,8 @@
     </objects>
     <resources>
         <image name="back" width="55" height="45"/>
+        <image name="check-passive" width="18" height="18"/>
+        <image name="check_active" width="18" height="18"/>
         <image name="step-2-2-Indicator" width="560" height="108"/>
     </resources>
 </document>

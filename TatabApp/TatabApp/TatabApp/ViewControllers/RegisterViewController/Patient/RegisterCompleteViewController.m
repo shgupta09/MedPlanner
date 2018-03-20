@@ -256,6 +256,17 @@ numberOfRowsInComponent:(NSInteger)component{
         selectedRowForSpeciality = row;
 }
 #pragma mark- Btn Actions
+
+
+- (IBAction)btnAction_ShowTerms:(id)sender {
+}
+- (IBAction)btnAction_Terms:(id)sender {
+    if (_btn_Terms.isSelected) {
+        [_btn_Terms setSelected:false];
+    }else{
+        [_btn_Terms setSelected:true];
+    }
+}
 - (IBAction)btnAcion_relationShip:(id)sender {
     
     pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
@@ -523,6 +534,9 @@ numberOfRowsInComponent:(NSInteger)component{
     else if(_txtCity.text.length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         [validationDict setValue:@"We need a city" forKey:AlertKey];
+    }else  if (!_btn_Terms.isSelected){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        [validationDict setValue:@"Please select the terms and condition" forKey:AlertKey];
     }
     /*
     else  if (dependencyArray.count<1){
