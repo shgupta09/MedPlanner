@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -179,6 +179,7 @@
                                         <constraint firstItem="lIg-ht-3lf" firstAttribute="trailing" secondItem="b3r-h4-X97" secondAttribute="trailing" id="9J9-37-weQ"/>
                                         <constraint firstItem="OuR-Ob-nJF" firstAttribute="trailing" secondItem="uph-RK-Rly" secondAttribute="trailing" id="9Q7-9h-Yz3"/>
                                         <constraint firstItem="NoT-A7-ogm" firstAttribute="centerX" secondItem="OuR-Ob-nJF" secondAttribute="centerX" id="AMQ-6m-oIn"/>
+                                        <constraint firstAttribute="bottom" secondItem="NoT-A7-ogm" secondAttribute="bottom" constant="108" id="Fqj-oD-zUZ"/>
                                         <constraint firstItem="wnW-gB-Ia2" firstAttribute="top" secondItem="NoT-A7-ogm" secondAttribute="bottom" constant="21" id="G5y-qv-WtQ"/>
                                         <constraint firstItem="lIg-ht-3lf" firstAttribute="leading" secondItem="Ssm-cx-AHj" secondAttribute="trailing" id="MWu-He-1aB"/>
                                         <constraint firstItem="b3r-h4-X97" firstAttribute="top" secondItem="KZt-Zd-bnR" secondAttribute="top" constant="14" id="RKg-ZF-liB"/>
@@ -198,6 +199,11 @@
                                         <constraint firstItem="Ssm-cx-AHj" firstAttribute="leading" secondItem="4he-o9-Kri" secondAttribute="trailing" id="yqb-Ox-Ft4"/>
                                         <constraint firstItem="4he-o9-Kri" firstAttribute="leading" secondItem="b3r-h4-X97" secondAttribute="leading" id="z1x-l8-gR5"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="wnW-gB-Ia2"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

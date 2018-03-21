@@ -43,8 +43,8 @@
                         <action selector="btnBackClicked:" destination="-1" eventType="touchUpInside" id="Dk4-Lc-UPh"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Dependant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw1-B3-u14">
-                    <rect key="frame" x="103" y="34" width="169.5" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw1-B3-u14">
+                    <rect key="frame" x="151.5" y="34" width="73" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                     <color key="textColor" red="0.27058823529999998" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -59,9 +59,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs3-Dp-3Xn">
-                                    <rect key="frame" x="10" y="44" width="286" height="21"/>
+                                    <rect key="frame" x="30" y="44" width="266" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" red="0.27058823529999998" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q4u-xB-gb5">
@@ -77,7 +77,7 @@
                                 <constraint firstItem="Fs3-Dp-3Xn" firstAttribute="top" secondItem="6nw-h9-hkY" secondAttribute="top" constant="44" id="Ja6-ZI-FbI"/>
                                 <constraint firstAttribute="trailing" secondItem="Q4u-xB-gb5" secondAttribute="trailing" constant="20" id="Kyk-Hw-DUZ"/>
                                 <constraint firstItem="Q4u-xB-gb5" firstAttribute="centerY" secondItem="Fs3-Dp-3Xn" secondAttribute="centerY" id="hYT-Ah-dFx"/>
-                                <constraint firstItem="Fs3-Dp-3Xn" firstAttribute="leading" secondItem="6nw-h9-hkY" secondAttribute="leading" constant="10" id="qsV-Gu-KHi"/>
+                                <constraint firstItem="Fs3-Dp-3Xn" firstAttribute="leading" secondItem="6nw-h9-hkY" secondAttribute="leading" constant="30" id="qsV-Gu-KHi"/>
                             </constraints>
                         </view>
                     </subviews>

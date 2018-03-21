@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -229,11 +229,13 @@
                                         <constraint firstItem="YAU-GQ-npE" firstAttribute="top" secondItem="Twp-Nj-eK7" secondAttribute="bottom" constant="14" id="s7O-8D-A7f"/>
                                         <constraint firstItem="5uS-GW-5c8" firstAttribute="top" secondItem="tPE-B4-6JG" secondAttribute="bottom" constant="14" id="sE9-hj-Bsi"/>
                                         <constraint firstItem="Twp-Nj-eK7" firstAttribute="top" secondItem="5uS-GW-5c8" secondAttribute="bottom" constant="14" id="wMo-hx-3Mi"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ksu-7H-NMP" secondAttribute="bottom" constant="72" id="wwq-LI-OaA"/>
                                         <constraint firstItem="tmJ-vl-i1c" firstAttribute="width" secondItem="5uS-GW-5c8" secondAttribute="width" id="yET-aV-Ycb"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="tmJ-vl-i1c"/>
+                                            <exclude reference="4mj-iM-teg"/>
                                             <exclude reference="1Fg-Sa-Nlw"/>
                                             <exclude reference="c3q-oV-bFM"/>
                                         </mask>

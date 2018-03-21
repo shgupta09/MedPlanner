@@ -118,7 +118,6 @@
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiE-A9-sos">
                                             <rect key="frame" x="112" y="186" width="150" height="150"/>
-                                            <state key="normal" image="dependentsuser"/>
                                             <connections>
                                                 <action selector="captireBtnAction:" destination="-1" eventType="touchUpInside" id="ipW-ry-FnV"/>
                                             </connections>
@@ -237,7 +236,6 @@
         <image name="back" width="55" height="45"/>
         <image name="check-passive" width="18" height="18"/>
         <image name="check_active" width="18" height="18"/>
-        <image name="dependentsuser" width="512" height="512"/>
         <image name="indicator" width="560" height="108"/>
     </resources>
 </document>

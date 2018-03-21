@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -163,6 +163,7 @@
                                         <constraint firstItem="u8g-dH-6Dl" firstAttribute="leading" secondItem="Cet-ku-gWa" secondAttribute="leading" id="FPG-0q-kf0"/>
                                         <constraint firstItem="Dlh-OV-MCz" firstAttribute="trailing" secondItem="Cet-ku-gWa" secondAttribute="trailing" id="K60-B4-gEW"/>
                                         <constraint firstItem="EL7-aC-PTq" firstAttribute="leading" secondItem="ZVE-GA-kIF" secondAttribute="leading" id="OiN-Jl-Y9u"/>
+                                        <constraint firstAttribute="bottom" secondItem="EL7-aC-PTq" secondAttribute="bottom" constant="108" id="Pgb-pO-0do"/>
                                         <constraint firstItem="u8g-dH-6Dl" firstAttribute="top" secondItem="Dlh-OV-MCz" secondAttribute="bottom" constant="14" id="Whu-ob-Xpz"/>
                                         <constraint firstItem="Cet-ku-gWa" firstAttribute="top" secondItem="so6-kq-UbO" secondAttribute="top" constant="14" id="YiC-ac-LyS"/>
                                         <constraint firstItem="wkC-v3-rK6" firstAttribute="top" secondItem="EL7-aC-PTq" secondAttribute="bottom" constant="21" id="Yid-zK-qOJ"/>
@@ -180,6 +181,11 @@
                                         <constraint firstItem="Cet-ku-gWa" firstAttribute="leading" secondItem="so6-kq-UbO" secondAttribute="leading" constant="20" id="xoB-Wh-8Zw"/>
                                         <constraint firstItem="ZVE-GA-kIF" firstAttribute="trailing" secondItem="1O5-Ro-xHb" secondAttribute="trailing" id="z2Y-Yo-t5S"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="wkC-v3-rK6"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
