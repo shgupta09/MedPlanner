@@ -103,7 +103,8 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSL-Kl-8vI">
                         <rect key="frame" x="283.5" y="14" width="31.5" height="32"/>
-                        <state key="normal" backgroundImage="documentBlue"/>
+                        <state key="normal" backgroundImage="check-passive"/>
+                        <state key="selected" backgroundImage="check_active"/>
                         <connections>
                             <action selector="btnFollowClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ibV-0Z-CS0"/>
                         </connections>
@@ -146,8 +147,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="check-passive" width="18" height="18"/>
+        <image name="check_active" width="18" height="18"/>
         <image name="diagnose" width="66" height="70"/>
-        <image name="documentBlue" width="23" height="45"/>
         <image name="prescription" width="52" height="70"/>
         <image name="profile" width="218" height="256"/>
     </resources>

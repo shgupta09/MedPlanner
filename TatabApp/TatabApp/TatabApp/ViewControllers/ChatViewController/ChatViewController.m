@@ -133,7 +133,7 @@
     }
     [self setChat];
 
-    
+    [_btn_FollowUp setSelected:false];
     
     
     // Do any additional setup after loading the view from its nib.
@@ -434,8 +434,14 @@
     [self addPopupview];
 }
 - (IBAction)btnAction_fellowUp:(id)sender {
-    uploadType = @"followup";
-    [self addPopupview];
+//    uploadType = @"followup";
+//    [self addPopupview];
+    if (_btn_FollowUp.isSelected == false) {
+         [_btn_FollowUp setSelected:true];
+    }else{
+         [_btn_FollowUp setSelected:false];
+    }
+   
 }
 - (IBAction)btnAction_Diagnose:(id)sender {
     uploadType = @"diagnosis";

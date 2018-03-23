@@ -24,7 +24,13 @@
     [_delegate btnDetailsTapped:sender];
 }
 - (IBAction)btnFollowClicked:(id)sender {
-    [_delegate btnFollowTapped:sender];
+   // [_delegate btnFollowTapped:sender];
+//    if (_btnfollowUp.isSelected == false) {
+//        [_btnfollowUp setSelected:true];
+//    }else{
+//        [_btnfollowUp setSelected:false];
+//    }
+   
 }
 - (IBAction)btnPrescriptionClicked:(id)sender {
     [_delegate btnPrescriptionTapped:sender];

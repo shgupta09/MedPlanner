@@ -26,6 +26,7 @@
                 <outlet property="bottomView" destination="UiN-VW-ZJs" id="VF2-Od-fWW"/>
                 <outlet property="btnSend" destination="RcB-yl-rdg" id="bYd-fb-lJC"/>
                 <outlet property="btn_EndChat" destination="bb3-Dq-lLw" id="lhP-lK-miJ"/>
+                <outlet property="btn_FollowUp" destination="SpW-sw-KHc" id="LyU-Ut-hLA"/>
                 <outlet property="btn_queue" destination="wJ7-1j-2jb" id="Oyr-Zu-ojP"/>
                 <outlet property="imgView_PatientDoctor" destination="0s6-Kn-WUI" id="F4X-pR-Rvz"/>
                 <outlet property="imgView_patient_BackGround" destination="2lH-NJ-3NG" id="hiZ-mk-TN1"/>
@@ -301,16 +302,17 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="SpW-sw-KHc" secondAttribute="height" id="8ah-BH-Mgp"/>
                             </constraints>
-                            <state key="normal" image="diagnose"/>
+                            <state key="normal" backgroundImage="check-passive"/>
+                            <state key="selected" backgroundImage="check_active"/>
                             <connections>
-                                <action selector="btnAction_Diagnose:" destination="-1" eventType="touchUpInside" id="yAm-Tb-ZYf"/>
+                                <action selector="btnAction_fellowUp:" destination="-1" eventType="touchUpInside" id="SaM-oi-OZ6"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gx2-fv-Ued">
                             <rect key="frame" x="210" y="50" width="35" height="35"/>
                             <state key="normal" image="followup-1"/>
                             <connections>
-                                <action selector="btnAction_fellowUp:" destination="-1" eventType="touchUpInside" id="saQ-7A-ao7"/>
+                                <action selector="btnAction_Diagnose:" destination="-1" eventType="touchUpInside" id="ebw-9W-iOp"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyd-C0-8ZG">
@@ -329,14 +331,14 @@
                                 <action selector="switch_btn:" destination="-1" eventType="valueChanged" id="H54-5y-SOR"/>
                             </connections>
                         </switch>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diagnose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJs-C4-J8d">
-                            <rect key="frame" x="258.5" y="90" width="38.5" height="10"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJs-C4-J8d">
+                            <rect key="frame" x="257.5" y="90" width="40.5" height="10"/>
                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="8"/>
                             <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZV-Ls-q9e">
-                            <rect key="frame" x="206" y="90" width="40.5" height="10"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diagnose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZV-Ls-q9e">
+                            <rect key="frame" x="206" y="90" width="38.5" height="10"/>
                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="8"/>
                             <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -515,8 +517,9 @@
         <image name="BackgroundGeneral" width="750" height="1334"/>
         <image name="back" width="55" height="45"/>
         <image name="cameraWhite" width="45" height="37"/>
+        <image name="check-passive" width="18" height="18"/>
+        <image name="check_active" width="18" height="18"/>
         <image name="dependentsuser" width="512" height="512"/>
-        <image name="diagnose" width="66" height="70"/>
         <image name="error" width="57" height="57"/>
         <image name="followup-1" width="79" height="70"/>
         <image name="prescription" width="52" height="70"/>

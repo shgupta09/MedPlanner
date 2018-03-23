@@ -109,6 +109,9 @@
 
 }
 
+
+#pragma mark- tbl methods
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return doctorListArray.count;

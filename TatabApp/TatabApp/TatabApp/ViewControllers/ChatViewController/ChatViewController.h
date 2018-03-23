@@ -42,5 +42,6 @@
 //Doctor's View
 
 @property (weak, nonatomic) IBOutlet UIView *viewDoctor;
+@property (weak, nonatomic) IBOutlet UIButton *btn_FollowUp;
 
 @end
