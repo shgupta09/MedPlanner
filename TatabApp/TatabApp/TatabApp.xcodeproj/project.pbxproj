@@ -78,6 +78,8 @@
 		884FE13F103CA6FC743E4912 /* Pods_TatabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */; };
 		9C16D1B420316AA000D82769 /* AGPushNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D1B220316AA000D82769 /* AGPushNoteView.m */; };
 		9C16D1B520316AA000D82769 /* AGPushNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C16D1B320316AA000D82769 /* AGPushNoteView.xib */; };
+		9C3A0CA8206A420300B7AC25 /* OTPVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3A0CA6206A420300B7AC25 /* OTPVc.m */; };
+		9C3A0CA9206A420300B7AC25 /* OTPVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3A0CA7206A420300B7AC25 /* OTPVc.xib */; };
 		9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */; };
 		9C55056C20088C650037F07F /* TextPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C55056A20088C650037F07F /* TextPostCell.m */; };
 		9C55056D20088C650037F07F /* TextPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C55056B20088C650037F07F /* TextPostCell.xib */; };
@@ -308,6 +310,9 @@
 		9C16D1B120316AA000D82769 /* AGPushNoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPushNoteView.h; sourceTree = "<group>"; };
 		9C16D1B220316AA000D82769 /* AGPushNoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPushNoteView.m; sourceTree = "<group>"; };
 		9C16D1B320316AA000D82769 /* AGPushNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGPushNoteView.xib; sourceTree = "<group>"; };
+		9C3A0CA5206A420300B7AC25 /* OTPVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTPVc.h; sourceTree = "<group>"; };
+		9C3A0CA6206A420300B7AC25 /* OTPVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTPVc.m; sourceTree = "<group>"; };
+		9C3A0CA7206A420300B7AC25 /* OTPVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPVc.xib; sourceTree = "<group>"; };
 		9C4C5ECC1F792725003D84BD /* RegistrationDpendency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationDpendency.h; sourceTree = "<group>"; };
 		9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationDpendency.m; sourceTree = "<group>"; };
 		9C55056920088C650037F07F /* TextPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextPostCell.h; sourceTree = "<group>"; };
@@ -870,6 +875,7 @@
 		5FBBBB141F726FC400C03813 /* RegisterViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9C3A0CA4206A41EE00B7AC25 /* OTPVerification */,
 				D84DF1FC1F8A0D7200234070 /* Patient */,
 				D84DF1FB1F8A0D4A00234070 /* Doctor */,
 			);
@@ -913,6 +919,16 @@
 				9C16D1B320316AA000D82769 /* AGPushNoteView.xib */,
 			);
 			path = AGPushNote;
+			sourceTree = "<group>";
+		};
+		9C3A0CA4206A41EE00B7AC25 /* OTPVerification */ = {
+			isa = PBXGroup;
+			children = (
+				9C3A0CA5206A420300B7AC25 /* OTPVc.h */,
+				9C3A0CA6206A420300B7AC25 /* OTPVc.m */,
+				9C3A0CA7206A420300B7AC25 /* OTPVc.xib */,
+			);
+			path = OTPVerification;
 			sourceTree = "<group>";
 		};
 		9C4C5ECB1F792717003D84BD /* Models */ = {
@@ -1289,6 +1305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C3A0CA9206A420300B7AC25 /* OTPVc.xib in Resources */,
 				9C840960203ED16700A7C3C7 /* Montserrat-Black.otf in Resources */,
 				9C840961203ED16700A7C3C7 /* Montserrat-BlackItalic.otf in Resources */,
 				9C840962203ED16700A7C3C7 /* Montserrat-Bold.otf in Resources */,
@@ -1674,6 +1691,7 @@
 				9C5505712008B8090037F07F /* MediaPostCell.m in Sources */,
 				D86A3738202E2E57009EA562 /* CustomTabBar.m in Sources */,
 				5F70ABDB2029D6FC007E69A5 /* CommentTableViewCell.m in Sources */,
+				9C3A0CA8206A420300B7AC25 /* OTPVc.m in Sources */,
 				5FBBBAE51F72401B00C03813 /* main.m in Sources */,
 				D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */,
 				5FB51C402003E5BE00E4889B /* FeverReportViewController.m in Sources */,
@@ -1830,6 +1848,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TatabApp/TatabApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = H7RFM2VSMC;
@@ -1858,6 +1877,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TatabApp/TatabApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = H7RFM2VSMC;
@@ -1872,7 +1892,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "82de35c8-44fb-4806-bc62-09259dbafad4";
+				PROVISIONING_PROFILE = "552fa4cf-2ae0-445f-b072-b51ff0061a92";
 				PROVISIONING_PROFILE_SPECIFIER = MedPlanner_Sh;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/sandeepnegi/Desktop/Desktop/Shagun/Practice/My Projects/Gracery/MedPlanner/TatabApp/TatabApp/TatabApp/TatabApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.2;
