@@ -34,8 +34,8 @@
 
 
 - (IBAction)btnActionSend:(id)sender {
-    
-    
+    [_delegateProperty otpDelegateMethodWithnumber:_txt_Number.text];
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 

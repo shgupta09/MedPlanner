@@ -12,7 +12,7 @@
 
 
 
-@interface RCDoctor4 ()<SWRevealViewControllerDelegate>
+@interface RCDoctor4 ()<SWRevealViewControllerDelegate,OTPDelegate>
 {
     BOOL iscaptured;
     LoderView *loderObj;
@@ -135,13 +135,10 @@
         
         OTPVc *otpObj = [[OTPVc alloc]initWithNibName:@"OTPVc" bundle:nil];
         otpObj.parameterDict = _parameterDict;
+        otpObj.delegateProperty = self;
         [self presentViewController:otpObj animated:true completion:nil];
         
-        [_parameterDict setValue:[CommonFunction trimString:_txt_IBAN.text] forKey:IBAN];
-        [_parameterDict setValue:[CommonFunction trimString:_txt_ConfirmIban.text] forKey:IBAN];
-        
-        
-        [self hitApiForImage];
+       
     }
     else{
         [self addAlertWithTitle:AlertKey andMessage:[dictForValidation valueForKey:AlertKey]   isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
@@ -195,6 +192,11 @@
 }
 
 #pragma mark - apiRelatedMethods
+-(void)hitApi{
+    [_parameterDict setValue:[CommonFunction trimString:_txt_IBAN.text] forKey:IBAN];
+    [_parameterDict setValue:[CommonFunction trimString:_txt_ConfirmIban.text] forKey:IBAN];
+    [self hitApiForImage];
+}
 
 -(void)hitApiForImage{
     NSData *imageData = UIImagePNGRepresentation(_imgView.image);
@@ -515,6 +517,11 @@
     }
 }
 
+#pragma mark- OPT Delegate
+- (void)otpDelegateMethodWithnumber:(NSString *)number{
+    [_parameterDict setValue:number forKey:loginmobile];
+    [self hitApi];
+}
 
 
 @end
