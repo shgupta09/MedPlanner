@@ -11,5 +11,6 @@
 @interface OTPVc : UIViewController
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_Number;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_verificationNum;
+@property (strong ,nonatomic)NSMutableDictionary *parameterDict;
 
 @end

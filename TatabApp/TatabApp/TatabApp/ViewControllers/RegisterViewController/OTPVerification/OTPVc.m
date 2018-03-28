@@ -18,16 +18,26 @@
     [super viewDidLoad];
     _txt_Number.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_verificationNum.leftImgView.image = [UIImage imageNamed:@"b"];
+    _txt_Number.text = [_parameterDict valueForKey:loginmobile];
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)btnBackClicked:(id)sender {
     
     [self dismissViewControllerAnimated:true completion:nil];
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (IBAction)btnActionSend:(id)sender {
+    
+    
+}
+
 
 /*
 #pragma mark - Navigation

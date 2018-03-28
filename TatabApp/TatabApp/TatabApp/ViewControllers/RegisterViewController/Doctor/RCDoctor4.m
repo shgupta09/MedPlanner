@@ -8,6 +8,7 @@
 
 #import "RCDoctor4.h"
 #import "XMPPHandler.h"
+#import "OTPVc.h"
 
 
 
@@ -130,6 +131,12 @@
 - (IBAction)btnActionCompleteRegistration:(id)sender {
     NSDictionary *dictForValidation = [self validateData];
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
+        
+        
+        OTPVc *otpObj = [[OTPVc alloc]initWithNibName:@"OTPVc" bundle:nil];
+        otpObj.parameterDict = _parameterDict;
+        [self presentViewController:otpObj animated:true completion:nil];
+        
         [_parameterDict setValue:[CommonFunction trimString:_txt_IBAN.text] forKey:IBAN];
         [_parameterDict setValue:[CommonFunction trimString:_txt_ConfirmIban.text] forKey:IBAN];
         

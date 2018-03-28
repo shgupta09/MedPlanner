@@ -5,7 +5,6 @@
 //  Created by Shagun Verma on 23/09/17.
 //  Copyright © 2017 Shagun Verma. All rights reserved.
 //
-
 #import "RegisterCompleteViewController.h"
 #import "AppDelegate.h"
 #import "XMPPHandler.h"
@@ -396,37 +395,41 @@ numberOfRowsInComponent:(NSInteger)component{
 - (IBAction)btnCompleteRegistrationClicked:(id)sender {
     NSDictionary *dictForValidation = [self validateData2];
     
-    [_parameterDict setValue:[CommonFunction trimString:@"INR"] forKey:@"country_code"];
-    NSError* error;
-    //    [parameterDict setObject:dependencyArray forKey:@"children"];
-    NSMutableDictionary *tempDict = [NSMutableDictionary new];
-    NSMutableArray *tempArray = [NSMutableArray new];
-    for (int i= 0;i<dependencyArray.count ; i++) {
-        [tempDict removeAllObjects];
-        
-        RegistrationDpendency *obj = [dependencyArray objectAtIndex:i];
-        [tempDict setValue:obj.name forKey:@"name"];
-        
-        if (obj.isMale) {
-            [tempDict setValue:@"M" forKey:loginuserGender];
-        }
-        else{
-            [tempDict setValue:@"F" forKey:loginuserGender];
-        }
-        [tempDict setValue:obj.birthDay forKey:@"dob"];
-        [tempDict setValue:obj.depedant_id forKey:@"relationship_id"];
-        
-        [tempArray addObject:tempDict];
-    }
     
-        [_parameterDict setValue:tempArray forKey:@"children"];
-    
-    [_parameterDict setValue:@"M" forKey:loginuserGender];
-    [_parameterDict setValue:[CommonFunction trimString:_txtBirthday.text] forKey:@"dob"];
 
 
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
         
+       
+        
+        
+        [_parameterDict setValue:[CommonFunction trimString:@"INR"] forKey:@"country_code"];
+        NSError* error;
+        //    [parameterDict setObject:dependencyArray forKey:@"children"];
+        NSMutableDictionary *tempDict = [NSMutableDictionary new];
+        NSMutableArray *tempArray = [NSMutableArray new];
+        for (int i= 0;i<dependencyArray.count ; i++) {
+            [tempDict removeAllObjects];
+            
+            RegistrationDpendency *obj = [dependencyArray objectAtIndex:i];
+            [tempDict setValue:obj.name forKey:@"name"];
+            
+            if (obj.isMale) {
+                [tempDict setValue:@"M" forKey:loginuserGender];
+            }
+            else{
+                [tempDict setValue:@"F" forKey:loginuserGender];
+            }
+            [tempDict setValue:obj.birthDay forKey:@"dob"];
+            [tempDict setValue:obj.depedant_id forKey:@"relationship_id"];
+            
+            [tempArray addObject:tempDict];
+        }
+        
+        [_parameterDict setValue:tempArray forKey:@"children"];
+        
+        [_parameterDict setValue:@"M" forKey:loginuserGender];
+        [_parameterDict setValue:[CommonFunction trimString:_txtBirthday.text] forKey:@"dob"];
         if ([ CommonFunction reachability]) {
             [self addLoder];
             
