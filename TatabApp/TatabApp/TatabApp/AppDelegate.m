@@ -14,6 +14,7 @@
 @import UserNotifications;
 #import "AGPushNoteView.h"
 #import "RatingVC.h"
+#import "TermVC.h"
 @interface AppDelegate ()
 
 
@@ -38,8 +39,8 @@
 
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //TestVC* vc;
-  //  vc = [[TestVC alloc] initWithNibName:@"TestVC" bundle:nil];
+//    TermVC* vc;
+//    vc = [[TermVC alloc] initWithNibName:@"TermVC" bundle:nil];
     SplashScreenViewController* vc;
     vc = [[SplashScreenViewController alloc] initWithNibName:@"SplashScreenViewController" bundle:nil];
     _window.rootViewController = vc;

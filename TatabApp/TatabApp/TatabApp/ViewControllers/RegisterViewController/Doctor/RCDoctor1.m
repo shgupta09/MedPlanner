@@ -14,6 +14,7 @@
     NSString *genderType;
     LoderView *loderObj;
     CustomAlert *alertObj;
+    
 }
 @end
 
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setData];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 

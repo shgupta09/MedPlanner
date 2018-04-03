@@ -258,6 +258,8 @@ numberOfRowsInComponent:(NSInteger)component{
 
 
 - (IBAction)btnAction_ShowTerms:(id)sender {
+    TermVC *obj = [[TermVC alloc]initWithNibName:@"TermVC" bundle:nil];
+    [self presentViewController:obj animated:true completion:nil];
 }
 - (IBAction)btnAction_Terms:(id)sender {
     if (_btn_Terms.isSelected) {
