@@ -13,5 +13,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 @property (nonatomic,strong)AwarenessCategory *awarenessObj;
-
+@property (nonatomic,strong)RegistrationDpendency *selectedDependent;
 @end

@@ -142,10 +142,7 @@
     vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
     vc.classObj = self;
     vc.isManageDependants = false;
-
     [self.navigationController pushViewController:vc animated:true];
-    
-    
 }
 - (IBAction)btnAction_CaseHistory:(id)sender {
     

@@ -133,14 +133,11 @@
 - (IBAction)btnActionCompleteRegistration:(id)sender {
     NSDictionary *dictForValidation = [self validateData];
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
-        
-        
-        OTPVc *otpObj = [[OTPVc alloc]initWithNibName:@"OTPVc" bundle:nil];
-        otpObj.parameterDict = _parameterDict;
-        otpObj.delegateProperty = self;
-        [self presentViewController:otpObj animated:true completion:nil];
-        
-       
+//        OTPVc *otpObj = [[OTPVc alloc]initWithNibName:@"OTPVc" bundle:nil];
+//        otpObj.parameterDict = _parameterDict;
+//        otpObj.delegateProperty = self;
+//        [self presentViewController:otpObj animated:true completion:nil];
+        [self hitApi];
     }
     else{
         [self addAlertWithTitle:AlertKey andMessage:[dictForValidation valueForKey:AlertKey]   isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
@@ -334,6 +331,7 @@
                         [CommonFunction storeValueInDefault:[CommonFunction checkForNull:[[responseObj objectForKey:loginUser] valueForKey:loginDOB]]
                                                      andKey:loginDOB];
                         [CommonFunction stroeBoolValueForKey:Notification_Related withBoolValue:true];
+                        
                         [self hitApiForDoctorToBeOnline];
                         [self hitApiForaddingTheDeviceID];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];

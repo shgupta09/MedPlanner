@@ -7,7 +7,7 @@
 //
 
 #import "ChooseDependantViewController.h"
-
+#import "AwarenessCategoryViewController.h"
 @interface ChooseDependantViewController ()
 {
     LoderView *loderObj;
@@ -155,7 +155,10 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   
-    if (!_isManageDependants){
+
+    
+    
+    if (!_isManageDependants && ![_classObj isKindOfClass:[AwarenessCategoryViewController class]]){
         if (indexPath.row == 0) {
             EMRHealthContainerVC* vc ;
             vc = [[EMRHealthContainerVC alloc] initWithNibName:@"EMRHealthContainerVC" bundle:nil];
@@ -184,6 +187,14 @@
 
         }
 
+    }else if ([_classObj isKindOfClass:[AwarenessCategoryViewController class]]){
+            DoctorListVC* vc ;
+            vc = [[DoctorListVC alloc] initWithNibName:@"DoctorListVC" bundle:nil];
+            vc.awarenessObj = _awarenessObj;
+            RegistrationDpendency *dependencyObj = [dependantListArray objectAtIndex:indexPath.row];
+            vc.selectedDependent = dependencyObj;
+            [self.navigationController pushViewController:vc animated:true];
+        
     }
     
     

@@ -169,4 +169,6 @@ static NSString* const API_UPLOAD_FEVER_REPORT = @"reportfever";
 static NSString* const API_FOR_GET_RELATIONSHIP = @"getrelationships";
 static NSString* const API_FOR_GET_COMMENTS = @"comments";
 static NSString* const API_FOR_ADD_COMMENTS = @"usercomment";
+static NSString* const API_FOR_PAYMENT = @"make_payment";
+static NSString* const API_FOR_CHECK_FOLLOWUP = @"checkfollowup";
 #endif /* Constant_h */

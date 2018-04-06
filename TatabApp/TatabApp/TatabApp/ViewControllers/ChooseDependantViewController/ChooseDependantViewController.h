@@ -18,4 +18,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblHeader;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 @property bool isManageDependants;
+@property (nonatomic,strong)AwarenessCategory *awarenessObj;
 @end

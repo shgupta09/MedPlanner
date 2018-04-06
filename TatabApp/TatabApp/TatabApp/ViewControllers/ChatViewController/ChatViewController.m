@@ -134,7 +134,7 @@
     [self setChat];
 
     [_btn_FollowUp setSelected:false];
-    
+    [self hitAPiForCheckFollowUP];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -437,12 +437,17 @@
 //    uploadType = @"followup";
 //    [self addPopupview];
     if (_btn_FollowUp.isSelected == false) {
-         [_btn_FollowUp setSelected:true];
+        [self hitAPiToUploadFollowUP:@"true"];
+//         [_btn_FollowUp setSelected:true];
     }else{
-         [_btn_FollowUp setSelected:false];
+//         [_btn_FollowUp setSelected:false];
+        [self hitAPiToUploadFollowUP:@"false"];
     }
-   
+    
 }
+
+
+
 - (IBAction)btnAction_Diagnose:(id)sender {
     uploadType = @"diagnosis";
     [self addPopupview];
@@ -1252,7 +1257,91 @@
 }
 
 
+-(void)hitAPiForCheckFollowUP{
+    
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
+    [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
+//    [parameter setValue:"" forKey:""];
+    
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FOR_CHECK_FOLLOWUP]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    
+                  NSString *strTocheck =  [[responseObj valueForKey:@"data"] valueForKey:@"is_follow"];
+                    if ([strTocheck isEqualToString:@"false"]) {
+                        [_btn_FollowUp setSelected:false];
 
+                    }else{
+                        [_btn_FollowUp setSelected:true];
+
+                    }
+                    
+                }else
+                {
+                   
+                    [self removeloder];
+                }
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+       
+    }
+}
+
+-(void)hitAPiToUploadFollowUP:(NSString *)statusStr{
+    
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
+    [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
+    [parameter setValue:statusStr forKey:@"is_follow"];
+    
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"followup"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    
+                    
+                    if ([statusStr isEqualToString:@"false"]) {
+                        [_btn_FollowUp setSelected:true];
+                        
+                    }else{
+                        [_btn_FollowUp setSelected:false];
+                        
+                    }
+                    
+                }else
+                {
+                    
+                    [self removeloder];
+                }
+                [self removeloder];
+                
+            }
+            
+            
+            
+        }];
+    } else {
+        
+    }
+}
 #pragma mark- Custom Loder
 -(void)addAlertWithTitle:(NSString *)titleString andMessage:(NSString *)messageString isTwoButtonNeeded:(BOOL)isTwoBUtoonNeeded firstbuttonTag:(NSInteger)firstButtonTag secondButtonTag:(NSInteger)secondButtonTag firstbuttonTitle:(NSString *)firstButtonTitle secondButtonTitle:(NSString *)secondButtonTitle image:(NSString *)imageName{
     [CommonFunction resignFirstResponderOfAView:self.view];

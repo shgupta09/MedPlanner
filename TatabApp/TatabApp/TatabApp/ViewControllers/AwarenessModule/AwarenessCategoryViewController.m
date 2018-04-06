@@ -115,12 +115,19 @@
 //    vc = [[AwarenessVideoListViewController alloc] initWithNibName:@"AwarenessVideoListViewController" bundle:nil];
 //    [self.navigationController pushViewController:vc animated:true];
 
-    DoctorListVC* vc ;
-    vc = [[DoctorListVC alloc] initWithNibName:@"DoctorListVC" bundle:nil];
     
+    
+    
+    ChooseDependantViewController* vc ;
+    vc = [[ChooseDependantViewController alloc] initWithNibName:@"ChooseDependantViewController" bundle:nil];
+    vc.patientID = [CommonFunction getValueFromDefaultWithKey:loginuserId];
+    vc.classObj = self;
+    vc.isManageDependants = false;
     AwarenessCategory* category = [categoryArray objectAtIndex:indexPath.row];
     vc.awarenessObj = category;
     [self.navigationController pushViewController:vc animated:true];
+    
+   
     
 }
 

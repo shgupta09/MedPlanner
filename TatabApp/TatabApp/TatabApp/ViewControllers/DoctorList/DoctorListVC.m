@@ -7,7 +7,7 @@
 //
 
 #import "DoctorListVC.h"
-
+#import "PaymentVC.h"
 @interface DoctorListVC ()
 {
     LoderView *loderObj;
@@ -261,6 +261,7 @@
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:doctorId forKey:@"doctor_id"];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    [parameter setValue:_selectedDependent.depedant_id forKey:DEPENDANT_ID];
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
@@ -278,6 +279,9 @@
                    
                     
                     
+                }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK005"]){
+                    [self removeloder];
+                    [self hitApiForPayment:doctorId];
                 }else
                 {
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
@@ -293,6 +297,47 @@
     }
 }
 
+
+-(void)hitApiForPayment:(NSString *)doctorId{
+    
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:doctorId forKey:DOCTOR_ID];
+    [parameter setValue:_selectedDependent.depedant_id forKey:DEPENDANT_ID];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
+    [parameter setValue:@"20.0" forKey:@"amount"];
+    
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_FOR_PAYMENT]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    [self removeloder];
+                    PaymentVC *paymentVC = [[PaymentVC alloc]initWithNibName:@"PaymentVC" bundle:nil];
+                    paymentVC.urlString = [responseObj valueForKey:@"approval_url"];
+                    paymentVC.doctorId = doctorId;
+                    paymentVC.delegateProperty = self;
+                    [self.navigationController pushViewController:paymentVC animated:true];
+//                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    
+                    
+                    
+                }else
+                {
+                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self removeloder];
+                    [self removeloder];
+                }
+                [self removeloder];
+            }
+        }];
+    } else {
+        [self removeloder];
+        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }
+}
 
 
 #pragma mark- Loder Related
@@ -366,5 +411,16 @@
     }
 }
 
+#pragma mark- Payment Delegate
+
+-(void)paymentStatusMethod:(BOOL)status doctor:(NSString*)doctorID{
+    if (status) {
+        [self hitApiForAddInTheQueue:doctorID];
+    }
+    else{
+        [self addAlertWithTitle:@"Failure" andMessage:@"Payment Declined" isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:@"Ok" secondButtonTitle:nil image:Warning_Key_For_Image];
+    }
+    
+}
 
 @end

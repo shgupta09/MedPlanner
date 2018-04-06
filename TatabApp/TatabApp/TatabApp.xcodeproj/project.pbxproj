@@ -138,11 +138,14 @@
 		9C8FE6D81F8B53270003003C /* RCDoctor3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8FE6D61F8B53270003003C /* RCDoctor3.xib */; };
 		9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */; };
 		9C8FE6DD1F8B8DCF0003003C /* RCDoctor4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8FE6DB1F8B8DCF0003003C /* RCDoctor4.xib */; };
+		9C9468EF207772A500FBDF9F /* a.html in Resources */ = {isa = PBXBuildFile; fileRef = 9C9468EE207772A400FBDF9F /* a.html */; };
 		9C9607B02073845C00505F9F /* TermVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9607AE2073845C00505F9F /* TermVC.m */; };
 		9C9607B12073845C00505F9F /* TermVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9607AF2073845C00505F9F /* TermVC.xib */; };
 		9CADAD8620612F2000737CAA /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CADAD8420612F2000737CAA /* SettingVC.m */; };
 		9CADAD8720612F2000737CAA /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CADAD8520612F2000737CAA /* SettingVC.xib */; };
 		9CEA820820121B7800F84450 /* CustomButton4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA820720121B7800F84450 /* CustomButton4.m */; };
+		9CFF43612077447E005F3AF7 /* PaymentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF435F2077447E005F3AF7 /* PaymentVC.m */; };
+		9CFF43622077447E005F3AF7 /* PaymentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFF43602077447E005F3AF7 /* PaymentVC.xib */; };
 		D82354AA1F8A37790097A94C /* RCDoctor1.m in Sources */ = {isa = PBXBuildFile; fileRef = D82354A81F8A37790097A94C /* RCDoctor1.m */; };
 		D82354AB1F8A37790097A94C /* RCDoctor1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82354A91F8A37790097A94C /* RCDoctor1.xib */; };
 		D82354AF1F8A6C2E0097A94C /* RCDoctor2.m in Sources */ = {isa = PBXBuildFile; fileRef = D82354AD1F8A6C2E0097A94C /* RCDoctor2.m */; };
@@ -386,6 +389,7 @@
 		9C8FE6D91F8B8DCF0003003C /* RCDoctor4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoctor4.h; sourceTree = "<group>"; };
 		9C8FE6DA1F8B8DCF0003003C /* RCDoctor4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDoctor4.m; sourceTree = "<group>"; };
 		9C8FE6DB1F8B8DCF0003003C /* RCDoctor4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDoctor4.xib; sourceTree = "<group>"; };
+		9C9468EE207772A400FBDF9F /* a.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = a.html; sourceTree = "<group>"; };
 		9C9607AD2073845C00505F9F /* TermVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TermVC.h; sourceTree = "<group>"; };
 		9C9607AE2073845C00505F9F /* TermVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TermVC.m; sourceTree = "<group>"; };
 		9C9607AF2073845C00505F9F /* TermVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermVC.xib; sourceTree = "<group>"; };
@@ -394,6 +398,9 @@
 		9CADAD8520612F2000737CAA /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		9CEA820620121B7800F84450 /* CustomButton4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton4.h; sourceTree = "<group>"; };
 		9CEA820720121B7800F84450 /* CustomButton4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton4.m; sourceTree = "<group>"; };
+		9CFF435E2077447E005F3AF7 /* PaymentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentVC.h; sourceTree = "<group>"; };
+		9CFF435F2077447E005F3AF7 /* PaymentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentVC.m; sourceTree = "<group>"; };
+		9CFF43602077447E005F3AF7 /* PaymentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentVC.xib; sourceTree = "<group>"; };
 		A33C6484FFE866A72C5BBD9B /* Pods_TatabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TatabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB844014A999876E3EEA5CD /* Pods-TatabApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TatabApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TatabApp/Pods-TatabApp.release.xcconfig"; sourceTree = "<group>"; };
 		D82354A71F8A37790097A94C /* RCDoctor1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoctor1.h; sourceTree = "<group>"; };
@@ -838,6 +845,7 @@
 		5FBBBB111F726FC400C03813 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9CFF435D2077446D005F3AF7 /* PaymentVC */,
 				9C9607AC207383E800505F9F /* Term&Condition */,
 				9C840984203EE2BE00A7C3C7 /* RatingVC */,
 				5F70ABDD2029D8D8007E69A5 /* CommentVC */,
@@ -1103,6 +1111,17 @@
 			path = SettingVC;
 			sourceTree = "<group>";
 		};
+		9CFF435D2077446D005F3AF7 /* PaymentVC */ = {
+			isa = PBXGroup;
+			children = (
+				9C9468EE207772A400FBDF9F /* a.html */,
+				9CFF435E2077447E005F3AF7 /* PaymentVC.h */,
+				9CFF435F2077447E005F3AF7 /* PaymentVC.m */,
+				9CFF43602077447E005F3AF7 /* PaymentVC.xib */,
+			);
+			path = PaymentVC;
+			sourceTree = "<group>";
+		};
 		D84B6BB81F77837500F37660 /* Loder VIew */ = {
 			isa = PBXGroup;
 			children = (
@@ -1326,6 +1345,7 @@
 				9C840961203ED16700A7C3C7 /* Montserrat-BlackItalic.otf in Resources */,
 				9C840962203ED16700A7C3C7 /* Montserrat-Bold.otf in Resources */,
 				9C840963203ED16700A7C3C7 /* Montserrat-BoldItalic.otf in Resources */,
+				9CFF43622077447E005F3AF7 /* PaymentVC.xib in Resources */,
 				9C840964203ED16700A7C3C7 /* Montserrat-ExtraBold.otf in Resources */,
 				9C840965203ED16700A7C3C7 /* Montserrat-ExtraBoldItalic.otf in Resources */,
 				9C840966203ED16700A7C3C7 /* Montserrat-ExtraLight.otf in Resources */,
@@ -1358,6 +1378,7 @@
 				9C840981203ED16700A7C3C7 /* MontserratAlternates-SemiBoldItalic.otf in Resources */,
 				9C840982203ED16700A7C3C7 /* MontserratAlternates-Thin.otf in Resources */,
 				9C840983203ED16700A7C3C7 /* MontserratAlternates-ThinItalic.otf in Resources */,
+				9C9468EF207772A500FBDF9F /* a.html in Resources */,
 				9C16D1B520316AA000D82769 /* AGPushNoteView.xib in Resources */,
 				D84DF2041F8A0D9C00234070 /* RegisterCompleteViewController.xib in Resources */,
 				5FB51C412003E5BE00E4889B /* FeverReportViewController.xib in Resources */,
@@ -1665,6 +1686,7 @@
 				5FB773ED1FF5189E00982102 /* EMRHealthContainerVC.m in Sources */,
 				5FB5384C1FC31CA500C77713 /* ImageMessageTableViewCell.m in Sources */,
 				5F4F6C681F82915F000C65A0 /* AwarenessCategoryTableViewCell.m in Sources */,
+				9CFF43612077447E005F3AF7 /* PaymentVC.m in Sources */,
 				5F9F49BD1FB1D791009E1418 /* README.md in Sources */,
 				9C6D8CD62021A2F5004CA1B4 /* CustomTFWithLeftRight.m in Sources */,
 				9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */,
