@@ -134,15 +134,17 @@
          [_imgView_PatientDoctor sd_setImageWithURL:[NSURL URLWithString:_objDoctor.photo] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
 //        [self hitApiForDoctorList];
         _btn_EndChat.hidden = true;
+        
     }else{
         _viewPatient.hidden = true;
         _viewDoctor.hidden = false;
+        [_btn_FollowUp setSelected:false];
+        [self hitAPiForCheckFollowUP];
+
 //        [self hitApiForStartTheChat];
     }
     [self setChat];
 
-    [_btn_FollowUp setSelected:false];
-    [self hitAPiForCheckFollowUP];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -1036,11 +1038,9 @@
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     [parameter setValue:[dateFormatter stringFromDate:date] forKey:@"end_datetime"];
     [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    NSString *patient = [NSString stringWithFormat:@"%@",_objDoctor.doctor_id];
-    NSString *dependent = [NSString stringWithFormat:@"%@",_objDoctor.dependent_id];
-    if ([patient isEqualToString:dependent] || _objDoctor.dependent_id == nil ) {
+   
+    if (!_isDependent) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
-        
     }
     NSLog(@"%@",parameter);
     if ([ CommonFunction reachability]) {
@@ -1198,11 +1198,8 @@
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     [parameter setValue:[NSString stringWithFormat:@"%ld", (long)_objDoctor.doctor_id ] forKey:@"doctor_id"];
     [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    NSString *patient = [NSString stringWithFormat:@"%@",_objDoctor.doctor_id];
-    NSString *dependent = [NSString stringWithFormat:@"%@",_objDoctor.dependent_id];
-    if ([patient isEqualToString:dependent] || _objDoctor.dependent_id == nil ) {
+    if (!_isDependent) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
-        
     }
     
     if ([ CommonFunction reachability]) {
@@ -1240,11 +1237,8 @@
     [parameter setValue:uploadType forKey:@"type"];
     [parameter setValue:textView_advice.text forKey:@"detail"];
     [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    NSString *patient = [NSString stringWithFormat:@"%@",_objDoctor.doctor_id];
-    NSString *dependent = [NSString stringWithFormat:@"%@",_objDoctor.dependent_id];
-    if ([patient isEqualToString:dependent] || _objDoctor.dependent_id == nil ) {
+    if (!_isDependent) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
-        
     }
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -1293,11 +1287,9 @@
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
     [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
     [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
+    if (!_isDependent) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
-
     }
-    
 //    [parameter setValue:"" forKey:""];
     
     
@@ -1343,12 +1335,9 @@
     [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
     [parameter setValue:statusStr forKey:@"is_follow"];
     [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    
-    if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
+    if (!_isDependent) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
-        
     }
-    
     if ([ CommonFunction reachability]) {
         [self addLoder];
         

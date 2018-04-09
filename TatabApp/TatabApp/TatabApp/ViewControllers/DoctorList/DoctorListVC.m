@@ -137,6 +137,7 @@
     else
     {
         ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
+        vc.isDependent = _isDependent;
         ChatPatient *obj = [patientListArray objectAtIndex:indexPath.row];
         Specialization* temp = [Specialization new];
         temp.first_name = obj.name;
@@ -273,7 +274,7 @@
 
     NSString *patient = [NSString stringWithFormat:@"%@",[CommonFunction getValueFromDefaultWithKey:loginuserId]];
     NSString *dependent =[NSString stringWithFormat:@"%@",_selectedDependent.depedant_id];
-    if ([patient  isEqualToString:dependent]) {
+    if ([patient isEqualToString:dependent]) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
         
     }

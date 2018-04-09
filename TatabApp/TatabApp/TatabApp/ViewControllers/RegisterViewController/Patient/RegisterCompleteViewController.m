@@ -616,6 +616,7 @@ numberOfRowsInComponent:(NSInteger)component{
                         [CommonFunction storeValueInDefault:[CommonFunction checkForNull:[[responseObj objectForKey:loginUser] valueForKey:loginDOB]] andKey:loginDOB];
                         [CommonFunction stroeBoolValueForKey:Notification_Related withBoolValue:true];
                         [CommonFunction storeValueInDefault:[[responseObj valueForKey:loginUser] valueForKey:LOGIN_IS_MOBILE_VERIFY] andKey:LOGIN_IS_MOBILE_VERIFY];
+                          [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:mobileNo] andKey:mobileNo];
                         [CommonFunction stroeBoolValueForKey:ISVerifiedFromUserEnd withBoolValue:false];
                         [self hitApiForaddingTheDeviceID];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];

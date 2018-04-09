@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 @property (nonatomic,strong)AwarenessCategory *awarenessObj;
 @property (nonatomic,strong)RegistrationDpendency *selectedDependent;
+@property (nonatomic) BOOL isDependent;
 @end

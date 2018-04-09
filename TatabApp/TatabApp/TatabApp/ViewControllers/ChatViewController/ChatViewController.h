@@ -43,5 +43,5 @@
 
 @property (weak, nonatomic) IBOutlet UIView *viewDoctor;
 @property (weak, nonatomic) IBOutlet UIButton *btn_FollowUp;
-
+@property (nonatomic) BOOL isDependent;
 @end

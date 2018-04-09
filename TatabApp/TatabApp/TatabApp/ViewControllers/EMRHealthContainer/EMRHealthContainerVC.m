@@ -238,7 +238,7 @@
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:_patient.patient_id forKey:@"patient_id"];
     [parameter setValue: doctorId forKey:@"doctor_id"];
-    if (!_isdependant) {
+    if (_isdependant) {
         [parameter setValue: _dependant.depedant_id forKey:@"dependent_id"];
 
     }else{
