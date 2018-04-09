@@ -30,12 +30,12 @@
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
   _txtPassword.text = @"Admin@123";
-  _txtUsername.text = @"qwertyu@yopmail.com";
-  _txtUsername.text = @"abhinav@gmail.com";
+  _txtUsername.text = @"sexybitch@yopmail.com";
+//  _txtUsername.text = @"abhinav@gmail.com";
 //  _txtUsername.text = @"rahul@gmail.com";
 //    _txtUsername.text = @"abhinav@gmail.com";
 //  _txtPassword.text = @"Admin@123";
-  _txtUsername.text = @"qwerty@yopmail.com";
+//  _txtUsername.text = @"qwerty@yopmail.com";
 //  _txtUsername.text = @"abhinav@gmail.com";
 //  _txtUsername.text = @"rahul@gmail.com";
 //  _txtUsername.text = @"abhinav@gmail.com";
@@ -191,6 +191,8 @@
                         [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
                         [CommonFunction stroeBoolValueForKey:Notification_Related withBoolValue:true];
                         [CommonFunction storeValueInDefault:[[responseObj valueForKey:loginUser] valueForKey:LOGIN_IS_MOBILE_VERIFY] andKey:LOGIN_IS_MOBILE_VERIFY];
+                        [CommonFunction stroeBoolValueForKey:ISVerifiedFromUserEnd withBoolValue:false];
+                        
                         [self hitApiForaddingTheDeviceID];
 
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];

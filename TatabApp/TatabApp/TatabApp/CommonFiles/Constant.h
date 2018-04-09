@@ -43,6 +43,7 @@
 #define loginusergroup @"user_group"
 #define loginuserId @"user_id"
 #define LOGIN_IS_MOBILE_VERIFY @"is_mobile_verify"
+#define ISVerifiedFromUserEnd @"VerifyFromUser"
 #define loginuserType @"user_type"
 #define loginuserGender @"gender"
 #define loginuseIsComplete @"is_complete"

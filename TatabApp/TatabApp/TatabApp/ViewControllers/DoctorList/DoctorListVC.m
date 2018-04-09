@@ -271,7 +271,7 @@
     NSString *patient = [NSString stringWithFormat:@"%@",[CommonFunction getValueFromDefaultWithKey:loginuserId]];
     NSString *dependent =[NSString stringWithFormat:@"%@",_selectedDependent.depedant_id];
     if ([patient  isEqualToString:dependent]) {
-        [parameter setValue:@"" forKey:DEPENDANT_ID];
+        [parameter setValue:@"na" forKey:DEPENDANT_ID];
         
     }
     if ([ CommonFunction reachability]) {
@@ -315,7 +315,7 @@
     NSString *patient = [NSString stringWithFormat:@"%@",[CommonFunction getValueFromDefaultWithKey:loginuserId]];
     NSString *dependent =[NSString stringWithFormat:@"%@",_selectedDependent.depedant_id];
     if ([patient  isEqualToString:dependent]) {
-        [parameter setValue:@"" forKey:DEPENDANT_ID];
+        [parameter setValue:@"na" forKey:DEPENDANT_ID];
 
     }
     

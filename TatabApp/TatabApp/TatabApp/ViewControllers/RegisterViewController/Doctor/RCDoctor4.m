@@ -327,6 +327,8 @@
                         [CommonFunction storeValueInDefault:[CommonFunction checkForNull:[[responseObj objectForKey:loginUser] valueForKey:loginDOB]]
                                                      andKey:loginDOB];
                         [CommonFunction stroeBoolValueForKey:Notification_Related withBoolValue:true];
+                        [CommonFunction storeValueInDefault:[[responseObj valueForKey:loginUser] valueForKey:LOGIN_IS_MOBILE_VERIFY] andKey:LOGIN_IS_MOBILE_VERIFY];
+                        [CommonFunction stroeBoolValueForKey:ISVerifiedFromUserEnd withBoolValue:false];
                         
                         [self hitApiForDoctorToBeOnline];
                         [self hitApiForaddingTheDeviceID];

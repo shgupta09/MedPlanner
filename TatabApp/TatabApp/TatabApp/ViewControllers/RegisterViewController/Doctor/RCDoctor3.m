@@ -197,7 +197,6 @@ numberOfRowsInComponent:(NSInteger)component{
                           CGRectMake(0, self.view.frame.size.height-
                                      pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
     [toolBar setBarStyle:UIBarStyleBlackOpaque];
-    UIToolbar *toolBarForTitle;
     viewOverPicker.backgroundColor = [UIColor clearColor];
     [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
     

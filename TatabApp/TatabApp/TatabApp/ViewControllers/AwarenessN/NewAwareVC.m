@@ -95,9 +95,19 @@
     
     [self addCustomTabBar];
     tabBarObj.btnAwareness.highlighted = true;
+   
+
     // Do any additional setup after loading the view from its nib.
 }
 
+
+
+-(void)checkForOTP{
+    NSString *mobilStr = [NSString stringWithFormat:@"%@",[CommonFunction getValueFromDefaultWithKey:LOGIN_IS_MOBILE_VERIFY]];
+    if (![mobilStr isEqualToString:@"1"] && ![CommonFunction getBoolValueFromDefaultWithKey:ISVerifiedFromUserEnd] && [CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
+        [self otpVerification];
+    }
+}
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     loderObj.frame = self.view.frame;
@@ -113,10 +123,7 @@
     [tabBarObj layoutIfNeeded];
     [tabBarObj layoutSubviews];
     [tabBarObj setNeedsLayout];
-    NSString *mobilStr = [NSString stringWithFormat:@"%@",[CommonFunction getValueFromDefaultWithKey:LOGIN_IS_MOBILE_VERIFY]];
-    if ([mobilStr isEqualToString:@"0"]) {
-        [self otpVerification];
-    }
+  
 }
 -(void)receiveNotification:(NSNotification*)notObj{
     [tempView removeGestureRecognizer:singleFingerTap];
@@ -188,7 +195,8 @@
     if (!is_Media) {
     [self geAllPost];    
     }
-    
+    [self performSelector:@selector(checkForOTP)  withObject:nil afterDelay:1];
+
 
 }
 //The event handling method
@@ -1272,6 +1280,7 @@
             [self removeAlert];
             [_tbl_View reloadData];
             [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:false];
+            [CommonFunction stroeBoolValueForKey:ISVerifiedFromUserEnd withBoolValue:false];
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"LogoutNotification"
              object:self];

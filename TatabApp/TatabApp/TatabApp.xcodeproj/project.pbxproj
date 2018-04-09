@@ -1551,7 +1551,7 @@
 		};
 		973B27D1D14C172CB630EAAF /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -1559,7 +1559,7 @@
 			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TatabApp/Pods-TatabApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;

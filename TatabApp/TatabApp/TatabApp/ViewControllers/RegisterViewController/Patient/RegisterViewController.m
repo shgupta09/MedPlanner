@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnPatient;
 @property (weak, nonatomic) IBOutlet UIButton *btnDoctor;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtPassword;
+@property (weak, nonatomic) IBOutlet CustomTextField *txt_mobile;
 
 @end
 
@@ -47,6 +48,8 @@
     _txtName.leftImgView.image = [UIImage imageNamed:@"b"];
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
     _txtEmail.leftImgView.image = [UIImage imageNamed:@"a"];
+    _txt_mobile.leftImgView.image = [UIImage imageNamed:@"Mobile"];
+
     [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
     [CommonFunction setResignTapGestureToView:self.view andsender:self];
     
@@ -105,7 +108,7 @@
         [parameterDict setValue:@"" forKey:loginlastname];
         [parameterDict setValue:[CommonFunction trimString:_txtEmail.text] forKey:loginemail];
         [parameterDict setValue:[CommonFunction trimString:_txtPassword.text] forKey:@"password"];
-        [parameterDict setValue:@"0123456789" forKey:loginmobile];
+        [parameterDict setValue:[CommonFunction trimString:_txt_mobile.text] forKey:loginmobile];
         [parameterDict setValue:@"3" forKey:loginusergroup];
       
         RegisterCompleteViewController* vc;
@@ -163,6 +166,14 @@
             [validationDict setValue:@"Oops! It seems that this is not a valid First Name." forKey:AlertKey];
         }
         
+    }else if(![CommonFunction validateMobile:_txt_mobile.text]){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        if ([CommonFunction trimString:_txt_mobile.text].length == 0) {
+            [validationDict setValue:@"We need an Mobile Number" forKey:AlertKey];
+        }
+        else{
+            [validationDict setValue:@"Oops! It seems that this is not a valid Mobile Number." forKey:AlertKey];
+        }
     }
     else if(![CommonFunction validateEmailWithString:_txtEmail.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];

@@ -15,7 +15,8 @@
                 <outlet property="scrlView" destination="lOU-XN-uDE" id="kdn-wS-bPe"/>
                 <outlet property="txtEmail" destination="vWD-B6-FTP" id="3OT-0c-HnE"/>
                 <outlet property="txtName" destination="lK9-e9-f0c" id="hEt-hv-ocG"/>
-                <outlet property="txtPassword" destination="Jmn-KT-d6N" id="fB1-C0-vTf"/>
+                <outlet property="txtPassword" destination="Jmn-KT-d6N" id="o6i-23-q9o"/>
+                <outlet property="txt_mobile" destination="LID-M3-sfn" id="5yr-b6-GWe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -83,8 +84,8 @@
                                                 <outlet property="delegate" destination="-1" id="t0W-bq-1wJ"/>
                                             </connections>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vWD-B6-FTP" customClass="CustomTextField">
-                                            <rect key="frame" x="20" y="88" width="335" height="45"/>
+                                        <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vWD-B6-FTP" customClass="CustomTextField">
+                                            <rect key="frame" x="20" y="147" width="335" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="k4T-Yf-E5F"/>
                                             </constraints>
@@ -95,8 +96,8 @@
                                                 <outlet property="delegate" destination="-1" id="uBT-Mf-axg"/>
                                             </connections>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jmn-KT-d6N" customClass="CustomTextField">
-                                            <rect key="frame" x="20" y="147" width="335" height="45"/>
+                                        <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jmn-KT-d6N" customClass="CustomTextField">
+                                            <rect key="frame" x="20" y="206" width="335" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="dnl-xq-0ob"/>
                                             </constraints>
@@ -107,16 +108,18 @@
                                                 <outlet property="delegate" destination="-1" id="jYK-zl-SCf"/>
                                             </connections>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gul-K8-yJq" customClass="CustomButton">
-                                            <rect key="frame" x="20" y="219" width="335" height="45"/>
+                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LID-M3-sfn" customClass="CustomTextField">
+                                            <rect key="frame" x="20" y="88" width="335" height="45"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="45" id="aWL-WK-TFZ"/>
+                                                <constraint firstAttribute="height" constant="45" id="u1K-SS-Mvt"/>
                                             </constraints>
-                                            <state key="normal" title="Continue"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                             <connections>
-                                                <action selector="btnContinueClicked:" destination="-1" eventType="touchUpInside" id="0xu-Da-WOY"/>
+                                                <outlet property="delegate" destination="-1" id="FcH-T1-7qS"/>
                                             </connections>
-                                        </button>
+                                        </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vt-UD-GsG" customClass="CustomButton">
                                             <rect key="frame" x="87.5" y="285" width="200" height="37"/>
                                             <constraints>
@@ -129,25 +132,37 @@
                                                 <action selector="btnTermsAndConditions:" destination="-1" eventType="touchUpInside" id="oiU-IL-YjJ"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gul-K8-yJq" customClass="CustomButton">
+                                            <rect key="frame" x="20" y="300" width="335" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="aWL-WK-TFZ"/>
+                                            </constraints>
+                                            <state key="normal" title="Continue"/>
+                                            <connections>
+                                                <action selector="btnContinueClicked:" destination="-1" eventType="touchUpInside" id="0xu-Da-WOY"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="gul-K8-yJq" firstAttribute="centerX" secondItem="Jmn-KT-d6N" secondAttribute="centerX" id="1Sb-MF-JMn"/>
-                                        <constraint firstAttribute="bottom" secondItem="gul-K8-yJq" secondAttribute="bottom" constant="221" id="2A2-HV-gbu"/>
                                         <constraint firstItem="Jmn-KT-d6N" firstAttribute="trailing" secondItem="vWD-B6-FTP" secondAttribute="trailing" id="2PF-85-cel"/>
+                                        <constraint firstItem="gul-K8-yJq" firstAttribute="top" secondItem="Jmn-KT-d6N" secondAttribute="bottom" constant="49" id="A3X-PG-krR"/>
                                         <constraint firstItem="vWD-B6-FTP" firstAttribute="leading" secondItem="lK9-e9-f0c" secondAttribute="leading" id="D64-gj-K18"/>
                                         <constraint firstItem="vWD-B6-FTP" firstAttribute="trailing" secondItem="lK9-e9-f0c" secondAttribute="trailing" id="JJQ-Wo-GCU"/>
                                         <constraint firstAttribute="trailing" secondItem="lK9-e9-f0c" secondAttribute="trailing" constant="20" id="LPN-v8-2Oe"/>
                                         <constraint firstItem="lK9-e9-f0c" firstAttribute="leading" secondItem="KLT-iX-xZG" secondAttribute="leading" constant="20" id="RSa-dk-l8N"/>
-                                        <constraint firstItem="Jmn-KT-d6N" firstAttribute="top" secondItem="vWD-B6-FTP" secondAttribute="bottom" constant="14" id="TLO-mw-99z"/>
                                         <constraint firstItem="gul-K8-yJq" firstAttribute="leading" secondItem="Jmn-KT-d6N" secondAttribute="leading" id="Xjz-tA-acp"/>
+                                        <constraint firstItem="LID-M3-sfn" firstAttribute="top" secondItem="lK9-e9-f0c" secondAttribute="bottom" constant="14" id="b4q-eL-Dyy"/>
                                         <constraint firstItem="Jmn-KT-d6N" firstAttribute="leading" secondItem="vWD-B6-FTP" secondAttribute="leading" id="cbi-Hp-bvN"/>
-                                        <constraint firstItem="vWD-B6-FTP" firstAttribute="top" secondItem="lK9-e9-f0c" secondAttribute="bottom" constant="14" id="fBb-Sc-Cp3"/>
+                                        <constraint firstItem="LID-M3-sfn" firstAttribute="leading" secondItem="lK9-e9-f0c" secondAttribute="leading" id="e5C-OK-CLW"/>
+                                        <constraint firstItem="vWD-B6-FTP" firstAttribute="top" secondItem="LID-M3-sfn" secondAttribute="bottom" constant="14" id="emI-aL-EW3"/>
                                         <constraint firstItem="gul-K8-yJq" firstAttribute="trailing" secondItem="Jmn-KT-d6N" secondAttribute="trailing" id="fps-lX-cvB"/>
+                                        <constraint firstItem="LID-M3-sfn" firstAttribute="trailing" secondItem="lK9-e9-f0c" secondAttribute="trailing" id="h39-7j-byK"/>
                                         <constraint firstItem="3Vt-UD-GsG" firstAttribute="centerX" secondItem="gul-K8-yJq" secondAttribute="centerX" id="iNi-Ia-BeG"/>
+                                        <constraint firstItem="Jmn-KT-d6N" firstAttribute="top" secondItem="vWD-B6-FTP" secondAttribute="bottom" constant="14" id="io4-7e-KOB"/>
                                         <constraint firstItem="3Vt-UD-GsG" firstAttribute="top" secondItem="gul-K8-yJq" secondAttribute="bottom" constant="21" id="sXl-xe-zCM"/>
                                         <constraint firstItem="lK9-e9-f0c" firstAttribute="top" secondItem="KLT-iX-xZG" secondAttribute="top" constant="29" id="u9p-tn-kgb"/>
-                                        <constraint firstItem="gul-K8-yJq" firstAttribute="top" secondItem="Jmn-KT-d6N" secondAttribute="bottom" constant="27" id="wFI-0r-T78"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">

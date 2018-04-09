@@ -1280,7 +1280,7 @@
     [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
     [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
     if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
-        [parameter setValue:@" " forKey:DEPENDANT_ID];
+        [parameter setValue:@"na" forKey:DEPENDANT_ID];
 
     }
     
@@ -1330,7 +1330,7 @@
     [parameter setValue:statusStr forKey:@"is_follow"];
     [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
     if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
-        [parameter setValue:@" " forKey:DEPENDANT_ID];
+        [parameter setValue:@"na" forKey:DEPENDANT_ID];
         
     }
     
