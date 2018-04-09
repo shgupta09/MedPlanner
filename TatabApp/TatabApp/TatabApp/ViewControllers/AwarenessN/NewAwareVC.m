@@ -8,6 +8,7 @@
 
 #import "NewAwareVC.h"
 #import "MediaPostCell.h"
+#import "OTPVc.h"
 @interface NewAwareVC ()<UITextViewDelegate,UITextFieldDelegate>{
     
     UIView *addSubView;
@@ -112,6 +113,10 @@
     [tabBarObj layoutIfNeeded];
     [tabBarObj layoutSubviews];
     [tabBarObj setNeedsLayout];
+    NSString *mobilStr = [NSString stringWithFormat:@"%@",[CommonFunction getValueFromDefaultWithKey:LOGIN_IS_MOBILE_VERIFY]];
+    if ([mobilStr isEqualToString:@"0"]) {
+        [self otpVerification];
+    }
 }
 -(void)receiveNotification:(NSNotification*)notObj{
     [tempView removeGestureRecognizer:singleFingerTap];
@@ -827,6 +832,7 @@
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
     [parameter setValue:obj.patient_id forKey:@"patient_id"];
     [parameter setValue:obj.queue_id forKey:@"queue_id"];
+    [parameter setValue:obj.dependentID forKey:DEPENDANT_ID];
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
@@ -856,7 +862,6 @@
                     temp.doctor_id = obj.patient_id;
                     vc.objDoctor  = temp;
                     vc.queue_id = obj.queue_id;
-                    
                     //                    vc.awarenessObj = _awarenessObj;
                     vc.toId = obj.jabberId;
                     [self.navigationController pushViewController:vc animated:true];
@@ -874,6 +879,7 @@
                     NSLog(@"%@ Chat With %@",[CommonFunction getValueFromDefaultWithKey:loginfirstname],[[responseObj valueForKey:@"patient"] valueForKey:@"name"]);
                     temp.first_name = [[responseObj valueForKey:@"patient"] valueForKey:@"name"];
                     temp.doctor_id = [[responseObj valueForKey:@"patient"] valueForKey:@"patient_id"];
+                    
                     vc.objDoctor  = temp;
                     vc.queue_id = obj.queue_id;
                     
@@ -950,6 +956,7 @@
                         queueObj.email = [obj valueForKey:@"email"];
                         queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         queueObj.patient_id = [obj valueForKey:@"patient_id"];
+                        queueObj.dependentID = [[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"];
                         queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
                         [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
@@ -1354,6 +1361,20 @@
             
             break;
     }
+}
+#pragma mark - Otp Verification
+
+-(void)otpVerification{
+    OTPVc *otpObj = [[OTPVc alloc]initWithNibName:@"OTPVc" bundle:nil];
+    otpObj.delegateProperty = self;
+    [self presentViewController:otpObj animated:true completion:nil];
+    
+}
+
+#pragma mark- OPT Delegate
+- (void)otpDelegateMethodWithnumber:(NSString *)number{
+    //    [_parameterDict setValue:number forKey:loginmobile];
+    //    [self hitApi];
 }
 
 @end

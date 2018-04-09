@@ -133,10 +133,6 @@
 - (IBAction)btnActionCompleteRegistration:(id)sender {
     NSDictionary *dictForValidation = [self validateData];
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
-//        OTPVc *otpObj = [[OTPVc alloc]initWithNibName:@"OTPVc" bundle:nil];
-//        otpObj.parameterDict = _parameterDict;
-//        otpObj.delegateProperty = self;
-//        [self presentViewController:otpObj animated:true completion:nil];
         [self hitApi];
     }
     else{
@@ -517,11 +513,7 @@
     }
 }
 
-#pragma mark- OPT Delegate
-- (void)otpDelegateMethodWithnumber:(NSString *)number{
-    [_parameterDict setValue:number forKey:loginmobile];
-    [self hitApi];
-}
+
 
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-
+#import "OTPVc.h"
 @interface HomeViewController ()
 {
      SWRevealViewController *revealController;
@@ -26,7 +26,7 @@
     [super viewDidLoad];
     [self setData];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
-
+   
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
@@ -108,8 +108,6 @@
     ChoosePatientViewController* vc ;
     vc = [[ChoosePatientViewController alloc] initWithNibName:@"ChoosePatientViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:true];
-
-    
 }
 #pragma mark - Api hit
 -(void)hitApiForStartTheChat:(QueueDetails*)obj{
@@ -119,6 +117,7 @@
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
     [parameter setValue:obj.patient_id forKey:@"patient_id"];
     [parameter setValue:obj.queue_id forKey:@"queue_id"];
+    [parameter setValue:obj.dependentID forKey:DEPENDANT_ID];
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";

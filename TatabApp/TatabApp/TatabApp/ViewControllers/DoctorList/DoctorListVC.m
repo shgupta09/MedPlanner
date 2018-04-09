@@ -139,6 +139,7 @@
         Specialization* temp = [Specialization new];
         temp.first_name = obj.name;
         temp.doctor_id = obj.patient_id ;
+        temp.dependent_id = _selectedDependent.depedant_id;
         vc.objDoctor  = temp;
         
         vc.awarenessObj = _awarenessObj;
@@ -267,7 +268,12 @@
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     [parameter setValue:[dateFormatter stringFromDate:date] forKey:@"date"];
 
-    
+    NSString *patient = [NSString stringWithFormat:@"%@",[CommonFunction getValueFromDefaultWithKey:loginuserId]];
+    NSString *dependent =[NSString stringWithFormat:@"%@",_selectedDependent.depedant_id];
+    if ([patient  isEqualToString:dependent]) {
+        [parameter setValue:@"" forKey:DEPENDANT_ID];
+        
+    }
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
@@ -306,6 +312,12 @@
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     [parameter setValue:@"20.0" forKey:@"amount"];
     
+    NSString *patient = [NSString stringWithFormat:@"%@",[CommonFunction getValueFromDefaultWithKey:loginuserId]];
+    NSString *dependent =[NSString stringWithFormat:@"%@",_selectedDependent.depedant_id];
+    if ([patient  isEqualToString:dependent]) {
+        [parameter setValue:@"" forKey:DEPENDANT_ID];
+
+    }
     
     if ([ CommonFunction reachability]) {
         [self addLoder];

@@ -986,6 +986,7 @@
                         queueObj.email = [obj valueForKey:@"email"];
                         queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         queueObj.patient_id = [obj valueForKey:@"patient_id"];
+                        queueObj.dependentID = [[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"];
                         queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
                         [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
@@ -1026,7 +1027,11 @@
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     [parameter setValue:[dateFormatter stringFromDate:date] forKey:@"end_datetime"];
-    
+    [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
+    if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
+        [parameter setValue:@"na" forKey:DEPENDANT_ID];
+        
+    }
     NSLog(@"%@",parameter);
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -1182,6 +1187,11 @@
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     [parameter setValue:[NSString stringWithFormat:@"%ld", (long)_objDoctor.doctor_id ] forKey:@"doctor_id"];
+    [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
+    if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
+        [parameter setValue:@"na" forKey:DEPENDANT_ID];
+        
+    }
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -1214,9 +1224,14 @@
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
     [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
+    
     [parameter setValue:uploadType forKey:@"type"];
     [parameter setValue:textView_advice.text forKey:@"detail"];
-    
+    [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
+    if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
+        [parameter setValue:@"na" forKey:DEPENDANT_ID];
+        
+    }
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
@@ -1263,6 +1278,12 @@
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
     [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
+    [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
+    if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
+        [parameter setValue:@" " forKey:DEPENDANT_ID];
+
+    }
+    
 //    [parameter setValue:"" forKey:""];
     
     
@@ -1274,8 +1295,8 @@
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     
-                  NSString *strTocheck =  [[responseObj valueForKey:@"data"] valueForKey:@"is_follow"];
-                    if ([strTocheck isEqualToString:@"false"]) {
+                  NSString *strTocheck =  [CommonFunction checkForNull:[[responseObj valueForKey:@"data"] valueForKey:@"is_follow"]];
+                    if ([strTocheck isEqualToString:@"false"] || [strTocheck isEqualToString:@""]) {
                         [_btn_FollowUp setSelected:false];
 
                     }else{
@@ -1307,7 +1328,11 @@
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
     [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
     [parameter setValue:statusStr forKey:@"is_follow"];
-    
+    [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
+    if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
+        [parameter setValue:@" " forKey:DEPENDANT_ID];
+        
+    }
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -1318,7 +1343,7 @@
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     
                     
-                    if ([statusStr isEqualToString:@"false"]) {
+                    if (![statusStr isEqualToString:@"false"] ) {
                         [_btn_FollowUp setSelected:true];
                         
                     }else{

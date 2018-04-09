@@ -14,11 +14,13 @@
 @property(nonatomic ,strong) NSString *current_grade;
 @property(nonatomic ,strong) NSString *first_name;
 @property(nonatomic ,strong) NSString *gender;
+@property(nonatomic ,strong) NSString *is_follow;
 @property(nonatomic ,strong) NSString *last_name;
 @property(nonatomic ,strong) NSString *photo;
 @property(nonatomic ,strong) NSString *sub_specialist;
 @property(nonatomic ,strong) NSString *workplace;
 @property(nonatomic ,strong) NSString *jabberId;
 @property(nonatomic,strong) NSString *doctor_id;
+@property(nonatomic,strong) NSString *dependent_id;
 
 @end

@@ -8,10 +8,8 @@
 
 #import "HealthTrackerContainerVC.h"
 
-@interface HealthTrackerContainerVC ()
-{
+@interface HealthTrackerContainerVC (){
       CustomAlert *alertObj;
-    
 }
 @end
 

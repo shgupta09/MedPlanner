@@ -149,7 +149,13 @@
     cell.clinicImage.layer.borderColor = [CommonFunction colorWithHexString:Primary_GreenColor].CGColor;
     cell.clinicImage.layer.borderWidth = 1;
     cell.delegate = self;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if ([obj.is_follow isEqualToString:@"true"]) {
+//        [cell.btnfollowUp setImage:[UIImage imageNamed:@"check_active"] forState:UIControlStateNormal];
+        [cell.btnfollowUp setBackgroundImage:[UIImage imageNamed:@"check_active"] forState:UIControlStateNormal];
+    }else{
+        [cell.btnfollowUp setBackgroundImage:[UIImage imageNamed:@"check-passive"] forState:UIControlStateNormal];
+    }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
         
 }
@@ -232,7 +238,13 @@
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:_patient.patient_id forKey:@"patient_id"];
     [parameter setValue: doctorId forKey:@"doctor_id"];
-    [parameter setValue: @"  " forKey:@"dependent_id"];
+    if (!_isdependant) {
+        [parameter setValue: _dependant.depedant_id forKey:@"dependent_id"];
+
+    }else{
+        [parameter setValue: @"na" forKey:@"dependent_id"];
+
+    }
 
     
     
@@ -286,12 +298,12 @@
                     }];
                     DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
                     switch (switchINt) {
-                        case 2:{
+                        case 3:{
                             vc.detailType = @"Prescription";
                             vc.detailArray = prescriptionArray;
                         }
                             break;
-                        case 3:{
+                        case 2:{
                             vc.detailType = @"FollowUP";
                             vc.detailArray = followUPArray;
                         }break;
@@ -469,6 +481,7 @@
                         specializationObj.current_grade = [obj valueForKey:@"current_grade"];
                         specializationObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         specializationObj.first_name = [obj valueForKey:@"first_name"];
+                        specializationObj.is_follow = [obj valueForKey:@"is_follow"];
                         specializationObj.gender = [obj valueForKey:@"gender"];
                         specializationObj.last_name = [obj valueForKey:@"last_name"];
                         specializationObj.photo = [obj valueForKey:@"photo"];

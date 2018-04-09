@@ -253,6 +253,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
                         queueObj.email = [obj valueForKey:@"email"];
                         queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         queueObj.patient_id = [obj valueForKey:@"patient_id"];
+                        queueObj.dependentID = [[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"];
                         queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
                         [[QueueDetails sharedInstance].myDataArray addObject:queueObj];

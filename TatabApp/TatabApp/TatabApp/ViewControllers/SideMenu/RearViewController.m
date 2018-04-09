@@ -469,6 +469,7 @@
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
     [parameter setValue:obj.patient_id forKey:@"patient_id"];
     [parameter setValue:obj.queue_id forKey:@"queue_id"];
+    [parameter setValue:obj.dependentID forKey:DEPENDANT_ID];
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
@@ -508,7 +509,6 @@
                     specializationObj.patient_id = [[responseObj valueForKey:@"patient"] valueForKey:@"patient_id"];
                     specializationObj.name = [[responseObj valueForKey:@"patient"] valueForKey:@"name"];
                     specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[[responseObj valueForKey:@"patient"] valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[[responseObj valueForKey:@"patient"] valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
-                    
                     
                     
                     ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];

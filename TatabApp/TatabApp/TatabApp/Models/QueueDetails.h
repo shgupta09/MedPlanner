@@ -15,6 +15,8 @@
 @property(nonatomic ,strong) NSString *doctor_id;
 @property(nonatomic ,strong) NSString *patient_id;
 @property(nonatomic ,strong) NSString *jabberId;
+@property(nonatomic ,strong) NSString *dependentID;
+
 -(NSMutableArray*) myDataArray;
 +(QueueDetails*) sharedInstance;
 @end

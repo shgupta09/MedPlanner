@@ -86,7 +86,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="Resend OTP"/>
                     <connections>
-                        <action selector="btnActionSend:" destination="-1" eventType="touchUpInside" id="QqG-ml-eRa"/>
+                        <action selector="btnAction_Resend:" destination="-1" eventType="touchUpInside" id="cIz-ez-FRd"/>
                     </connections>
                 </button>
             </subviews>
@@ -118,6 +118,11 @@
                 <constraint firstItem="JRp-hm-LqR" firstAttribute="trailing" secondItem="EHB-96-0iz" secondAttribute="trailing" id="zOS-Nv-7cU"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="hYV-iE-gqG"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="26.5" y="52.5"/>
         </view>
     </objects>

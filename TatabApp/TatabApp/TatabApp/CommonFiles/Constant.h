@@ -42,6 +42,7 @@
 #define loginmobile @"mobile_number"
 #define loginusergroup @"user_group"
 #define loginuserId @"user_id"
+#define LOGIN_IS_MOBILE_VERIFY @"is_mobile_verify"
 #define loginuserType @"user_type"
 #define loginuserGender @"gender"
 #define loginuseIsComplete @"is_complete"
@@ -93,7 +94,7 @@
 #define firstName @"firstName"
 #define lastName @"lastName"
 #define emailId @"emailId"
-#define mobileNo @"mobileNo"
+#define mobileNo @"mobile_no"
 #define recordID @"recordId"
 #define isdCode @"isdCode"
 #define passwordToStore @"password"
@@ -171,4 +172,6 @@ static NSString* const API_FOR_GET_COMMENTS = @"comments";
 static NSString* const API_FOR_ADD_COMMENTS = @"usercomment";
 static NSString* const API_FOR_PAYMENT = @"make_payment";
 static NSString* const API_FOR_CHECK_FOLLOWUP = @"checkfollowup";
+static NSString* const API_VERIFY_OTP = @"verify_otp";
+static NSString* const API_GETOTP = @"get_otp";
 #endif /* Constant_h */
