@@ -54,7 +54,15 @@
     lbl_title.text = @"Chat";
    imageDataArray = [NSMutableArray new];
     if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-        _lbl_Name.text = [NSString stringWithFormat:@"%@",[_objDoctor.first_name capitalizedString]];
+        NSString *patient = [NSString stringWithFormat:@"%@",_objDoctor.doctor_id];
+        NSString *dependent = [NSString stringWithFormat:@"%@",_objDoctor.dependent_id];
+        if ([patient isEqualToString:dependent]) {
+            _lbl_Name.text = [NSString stringWithFormat:@"%@",[_objDoctor.first_name capitalizedString]];
+
+        }else{
+            _lbl_Name.text = [NSString stringWithFormat:@"%@",[_objDoctor.dependent_Name capitalizedString]];
+
+        }
         _btn_queue.hidden = false;
         if ([QueueDetails sharedInstance].myDataArray.count>0) {
             _lbl_queueCount.hidden = false;
@@ -1028,7 +1036,9 @@
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     [parameter setValue:[dateFormatter stringFromDate:date] forKey:@"end_datetime"];
     [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
+    NSString *patient = [NSString stringWithFormat:@"%@",_objDoctor.doctor_id];
+    NSString *dependent = [NSString stringWithFormat:@"%@",_objDoctor.dependent_id];
+    if ([patient isEqualToString:dependent] || _objDoctor.dependent_id == nil ) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
         
     }
@@ -1188,7 +1198,9 @@
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     [parameter setValue:[NSString stringWithFormat:@"%ld", (long)_objDoctor.doctor_id ] forKey:@"doctor_id"];
     [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
+    NSString *patient = [NSString stringWithFormat:@"%@",_objDoctor.doctor_id];
+    NSString *dependent = [NSString stringWithFormat:@"%@",_objDoctor.dependent_id];
+    if ([patient isEqualToString:dependent] || _objDoctor.dependent_id == nil ) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
         
     }
@@ -1228,7 +1240,9 @@
     [parameter setValue:uploadType forKey:@"type"];
     [parameter setValue:textView_advice.text forKey:@"detail"];
     [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
+    NSString *patient = [NSString stringWithFormat:@"%@",_objDoctor.doctor_id];
+    NSString *dependent = [NSString stringWithFormat:@"%@",_objDoctor.dependent_id];
+    if ([patient isEqualToString:dependent] || _objDoctor.dependent_id == nil ) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
         
     }
@@ -1329,6 +1343,7 @@
     [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
     [parameter setValue:statusStr forKey:@"is_follow"];
     [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
+    
     if ([_objDoctor.dependent_id isEqualToString:_objDoctor.doctor_id] || _objDoctor.dependent_id == nil ) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
         

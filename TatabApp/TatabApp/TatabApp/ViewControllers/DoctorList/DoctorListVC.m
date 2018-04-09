@@ -123,6 +123,8 @@
         if ([CommonFunction getBoolValueFromDefaultWithKey:NOTIFICATION_BOOl] && [str1 isEqualToString:str2]) {
             ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
             vc.objDoctor = obj;
+            obj.dependent_id = _selectedDependent.depedant_id;
+            obj.dependent_Name = _selectedDependent.name;
             vc.awarenessObj = _awarenessObj;
             vc.toId = obj.jabberId;
             [self.navigationController pushViewController:vc animated:true];
@@ -140,6 +142,7 @@
         temp.first_name = obj.name;
         temp.doctor_id = obj.patient_id ;
         temp.dependent_id = _selectedDependent.depedant_id;
+        temp.dependent_Name = _selectedDependent.name;
         vc.objDoctor  = temp;
         
         vc.awarenessObj = _awarenessObj;

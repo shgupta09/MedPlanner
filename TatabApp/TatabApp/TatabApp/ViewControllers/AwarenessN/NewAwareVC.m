@@ -868,6 +868,8 @@
                     NSLog(@"%@ Chat With %@",[CommonFunction getValueFromDefaultWithKey:loginfirstname],obj.name);
                     temp.first_name = obj.name;
                     temp.doctor_id = obj.patient_id;
+                    temp.dependent_id = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"dependent_id"]];
+                    temp.dependent_Name = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"name"]];
                     vc.objDoctor  = temp;
                     vc.queue_id = obj.queue_id;
                     //                    vc.awarenessObj = _awarenessObj;
@@ -887,7 +889,8 @@
                     NSLog(@"%@ Chat With %@",[CommonFunction getValueFromDefaultWithKey:loginfirstname],[[responseObj valueForKey:@"patient"] valueForKey:@"name"]);
                     temp.first_name = [[responseObj valueForKey:@"patient"] valueForKey:@"name"];
                     temp.doctor_id = [[responseObj valueForKey:@"patient"] valueForKey:@"patient_id"];
-                    
+                    temp.dependent_id = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"dependent_id"]];
+                    temp.dependent_Name = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"name"]];
                     vc.objDoctor  = temp;
                     vc.queue_id = obj.queue_id;
                     

@@ -22,5 +22,6 @@
 @property(nonatomic ,strong) NSString *jabberId;
 @property(nonatomic,strong) NSString *doctor_id;
 @property(nonatomic,strong) NSString *dependent_id;
+@property(nonatomic,strong) NSString *dependent_Name;
 
 @end
