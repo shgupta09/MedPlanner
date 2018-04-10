@@ -92,6 +92,7 @@
         QueueDetails *obj = [QueueDetails new];
         obj.patient_id = @"na";
         obj.queue_id = @"na";
+        obj.dependentID = @"na";
         [self hitApiForStartTheChat:obj];
         
     }else{
@@ -126,21 +127,14 @@
     
     if ([ CommonFunction reachability]) {
              [self addLoder];
-        
-        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"startchat"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    //                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:1002 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                    
                     ChatPatient *specializationObj = [ChatPatient new];
                     specializationObj.patient_id = [obj valueForKey:@"patient_id"];
                     specializationObj.name = [NSString stringWithFormat:@"%@",obj.name];
                     specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
-                    
-                    
-                    
-                    ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
+                     ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
                     Specialization* temp = [Specialization new];
                     NSLog(@"%@ Chat With %@",[CommonFunction getValueFromDefaultWithKey:loginfirstname],obj.name);
                     temp.first_name = obj.name;
@@ -175,14 +169,15 @@
                     vc.toId = specializationObj.jabberId;
                     [self.navigationController pushViewController:vc animated:true];
                     
-                }
-                
-                else
-                {
+                }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK003"]){
+                    [self addAlertWithTitle:AlertKey andMessage:@"Queue is empty" isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                }else{
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
+                [self removeloder];
+            }else{
                 [self removeloder];
             }
         }];

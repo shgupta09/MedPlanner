@@ -100,6 +100,8 @@
                 [_tblView reloadData];
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             

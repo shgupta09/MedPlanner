@@ -55,8 +55,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [_tbl_View reloadData];
-      if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
-          
+    if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
           if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
               titleArray  = [[NSMutableArray alloc]initWithObjects:@"DEPENDANTS",@"EMR AND TRACKER",@"PROFILE",@"SETTINGS", nil];
               titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-children",@"menu-general",@"Icon---Profile",@"Icon---Setttings", nil];
@@ -90,7 +89,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
    
-     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
+   if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
          
          return titleArray.count;
 
@@ -104,7 +103,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RearCell *rearCell = [_tbl_View dequeueReusableCellWithIdentifier:@"RearCell"];
     rearCell.countLabel.hidden = true;
-     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
+   if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
 //    
 //    if (indexPath.row<categoryArray.count) {
 //        AwarenessCategory *obj = [categoryArray objectAtIndex:indexPath.row];
@@ -133,7 +132,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [revealController revealToggle:nil];
-     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
+   if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
 //    if (indexPath.row<categoryArray.count){
 //        
 //        DoctorListVC* vc ;
@@ -470,7 +469,12 @@
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
     [parameter setValue:obj.patient_id forKey:@"patient_id"];
     [parameter setValue:obj.queue_id forKey:@"queue_id"];
-    [parameter setValue:obj.dependentID forKey:DEPENDANT_ID];
+    if ([obj.dependentID isEqualToString:@"0"]) {
+        [parameter setValue:@"na" forKey:DEPENDANT_ID];
+    }else{
+        [parameter setValue:obj.dependentID forKey:DEPENDANT_ID];
+    }
+    
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
@@ -536,6 +540,8 @@
                     [self removeloder];
                     [self removeloder];
                 }
+                [self removeloder];
+            }else{
                 [self removeloder];
             }
         }];

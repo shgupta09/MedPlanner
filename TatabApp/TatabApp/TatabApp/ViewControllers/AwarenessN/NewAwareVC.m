@@ -104,7 +104,7 @@
 
 -(void)checkForOTP{
     NSString *mobilStr = [NSString stringWithFormat:@"%@",[CommonFunction getValueFromDefaultWithKey:LOGIN_IS_MOBILE_VERIFY]];
-    if (![mobilStr isEqualToString:@"1"] && ![CommonFunction getBoolValueFromDefaultWithKey:ISVerifiedFromUserEnd] && [CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]) {
+    if (![mobilStr isEqualToString:@"1"] && [CommonFunction getBoolValueFromDefaultWithKey:isLoggedInHit] && ![CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn] ) {
         [self otpVerification];
     }
 }
@@ -898,6 +898,8 @@
                     vc.toId = specializationObj.jabberId;
                     [self.navigationController pushViewController:vc animated:true];
                     
+                }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK003"]){
+                     [self addAlertWithTitle:AlertKey andMessage:@"Queue is empty" isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                 }
                 
                 else
@@ -906,6 +908,8 @@
                     [self removeloder];
                     [self removeloder];
                 }
+                [self removeloder];
+            }else{
                 [self removeloder];
             }
         }];
@@ -967,7 +971,7 @@
                         queueObj.email = [obj valueForKey:@"email"];
                         queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         queueObj.patient_id = [obj valueForKey:@"patient_id"];
-                        queueObj.dependentID = [[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"];
+                        queueObj.dependentID = [NSString stringWithFormat:@"%@",[[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"]];
                         queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
                         [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
@@ -975,7 +979,9 @@
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateCountLAbel" object:nil];
                    }
                 
-                }
+            }else{
+                [self removeloder];
+            }
             }
         ];
     }
@@ -1029,6 +1035,8 @@
                     [[AwarenessCategory sharedInstance].myDataArray addObject:s];
                 }
                 categoryArray = [AwarenessCategory sharedInstance].myDataArray;
+                [self removeloder];
+            }else{
                 [self removeloder];
             }
         }];
@@ -1283,7 +1291,6 @@
             [self removeAlert];
             [_tbl_View reloadData];
             [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:false];
-            [CommonFunction stroeBoolValueForKey:ISVerifiedFromUserEnd withBoolValue:false];
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"LogoutNotification"
              object:self];
@@ -1356,6 +1363,7 @@
                     QueueDetails *obj = [QueueDetails new];
                     obj.patient_id = @"na";
                     obj.queue_id = @"na";
+                    obj.dependentID = @"na";
                     [self hitApiForStartTheChat:obj];
                     
                 }else{

@@ -201,6 +201,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             
@@ -243,14 +245,11 @@
                 {
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
-                    [self removeloder];
                 }
                 [self removeloder];
-                
+            }else{
+                [self removeloder];
             }
-            
-            
-            
         }];
     } else {
         [self removeloder];
@@ -266,17 +265,14 @@
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:doctorId forKey:@"doctor_id"];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
-    [parameter setValue:_selectedDependent.depedant_id forKey:DEPENDANT_ID];
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     [parameter setValue:[dateFormatter stringFromDate:date] forKey:@"date"];
-
-    NSString *patient = [NSString stringWithFormat:@"%@",[CommonFunction getValueFromDefaultWithKey:loginuserId]];
-    NSString *dependent =[NSString stringWithFormat:@"%@",_selectedDependent.depedant_id];
-    if ([patient isEqualToString:dependent]) {
+    if (!_isDependent) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
-        
+    }else{
+        [parameter setValue:_selectedDependent.depedant_id forKey:DEPENDANT_ID];
     }
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -286,9 +282,6 @@
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                   
-                    
-                    
                 }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK005"]){
                     [self removeloder];
                     [self hitApiForPayment:doctorId];
@@ -298,6 +291,8 @@
                     [self removeloder];
                     [self removeloder];
                 }
+                [self removeloder];
+            }else{
                 [self removeloder];
             }
         }];
@@ -312,15 +307,13 @@
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:doctorId forKey:DOCTOR_ID];
-    [parameter setValue:_selectedDependent.depedant_id forKey:DEPENDANT_ID];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     [parameter setValue:@"20.0" forKey:@"amount"];
     
-    NSString *patient = [NSString stringWithFormat:@"%@",[CommonFunction getValueFromDefaultWithKey:loginuserId]];
-    NSString *dependent =[NSString stringWithFormat:@"%@",_selectedDependent.depedant_id];
-    if ([patient  isEqualToString:dependent]) {
+    if (!_isDependent) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
-
+    }else{
+        [parameter setValue:_selectedDependent.depedant_id forKey:DEPENDANT_ID];
     }
     
     if ([ CommonFunction reachability]) {
@@ -346,6 +339,8 @@
                     [self removeloder];
                     [self removeloder];
                 }
+                [self removeloder];
+            }else{
                 [self removeloder];
             }
         }];

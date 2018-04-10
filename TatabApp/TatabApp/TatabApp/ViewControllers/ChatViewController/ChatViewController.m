@@ -54,9 +54,8 @@
     lbl_title.text = @"Chat";
    imageDataArray = [NSMutableArray new];
     if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-        NSString *patient = [NSString stringWithFormat:@"%@",_objDoctor.doctor_id];
-        NSString *dependent = [NSString stringWithFormat:@"%@",_objDoctor.dependent_id];
-        if ([patient isEqualToString:dependent]) {
+       
+       if ([_objDoctor.dependent_id isEqualToString:@"0"]) {
             _lbl_Name.text = [NSString stringWithFormat:@"%@",[_objDoctor.first_name capitalizedString]];
 
         }else{
@@ -393,6 +392,7 @@
 }
 #pragma mark - btn Actions
 - (IBAction)btnAction_EndChat:(id)sender {
+    [CommonFunction resignFirstResponderOfAView:self.view];
     [self hitApiForEndTheChat];
     
 }
@@ -996,7 +996,7 @@
                         queueObj.email = [obj valueForKey:@"email"];
                         queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         queueObj.patient_id = [obj valueForKey:@"patient_id"];
-                        queueObj.dependentID = [[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"];
+                        queueObj.dependentID = [NSString stringWithFormat:@"%@",[[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"]];
                         queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
                         [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
@@ -1019,9 +1019,10 @@
                     
                 }
                 
+            }else{
+                [self removeloder];
             }
-        }
-         ];
+        }];
     }
 }
 
@@ -1037,10 +1038,12 @@
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     [parameter setValue:[dateFormatter stringFromDate:date] forKey:@"end_datetime"];
-    [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-   
-    if (!_isDependent) {
+ 
+
+    if (_objDoctor.dependent_id == nil || [_objDoctor.dependent_id isEqualToString:@"0"]) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
+    }else{
+        [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
     }
     NSLog(@"%@",parameter);
     if ([ CommonFunction reachability]) {
@@ -1060,6 +1063,8 @@
                     [self removeloder];
                     [self removeloder];
                 }
+                [self removeloder];
+            }else{
                 [self removeloder];
             }
         }];
@@ -1142,6 +1147,8 @@
                     [self removeloder];
                 }
                 [self removeloder];
+            }else{
+                [self removeloder];
             }
         }];
     } else {
@@ -1181,6 +1188,8 @@
                     [self removeloder];
                 }
                 [self removeloder];
+            }else{
+                [self removeloder];
             }
         }];
     } else {
@@ -1197,9 +1206,10 @@
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     [parameter setValue:[NSString stringWithFormat:@"%ld", (long)_objDoctor.doctor_id ] forKey:@"doctor_id"];
-    [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    if (!_isDependent) {
+    if (_objDoctor.dependent_id == nil || [_objDoctor.dependent_id isEqualToString:@"0"]) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
+    }else{
+        [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
     }
     
     if ([ CommonFunction reachability]) {
@@ -1220,6 +1230,8 @@
                     [self removeloder];
                 }
                 [self removeloder];
+            }else{
+                [self removeloder];
             }
         }];
     } else {
@@ -1236,9 +1248,10 @@
     
     [parameter setValue:uploadType forKey:@"type"];
     [parameter setValue:textView_advice.text forKey:@"detail"];
-    [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    if (!_isDependent) {
+    if (_objDoctor.dependent_id == nil || [_objDoctor.dependent_id isEqualToString:@"0"]) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
+    }else{
+        [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
     }
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -1268,6 +1281,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             
@@ -1286,9 +1301,10 @@
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
     [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
-    [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    if (!_isDependent) {
+    if (_objDoctor.dependent_id == nil || [_objDoctor.dependent_id isEqualToString:@"0"]) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
+    }else{
+        [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
     }
 //    [parameter setValue:"" forKey:""];
     
@@ -1317,6 +1333,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             
@@ -1334,9 +1352,10 @@
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
     [parameter setValue:_objDoctor.doctor_id forKey:@"patient_id"];
     [parameter setValue:statusStr forKey:@"is_follow"];
-    [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
-    if (!_isDependent) {
+    if (_objDoctor.dependent_id == nil || [_objDoctor.dependent_id isEqualToString:@"0"]) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
+    }else{
+        [parameter setValue:_objDoctor.dependent_id forKey:DEPENDANT_ID];
     }
     if ([ CommonFunction reachability]) {
         [self addLoder];
@@ -1362,6 +1381,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             

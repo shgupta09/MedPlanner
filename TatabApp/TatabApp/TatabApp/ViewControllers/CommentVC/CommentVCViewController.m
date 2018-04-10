@@ -183,6 +183,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             
@@ -219,6 +221,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             

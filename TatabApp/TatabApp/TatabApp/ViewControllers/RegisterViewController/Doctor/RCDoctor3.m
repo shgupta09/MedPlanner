@@ -478,6 +478,8 @@ numberOfRowsInComponent:(NSInteger)component{
                 [_tblView reloadData];
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             

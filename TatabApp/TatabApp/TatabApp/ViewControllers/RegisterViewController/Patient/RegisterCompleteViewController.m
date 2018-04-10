@@ -35,7 +35,9 @@
     XMPPHandler* hm;
     UIPickerView *pickerObj;
     NSInteger selectedRowForSpeciality;
+    NSInteger selectedRowForCity;
     NSMutableArray *relationArray;
+    NSMutableArray *cityArray;
     NSString *relationshipId ;
     CustomAlert *alertObj;
 
@@ -44,7 +46,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     selectedRowForSpeciality = 0;
+    selectedRowForCity = 0;
     relationArray = [NSMutableArray new];
+    cityArray = [[NSMutableArray new] mutableCopy];
+    cityArray = [CommonFunction getCityArray];
     [CommonFunction setResignTapGestureToView:self.view andsender:self];
     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
     isMale = true;
@@ -237,22 +242,35 @@
 }
 -(NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component{
-    
+    if (pickerView.tag ==1) {
+       return [cityArray count];
+    }
     return [relationArray count];
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
 (NSInteger)row forComponent:(NSInteger)component{
-    
-    Relation* relationObj = [relationArray objectAtIndex:row];
-    return relationObj.name;
+    if (pickerView.tag ==1) {
+        return [[cityArray objectAtIndex:row] valueForKey:@"Name"];
+    }
+        Relation* relationObj = [relationArray objectAtIndex:row];
+        return relationObj.name;
+  
+
+   
     
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component{
+    if (pickerView.tag == 1) {
+        _txtCity.text = [[cityArray objectAtIndex:row] valueForKey:@"Name"];
+        selectedRowForCity = row;
+    }else{
         Relation* relationObj = [relationArray objectAtIndex:row];
         _txt_Relationship.text = relationObj.name;
         relationshipId= relationObj.idValue;
         selectedRowForSpeciality = row;
+    }
+    
 }
 #pragma mark- Btn Actions
 
@@ -275,6 +293,7 @@ numberOfRowsInComponent:(NSInteger)component{
     pickerObj.dataSource = self;
     pickerObj.showsSelectionIndicator = YES;
     pickerObj.backgroundColor = [UIColor lightGrayColor];
+    pickerObj.tag = ((UIButton *)sender).tag;
     viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
     UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
                           CGRectMake(0, self.view.frame.size.height-
@@ -295,7 +314,13 @@ numberOfRowsInComponent:(NSInteger)component{
     pickerObj.hidden = false;
     [toolBar setItems:toolbarItems];
     [viewOverPicker addSubview:toolBar];
-    [pickerObj  selectRow:selectedRowForSpeciality inComponent:0 animated:true];
+    if (pickerObj.tag == 1) {
+        [pickerObj  selectRow:selectedRowForCity inComponent:0 animated:true];
+
+    }else{
+        [pickerObj  selectRow:selectedRowForSpeciality inComponent:0 animated:true];
+
+    }
     [viewOverPicker addSubview:pickerObj];
     [self.view addSubview:viewOverPicker];
     [pickerObj reloadAllComponents];
@@ -364,6 +389,9 @@ numberOfRowsInComponent:(NSInteger)component{
     [viewOverPicker addSubview:pickerForDate];
     [viewOverPicker addSubview:toolBar];
     [self.view addSubview:viewOverPicker];
+}
+- (IBAction)btnAction_Cities:(id)sender {
+
 }
 
 
@@ -461,11 +489,7 @@ numberOfRowsInComponent:(NSInteger)component{
                         [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                         [self removeloder];
                     }
-                    
-                    
-                    
                 }
-                
                 else {
                     [self removeloder];
                      [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
@@ -604,7 +628,13 @@ numberOfRowsInComponent:(NSInteger)component{
                     // [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self performBlock:^{
                         //[alertController dismissViewControllerAnimated:true completion:nil];
-                       [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
+                        NSString *mobilStr = [NSString stringWithFormat:@"%@",[[responseObj valueForKey:loginUser]valueForKey:LOGIN_IS_MOBILE_VERIFY]];
+                          if ([mobilStr isEqualToString:@"1"] ){
+                            [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
+                        }else{
+                            [CommonFunction stroeBoolValueForKey:isLoggedInHit withBoolValue:true];
+                        }
+                        
                         
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserId] andKey:loginuserId];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserType] andKey:loginuserType];
@@ -617,7 +647,7 @@ numberOfRowsInComponent:(NSInteger)component{
                         [CommonFunction stroeBoolValueForKey:Notification_Related withBoolValue:true];
                         [CommonFunction storeValueInDefault:[[responseObj valueForKey:loginUser] valueForKey:LOGIN_IS_MOBILE_VERIFY] andKey:LOGIN_IS_MOBILE_VERIFY];
                           [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:mobileNo] andKey:mobileNo];
-                        [CommonFunction stroeBoolValueForKey:ISVerifiedFromUserEnd withBoolValue:false];
+                       
                         [self hitApiForaddingTheDeviceID];
                         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
                         SWRevealViewController *mainRevealController;
@@ -640,11 +670,7 @@ numberOfRowsInComponent:(NSInteger)component{
                     [self removeloder];
                     [self removeloder];
                 }
-                
-                
-                
             }
-            
             else {
                 [self removeloder];
            [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];

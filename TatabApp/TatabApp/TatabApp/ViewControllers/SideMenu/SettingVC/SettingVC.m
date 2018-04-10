@@ -78,6 +78,8 @@
                     [self removeloder];
                 }
                                 [self removeloder];
+            }else{
+                [self removeloder];
             }
         }];
     } else {

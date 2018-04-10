@@ -143,6 +143,7 @@
 		9C9607B12073845C00505F9F /* TermVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9607AF2073845C00505F9F /* TermVC.xib */; };
 		9CADAD8620612F2000737CAA /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CADAD8420612F2000737CAA /* SettingVC.m */; };
 		9CADAD8720612F2000737CAA /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CADAD8520612F2000737CAA /* SettingVC.xib */; };
+		9CD966DD207CD45E00DB3693 /* cities-en.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CD966DC207CD45E00DB3693 /* cities-en.json */; };
 		9CEA820820121B7800F84450 /* CustomButton4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA820720121B7800F84450 /* CustomButton4.m */; };
 		9CFF43612077447E005F3AF7 /* PaymentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF435F2077447E005F3AF7 /* PaymentVC.m */; };
 		9CFF43622077447E005F3AF7 /* PaymentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFF43602077447E005F3AF7 /* PaymentVC.xib */; };
@@ -396,6 +397,7 @@
 		9CADAD8320612F2000737CAA /* SettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
 		9CADAD8420612F2000737CAA /* SettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
 		9CADAD8520612F2000737CAA /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
+		9CD966DC207CD45E00DB3693 /* cities-en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cities-en.json"; sourceTree = "<group>"; };
 		9CEA820620121B7800F84450 /* CustomButton4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton4.h; sourceTree = "<group>"; };
 		9CEA820720121B7800F84450 /* CustomButton4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton4.m; sourceTree = "<group>"; };
 		9CFF435E2077447E005F3AF7 /* PaymentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentVC.h; sourceTree = "<group>"; };
@@ -741,6 +743,7 @@
 		5FBBBAD71F72401B00C03813 = {
 			isa = PBXGroup;
 			children = (
+				9CD966DC207CD45E00DB3693 /* cities-en.json */,
 				D8C46A97202F6005004BAC2C /* GoogleService-Info.plist */,
 				5FE822DA203D507C00F20F4D /* TatabApp.xcdatamodeld */,
 				5FBBBAE21F72401B00C03813 /* TatabApp */,
@@ -1365,6 +1368,7 @@
 				9C840974203ED16700A7C3C7 /* MontserratAlternates-Bold.otf in Resources */,
 				9C840975203ED16700A7C3C7 /* MontserratAlternates-BoldItalic.otf in Resources */,
 				9C840976203ED16700A7C3C7 /* MontserratAlternates-ExtraBold.otf in Resources */,
+				9CD966DD207CD45E00DB3693 /* cities-en.json in Resources */,
 				9C840977203ED16700A7C3C7 /* MontserratAlternates-ExtraBoldItalic.otf in Resources */,
 				9C840978203ED16700A7C3C7 /* MontserratAlternates-ExtraLight.otf in Resources */,
 				9C840979203ED16700A7C3C7 /* MontserratAlternates-ExtraLightItalic.otf in Resources */,

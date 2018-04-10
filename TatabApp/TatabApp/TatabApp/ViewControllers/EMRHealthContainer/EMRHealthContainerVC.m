@@ -330,6 +330,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             
@@ -460,7 +462,11 @@
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:_patient.patient_id forKey:@"patient_id"];
-    
+    if (!_isdependant) {
+        [parameter setValue:@"na" forKey:DEPENDANT_ID];
+    }else{
+        [parameter setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
+    }
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
@@ -501,6 +507,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             

@@ -31,11 +31,12 @@
 
   _txtPassword.text = @"Admin@123";
   _txtUsername.text = @"sexybitch@yopmail.com";
-  _txtUsername.text = @"abhinav@gmail.com";
+//  _txtUsername.text = @"abhinav@gmail.com";
 //  _txtUsername.text = @"rahul@gmail.com";
 //    _txtUsername.text = @"abhinav@gmail.com";
 //  _txtPassword.text = @"Admin@123";
-//  _txtUsername.text = @"qwerty@yopmail.com";
+  _txtUsername.text = @"qwerty@yopmail.com";
+     _txtUsername.text = @"demodemo@yopmail.com";
 //  _txtUsername.text = @"abhinav@gmail.com";
 //  _txtUsername.text = @"rahul@gmail.com";
 //  _txtUsername.text = @"abhinav@gmail.com";
@@ -172,8 +173,12 @@
                    
                     
                     [self performBlock:^{
-                        
-                        [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
+                        NSString *mobilStr = [NSString stringWithFormat:@"%@",[[responseObj valueForKey:loginUser]valueForKey:LOGIN_IS_MOBILE_VERIFY]];
+                          if ([mobilStr isEqualToString:@"1"] ){
+                            [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
+                        }else{
+                            [CommonFunction stroeBoolValueForKey:isLoggedInHit withBoolValue:true];
+                        }
                         
                         [CommonFunction storeValueInDefault:[CommonFunction trimString:_txtUsername.text] andKey:loginfirstname];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserId] andKey:loginuserId];
@@ -191,7 +196,6 @@
                         [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
                         [CommonFunction stroeBoolValueForKey:Notification_Related withBoolValue:true];
                         [CommonFunction storeValueInDefault:[[responseObj valueForKey:loginUser] valueForKey:LOGIN_IS_MOBILE_VERIFY] andKey:LOGIN_IS_MOBILE_VERIFY];
-                        [CommonFunction stroeBoolValueForKey:ISVerifiedFromUserEnd withBoolValue:false];
                         
                         [self hitApiForaddingTheDeviceID];
 
@@ -215,20 +219,10 @@
                 }
                 else
                 {
-                    
-                    
-                    
-                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Error_Key_For_Image];
-                   /* [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                    [self removeloder];
-                    */
+                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Error_Key_For_Image];
                     [self removeloder];
                 }
-                
-                
-                
             }
-            
             else {
                 [self removeloder];
             [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];

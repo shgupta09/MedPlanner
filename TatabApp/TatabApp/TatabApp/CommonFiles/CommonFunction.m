@@ -444,6 +444,22 @@
     
     return [UIImage imageNamed:@""];
 }
++(NSArray *)getCityArray{
+    NSError *error = nil;
 
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"cities-en"
+                                                         ofType:@"json"];
+    NSData *dataFromFile = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:dataFromFile
+                                                         options:kNilOptions
+                                                           error:&error];
+    if (error != nil) {
+        NSLog(@"Error: was not able to load messages.");
+        return nil;
+    }else{
+        return [data valueForKey:@"Cities"];
+    }
+
+}
 
 @end

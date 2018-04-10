@@ -26,6 +26,7 @@
     [requestManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [requestManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     requestManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    requestManager.requestSerializer.timeoutInterval = 30;
 
 //    [requestManager.requestSerializer setValue:usreNamePassword forHTTPHeaderField:@"authtoken"];
 //    [requestManager.requestSerializer setValue:timeInStr forHTTPHeaderField:@"timestamp"];

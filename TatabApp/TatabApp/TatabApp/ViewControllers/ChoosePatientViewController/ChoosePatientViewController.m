@@ -117,7 +117,7 @@
                         ChatPatient *specializationObj = [ChatPatient new];
                         specializationObj.gender = [obj valueForKey:@"gender"];
                         specializationObj.patient_id = [obj valueForKey:@"patient_id"];
-                        specializationObj.name = [NSString stringWithFormat:@"%@ %@",[obj valueForKey:@"first_name"],[obj valueForKey:@"last_name"]];
+                        specializationObj.name = [NSString stringWithFormat:@"%@",[obj valueForKey:@"first_name"]];
                         specializationObj.dob = [obj valueForKey:@"date_of_birth"];
                         specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
@@ -132,6 +132,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             

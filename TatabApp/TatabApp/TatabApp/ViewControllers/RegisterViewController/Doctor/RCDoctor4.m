@@ -313,7 +313,12 @@
                         [hm disconnectFromXMPPServer];
                         [hm clearXMPPStream];
                         
-                        [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
+                        NSString *mobilStr = [NSString stringWithFormat:@"%@",[[responseObj valueForKey:loginUser]valueForKey:LOGIN_IS_MOBILE_VERIFY]];
+                          if ([mobilStr isEqualToString:@"1"] ){
+                            [CommonFunction stroeBoolValueForKey:isLoggedIn withBoolValue:true];
+                        }else{
+                            [CommonFunction stroeBoolValueForKey:isLoggedInHit withBoolValue:true];
+                        }
                         
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserId] andKey:loginuserId];
                         [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserType] andKey:loginuserType];
@@ -329,7 +334,6 @@
                           [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:mobileNo] andKey:mobileNo];
                         [CommonFunction stroeBoolValueForKey:Notification_Related withBoolValue:true];
                         [CommonFunction storeValueInDefault:[[responseObj valueForKey:loginUser] valueForKey:LOGIN_IS_MOBILE_VERIFY] andKey:LOGIN_IS_MOBILE_VERIFY];
-                        [CommonFunction stroeBoolValueForKey:ISVerifiedFromUserEnd withBoolValue:false];
                         
                         [self hitApiForDoctorToBeOnline];
                         [self hitApiForaddingTheDeviceID];
@@ -397,6 +401,8 @@
                     [self removeloder];
                     [self removeloder];
                 }
+                [self removeloder];
+            }else{
                 [self removeloder];
             }
         }];

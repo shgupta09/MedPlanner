@@ -182,7 +182,11 @@
             pat.patient_id = _patientID;
             vc.patient = pat;
             vc.dependant = [patient.dependants objectAtIndex:indexPath.row];
-            vc.isdependant = true;
+             if (indexPath.row>0) {
+                 vc.isdependant = true;
+             }else{
+                 vc.isdependant = false;
+             }
             [self.navigationController pushViewController:vc animated:true];
 
         }
@@ -193,6 +197,11 @@
             vc.awarenessObj = _awarenessObj;
             RegistrationDpendency *dependencyObj = [dependantListArray objectAtIndex:indexPath.row];
             vc.selectedDependent = dependencyObj;
+        if (indexPath.row>0) {
+            vc.isDependent = true;
+        }else{
+            vc.isDependent = false;
+        }
             [self.navigationController pushViewController:vc animated:true];
         
     }
@@ -271,6 +280,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             
             
@@ -314,6 +325,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             [self removeloder];
 
@@ -370,6 +383,8 @@
                 }
                 [self removeloder];
                 
+            }else{
+                [self removeloder];
             }
             [self removeloder];
 

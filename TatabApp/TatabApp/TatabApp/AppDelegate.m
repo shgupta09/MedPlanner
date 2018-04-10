@@ -36,17 +36,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [FIRMessaging messaging].delegate = self;
-
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-//    TermVC* vc;
-//    vc = [[TermVC alloc] initWithNibName:@"TermVC" bundle:nil];
+    [CommonFunction stroeBoolValueForKey:isLoggedInHit withBoolValue:false];
     SplashScreenViewController* vc;
     vc = [[SplashScreenViewController alloc] initWithNibName:@"SplashScreenViewController" bundle:nil];
     _window.rootViewController = vc;
-//    DDLog.add(DDTTYLogger.sharedInstance(), with: DDLogLevel.all)
-    
-//    [DDLog addLogger:[DDTTYLogger] withLevel:<#(DDLogLevel)#>]
     [self.window makeKeyAndVisible];
     if( SYSTEM_VERSION_LESS_THAN( @"10.0" ) )
     {
@@ -253,7 +247,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
                         queueObj.email = [obj valueForKey:@"email"];
                         queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         queueObj.patient_id = [obj valueForKey:@"patient_id"];
-                        queueObj.dependentID = [[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"];
+                        queueObj.dependentID = [NSString stringWithFormat:@"%@",[[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"]];
                         queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
                         [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
