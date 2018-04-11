@@ -24,8 +24,14 @@
     _txt_verificationNum.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_Number.text = [CommonFunction getValueFromDefaultWithKey:mobileNo];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+    [CommonFunction setResignTapGestureToView:self.view andsender:self];
+
     [self hitApiToSendOtp];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)resignResponder{
+    [CommonFunction resignFirstResponderOfAView:self.view];
 }
 
 -(void)viewDidLayoutSubviews{
@@ -59,7 +65,17 @@
     }
     
 }
-
+//! for change the current first responder
+//! @param: TextField
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    UIResponder *nextResponder = [self.view viewWithTag:textField.tag+1];
+    if(nextResponder){
+        [nextResponder becomeFirstResponder];   //next responder found
+    } else {
+        [CommonFunction resignFirstResponderOfAView:self.view];
+    }
+    return NO;
+}
 #pragma mark- Hit Api
 -(void)hitApiToSendOtp{
     

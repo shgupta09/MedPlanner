@@ -50,11 +50,11 @@
         _txt_hospitalName.leftImgView.image = [UIImage imageNamed:@"b"];
         _txt_workedSince.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
         
-    _txt_Sepciality.text = @"adfaf";
-    _txt_currentGrade.text = @"adfaf";
-    _txtClassification.text = @"adfaf";
-    _txt_subSpeciality.text = @"adfaf";
-    _txt_hospitalName.text = @"adfaf";
+//    _txt_Sepciality.text = @"adfaf";
+//    _txt_currentGrade.text = @"adfaf";
+//    _txtClassification.text = @"adfaf";
+//    _txt_subSpeciality.text = @"adfaf";
+//    _txt_hospitalName.text = @"adfaf";
     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
     [_tblView registerNib:[UINib nibWithNibName:@"DependantDetailTableViewCell" bundle:nil]forCellReuseIdentifier:@"DependantDetailTableViewCell"];
     _tblView.rowHeight = UITableViewAutomaticDimension;

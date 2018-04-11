@@ -29,14 +29,14 @@
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
-  _txtPassword.text = @"Admin@123";
-  _txtUsername.text = @"sexybitch@yopmail.com";
+//  _txtPassword.text = @"Admin@123";
+//  _txtUsername.text = @"sexybitch@yopmail.com";
 //  _txtUsername.text = @"abhinav@gmail.com";
 //  _txtUsername.text = @"rahul@gmail.com";
 //    _txtUsername.text = @"abhinav@gmail.com";
 //  _txtPassword.text = @"Admin@123";
-  _txtUsername.text = @"qwerty@yopmail.com";
-     _txtUsername.text = @"demodemo@yopmail.com";
+//  _txtUsername.text = @"qwerty@yopmail.com";
+//     _txtUsername.text = @"demodemo@yopmail.com";
 //  _txtUsername.text = @"abhinav@gmail.com";
 //  _txtUsername.text = @"rahul@gmail.com";
 //  _txtUsername.text = @"abhinav@gmail.com";
