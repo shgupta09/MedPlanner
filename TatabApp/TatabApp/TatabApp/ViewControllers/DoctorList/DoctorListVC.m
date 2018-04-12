@@ -14,6 +14,7 @@
     NSMutableArray *doctorListArray;
     NSMutableArray *patientListArray;
     CustomAlert *alertObj;
+    Specialization *objTemp;
 }
 @end
 
@@ -116,21 +117,21 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
         
-        Specialization *obj = [doctorListArray objectAtIndex:indexPath.row];
+        objTemp = [doctorListArray objectAtIndex:indexPath.row];
         NSString *str1 =[CommonFunction getValueFromDefaultWithKey:NOTIFICATION_DOCTOR_ID];
-        NSString *str2 =[NSString stringWithFormat:@"%@",obj.doctor_id];
+        NSString *str2 =[NSString stringWithFormat:@"%@",objTemp.doctor_id];
        
         if ([CommonFunction getBoolValueFromDefaultWithKey:NOTIFICATION_BOOl] && [str1 isEqualToString:str2]) {
             ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
-            vc.objDoctor = obj;
-            obj.dependent_id = _selectedDependent.depedant_id;
-            obj.dependent_Name = _selectedDependent.name;
+            vc.objDoctor = objTemp;
+            objTemp.dependent_id = _selectedDependent.depedant_id;
+            objTemp.dependent_Name = _selectedDependent.name;
             vc.awarenessObj = _awarenessObj;
-            vc.toId = obj.jabberId;
+            vc.toId = objTemp.jabberId;
             [self.navigationController pushViewController:vc animated:true];
         }else{
             
-            [self hitApiForAddInTheQueue:obj.doctor_id];
+            [self hitApiForAddInTheQueue:objTemp.doctor_id];
 
         }
     }
@@ -285,7 +286,17 @@
                 }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK005"]){
                     [self removeloder];
                     [self hitApiForPayment:doctorId];
-                }else
+                }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK004"]){
+                ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
+                vc.objDoctor = objTemp;
+                objTemp.dependent_id = _selectedDependent.depedant_id;
+                objTemp.dependent_Name = _selectedDependent.name;
+                vc.awarenessObj = _awarenessObj;
+                vc.toId = objTemp.jabberId;
+                [self.navigationController pushViewController:vc animated:true];
+                    
+                }
+                else
                 {
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];

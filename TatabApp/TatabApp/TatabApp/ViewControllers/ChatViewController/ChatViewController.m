@@ -997,6 +997,8 @@
                         queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         queueObj.patient_id = [obj valueForKey:@"patient_id"];
                         queueObj.dependentID = [NSString stringWithFormat:@"%@",[[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"]];
+                        queueObj.dependentName = [NSString stringWithFormat:@"%@",[[obj valueForKey:@"dependent"] valueForKey:@"dependent_name"]];
+
                         queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
                         [[QueueDetails sharedInstance].myDataArray addObject:queueObj];

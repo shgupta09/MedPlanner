@@ -205,8 +205,8 @@
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"received");
     NSLog(@"%@", userInfo);
-    [CommonFunction storeValueInDefault:[userInfo valueForKey:NOTIFICATION_DOCTOR_ID] andKey:NOTIFICATION_DOCTOR_ID];
-    [CommonFunction storeValueInDefault:[userInfo valueForKey:NOTIFICATION_DOCTOR_ID] andKey:NOTIFICATION_PATIENT_ID];
+//    [CommonFunction storeValueInDefault:[userInfo valueForKey:NOTIFICATION_DOCTOR_ID] andKey:NOTIFICATION_DOCTOR_ID];
+//    [CommonFunction storeValueInDefault:[userInfo valueForKey:NOTIFICATION_DOCTOR_ID] andKey:NOTIFICATION_PATIENT_ID];
     if (application.applicationState == UIApplicationStateActive)   {
         [AGPushNoteView showWithNotificationMessage:[[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"body"] ];
         [AGPushNoteView setMessageAction:^(NSString *message) {
@@ -214,10 +214,10 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         }];
     }
     if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"New Patient"]) {
-        [self hitApiForTheQueueCount];
+//        [self hitApiForTheQueueCount];
         
     }else if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"Start Chating"]) {
-        [CommonFunction stroeBoolValueForKey:NOTIFICATION_BOOl withBoolValue:true];
+//        [CommonFunction stroeBoolValueForKey:NOTIFICATION_BOOl withBoolValue:true];
     }else if ([[[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] valueForKey:@"title"] isEqualToString:@"End Chat"]){
         
         RatingVC *vc = [[RatingVC alloc]initWithNibName:@"RatingVC" bundle:nil];
@@ -248,6 +248,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
                         queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
                         queueObj.patient_id = [obj valueForKey:@"patient_id"];
                         queueObj.dependentID = [NSString stringWithFormat:@"%@",[[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"]];
+                        queueObj.dependentName = [NSString stringWithFormat:@"%@",[[obj valueForKey:@"dependent"] valueForKey:@"name"]];
                         queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                         
                         [[QueueDetails sharedInstance].myDataArray addObject:queueObj];

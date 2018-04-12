@@ -94,8 +94,8 @@
     _graphView.dragEnabled = NO;
     [_graphView setScaleEnabled:NO];
     _graphView.pinchZoomEnabled = NO;
-    _graphView.legend.enabled = NO;
-    //    ChartLegend *l = _graphView.legend;
+_graphView.legend.enabled = NO;
+        //    ChartLegend *l = _graphView.legend;
     //    l.horizontalAlignment = ChartLegendHorizontalAlignmentRight;
     //    l.verticalAlignment = ChartLegendVerticalAlignmentTop;
     //    l.orientation = ChartLegendOrientationVertical;
@@ -321,6 +321,7 @@
                     }];
                     [self removeloder];
                     [self updateChartData];
+                    [CommonFunction addBottomLineIngraph:_graphView];
                 }
                 else
                 {

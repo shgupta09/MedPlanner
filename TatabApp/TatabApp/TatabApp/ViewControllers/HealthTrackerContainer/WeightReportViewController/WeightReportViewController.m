@@ -99,14 +99,19 @@
     self.title = @"Multiple Lines Chart";
     
     _graphView.delegate = self;
-    
+    _graphView.userInteractionEnabled  = false;
     _graphView.chartDescription.enabled = NO;
     _graphView.leftAxis.enabled = YES;
     _graphView.rightAxis.enabled = NO;
-    _graphView.rightAxis.drawAxisLineEnabled = NO;
-    _graphView.rightAxis.drawGridLinesEnabled = NO;
-    _graphView.xAxis.drawAxisLineEnabled = NO;
-    _graphView.xAxis.drawGridLinesEnabled = NO;
+    
+    
+    
+    _graphView.rightAxis.drawAxisLineEnabled = false;
+    _graphView.rightAxis.drawGridLinesEnabled = false;
+    
+    _graphView.xAxis.drawAxisLineEnabled = false;
+    _graphView.xAxis.drawGridLinesEnabled = false;
+    
     _graphView.xAxis.labelTextColor = [UIColor clearColor];
     _graphView.drawGridBackgroundEnabled = NO;
     _graphView.drawBordersEnabled = NO;
@@ -114,6 +119,7 @@
     [_graphView setScaleEnabled:NO];
     _graphView.pinchZoomEnabled = NO;
     _graphView.legend.enabled = NO;
+    
     //    ChartLegend *l = _graphView.legend;
     //    l.horizontalAlignment = ChartLegendHorizontalAlignmentRight;
     //    l.verticalAlignment = ChartLegendVerticalAlignmentTop;
@@ -121,10 +127,6 @@
     //    l.drawInside = NO;
     
     [self slidersValueChanged:nil];
-
-    
-
-    
     if (![[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
         _btnAdd.hidden = true;
     }
@@ -464,32 +466,21 @@
                     }];
                     [self removeloder];
                     [self updateChartData];
-                }
-                else
-                {
+                    [CommonFunction addBottomLineIngraph:_graphView];
+                }else{
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
-                    
                 }
-                
-                
-                
-            }
-            
-            else {
+            }else {
                 [self removeloder];
-           [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
             }
             [self updateChartData];
-
-            
         }];
     } else {
         [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
-    
-
 }
 
 
@@ -512,9 +503,9 @@
 
 #pragma mark - picker data Source
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    
     return 1;
 }
+
 -(NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component{
     if (pickerObj.tag == 0){
@@ -528,7 +519,6 @@ numberOfRowsInComponent:(NSInteger)component{
         //reading
         return 207;
     }
-    
     return 0;
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
@@ -550,18 +540,14 @@ numberOfRowsInComponent:(NSInteger)component{
         }
         return [NSString stringWithFormat:@"%d",30+row];
     }
-    
-    
     return @"";
-    
 }
+
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component{
-    
     if (pickerObj.tag == 0){
         [_btnWeight setTitle:[NSString stringWithFormat:@"%d",20+row] forState:UIControlStateNormal];
         selectedRowForWeight = row;
-        
     }
     else if (pickerObj.tag == 1){
         //Weight

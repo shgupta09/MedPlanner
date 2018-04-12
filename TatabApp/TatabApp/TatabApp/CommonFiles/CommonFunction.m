@@ -9,6 +9,12 @@
 #import "CommonFunction.h"
 
 @implementation CommonFunction
++(void)addBottomLineIngraph:(UIView *)graph{
+    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(graph.frame.origin.x+7, graph.bounds.size.height-10, graph.frame.size.width-17, 1)];
+    bottomView.backgroundColor = [UIColor lightGrayColor];
+    [graph addSubview:bottomView];
+    [graph bringSubviewToFront:bottomView];
+}
 
 +(UIColor*) getColorFor:(NSString*) type{
     

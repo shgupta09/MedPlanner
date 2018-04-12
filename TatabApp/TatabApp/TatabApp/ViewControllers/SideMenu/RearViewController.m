@@ -192,6 +192,7 @@
         {
             switch (indexPath.row) {
                 case 0:{
+                    
 //                    DoctorListVC* vc ;
 //                    vc = [[DoctorListVC alloc] initWithNibName:@"DoctorListVC" bundle:nil];
 //                    
@@ -502,8 +503,8 @@
                     NSLog(@"%@ Chat With %@",[CommonFunction getValueFromDefaultWithKey:loginfirstname],obj.name);
                     temp.first_name = obj.name;
                     temp.doctor_id = obj.patient_id;
-                    temp.dependent_id = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"dependent_id"]];
-                    temp.dependent_Name = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"name"]];
+                    temp.dependent_id = obj.dependentID;
+                    temp.dependent_Name = obj.dependentName;
                     vc.objDoctor  = temp;
                     vc.queue_id = obj.queue_id;
                     
@@ -536,6 +537,7 @@
                 
                 else
                 {
+                    [self hitApiForTheQueueCount];
                     //[self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
@@ -550,4 +552,44 @@
         [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 }
+-(void)hitApiForTheQueueCount{
+    [[QueueDetails sharedInstance].myDataArray removeAllObjects];
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
+    if ([ CommonFunction reachability]) {
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"getallqueuepatient"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    NSLog(@"%@",responseObj);
+                    NSArray *tempArray = [responseObj valueForKey:@"data"];
+                    
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        QueueDetails *queueObj = [QueueDetails new];
+                        queueObj.queue_id = [obj valueForKey:@"queue_id"];
+                        queueObj.name = [obj valueForKey:@"name"];
+                        queueObj.email = [obj valueForKey:@"email"];
+                        queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
+                        queueObj.patient_id = [obj valueForKey:@"patient_id"];
+                        queueObj.dependentID = [NSString stringWithFormat:@"%@",[[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"]];
+                        queueObj.dependentName = [NSString stringWithFormat:@"%@",[[obj valueForKey:@"dependent"] valueForKey:@"name"]];
+                        queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                        
+                        [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
+                    }];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateCountLAbel" object:nil];
+                }else{
+//                      [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                }
+                
+            }else{
+                [self removeloder];
+            }
+        }
+         ];
+    }
+}
+
+
 @end

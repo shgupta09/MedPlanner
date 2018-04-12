@@ -30,8 +30,9 @@
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
 //  _txtPassword.text = @"Admin@123";
-//  _txtUsername.text = @"sexybitch@yopmail.com";
-//  _txtUsername.text = @"abhinav@gmail.com";
+  _txtUsername.text = @"kasim@yopmail.com";
+_txtUsername.text = @"gg@ggg.com";
+    //  _txtUsername.text = @"abhinav@gmail.com";
 //  _txtUsername.text = @"rahul@gmail.com";
 //    _txtUsername.text = @"abhinav@gmail.com";
 //  _txtPassword.text = @"Admin@123";
