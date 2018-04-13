@@ -82,6 +82,10 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveNotification:)
+                                                 name:@"Queue Tapped"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
                                                  name:@"LogoutNotification"
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -92,6 +96,11 @@
                                              selector:@selector(receiveNotification:)
                                                  name:@"NONE TO CHAT"
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"None Queue"
+                                               object:nil];
+    
     
     [self addCustomTabBar];
     tabBarObj.btnAwareness.highlighted = true;
@@ -143,7 +152,12 @@
     }else if ([notObj.name isEqualToString:@"UpdateCountLAbel"]){
         
         
+    }else if([notObj.name isEqualToString:@"None Queue"]){
+          [self addAlertWithTitle:AlertKey andMessage:@"Queue is empty." isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    }else if([notObj.name isEqualToString:@"Queue Tapped"]){
+        [self disapper];
     }
+    
   /*  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"Logout Successfully" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self viewWillAppear:TRUE];
@@ -216,6 +230,9 @@
 }
 -(void)viewWillDisappear:(BOOL)animated{
     
+    [self disapper];
+}
+-(void)disapper{
     [tempView removeGestureRecognizer:singleFingerTap];
     [tempView removeFromSuperview];
     isOpen = false;

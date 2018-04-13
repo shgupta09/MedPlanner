@@ -201,6 +201,10 @@
 //                    awarenessObj.category_id = [CommonFunction getIDFromClinic:awarenessObj.category_name];
 //                    vc.awarenessObj = awarenessObj;
 //                    [self.navigationController pushViewController:vc animated:true];
+                    
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:@"Queue Tapped"
+                     object:self];
                     if ([[QueueDetails sharedInstance].myDataArray count]== 0) {
 //                        [[NSNotificationCenter defaultCenter]
 //                         postNotificationName:@"NONE TO CHAT"
@@ -581,6 +585,9 @@
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateCountLAbel" object:nil];
                 }else{
 //                      [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:@"None Queue"
+                     object:self];
                 }
                 
             }else{
