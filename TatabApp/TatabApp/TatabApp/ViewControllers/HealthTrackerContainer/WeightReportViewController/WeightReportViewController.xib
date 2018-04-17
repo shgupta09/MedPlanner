@@ -32,6 +32,7 @@
                 <outlet property="graphView" destination="gBw-uR-Hf9" id="vNZ-KG-d5X"/>
                 <outlet property="imgPointer" destination="3Ib-5R-kvB" id="Iad-9w-oFO"/>
                 <outlet property="lblPatientName" destination="x9n-8q-zre" id="bUZ-q9-Sde"/>
+                <outlet property="lbl_NoDataa" destination="cfN-YL-Jt3" id="mLW-if-kiq"/>
                 <outlet property="lblgender" destination="Yof-e2-JgW" id="1dQ-Pu-BGq"/>
                 <outlet property="popUpView" destination="INF-g5-JHj" id="ZTk-hn-GZb"/>
                 <outlet property="txt_Comment" destination="ADs-c4-m1W" id="7zc-IT-e0x"/>
@@ -202,6 +203,12 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAS-f5-7wx">
                             <rect key="frame" x="0.0" y="244" width="375" height="423"/>
                             <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No chart Data Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfN-YL-Jt3">
+                                    <rect key="frame" x="98" y="201" width="178.5" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight Report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hu6-oM-9BC">
                                     <rect key="frame" x="112" y="8" width="152.5" height="24.5"/>
                                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="20"/>
@@ -328,6 +335,7 @@
                                 <constraint firstItem="8Kx-Wo-sfS" firstAttribute="trailing" secondItem="gBw-uR-Hf9" secondAttribute="trailing" id="557-Bt-Cnz"/>
                                 <constraint firstItem="IBh-YE-D4r" firstAttribute="centerY" secondItem="oCz-ok-Lfc" secondAttribute="centerY" id="6aP-W7-AX2"/>
                                 <constraint firstItem="RHo-HR-Uwm" firstAttribute="leading" secondItem="oCz-ok-Lfc" secondAttribute="trailing" constant="5" id="81u-Fw-3cW"/>
+                                <constraint firstItem="cfN-YL-Jt3" firstAttribute="centerY" secondItem="tAS-f5-7wx" secondAttribute="centerY" id="8M6-M4-arX"/>
                                 <constraint firstItem="gBw-uR-Hf9" firstAttribute="leading" secondItem="tAS-f5-7wx" secondAttribute="leading" constant="16" id="Aiv-Pd-BUv"/>
                                 <constraint firstItem="Hu6-oM-9BC" firstAttribute="top" secondItem="tAS-f5-7wx" secondAttribute="top" constant="8" id="C1N-55-0H1"/>
                                 <constraint firstItem="gBw-uR-Hf9" firstAttribute="centerX" secondItem="tAS-f5-7wx" secondAttribute="centerX" id="KCK-ZG-fof"/>
@@ -347,6 +355,7 @@
                                 <constraint firstItem="oCz-ok-Lfc" firstAttribute="leading" secondItem="IBh-YE-D4r" secondAttribute="trailing" constant="6" id="t1y-EZ-jTP"/>
                                 <constraint firstItem="8Kx-Wo-sfS" firstAttribute="top" secondItem="hPX-ho-Cbl" secondAttribute="bottom" constant="8" id="tQi-Nq-yug"/>
                                 <constraint firstAttribute="trailing" secondItem="gBw-uR-Hf9" secondAttribute="trailing" constant="15" id="u7K-wO-BPp"/>
+                                <constraint firstItem="cfN-YL-Jt3" firstAttribute="centerX" secondItem="tAS-f5-7wx" secondAttribute="centerX" id="uvL-QQ-SiD"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slv-Lo-dQX">

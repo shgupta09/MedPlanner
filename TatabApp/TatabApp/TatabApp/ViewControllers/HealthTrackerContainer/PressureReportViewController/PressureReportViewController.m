@@ -321,7 +321,15 @@ _graphView.legend.enabled = NO;
                     }];
                     [self removeloder];
                     [self updateChartData];
-                    [CommonFunction addBottomLineIngraph:_graphView];
+                    if (tempArray.count == 0) {
+                        _graphView.hidden = true;
+                        _lbl_NoDataa.hidden = false;
+                    }else{
+                        _graphView.hidden = false;
+                        _lbl_NoDataa.hidden = true;
+//                        [CommonFunction addBottomLineIngraph:_graphView];
+                    }
+                    
                 }
                 else
                 {
@@ -683,12 +691,15 @@ selectedRowForType = 0;
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];
     NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
     
+    [valuesHR addObject:[[ChartDataEntry alloc] initWithX:0 y:0]];
+
     for (int i = 0; i < dataArray.count; i++)
     {
         float val = [[[dataArray objectAtIndex:i] valueForKey:@"heart_rate"] floatValue];
-        [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
+        [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i+1 y:val]];
     }
     
+ 
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
     d.lineWidth = 3;
     d.circleRadius = 3.0;
@@ -703,11 +714,12 @@ selectedRowForType = 0;
     [dataSets addObject:d];
     
     NSMutableArray *valuesDIA = [[NSMutableArray alloc] init];
-    
+    [valuesDIA addObject:[[ChartDataEntry alloc] initWithX:0 y:0]];
+
     for (int i = 0; i < dataArray.count; i++)
     {
         float val = [[[dataArray objectAtIndex:i] valueForKey:@"dis"] floatValue];
-        [valuesDIA addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
+        [valuesDIA addObject:[[ChartDataEntry alloc] initWithX:i+1 y:val]];
     }
     
     LineChartDataSet *dDIA = [[LineChartDataSet alloc] initWithValues:valuesDIA label:@"DIA"];
@@ -724,11 +736,19 @@ selectedRowForType = 0;
     [dataSets addObject:dDIA];
     
     NSMutableArray *valuesSYS = [[NSMutableArray alloc] init];
-    
+    [valuesSYS addObject:[[ChartDataEntry alloc] initWithX:0 y:0]];
+
     for (int i = 0; i < dataArray.count; i++)
     {
         float val = [[[dataArray objectAtIndex:i] valueForKey:@"sys"] floatValue];
-        [valuesSYS addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
+        [valuesSYS addObject:[[ChartDataEntry alloc] initWithX:i+1 y:val]];
+    }
+    if (valuesSYS.count == 1 && valuesDIA.count == 1 && valuesHR.count == 1 )  {
+        _lbl_NoDataa.hidden = false;
+        _graphView.hidden = true;
+    }else{
+        _lbl_NoDataa.hidden = true;
+        _graphView.hidden = false;
     }
     
     LineChartDataSet *dSYS = [[LineChartDataSet alloc] initWithValues:valuesSYS label:@"SYS"];

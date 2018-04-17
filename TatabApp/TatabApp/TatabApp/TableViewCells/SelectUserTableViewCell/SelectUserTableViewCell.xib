@@ -57,7 +57,7 @@
                             <constraint firstAttribute="height" constant="25" id="aoM-je-uxY"/>
                             <constraint firstAttribute="width" constant="25" id="vEt-LQ-kU7"/>
                         </constraints>
-                        <state key="normal" title="Button" backgroundImage="error"/>
+                        <state key="normal" backgroundImage="error"/>
                     </button>
                 </subviews>
                 <constraints>

@@ -87,6 +87,23 @@
     }
     return NO;
 }
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if (textField.tag == 1) {
+        if (textField.text.length == 0 && ![string isEqualToString:@""]) {
+            textField.text = @"966-";
+        }else if(textField.text.length == 5 && [string isEqualToString:@""])
+        {
+            textField.text = @"";
+        }
+        
+    }
+    if ((textField.tag == 1) && ![string isEqualToString:@""] && (textField.text.length + string.length)>18) {
+        return false;
+    }
+    
+    return true;
+}
 
 #pragma mark - Btn Action
 
@@ -166,7 +183,7 @@
             [validationDict setValue:@"Oops! It seems that this is not a valid First Name." forKey:AlertKey];
         }
         
-    }else if(![CommonFunction validateMobile:_txt_mobile.text]){
+    }else if(![CommonFunction validateMobile:[_txt_mobile.text stringByReplacingOccurrencesOfString:@"966-" withString:@""]]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_mobile.text].length == 0) {
             [validationDict setValue:@"We need an Mobile Number" forKey:AlertKey];

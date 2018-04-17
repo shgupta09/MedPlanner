@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sliderValue;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtComments;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons_imgView;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_NoDataa;
 
 @property (nonatomic,strong) ChatPatient* patient;
 @property (nonatomic,strong) RegistrationDpendency* dependant;

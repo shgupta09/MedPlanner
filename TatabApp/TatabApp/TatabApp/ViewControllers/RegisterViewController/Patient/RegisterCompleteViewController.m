@@ -431,7 +431,9 @@ numberOfRowsInComponent:(NSInteger)component{
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
         
        
-        
+        NSString *mobile = [_parameterDict valueForKey:loginmobile];
+        mobile = [mobile stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        [_parameterDict setValue:mobile forKey:loginmobile];
         
         [_parameterDict setValue:[CommonFunction trimString:@"INR"] forKey:@"country_code"];
         NSError* error;
@@ -696,6 +698,7 @@ numberOfRowsInComponent:(NSInteger)component{
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:DEVICE_ID] forKey:DEVICE_ID];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:loginuserId];
     
+   
     
     if ([ CommonFunction reachability]) {
         //        [self addLoder];

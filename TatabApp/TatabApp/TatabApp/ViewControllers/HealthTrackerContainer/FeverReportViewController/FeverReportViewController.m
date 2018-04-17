@@ -309,7 +309,14 @@ _graphView.legend.enabled = NO;
                     }];
                     [self removeloder];
                     [self updateChartData];
-                    [CommonFunction addBottomLineIngraph:_graphView];
+                    if (tempArray.count == 0) {
+                        _graphView.hidden = true;
+                        _lbl_NoDataa.hidden = false;
+                    }else{
+                        _graphView.hidden = false;
+                        _lbl_NoDataa.hidden = true;
+//                        [CommonFunction addBottomLineIngraph:_graphView];
+                    }
                 }
                 else
                 {
@@ -552,13 +559,22 @@ _graphView.legend.enabled = NO;
     
     
     NSMutableArray *values = [[NSMutableArray alloc] init];
-    
+    [values addObject:[[ChartDataEntry alloc] initWithX:0 y:0]];
+
     for (int i = 0; i < dataArray.count; i++)
     {
         float val = [[[dataArray objectAtIndex:i] valueForKey:@"temperature"] floatValue];
-        [values addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
+        [values addObject:[[ChartDataEntry alloc] initWithX:i+1 y:val]];
     }
     
+    if (values.count == 1) {
+        _graphView.hidden = true;
+        _lbl_NoDataa.hidden = false;
+    }else{
+        _graphView.hidden = false;
+        _lbl_NoDataa.hidden = true;
+        [CommonFunction addBottomLineIngraph:_graphView];
+    }
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:values label:@"fever"];
     d.lineWidth = 3;
     d.circleRadius = 3.0;

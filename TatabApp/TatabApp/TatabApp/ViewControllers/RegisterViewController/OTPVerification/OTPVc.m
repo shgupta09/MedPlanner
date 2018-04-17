@@ -22,7 +22,14 @@
     [super viewDidLoad];
     _txt_Number.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_verificationNum.leftImgView.image = [UIImage imageNamed:@"b"];
-    _txt_Number.text = [CommonFunction getValueFromDefaultWithKey:mobileNo];
+    NSString *mobile = [CommonFunction getValueFromDefaultWithKey:mobileNo];
+    if ([[mobile substringToIndex:3] isEqualToString:@"966"]) {
+        NSMutableString *str =  [[mobile substringWithRange:NSMakeRange(4, mobile.length-4)] mutableCopy];
+        NSLog(@"%@",str);
+        _txt_Number.text = [NSString stringWithFormat:@"966-%@",str];
+    }else{
+        _txt_Number.text  =[CommonFunction getValueFromDefaultWithKey:mobileNo];
+    }
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
     [CommonFunction setResignTapGestureToView:self.view andsender:self];
 
@@ -76,13 +83,32 @@
     }
     return NO;
 }
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if (textField.tag == 0) {
+        if (textField.text.length == 0 && ![string isEqualToString:@""]) {
+            textField.text = @"966-";
+        }else if(textField.text.length == 5 && [string isEqualToString:@""])
+        {
+            textField.text = @"";
+        }
+        
+    }
+    if ((textField.tag == 0) && ![string isEqualToString:@""] && (textField.text.length + string.length)>18) {
+        return false;
+    }
+    
+    return true;
+}
 #pragma mark- Hit Api
 -(void)hitApiToSendOtp{
     
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
+    
+
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"user_id"];
-    [parameter setValue:_txt_Number.text forKey:@"mobile_no"];
+    [parameter setValue:[_txt_Number.text stringByReplacingOccurrencesOfString:@"-" withString:@""] forKey:@"mobile_no"];
     
     NSLog(@"%@",parameter);
     
@@ -230,7 +256,7 @@
 
 -(NSDictionary *)validateData{
     NSMutableDictionary *validationDict= [NSMutableDictionary new];
-    if(![CommonFunction validateMobile:_txt_Number.text]){
+    if(![CommonFunction validateMobile:[_txt_Number.text stringByReplacingOccurrencesOfString:@"-" withString:@""]]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_Number.text].length == 0) {
             [validationDict setValue:@"We need an Mobile Number" forKey:AlertKey];

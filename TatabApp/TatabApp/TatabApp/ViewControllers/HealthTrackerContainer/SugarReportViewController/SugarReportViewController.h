@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblbirthDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblgender;
 
+@property (weak, nonatomic) IBOutlet UILabel *lbl_NoDataa;
 
 
 @end

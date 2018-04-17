@@ -33,7 +33,7 @@
     alertObj.frame = self.view.frame;
 }
 -(void)setData{
-    
+    [self hitApiForTheQueueCount];
     [_btn_CasesHistory setImage:[UIImage imageNamed:@"requestsHistory"] forState:UIControlStateNormal];
     [_btn_MedicalQueue setImage:[UIImage imageNamed:@"queueWhite"] forState:UIControlStateNormal];
     [_btn_ManageAwareness setImage:[UIImage imageNamed:@"mngawareness"] forState:UIControlStateNormal];
@@ -130,48 +130,47 @@
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"startchat"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    ChatPatient *specializationObj = [ChatPatient new];
-                    specializationObj.patient_id = [obj valueForKey:@"patient_id"];
-                    specializationObj.name = [NSString stringWithFormat:@"%@",obj.name];
-                    specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                   
                      ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
                     Specialization* temp = [Specialization new];
                     NSLog(@"%@ Chat With %@",[CommonFunction getValueFromDefaultWithKey:loginfirstname],obj.name);
                     temp.first_name = obj.name;
                     temp.doctor_id = obj.patient_id;
-                    vc.objDoctor  = temp;
+                    
                     vc.queue_id = obj.queue_id;
-                    temp.dependent_id = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"dependent_id"]];
-                    temp.dependent_Name = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"name"]];
+                    if ([obj.dependentID isEqualToString:@"0"]) {
+                        temp.dependent_Name = @"";
+                        temp.dependent_id = @"0";
+                    }else{
+                        temp.dependent_id = obj.dependentID;
+                        temp.dependent_Name = obj.dependentName;
+                    }
+//                    temp.dependent_id = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"dependent_id"]];
+//                    temp.dependent_Name = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"name"]];
                     //                    vc.awarenessObj = _awarenessObj;
                     vc.toId = obj.jabberId;
+                    vc.objDoctor  = temp;
                     [self.navigationController pushViewController:vc animated:true];
                     
                 }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK002"]){
-                    ChatPatient *specializationObj = [ChatPatient new];
-                    specializationObj.patient_id = [[responseObj valueForKey:@"patient"] valueForKey:@"patient_id"];
-                    specializationObj.name = [[responseObj valueForKey:@"patient"] valueForKey:@"name"];
-                    specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[[responseObj valueForKey:@"patient"] valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[[responseObj valueForKey:@"patient"] valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
-                    
-                    
-                    
                     ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
                     Specialization* temp = [Specialization new];
                     NSLog(@"%@ Chat With %@",[CommonFunction getValueFromDefaultWithKey:loginfirstname],[[responseObj valueForKey:@"patient"] valueForKey:@"name"]);
                     temp.first_name = [[responseObj valueForKey:@"patient"] valueForKey:@"name"];
                     temp.doctor_id = [[responseObj valueForKey:@"patient"] valueForKey:@"patient_id"];
-                    temp.dependent_id = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"Patient"] valueForKey:@"dependents"] valueForKey:@"dependent_id"]];
-                    temp.dependent_Name = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"Patient"] valueForKey:@"dependents"] valueForKey:@"name"]];
+                    temp.dependent_id = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"dependent_id"]];
+                    temp.dependent_Name = [NSString stringWithFormat:@"%@",[[[responseObj valueForKey:@"patient"] valueForKey:@"dependents"] valueForKey:@"name"]];
                     vc.objDoctor  = temp;
                     vc.queue_id = obj.queue_id;
                     
                     //                    vc.awarenessObj = _awarenessObj;
-                    vc.toId = specializationObj.jabberId;
+                    vc.toId = [NSString stringWithFormat:@"%@%@",[[[[responseObj valueForKey:@"patient"] valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[[responseObj valueForKey:@"patient"] valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                     [self.navigationController pushViewController:vc animated:true];
                     
                 }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK003"]){
                     [self addAlertWithTitle:AlertKey andMessage:@"Queue is empty" isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
-                }else{
+                }
+                else{
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
@@ -186,6 +185,51 @@
         [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 }
+
+-(void)hitApiForTheQueueCount{
+    [[QueueDetails sharedInstance].myDataArray removeAllObjects];
+    NSMutableDictionary *parameter = [NSMutableDictionary new];
+    [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
+    if ([ CommonFunction reachability]) {
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"getallqueuepatient"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
+                    NSLog(@"%@",responseObj);
+                    NSArray *tempArray = [responseObj valueForKey:@"data"];
+                    
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        QueueDetails *queueObj = [QueueDetails new];
+                        queueObj.queue_id = [obj valueForKey:@"queue_id"];
+                        queueObj.name = [obj valueForKey:@"name"];
+                        queueObj.email = [obj valueForKey:@"email"];
+                        queueObj.doctor_id = [obj valueForKey:@"doctor_id"];
+                        queueObj.patient_id = [obj valueForKey:@"patient_id"];
+                        queueObj.dependentID = [NSString stringWithFormat:@"%@",[[obj valueForKey:@"dependent"] valueForKey:@"dependent_id"]];
+                        queueObj.dependentName = [NSString stringWithFormat:@"%@",[[obj valueForKey:@"dependent"] valueForKey:@"name"]];
+                        queueObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                        
+                        [[QueueDetails sharedInstance].myDataArray addObject:queueObj];
+                    }];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateCountLAbel" object:nil];
+                }else{
+                    //                      [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:@"None Queue"
+                     object:self];
+                }
+                
+            }else{
+                [self removeloder];
+            }
+        }
+         ];
+    }
+}
+
+
+
 #pragma mark- SWRevealViewController
 
 - (IBAction)revealAction:(id)sender {

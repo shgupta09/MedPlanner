@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet CustomButton3 *btnHeight;
 @property (weak, nonatomic) IBOutlet CustomButton3 *btnHeartRate;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_Comment;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_NoDataa;
 
 @property (nonatomic,strong) ChatPatient* patient;
 @property (nonatomic,strong) RegistrationDpendency* dependant;

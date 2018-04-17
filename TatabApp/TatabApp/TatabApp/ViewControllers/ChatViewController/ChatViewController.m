@@ -833,10 +833,21 @@
 {
     
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    _bottomConstraint.constant = keyboardSize.height;
-    [self.view layoutSubviews];
     
+    if(((int)[[UIScreen mainScreen] nativeBounds].size.height)==2436) {
+        if (@available(iOS 11.0, *)) {
+            _bottomConstraint.constant =333;
+        } else {
+            // Fallback on earlier versions
+            _bottomConstraint.constant = keyboardSize.height;
+
+        }
+    }else{
+        _bottomConstraint.constant = keyboardSize.height;
+    }
 }
+
+
 
 
 

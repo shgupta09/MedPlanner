@@ -25,6 +25,7 @@
             <connections>
                 <outlet property="lblChronic" destination="jJN-VP-XZG" id="K6O-v2-dCM"/>
                 <outlet property="lblPatientName" destination="Cph-Fq-vWp" id="Ni0-UT-OzY"/>
+                <outlet property="lbl_Nodata" destination="bce-gX-Xgp" id="1cC-RM-4dH"/>
                 <outlet property="lblbirthDate" destination="Oqt-d3-tlK" id="827-al-eCm"/>
                 <outlet property="lblgender" destination="41w-xP-zv3" id="rlh-h5-CYy"/>
                 <outlet property="tblView" destination="j9X-oO-pEM" id="nic-RK-7Pu"/>
@@ -273,6 +274,12 @@
                         <action selector="btnAction_instructions:" destination="-1" eventType="touchUpInside" id="stX-BC-Veb"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bce-gX-Xgp">
+                    <rect key="frame" x="157.5" y="326" width="60.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -287,6 +294,7 @@
                 <constraint firstItem="uqO-vh-f3E" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="7bf-aB-uhr"/>
                 <constraint firstItem="jSi-Bo-uSA" firstAttribute="top" secondItem="aN5-AZ-NNv" secondAttribute="bottom" constant="16" id="9FQ-MN-wst"/>
                 <constraint firstItem="0Dd-Bk-LjH" firstAttribute="leading" secondItem="G5q-r2-7Xx" secondAttribute="trailing" constant="-70" id="DrL-w3-gwQ"/>
+                <constraint firstItem="bce-gX-Xgp" firstAttribute="centerX" secondItem="ka6-PR-nfq" secondAttribute="centerX" id="Fmx-Vb-z8j"/>
                 <constraint firstItem="0Dd-Bk-LjH" firstAttribute="leading" secondItem="4ha-nx-vaI" secondAttribute="trailing" constant="-70" id="GNp-EY-Id0"/>
                 <constraint firstItem="fjS-YP-m9x" firstAttribute="top" secondItem="gkZ-6M-LbE" secondAttribute="bottom" constant="8" id="Gfr-ui-eRm"/>
                 <constraint firstItem="4AE-xs-JOY" firstAttribute="leading" secondItem="Zj4-mP-i56" secondAttribute="leading" id="IJe-uN-LRv"/>
@@ -304,6 +312,7 @@
                 <constraint firstItem="uqO-vh-f3E" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="SYh-IZ-do8"/>
                 <constraint firstItem="rIg-vA-aJH" firstAttribute="centerY" secondItem="4ha-nx-vaI" secondAttribute="centerY" id="T9o-hB-yjY"/>
                 <constraint firstAttribute="trailing" secondItem="41w-xP-zv3" secondAttribute="trailing" id="VD5-Hq-ELi"/>
+                <constraint firstItem="bce-gX-Xgp" firstAttribute="top" secondItem="ka6-PR-nfq" secondAttribute="bottom" constant="20" id="Xis-6k-fXD"/>
                 <constraint firstItem="G5q-r2-7Xx" firstAttribute="top" secondItem="jSi-Bo-uSA" secondAttribute="bottom" constant="8" id="YX6-jE-ewp"/>
                 <constraint firstItem="Zj4-mP-i56" firstAttribute="leading" secondItem="jSi-Bo-uSA" secondAttribute="trailing" constant="18" id="Yqn-mA-7aC"/>
                 <constraint firstItem="xhQ-1B-fCS" firstAttribute="centerY" secondItem="fjS-YP-m9x" secondAttribute="centerY" id="YrW-j4-Zxg"/>

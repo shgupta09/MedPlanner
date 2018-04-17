@@ -113,7 +113,11 @@
 #pragma mark- tbl methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
+    if (doctorListArray.count == 0) {
+        _lbl_Nodata.hidden = false;
+    }else{
+        _lbl_Nodata.hidden = true;
+    }
     return doctorListArray.count;
     
 }

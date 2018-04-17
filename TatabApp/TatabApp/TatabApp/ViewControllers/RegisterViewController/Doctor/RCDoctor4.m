@@ -244,7 +244,9 @@
 -(void)hitApiForRegister{
     
         if ([ CommonFunction reachability]) {
-         
+            NSString *mobile = [_parameterDict valueForKey:loginmobile];
+            mobile = [mobile stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            [_parameterDict setValue:mobile forKey:loginemail];
             
             [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_RegisterDoctor]  postResponse:[_parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
                 if (error == nil) {

@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     toDate = [NSDate date];
-    
+    dataArray = [NSMutableArray new];
     fromDate = [NSDate date];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
@@ -454,6 +454,7 @@
 
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     NSArray *tempArray = [responseObj valueForKey:@"data"];
+                   
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         Report *bloodObj = [Report new];
                         bloodObj.doctor_id = [obj valueForKey:@"doctor_id"];
@@ -466,7 +467,15 @@
                     }];
                     [self removeloder];
                     [self updateChartData];
-                    [CommonFunction addBottomLineIngraph:_graphView];
+                    if (tempArray.count == 0) {
+                        _graphView.hidden = true;
+                        _lbl_NoDataa.hidden = false;
+                    }else{
+                        _graphView.hidden = false;
+                        _lbl_NoDataa.hidden = true;
+//                        [CommonFunction addBottomLineIngraph:_graphView];
+                    }
+                    
                 }else{
                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
@@ -725,11 +734,28 @@ numberOfRowsInComponent:(NSInteger)component{
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];
     NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < dataArray.count; i++)
-    {
-        float val = [[[dataArray objectAtIndex:i] valueForKey:@"rest_hr"] floatValue];
-        [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
+    
+    
+    
+        float val = 0.0;
+        [valuesHR addObject:[[ChartDataEntry alloc] initWithX:0 y:val]];
+    
+  
+        for (int i = 0; i < dataArray.count; i++)
+        {
+            float val = [[[dataArray objectAtIndex:i] valueForKey:@"rest_hr"] floatValue];
+            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i+1 y:val]];
+        }
+    
+    if (valuesHR.count == 1 )  {
+        _lbl_NoDataa.hidden = false;
+        _graphView.hidden = true;
+    }else{
+        _lbl_NoDataa.hidden = true;
+        _graphView.hidden = false;
     }
+    
+   
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
     d.lineWidth = 3;
@@ -746,13 +772,18 @@ numberOfRowsInComponent:(NSInteger)component{
     
     
     
-    NSMutableArray *valuesSYS = [[NSMutableArray alloc] init];
+        NSMutableArray *valuesSYS = [[NSMutableArray alloc] init];
+        [valuesSYS addObject:[[ChartDataEntry alloc] initWithX:0 y:val]];
     
-    for (int i = 0; i < dataArray.count; i++)
-    {
-        float val = [[[dataArray objectAtIndex:i] valueForKey:@"weight"] floatValue];
-        [valuesSYS addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
-    }
+
+        for (int i = 0; i < dataArray.count; i++)
+        {
+            float val = [[[dataArray objectAtIndex:i] valueForKey:@"weight"] floatValue];
+            [valuesSYS addObject:[[ChartDataEntry alloc] initWithX:i+1 y:val]];
+        }
+
+    
+   
     
     LineChartDataSet *dSYS = [[LineChartDataSet alloc] initWithValues:valuesSYS label:@"weight"];
     dSYS.lineWidth = 3;

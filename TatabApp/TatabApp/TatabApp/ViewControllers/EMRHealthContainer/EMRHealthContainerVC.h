@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblbirthDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblgender;
 @property (weak, nonatomic) IBOutlet UILabel *lblChronic;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Nodata;
 
 @property (nonatomic,strong) ChatPatient* patient;
 @property (nonatomic,strong) RegistrationDpendency* dependant;

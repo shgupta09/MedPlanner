@@ -560,7 +560,15 @@ _graphView.legend.enabled = NO;
                     }];
                     [self removeloder];
                     [self updateChartData];
-                    [CommonFunction addBottomLineIngraph:_graphView];
+                    
+                    if (tempArray.count == 0) {
+                        _graphView.hidden = true;
+                        _lbl_NoDataa.hidden = false;
+                    }else{
+                        _graphView.hidden = false;
+                        _lbl_NoDataa.hidden = true;
+//                        [CommonFunction addBottomLineIngraph:_graphView];
+                    }
                 }
                 else
                 {
@@ -615,6 +623,7 @@ _graphView.legend.enabled = NO;
 -(NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component{
     if (pickerObj.tag == 1){
+        selectedRowForTypeFilter = 0;
         return [arrayTypeFilter count];
     }
     else if (pickerObj.tag == 2){
@@ -778,13 +787,16 @@ numberOfRowsInComponent:(NSInteger)component{
     NSMutableArray *valuesPresleep = [[NSMutableArray alloc] init];
     int index = 0;
 
+    
+    [valuesPresleep addObject:[[ChartDataEntry alloc] initWithX:0 y:0]];
+
     for (int i = 0; i < dataArray.count; i++)
     {
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Pre-meal"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
             
-            [valuesPresleep addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
-            index++;
+            [valuesPresleep addObject:[[ChartDataEntry alloc] initWithX:i+1 y:reading]];
+            
         }
     }
     
@@ -803,18 +815,15 @@ numberOfRowsInComponent:(NSInteger)component{
     
     NSMutableArray *valuesSleep = [[NSMutableArray alloc] init];
     index = 0;
-
+    
+    [valuesSleep addObject:[[ChartDataEntry alloc] initWithX:0 y:0]];
     for (int i = 0; i < dataArray.count; i++)
     {
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Sleep"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
             
-            [valuesSleep addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
-            index++;
+            [valuesSleep addObject:[[ChartDataEntry alloc] initWithX:i+1 y:reading]];
         }
-
-        
-        
     }
     
     LineChartDataSet *dDIA = [[LineChartDataSet alloc] initWithValues:valuesSleep label:@"DIA"];
@@ -832,17 +841,25 @@ numberOfRowsInComponent:(NSInteger)component{
     
     NSMutableArray *valuesPostSleep = [[NSMutableArray alloc] init];
     index = 0;
+    [valuesPostSleep addObject:[[ChartDataEntry alloc] initWithX:0 y:0]];
 
     for (int i = 0; i < dataArray.count; i++)
     {
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Post-sleep"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
             
-            [valuesPostSleep addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
+            [valuesPostSleep addObject:[[ChartDataEntry alloc] initWithX:i+1 y:reading]];
             index++;
         }
     }
     
+    if (valuesPostSleep.count == 1 && valuesSleep.count == 1 && valuesPresleep.count == 1 )  {
+        _lbl_NoDataa.hidden = false;
+        _graphView.hidden = true;
+    }else{
+        _lbl_NoDataa.hidden = true;
+        _graphView.hidden = false;
+    }
     LineChartDataSet *dSYS = [[LineChartDataSet alloc] initWithValues:valuesPostSleep label:@"SYS"];
     dSYS.lineWidth = 3;
     dSYS.circleRadius = 3.0;
@@ -877,17 +894,22 @@ numberOfRowsInComponent:(NSInteger)component{
     
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];
     NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
-    
-    int index = 0;
+    [valuesHR addObject:[[ChartDataEntry alloc] initWithX:0 y:0]];
     for (int i = 0; i < dataArray.count; i++)
     {
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Pre-meal"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
             
-            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
-            index++;
+            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i+1 y:reading]];
         }
         
+    }
+    if (valuesHR.count == 1) {
+        _lbl_NoDataa.hidden = false;
+        _graphView.hidden = true;
+    }else{
+        _lbl_NoDataa.hidden = true;
+        _graphView.hidden = false;
     }
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
@@ -919,16 +941,24 @@ numberOfRowsInComponent:(NSInteger)component{
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];
     NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
     
-    int index = 0;
+    [valuesHR addObject:[[ChartDataEntry alloc] initWithX:0 y:0]];
+
     for (int i = 0; i < dataArray.count; i++)
     {
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Sleep"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
             
-            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
-            index++;
+            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i+1 y:reading]];
         }
         
+    }
+    
+    if (valuesHR.count == 1) {
+        _lbl_NoDataa.hidden = false;
+        _graphView.hidden = true;
+    }else{
+        _lbl_NoDataa.hidden = true;
+        _graphView.hidden = false;
     }
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];
@@ -946,28 +976,31 @@ numberOfRowsInComponent:(NSInteger)component{
 
     ((LineChartDataSet *)dataSets[0]).colors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"DIA"]];
     ((LineChartDataSet *)dataSets[0]).circleColors = [NSArray arrayWithObject:[CommonFunction getColorFor:@"DIA"]];
- 
     LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
     [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
     _graphView.data = data;
 }
+
+
 - (void)updateChartDataPostSleep
 {
     NSArray *colors = @[ChartColorTemplates.vordiplom[0], ChartColorTemplates.vordiplom[1], ChartColorTemplates.vordiplom[2]];
-    
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];
     NSMutableArray *valuesHR = [[NSMutableArray alloc] init];
-    
-    int index = 0;
-
-    for (int i = 0; i < dataArray.count; i++)
-    {
+    [valuesHR addObject:[[ChartDataEntry alloc] initWithX:0 y:0]];
+    for (int i = 0; i < dataArray.count; i++){
         if ([[[dataArray objectAtIndex:i] valueForKey:@"timing"] isEqual:@"Post-sleep"]){
             float reading = ([[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:0] floatValue] +[[[[[dataArray objectAtIndex:i] valueForKey:@"reading"] componentsSeparatedByString:@"-" ] objectAtIndex:1] floatValue]) /2;
-            
-            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:index y:reading]];
-            index++;
+            [valuesHR addObject:[[ChartDataEntry alloc] initWithX:i+1 y:reading]];
         }
+    }
+    
+    if (valuesHR.count == 1) {
+        _lbl_NoDataa.hidden = false;
+        _graphView.hidden = true;
+    }else{
+        _lbl_NoDataa.hidden = true;
+        _graphView.hidden = false;
     }
     
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:valuesHR label:@"HR"];

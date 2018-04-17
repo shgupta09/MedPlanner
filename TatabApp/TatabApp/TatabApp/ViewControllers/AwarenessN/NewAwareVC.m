@@ -873,10 +873,7 @@
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
                     //                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:1002 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
                     
-                    ChatPatient *specializationObj = [ChatPatient new];
-                    specializationObj.patient_id = [obj valueForKey:@"patient_id"];
-                    specializationObj.name = [NSString stringWithFormat:@"%@",obj.name];
-                    specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[obj valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                    
                     
                     
                     
@@ -894,10 +891,7 @@
                     [self.navigationController pushViewController:vc animated:true];
                     
                 }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK002"]){
-                    ChatPatient *specializationObj = [ChatPatient new];
-                    specializationObj.patient_id = [[responseObj valueForKey:@"patient"] valueForKey:@"patient_id"];
-                    specializationObj.name = [[responseObj valueForKey:@"patient"] valueForKey:@"name"];
-                    specializationObj.jabberId = [NSString stringWithFormat:@"%@%@",[[[[responseObj valueForKey:@"patient"] valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[[responseObj valueForKey:@"patient"] valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
+                   
                     
                     
                     
@@ -912,7 +906,7 @@
                     vc.queue_id = obj.queue_id;
                     
                     //                    vc.awarenessObj = _awarenessObj;
-                    vc.toId = specializationObj.jabberId;
+                    vc.toId = [NSString stringWithFormat:@"%@%@",[[[[responseObj valueForKey:@"patient"] valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0],[[[[responseObj valueForKey:@"patient"] valueForKey:@"email"] componentsSeparatedByString:@"@"] objectAtIndex:1]];
                     [self.navigationController pushViewController:vc animated:true];
                     
                 }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK003"]){
