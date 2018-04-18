@@ -28,6 +28,7 @@
                 <outlet property="imgView" destination="rzc-T8-Kbj" id="ZTh-Js-2qZ"/>
                 <outlet property="lbl_Name" destination="h8Q-XH-GZ2" id="PU2-Rs-snd"/>
                 <outlet property="lbl_Sep" destination="zaC-UH-9d8" id="F44-Kh-HYD"/>
+                <outlet property="lbl_title" destination="bti-xQ-Nkb" id="5Nv-sZ-TvX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AwarenessCategoryViewController">
             <connections>
+                <outlet property="lbl_title" destination="Gc6-JJ-Uwr" id="GKx-Na-kim"/>
                 <outlet property="tblView" destination="uL3-9j-rGG" id="kf5-ly-AN1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

@@ -30,9 +30,15 @@
                 <outlet property="btn_queue" destination="wJ7-1j-2jb" id="Oyr-Zu-ojP"/>
                 <outlet property="imgView_PatientDoctor" destination="0s6-Kn-WUI" id="F4X-pR-Rvz"/>
                 <outlet property="imgView_patient_BackGround" destination="2lH-NJ-3NG" id="hiZ-mk-TN1"/>
+                <outlet property="lbl_Clinic" destination="bBi-lR-ey8" id="S8M-fs-bOr"/>
+                <outlet property="lbl_Diagnoses" destination="vZV-Ls-q9e" id="R5v-Ty-siU"/>
+                <outlet property="lbl_Dr" destination="aNz-6W-7Hf" id="NeP-PV-Rwz"/>
+                <outlet property="lbl_FollowUP" destination="yJs-C4-J8d" id="5OC-JA-mS4"/>
                 <outlet property="lbl_Name" destination="BTd-Oc-Fix" id="Z7Q-t2-ruX"/>
                 <outlet property="lbl_Patient_Clinic" destination="aQM-eE-O7f" id="jYX-bY-Hwo"/>
                 <outlet property="lbl_Patient_DoctorName" destination="P5I-Jk-oWN" id="DJy-wF-oqS"/>
+                <outlet property="lbl_patient" destination="1x4-yh-5LZ" id="eSN-47-P0U"/>
+                <outlet property="lbl_prescription" destination="bRB-Hc-A0L" id="enM-8D-Aif"/>
                 <outlet property="lbl_queueCount" destination="RBW-KL-xyb" id="ksE-So-ON5"/>
                 <outlet property="lbl_title" destination="kpV-KI-RvG" id="3FY-1A-KqN"/>
                 <outlet property="mySwitch" destination="oPh-8R-W4j" id="EUR-TO-rK2"/>

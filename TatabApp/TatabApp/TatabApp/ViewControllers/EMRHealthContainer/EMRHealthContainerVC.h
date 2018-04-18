@@ -19,4 +19,25 @@
 @property (nonatomic,strong) RegistrationDpendency* dependant;
 @property bool isdependant;
 
+
+//Language
+@property (weak, nonatomic) IBOutlet UILabel *lbl_GenderTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Height_Title;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_EmrLog;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_title;
+@property (weak, nonatomic) IBOutlet CustomButton4 *btn_Health;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_patient;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_BirthDate;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_WeightTitle;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Chronic;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Date_Title;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Details_Title;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Doctor_Title;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Followup_Title;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Prescription_Title;
+@property (weak, nonatomic) IBOutlet CustomButton3 *btn_EMR;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_No_Data;
+
 @end

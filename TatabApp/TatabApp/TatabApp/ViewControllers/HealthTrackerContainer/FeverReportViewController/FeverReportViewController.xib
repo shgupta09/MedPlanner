@@ -23,10 +23,25 @@
                 <outlet property="btnAdd" destination="UNl-0Q-twZ" id="1PC-1U-WKT"/>
                 <outlet property="btnFromDate" destination="hfc-f0-Yap" id="pEH-pc-GYH"/>
                 <outlet property="btnToDate" destination="BeG-4d-SpX" id="oCl-dd-peN"/>
+                <outlet property="btn_EMR" destination="c5M-DO-kXu" id="agV-c9-8r8"/>
+                <outlet property="btn_From" destination="hfc-f0-Yap" id="Kkr-DU-YuC"/>
+                <outlet property="btn_Health" destination="1Fj-Id-CUb" id="c7z-9p-ylI"/>
+                <outlet property="btn_Refresh" destination="w1a-pB-tPI" id="JNo-VO-cz8"/>
+                <outlet property="btn_To" destination="BeG-4d-SpX" id="fsn-dA-ygN"/>
                 <outlet property="cons_imgView" destination="TYh-0Y-k2M" id="BFN-gU-UEB"/>
                 <outlet property="graphView" destination="Jzk-x1-0Cl" id="nNo-lX-JBO"/>
                 <outlet property="lblPatientName" destination="Vyb-Kk-xOk" id="0B5-is-Cu7"/>
+                <outlet property="lbl_BirthDate" destination="Re9-fl-CS0" id="cKc-OI-5uQ"/>
+                <outlet property="lbl_Chronic" destination="yAS-Mu-6YQ" id="501-fx-LnV"/>
+                <outlet property="lbl_FeverReport" destination="HtM-Zw-urp" id="zwE-fa-pvd"/>
+                <outlet property="lbl_GenderTitle" destination="MDW-7t-bgg" id="8Y6-5K-Zes"/>
+                <outlet property="lbl_Height_Title" destination="AXG-hS-TgB" id="P17-at-cH4"/>
                 <outlet property="lbl_NoDataa" destination="12n-Fj-hU9" id="VDW-k5-lwf"/>
+                <outlet property="lbl_No_Data" destination="12n-Fj-hU9" id="BAN-t4-g9E"/>
+                <outlet property="lbl_Temp_Title" destination="lvE-0H-mvr" id="Hta-Qr-HDf"/>
+                <outlet property="lbl_WeightTitle" destination="rmQ-Pm-ygE" id="rn7-t3-E4y"/>
+                <outlet property="lbl_patient" destination="hQg-Ss-N93" id="hrs-d4-hTF"/>
+                <outlet property="lbl_title" destination="hHd-go-P9a" id="QId-zc-pXO"/>
                 <outlet property="lblbirthDate" destination="Y9W-89-JOd" id="sZe-TW-F4f"/>
                 <outlet property="lblgender" destination="bWx-Is-u5Y" id="HWg-KX-6uY"/>
                 <outlet property="popUpView" destination="NxM-qy-n28" id="hoE-qp-8i8"/>

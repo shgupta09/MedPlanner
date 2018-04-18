@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet CustomButton2 *btn_CasesHistory;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Name;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 
 @end

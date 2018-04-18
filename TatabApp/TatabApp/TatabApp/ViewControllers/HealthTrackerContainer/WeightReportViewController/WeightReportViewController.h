@@ -35,4 +35,28 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons__bmi_overWeightCentre;
 @property (weak, nonatomic) IBOutlet UIImageView *imgPointer;
 
+
+//Language
+@property (weak, nonatomic) IBOutlet UILabel *lbl_GenderTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Height_Title;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_WeightReport;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_title;
+@property (weak, nonatomic) IBOutlet CustomButton3 *btn_Health;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_patient;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_BirthDate;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_WeightTitle;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Chronic;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_No_Data;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HR_Title;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Weight_Title2;
+@property (weak, nonatomic) IBOutlet CustomButton3 *btn_Refresh;
+@property (weak, nonatomic) IBOutlet CustomButton3 *btn_From;
+@property (weak, nonatomic) IBOutlet CustomButton3 *btn_To;
+@property (weak, nonatomic) IBOutlet CustomButton4 *btn_EMR;
+
+
 @end

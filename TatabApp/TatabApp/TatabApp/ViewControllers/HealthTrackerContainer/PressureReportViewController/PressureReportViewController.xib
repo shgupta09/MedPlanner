@@ -24,13 +24,30 @@
                 <outlet property="btnFromDate" destination="kEo-Sb-Z4F" id="5yh-XF-Cz8"/>
                 <outlet property="btnHeartRate" destination="b6x-q4-gnu" id="LJf-9E-azf"/>
                 <outlet property="btnToDate" destination="b96-4R-XVl" id="p70-iG-ttB"/>
+                <outlet property="btn_EMR" destination="TIG-9F-W83" id="Kx1-dJ-K1T"/>
+                <outlet property="btn_From" destination="kEo-Sb-Z4F" id="y72-IX-7CQ"/>
+                <outlet property="btn_Health" destination="47V-eC-xUf" id="ZbV-JV-iEz"/>
+                <outlet property="btn_Refresh" destination="Ikc-mb-kiy" id="7Tz-lV-g5g"/>
+                <outlet property="btn_To" destination="b96-4R-XVl" id="EWz-MR-xce"/>
                 <outlet property="cons_imageviewDIA" destination="NHz-TC-obV" id="8cn-kA-1mW"/>
                 <outlet property="cons_imgViewSYS" destination="VTQ-YZ-sQX" id="RBb-cq-7oG"/>
                 <outlet property="graphView" destination="oH4-OY-B0R" id="tb0-1A-aZa"/>
                 <outlet property="lblDIAValue" destination="xTg-pU-C2O" id="3dE-FC-TKE"/>
                 <outlet property="lblPatientName" destination="s20-EQ-aZC" id="mgR-eb-0sP"/>
                 <outlet property="lblSYSValue" destination="2XZ-hT-VC1" id="tKf-JT-VSb"/>
+                <outlet property="lbl_BirthDate" destination="4R4-Io-MUm" id="h3I-dD-Atp"/>
+                <outlet property="lbl_BloodReport" destination="XvL-Yv-Gpw" id="VO9-os-4Ay"/>
+                <outlet property="lbl_Chronic" destination="bm2-z1-y9W" id="FOX-U6-Euv"/>
+                <outlet property="lbl_DIA_Title" destination="yvn-5C-JFO" id="jDz-9V-dIe"/>
+                <outlet property="lbl_GenderTitle" destination="V1h-Po-YD6" id="4jo-VS-MhZ"/>
+                <outlet property="lbl_HR_Title" destination="R27-mE-v0B" id="m3h-i9-Shu"/>
+                <outlet property="lbl_Height_Title" destination="crz-hx-Xiz" id="fnP-xm-aKZ"/>
                 <outlet property="lbl_NoDataa" destination="2SI-aE-ATx" id="opq-BZ-ch3"/>
+                <outlet property="lbl_No_Data" destination="2SI-aE-ATx" id="qKQ-Bi-Q7k"/>
+                <outlet property="lbl_SYS_Title" destination="QIj-iZ-RVH" id="w6U-Oa-zCk"/>
+                <outlet property="lbl_WeightTitle" destination="2qE-yb-Gue" id="rn8-Re-0KU"/>
+                <outlet property="lbl_patient" destination="jmj-gF-0bv" id="NHe-XO-1wq"/>
+                <outlet property="lbl_title" destination="vDh-jJ-9Im" id="FJc-GX-rwC"/>
                 <outlet property="lblbirthDate" destination="J1k-pt-wjH" id="MGm-Ya-LBM"/>
                 <outlet property="lblgender" destination="xTQ-9g-yjh" id="VKC-ib-Gjk"/>
                 <outlet property="popUpView" destination="wjz-RE-7PD" id="iNL-Jp-0hL"/>
