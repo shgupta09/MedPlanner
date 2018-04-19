@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDetail;
 @property (weak,nonatomic) NSMutableArray* detailArray;
 @property (weak,nonatomic) NSString* detailType;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Title;
 
 @end

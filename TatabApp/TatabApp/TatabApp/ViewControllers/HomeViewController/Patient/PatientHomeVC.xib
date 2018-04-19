@@ -27,6 +27,7 @@
                 <outlet property="btn_registerSubRegords" destination="vuJ-Is-sg1" id="5YZ-Yq-Lww"/>
                 <outlet property="imgView" destination="u57-hP-d82" id="QbZ-2V-Vh0"/>
                 <outlet property="lbl_Name" destination="eIS-gg-10T" id="o3d-Iw-en0"/>
+                <outlet property="lbl_title" destination="5H7-TR-ch3" id="eBJ-g4-r3x"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

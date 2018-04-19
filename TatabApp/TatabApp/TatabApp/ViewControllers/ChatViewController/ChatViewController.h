@@ -44,4 +44,17 @@
 @property (weak, nonatomic) IBOutlet UIView *viewDoctor;
 @property (weak, nonatomic) IBOutlet UIButton *btn_FollowUp;
 @property (nonatomic) BOOL isDependent;
+
+
+
+//Language
+@property (weak, nonatomic) IBOutlet UILabel *lbl_patient;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_prescription;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Diagnoses;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Dr;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Clinic;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_FollowUP;
+
 @end

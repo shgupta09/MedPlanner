@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="lblDetail" destination="J6t-MI-H5h" id="gwh-HE-J3d"/>
                 <outlet property="lblHeader" destination="yhx-wV-SXi" id="K8R-dt-jUk"/>
+                <outlet property="lbl_Title" destination="yhx-wV-SXi" id="hhv-p4-Lyp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

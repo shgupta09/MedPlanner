@@ -25,6 +25,11 @@
                 <outlet property="btnHeight" destination="EA6-qK-oFK" id="FTO-Mw-gsh"/>
                 <outlet property="btnToDate" destination="vXa-Bi-p3A" id="6u2-Ih-UPK"/>
                 <outlet property="btnWeight" destination="LTG-Wl-KjX" id="hpQ-NK-26A"/>
+                <outlet property="btn_EMR" destination="WHX-qM-aqx" id="7EB-mY-slq"/>
+                <outlet property="btn_From" destination="w59-a5-GdQ" id="vwt-WK-j8V"/>
+                <outlet property="btn_Health" destination="cfq-md-Box" id="vB9-9y-Zri"/>
+                <outlet property="btn_Refresh" destination="8Kx-Wo-sfS" id="s5d-J1-tl5"/>
+                <outlet property="btn_To" destination="vXa-Bi-p3A" id="EJM-OM-Vw5"/>
                 <outlet property="cons__bmi_normalWeightCentre" destination="jlY-JK-gAb" id="pAK-Rr-Jiv"/>
                 <outlet property="cons__bmi_obesityCentre" destination="PVU-Ll-Qfk" id="0AJ-VH-EeO"/>
                 <outlet property="cons__bmi_overWeightCentre" destination="kCC-Uk-9Pp" id="67l-YG-AT9"/>
@@ -32,7 +37,18 @@
                 <outlet property="graphView" destination="gBw-uR-Hf9" id="vNZ-KG-d5X"/>
                 <outlet property="imgPointer" destination="3Ib-5R-kvB" id="Iad-9w-oFO"/>
                 <outlet property="lblPatientName" destination="x9n-8q-zre" id="bUZ-q9-Sde"/>
+                <outlet property="lbl_BirthDate" destination="mKi-2Y-FQY" id="1Jh-dw-gZz"/>
+                <outlet property="lbl_Chronic" destination="D5n-bp-3NZ" id="1AH-XO-CRe"/>
+                <outlet property="lbl_GenderTitle" destination="hGE-8J-QkX" id="UdU-nB-Lhh"/>
+                <outlet property="lbl_HR_Title" destination="IBh-YE-D4r" id="z5s-VM-a6g"/>
+                <outlet property="lbl_Height_Title" destination="3Rb-QT-i8G" id="57X-Lm-4bp"/>
                 <outlet property="lbl_NoDataa" destination="cfN-YL-Jt3" id="mLW-if-kiq"/>
+                <outlet property="lbl_No_Data" destination="cfN-YL-Jt3" id="eVk-dt-Ru6"/>
+                <outlet property="lbl_WeightReport" destination="Hu6-oM-9BC" id="sFm-HP-3ef"/>
+                <outlet property="lbl_WeightTitle" destination="wDf-7i-hxg" id="VeV-ql-MdN"/>
+                <outlet property="lbl_Weight_Title2" destination="RHo-HR-Uwm" id="k7M-By-EU1"/>
+                <outlet property="lbl_patient" destination="cSH-zh-b8o" id="w2n-wY-eZc"/>
+                <outlet property="lbl_title" destination="qCp-Qe-xLD" id="VoV-Cq-CjT"/>
                 <outlet property="lblgender" destination="Yof-e2-JgW" id="1dQ-Pu-BGq"/>
                 <outlet property="popUpView" destination="INF-g5-JHj" id="ZTk-hn-GZb"/>
                 <outlet property="txt_Comment" destination="ADs-c4-m1W" id="7zc-IT-e0x"/>

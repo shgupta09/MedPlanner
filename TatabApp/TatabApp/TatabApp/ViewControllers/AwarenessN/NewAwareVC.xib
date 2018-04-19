@@ -31,6 +31,8 @@
                 <outlet property="imgView_ToShow" destination="6rq-jT-ZPc" id="mYJ-Ju-Y8G"/>
                 <outlet property="lbl_NoData" destination="x0S-Sx-MWb" id="c2t-Wa-147"/>
                 <outlet property="lbl_SearchedText" destination="eXv-hE-p75" id="JR3-4s-MWG"/>
+                <outlet property="lbl_selected_Category" destination="eXv-hE-p75" id="IeD-R1-dHv"/>
+                <outlet property="lbl_title" destination="6E2-qA-vrd" id="lSg-8T-Cze"/>
                 <outlet property="popUpView" destination="q1P-9l-Zgo" id="Ns3-aY-bLe"/>
                 <outlet property="popUpView2" destination="3aD-F7-kBG" id="0mY-I5-HcJ"/>
                 <outlet property="popUpView3" destination="4vb-j2-k0T" id="maN-0S-E2U"/>

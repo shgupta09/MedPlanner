@@ -29,6 +29,7 @@
                 <outlet property="lblPostDataTitle" destination="mCa-nu-vXI" id="Gm3-Zp-wOs"/>
                 <outlet property="lblShareCount" destination="9LC-NO-EMM" id="6YB-iX-58P"/>
                 <outlet property="lbl_NoComment" destination="Als-UR-EZX" id="oor-TD-Omk"/>
+                <outlet property="lbl_title" destination="8VZ-3w-E9c" id="04x-TT-u3z"/>
                 <outlet property="noCommentSeperator" destination="pec-Ia-NeI" id="GsJ-ad-VHT"/>
                 <outlet property="tbl_View" destination="eBj-NF-WFW" id="bpc-C3-hly"/>
                 <outlet property="txtFieldComment" destination="TFN-r5-MdT" id="oCB-70-bDD"/>

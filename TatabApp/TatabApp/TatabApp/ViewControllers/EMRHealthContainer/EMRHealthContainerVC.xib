@@ -23,9 +23,25 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EMRHealthContainerVC">
             <connections>
+                <outlet property="btn_EMR" destination="jSi-Bo-uSA" id="j0q-2Y-eWi"/>
+                <outlet property="btn_Health" destination="Zj4-mP-i56" id="qJu-Eu-oeh"/>
                 <outlet property="lblChronic" destination="jJN-VP-XZG" id="K6O-v2-dCM"/>
                 <outlet property="lblPatientName" destination="Cph-Fq-vWp" id="Ni0-UT-OzY"/>
+                <outlet property="lbl_BirthDate" destination="gkZ-6M-LbE" id="lnz-uf-TIy"/>
+                <outlet property="lbl_Chronic" destination="iqk-3H-9KA" id="Fnj-LI-YJY"/>
+                <outlet property="lbl_Date_Title" destination="x5R-9c-PGC" id="gBe-1I-btN"/>
+                <outlet property="lbl_Details_Title" destination="Fge-P8-KZQ" id="gZc-pO-hzJ"/>
+                <outlet property="lbl_Doctor_Title" destination="h2t-2b-Qd2" id="9EF-3Y-7Ar"/>
+                <outlet property="lbl_EmrLog" destination="1I3-Cd-0J8" id="WsT-SB-wbe"/>
+                <outlet property="lbl_Followup_Title" destination="hw7-Y7-NMJ" id="K7x-wP-0tJ"/>
+                <outlet property="lbl_GenderTitle" destination="4AE-xs-JOY" id="f3c-ZQ-yVE"/>
+                <outlet property="lbl_Height_Title" destination="4ha-nx-vaI" id="MIt-fc-DTb"/>
+                <outlet property="lbl_No_Data" destination="bce-gX-Xgp" id="W6m-c8-GNa"/>
                 <outlet property="lbl_Nodata" destination="bce-gX-Xgp" id="1cC-RM-4dH"/>
+                <outlet property="lbl_Prescription_Title" destination="uG4-5B-Lg2" id="HI3-JZ-nab"/>
+                <outlet property="lbl_WeightTitle" destination="fjS-YP-m9x" id="YJX-ox-jny"/>
+                <outlet property="lbl_patient" destination="G5q-r2-7Xx" id="j1r-ig-LaL"/>
+                <outlet property="lbl_title" destination="rVc-H2-uA0" id="k5y-TH-h4X"/>
                 <outlet property="lblbirthDate" destination="Oqt-d3-tlK" id="827-al-eCm"/>
                 <outlet property="lblgender" destination="41w-xP-zv3" id="rlh-h5-CYy"/>
                 <outlet property="tblView" destination="j9X-oO-pEM" id="nic-RK-7Pu"/>

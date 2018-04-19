@@ -22,6 +22,7 @@
                 <outlet property="btnFemale" destination="Ue9-n8-Kmt" id="rpS-wN-XTP"/>
                 <outlet property="btnMAle" destination="PgG-r2-Sc4" id="7xY-q9-JNU"/>
                 <outlet property="lblHeader" destination="vFs-bD-OrY" id="CrW-Sl-80U"/>
+                <outlet property="lbl_title" destination="vFs-bD-OrY" id="41f-9Z-BZX"/>
                 <outlet property="popUpView" destination="QDa-GM-u1A" id="Nn1-9M-NR5"/>
                 <outlet property="tbl_View" destination="4mG-BR-w60" id="Eo5-qJ-P0l"/>
                 <outlet property="txtName" destination="I0K-MQ-gfd" id="fV9-5B-R6v"/>

@@ -10,5 +10,5 @@
 
 @interface AwarenessCategoryViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tblView;
-
+@property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 @end

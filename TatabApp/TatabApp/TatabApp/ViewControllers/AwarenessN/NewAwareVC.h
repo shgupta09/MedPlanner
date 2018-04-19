@@ -33,4 +33,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn4;
 @property (weak, nonatomic) IBOutlet UIButton *btn5;
 
+//Language
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_title;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_selected_Category;
+
+
 @end
