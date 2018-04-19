@@ -17,4 +17,11 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btn_Terms;
 @property (strong ,nonatomic)NSMutableDictionary *parameterDict;
+
+//Language
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Payment;
+@property (weak, nonatomic) IBOutlet CustomButton *btn_CompleteRegistration;
+//Language
+
 @end

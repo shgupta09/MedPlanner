@@ -63,7 +63,7 @@
                     <rect key="frame" x="0.0" y="343.5" width="375" height="323.5"/>
                     <subviews>
                         <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7V-ZV-djx" customClass="CustomButton">
-                            <rect key="frame" x="204" y="27" width="117.5" height="33"/>
+                            <rect key="frame" x="203" y="27" width="120" height="33"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                             <state key="normal" title="Awareness"/>
@@ -72,31 +72,25 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6l-NL-KPF" customClass="CustomButton">
-                            <rect key="frame" x="55" y="27" width="115.5" height="33"/>
+                            <rect key="frame" x="53" y="27" width="120" height="33"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="N5b-42-V7a"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                             <state key="normal" title="Consulting"/>
                             <connections>
                                 <action selector="btnUserType_tapped:" destination="-1" eventType="touchUpInside" id="07k-p1-h3u"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMs-Qf-9gA">
-                            <rect key="frame" x="180.5" y="27" width="13.5" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="c7V-ZV-djx" firstAttribute="centerX" secondItem="FLh-FG-Sdb" secondAttribute="centerX" constant="75" id="CCH-Z3-23G"/>
-                        <constraint firstItem="uMs-Qf-9gA" firstAttribute="top" secondItem="O6l-NL-KPF" secondAttribute="top" id="QPo-F5-nUR"/>
+                        <constraint firstItem="c7V-ZV-djx" firstAttribute="width" secondItem="O6l-NL-KPF" secondAttribute="width" id="Mxm-Ij-M9t"/>
                         <constraint firstItem="c7V-ZV-djx" firstAttribute="top" secondItem="O6l-NL-KPF" secondAttribute="top" id="SqB-BJ-x7n"/>
                         <constraint firstItem="O6l-NL-KPF" firstAttribute="centerX" secondItem="FLh-FG-Sdb" secondAttribute="centerX" constant="-75" id="crt-MG-tGH"/>
-                        <constraint firstItem="uMs-Qf-9gA" firstAttribute="leading" secondItem="O6l-NL-KPF" secondAttribute="trailing" constant="10" id="gk7-Jo-EWm"/>
                         <constraint firstItem="O6l-NL-KPF" firstAttribute="top" secondItem="FLh-FG-Sdb" secondAttribute="top" constant="27" id="n8v-Nm-92e"/>
-                        <constraint firstItem="c7V-ZV-djx" firstAttribute="leading" secondItem="uMs-Qf-9gA" secondAttribute="trailing" constant="10" id="oFG-L9-pMF"/>
-                        <constraint firstItem="uMs-Qf-9gA" firstAttribute="centerX" secondItem="FLh-FG-Sdb" secondAttribute="centerX" id="ro3-HN-ifq"/>
                     </constraints>
                 </view>
             </subviews>

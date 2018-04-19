@@ -28,8 +28,8 @@
 
     if (_isRegistrationSelection) {
         
-        [_firsrBtn setTitle:@"Patient" forState:UIControlStateNormal];
-        [_secondBtn setTitle:@"Doctor" forState:UIControlStateNormal];
+        [_firsrBtn setTitle:[Langauge getTextFromTheKey:@"patient"] forState:UIControlStateNormal];
+        [_secondBtn setTitle:[Langauge getTextFromTheKey:@"doctor"] forState:UIControlStateNormal];
         _btn_Back.hidden = false;
     }else{
         _btn_Back.hidden = true;

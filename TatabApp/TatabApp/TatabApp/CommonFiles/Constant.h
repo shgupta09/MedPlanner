@@ -16,11 +16,6 @@
 
 
 
-
-
-
-
-
 #define BoolValueKey @"BoolValue"
 
 //Cloud Related
@@ -125,6 +120,12 @@
 #define CANCELED @"canceled"
 #define DEVICE_ID @"device_id"
 #define DEVICE_ID_LoginUSer @"device_id_Login"
+
+
+//LanguageRelated
+#define Selected_Language @"Selected_Language"
+#define Selected_Language_English @"English"
+#define Selected_Language_Arebic @"Arebic"
 
 
 //testing url

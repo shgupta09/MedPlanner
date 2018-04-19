@@ -14,6 +14,8 @@
             <connections>
                 <outlet property="btnFemale" destination="lIg-ht-3lf" id="Q6D-Pe-CgD"/>
                 <outlet property="btnMAle" destination="4he-o9-Kri" id="6fV-4X-CuH"/>
+                <outlet property="btn_Continue" destination="NoT-A7-ogm" id="Xid-v3-RIC"/>
+                <outlet property="lbl_create" destination="yQK-sP-JdN" id="uqc-Af-Ze7"/>
                 <outlet property="txtEmail" destination="uph-RK-Rly" id="4kn-Qp-Yq3"/>
                 <outlet property="txtMobile" destination="1Qk-Y4-8Jc" id="JWZ-Vg-aMT"/>
                 <outlet property="txtName" destination="b3r-h4-X97" id="elk-hh-nHc"/>

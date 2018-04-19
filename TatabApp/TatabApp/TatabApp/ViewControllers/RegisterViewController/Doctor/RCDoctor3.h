@@ -19,9 +19,14 @@
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_workedSince;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_resignedSince;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tbl_Height;
-
-
-
-
 @property (strong ,nonatomic)NSMutableDictionary *parameterDict;
+
+
+
+//Language
+@property (weak, nonatomic) IBOutlet UILabel *lbl_CV;
+@property (weak, nonatomic) IBOutlet CustomButton *btn_Experience;
+@property (weak, nonatomic) IBOutlet CustomButton *btn_Continue;
+@property (weak, nonatomic) IBOutlet CustomButton *btn_ConfirmAdd;
+
 @end

@@ -141,10 +141,12 @@
 		9C9468EF207772A500FBDF9F /* a.html in Resources */ = {isa = PBXBuildFile; fileRef = 9C9468EE207772A400FBDF9F /* a.html */; };
 		9C9607B02073845C00505F9F /* TermVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9607AE2073845C00505F9F /* TermVC.m */; };
 		9C9607B12073845C00505F9F /* TermVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9607AF2073845C00505F9F /* TermVC.xib */; };
-		9CADAD8620612F2000737CAA /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CADAD8420612F2000737CAA /* SettingVC.m */; };
-		9CADAD8720612F2000737CAA /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CADAD8520612F2000737CAA /* SettingVC.xib */; };
 		9CD966DD207CD45E00DB3693 /* cities-en.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CD966DC207CD45E00DB3693 /* cities-en.json */; };
 		9CEA820820121B7800F84450 /* CustomButton4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA820720121B7800F84450 /* CustomButton4.m */; };
+		9CF70E11208743ED00BC7E30 /* Langauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF70E10208743ED00BC7E30 /* Langauge.m */; };
+		9CF70E142087479400BC7E30 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CF70E162087479400BC7E30 /* Localizable.strings */; };
+		9CF70E282087694300BC7E30 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF70E262087694300BC7E30 /* SettingVC.m */; };
+		9CF70E292087694300BC7E30 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CF70E272087694300BC7E30 /* SettingVC.xib */; };
 		9CFF43612077447E005F3AF7 /* PaymentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF435F2077447E005F3AF7 /* PaymentVC.m */; };
 		9CFF43622077447E005F3AF7 /* PaymentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CFF43602077447E005F3AF7 /* PaymentVC.xib */; };
 		D82354AA1F8A37790097A94C /* RCDoctor1.m in Sources */ = {isa = PBXBuildFile; fileRef = D82354A81F8A37790097A94C /* RCDoctor1.m */; };
@@ -394,12 +396,19 @@
 		9C9607AD2073845C00505F9F /* TermVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TermVC.h; sourceTree = "<group>"; };
 		9C9607AE2073845C00505F9F /* TermVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TermVC.m; sourceTree = "<group>"; };
 		9C9607AF2073845C00505F9F /* TermVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermVC.xib; sourceTree = "<group>"; };
-		9CADAD8320612F2000737CAA /* SettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
-		9CADAD8420612F2000737CAA /* SettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
-		9CADAD8520612F2000737CAA /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		9CD966DC207CD45E00DB3693 /* cities-en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cities-en.json"; sourceTree = "<group>"; };
 		9CEA820620121B7800F84450 /* CustomButton4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton4.h; sourceTree = "<group>"; };
 		9CEA820720121B7800F84450 /* CustomButton4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton4.m; sourceTree = "<group>"; };
+		9CF70E0F208743ED00BC7E30 /* Langauge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Langauge.h; sourceTree = "<group>"; };
+		9CF70E10208743ED00BC7E30 /* Langauge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Langauge.m; sourceTree = "<group>"; };
+		9CF70E152087479400BC7E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9CF70E17208747C500BC7E30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9CF70E1B20875DA400BC7E30 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		9CF70E1C20875DA400BC7E30 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9CF70E1D20875DA500BC7E30 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9CF70E252087694300BC7E30 /* SettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
+		9CF70E262087694300BC7E30 /* SettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
+		9CF70E272087694300BC7E30 /* SettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		9CFF435E2077447E005F3AF7 /* PaymentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentVC.h; sourceTree = "<group>"; };
 		9CFF435F2077447E005F3AF7 /* PaymentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentVC.m; sourceTree = "<group>"; };
 		9CFF43602077447E005F3AF7 /* PaymentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentVC.xib; sourceTree = "<group>"; };
@@ -766,6 +775,7 @@
 		5FBBBAE21F72401B00C03813 /* TatabApp */ = {
 			isa = PBXGroup;
 			children = (
+				9CF70E0E208743D000BC7E30 /* Language */,
 				D8CD7DF3202F0A670036A738 /* TatabApp.entitlements */,
 				9C4C5ECB1F792717003D84BD /* Models */,
 				5F1E9B581F76AA62009FECDD /* TableViewCells */,
@@ -1045,7 +1055,7 @@
 		9C6DE7281F8399B500635102 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				9CADAD8220612F0E00737CAA /* SettingVC */,
+				9CF70E242087694300BC7E30 /* SettingVC */,
 				9C6DE72E1F83A1FC00635102 /* ReaeCell */,
 				9C6DE7291F8399CD00635102 /* RearViewController.h */,
 				9C6DE72A1F8399CD00635102 /* RearViewController.m */,
@@ -1104,14 +1114,25 @@
 			path = "Term&Condition";
 			sourceTree = "<group>";
 		};
-		9CADAD8220612F0E00737CAA /* SettingVC */ = {
+		9CF70E0E208743D000BC7E30 /* Language */ = {
 			isa = PBXGroup;
 			children = (
-				9CADAD8320612F2000737CAA /* SettingVC.h */,
-				9CADAD8420612F2000737CAA /* SettingVC.m */,
-				9CADAD8520612F2000737CAA /* SettingVC.xib */,
+				9CF70E0F208743ED00BC7E30 /* Langauge.h */,
+				9CF70E10208743ED00BC7E30 /* Langauge.m */,
+				9CF70E162087479400BC7E30 /* Localizable.strings */,
 			);
-			path = SettingVC;
+			path = Language;
+			sourceTree = "<group>";
+		};
+		9CF70E242087694300BC7E30 /* SettingVC */ = {
+			isa = PBXGroup;
+			children = (
+				9CF70E252087694300BC7E30 /* SettingVC.h */,
+				9CF70E262087694300BC7E30 /* SettingVC.m */,
+				9CF70E272087694300BC7E30 /* SettingVC.xib */,
+			);
+			name = SettingVC;
+			path = ../../../../../../BackUp/TatabApp/TatabApp/ViewControllers/SideMenu/SettingVC;
 			sourceTree = "<group>";
 		};
 		9CFF435D2077446D005F3AF7 /* PaymentVC */ = {
@@ -1326,6 +1347,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 5FBBBAD71F72401B00C03813;
 			productRefGroup = 5FBBBAE11F72401B00C03813 /* Products */;
@@ -1369,6 +1391,7 @@
 				9C840975203ED16700A7C3C7 /* MontserratAlternates-BoldItalic.otf in Resources */,
 				9C840976203ED16700A7C3C7 /* MontserratAlternates-ExtraBold.otf in Resources */,
 				9CD966DD207CD45E00DB3693 /* cities-en.json in Resources */,
+				9CF70E292087694300BC7E30 /* SettingVC.xib in Resources */,
 				9C840977203ED16700A7C3C7 /* MontserratAlternates-ExtraBoldItalic.otf in Resources */,
 				9C840978203ED16700A7C3C7 /* MontserratAlternates-ExtraLight.otf in Resources */,
 				9C840979203ED16700A7C3C7 /* MontserratAlternates-ExtraLightItalic.otf in Resources */,
@@ -1416,7 +1439,6 @@
 				D86A3735202E1CAC009EA562 /* CustomTabBar.xib in Resources */,
 				5FB773F41FF525F300982102 /* DoctorListEMRLogTableViewCell.xib in Resources */,
 				D8E1C7A02007C790007172F5 /* NewAwareVC.xib in Resources */,
-				9CADAD8720612F2000737CAA /* SettingVC.xib in Resources */,
 				5FB51C472003E5BE00E4889B /* SugarReportViewController.xib in Resources */,
 				9C6DE72D1F8399CD00635102 /* RearViewController.xib in Resources */,
 				5FBBBAEE1F72401B00C03813 /* Main.storyboard in Resources */,
@@ -1430,6 +1452,7 @@
 				D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */,
 				9C55056D20088C650037F07F /* TextPostCell.xib in Resources */,
 				9C6DE7331F83A1FC00635102 /* RearCell.xib in Resources */,
+				9CF70E142087479400BC7E30 /* Localizable.strings in Resources */,
 				D8F5A55E1F92020300E36160 /* HomeViewController.xib in Resources */,
 				9C5505722008B8090037F07F /* MediaPostCell.xib in Resources */,
 				D8F5A5631F92021A00E36160 /* PatientHomeVC.xib in Resources */,
@@ -1675,10 +1698,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F4F6C5F1F828E5A000C65A0 /* AwarenessCategoryViewController.m in Sources */,
-				9CADAD8620612F2000737CAA /* SettingVC.m in Sources */,
 				D8E1C7A3200902A8007172F5 /* PostData.m in Sources */,
 				5FE822DC203D507C00F20F4D /* TatabApp.xcdatamodeld in Sources */,
 				9C8FE6D71F8B53270003003C /* RCDoctor3.m in Sources */,
+				9CF70E11208743ED00BC7E30 /* Langauge.m in Sources */,
 				5FD369151FFE954A00FC6C3F /* CommonInfoPatient.m in Sources */,
 				5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */,
 				D84B6BB71F777D2C00F37660 /* WebServicesCall.m in Sources */,
@@ -1735,6 +1758,7 @@
 				D86A3738202E2E57009EA562 /* CustomTabBar.m in Sources */,
 				5F70ABDB2029D6FC007E69A5 /* CommentTableViewCell.m in Sources */,
 				9C3A0CA8206A420300B7AC25 /* OTPVc.m in Sources */,
+				9CF70E282087694300BC7E30 /* SettingVC.m in Sources */,
 				5FBBBAE51F72401B00C03813 /* main.m in Sources */,
 				D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */,
 				5FB51C402003E5BE00E4889B /* FeverReportViewController.m in Sources */,
@@ -1781,6 +1805,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5FBBBAED1F72401B00C03813 /* Base */,
+				9CF70E1B20875DA400BC7E30 /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1789,8 +1814,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				5FBBBAF51F72401B00C03813 /* Base */,
+				9CF70E1C20875DA400BC7E30 /* ar */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9CF70E162087479400BC7E30 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CF70E152087479400BC7E30 /* en */,
+				9CF70E17208747C500BC7E30 /* Base */,
+				9CF70E1D20875DA500BC7E30 /* ar */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1801,6 +1837,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1849,6 +1886,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

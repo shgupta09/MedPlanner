@@ -34,7 +34,7 @@
     _txt_workplace.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_homeLocation.leftImgView.image = [UIImage imageNamed:@"icon-map-location"];
     _txt_Nationality.leftImgView.image = [UIImage imageNamed:@"b"];
-    
+    [self setLanguageData];
 //    _txtPassport.text = @"9999708178";
 //    _txt_Residence.text = @"adfaf";
 //    _txt_workplace.text = @"adfaf";
@@ -43,6 +43,16 @@
     
 }
 
+-(void)setLanguageData{
+    _lbl_personal.text = [Langauge getTextFromTheKey:@"personal_info"];
+    [_btn_Continue setTitle:@"continue_tv" forState:UIControlStateNormal];
+    _txtPassport.placeholder = [Langauge getTextFromTheKey:@"id_card_passport"];
+    _txt_Residence.placeholder = [Langauge getTextFromTheKey:@"residance"];
+    _txt_Nationality.placeholder = [Langauge getTextFromTheKey:@"nationalaty"];
+    _txt_workplace.placeholder = [Langauge getTextFromTheKey:@"workplace"];
+    _txt_homeLocation.placeholder = [Langauge getTextFromTheKey:@"home_location"];
+  
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -103,44 +113,44 @@
     if (![CommonFunction validateName:_txt_Nationality.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_Nationality.text].length == 0){
-            [validationDict setValue:@"We need a Nationality" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"nationility_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Nationality." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_nationality"] forKey:AlertKey];
         }
         
     }  else  if (![CommonFunction validateName:_txt_Residence.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_Residence.text].length == 0){
-            [validationDict setValue:@"We need a Residence" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"residance_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Residence." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Residence"] forKey:AlertKey];
         }
         
     }
     else  if (![CommonFunction validateName:_txt_workplace.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_workplace.text].length == 0){
-            [validationDict setValue:@"We need a Workplace" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"workPlace_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Workplace." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Workplace"] forKey:AlertKey];
         }
         
     }
     else  if (![CommonFunction validateName:_txt_homeLocation.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_homeLocation.text].length == 0){
-            [validationDict setValue:@"We need a Home Location" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"homeLocation_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Home Location." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Homelocation"] forKey:AlertKey];
         }
         
     }
     else  if (![CommonFunction validateMobile:_txtPassport.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtPassport.text].length == 0){
-            [validationDict setValue:@"We need a Passport" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"idcard_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Passport." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"hospital_name_required"] forKey:AlertKey];
         }
         
     }

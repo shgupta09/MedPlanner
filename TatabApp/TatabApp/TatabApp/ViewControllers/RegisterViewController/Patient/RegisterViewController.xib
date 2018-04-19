@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController">
             <connections>
+                <outlet property="btn_Continue" destination="gul-K8-yJq" id="n6d-yq-u5Z"/>
+                <outlet property="lbl_create" destination="oFS-uW-ac5" id="QFz-dH-Yi7"/>
                 <outlet property="scrlView" destination="lOU-XN-uDE" id="kdn-wS-bPe"/>
                 <outlet property="txtEmail" destination="vWD-B6-FTP" id="3OT-0c-HnE"/>
                 <outlet property="txtName" destination="lK9-e9-f0c" id="hEt-hv-ocG"/>

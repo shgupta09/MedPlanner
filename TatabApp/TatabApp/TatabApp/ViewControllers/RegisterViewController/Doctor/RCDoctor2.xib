@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RCDoctor2">
             <connections>
+                <outlet property="btn_Continue" destination="EL7-aC-PTq" id="oRp-hE-zcb"/>
+                <outlet property="lbl_personal" destination="3hr-OL-Z0i" id="gn4-lF-KA2"/>
                 <outlet property="txtPassport" destination="ZVE-GA-kIF" id="E9a-cF-H7H"/>
                 <outlet property="txt_Nationality" destination="Cet-ku-gWa" id="Yl9-vw-O3H"/>
                 <outlet property="txt_Residence" destination="Dlh-OV-MCz" id="gSA-AU-afb"/>
@@ -87,7 +89,7 @@
                                                 <outlet property="delegate" destination="-1" id="3tI-M9-eSc"/>
                                             </connections>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="HOMELOCATION" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1O5-Ro-xHb" customClass="CustomTextField">
+                                        <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="HOME LOCATION" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1O5-Ro-xHb" customClass="CustomTextField">
                                             <rect key="frame" x="20" y="186" width="335" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="g47-s5-KCg"/>

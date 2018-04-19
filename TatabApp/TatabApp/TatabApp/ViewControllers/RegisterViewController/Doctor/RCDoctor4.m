@@ -52,13 +52,27 @@
     
     
 }
+
+
 -(void)setData{
     iscaptured = false;
     _imgView.layer.borderWidth= 3;
     _imgView.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
+    [self setLanguageData];
 //    _txt_ConfirmIban.text = @"1212121212";
 //    _txt_IBAN.text = @"1212121212";
 }
+
+-(void)setLanguageData{
+    _lbl_Payment.text = [Langauge getTextFromTheKey:@"payment_details"];
+    [_btn_Terms setTitle:@"Terms_Condition" forState:UIControlStateNormal];
+    [_btn_CompleteRegistration setTitle:@"complete_registration" forState:UIControlStateNormal];
+    
+    _txt_IBAN.placeholder = [Langauge getTextFromTheKey:@"iban"];
+    _txt_ConfirmIban.placeholder = [Langauge getTextFromTheKey:@"confirm_iban"];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -155,32 +169,33 @@
     if (![CommonFunction validateMobile:iBan]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:iBan].length == 0){
-            [validationDict setValue:@"We need a IBAN" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Iban_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid IBAN." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Iban"]  forKey:AlertKey];
         }
         
     }  else  if (![CommonFunction validateMobile:confirmIban]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:confirmIban].length == 0){
-            [validationDict setValue:@"We need a Confirm IBAN" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"confirm_Iban_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Confirm IBAN." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Confirm_Iban"] forKey:AlertKey];
         }
         
     }
     else  if (![iBan isEqualToString:confirmIban]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"IBAN and Confirm IBAN should be same." forKey:AlertKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"iban_mismatch"] forKey:AlertKey];
     
     }
     else  if (!iscaptured){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"We need an Image" forKey:AlertKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"select_image"] forKey:AlertKey];
     }
     else  if (!_btn_Terms.isSelected){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"Please select the terms and condition" forKey:AlertKey];
+        
+        [validationDict setValue:[Langauge getTextFromTheKey:@"please_select_terms_and_condition"] forKey:AlertKey];
     }
     return validationDict.mutableCopy;
     

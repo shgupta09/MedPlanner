@@ -16,6 +16,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingVC">
             <connections>
+                <outlet property="lbl_Notification" destination="Fs3-Dp-3Xn" id="aSx-Is-S8q"/>
+                <outlet property="lbl_Title" destination="Gw1-B3-u14" id="4YG-az-DJx"/>
                 <outlet property="mySwitch" destination="Q4u-xB-gb5" id="JDo-wY-lCh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -44,7 +46,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw1-B3-u14">
-                    <rect key="frame" x="151.5" y="34" width="73" height="21"/>
+                    <rect key="frame" x="151" y="34" width="73" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                     <color key="textColor" red="0.27058823529999998" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -71,12 +73,22 @@
                                         <action selector="switch_btn:" destination="-1" eventType="touchUpInside" id="HuB-uT-ZNS"/>
                                     </connections>
                                 </switch>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7s-hW-mzb">
+                                    <rect key="frame" x="30" y="109" width="46" height="30"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="btn_Language:" destination="-1" eventType="touchUpInside" id="zne-BH-ONX"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Q4u-xB-gb5" firstAttribute="leading" secondItem="Fs3-Dp-3Xn" secondAttribute="trailing" constant="10" id="6oK-OX-IcG"/>
+                                <constraint firstItem="C7s-hW-mzb" firstAttribute="top" secondItem="Fs3-Dp-3Xn" secondAttribute="bottom" constant="44" id="AEU-n0-DlK"/>
                                 <constraint firstItem="Fs3-Dp-3Xn" firstAttribute="top" secondItem="6nw-h9-hkY" secondAttribute="top" constant="44" id="Ja6-ZI-FbI"/>
                                 <constraint firstAttribute="trailing" secondItem="Q4u-xB-gb5" secondAttribute="trailing" constant="20" id="Kyk-Hw-DUZ"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="C7s-hW-mzb" secondAttribute="trailing" constant="20" symbolic="YES" id="MMO-9g-o5F"/>
+                                <constraint firstItem="C7s-hW-mzb" firstAttribute="leading" secondItem="Fs3-Dp-3Xn" secondAttribute="leading" id="daj-8P-vEO"/>
                                 <constraint firstItem="Q4u-xB-gb5" firstAttribute="centerY" secondItem="Fs3-Dp-3Xn" secondAttribute="centerY" id="hYT-Ah-dFx"/>
                                 <constraint firstItem="Fs3-Dp-3Xn" firstAttribute="leading" secondItem="6nw-h9-hkY" secondAttribute="leading" constant="30" id="qsV-Gu-KHi"/>
                             </constraints>

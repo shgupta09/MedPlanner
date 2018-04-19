@@ -12,8 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RCDoctor4">
             <connections>
-                <outlet property="btn_Terms" destination="aM6-wW-jQE" id="KGl-uj-V5s"/>
+                <outlet property="btn_CompleteRegistration" destination="Uuf-9q-Hia" id="aJ2-Wz-wUX"/>
+                <outlet property="btn_Terms" destination="cYZ-U3-n7N" id="5Vv-8Y-cKS"/>
                 <outlet property="imgView" destination="kJa-av-dSk" id="1X0-BA-fVI"/>
+                <outlet property="lbl_Payment" destination="dSH-o8-wnn" id="yOv-7g-l6o"/>
                 <outlet property="txt_ConfirmIban" destination="iOs-Cc-EWa" id="W5A-qa-nVl"/>
                 <outlet property="txt_IBAN" destination="eW3-XD-uw8" id="noF-r0-nXT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -16,4 +16,11 @@
 @property (weak, nonatomic) IBOutlet CustomTextField *txtEmail;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtPassword;
 @property (weak, nonatomic) IBOutlet UIButton *btnMAle;
+
+
+//Language
+@property (weak, nonatomic) IBOutlet UILabel *lbl_create;
+@property (weak, nonatomic) IBOutlet CustomButton *btn_Continue;
+
+
 @end

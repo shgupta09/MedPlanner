@@ -58,7 +58,17 @@
     _btnFemale.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
     _btnFemale.tintColor = [UIColor whiteColor];
     genderType = @"M";
-
+    [self setLanguageData];
+}
+-(void)setLanguageData{
+    _lbl_create.text = [Langauge getTextFromTheKey:@"create_a_doctor_account"];
+    [_btn_Continue setTitle:@"continue_tv" forState:UIControlStateNormal];
+    [_btnMAle setTitle:@"male" forState:UIControlStateNormal];
+    [_btnFemale setTitle:@"female" forState:UIControlStateNormal];
+    _txtName.placeholder = [Langauge getTextFromTheKey:@"First_Name"];
+    _txtEmail.placeholder = [Langauge getTextFromTheKey:@"email"];
+    _txtMobile.placeholder = [Langauge getTextFromTheKey:@"mobile"];
+    _txtPassword.placeholder = [Langauge getTextFromTheKey:@"password"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -249,27 +259,27 @@
     if (![CommonFunction validateName:_txtName.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtName.text].length == 0){
-            [validationDict setValue:@"We need a First Name" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"first_name_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid First Name." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Firstname"] forKey:AlertKey];
         }
         
     }  else if(![CommonFunction validateMobile:[_txtMobile.text stringByReplacingOccurrencesOfString:@"966-" withString:@""]]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtMobile.text].length == 0) {
-            [validationDict setValue:@"We need an Mobile Number" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Mobile_required"] forKey:AlertKey];
         }
         else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Mobile Number." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Mobile"] forKey:AlertKey];
         }
     }
     else if(![CommonFunction validateEmailWithString:_txtEmail.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtEmail.text].length == 0) {
-            [validationDict setValue:@"We need an Email ID" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"email_is_required"] forKey:AlertKey];
         }
         else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Email ID." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Email"] forKey:AlertKey];
         }
     }
     
@@ -277,10 +287,10 @@
     else if(![CommonFunction isValidPassword:[CommonFunction trimString:_txtPassword.text]] ){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtPassword.text].length == 0) {
-            [validationDict setValue:@"We need a Password" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Password_required"] forKey:AlertKey];
         }
         else{
-            [validationDict setValue:@"Incorrect Password. The correct password must have a minimum of 8 characters; with at least one character in upper case and number." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"password_should_be_8_12_characters_with_at_least_1_nummeric"] forKey:AlertKey];
         }
         
         

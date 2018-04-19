@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RCDoctor3">
             <connections>
+                <outlet property="btn_ConfirmAdd" destination="gWq-rn-hxh" id="FJq-ys-Wal"/>
+                <outlet property="btn_Continue" destination="Ksu-7H-NMP" id="CO1-lM-CLF"/>
+                <outlet property="btn_Experience" destination="cvG-cE-hqg" id="QGX-s4-RZa"/>
+                <outlet property="lbl_CV" destination="QnP-kF-yuk" id="OEE-Eg-3uW"/>
                 <outlet property="popUpView" destination="w8v-lp-0lb" id="MX5-an-0QV"/>
                 <outlet property="tblView" destination="DXg-4r-g4q" id="UVm-k7-jct"/>
                 <outlet property="tbl_Height" destination="Gd9-4g-Twh" id="cq9-nl-YRC"/>
@@ -279,7 +283,7 @@
                 <constraint firstAttribute="trailing" secondItem="zhQ-Ui-vsb" secondAttribute="trailing" id="iOg-8i-TK8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-953" y="113"/>
+            <point key="canvasLocation" x="-1299" y="33"/>
         </view>
         <view contentMode="scaleToFill" id="w8v-lp-0lb">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

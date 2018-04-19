@@ -15,4 +15,10 @@
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_homeLocation;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtPassport;
 @property (strong ,nonatomic)NSMutableDictionary *parameterDict;
+
+//Language
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_personal;
+@property (weak, nonatomic) IBOutlet CustomButton *btn_Continue;
+
 @end

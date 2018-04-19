@@ -41,6 +41,7 @@
 }
 
 -(void)setData{
+    [self setLanguageData];
     isSpeciality = false;
     selectedRowForSpeciality = 0;
     selectedRowForSubSpeciality = 0;
@@ -67,6 +68,22 @@
     {[self hitApiForSpeciality];}else{
     categoryArray = [AwarenessCategory sharedInstance].myDataArray;
     }
+}
+
+-(void)setLanguageData{
+    _lbl_CV.text = [Langauge getTextFromTheKey:@"cv"];
+     [_btn_Experience setTitle:@"add_experience" forState:UIControlStateNormal];
+    [_btn_Continue setTitle:@"continue_tv" forState:UIControlStateNormal];
+ _txt_Sepciality.placeholder = [Langauge getTextFromTheKey:@"speciality"];
+    _txt_currentGrade.placeholder = [Langauge getTextFromTheKey:@"current_grade"];
+    _txt_subSpeciality.placeholder = [Langauge getTextFromTheKey:@"subspecility"];
+    _txtClassification.placeholder = [Langauge getTextFromTheKey:@"classification"];
+    
+   _txt_workedSince.placeholder = [Langauge getTextFromTheKey:@"working_since"];
+    _txt_hospitalName.placeholder = [Langauge getTextFromTheKey:@"hospital_name"];
+    _txt_resignedSince.placeholder = [Langauge getTextFromTheKey:@"resigned_since"];
+    
+    
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
@@ -379,19 +396,19 @@ numberOfRowsInComponent:(NSInteger)component{
     if (![CommonFunction validateName:_txt_hospitalName.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_hospitalName.text].length == 0){
-            [validationDict setValue:@"We need a Hospital Name" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"hospital_name_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid First Name." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"hospital_name_required"] forKey:AlertKey];
         }
         
     }
     else if(_txt_workedSince.text.length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"We need a date from which you started working" forKey:AlertKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"working_since_required"] forKey:AlertKey];
     }
     else if(_txt_resignedSince.text.length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"We need a date from which you resigned." forKey:AlertKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"resigned_since_required"] forKey:AlertKey];
     }
     return validationDict.mutableCopy;
     
@@ -413,41 +430,44 @@ numberOfRowsInComponent:(NSInteger)component{
     if (![CommonFunction validateName:_txt_Sepciality.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_Sepciality.text].length == 0){
-            [validationDict setValue:@"We need a Speciality" forKey:AlertKey];
+            
+            [validationDict setValue:[Langauge getTextFromTheKey:@"speciality_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Speciality." forKey:AlertKey];
+           [Langauge getTextFromTheKey:@"speciality_required"];
         }
         
     }  else  if (![CommonFunction validateName:_txt_currentGrade.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_currentGrade.text].length == 0){
-            [validationDict setValue:@"We need a Current Grade" forKey:AlertKey];
+            
+            [validationDict setValue:[Langauge getTextFromTheKey:@"currentGrade_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Current Grade." forKey:AlertKey];
+           [validationDict setValue:[Langauge getTextFromTheKey:@"currentGrade_required"] forKey:AlertKey];
         }
         
     }
     else  if (![CommonFunction validateName:_txt_subSpeciality.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_subSpeciality.text].length == 0){
-            [validationDict setValue:@"We need a Sub-speciality" forKey:AlertKey];
+            
+            [validationDict setValue:[Langauge getTextFromTheKey:@"subSpeciality_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Sub-speciality." forKey:AlertKey];
+           [validationDict setValue:[Langauge getTextFromTheKey:@"subSpeciality_required"] forKey:AlertKey];
         }
         
     }
     else  if ([CommonFunction trimString:_txtClassification.text].length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtClassification.text].length == 0){
-            [validationDict setValue:@"We need a Classification" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"classification_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Classification." forKey:AlertKey];
+             [validationDict setValue:[Langauge getTextFromTheKey:@"classification_required"] forKey:AlertKey];
         }
         
     }
     else  if (dependencyArray.count<1){
        [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"We need a Experience" forKey:AlertKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"require_add_experience"] forKey:AlertKey];
    }
     return validationDict.mutableCopy;
     

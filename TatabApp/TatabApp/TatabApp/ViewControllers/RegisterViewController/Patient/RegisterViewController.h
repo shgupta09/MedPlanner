@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RegisterViewController : UIViewController<UITextFieldDelegate>
-
+//Language
+@property (weak, nonatomic) IBOutlet UILabel *lbl_create;
+@property (weak, nonatomic) IBOutlet CustomButton *btn_Continue;
 @end
