@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TermVC : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 
 @end

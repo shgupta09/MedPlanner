@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ChoosePatientViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 
 @end

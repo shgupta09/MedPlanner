@@ -25,5 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnSend;
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewContent;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cons_imgViewHeiht;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 
 @end

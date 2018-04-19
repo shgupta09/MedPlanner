@@ -17,5 +17,6 @@
 @property(nonatomic,strong) NSString *urlString;
 @property(nonatomic,strong) NSString *doctorId;
 @property (nonatomic, weak) id <PaymentDelegate> delegateProperty;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 
 @end
