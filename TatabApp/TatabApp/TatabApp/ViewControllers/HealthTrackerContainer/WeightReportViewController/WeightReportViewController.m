@@ -62,37 +62,7 @@
     float bmi = (float)(selectedRowForWeight+20) / (float)(((float)(selectedRowForheight+30)/(float)100)*((float)(selectedRowForheight+30)/(float)100));
     NSLog(@"%f", bmi);
     
-    if (bmi<18.5){
-        _cons__bmi_obesityCentre.priority = 250;
-        _cons__bmi_overWeightCentre.priority = 250;
-        _cons__bmi_underWeightCentre.priority = 750;
-        _cons__bmi_normalWeightCentre.priority = 250;
-        
-    }
-    else if (bmi>=18.5 && bmi<25)
-    {
-        _cons__bmi_obesityCentre.priority = 250;
-        _cons__bmi_overWeightCentre.priority = 250;
-        _cons__bmi_underWeightCentre.priority = 250;
-        _cons__bmi_normalWeightCentre.priority = 750;
-        
-    }
-    else if (bmi>=25 && bmi<30)
-    {
-        _cons__bmi_obesityCentre.priority = 250;
-        _cons__bmi_overWeightCentre.priority = 750;
-        _cons__bmi_underWeightCentre.priority = 250;
-        _cons__bmi_normalWeightCentre.priority = 250;
-        
-    }
-    else if (bmi>30)
-    {
-        _cons__bmi_obesityCentre.priority = 750;
-        _cons__bmi_overWeightCentre.priority = 250;
-        _cons__bmi_underWeightCentre.priority = 250;
-        _cons__bmi_normalWeightCentre.priority = 250;
-        
-    }
+    
 
     // Enable and disable various graph properties and axis displays
     
@@ -142,8 +112,43 @@
         [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_patient.dob]];
         
     }
-    
+    [self setLanguageData];
     // Do any additional setup after loading the view from its nib.
+}
+
+
+-(void)setLanguageData{
+    _lbl_No_Data.text = [Langauge getTextFromTheKey:@"no_data"];
+    [_btn_EMR setTitle:[Langauge getTextFromTheKey:@"emr"] forState:UIControlStateNormal];
+    [_btn_Health setTitle:[Langauge getTextFromTheKey:@"health_tracker"] forState:UIControlStateNormal];
+    [_btnToDate setTitle:[Langauge getTextFromTheKey:@"to"] forState:UIControlStateNormal];
+    [_btnFromDate setTitle:[Langauge getTextFromTheKey:@"from"] forState:UIControlStateNormal];
+    [_btn_Refresh setTitle:[Langauge getTextFromTheKey:@"refresh_graph"] forState:UIControlStateNormal];
+
+    
+    _lbl_title.text = [Langauge getTextFromTheKey:@"emr"];
+    _lbl_WeightReport.text = [Langauge getTextFromTheKey:@"weight_report"];
+    _lbl_patient.text = [Langauge getTextFromTheKey:@"patient"];
+    _lbl_GenderTitle.text = [Langauge getTextFromTheKey:@"gender"];
+    _lbl_Height_Title.text = [Langauge getTextFromTheKey:@"height"];
+    _lbl_BirthDate.text = [Langauge getTextFromTheKey:@"birthdate"];
+    _lbl_WeightTitle.text = [Langauge getTextFromTheKey:@"weight"];
+    _lbl_Weight_Title2.text = [Langauge getTextFromTheKey:@"weight"];
+    _lbl_Chronic.text = [Langauge getTextFromTheKey:@"chornic"];
+    _lbl_HR_Title.text = [Langauge getTextFromTheKey:@"hr"];
+    
+   _lbl_TodaysWHR.text = [Langauge getTextFromTheKey:@"today_weight"];
+   _lbl_Bmi18.text = [Langauge getTextFromTheKey:@"under_weight"];
+   _lbl_NormalWeight.text = [Langauge getTextFromTheKey:@"normal_weight"];
+   _lbl_overWeight.text = [Langauge getTextFromTheKey:@"over_weight"];
+   _lbl_obesityBMI.text = [Langauge getTextFromTheKey:@"obesity"];
+   _lbl_weightinKG.text = [Langauge getTextFromTheKey:@"weight_in_kg"];
+   _lbl_RestHr.text = [Langauge getTextFromTheKey:@"rest_hr"];
+   _lbl_HeightInCm.text = [Langauge getTextFromTheKey:@"height_in_cm"];
+    [_btn_Submit setTitle:[Langauge getTextFromTheKey:@"submit"] forState:UIControlStateNormal];
+    [_btn_Cancel setTitle:[Langauge getTextFromTheKey:@"cancel"] forState:UIControlStateNormal];
+    _txt_Comment.placeholder = [Langauge getTextFromTheKey:@"comment"];
+
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
@@ -571,50 +576,32 @@ numberOfRowsInComponent:(NSInteger)component{
         
     }
     
-    _cons__bmi_obesityCentre.priority = 250;
-    _cons__bmi_overWeightCentre.priority = 250;
-    _cons__bmi_underWeightCentre.priority = 250;
-    _cons__bmi_normalWeightCentre.priority = 250;
+
 
     
     float bmi = (float)(selectedRowForWeight+20) / (float)(((float)(selectedRowForheight+30)/(float)100)*((float)(selectedRowForheight+30)/(float)100));
     NSLog(@"%f", bmi);
     
-    _cons__bmi_obesityCentre.priority = 250;
-    _cons__bmi_overWeightCentre.priority = 250;
-    _cons__bmi_normalWeightCentre.priority = 250;
-    _cons__bmi_underWeightCentre.priority = 250;
 
     
     if (bmi<18.5){
-        _cons__bmi_obesityCentre.priority = 250;
-        _cons__bmi_overWeightCentre.priority = 250;
-        _cons__bmi_normalWeightCentre.priority = 250;
-        _cons__bmi_underWeightCentre.priority = 750;
+        _imgPointer.center = CGPointMake(_lbl_Bmi18.center.x, _imgPointer.center.y);
 
     }
     else if (bmi>=18.5 && bmi<25)
     {
-        _cons__bmi_obesityCentre.priority = 250;
-        _cons__bmi_overWeightCentre.priority = 250;
-        _cons__bmi_underWeightCentre.priority = 250;
-        _cons__bmi_normalWeightCentre.priority = 750;
+        _imgPointer.center = CGPointMake(_lbl_NormalWeight.center.x, _imgPointer.center.y);
+
 
     }
     else if (bmi>=25 && bmi<30)
     {
-        _cons__bmi_obesityCentre.priority = 250;
-        _cons__bmi_underWeightCentre.priority = 250;
-        _cons__bmi_normalWeightCentre.priority = 250;
-        _cons__bmi_overWeightCentre.priority = 750;
+        _imgPointer.center = CGPointMake(_lbl_overWeight.center.x, _imgPointer.center.y);
 
     }
     else if (bmi>30)
     {
-        _cons__bmi_overWeightCentre.priority = 250;
-        _cons__bmi_underWeightCentre.priority = 250;
-        _cons__bmi_normalWeightCentre.priority = 250;
-        _cons__bmi_obesityCentre.priority = 750;
+        _imgPointer.center = CGPointMake(_lbl_obesityBMI.center.x, _imgPointer.center.y);
 
     }
     [self.imgPointer layoutIfNeeded];

@@ -13,9 +13,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterCompleteViewController">
             <connections>
+                <outlet property="btnAddDependent" destination="gZm-en-wXr" id="nXY-Tk-E9o"/>
                 <outlet property="btnFemale" destination="9Fn-1y-KbJ" id="9bf-Ta-neJ"/>
                 <outlet property="btnMAle" destination="a1R-vw-y5N" id="xHf-vg-hWC"/>
+                <outlet property="btn_CompleteRegistration" destination="hvW-cs-EhX" id="eHD-G8-0hw"/>
+                <outlet property="btn_ConfirmAdd" destination="kwF-7j-9I8" id="nfK-rI-3jb"/>
+                <outlet property="btn_Female" destination="9Fn-1y-KbJ" id="0bB-PI-jzT"/>
+                <outlet property="btn_Male" destination="a1R-vw-y5N" id="pC9-Lp-jCG"/>
+                <outlet property="btn_Term" destination="bEl-0z-VDg" id="iOo-5Y-Wn9"/>
                 <outlet property="btn_Terms" destination="XlO-w0-SwR" id="bdA-7A-Q4G"/>
+                <outlet property="lbl_PersonalDetails" destination="bi6-n0-Gur" id="pLq-XF-R1H"/>
                 <outlet property="popUpView" destination="sQu-TM-l9G" id="3bK-Zp-9dY"/>
                 <outlet property="scrlView" destination="Lok-Qt-tei" id="4lL-EC-cuy"/>
                 <outlet property="tblView" destination="9JM-Kp-abk" id="1YP-uw-Amw"/>

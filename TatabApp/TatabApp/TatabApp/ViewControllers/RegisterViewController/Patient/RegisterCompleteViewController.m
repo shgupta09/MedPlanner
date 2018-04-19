@@ -45,6 +45,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpdata];
+       // Do any additional setup after loading the view from its nib.
+}
+
+-(void)setUpdata{
     selectedRowForSpeciality = 0;
     selectedRowForCity = 0;
     relationArray = [NSMutableArray new];
@@ -61,14 +66,14 @@
     _txt_BirthDate.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
     
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
-
+    
     [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
     [_tblView registerNib:[UINib nibWithNibName:@"DependantDetailTableViewCell" bundle:nil]forCellReuseIdentifier:@"DependantDetailTableViewCell"];
     _tblView.rowHeight = UITableViewAutomaticDimension;
     _tblView.estimatedRowHeight = 35;
     _tblView.backgroundColor = [UIColor clearColor];
     
-     _btnFemale.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btnFemale.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
     _btnMAle.layer.cornerRadius = 22;
     _btnFemale.layer.cornerRadius = 22;
     _btnMAle.layer.borderWidth = 3;
@@ -78,9 +83,9 @@
     
     _btnMAle.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
     _btnMAle.tintColor = [UIColor whiteColor];
-
+    
     departDate = [NSDate date];
-  
+    
     [self setUpRegisterUser];
     if (![CommonFunction getBoolValueFromDefaultWithKey:RelationApi]) {
         [self getData];
@@ -88,7 +93,21 @@
     else{
         relationArray = [Relation sharedInstance].myDataArray;
     }
-       // Do any additional setup after loading the view from its nib.
+}
+
+-(void)setLanguageData{
+    _lbl_PersonalDetails.text = [Langauge getTextFromTheKey:@"personal_details"];
+    [_btn_Terms setTitle:@"Terms_Condition" forState:UIControlStateNormal];
+    [_btn_CompleteRegistration setTitle:@"complete_registration" forState:UIControlStateNormal];
+     [_btn_ConfirmAdd setTitle:@"confirm_add" forState:UIControlStateNormal];
+    _txt_Relationship.placeholder = [Langauge getTextFromTheKey:@"relationship"];
+    _txtBirthday.placeholder = [Langauge getTextFromTheKey:@"bithdate"];
+    _txtCity.placeholder = [Langauge getTextFromTheKey:@"city"];
+    _txt_BirthDate.placeholder = [Langauge getTextFromTheKey:@"bithdate"];
+    _txtName.placeholder = [Langauge getTextFromTheKey:@"name"];
+   
+  
+    
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
@@ -537,20 +556,20 @@ numberOfRowsInComponent:(NSInteger)component{
     if (![CommonFunction validateName:_txtName.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtName.text].length == 0){
-            [validationDict setValue:@"We need a First Name" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"first_name_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid First Name." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Firstname"] forKey:AlertKey];
         }
         
     }else if ([_txt_Relationship.text isEqualToString:@""]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtName.text].length == 0){
-            [validationDict setValue:@"We need a Relationship" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"please_enter_relationship"] forKey:AlertKey];
         }
     }
     else if(_txt_BirthDate.text.length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"We need a birth date" forKey:AlertKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"please_enter_date_of_birth"] forKey:AlertKey];
     }
     return validationDict.mutableCopy;
     
@@ -560,14 +579,14 @@ numberOfRowsInComponent:(NSInteger)component{
     [validationDict setValue:@"1" forKey:BoolValueKey];
     if(_txtBirthday.text.length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"We need a birth date" forKey:AlertKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"please_enter_date_of_birth"] forKey:AlertKey];
     }
     else if(_txtCity.text.length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"We need a city" forKey:AlertKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"please_enter_city"] forKey:AlertKey];
     }else  if (!_btn_Terms.isSelected){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"Please select the terms and condition" forKey:AlertKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"please_select_terms_and_condition"] forKey:AlertKey];
     }
     /*
     else  if (dependencyArray.count<1){

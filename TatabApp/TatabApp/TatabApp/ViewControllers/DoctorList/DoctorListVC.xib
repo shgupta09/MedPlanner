@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DoctorListVC">
             <connections>
                 <outlet property="imgView" destination="iJq-8u-pnb" id="ijO-yP-5K9"/>
+                <outlet property="lbl_No_Data" destination="uaL-1i-Iie" id="wQt-HB-G24"/>
                 <outlet property="lbl_title" destination="Ed9-YO-voW" id="Tja-jC-zCI"/>
                 <outlet property="tbl_View" destination="ENN-Mt-Yqr" id="tmG-uz-RdL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -58,6 +59,12 @@
                         <outlet property="delegate" destination="-1" id="Ske-RR-IYH"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaL-1i-Iie">
+                    <rect key="frame" x="156" y="467.5" width="63" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABDOMINAL CLINIC" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed9-YO-voW">
                     <rect key="frame" x="10" y="255.5" width="355" height="23.5"/>
                     <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="19"/>
@@ -67,6 +74,8 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="uaL-1i-Iie" firstAttribute="centerX" secondItem="ENN-Mt-Yqr" secondAttribute="centerX" id="2Cn-VX-grh"/>
+                <constraint firstItem="uaL-1i-Iie" firstAttribute="centerY" secondItem="ENN-Mt-Yqr" secondAttribute="centerY" id="35m-L1-YfA"/>
                 <constraint firstItem="iJq-8u-pnb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="66M-3Z-oDD"/>
                 <constraint firstAttribute="trailing" secondItem="iJq-8u-pnb" secondAttribute="trailing" id="9iJ-MT-kaY"/>
                 <constraint firstAttribute="bottom" secondItem="ENN-Mt-Yqr" secondAttribute="bottom" id="DEZ-wk-ZQc"/>

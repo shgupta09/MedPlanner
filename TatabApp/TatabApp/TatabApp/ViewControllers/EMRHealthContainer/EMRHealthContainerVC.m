@@ -69,7 +69,27 @@
     
     
     [self hitApiForSpeciality];
+    [self setLanguageData];
     // Do any additional setup after loading the view from its nib.
+}
+-(void)setLanguageData{
+    _lbl_No_Data.text = [Langauge getTextFromTheKey:@"no_data"];
+    [_btn_EMR setTitle:[Langauge getTextFromTheKey:@"emr"] forState:UIControlStateNormal];
+    [_btn_Health setTitle:[Langauge getTextFromTheKey:@"health_tracker"] forState:UIControlStateNormal];
+    
+    _lbl_title.text = [Langauge getTextFromTheKey:@"emr"];
+    _lbl_EmrLog.text = [Langauge getTextFromTheKey:@"emr_log"];
+    _lbl_patient.text = [Langauge getTextFromTheKey:@"patient"];
+    _lbl_GenderTitle.text = [Langauge getTextFromTheKey:@"gender"];
+    _lbl_Height_Title.text = [Langauge getTextFromTheKey:@"height"];
+    _lbl_BirthDate.text = [Langauge getTextFromTheKey:@"birthdate"];
+    _lbl_WeightTitle.text = [Langauge getTextFromTheKey:@"weight"];
+    _lbl_Chronic.text = [Langauge getTextFromTheKey:@"chornic"];
+    _lbl_Date_Title.text = [Langauge getTextFromTheKey:@"date"];
+    _lbl_Details_Title.text = [Langauge getTextFromTheKey:@"details"];
+    _lbl_Doctor_Title.text = [Langauge getTextFromTheKey:@"doctor"];
+    _lbl_Followup_Title.text = [Langauge getTextFromTheKey:@"follow_up"];
+    _lbl_Prescription_Title.text = [Langauge getTextFromTheKey:@"prescription"];
 }
 
 -(void)viewDidLayoutSubviews{

@@ -20,8 +20,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self hitApiToSendOtp];
+    [self setUpData];
+    // Do any additional setup after loading the view from its nib.
+}
+-(void)setUpLanguage{
     _txt_Number.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_verificationNum.leftImgView.image = [UIImage imageNamed:@"b"];
+    _txt_Number.placeholder = [Langauge getTextFromTheKey:@"mobile"];
+    _txt_verificationNum.placeholder = [Langauge getTextFromTheKey:@"sms_verification_number"];
+    _lbl_Title.text = [Langauge getTextFromTheKey:@"sms_verification"];
+     [_btn_Send setTitle:[Langauge getTextFromTheKey:@"send"] forState:UIControlStateNormal];
+     [_btnResend setTitle:[Langauge getTextFromTheKey:@"resend"] forState:UIControlStateNormal];
+    _lbl_Theory.text = [Langauge getTextFromTheKey:@"please_enter_sms_activation"];
+}
+
+-(void)setUpData{
     NSString *mobile = [CommonFunction getValueFromDefaultWithKey:mobileNo];
     if ([[mobile substringToIndex:3] isEqualToString:@"966"]) {
         NSMutableString *str =  [[mobile substringWithRange:NSMakeRange(4, mobile.length-4)] mutableCopy];
@@ -32,9 +47,7 @@
     }
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
     [CommonFunction setResignTapGestureToView:self.view andsender:self];
-
-    [self hitApiToSendOtp];
-    // Do any additional setup after loading the view from its nib.
+    [self setUpLanguage];
 }
 
 -(void)resignResponder{
@@ -259,10 +272,10 @@
     if(![CommonFunction validateMobile:[_txt_Number.text stringByReplacingOccurrencesOfString:@"-" withString:@""]]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_Number.text].length == 0) {
-            [validationDict setValue:@"We need an Mobile Number" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Mobile_required"] forKey:AlertKey];
         }
         else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Mobile Number." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Mobile"] forKey:AlertKey];
         }
     }
     return validationDict;

@@ -27,6 +27,8 @@
 
     isQueueRated = false;
     isServiceRated = false;
+     _lbl_RateQueue.text = [Langauge getTextFromTheKey:@"Rate_Queue"];
+     _lbl_RateService.text = [Langauge getTextFromTheKey:@"Rate_Service"];
     // Do any additional setup after loading the view from its nib.
 }
 

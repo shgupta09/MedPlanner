@@ -62,15 +62,8 @@
                             <constraint firstAttribute="bottom" secondItem="Ipr-zT-4Ai" secondAttribute="bottom" constant="14.5" id="vpo-er-Wsp"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_arrow-1" translatesAutoresizingMaskIntoConstraints="NO" id="oZL-kz-fWw">
-                        <rect key="frame" x="273" y="22" width="15" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="15" id="3bq-US-yTd"/>
-                            <constraint firstAttribute="height" constant="16" id="pxq-sA-59w"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEXT" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3P-Hv-pQh">
-                        <rect key="frame" x="58" y="20" width="205" height="21"/>
+                        <rect key="frame" x="58" y="20" width="250" height="21"/>
                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -80,11 +73,9 @@
                 <constraints>
                     <constraint firstItem="m2D-hg-0sC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3rz-rc-EeQ"/>
                     <constraint firstItem="V3P-Hv-pQh" firstAttribute="centerY" secondItem="Ipr-zT-4Ai" secondAttribute="centerY" id="6sm-XP-gNW"/>
-                    <constraint firstItem="oZL-kz-fWw" firstAttribute="centerY" secondItem="V3P-Hv-pQh" secondAttribute="centerY" id="Aq4-2z-7RF"/>
-                    <constraint firstItem="oZL-kz-fWw" firstAttribute="leading" secondItem="V3P-Hv-pQh" secondAttribute="trailing" constant="10" id="Jxo-Tb-q3c"/>
+                    <constraint firstAttribute="trailing" secondItem="V3P-Hv-pQh" secondAttribute="trailing" constant="10" id="81T-eH-ouW"/>
                     <constraint firstAttribute="bottom" secondItem="m2D-hg-0sC" secondAttribute="bottom" id="NCt-em-kPW"/>
                     <constraint firstItem="V3P-Hv-pQh" firstAttribute="leading" secondItem="Ipr-zT-4Ai" secondAttribute="trailing" constant="8" id="SO9-JR-uyl"/>
-                    <constraint firstAttribute="trailing" secondItem="oZL-kz-fWw" secondAttribute="trailing" constant="30" id="e5f-xz-Foj"/>
                     <constraint firstItem="m2D-hg-0sC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="exH-PW-COk"/>
                     <constraint firstAttribute="trailing" secondItem="m2D-hg-0sC" secondAttribute="trailing" id="yk0-pi-mef"/>
                 </constraints>
@@ -97,7 +88,4 @@
             <point key="canvasLocation" x="25" y="70"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="menu_arrow-1" width="8" height="11"/>
-    </resources>
 </document>

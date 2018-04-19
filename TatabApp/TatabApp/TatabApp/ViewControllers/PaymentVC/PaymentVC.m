@@ -32,6 +32,7 @@
 
 -(void)setUpData{
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_urlString]];
+    _lbl_title.text = [Langauge getTextFromTheKey:@"payment"];
     [self.webView setScalesPageToFit:YES];
     [self.webView loadRequest:request];
 }

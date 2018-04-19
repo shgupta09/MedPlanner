@@ -24,7 +24,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HealthTrackerContainerVC">
             <connections>
+                <outlet property="btn_EMR" destination="Z5a-nG-1Tv" id="I2h-CC-Blx"/>
+                <outlet property="btn_Health" destination="IWy-e1-5rQ" id="teP-Fl-gDO"/>
                 <outlet property="lblPatientName" destination="Lal-3r-Gef" id="e6c-Wa-MJz"/>
+                <outlet property="lbl_BirthDate" destination="AWb-yY-T1w" id="MtZ-Xv-zQW"/>
+                <outlet property="lbl_BloodSugar" destination="8sD-0v-K0j" id="7zm-kG-xdA"/>
+                <outlet property="lbl_Blood_Pressure" destination="Ggj-Ll-gzB" id="Sl1-br-XEL"/>
+                <outlet property="lbl_Chronic" destination="hYe-JO-xri" id="VEA-qx-qpu"/>
+                <outlet property="lbl_Fever_Report" destination="us4-Fs-RG2" id="dL0-2Q-clp"/>
+                <outlet property="lbl_GenderTitle" destination="xwf-GL-sh3" id="skq-2n-JpC"/>
+                <outlet property="lbl_HealthTracker" destination="ksE-3g-Gwh" id="mtM-OU-UFf"/>
+                <outlet property="lbl_Height_Title" destination="QeT-CT-1pr" id="cn3-i1-WB7"/>
+                <outlet property="lbl_WeightTitle" destination="pNE-1Z-oDf" id="SkD-Ed-v0v"/>
+                <outlet property="lbl_Weight_Report" destination="yxc-37-wjn" id="leZ-0d-Nv9"/>
+                <outlet property="lbl_patient" destination="3DO-tn-FGb" id="D9N-ja-M0H"/>
+                <outlet property="lbl_title" destination="dDx-ao-27g" id="Pbt-pJ-RFI"/>
                 <outlet property="lblbirthDate" destination="0Rn-9D-iJR" id="rZa-uA-kky"/>
                 <outlet property="lblgender" destination="h4f-It-x6Y" id="xX5-nE-anc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -456,7 +470,7 @@
                 <constraint firstAttribute="bottom" secondItem="rvj-kN-0yU" secondAttribute="bottom" id="nvG-g6-3Rr"/>
                 <constraint firstAttribute="trailing" secondItem="rvj-kN-0yU" secondAttribute="trailing" id="pP7-0Q-Xd4"/>
             </constraints>
-            <point key="canvasLocation" x="34.5" y="53.5"/>
+            <point key="canvasLocation" x="-268" y="-112"/>
         </view>
         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEALTH TRACKER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0OE-iC-DS4">
             <rect key="frame" x="0.0" y="0.0" width="190" height="24.5"/>

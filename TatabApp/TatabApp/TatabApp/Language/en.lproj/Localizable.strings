@@ -260,3 +260,8 @@
 "Ops_Email" = "Oops! It seems that this is not a valid Email ID.";
 "Password_required" = "We need a Password";
 "First_Name" = "First Name";
+"Rate_Service" = "Rate your service";
+"Rate_Queue" = "Rate your wait in queue";
+"chat_placeholder" = "When i can have next Visit?";
+"dependents" = "Dependants";
+

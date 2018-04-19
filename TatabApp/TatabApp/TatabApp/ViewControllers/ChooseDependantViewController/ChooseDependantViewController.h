@@ -15,10 +15,14 @@
 @property (nonatomic,strong) id classObj;
 @property (strong, nonatomic) IBOutlet UIView *popUpView;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_Relationship;
-@property (weak, nonatomic) IBOutlet UILabel *lblHeader;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 @property bool isManageDependants;
 @property (nonatomic,strong)AwarenessCategory *awarenessObj;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_title;
+@property (weak, nonatomic) IBOutlet CustomButton *btn_DependentAdd;
+
+
+
+
 
 @end

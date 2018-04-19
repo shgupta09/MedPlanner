@@ -203,8 +203,21 @@
     
     
     [self setMessageArray:false];
+    [self setLanguageData];
     //    [hm registerUser];
     // Do any additional setup after loading the view from its nib.
+}
+-(void)setLanguageData{
+    lbl_title.text = [Langauge getTextFromTheKey:@"chat"];
+    _lbl_Patient_Clinic.text = [Langauge getTextFromTheKey:[_awarenessObj.category_name stringByReplacingOccurrencesOfString:@" " withString:@"_"]];
+    _lbl_Clinic.text = [Langauge getTextFromTheKey:@"clinic"];
+    _lbl_Dr.text = [Langauge getTextFromTheKey:@"dr"];
+    _txtField.placeholder = [Langauge getTextFromTheKey:@"chat_placeholder"];
+    
+    
+//    [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
+//    _txtName.placeholder = [Langauge getTextFromTheKey:@"First_Name"];
+    
 }
 
 -(void)receiveNotification:(NSNotification*)notObj{

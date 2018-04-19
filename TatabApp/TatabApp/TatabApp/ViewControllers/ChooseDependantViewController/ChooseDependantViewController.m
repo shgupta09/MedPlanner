@@ -41,15 +41,7 @@
     [self setData];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
-    if ( _isManageDependants) {
-        [CommonFunction setResignTapGestureToView:self.view andsender:self];
-        _lblHeader.text = @"Dependants";
-    }
-    else
-    {
-        _lblHeader.text = @"Choose Dependant";
-        _btnAdd.hidden = true;
-    }
+   
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewDidLayoutSubviews{
@@ -80,12 +72,29 @@
     _btnFemale.layer.borderWidth = 3;
     _btnFemale.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
     _btnMAle.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
-    
     _btnMAle.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
     _btnMAle.tintColor = [UIColor whiteColor];
-    
     departDate = [NSDate date];
     [self hitApiForDependants];
+    [self setLanguageData];
+}
+
+-(void)setLanguageData{
+    if ( _isManageDependants) {
+        [CommonFunction setResignTapGestureToView:self.view andsender:self];
+       _lbl_title.text = [Langauge getTextFromTheKey:@"choose_dependent"];
+    }
+    else{
+         _lbl_title.text = [Langauge getTextFromTheKey:@"dependents"];
+        _btnAdd.hidden = true;
+    }
+    
+     [_btnMAle setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
+    [_btnFemale setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];
+    _txt_Relationship.placeholder = [Langauge getTextFromTheKey:@"relationship"];
+    _txtName.placeholder = [Langauge getTextFromTheKey:@"name"];
+    _txt_BirthDate.placeholder = [Langauge getTextFromTheKey:@"bithdate"];
+    [_btn_DependentAdd setTitle:[Langauge getTextFromTheKey:@"confirm_add"] forState:UIControlStateNormal];
 }
 -(void)resignResponder{
     [CommonFunction resignFirstResponderOfAView:self.view];

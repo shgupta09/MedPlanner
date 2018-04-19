@@ -49,8 +49,14 @@
                                              selector:@selector(receiveNotification)
                                                  name:@"LogoutNotification"
                                                object:nil];
+    [self setUpLanguage];
 }
-
+-(void)setUpLanguage{
+    _lbl_title.text = [Langauge getTextFromTheKey:@"patient_profile"];
+    [_btn_ElectronicMR setTitle:[Langauge getTextFromTheKey:@"electronic_medical_report"] forState:UIControlStateNormal];
+    [_btn_registerSubRegords setTitle:[Langauge getTextFromTheKey:@"manage_dependents"] forState:UIControlStateNormal];
+    [_btn_MedicalConsultant setTitle:[Langauge getTextFromTheKey:@"medical_consultation"] forState:UIControlStateNormal];
+}
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:true];
     self.navigationController.navigationBar.hidden = true;

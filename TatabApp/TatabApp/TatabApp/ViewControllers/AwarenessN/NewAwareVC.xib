@@ -203,7 +203,7 @@
                 <constraint firstItem="Cc8-hN-cAm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vln-3I-rhm"/>
                 <constraint firstAttribute="trailing" secondItem="Cc8-hN-cAm" secondAttribute="trailing" id="xVp-fl-E20"/>
             </constraints>
-            <point key="canvasLocation" x="-1014" y="-197"/>
+            <point key="canvasLocation" x="-1532" y="-484"/>
         </view>
         <view contentMode="scaleToFill" id="q1P-9l-Zgo">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -545,7 +545,7 @@
                 <constraint firstItem="us2-Fk-MnN" firstAttribute="leading" secondItem="3aD-F7-kBG" secondAttribute="leading" id="IrN-96-na3"/>
                 <constraint firstItem="us2-Fk-MnN" firstAttribute="top" secondItem="3aD-F7-kBG" secondAttribute="top" id="ofu-ln-kr8"/>
             </constraints>
-            <point key="canvasLocation" x="-597.5" y="584.5"/>
+            <point key="canvasLocation" x="-209" y="80"/>
         </view>
         <view contentMode="scaleToFill" id="4vb-j2-k0T">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

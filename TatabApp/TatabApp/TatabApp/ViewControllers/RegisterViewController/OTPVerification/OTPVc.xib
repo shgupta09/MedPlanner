@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OTPVc">
             <connections>
+                <outlet property="btnResend" destination="Yru-u9-Jsn" id="h7q-Qe-gkn"/>
+                <outlet property="btn_Send" destination="JRp-hm-LqR" id="x8T-hw-H6N"/>
+                <outlet property="lbl_Theory" destination="gDW-2a-8RQ" id="8G7-sS-tkt"/>
+                <outlet property="lbl_Title" destination="tqj-jq-nQM" id="KuV-ha-vN6"/>
                 <outlet property="txt_Number" destination="7hP-iB-NCT" id="JHp-hC-Vhy"/>
                 <outlet property="txt_verificationNum" destination="EHB-96-0iz" id="Ykf-VT-exH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

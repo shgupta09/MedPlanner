@@ -29,10 +29,34 @@
         [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_patient.dob]];
         
     }
-    
+    [self setLanguageData];
    
     // Do any additional setup after loading the view from its nib.
 }
+
+
+-(void)setLanguageData{
+    
+    [_btn_EMR setTitle:[Langauge getTextFromTheKey:@"emr"] forState:UIControlStateNormal];
+    [_btn_Health setTitle:[Langauge getTextFromTheKey:@"health_tracker"] forState:UIControlStateNormal];
+  
+    
+    
+    _lbl_title.text = [Langauge getTextFromTheKey:@"health_tracker"];
+    _lbl_Weight_Report.text = [Langauge getTextFromTheKey:@"weight_report"];
+    _lbl_patient.text = [Langauge getTextFromTheKey:@"patient"];
+    _lbl_GenderTitle.text = [Langauge getTextFromTheKey:@"gender"];
+    _lbl_Height_Title.text = [Langauge getTextFromTheKey:@"height"];
+    _lbl_BirthDate.text = [Langauge getTextFromTheKey:@"birthdate"];
+    _lbl_WeightTitle.text = [Langauge getTextFromTheKey:@"weight"];
+    _lbl_Chronic.text = [Langauge getTextFromTheKey:@"chornic"];
+    _lbl_HealthTracker.text = [Langauge getTextFromTheKey:@"height"];
+    _lbl_Fever_Report.text = [Langauge getTextFromTheKey:@"fever_report"];
+    _lbl_Blood_Pressure.text = [Langauge getTextFromTheKey:@"blood_pressor_report"];
+    _lbl_BloodSugar.text = [Langauge getTextFromTheKey:@"blood_suger_report"];
+    
+}
+
 -(void)viewDidLayoutSubviews{
     alertObj.frame = self.view.frame;
 }

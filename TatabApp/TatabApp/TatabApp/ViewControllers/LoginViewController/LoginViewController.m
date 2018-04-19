@@ -27,6 +27,11 @@
       [CommonFunction setResignTapGestureToView:self.view andsender:self];
     _txtUsername.leftImgView.image = [UIImage imageNamed:@"d"];
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
+      _txtUsername.placeholder = [Langauge getTextFromTheKey:@"email"];
+      _txtPassword.placeholder = [Langauge getTextFromTheKey:@"password"];
+     [_btnLogin setTitle:[Langauge getTextFromTheKey:@"login"] forState:UIControlStateNormal];
+     [_btn_CreateAccount setTitle:[Langauge getTextFromTheKey:@"create_account"] forState:UIControlStateNormal];
+     [_btn_NeedHelp setTitle:[Langauge getTextFromTheKey:@"need_help"] forState:UIControlStateNormal];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
   _txtPassword.text = @"Admin@123";
@@ -280,14 +285,14 @@
     if (![CommonFunction validateEmailWithString:[CommonFunction trimString:_txtUsername.text]]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtUsername.text].length == 0){
-            [validationDict setValue:@"We need an Email ID" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"email_is_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:@"Oops! It seems that this is not a valid Email ID." forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Email"] forKey:AlertKey];
         }
     }
     else if([CommonFunction trimString:_txtPassword.text].length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"We need a Password" forKey:AlertKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"Password_required"] forKey:AlertKey];
     }
     return validationDict.mutableCopy;
 }

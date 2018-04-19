@@ -25,30 +25,34 @@
                 <outlet property="btnHeight" destination="EA6-qK-oFK" id="FTO-Mw-gsh"/>
                 <outlet property="btnToDate" destination="vXa-Bi-p3A" id="6u2-Ih-UPK"/>
                 <outlet property="btnWeight" destination="LTG-Wl-KjX" id="hpQ-NK-26A"/>
+                <outlet property="btn_Cancel" destination="TS1-Qd-XPL" id="Ur3-sA-RU6"/>
                 <outlet property="btn_EMR" destination="WHX-qM-aqx" id="7EB-mY-slq"/>
-                <outlet property="btn_From" destination="w59-a5-GdQ" id="vwt-WK-j8V"/>
                 <outlet property="btn_Health" destination="cfq-md-Box" id="vB9-9y-Zri"/>
                 <outlet property="btn_Refresh" destination="8Kx-Wo-sfS" id="s5d-J1-tl5"/>
-                <outlet property="btn_To" destination="vXa-Bi-p3A" id="EJM-OM-Vw5"/>
-                <outlet property="cons__bmi_normalWeightCentre" destination="jlY-JK-gAb" id="pAK-Rr-Jiv"/>
-                <outlet property="cons__bmi_obesityCentre" destination="PVU-Ll-Qfk" id="0AJ-VH-EeO"/>
-                <outlet property="cons__bmi_overWeightCentre" destination="kCC-Uk-9Pp" id="67l-YG-AT9"/>
-                <outlet property="cons__bmi_underWeightCentre" destination="3K2-we-nGz" id="jll-xJ-EnK"/>
+                <outlet property="btn_Submit" destination="iHk-1B-9gr" id="TBV-uW-efd"/>
                 <outlet property="graphView" destination="gBw-uR-Hf9" id="vNZ-KG-d5X"/>
                 <outlet property="imgPointer" destination="3Ib-5R-kvB" id="Iad-9w-oFO"/>
                 <outlet property="lblPatientName" destination="x9n-8q-zre" id="bUZ-q9-Sde"/>
                 <outlet property="lbl_BirthDate" destination="mKi-2Y-FQY" id="1Jh-dw-gZz"/>
+                <outlet property="lbl_Bmi18" destination="ZEO-2e-kY3" id="maW-IR-Hbg"/>
                 <outlet property="lbl_Chronic" destination="D5n-bp-3NZ" id="1AH-XO-CRe"/>
                 <outlet property="lbl_GenderTitle" destination="hGE-8J-QkX" id="UdU-nB-Lhh"/>
                 <outlet property="lbl_HR_Title" destination="IBh-YE-D4r" id="z5s-VM-a6g"/>
+                <outlet property="lbl_HeightInCm" destination="CJS-4b-6h9" id="Afm-AT-flX"/>
                 <outlet property="lbl_Height_Title" destination="3Rb-QT-i8G" id="57X-Lm-4bp"/>
                 <outlet property="lbl_NoDataa" destination="cfN-YL-Jt3" id="mLW-if-kiq"/>
                 <outlet property="lbl_No_Data" destination="cfN-YL-Jt3" id="eVk-dt-Ru6"/>
+                <outlet property="lbl_NormalWeight" destination="vPr-cX-xkr" id="Qum-Wd-uKM"/>
+                <outlet property="lbl_RestHr" destination="B77-fs-3q8" id="808-65-NrK"/>
+                <outlet property="lbl_TodaysWHR" destination="Xxb-nx-v8c" id="mkr-uJ-mia"/>
                 <outlet property="lbl_WeightReport" destination="Hu6-oM-9BC" id="sFm-HP-3ef"/>
                 <outlet property="lbl_WeightTitle" destination="wDf-7i-hxg" id="VeV-ql-MdN"/>
                 <outlet property="lbl_Weight_Title2" destination="RHo-HR-Uwm" id="k7M-By-EU1"/>
+                <outlet property="lbl_obesityBMI" destination="1Lh-FJ-MrE" id="N13-3k-s8z"/>
+                <outlet property="lbl_overWeight" destination="OzQ-0D-6nu" id="YDr-5o-4KC"/>
                 <outlet property="lbl_patient" destination="cSH-zh-b8o" id="w2n-wY-eZc"/>
                 <outlet property="lbl_title" destination="qCp-Qe-xLD" id="VoV-Cq-CjT"/>
+                <outlet property="lbl_weightinKG" destination="2Ry-VY-CKP" id="8uA-CQ-jnx"/>
                 <outlet property="lblgender" destination="Yof-e2-JgW" id="1dQ-Pu-BGq"/>
                 <outlet property="popUpView" destination="INF-g5-JHj" id="ZTk-hn-GZb"/>
                 <outlet property="txt_Comment" destination="ADs-c4-m1W" id="7zc-IT-e0x"/>
@@ -681,8 +685,8 @@ Bmi&gt;30</string>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointerUPDOWN" translatesAutoresizingMaskIntoConstraints="NO" id="3Ib-5R-kvB">
                                             <rect key="frame" x="43" y="38" width="21" height="25"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="21" id="mqs-Uz-iE5"/>
-                                                <constraint firstAttribute="height" constant="25" id="uA8-B6-o71"/>
+                                                <constraint firstAttribute="width" constant="21" id="ag8-le-SpZ"/>
+                                                <constraint firstAttribute="height" constant="25" id="qKq-6y-sb6"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -691,7 +695,6 @@ Bmi&gt;30</string>
                                         <constraint firstAttribute="trailing" secondItem="LTG-Wl-KjX" secondAttribute="trailing" constant="14" id="15e-Z8-3Fq"/>
                                         <constraint firstItem="Xxb-nx-v8c" firstAttribute="centerX" secondItem="3Nu-2c-wNu" secondAttribute="centerX" id="2YL-EE-LDW"/>
                                         <constraint firstItem="x2U-iN-k4a" firstAttribute="trailing" secondItem="LTG-Wl-KjX" secondAttribute="trailing" id="3Gc-rf-xaf"/>
-                                        <constraint firstItem="3Ib-5R-kvB" firstAttribute="centerX" secondItem="ZEO-2e-kY3" secondAttribute="centerX" id="3K2-we-nGz"/>
                                         <constraint firstItem="wg7-gA-UBF" firstAttribute="leading" secondItem="EA6-qK-oFK" secondAttribute="trailing" constant="-36" id="5ln-8P-DwY"/>
                                         <constraint firstItem="EA6-qK-oFK" firstAttribute="trailing" secondItem="x2U-iN-k4a" secondAttribute="trailing" id="6lR-oO-FeG"/>
                                         <constraint firstItem="EA6-qK-oFK" firstAttribute="leading" secondItem="CJS-4b-6h9" secondAttribute="trailing" constant="8" id="7KV-q7-Tcz"/>
@@ -704,11 +707,10 @@ Bmi&gt;30</string>
                                         <constraint firstItem="irC-17-78Y" firstAttribute="leading" secondItem="LTG-Wl-KjX" secondAttribute="trailing" constant="-36" id="IHz-U0-GIs"/>
                                         <constraint firstItem="cKW-dO-4vX" firstAttribute="leading" secondItem="3Nu-2c-wNu" secondAttribute="leading" constant="15" id="Iaw-8P-fhp"/>
                                         <constraint firstItem="2Ry-VY-CKP" firstAttribute="width" secondItem="LTG-Wl-KjX" secondAttribute="width" id="JKz-CX-jxw"/>
-                                        <constraint firstItem="cKW-dO-4vX" firstAttribute="top" secondItem="3Ib-5R-kvB" secondAttribute="bottom" constant="1" id="KVQ-Q7-ufi"/>
+                                        <constraint firstItem="3Ib-5R-kvB" firstAttribute="centerX" secondItem="ZEO-2e-kY3" secondAttribute="centerX" id="Jjz-pk-CcB"/>
                                         <constraint firstItem="B77-fs-3q8" firstAttribute="width" secondItem="x2U-iN-k4a" secondAttribute="width" id="MlL-LH-0Bn"/>
                                         <constraint firstItem="x2U-iN-k4a" firstAttribute="leading" secondItem="B77-fs-3q8" secondAttribute="trailing" constant="8" id="N06-JR-zax"/>
                                         <constraint firstItem="LTG-Wl-KjX" firstAttribute="leading" secondItem="2Ry-VY-CKP" secondAttribute="trailing" constant="8" id="PPt-3h-UbO"/>
-                                        <constraint firstItem="3Ib-5R-kvB" firstAttribute="centerX" secondItem="1Lh-FJ-MrE" secondAttribute="centerX" id="PVU-Ll-Qfk"/>
                                         <constraint firstAttribute="bottom" secondItem="iHk-1B-9gr" secondAttribute="bottom" constant="9" id="SKO-WV-yww"/>
                                         <constraint firstItem="irC-17-78Y" firstAttribute="centerY" secondItem="LTG-Wl-KjX" secondAttribute="centerY" id="YDU-Qa-FOR"/>
                                         <constraint firstItem="iHk-1B-9gr" firstAttribute="top" secondItem="ADs-c4-m1W" secondAttribute="bottom" constant="8" id="ZcU-GS-r1C"/>
@@ -721,9 +723,8 @@ Bmi&gt;30</string>
                                         <constraint firstItem="EA6-qK-oFK" firstAttribute="top" secondItem="x2U-iN-k4a" secondAttribute="bottom" constant="26" id="f7f-UN-Uby"/>
                                         <constraint firstAttribute="trailing" secondItem="TS1-Qd-XPL" secondAttribute="trailing" constant="10" id="h35-Pq-EWS"/>
                                         <constraint firstItem="ADs-c4-m1W" firstAttribute="top" secondItem="EA6-qK-oFK" secondAttribute="bottom" constant="40" id="j63-iB-mIS"/>
-                                        <constraint firstItem="3Ib-5R-kvB" firstAttribute="centerX" secondItem="vPr-cX-xkr" secondAttribute="centerX" id="jlY-JK-gAb"/>
                                         <constraint firstItem="cKW-dO-4vX" firstAttribute="top" secondItem="Xxb-nx-v8c" secondAttribute="bottom" constant="36" id="jpZ-9l-Ivh"/>
-                                        <constraint firstItem="3Ib-5R-kvB" firstAttribute="centerX" secondItem="OzQ-0D-6nu" secondAttribute="centerX" id="kCC-Uk-9Pp"/>
+                                        <constraint firstItem="cKW-dO-4vX" firstAttribute="top" secondItem="3Ib-5R-kvB" secondAttribute="bottom" constant="1" id="ljq-Rh-zFA"/>
                                         <constraint firstItem="B77-fs-3q8" firstAttribute="leading" secondItem="2Ry-VY-CKP" secondAttribute="leading" id="rtu-QG-FTa"/>
                                         <constraint firstAttribute="trailing" secondItem="cKW-dO-4vX" secondAttribute="trailing" constant="12" id="t1e-Vb-nZX"/>
                                         <constraint firstItem="2Ry-VY-CKP" firstAttribute="top" secondItem="ZEO-2e-kY3" secondAttribute="bottom" constant="30" id="twv-bf-641"/>

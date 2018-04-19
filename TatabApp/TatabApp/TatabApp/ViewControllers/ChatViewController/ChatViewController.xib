@@ -411,7 +411,7 @@
                 <constraint firstItem="wN3-GQ-K9o" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="x4J-hY-VaD"/>
                 <constraint firstItem="wN3-GQ-K9o" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xxH-ow-RsX"/>
             </constraints>
-            <point key="canvasLocation" x="104.5" y="-146.5"/>
+            <point key="canvasLocation" x="-111" y="-149"/>
         </view>
         <view contentMode="scaleToFill" id="wm4-dT-3hx">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

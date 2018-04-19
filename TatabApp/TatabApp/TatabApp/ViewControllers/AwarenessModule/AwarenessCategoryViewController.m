@@ -37,9 +37,14 @@
 
     }
     
-    
+    [self setUpLanguage];
     
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)setUpLanguage{
+    
+    _lbl_title.text = [Langauge getTextFromTheKey:@"Consultation"];
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
@@ -104,7 +109,7 @@
     
     AwarenessCategory* category = [categoryArray objectAtIndex:indexPath.row];
     cell.imgView.image = [self setImageFor:category.category_name];
-    cell.lblName.text = category.category_name;
+    cell.lblName.text = [Langauge getTextFromTheKey:[category.category_name stringByReplacingOccurrencesOfString:@" " withString:@"_"]];
     return cell;
 }
 

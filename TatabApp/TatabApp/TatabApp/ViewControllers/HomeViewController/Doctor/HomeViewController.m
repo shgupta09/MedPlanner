@@ -25,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setData];
-    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
    
 }
 -(void)viewDidLayoutSubviews{
@@ -34,6 +33,8 @@
 }
 -(void)setData{
     [self hitApiForTheQueueCount];
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+
     [_btn_CasesHistory setImage:[UIImage imageNamed:@"requestsHistory"] forState:UIControlStateNormal];
     [_btn_MedicalQueue setImage:[UIImage imageNamed:@"queueWhite"] forState:UIControlStateNormal];
     [_btn_ManageAwareness setImage:[UIImage imageNamed:@"mngawareness"] forState:UIControlStateNormal];
@@ -52,6 +53,14 @@
                                              selector:@selector(receiveNotification)
                                                  name:@"LogoutNotification"
                                                object:nil];
+    [self setUpLanguage];
+}
+
+-(void)setUpLanguage{
+     _lbl_title.text = [Langauge getTextFromTheKey:@"doc_profile"];
+    [_btn_MedicalQueue setTitle:[Langauge getTextFromTheKey:@"manage_queue"] forState:UIControlStateNormal];
+    [_btn_ManageAwareness setTitle:[Langauge getTextFromTheKey:@"manage_awareness_content"] forState:UIControlStateNormal];
+    [_btn_CasesHistory setTitle:[Langauge getTextFromTheKey:@"case_history"] forState:UIControlStateNormal];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

@@ -32,7 +32,7 @@
                                                  name:@"UpdateCountLAbel"
                                                object:nil];
      revealController = [self revealViewController];
-    
+    _lbl_Loguot.text = [Langauge getTextFromTheKey:@"logout"];
 //    _viewToClip.layer.cornerRadius = 5;
 //    _viewToClip.layer.masksToBounds = true;
 //    _viewToClip.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -57,11 +57,11 @@
     [_tbl_View reloadData];
     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
           if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"DEPENDANTS",@"EMR AND TRACKER",@"PROFILE",@"SETTINGS", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"dependent",@"emr_and_tracker",@"profile",@"setting", nil];
               titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-children",@"menu-general",@"Icon---Profile",@"Icon---Setttings", nil];
           }
           else{
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"QUEUE",@"EMR AND TRACKER",@"PROFILE",@"SETTINGS", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"queue",@"emr_and_tracker",@"profile",@"setting", nil];
               titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queueWhite",@"menu-general",@"Icon---Profile",@"Icon---Setttings", nil];
               [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
           }
@@ -117,14 +117,14 @@
 //        rearCell.imgView.image = [UIImage imageNamed:[titleImageArray objectAtIndex:indexPath.row-categoryArray.count]];
 //
 //    }
-         rearCell.lbl_title.text = [titleArray objectAtIndex:indexPath.row];
+         rearCell.lbl_title.text = [Langauge getTextFromTheKey:[titleArray objectAtIndex:indexPath.row]];
          rearCell.imgView.image = [UIImage imageNamed:[titleImageArray objectAtIndex:indexPath.row]];
          if ([rearCell.lbl_title.text isEqualToString:@"QUEUE"] && [[QueueDetails sharedInstance].myDataArray count]>0) {
              rearCell.countLabel.hidden = false;
              rearCell.countLabel.text = [NSString stringWithFormat:@"%d",[[QueueDetails sharedInstance].myDataArray count]];
          }
      }else{
-         rearCell.lbl_title.text = [titleArray objectAtIndex:indexPath.row];
+         rearCell.lbl_title.text = [Langauge getTextFromTheKey:[titleArray objectAtIndex:indexPath.row]];
          rearCell.imgView.image = [UIImage imageNamed:[titleImageArray objectAtIndex:indexPath.row]];
      }
     rearCell.selectionStyle = UITableViewCellSelectionStyleNone;

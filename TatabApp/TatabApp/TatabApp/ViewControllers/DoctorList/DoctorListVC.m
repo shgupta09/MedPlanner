@@ -47,6 +47,12 @@
     {
         [self hitApiForPatientList];
     }
+    [self setLanguageData];
+}
+-(void)setLanguageData{
+    _lbl_title.text = [Langauge getTextFromTheKey:[_awarenessObj.category_name stringByReplacingOccurrencesOfString:@" " withString:@"_"]];
+    _lbl_No_Data.text = [Langauge getTextFromTheKey:@"no_data"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,13 +63,22 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+        if (doctorListArray.count == 0) {
+            _lbl_No_Data.hidden = false;
+        }else{
+            _lbl_No_Data.hidden = true;
+        }
         return doctorListArray.count;
 
     }
     else
     {
+        if (patientListArray.count == 0) {
+            _lbl_No_Data.hidden = false;
+        }else{
+        _lbl_No_Data.hidden = true;
+        }
         return patientListArray.count;
- 
     }
     
 }

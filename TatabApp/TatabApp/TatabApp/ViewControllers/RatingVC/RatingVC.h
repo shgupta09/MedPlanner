@@ -19,5 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn7;
 @property (weak, nonatomic) IBOutlet UIButton *btn8;
 @property (weak, nonatomic) IBOutlet UIButton *btn9;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_RateService;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_RateQueue;
 
 @end

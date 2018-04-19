@@ -104,8 +104,8 @@
     
     [self addCustomTabBar];
     tabBarObj.btnAwareness.highlighted = true;
-   
-
+    _lbl_NoData.text = [Langauge getTextFromTheKey:@"no_data"];
+    _lbl_title.text = [Langauge getTextFromTheKey:@"awareness"];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -1320,7 +1320,15 @@
     [tabBarObj.btnHealthTracker addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];
     [tabBarObj.btnAwareness addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];
     [tabBarObj.btnMedicalRecord addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];
-
+     [tabBarObj.btnMedicalRecord setTitle:[Langauge getTextFromTheKey:@"Consultation"] forState:UIControlStateNormal];
+     [tabBarObj.btnAwareness setTitle:[Langauge getTextFromTheKey:@"awareness"] forState:UIControlStateNormal];
+     [tabBarObj.btnHealthTracker setTitle:[Langauge getTextFromTheKey:@"emr_tracker"] forState:UIControlStateNormal];
+//    tabBarObj.btnHealthTracker.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+//    tabBarObj.btnHealthTracker.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+//     tabBarObj.btnAwareness.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+//     tabBarObj.btnMedicalRecord.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+//    tabBarObj.btnMedicalRecord.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    
     [self.view addSubview:tabBarObj];
 }
 -(IBAction)btnActionForCustomTab:(id)sender{

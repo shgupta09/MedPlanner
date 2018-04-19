@@ -72,11 +72,12 @@
     SWRevealViewController *mainRevealController;
     NewAwareVC *frontViewController = [[NewAwareVC alloc]initWithNibName:@"NewAwareVC" bundle:nil];
         mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
-   
+    
     mainRevealController.delegate = self;
     mainRevealController.view.backgroundColor = [UIColor clearColor];
     mainRevealController.frontViewShadowRadius = 0;
     mainRevealController.frontViewShadowColor = [UIColor clearColor];
+    
     //            [frontViewController.view addSubview:[CommonFunction setStatusBarColor]];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mainRevealController];
     ((AppDelegate *)[[UIApplication sharedApplication] delegate]).window.rootViewController = nav;

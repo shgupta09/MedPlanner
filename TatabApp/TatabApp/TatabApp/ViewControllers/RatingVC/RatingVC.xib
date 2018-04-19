@@ -27,6 +27,8 @@
                 <outlet property="btn7" destination="MIk-8k-kEs" id="CGW-mT-Mfd"/>
                 <outlet property="btn8" destination="1g7-Cp-SKj" id="q3E-U6-u68"/>
                 <outlet property="btn9" destination="GV2-8A-X5r" id="NcK-Hx-J2Y"/>
+                <outlet property="lbl_RateQueue" destination="M62-zs-aeo" id="muK-AT-CF0"/>
+                <outlet property="lbl_RateService" destination="QJK-5B-eTC" id="Tic-6J-sl5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
