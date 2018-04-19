@@ -50,16 +50,32 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_WeightTitle;
 
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Chronic;
-
+@property (weak, nonatomic) IBOutlet CustomButton4 *btn_EMR;
 @property (weak, nonatomic) IBOutlet CustomButton3 *btn_selectType;
-
+@property (weak, nonatomic) IBOutlet CustomButton3 *btn_Submit;
+@property (weak, nonatomic) IBOutlet CustomButton3 *btn_Cancel;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_No_Data;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_HR_Title;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_DIA_Title;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_SYS_Title;
 @property (weak, nonatomic) IBOutlet CustomButton3 *btn_Refresh;
-@property (weak, nonatomic) IBOutlet CustomButton3 *btn_From;
-@property (weak, nonatomic) IBOutlet CustomButton3 *btn_To;
-@property (weak, nonatomic) IBOutlet CustomButton4 *btn_EMR;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Today_Hr;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Sys_MM;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Dia_MM;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_MELess180;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_ME_Greater120;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HighBP2Greater180;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HighBP2_Less90;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HighBP80;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Prehyper1;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Prehyper2;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Normal1;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Normal2;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HeartRate;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HighBP130;
+
+
 
 @end

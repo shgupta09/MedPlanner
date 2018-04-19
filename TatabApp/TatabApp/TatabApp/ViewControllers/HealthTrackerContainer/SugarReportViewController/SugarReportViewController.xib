@@ -25,10 +25,12 @@
                 <outlet property="btnSelectType" destination="AaZ-Ib-Aw5" id="b7w-5p-yLU"/>
                 <outlet property="btnToDate" destination="3Zd-St-INf" id="VWS-Wx-Azt"/>
                 <outlet property="btnWeightPopup" destination="dIL-1v-22D" id="91Y-4i-VmL"/>
+                <outlet property="btn_Cancel" destination="UHR-AY-vGk" id="m15-73-nSX"/>
                 <outlet property="btn_EMR" destination="eXZ-JX-DBc" id="e1N-el-mgb"/>
                 <outlet property="btn_From" destination="yAW-6P-ruu" id="05O-fI-VNp"/>
                 <outlet property="btn_Health" destination="gj4-Jh-nvk" id="7c2-I7-pL9"/>
                 <outlet property="btn_Refresh" destination="eQ5-SP-y75" id="OOO-9s-3NN"/>
+                <outlet property="btn_Submit" destination="CxJ-hs-S4A" id="O4R-Pz-JYb"/>
                 <outlet property="btn_To" destination="3Zd-St-INf" id="idf-XM-wn7"/>
                 <outlet property="btn_selectType" destination="AaZ-Ib-Aw5" id="r87-AC-jcg"/>
                 <outlet property="graphView" destination="G83-eC-7bA" id="UDI-WE-Pkl"/>
@@ -39,10 +41,14 @@
                 <outlet property="lbl_Height_Title" destination="Vr7-de-EsI" id="See-RY-GLy"/>
                 <outlet property="lbl_NoDataa" destination="hZc-ss-tEU" id="5TP-ag-XoY"/>
                 <outlet property="lbl_No_Data" destination="hZc-ss-tEU" id="Yma-xQ-eUe"/>
+                <outlet property="lbl_NormalRange" destination="q0B-cp-PEv" id="8YW-Zy-xhU"/>
                 <outlet property="lbl_PostSleep_Title" destination="112-i4-SpS" id="Gee-eC-FWD"/>
                 <outlet property="lbl_PreMeal_Title" destination="XbR-nL-SVt" id="0cv-WL-GYJ"/>
+                <outlet property="lbl_Reading" destination="4LU-ZK-nXR" id="Gsf-fs-glJ"/>
                 <outlet property="lbl_Sleep_Title" destination="hnz-wU-HY5" id="r10-vd-9cf"/>
                 <outlet property="lbl_SugarReport" destination="HvC-rY-sTc" id="EFK-R3-Faq"/>
+                <outlet property="lbl_Timing" destination="WAE-iT-0vy" id="FKw-eU-HOn"/>
+                <outlet property="lbl_Today_Sugar" destination="Y9R-GA-1jz" id="sKw-5J-Mh5"/>
                 <outlet property="lbl_WeightTitle" destination="CPe-k6-KME" id="a88-MD-NEk"/>
                 <outlet property="lbl_patient" destination="qQ7-j7-0bL" id="Siv-JW-N9h"/>
                 <outlet property="lbl_title" destination="Z8T-tM-IeS" id="gXt-Ix-hx7"/>
@@ -564,7 +570,7 @@
                 <constraint firstItem="Nm9-EY-zDC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kJZ-fG-6mm"/>
                 <constraint firstAttribute="bottom" secondItem="Nm9-EY-zDC" secondAttribute="bottom" id="uor-Fk-b9o"/>
             </constraints>
-            <point key="canvasLocation" x="35.5" y="53.5"/>
+            <point key="canvasLocation" x="-587" y="-136"/>
         </view>
         <view contentMode="scaleToFill" id="Kba-x7-Oys">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

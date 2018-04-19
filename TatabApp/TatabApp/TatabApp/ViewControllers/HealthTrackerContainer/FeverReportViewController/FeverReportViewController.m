@@ -106,9 +106,41 @@ _graphView.legend.enabled = NO;
     
     [self slidersValueChanged:nil];
 
-    
+    [self setLanguageData];
     // Do any additional setup after loading the view from its nib.
 }
+
+-(void)setLanguageData{
+    _lbl_No_Data.text = [Langauge getTextFromTheKey:@"no_data"];
+    [_btn_EMR setTitle:[Langauge getTextFromTheKey:@"emr"] forState:UIControlStateNormal];
+    [_btn_Health setTitle:[Langauge getTextFromTheKey:@"health_tracker"] forState:UIControlStateNormal];
+    [_btnToDate setTitle:[Langauge getTextFromTheKey:@"to"] forState:UIControlStateNormal];
+    [_btnFromDate setTitle:[Langauge getTextFromTheKey:@"from"] forState:UIControlStateNormal];
+    [_btn_Refresh setTitle:[Langauge getTextFromTheKey:@"refresh_graph"] forState:UIControlStateNormal];
+    
+    
+    _lbl_title.text = [Langauge getTextFromTheKey:@"emr"];
+    _lbl_FeverReport.text = [Langauge getTextFromTheKey:@"fever_report"];
+    _lbl_patient.text = [Langauge getTextFromTheKey:@"patient"];
+    _lbl_GenderTitle.text = [Langauge getTextFromTheKey:@"gender"];
+    _lbl_Height_Title.text = [Langauge getTextFromTheKey:@"height"];
+    _lbl_BirthDate.text = [Langauge getTextFromTheKey:@"birthdate"];
+    _lbl_WeightTitle.text = [Langauge getTextFromTheKey:@"weight"];
+    _lbl_Chronic.text = [Langauge getTextFromTheKey:@"chornic"];
+    _lbl_Temp_Title.text = [Langauge getTextFromTheKey:@"temperature"];
+    
+   
+    [_btn_Submit setTitle:[Langauge getTextFromTheKey:@"submit"] forState:UIControlStateNormal];
+    [_btn_Cancel setTitle:[Langauge getTextFromTheKey:@"cancel"] forState:UIControlStateNormal];
+    _txtComments.placeholder = [Langauge getTextFromTheKey:@"comment"];
+   _lbl_TodaysTemp.text = [Langauge getTextFromTheKey:@"Today_Temp"];
+   _lbl_VeryHot.text = [Langauge getTextFromTheKey:@"very_HotTemp"];
+   _lbl_Hot.text = [Langauge getTextFromTheKey:@"hot_Tempreture"];
+   _lbl_Normal.text = [Langauge getTextFromTheKey:@"normal_Temp"];
+   _lbl_Cold.text = [Langauge getTextFromTheKey:@"cold_Temp"];
+   _lbl_VeryCold.text = [Langauge getTextFromTheKey:@"normal_Temp"];
+}
+
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
     alertObj.frame = self.view.frame;

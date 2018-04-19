@@ -264,4 +264,12 @@
 "Rate_Queue" = "Rate your wait in queue";
 "chat_placeholder" = "When i can have next Visit?";
 "dependents" = "Dependants";
+"temperature" = "Temperature";
+"Today_Temp" = "Today's Temperature";
+"very_HotTemp" = "Very Hot (ER) \n >39°C";
+"normal_Temp" = "Normal \n 36.5 - 37.5 °C";
+"cold_Temp" = "Cold \n 36 - 36.5 °C";
+"normal_Temp" = "Very Cold (ER) \n <36 °C";
+"hot_Tempreture" = "Hot \n 37.5 - 39 °C";
+"meal" = "meal";
 

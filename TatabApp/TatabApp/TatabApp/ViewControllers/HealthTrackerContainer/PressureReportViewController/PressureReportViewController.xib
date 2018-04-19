@@ -24,11 +24,11 @@
                 <outlet property="btnFromDate" destination="kEo-Sb-Z4F" id="5yh-XF-Cz8"/>
                 <outlet property="btnHeartRate" destination="b6x-q4-gnu" id="LJf-9E-azf"/>
                 <outlet property="btnToDate" destination="b96-4R-XVl" id="p70-iG-ttB"/>
+                <outlet property="btn_Cancel" destination="wym-9X-b7c" id="aSE-wW-1KQ"/>
                 <outlet property="btn_EMR" destination="TIG-9F-W83" id="Kx1-dJ-K1T"/>
-                <outlet property="btn_From" destination="kEo-Sb-Z4F" id="y72-IX-7CQ"/>
                 <outlet property="btn_Health" destination="47V-eC-xUf" id="ZbV-JV-iEz"/>
                 <outlet property="btn_Refresh" destination="Ikc-mb-kiy" id="7Tz-lV-g5g"/>
-                <outlet property="btn_To" destination="b96-4R-XVl" id="EWz-MR-xce"/>
+                <outlet property="btn_Submit" destination="GaT-gl-89o" id="hAb-Lw-yMT"/>
                 <outlet property="cons_imageviewDIA" destination="NHz-TC-obV" id="8cn-kA-1mW"/>
                 <outlet property="cons_imgViewSYS" destination="VTQ-YZ-sQX" id="RBb-cq-7oG"/>
                 <outlet property="graphView" destination="oH4-OY-B0R" id="tb0-1A-aZa"/>
@@ -39,12 +39,26 @@
                 <outlet property="lbl_BloodReport" destination="XvL-Yv-Gpw" id="VO9-os-4Ay"/>
                 <outlet property="lbl_Chronic" destination="bm2-z1-y9W" id="FOX-U6-Euv"/>
                 <outlet property="lbl_DIA_Title" destination="yvn-5C-JFO" id="jDz-9V-dIe"/>
+                <outlet property="lbl_Dia_MM" destination="kSG-Or-jLh" id="9Dh-mS-bzt"/>
                 <outlet property="lbl_GenderTitle" destination="V1h-Po-YD6" id="4jo-VS-MhZ"/>
                 <outlet property="lbl_HR_Title" destination="R27-mE-v0B" id="m3h-i9-Shu"/>
+                <outlet property="lbl_HeartRate" destination="x0C-Zd-9mD" id="4GN-nM-CKU"/>
                 <outlet property="lbl_Height_Title" destination="crz-hx-Xiz" id="fnP-xm-aKZ"/>
+                <outlet property="lbl_HighBP130" destination="zgi-l5-byU" id="3dk-2M-Ujx"/>
+                <outlet property="lbl_HighBP2Greater180" destination="bpw-GH-IqD" id="2sF-Lq-YU2"/>
+                <outlet property="lbl_HighBP2_Less90" destination="cjL-a1-mE0" id="zLE-S0-tEf"/>
+                <outlet property="lbl_HighBP80" destination="ueU-IL-EQX" id="c8Q-65-mQt"/>
+                <outlet property="lbl_MELess180" destination="hwM-BO-L7Y" id="hca-Cn-MJg"/>
+                <outlet property="lbl_ME_Greater120" destination="KUx-Dn-fvv" id="ieS-cL-IvH"/>
                 <outlet property="lbl_NoDataa" destination="2SI-aE-ATx" id="opq-BZ-ch3"/>
                 <outlet property="lbl_No_Data" destination="2SI-aE-ATx" id="qKQ-Bi-Q7k"/>
+                <outlet property="lbl_Normal1" destination="fC1-tW-94G" id="Ndh-aK-hNx"/>
+                <outlet property="lbl_Normal2" destination="4EC-B5-iZN" id="xHJ-zJ-R0y"/>
+                <outlet property="lbl_Prehyper1" destination="Tsa-ud-nST" id="Hun-Om-Ahj"/>
+                <outlet property="lbl_Prehyper2" destination="ghn-xE-ntN" id="rgm-nl-vih"/>
                 <outlet property="lbl_SYS_Title" destination="QIj-iZ-RVH" id="w6U-Oa-zCk"/>
+                <outlet property="lbl_Sys_MM" destination="UM1-uJ-Wfs" id="etZ-so-qfK"/>
+                <outlet property="lbl_Today_Hr" destination="Mka-97-aOK" id="c1d-dC-q9c"/>
                 <outlet property="lbl_WeightTitle" destination="2qE-yb-Gue" id="rn8-Re-0KU"/>
                 <outlet property="lbl_patient" destination="jmj-gF-0bv" id="NHe-XO-1wq"/>
                 <outlet property="lbl_title" destination="vDh-jJ-9Im" id="FJc-GX-rwC"/>

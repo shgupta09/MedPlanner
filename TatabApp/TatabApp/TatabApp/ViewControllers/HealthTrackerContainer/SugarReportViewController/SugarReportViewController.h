@@ -53,4 +53,11 @@
 @property (weak, nonatomic) IBOutlet CustomButton3 *btn_From;
 @property (weak, nonatomic) IBOutlet CustomButton3 *btn_To;
 @property (weak, nonatomic) IBOutlet CustomButton4 *btn_EMR;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Today_Sugar;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Reading;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_NormalRange;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Timing;
+@property (weak, nonatomic) IBOutlet CustomButton3 *btn_Submit;
+@property (weak, nonatomic) IBOutlet CustomButton3 *btn_Cancel;
 @end

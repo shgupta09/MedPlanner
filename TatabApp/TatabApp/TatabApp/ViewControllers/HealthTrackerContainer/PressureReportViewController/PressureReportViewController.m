@@ -128,8 +128,50 @@ _graphView.legend.enabled = NO;
         [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_patient.dob]];
         
     }
-    
+    [self setLanguageData];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)setLanguageData{
+    _lbl_No_Data.text = [Langauge getTextFromTheKey:@"no_data"];
+    [_btn_EMR setTitle:[Langauge getTextFromTheKey:@"emr"] forState:UIControlStateNormal];
+    [_btn_Health setTitle:[Langauge getTextFromTheKey:@"health_tracker"] forState:UIControlStateNormal];
+    [_btnToDate setTitle:[Langauge getTextFromTheKey:@"to"] forState:UIControlStateNormal];
+    [_btnFromDate setTitle:[Langauge getTextFromTheKey:@"from"] forState:UIControlStateNormal];
+    [_btn_Refresh setTitle:[Langauge getTextFromTheKey:@"refresh_graph"] forState:UIControlStateNormal];
+    
+    
+    _lbl_title.text = [Langauge getTextFromTheKey:@"emr"];
+    _lbl_BloodReport.text = [Langauge getTextFromTheKey:@"blood_pressor_report"];
+    _lbl_patient.text = [Langauge getTextFromTheKey:@"patient"];
+    _lbl_GenderTitle.text = [Langauge getTextFromTheKey:@"gender"];
+    _lbl_Height_Title.text = [Langauge getTextFromTheKey:@"height"];
+    _lbl_BirthDate.text = [Langauge getTextFromTheKey:@"birthdate"];
+    _lbl_WeightTitle.text = [Langauge getTextFromTheKey:@"weight"];
+    _lbl_Chronic.text = [Langauge getTextFromTheKey:@"chornic"];
+    _lbl_HR_Title.text = [Langauge getTextFromTheKey:@"hr"];
+    _lbl_DIA_Title.text = [Langauge getTextFromTheKey:@"dia"];
+    _lbl_SYS_Title.text = [Langauge getTextFromTheKey:@"sys"];
+    
+    [_btn_Submit setTitle:[Langauge getTextFromTheKey:@"submit"] forState:UIControlStateNormal];
+    [_btn_Cancel setTitle:[Langauge getTextFromTheKey:@"cancel"] forState:UIControlStateNormal];
+    _txtComments.placeholder = [Langauge getTextFromTheKey:@"comment"];
+    _lbl_Today_Hr.text = [Langauge getTextFromTheKey:@"today_blood_pressure"];
+    _lbl_Sys_MM.text = [Langauge getTextFromTheKey:@"sys_mm_hg"];
+    _lbl_Dia_MM.text = [Langauge getTextFromTheKey:@"dia_mm_hg"];
+    
+    _lbl_MELess180.text = [Langauge getTextFromTheKey:@"medical_emergency_sys"];
+    _lbl_ME_Greater120.text = [Langauge getTextFromTheKey:@"medical_emergency_dia"];
+    _lbl_HighBP2Greater180.text = [Langauge getTextFromTheKey:@"high_bp_stage_2_sys"];
+    _lbl_HighBP2_Less90.text = [Langauge getTextFromTheKey:@"high_bp_stage_2_dia"];
+    _lbl_HighBP130.text = [Langauge getTextFromTheKey:@"high_bp_stage_1_sys"];
+    _lbl_HighBP80.text = [Langauge getTextFromTheKey:@"high_bp_stage_1_dia"];
+    _lbl_Prehyper1.text = [Langauge getTextFromTheKey:@"pre_hyper_tention_sys"];
+    _lbl_Prehyper2.text = [Langauge getTextFromTheKey:@"pre_hyper_tention_dia"];
+    _lbl_Normal1.text = [Langauge getTextFromTheKey:@"normal_blood_pressure_sys"];
+    _lbl_Normal2.text = [Langauge getTextFromTheKey:@"normal_blood_pressure_dia"];
+    _lbl_HeartRate.text = [Langauge getTextFromTheKey:@"heart_rate"];
+    
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;

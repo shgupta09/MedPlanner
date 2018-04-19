@@ -50,7 +50,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Temp_Title;
 
 @property (weak, nonatomic) IBOutlet CustomButton3 *btn_Refresh;
-@property (weak, nonatomic) IBOutlet CustomButton3 *btn_From;
-@property (weak, nonatomic) IBOutlet CustomButton3 *btn_To;
+@property (weak, nonatomic) IBOutlet CustomButton3 *btn_Submit;
+@property (weak, nonatomic) IBOutlet CustomButton3 *btn_Cancel;
 @property (weak, nonatomic) IBOutlet CustomButton4 *btn_EMR;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_TodaysTemp;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_VeryHot;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Hot;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Normal;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Cold;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_VeryCold;
+
+
 @end
