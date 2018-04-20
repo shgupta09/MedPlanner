@@ -39,6 +39,7 @@
                 <outlet property="lbl_GenderTitle" destination="hGE-8J-QkX" id="UdU-nB-Lhh"/>
                 <outlet property="lbl_HR_Title" destination="IBh-YE-D4r" id="z5s-VM-a6g"/>
                 <outlet property="lbl_HeightInCm" destination="CJS-4b-6h9" id="Afm-AT-flX"/>
+                <outlet property="lbl_HeightValue" destination="l38-9e-XGS" id="5NT-Oe-nY4"/>
                 <outlet property="lbl_Height_Title" destination="3Rb-QT-i8G" id="57X-Lm-4bp"/>
                 <outlet property="lbl_NoDataa" destination="cfN-YL-Jt3" id="mLW-if-kiq"/>
                 <outlet property="lbl_No_Data" destination="cfN-YL-Jt3" id="eVk-dt-Ru6"/>
@@ -47,12 +48,14 @@
                 <outlet property="lbl_TodaysWHR" destination="Xxb-nx-v8c" id="mkr-uJ-mia"/>
                 <outlet property="lbl_WeightReport" destination="Hu6-oM-9BC" id="sFm-HP-3ef"/>
                 <outlet property="lbl_WeightTitle" destination="wDf-7i-hxg" id="VeV-ql-MdN"/>
+                <outlet property="lbl_WeightValue" destination="P6m-DM-uIS" id="GwD-Ru-mEF"/>
                 <outlet property="lbl_Weight_Title2" destination="RHo-HR-Uwm" id="k7M-By-EU1"/>
                 <outlet property="lbl_obesityBMI" destination="1Lh-FJ-MrE" id="N13-3k-s8z"/>
                 <outlet property="lbl_overWeight" destination="OzQ-0D-6nu" id="YDr-5o-4KC"/>
                 <outlet property="lbl_patient" destination="cSH-zh-b8o" id="w2n-wY-eZc"/>
                 <outlet property="lbl_title" destination="qCp-Qe-xLD" id="VoV-Cq-CjT"/>
                 <outlet property="lbl_weightinKG" destination="2Ry-VY-CKP" id="8uA-CQ-jnx"/>
+                <outlet property="lblbirthDate" destination="GBi-xg-ImG" id="jNr-5f-upM"/>
                 <outlet property="lblgender" destination="Yof-e2-JgW" id="1dQ-Pu-BGq"/>
                 <outlet property="popUpView" destination="INF-g5-JHj" id="ZTk-hn-GZb"/>
                 <outlet property="txt_Comment" destination="ADs-c4-m1W" id="7zc-IT-e0x"/>
@@ -180,7 +183,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21/01/1994" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBi-xg-ImG">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBi-xg-ImG">
                             <rect key="frame" x="78" y="158.5" width="281" height="21"/>
                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -197,7 +200,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="65 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6m-DM-uIS">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6m-DM-uIS">
                             <rect key="frame" x="78" y="187.5" width="100.5" height="21"/>
                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -214,7 +217,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="167 cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l38-9e-XGS">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l38-9e-XGS">
                             <rect key="frame" x="78" y="216.5" width="100.5" height="21"/>
                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -464,7 +467,7 @@
                 <constraint firstAttribute="bottom" secondItem="JU8-3Y-6uQ" secondAttribute="bottom" id="fAb-9M-PzJ"/>
                 <constraint firstItem="JU8-3Y-6uQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nGu-wE-IVN"/>
             </constraints>
-            <point key="canvasLocation" x="-109.5" y="81.5"/>
+            <point key="canvasLocation" x="-601" y="-8"/>
         </view>
         <view contentMode="scaleToFill" id="INF-g5-JHj">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

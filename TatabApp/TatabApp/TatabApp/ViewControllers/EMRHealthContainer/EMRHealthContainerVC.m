@@ -17,6 +17,11 @@
     NSMutableArray *prescriptionArray;
     NSMutableArray *diagnosysArray;
     NSMutableArray *followUPArray;
+    NSMutableArray *dataArray;
+    NSString *fromDateString;
+    NSString *toDateString;
+    NSDate *toDate;
+    NSDate *fromDate;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tblView;
 
@@ -26,7 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [CommonFunction storeValueInDefault:@"-" andKey:Selected_Patient_Weight];
+    [CommonFunction storeValueInDefault:@"-" andKey:Selected_Patient_Height];
     doctorListArray = [NSMutableArray new];
     [_tblView registerNib:[UINib nibWithNibName:@"DoctorListEMRLogTableViewCell" bundle:nil]forCellReuseIdentifier:@"DoctorListEMRLogTableViewCell"];
     _tblView.rowHeight = UITableViewAutomaticDimension;
@@ -37,40 +43,32 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notficationRecieved:) name:@"PopBackNow" object:nil];
 
-//    [CommonFunction storeValueInDefault:[CommonFunction trimString:_txtUsername.text] andKey:loginfirstname];
-//    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserId] andKey:loginuserId];
-//    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserType] andKey:loginuserType];
-//    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuserGender] andKey:loginuserGender];
-//    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginuseIsComplete] andKey:loginuseIsComplete];
-//    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginemail] andKey:loginemail];
-//    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginUserToken] andKey:loginUserToken];
-//    [CommonFunction storeValueInDefault:[[responseObj objectForKey:loginUser] valueForKey:loginfirstname] andKey:loginfirstname];
-//    [CommonFunction storeValueInDefault:_txtPassword.text andKey:loginPassword];
-
-//    [_lblPatientName setText:_dependant.name];
-//    
-//    if ([_dependant.gender isEqualToString:@"M"]) {
-//        [_lblgender setText:@"Male"];
-//    }else{
-//        [_lblgender setText:@"Feale"];
-//    }
-//    [_lblbirthDate setText:_dependant.birthDay];
-    if (_isdependant) {
+    
         [_lblPatientName setText:[_dependant.name capitalizedString]];
         [_lblgender setText:_dependant.gender];
         [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_dependant.birthDay]];
-    }else{
-        [_lblPatientName setText:[_patient.name capitalizedString]];
-        [_lblgender setText:_patient.gender];
-        [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_patient.dob]];
-        
-    }
+   
     
     
     
     [self hitApiForSpeciality];
     [self setLanguageData];
+    [self setDate];
+    [self getWeight];
     // Do any additional setup after loading the view from its nib.
+}
+-(void)setDate{
+    dataArray = [NSMutableArray new];
+    fromDate = [NSDate date];
+    toDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    //self.myLabel.text = [dateFormatter stringFromDate:[dueDatePickerView date]];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    fromDateString = [CommonFunction setOneMonthOldGate];
+    toDateString = [dateFormatter stringFromDate:toDate];
 }
 -(void)setLanguageData{
     _lbl_No_Data.text = [Langauge getTextFromTheKey:@"no_data"];
@@ -106,16 +104,13 @@
     HealthTrackerContainerVC* vc ;
     vc = [[HealthTrackerContainerVC alloc] initWithNibName:@"HealthTrackerContainerVC" bundle:nil];
    
-    if (!_isdependant){
+  
         vc.isdependant = _isdependant;
-        vc.patient = _patient;
-    }
-    else
-    {
         vc.patient = _patient;
         vc.dependant = _dependant;
-        vc.isdependant = _isdependant;
-    }
+   
+        
+   
 
     UINavigationController* navVC = [[UINavigationController alloc ] initWithRootViewController:vc];
     navVC.navigationBarHidden = true;
@@ -245,7 +240,7 @@
 
 - (IBAction)btnAction_instructions:(id)sender {
     
-    [self addAlertWithTitle:AlertKey andMessage:@"For more instructions about using TatabApp tracker please visit www.tatabapp.com" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"For more instructions about using TatabApp tracker please visit www.tatabapp.com" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
 }
 
 
@@ -348,7 +343,7 @@
                     
                 }else
                 {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -363,7 +358,7 @@
         }];
     } else {
         [self removeloder];
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
 }
@@ -407,7 +402,7 @@
                     
                 }else
                 {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -420,7 +415,7 @@
         }];
     } else {
         [self removeloder];
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
 }
@@ -462,7 +457,7 @@
                     
                 }else
                 {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -475,7 +470,7 @@
         }];
     } else {
         [self removeloder];
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 
 }
@@ -525,7 +520,7 @@
                 
                 }else
                 {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -540,7 +535,7 @@
         }];
     } else {
         [self removeloder];
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 }
 
@@ -618,7 +613,68 @@
 }
 
 
-
+-(void)getWeight{
+    NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
+    
+    
+    if (!_isdependant){
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:@"na" forKey:DEPENDANT_ID];
+        
+    }
+    else
+    {
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
+    }
+    
+    
+    [parameterDict setValue:fromDateString forKey:@"from"];
+    [parameterDict setValue:toDateString forKey:@"to"];
+    
+    if ([ CommonFunction reachability]) {
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_GET_WEIGHT]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                dataArray = [NSMutableArray new];
+                
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                    NSArray *tempArray = [responseObj valueForKey:@"data"];
+                    
+                    [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        Report *bloodObj = [Report new];
+                        bloodObj.doctor_id = [obj valueForKey:@"doctor_id"];
+                        bloodObj.weight = [obj valueForKey:@"weight"];
+                        bloodObj.rest_hr = [obj valueForKey:@"rest_hr"];
+                        bloodObj.height = [obj valueForKey:@"height"];
+                        bloodObj.comment = [obj valueForKey:@"comment"];
+                        bloodObj.date = [obj valueForKey:@"date"];
+                        [dataArray addObject:bloodObj];
+                    }];
+                    Report *bloodObj = ((Report *)[dataArray lastObject]);
+                    
+                    [CommonFunction storeValueInDefault:bloodObj.weight andKey:Selected_Patient_Weight];
+                    [CommonFunction storeValueInDefault:bloodObj.height andKey:Selected_Patient_Height];
+                    
+                    
+                    [self setData];
+                }else{
+                    [self setData];
+                }
+            }else {
+                [self setData];
+            }
+            
+        }];
+    } else {
+        [self setData];
+    }
+}
+-(void)setData{
+    _lbl_WeightValue.text = [NSString stringWithFormat:@"%@ %@",[CommonFunction getValueFromDefaultWithKey:Selected_Patient_Weight],[Langauge getTextFromTheKey:@"Kg"]];
+    _lbl_HeightValue.text = [NSString stringWithFormat:@"%@ %@",[CommonFunction getValueFromDefaultWithKey:Selected_Patient_Height],[Langauge getTextFromTheKey:@"Cm"]];
+}
 
             
 @end

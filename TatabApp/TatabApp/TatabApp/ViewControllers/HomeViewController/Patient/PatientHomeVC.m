@@ -117,7 +117,7 @@
     [self presentViewController:alertController animated:YES completion:nil];
 
     */
-     [self addAlertWithTitle:AlertKey andMessage:@"Logout Successfully"  isTwoButtonNeeded:false firstbuttonTag:1001 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+     [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"Logout Successfully"  isTwoButtonNeeded:false firstbuttonTag:1001 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
 }
 
 

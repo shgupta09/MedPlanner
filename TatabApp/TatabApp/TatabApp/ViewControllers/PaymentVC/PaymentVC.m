@@ -49,7 +49,7 @@
     
     [_webView stringByEvaluatingJavaScriptFromString:@"success"];
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:error.description preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[Langauge getTextFromTheKey:AlertKey] message:error.description preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alertController addAction:ok];
     [self presentViewController:alertController animated:YES completion:nil];
@@ -86,15 +86,9 @@
 
 - (IBAction)btnBackClicked:(id)sender {
    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure, you want to cancel the payment?" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-         [self.navigationController popViewControllerAnimated:true];
-    }];
-    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    [alertController addAction:ok];
-    [alertController addAction:cancel];
-    [self presentViewController:alertController animated:YES completion:nil];
+   
+    
+      [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[Langauge getTextFromTheKey:@"are_sure_you_want"] isTwoButtonNeeded:true firstbuttonTag:105 secondButtonTag:Tag_For_Remove_Alert firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:[Langauge getTextFromTheKey:Cancel_Btn] image:Warning_Key_For_Image];
 }
 
 
@@ -146,7 +140,9 @@
         case Tag_For_Remove_Alert:
             [self removeAlert];
             break;
-       case 1:
+       case 105:
+              [self.navigationController popViewControllerAnimated:true];
+            break;
             
             break;
         default:

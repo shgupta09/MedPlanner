@@ -174,7 +174,7 @@
     
     NSString *nameExpression = @"[a-zA-Z. ]{2,50}";
     NSPredicate *regex = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", nameExpression];
-    return true;
+//    return true;
     return [regex evaluateWithObject:[self trimString:name]];
    }
 

@@ -60,4 +60,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Timing;
 @property (weak, nonatomic) IBOutlet CustomButton3 *btn_Submit;
 @property (weak, nonatomic) IBOutlet CustomButton3 *btn_Cancel;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_WeightValue;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HeightValue;
 @end

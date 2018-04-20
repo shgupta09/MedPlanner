@@ -272,4 +272,6 @@
 "normal_Temp" = "Very Cold (ER) \n <36 °C";
 "hot_Tempreture" = "Hot \n 37.5 - 39 °C";
 "meal" = "meal";
+"Kg" = "Kg";
+"Cm" = "Cm";
 

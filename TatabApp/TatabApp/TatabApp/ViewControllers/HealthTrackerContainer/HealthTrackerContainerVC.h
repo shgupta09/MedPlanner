@@ -37,5 +37,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Blood_Pressure;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_BloodSugar;
 @property (weak, nonatomic) IBOutlet CustomButton4 *btn_EMR;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_WeightValue;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HeightValue;
 
 @end

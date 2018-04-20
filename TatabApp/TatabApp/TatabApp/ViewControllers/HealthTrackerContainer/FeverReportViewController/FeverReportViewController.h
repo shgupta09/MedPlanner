@@ -59,6 +59,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Normal;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Cold;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_VeryCold;
-
+@property (weak, nonatomic) IBOutlet UILabel *lbl_WeightValue;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HeightValue;
 
 @end

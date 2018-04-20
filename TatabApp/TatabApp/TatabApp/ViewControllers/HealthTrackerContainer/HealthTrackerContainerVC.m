@@ -10,6 +10,8 @@
 
 @interface HealthTrackerContainerVC (){
       CustomAlert *alertObj;
+    
+  
 }
 @end
 
@@ -19,21 +21,21 @@
     [super viewDidLoad];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
    
-    if (_isdependant) {
+   
         [_lblPatientName setText:[_dependant.name capitalizedString]];
         [_lblgender setText:_dependant.gender];
         [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_dependant.birthDay]];
-    }else{
-        [_lblPatientName setText:[_patient.name capitalizedString]];
-        [_lblgender setText:_patient.gender];
-        [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_patient.dob]];
-        
-    }
-    [self setLanguageData];
+    
    
+    [self setLanguageData];
+    [self setData];
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)setData{
+    _lbl_WeightValue.text = [NSString stringWithFormat:@"%@ %@",[CommonFunction getValueFromDefaultWithKey:Selected_Patient_Weight],[Langauge getTextFromTheKey:@"Kg"]];
+    _lbl_HeightValue.text = [NSString stringWithFormat:@"%@ %@",[CommonFunction getValueFromDefaultWithKey:Selected_Patient_Height],[Langauge getTextFromTheKey:@"Cm"]];
+}
 
 -(void)setLanguageData{
     
@@ -70,7 +72,7 @@
 
 - (IBAction)btnAction_instructions:(id)sender {
     
-    [self addAlertWithTitle:AlertKey andMessage:@"For more instructions about using TatabApp tracker please visit www.tatabapp.com" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"For more instructions about using TatabApp tracker please visit www.tatabapp.com" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
 }
 
 - (IBAction)btnBackClicked:(id)sender {
@@ -88,16 +90,10 @@
 
     WeightReportViewController* vc = [[WeightReportViewController alloc] initWithNibName:@"WeightReportViewController" bundle:nil];
     
-    if (!_isdependant){
-        vc.isdependant = false;
-        vc.patient = _patient;
-    }
-    else
-    {
-        vc.isdependant = true;
-        vc.patient = _patient;
-        vc.dependant = _dependant;
-    }
+    vc.isdependant = true;
+    vc.patient = _patient;
+    vc.dependant = _dependant;
+ 
     
     [self.navigationController pushViewController:vc animated:false];
     
@@ -105,47 +101,32 @@
 - (IBAction)btnBloodPressureClicked:(id)sender {
 
     PressureReportViewController* vc = [[PressureReportViewController alloc] initWithNibName:@"PressureReportViewController" bundle:nil];
-    if (!_isdependant){
-        vc.isdependant = false;
-        vc.patient = _patient;
-    }
-    else
-    {
+   
         vc.isdependant = true;
         vc.patient = _patient;
         vc.dependant = _dependant;
-    }
+  
     [self.navigationController pushViewController:vc animated:false];
 
 }
 - (IBAction)btnFeverClicked:(id)sender {
     FeverReportViewController* vc = [[FeverReportViewController alloc] initWithNibName:@"FeverReportViewController" bundle:nil];
-    if (!_isdependant){
-        vc.isdependant = false;
-        vc.patient = _patient;
-    }
-    else
-    {
+  
         vc.isdependant = true;
         vc.patient = _patient;
         vc.dependant = _dependant;
-    }
+   
     [self.navigationController pushViewController:vc animated:false];
 
 }
 - (IBAction)btnBloodSugar:(id)sender {
 
     SugarReportViewController* vc = [[SugarReportViewController alloc] initWithNibName:@"SugarReportViewController" bundle:nil];
-    if (!_isdependant){
-        vc.isdependant = false;
-        vc.patient = _patient;
-    }
-    else
-    {
+   
         vc.isdependant = true;
         vc.patient = _patient;
         vc.dependant = _dependant;
-    }
+  
     [self.navigationController pushViewController:vc animated:false];
 }
 #pragma mark- Custom Loder
@@ -202,6 +183,9 @@
             break;
     }
 }
+
+
+
 
 
 @end

@@ -76,6 +76,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_HeartRate;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_HighBP130;
 
-
+@property (weak, nonatomic) IBOutlet UILabel *lbl_WeightValue;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HeightValue;
 
 @end

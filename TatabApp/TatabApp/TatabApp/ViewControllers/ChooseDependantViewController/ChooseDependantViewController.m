@@ -25,6 +25,7 @@
     UIToolbar *toolBar;
     RegistrationDpendency *dependencyObj ;
     CustomAlert *alertObj;
+    NSString * IdTORemove;
 }
 @property (weak, nonatomic) IBOutlet UIButton *addOptionBtnAction;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtName;
@@ -151,15 +152,10 @@
 }
 
 -(void)btnClicked:(id)sender{
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[NSString stringWithFormat:@"Are you sure you want to delete %@ ?",((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).name] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self hitApiForRemoveDependants:((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).depedant_id];
-        }];
-        [alertController addAction:ok];
-        UIAlertAction* no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:no];
-        //                    [CommonFunction storeValueInDefault:@"true" andKey:@"isLoggedIn"];
-        [self presentViewController:alertController animated:YES completion:nil];
+     
+    IdTORemove = ((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).depedant_id;
+    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[Langauge getTextFromTheKey:@"delete_sure"] isTwoButtonNeeded:true firstbuttonTag:105 secondButtonTag:Tag_For_Remove_Alert firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:[Langauge getTextFromTheKey:Cancel_Btn] image:Warning_Key_For_Image];
+    
 
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -190,7 +186,7 @@
             ChatPatient* pat = [ChatPatient new];
             pat.patient_id = _patientID;
             vc.patient = pat;
-            vc.dependant = [patient.dependants objectAtIndex:indexPath.row];
+            vc.dependant = (RegistrationDpendency *)[patient.dependants objectAtIndex:indexPath.row];
              if (indexPath.row>0) {
                  vc.isdependant = true;
              }else{
@@ -258,10 +254,12 @@
                     NSArray *tempArray = [NSArray new];
                     dependantListArray = [NSMutableArray new];
                     RegistrationDpendency *dependencyObj = [RegistrationDpendency new];
+                    
                    // dependencyObj.name = [[responseObj valueForKey:@"patient"] valueForKey:@"name"];
                      dependencyObj.name = @"Main Profile";
                     dependencyObj.depedant_id = [[responseObj valueForKey:@"patient"] valueForKey:@"id"];
                     dependencyObj.gender = [[responseObj valueForKey:@"patient"] valueForKey:@"gender"];
+                    dependencyObj.birthDay = [[responseObj valueForKey:@"patient"] valueForKey:@"dob"];
                     dependencyObj.isMainProfile = true;
                     [dependantListArray addObject: dependencyObj];
                     tempArray  = [[responseObj valueForKey:@"patient"] valueForKey:@"childrens"];
@@ -283,7 +281,7 @@
                     
                 }else
                 {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     
                 }
@@ -298,7 +296,7 @@
         }];
     } else {
         [self removeloder];
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 }
 -(void)hitApiForRemoveDependants:(NSString *)dependentID{
@@ -314,7 +312,7 @@
             if (error == nil) {
                 
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    [self addAlertWithTitle:AlertKey andMessage:@"Dependent remove successfully." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"Dependent remove successfully." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                     /*UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Dependent remove successfully." preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                     [alertController addAction:ok];
@@ -328,7 +326,7 @@
 
                 }else
                 {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -344,7 +342,7 @@
         }];
     } else {
         [self removeloder];
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 }
 -(void)hitApiForAddDependants{
@@ -370,7 +368,7 @@
             if (error == nil) {
                 
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                     [self addAlertWithTitle:AlertKey andMessage:@"Dependent added successfully." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                     [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"Dependent added successfully." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                     /*UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Dependent added successfully." preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                     [alertController addAction:ok];
@@ -386,7 +384,7 @@
                     
                 }else
                 {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -402,7 +400,7 @@
         }];
     } else {
         [self removeloder];
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 }
 
@@ -545,7 +543,7 @@
         [self hitApiForAddDependants];
     }
     else{
-        [self addAlertWithTitle:AlertKey andMessage:[dictForValidation valueForKey:AlertKey]   isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[dictForValidation valueForKey:AlertKey]   isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
        /* UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[dictForValidation valueForKey:AlertKey] preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
@@ -683,7 +681,9 @@ numberOfRowsInComponent:(NSInteger)component{
         case Tag_For_Remove_Alert:
             [self removeAlert];
             break;
-            
+        case 105:
+            [self hitApiForRemoveDependants:IdTORemove];
+            break;
         default:
             
             break;

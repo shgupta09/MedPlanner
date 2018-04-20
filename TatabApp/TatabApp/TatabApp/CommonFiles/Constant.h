@@ -68,9 +68,9 @@
 //Alert Related Constant
 #define EjabbrdIP @"ec2-13-127-164-75.ap-south-1.compute.amazonaws.com"
 #define Tag_For_Remove_Alert 100
-#define OK_Btn @"Ok"
-#define Cancel_Btn @"Cancel"
-#define AlertKey @"Alert"
+#define OK_Btn @"ok"
+#define Cancel_Btn @"cancel"
+#define AlertKey @"alert"
 #define Warning_Key @"Warning"
 #define Warning_Key_For_Image @"warning"
 #define Error_Key_For_Image @"error"
@@ -84,7 +84,10 @@
 #define primary_Color @"00b1dd"
 #define Primary_GreenColor @"7ac430"
 
+//EMR
 
+#define Selected_Patient_Weight @"SWeight"
+#define Selected_Patient_Height @"Shight"
 //Notificatio Related
 #define Notification_Related @"Notification"
 //Url Related

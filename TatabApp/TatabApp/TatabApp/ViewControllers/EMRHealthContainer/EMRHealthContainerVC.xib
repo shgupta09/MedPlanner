@@ -35,11 +35,13 @@
                 <outlet property="lbl_EmrLog" destination="1I3-Cd-0J8" id="WsT-SB-wbe"/>
                 <outlet property="lbl_Followup_Title" destination="hw7-Y7-NMJ" id="K7x-wP-0tJ"/>
                 <outlet property="lbl_GenderTitle" destination="4AE-xs-JOY" id="f3c-ZQ-yVE"/>
+                <outlet property="lbl_HeightValue" destination="rIg-vA-aJH" id="PAO-LO-8FD"/>
                 <outlet property="lbl_Height_Title" destination="4ha-nx-vaI" id="MIt-fc-DTb"/>
                 <outlet property="lbl_No_Data" destination="bce-gX-Xgp" id="W6m-c8-GNa"/>
                 <outlet property="lbl_Nodata" destination="bce-gX-Xgp" id="1cC-RM-4dH"/>
                 <outlet property="lbl_Prescription_Title" destination="uG4-5B-Lg2" id="HI3-JZ-nab"/>
                 <outlet property="lbl_WeightTitle" destination="fjS-YP-m9x" id="YJX-ox-jny"/>
+                <outlet property="lbl_WeightValue" destination="xhQ-1B-fCS" id="vRu-vg-rju"/>
                 <outlet property="lbl_patient" destination="G5q-r2-7Xx" id="j1r-ig-LaL"/>
                 <outlet property="lbl_title" destination="rVc-H2-uA0" id="k5y-TH-h4X"/>
                 <outlet property="lblbirthDate" destination="Oqt-d3-tlK" id="827-al-eCm"/>
@@ -163,7 +165,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21/01/1994" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqt-d3-tlK">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqt-d3-tlK">
                     <rect key="frame" x="78" y="158.5" width="281" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                     <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -180,7 +182,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="65 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhQ-1B-fCS">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhQ-1B-fCS">
                     <rect key="frame" x="78" y="187.5" width="100.5" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                     <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -197,7 +199,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="167 cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIg-vA-aJH">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIg-vA-aJH">
                     <rect key="frame" x="78" y="216.5" width="100.5" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                     <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -26,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblPatientName;
-@property (weak, nonatomic) IBOutlet UILabel *lblbirthDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblgender;
 
 
@@ -59,7 +58,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_HeightInCm;
 @property (weak, nonatomic) IBOutlet CustomButton3 *btn_Submit;
 @property (weak, nonatomic) IBOutlet CustomButton3 *btn_Cancel;
-
+@property (weak, nonatomic) IBOutlet UILabel *lbl_WeightValue;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HeightValue;
+@property (weak, nonatomic) IBOutlet UILabel *lblbirthDate;
 
 
 @end

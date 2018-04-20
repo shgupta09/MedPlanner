@@ -72,6 +72,7 @@
     SWRevealViewController *mainRevealController;
     NewAwareVC *frontViewController = [[NewAwareVC alloc]initWithNibName:@"NewAwareVC" bundle:nil];
         mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
+    mainRevealController.rightViewController = frontViewController;
     
     mainRevealController.delegate = self;
     mainRevealController.view.backgroundColor = [UIColor clearColor];

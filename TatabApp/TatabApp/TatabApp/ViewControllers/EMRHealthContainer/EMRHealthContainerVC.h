@@ -40,5 +40,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Prescription_Title;
 @property (weak, nonatomic) IBOutlet CustomButton3 *btn_EMR;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_No_Data;
-
+@property (weak, nonatomic) IBOutlet UILabel *lbl_WeightValue;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_HeightValue;
 @end

@@ -19,4 +19,5 @@
 @property(nonatomic ,strong) NSString *relation;
 @property(nonatomic ) BOOL isMale;
 @property(nonatomic )BOOL isMainProfile;
+-(id)initWith;
 @end

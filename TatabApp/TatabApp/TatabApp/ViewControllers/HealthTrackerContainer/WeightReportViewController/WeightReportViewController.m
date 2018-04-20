@@ -35,9 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    toDate = [NSDate date];
+   
     dataArray = [NSMutableArray new];
-    fromDate = [NSDate date];
+   
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
     selectedRowForType = 0;
@@ -48,16 +48,8 @@
     [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",40] forState:UIControlStateNormal];
     [_btnHeight setTitle:[NSString stringWithFormat:@"%d",30] forState:UIControlStateNormal];
 //    _txt_Comment.text = @"comment";
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    
-    //self.myLabel.text = [dateFormatter stringFromDate:[dueDatePickerView date]];
-    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
-    fromDateString = [CommonFunction setOneMonthOldGate];
-    [_btnFromDate setTitle:fromDateString forState:UIControlStateNormal];
-    toDateString = [dateFormatter stringFromDate:toDate];
-    [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
+   
+    [self setDate];
     
     float bmi = (float)(selectedRowForWeight+20) / (float)(((float)(selectedRowForheight+30)/(float)100)*((float)(selectedRowForheight+30)/(float)100));
     NSLog(@"%f", bmi);
@@ -102,20 +94,34 @@
     }
 
     
-    if (_isdependant) {
+   
         [_lblPatientName setText:[_dependant.name capitalizedString]];
         [_lblgender setText:_dependant.gender];
         [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_dependant.birthDay]];
-    }else{
-        [_lblPatientName setText:[_patient.name capitalizedString]];
-        [_lblgender setText:_patient.gender];
-        [_lblbirthDate setText:[CommonFunction ConvertDateTime2:_patient.dob]];
-        
-    }
+   
     [self setLanguageData];
+    [self setData];
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)setData{
+    _lbl_WeightValue.text = [NSString stringWithFormat:@"%@ %@",[CommonFunction getValueFromDefaultWithKey:Selected_Patient_Weight],[Langauge getTextFromTheKey:@"Kg"]];
+    _lbl_HeightValue.text = [NSString stringWithFormat:@"%@ %@",[CommonFunction getValueFromDefaultWithKey:Selected_Patient_Height],[Langauge getTextFromTheKey:@"Cm"]];
+}
+-(void)setDate{
+    fromDate = [NSDate date];
+    toDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    //self.myLabel.text = [dateFormatter stringFromDate:[dueDatePickerView date]];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    fromDateString = [CommonFunction setOneMonthOldGate];
+    [_btnFromDate setTitle:fromDateString forState:UIControlStateNormal];
+    toDateString = [dateFormatter stringFromDate:toDate];
+    [_btnToDate setTitle:toDateString forState:UIControlStateNormal];
+}
 
 -(void)setLanguageData{
     _lbl_No_Data.text = [Langauge getTextFromTheKey:@"no_data"];
@@ -167,7 +173,7 @@
 #pragma mark - btn Actions
 - (IBAction)btnAction_instructions:(id)sender {
     
-    [self addAlertWithTitle:AlertKey andMessage:@"For more instructions about using TatabApp tracker please visit www.tatabapp.com" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"For more instructions about using TatabApp tracker please visit www.tatabapp.com" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
 }
 
 - (IBAction)btnHealthTrackerClicked:(id)sender {
@@ -402,12 +408,12 @@
                     [self removeloder];
                     [_popUpView removeFromSuperview];
                     [self getWeight];
-                     [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                     [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
 
                 }
                 else
                 {
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -418,13 +424,13 @@
             
             else {
                 [self removeloder];
-           [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+           [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
             }
             
             
         }];
     } else {
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
     
@@ -482,18 +488,18 @@
                     }
                     
                 }else{
-                    [self addAlertWithTitle:AlertKey andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
             }else {
                 [self removeloder];
-                [self addAlertWithTitle:AlertKey andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+                [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
             }
             [self updateChartData];
         }];
     } else {
-        [self addAlertWithTitle:AlertKey andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:OK_Btn secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 }
 
