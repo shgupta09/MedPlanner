@@ -57,14 +57,14 @@
     
     _btnFemale.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
     _btnFemale.tintColor = [UIColor whiteColor];
-    genderType = @"M";
+    [self maleSelected];
     [self setLanguageData];
 }
 -(void)setLanguageData{
     _lbl_create.text = [Langauge getTextFromTheKey:@"create_a_doctor_account"];
-    [_btn_Continue setTitle:@"continue_tv" forState:UIControlStateNormal];
-    [_btnMAle setTitle:@"male" forState:UIControlStateNormal];
-    [_btnFemale setTitle:@"female" forState:UIControlStateNormal];
+    [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
+    [_btnMAle setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
+    [_btnFemale setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];
     _txtName.placeholder = [Langauge getTextFromTheKey:@"First_Name"];
     _txtEmail.placeholder = [Langauge getTextFromTheKey:@"email"];
     _txtMobile.placeholder = [Langauge getTextFromTheKey:@"mobile"];
@@ -106,6 +106,9 @@
             textField.text = @"";
         }
         
+    }
+    if ((textField.tag == 0) && ![string isEqualToString:@""] && (textField.text.length + string.length)>18) {
+        return false;
     }
     if ((textField.tag == 1) && ![string isEqualToString:@""] && (textField.text.length + string.length)>18) {
         return false;
@@ -220,19 +223,26 @@
 
 - (IBAction)btnActionUserType:(id)sender {
     if (((UIButton *)sender).tag == 10) {
-        _btnFemale.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-        _btnFemale.tintColor = [UIColor whiteColor];
-        _btnMAle.backgroundColor = [UIColor whiteColor];
-        _btnMAle.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-        genderType = @"M";
+        [self maleSelected];
         
     }else{
-        _btnMAle.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-        _btnMAle.tintColor = [UIColor whiteColor];
-        _btnFemale.backgroundColor = [UIColor whiteColor];
-        _btnFemale.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-        genderType = @"F";
+        [self femaleselected];
     }
+}
+
+-(void)maleSelected{
+    _btnFemale.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btnFemale.tintColor = [UIColor whiteColor];
+    _btnMAle.backgroundColor = [UIColor whiteColor];
+    _btnMAle.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    genderType = @"M";
+}
+-(void)femaleselected{ _btnMAle.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btnMAle.tintColor = [UIColor whiteColor];
+    _btnFemale.backgroundColor = [UIColor whiteColor];
+    _btnFemale.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    genderType = @"F";
+    
 }
 #pragma mark - hit api
 
@@ -240,7 +250,7 @@
     self.view.userInteractionEnabled = NO;
     //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
     loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
-    loderObj.lbl_title.text = @"Please wait...";
+    loderObj.lbl_title.text = [Langauge getTextFromTheKey:@"please_wait"];
     [self.view addSubview:loderObj];
 }
 

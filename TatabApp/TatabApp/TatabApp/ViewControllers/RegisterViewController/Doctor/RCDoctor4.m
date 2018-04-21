@@ -58,6 +58,10 @@
     iscaptured = false;
     _imgView.layer.borderWidth= 3;
     _imgView.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
+    _txt_IBAN.leftImgView.image = [UIImage imageNamed:@"icon-credit-card"];
+    _txt_ConfirmIban.leftImgView.image = [UIImage imageNamed:@"icon-credit-card"];
+    _txt_photo.leftImgView.image = [UIImage imageNamed:@"icon-person"];
+//    _txtClassification.leftImgView.image = [UIImage imageNamed:@"b"];
     [self setLanguageData];
 //    _txt_ConfirmIban.text = @"1212121212";
 //    _txt_IBAN.text = @"1212121212";
@@ -70,6 +74,7 @@
     
     _txt_IBAN.placeholder = [Langauge getTextFromTheKey:@"iban"];
     _txt_ConfirmIban.placeholder = [Langauge getTextFromTheKey:@"confirm_iban"];
+    _txt_photo.placeholder = [Langauge getTextFromTheKey:@"photoUpload"];
     
 }
 
@@ -166,7 +171,7 @@
     iBan =[iBan substringFromIndex:2];
     NSString *confirmIban = _txt_ConfirmIban.text;
     confirmIban =[confirmIban substringFromIndex:2];
-    if (![CommonFunction validateMobile:iBan]){
+    if (![CommonFunction validatePassport:iBan]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:iBan].length == 0){
             [validationDict setValue:[Langauge getTextFromTheKey:@"Iban_required"] forKey:AlertKey];
@@ -174,7 +179,7 @@
             [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Iban"]  forKey:AlertKey];
         }
         
-    }  else  if (![CommonFunction validateMobile:confirmIban]){
+    }  else  if (![CommonFunction validatePassport:confirmIban]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:confirmIban].length == 0){
             [validationDict setValue:[Langauge getTextFromTheKey:@"confirm_Iban_required"] forKey:AlertKey];
@@ -315,7 +320,7 @@
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[_parameterDict valueForKey:loginemail] forKey:loginemail];
     [parameterDict setValue:[_parameterDict valueForKey:loginPassword] forKey:loginPassword];
-    loderObj.lbl_title.text = @"Logging In...";
+    loderObj.lbl_title.text = [Langauge getTextFromTheKey:@"please_wait"];
     if ([ CommonFunction reachability]) {
       
         
@@ -473,7 +478,7 @@
     self.view.userInteractionEnabled = NO;
     //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
     loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
-    loderObj.lbl_title.text = @"Please wait...";
+    loderObj.lbl_title.text = [Langauge getTextFromTheKey:@"please_wait"];
     [self.view addSubview:loderObj];
 }
 

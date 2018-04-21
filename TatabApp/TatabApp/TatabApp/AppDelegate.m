@@ -42,6 +42,11 @@
     vc = [[SplashScreenViewController alloc] initWithNibName:@"SplashScreenViewController" bundle:nil];
     _window.rootViewController = vc;
     [self.window makeKeyAndVisible];
+    
+    if (![CommonFunction getBoolValueFromDefaultWithKey:IsLanguageSelected]) {
+        [CommonFunction stroeBoolValueForKey:IsLanguageSelected withBoolValue:true];
+         [CommonFunction storeValueInDefault:Selected_Language_English andKey:Selected_Language];
+    }
     if( SYSTEM_VERSION_LESS_THAN( @"10.0" ) )
     {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound |    UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];

@@ -12,4 +12,6 @@
 //Language
 @property (weak, nonatomic) IBOutlet UILabel *lbl_create;
 @property (weak, nonatomic) IBOutlet CustomButton *btn_Continue;
+@property (weak, nonatomic) IBOutlet UIButton *btnFemale;
+@property (weak, nonatomic) IBOutlet UIButton *btnMAle;
 @end

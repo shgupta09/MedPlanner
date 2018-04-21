@@ -172,11 +172,19 @@
 +(BOOL)validateName:(NSString *)name{
     
     
-    NSString *nameExpression = @"[a-zA-Z. ]{2,50}";
+    NSString *nameExpression = @"[a-zA-Z. ]{2,18}";
     NSPredicate *regex = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", nameExpression];
 //    return true;
     return [regex evaluateWithObject:[self trimString:name]];
    }
++(BOOL)validatePassport:(NSString *)name{
+    
+    
+    NSString *nameExpression = @"[a-zA-Z0-9]{8,18}";
+    NSPredicate *regex = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", nameExpression];
+    //    return true;
+    return [regex evaluateWithObject:[self trimString:name]];
+}
 
 
 // set the User Interface

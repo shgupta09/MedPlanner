@@ -46,7 +46,7 @@
 "enter_password" = "Enter password";
 "doctor" = "Doctor";
 "patient" = "Patient";
-"personal_info" = "Personal information";
+"personal_info" = "Personal Information";
 "nationalaty" = "Nationality";
 "id_card_passport" = "ID Card/Passport";
 "home_location" = "Home Location";
@@ -72,7 +72,7 @@
 "personal_details" = "Personal Details";
 "city" = "City";
 "add_dependents" = "Add Dependents";
-"complete_registration" = "Complete Registration";
+"complete_registration" = "COMPLETE REGISTRATION";
 "relationship" = "Relationship";
 "bithdate" = "Birthday";
 "done" = "Done";

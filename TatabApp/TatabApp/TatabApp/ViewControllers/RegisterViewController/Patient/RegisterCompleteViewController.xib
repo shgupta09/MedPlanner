@@ -14,8 +14,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterCompleteViewController">
             <connections>
                 <outlet property="btnAddDependent" destination="gZm-en-wXr" id="nXY-Tk-E9o"/>
-                <outlet property="btnFemale" destination="9Fn-1y-KbJ" id="9bf-Ta-neJ"/>
-                <outlet property="btnMAle" destination="a1R-vw-y5N" id="xHf-vg-hWC"/>
                 <outlet property="btn_CompleteRegistration" destination="hvW-cs-EhX" id="eHD-G8-0hw"/>
                 <outlet property="btn_ConfirmAdd" destination="kwF-7j-9I8" id="nfK-rI-3jb"/>
                 <outlet property="btn_Female" destination="9Fn-1y-KbJ" id="0bB-PI-jzT"/>

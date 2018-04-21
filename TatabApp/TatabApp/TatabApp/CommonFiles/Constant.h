@@ -129,6 +129,7 @@
 #define Selected_Language @"Selected_Language"
 #define Selected_Language_English @"English"
 #define Selected_Language_Arebic @"Arebic"
+#define IsLanguageSelected @"IsLanguageSelected"
 
 
 //testing url

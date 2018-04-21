@@ -28,6 +28,7 @@
 +(UIView *)loaderViewWithTitle:(NSString *)titleStr;
 +(BOOL)reachability;
 +(BOOL)validateName:(NSString *)name;
++(BOOL)validatePassport:(NSString *)name;
 + (UIColor *)colorWithHexString:(NSString *)hexCode;
 
 

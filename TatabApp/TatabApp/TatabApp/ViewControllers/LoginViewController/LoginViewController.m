@@ -269,7 +269,7 @@
     self.view.userInteractionEnabled = NO;
     //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
     loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
-    loderObj.lbl_title.text = @"Logging In...";
+    loderObj.lbl_title.text = [Langauge getTextFromTheKey:@"please_wait"];
     [self.view addSubview:loderObj];
 }
 

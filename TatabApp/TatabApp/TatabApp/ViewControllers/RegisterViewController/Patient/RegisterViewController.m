@@ -12,13 +12,14 @@
 {
     LoderView *loderObj;
     CustomAlert *alertObj;
+    NSString *genderType;
+
 
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *scrlView;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtName;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtEmail;
-@property (weak, nonatomic) IBOutlet UIButton *btnPatient;
-@property (weak, nonatomic) IBOutlet UIButton *btnDoctor;
+
 @property (weak, nonatomic) IBOutlet CustomTextField *txtPassword;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_mobile;
 
@@ -54,26 +55,31 @@
     [CommonFunction setResignTapGestureToView:self.view andsender:self];
     
     
-    _btnPatient.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-    _btnDoctor.layer.cornerRadius = 22;
-    _btnPatient.layer.cornerRadius = 22;
-    _btnDoctor.layer.borderWidth = 3;
-    _btnPatient.layer.borderWidth = 3;
-    _btnPatient.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
-    _btnDoctor.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
+ 
     
-    _btnDoctor.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-    _btnDoctor.tintColor = [UIColor whiteColor];
+    _btnMAle.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btnFemale.layer.cornerRadius = 22;
+    _btnMAle.layer.cornerRadius = 22;
+    _btnFemale.layer.borderWidth = 3;
+    _btnMAle.layer.borderWidth = 3;
+    _btnMAle.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
+    _btnFemale.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
+    
+    _btnFemale.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btnFemale.tintColor = [UIColor whiteColor];
+    [self maleSelected];
     [self setLanguageData];
 
 }
 -(void)setLanguageData{
     _lbl_create.text = [Langauge getTextFromTheKey:@"create_account"];
-    [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
     _txtName.placeholder = [Langauge getTextFromTheKey:@"First_Name"];
     _txtEmail.placeholder = [Langauge getTextFromTheKey:@"email"];
     _txt_mobile.placeholder = [Langauge getTextFromTheKey:@"mobile"];
     _txtPassword.placeholder = [Langauge getTextFromTheKey:@"password"];
+    [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
+    [_btnMAle setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
+    [_btnFemale setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];
 }
 
 -(void)resignResponder{
@@ -107,6 +113,9 @@
         }
         
     }
+    if ((textField.tag == 0) && ![string isEqualToString:@""] && (textField.text.length + string.length)>18) {
+        return false;
+    }
     if ((textField.tag == 1) && ![string isEqualToString:@""] && (textField.text.length + string.length)>18) {
         return false;
     }
@@ -115,7 +124,28 @@
 }
 
 #pragma mark - Btn Action
-
+- (IBAction)btnActionUserType:(id)sender {
+    if (((UIButton *)sender).tag == 10) {
+        [self maleSelected];
+        
+    }else{
+        [self femaleselected];
+    }
+}
+-(void)maleSelected{
+    _btnFemale.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btnFemale.tintColor = [UIColor whiteColor];
+    _btnMAle.backgroundColor = [UIColor whiteColor];
+    _btnMAle.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    genderType = @"M";
+}
+-(void)femaleselected{ _btnMAle.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btnMAle.tintColor = [UIColor whiteColor];
+    _btnFemale.backgroundColor = [UIColor whiteColor];
+    _btnFemale.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    genderType = @"F";
+    
+}
 - (IBAction)btnBackClicked:(id)sender {
     
     [self.navigationController popViewControllerAnimated:true];
@@ -136,7 +166,7 @@
         [parameterDict setValue:[CommonFunction trimString:_txtPassword.text] forKey:@"password"];
         [parameterDict setValue:[CommonFunction trimString:_txt_mobile.text] forKey:loginmobile];
         [parameterDict setValue:@"3" forKey:loginusergroup];
-      
+        [parameterDict setValue:genderType forKey:Gender];
         RegisterCompleteViewController* vc;
         vc = [[RegisterCompleteViewController alloc] initWithNibName:@"RegisterCompleteViewController" bundle:nil];
         vc.parameterDict = parameterDict;
@@ -162,24 +192,6 @@
 - (IBAction)btnTermsAndConditions:(id)sender {
 
 }
-
-
-- (IBAction)btnActionUserType:(id)sender {
-    if (((UIButton *)sender).tag == 10) {
-        _btnDoctor.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-        _btnDoctor.tintColor = [UIColor whiteColor];
-        _btnPatient.backgroundColor = [UIColor whiteColor];
-        _btnPatient.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-        
-    }else{
-        _btnPatient.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-        _btnPatient.tintColor = [UIColor whiteColor];
-        _btnDoctor.backgroundColor = [UIColor whiteColor];
-        _btnDoctor.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-    }
-}
-
-
 
 -(NSDictionary *)validateData{
     NSMutableDictionary *validationDict = [[NSMutableDictionary alloc] init];
@@ -236,7 +248,7 @@
     self.view.userInteractionEnabled = NO;
     //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
     loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
-    loderObj.lbl_title.text = @"Please wait...";
+    loderObj.lbl_title.text = [Langauge getTextFromTheKey:@"please_wait"];
     [self.view addSubview:loderObj];
 }
 

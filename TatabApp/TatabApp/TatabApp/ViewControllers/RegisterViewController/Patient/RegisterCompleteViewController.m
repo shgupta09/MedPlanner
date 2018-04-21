@@ -93,6 +93,7 @@
     else{
         relationArray = [Relation sharedInstance].myDataArray;
     }
+    [self setLanguageData];
 }
 
 -(void)setLanguageData{
@@ -100,14 +101,14 @@
     [_btn_Terms setTitle:@"Terms_Condition" forState:UIControlStateNormal];
     [_btn_CompleteRegistration setTitle:@"complete_registration" forState:UIControlStateNormal];
      [_btn_ConfirmAdd setTitle:@"confirm_add" forState:UIControlStateNormal];
+    [_btnAddDependent setTitle:@"add_dependents" forState:UIControlStateNormal];
+    [_btnMAle setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
+    [_btnFemale setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];
     _txt_Relationship.placeholder = [Langauge getTextFromTheKey:@"relationship"];
     _txtBirthday.placeholder = [Langauge getTextFromTheKey:@"bithdate"];
     _txtCity.placeholder = [Langauge getTextFromTheKey:@"city"];
     _txt_BirthDate.placeholder = [Langauge getTextFromTheKey:@"bithdate"];
     _txtName.placeholder = [Langauge getTextFromTheKey:@"name"];
-   
-  
-    
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
@@ -632,7 +633,7 @@ numberOfRowsInComponent:(NSInteger)component{
     
     if ([ CommonFunction reachability]) {
         [self addLoder];
-        loderObj.lbl_title.text = @"Logging In...";
+        loderObj.lbl_title.text = [Langauge getTextFromTheKey:@"please_wait"];
         //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_LOGIN_URL]  postResponse:[parameterDicts mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
@@ -748,7 +749,7 @@ numberOfRowsInComponent:(NSInteger)component{
     self.view.userInteractionEnabled = NO;
     //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
     loderObj = [[LoderView alloc] initWithFrame:self.view.frame];
-    loderObj.lbl_title.text = @"Please wait...";
+    loderObj.lbl_title.text = [Langauge getTextFromTheKey:@"please_wait"];
     [self.view addSubview:loderObj];
 }
 

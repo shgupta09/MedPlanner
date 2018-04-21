@@ -18,6 +18,7 @@
                 <outlet property="lbl_Payment" destination="dSH-o8-wnn" id="yOv-7g-l6o"/>
                 <outlet property="txt_ConfirmIban" destination="iOs-Cc-EWa" id="W5A-qa-nVl"/>
                 <outlet property="txt_IBAN" destination="eW3-XD-uw8" id="noF-r0-nXT"/>
+                <outlet property="txt_photo" destination="yqs-kM-JAW" id="KWu-f1-AD2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

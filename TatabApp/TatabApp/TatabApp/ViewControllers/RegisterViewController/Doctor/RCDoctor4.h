@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_IBAN;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_ConfirmIban
 ;
+@property (weak, nonatomic) IBOutlet CustomTextField *txt_photo;
 
 @property (weak, nonatomic) IBOutlet UIButton *btn_Terms;
 @property (strong ,nonatomic)NSMutableDictionary *parameterDict;
