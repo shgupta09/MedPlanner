@@ -1321,9 +1321,9 @@
 				TargetAttributes = {
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = H7RFM2VSMC;
+						DevelopmentTeam = NHLSTQX3K9;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1932,8 +1932,8 @@
 				CODE_SIGN_ENTITLEMENTS = TatabApp/TatabApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = H7RFM2VSMC;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NHLSTQX3K9;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
@@ -1943,10 +1943,10 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanners;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haytham.MedPlanners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "552fa4cf-2ae0-445f-b072-b51ff0061a92";
-				PROVISIONING_PROFILE_SPECIFIER = MedPlanner_Sh;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/sandeepnegi/Desktop/Desktop/Shagun/Practice/My Projects/Gracery/MedPlanner/TatabApp/TatabApp/TatabApp/TatabApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1961,8 +1961,8 @@
 				CODE_SIGN_ENTITLEMENTS = TatabApp/TatabApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = H7RFM2VSMC;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NHLSTQX3K9;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
@@ -1972,10 +1972,10 @@
 				INFOPLIST_FILE = TatabApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Ulab.MedPlanners;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haytham.MedPlanners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "552fa4cf-2ae0-445f-b072-b51ff0061a92";
-				PROVISIONING_PROFILE_SPECIFIER = MedPlanner_Sh;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/sandeepnegi/Desktop/Desktop/Shagun/Practice/My Projects/Gracery/MedPlanner/TatabApp/TatabApp/TatabApp/TatabApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.2;
 				TARGETED_DEVICE_FAMILY = 1;

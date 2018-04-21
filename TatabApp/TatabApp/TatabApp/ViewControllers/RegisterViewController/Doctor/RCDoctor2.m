@@ -28,24 +28,24 @@
     alertObj.frame = self.view.frame;
 }
 -(void)setData{
-    
+        [self setLanguageData];
+
     _txtPassport.leftImgView.image = [UIImage imageNamed:@"icon-id-card"];
     _txt_Residence.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_workplace.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_homeLocation.leftImgView.image = [UIImage imageNamed:@"icon-map-location"];
     _txt_Nationality.leftImgView.image = [UIImage imageNamed:@"b"];
-    [self setLanguageData];
-//    _txtPassport.text = @"9999708178";
-//    _txt_Residence.text = @"adfaf";
-//    _txt_workplace.text = @"adfaf";
-//    _txt_homeLocation.text = @"adfaf";
-//    _txt_Nationality.text = @"adfaf";
+    _txtPassport.text = @"9999708178";
+    _txt_Residence.text = @"adfaf";
+    _txt_workplace.text = @"adfaf";
+    _txt_homeLocation.text = @"adfaf";
+    _txt_Nationality.text = @"adfaf";
     
 }
 
 -(void)setLanguageData{
     _lbl_personal.text = [Langauge getTextFromTheKey:@"personal_info"];
-    [_btn_Continue setTitle:@"continue_tv" forState:UIControlStateNormal];
+    [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
     _txtPassport.placeholder = [Langauge getTextFromTheKey:@"id_card_passport"];
     _txt_Residence.placeholder = [Langauge getTextFromTheKey:@"residance"];
     _txt_Nationality.placeholder = [Langauge getTextFromTheKey:@"nationalaty"];
@@ -145,12 +145,12 @@
         }
         
     }
-    else  if (![CommonFunction validateMobile:_txtPassport.text]){
+    else  if (![CommonFunction validatePassport:_txtPassport.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtPassport.text].length == 0){
             [validationDict setValue:[Langauge getTextFromTheKey:@"idcard_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:[Langauge getTextFromTheKey:@"hospital_name_required"] forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"idcard_required"] forKey:AlertKey];
         }
         
     }

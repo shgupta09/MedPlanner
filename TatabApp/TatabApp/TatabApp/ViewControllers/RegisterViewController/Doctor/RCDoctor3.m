@@ -12,8 +12,7 @@
 {
     NSMutableArray *dependencyArray;
     UIDatePicker* pickerForDate;
-    NSDate *departDate;
-    NSString *departDateString;
+ 
     UIView *viewOverPicker;
     UIToolbar *toolBar;
     LoderView *loderObj;
@@ -21,11 +20,17 @@
     UIPickerView *pickerObj;
     NSInteger selectedRowForSpeciality;
     NSInteger selectedRowForSubSpeciality;
+    NSInteger selectedRowForGrade;
     BOOL isSpeciality;
     AwarenessCategory *speciality;
     AwarenessCategory *sub_speciality;
     CustomAlert *alertObj;
-
+    NSMutableArray *currentGradeArray;
+    NSMutableArray *pickerArray;
+    NSDate *dateForResignedSince;
+    NSDate *dateForJoin;
+    NSString *dateForResignedSinceString;
+    NSString *dateForJoinStrng;
 }
 
 @end
@@ -36,7 +41,10 @@
     [super viewDidLoad];
     [self setData];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
-
+    currentGradeArray = [NSMutableArray new];
+    pickerArray =[NSMutableArray new];
+    [currentGradeArray addObject:@"Specialist"];
+    [currentGradeArray addObject:@"Cunsultant"];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -45,6 +53,7 @@
     isSpeciality = false;
     selectedRowForSpeciality = 0;
     selectedRowForSubSpeciality = 0;
+    selectedRowForGrade = 0;
         _txt_resignedSince.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
         _txt_subSpeciality.leftImgView.image = [UIImage imageNamed:@"b"];
         _txtClassification.leftImgView.image = [UIImage imageNamed:@"b"];
@@ -62,7 +71,8 @@
     _tblView.estimatedRowHeight = 35;
     _tblView.backgroundColor = [UIColor clearColor];
     dependencyArray = [NSMutableArray new];
-    departDate = [NSDate date];
+    dateForJoin = [NSDate date];
+    dateForResignedSince = [NSDate date];
     categoryArray= [NSMutableArray new];
     if(![CommonFunction getBoolValueFromDefaultWithKey:isAwarenessApiHIt])
     {[self hitApiForSpeciality];}else{
@@ -72,8 +82,8 @@
 
 -(void)setLanguageData{
     _lbl_CV.text = [Langauge getTextFromTheKey:@"cv"];
-     [_btn_Experience setTitle:@"add_experience" forState:UIControlStateNormal];
-    [_btn_Continue setTitle:@"continue_tv" forState:UIControlStateNormal];
+     [_btn_Experience setTitle:[Langauge getTextFromTheKey:@"add_experience"] forState:UIControlStateNormal];
+    [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
  _txt_Sepciality.placeholder = [Langauge getTextFromTheKey:@"speciality"];
     _txt_currentGrade.placeholder = [Langauge getTextFromTheKey:@"current_grade"];
     _txt_subSpeciality.placeholder = [Langauge getTextFromTheKey:@"subspecility"];
@@ -117,18 +127,29 @@
 }
 -(NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component{
-    
-    return [categoryArray count];
+    if ( pickerView.tag == 0||pickerView.tag ==2) {
+        return [categoryArray count];
+    }else{
+        return [currentGradeArray count];
+    }
+    return 0;
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
 (NSInteger)row forComponent:(NSInteger)component{
+    if ( pickerView.tag == 0||pickerView.tag ==2) {
+        AwarenessCategory* categoryObj = [categoryArray objectAtIndex:row];
+        return categoryObj.category_name;
+    }
+    else{
+        return [currentGradeArray objectAtIndex:row];
+    }
     
-    AwarenessCategory* categoryObj = [categoryArray objectAtIndex:row];
-    return categoryObj.category_name;
     
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component{
+    
+    if(pickerView.tag == 0||pickerView.tag==2){
     AwarenessCategory* categoryObj = [categoryArray objectAtIndex:row];
     
     if (isSpeciality) {
@@ -140,7 +161,9 @@ numberOfRowsInComponent:(NSInteger)component{
         selectedRowForSubSpeciality = row;
         sub_speciality = categoryObj;
     }
-    
+    }else{
+        _txt_currentGrade.text = [currentGradeArray objectAtIndex:0];
+    }
 }
 
 #pragma mark- tableView delegate
@@ -209,6 +232,7 @@ numberOfRowsInComponent:(NSInteger)component{
     pickerObj.dataSource = self;
     pickerObj.showsSelectionIndicator = YES;
     pickerObj.backgroundColor = [UIColor lightGrayColor];
+    pickerObj.tag = sender.tag;
     viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
     UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
                           CGRectMake(0, self.view.frame.size.height-
@@ -232,9 +256,11 @@ numberOfRowsInComponent:(NSInteger)component{
     if (sender.tag == 0) {
         isSpeciality = true;
         [pickerObj  selectRow:selectedRowForSpeciality inComponent:0 animated:true];
-    }else{
+    }else if(sender.tag == 2){
         isSpeciality = false;
         [pickerObj  selectRow:selectedRowForSubSpeciality inComponent:0 animated:true];
+    }else{
+        
     }
     
     [viewOverPicker addSubview:pickerObj];
@@ -256,13 +282,15 @@ numberOfRowsInComponent:(NSInteger)component{
     //self.myLabel.text = [dateFormatter stringFromDate:[dueDatePickerView date]];
     NSLog(@"Picked the date %@", [dateFormatter stringFromDate:[sender date]]);
     [dateFormatter setDateFormat:@"YYYY-MM-dd"];
-    departDateString = [dateFormatter stringFromDate:[sender date]];
-    departDate = sender.date;
+   
     if (sender.tag == 0){
-        
-        _txt_workedSince.text = departDateString;
+        dateForJoinStrng = [dateFormatter stringFromDate:[sender date]];
+        dateForJoin = sender.date;
+        _txt_workedSince.text = dateForJoinStrng;
     }else if (sender.tag == 1){
-        _txt_resignedSince.text = departDateString;
+        dateForResignedSinceString = [dateFormatter stringFromDate:[sender date]];
+        dateForResignedSince = sender.date;
+        _txt_resignedSince.text = dateForJoinStrng;
     }
     
 }
@@ -327,15 +355,20 @@ numberOfRowsInComponent:(NSInteger)component{
 
 }
 
-- (IBAction)btnActionBirthDay:(id)sender {
+- (IBAction)btnActionBirthDay:(UIButton *)sender {
     
     [CommonFunction resignFirstResponderOfAView:self.view];
     pickerForDate = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
     pickerForDate.datePickerMode = UIDatePickerModeDate;
     pickerForDate.tag = ((UIButton *)sender).tag;
+    if(sender.tag == 0){
+        [pickerForDate setDate:dateForJoin];
+        [pickerForDate setMaximumDate: [NSDate date]];
+    }else{
+        [pickerForDate setDate:dateForResignedSince];
+        [pickerForDate setMinimumDate: dateForJoin];
+    }
     
-    [pickerForDate setDate:departDate];
-    [pickerForDate setMaximumDate: [NSDate date]];
     
     
     

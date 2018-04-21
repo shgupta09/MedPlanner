@@ -68,7 +68,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/GIT/MedPlanner/TatabApp/TatabApp/TatabApp/AppDelegate.m"
-                  timestampString = "545938340.341862"
+                  timestampString = "545996628.099219"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "217"
@@ -83,7 +83,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/GIT/MedPlanner/TatabApp/TatabApp/TatabApp/AppDelegate.m"
-                  timestampString = "545938340.346109"
+                  timestampString = "545996628.102654"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "219"
@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/RegisterViewController/Patient/RegisterCompleteViewController.m"
-            timestampString = "545978835.186993"
+            timestampString = "545997474.019845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "587"
-            endingLineNumber = "587"
+            startingLineNumber = "595"
+            endingLineNumber = "595"
             landmarkName = "-validateData2"
             landmarkType = "7">
          </BreakpointContent>
@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/RegisterViewController/Patient/RegisterCompleteViewController.m"
-            timestampString = "545978835.187566"
+            timestampString = "545997474.0199521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "454"
-            endingLineNumber = "454"
+            startingLineNumber = "462"
+            endingLineNumber = "462"
             landmarkName = "-btnCompleteRegistrationClicked:"
             landmarkType = "7">
          </BreakpointContent>
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/RegisterViewController/Patient/RegisterCompleteViewController.m"
-            timestampString = "545978835.187995"
+            timestampString = "545997474.020032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "436"
-            endingLineNumber = "436"
+            startingLineNumber = "444"
+            endingLineNumber = "444"
             landmarkName = "RegisterCompleteViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/RegisterViewController/Patient/RegisterCompleteViewController.m"
-            timestampString = "545978835.188501"
+            timestampString = "545997474.020165"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
             landmarkName = "-btnActionBirthDay:"
             landmarkType = "7">
          </BreakpointContent>
@@ -212,7 +212,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor4.m"
-            timestampString = "545978835.188935"
+            timestampString = "545997474.02029"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "242"
@@ -228,7 +228,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor4.m"
-            timestampString = "545978835.1890121"
+            timestampString = "545997474.02037"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "214"
@@ -350,7 +350,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/GIT/MedPlanner/TatabApp/TatabApp/TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
-                  timestampString = "545938340.463418"
+                  timestampString = "545996628.194411"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "324"
@@ -365,7 +365,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/GIT/MedPlanner/TatabApp/TatabApp/TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
-                  timestampString = "545938340.465753"
+                  timestampString = "545996628.197029"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "324"
@@ -380,7 +380,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/GIT/MedPlanner/TatabApp/TatabApp/TatabApp/ViewControllers/DoctorList/DoctorListVC.m"
-                  timestampString = "545938340.468147"
+                  timestampString = "545996628.2016259"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "324"
@@ -493,7 +493,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/GIT/MedPlanner/TatabApp/TatabApp/TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
-                  timestampString = "545938340.49836"
+                  timestampString = "545996628.240183"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "978"
@@ -508,7 +508,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/GIT/MedPlanner/TatabApp/TatabApp/TatabApp/ViewControllers/AwarenessN/NewAwareVC.m"
-                  timestampString = "545938340.5006191"
+                  timestampString = "545996628.243376"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "979"
@@ -605,7 +605,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/GIT/MedPlanner/TatabApp/TatabApp/TatabApp/ViewControllers/HomeViewController/Doctor/HomeViewController.m"
-                  timestampString = "545938340.525038"
+                  timestampString = "545996628.27607"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "164"
@@ -620,7 +620,7 @@
                   moduleName = "TatabApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shubhamgupta/Projects/GIT/MedPlanner/TatabApp/TatabApp/TatabApp/ViewControllers/HomeViewController/Doctor/HomeViewController.m"
-                  timestampString = "545938340.527976"
+                  timestampString = "545996628.2793289"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "164"
@@ -1331,6 +1331,118 @@
             startingLineNumber = "47"
             endingLineNumber = "47"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor1.m"
+            timestampString = "545997474.022553"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "-femaleselected"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor2.m"
+            timestampString = "545997474.022723"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-validateData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor2.m"
+            timestampString = "545997474.022843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "-validateData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor2.m"
+            timestampString = "545997474.022954"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-validateData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor3.m"
+            timestampString = "545997474.023068"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "-btnAction_Speciality:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor3.m"
+            timestampString = "545997474.023874"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
+            landmarkName = "-btnActionBirthDay:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TatabApp/ViewControllers/RegisterViewController/Doctor/RCDoctor3.m"
+            timestampString = "545997474.024317"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
+            landmarkName = "-dueDateChanged:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

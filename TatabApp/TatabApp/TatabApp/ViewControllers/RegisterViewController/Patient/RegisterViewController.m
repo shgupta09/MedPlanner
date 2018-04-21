@@ -133,16 +133,17 @@
     }
 }
 -(void)maleSelected{
+    _btnMAle.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btnMAle.tintColor = [UIColor whiteColor];
+    _btnFemale.backgroundColor = [UIColor whiteColor];
+    _btnFemale.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    genderType = @"M";
+}
+-(void)femaleselected{
     _btnFemale.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
     _btnFemale.tintColor = [UIColor whiteColor];
     _btnMAle.backgroundColor = [UIColor whiteColor];
     _btnMAle.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-    genderType = @"M";
-}
--(void)femaleselected{ _btnMAle.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-    _btnMAle.tintColor = [UIColor whiteColor];
-    _btnFemale.backgroundColor = [UIColor whiteColor];
-    _btnFemale.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
     genderType = @"F";
     
 }

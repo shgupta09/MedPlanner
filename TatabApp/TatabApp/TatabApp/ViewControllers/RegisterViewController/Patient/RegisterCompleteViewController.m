@@ -17,8 +17,7 @@
 @property (strong, nonatomic) IBOutlet UIView *popUpView;
 @property (weak, nonatomic) IBOutlet CustomTextField *txtName;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_BirthDate;
-@property (weak, nonatomic) IBOutlet UIButton *btnFemale;
-@property (weak, nonatomic) IBOutlet UIButton *btnMAle;
+
 
 
 @end
@@ -73,16 +72,16 @@
     _tblView.estimatedRowHeight = 35;
     _tblView.backgroundColor = [UIColor clearColor];
     
-    _btnFemale.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-    _btnMAle.layer.cornerRadius = 22;
-    _btnFemale.layer.cornerRadius = 22;
-    _btnMAle.layer.borderWidth = 3;
-    _btnFemale.layer.borderWidth = 3;
-    _btnFemale.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
-    _btnMAle.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
+    _btn_Female.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btn_Male.layer.cornerRadius = 22;
+    _btn_Female.layer.cornerRadius = 22;
+    _btn_Male.layer.borderWidth = 3;
+    _btn_Female.layer.borderWidth = 3;
+    _btn_Female.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
+    _btn_Male.layer.borderColor =[[CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD] CGColor];
     
-    _btnMAle.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-    _btnMAle.tintColor = [UIColor whiteColor];
+    _btn_Male.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btn_Male.tintColor = [UIColor whiteColor];
     
     departDate = [NSDate date];
     
@@ -100,10 +99,10 @@
     _lbl_PersonalDetails.text = [Langauge getTextFromTheKey:@"personal_details"];
     [_btn_Terms setTitle:@"Terms_Condition" forState:UIControlStateNormal];
     [_btn_CompleteRegistration setTitle:@"complete_registration" forState:UIControlStateNormal];
-     [_btn_ConfirmAdd setTitle:@"confirm_add" forState:UIControlStateNormal];
-    [_btnAddDependent setTitle:@"add_dependents" forState:UIControlStateNormal];
-    [_btnMAle setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
-    [_btnFemale setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];
+     [_btn_ConfirmAdd setTitle:[Langauge getTextFromTheKey:@"confirm_add"] forState:UIControlStateNormal];
+    [_btnAddDependent setTitle:[Langauge getTextFromTheKey:@"add_dependents"] forState:UIControlStateNormal];
+    [_btn_Male setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
+    [_btn_Female setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];
     _txt_Relationship.placeholder = [Langauge getTextFromTheKey:@"relationship"];
     _txtBirthday.placeholder = [Langauge getTextFromTheKey:@"bithdate"];
     _txtCity.placeholder = [Langauge getTextFromTheKey:@"city"];
@@ -135,6 +134,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 -(void)resignResponder{
     [CommonFunction resignFirstResponderOfAView:self.view];
@@ -347,6 +347,8 @@ numberOfRowsInComponent:(NSInteger)component{
 }
 
 
+
+
 - (IBAction)btnActionConfirmAdd:(id)sender {
     NSDictionary *dictForValidation = [self validateData];
     
@@ -418,21 +420,27 @@ numberOfRowsInComponent:(NSInteger)component{
 - (IBAction)btnActionGender:(id)sender {
     if (((UIButton *)sender).tag == 10) {
         isMale = true;
-        _btnMAle.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-        _btnMAle.tintColor = [UIColor whiteColor];
-        _btnFemale.backgroundColor = [UIColor whiteColor];
-        _btnFemale.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+        [self maleSelected];
 
     }else{
         isMale = false;
-        _btnFemale.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
-        _btnFemale.tintColor = [UIColor whiteColor];
-        _btnMAle.backgroundColor = [UIColor whiteColor];
-        _btnMAle.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+        [self femaleselected];
     }
 }
 
+-(void)maleSelected{
+    _btn_Male.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btn_Male.tintColor = [UIColor whiteColor];
+    _btn_Female.backgroundColor = [UIColor whiteColor];
+    _btn_Female.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+}
 
+-(void)femaleselected{
+    _btn_Female.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+    _btn_Female.tintColor = [UIColor whiteColor];
+    _btn_Male.backgroundColor = [UIColor whiteColor];
+    _btn_Male.tintColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
+}
 
 
 - (IBAction)btnBackClicked:(id)sender {
@@ -539,7 +547,7 @@ numberOfRowsInComponent:(NSInteger)component{
     _txtName.text = @"";
     _txt_BirthDate.text = @"";
     isMale = true;
-    
+    [self maleSelected];
     [[self popUpView] setAutoresizesSubviews:true];
     [[self popUpView] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;

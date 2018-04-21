@@ -108,7 +108,7 @@
                                             </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="Ibb-A0-NmE"/>
                                             </connections>
