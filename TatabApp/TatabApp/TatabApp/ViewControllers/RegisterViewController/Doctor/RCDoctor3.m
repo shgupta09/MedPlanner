@@ -44,12 +44,12 @@
     currentGradeArray = [NSMutableArray new];
     pickerArray =[NSMutableArray new];
     [currentGradeArray addObject:@"Specialist"];
-    [currentGradeArray addObject:@"Cunsultant"];
+    [currentGradeArray addObject:@"Consultant"];
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void)setData{
-    [self setLanguageData];
+//    [self setLanguageData];
     isSpeciality = false;
     selectedRowForSpeciality = 0;
     selectedRowForSubSpeciality = 0;
@@ -162,7 +162,7 @@ numberOfRowsInComponent:(NSInteger)component{
         sub_speciality = categoryObj;
     }
     }else{
-        _txt_currentGrade.text = [currentGradeArray objectAtIndex:0];
+        _txt_currentGrade.text = [currentGradeArray objectAtIndex:row];
     }
 }
 
@@ -290,7 +290,7 @@ numberOfRowsInComponent:(NSInteger)component{
     }else if (sender.tag == 1){
         dateForResignedSinceString = [dateFormatter stringFromDate:[sender date]];
         dateForResignedSince = sender.date;
-        _txt_resignedSince.text = dateForJoinStrng;
+        _txt_resignedSince.text = dateForResignedSinceString;
     }
     
 }
@@ -367,6 +367,7 @@ numberOfRowsInComponent:(NSInteger)component{
     }else{
         [pickerForDate setDate:dateForResignedSince];
         [pickerForDate setMinimumDate: dateForJoin];
+        [pickerForDate setMaximumDate:[NSDate date]];
     }
     
     
@@ -460,16 +461,16 @@ numberOfRowsInComponent:(NSInteger)component{
 -(NSDictionary *)validateData2{
     NSMutableDictionary *validationDict = [[NSMutableDictionary alloc] init];
     [validationDict setValue:@"1" forKey:BoolValueKey];
-    if (![CommonFunction validateName:_txt_Sepciality.text]){
+    if ([CommonFunction trimString:_txt_Sepciality.text].length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_Sepciality.text].length == 0){
             
             [validationDict setValue:[Langauge getTextFromTheKey:@"speciality_required"] forKey:AlertKey];
         }else{
-           [Langauge getTextFromTheKey:@"speciality_required"];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"speciality_required"] forKey:AlertKey];
         }
         
-    }  else  if (![CommonFunction validateName:_txt_currentGrade.text]){
+    }  else  if ([CommonFunction trimString:_txt_currentGrade.text].length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_currentGrade.text].length == 0){
             
@@ -479,7 +480,7 @@ numberOfRowsInComponent:(NSInteger)component{
         }
         
     }
-    else  if (![CommonFunction validateName:_txt_subSpeciality.text]){
+    else  if ([CommonFunction trimString:_txt_subSpeciality.text].length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_subSpeciality.text].length == 0){
             

@@ -22,6 +22,7 @@
 //Language
 
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Payment;
+@property (weak, nonatomic) IBOutlet UIButton *btn_TesmSelection;
 @property (weak, nonatomic) IBOutlet CustomButton *btn_CompleteRegistration;
 //Language
 

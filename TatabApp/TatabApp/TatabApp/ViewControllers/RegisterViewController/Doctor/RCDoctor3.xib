@@ -44,7 +44,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="682.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICS-Mr-vMg">
-                                    <rect key="frame" x="8" y="8" width="30" height="30"/>
+                                    <rect key="frame" x="8" y="21" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="GeD-zT-2Ac"/>
                                         <constraint firstAttribute="width" constant="30" id="ywT-4B-yHo"/>
@@ -261,6 +261,7 @@
                                             <exclude reference="tmJ-vl-i1c"/>
                                             <exclude reference="4mj-iM-teg"/>
                                             <exclude reference="1Fg-Sa-Nlw"/>
+                                            <exclude reference="0kr-Bn-WUs"/>
                                             <exclude reference="c3q-oV-bFM"/>
                                         </mask>
                                     </variation>
@@ -271,7 +272,7 @@
                                 <constraint firstItem="ICS-Mr-vMg" firstAttribute="leading" secondItem="s71-H5-W4w" secondAttribute="leading" constant="8" id="3Kp-dV-qvf"/>
                                 <constraint firstAttribute="bottom" secondItem="LFt-TF-OcC" secondAttribute="bottom" id="5NS-Zh-hoe"/>
                                 <constraint firstItem="LFt-TF-OcC" firstAttribute="top" secondItem="hBQ-sM-OIV" secondAttribute="bottom" id="5ed-mt-Qb2"/>
-                                <constraint firstItem="ICS-Mr-vMg" firstAttribute="top" secondItem="s71-H5-W4w" secondAttribute="top" constant="8" id="9Aj-I7-HDT"/>
+                                <constraint firstItem="ICS-Mr-vMg" firstAttribute="top" secondItem="s71-H5-W4w" secondAttribute="top" constant="21" id="9Aj-I7-HDT"/>
                                 <constraint firstAttribute="trailing" secondItem="LFt-TF-OcC" secondAttribute="trailing" id="IF6-Tz-BNW"/>
                                 <constraint firstItem="hBQ-sM-OIV" firstAttribute="top" secondItem="s71-H5-W4w" secondAttribute="top" constant="56" id="Io7-lN-Oyi"/>
                                 <constraint firstItem="LFt-TF-OcC" firstAttribute="leading" secondItem="s71-H5-W4w" secondAttribute="leading" id="J5x-M1-oBg"/>

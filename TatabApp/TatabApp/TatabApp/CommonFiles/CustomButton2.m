@@ -17,20 +17,21 @@
         self.backgroundColor = [UIColor whiteColor];
         self.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
         self.tintColor = [CommonFunction colorWithHexString:Primary_GreenColor];
-//        self.titleLabel.adjustsFontSizeToFitWidth = true;
-//        self.titleLabel.lineBreakMode = NSLineBreakByClipping;
         self.layer.borderWidth = 1;
         self.layer.cornerRadius = self.frame.size.height/2;
         self.layer.masksToBounds = true;
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
         self.titleLabel.numberOfLines = 0;
-//        [self setImage: [UIImage imageNamed:@"icon-map-location"] forState:UIControlStateNormal];
         [self setImageEdgeInsets:UIEdgeInsetsMake(17, 0, 17,20)];
+        if ([[CommonFunction getValueFromDefaultWithKey:Selected_Language] isEqualToString:Selected_Language_English]) {
+            [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+
+        }else{
+            [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+
+        }
         
-//        [self setTitleEdgeInsets:UIEdgeInsetsMake(0
-//                                                  ,-100,0,0)];
-        [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     }
     return self;
 }

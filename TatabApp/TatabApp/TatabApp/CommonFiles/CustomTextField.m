@@ -14,7 +14,6 @@
     if (self = [super initWithCoder:aDecoder]) {
         
         self.delegate = self;
-        self.tintColor = [UIColor whiteColor];
         self.layer.cornerRadius = self.bounds.size.height/2;
         self.clipsToBounds = YES;
        self.leftViewMode = UITextFieldViewModeAlways;
@@ -28,7 +27,8 @@
         self.backgroundColor = [CommonFunction colorWithHexString:@"#00b1dd"];
          self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
         self.textColor = [UIColor whiteColor];
-        
+        self.tintColor = [UIColor whiteColor];
+
         
     }
     return self;

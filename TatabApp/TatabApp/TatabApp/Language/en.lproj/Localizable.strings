@@ -72,7 +72,7 @@
 "personal_details" = "Personal Details";
 "city" = "City";
 "add_dependents" = "Add Dependents";
-"complete_registration" = "COMPLETE REGISTRATION";
+"complete_registration" = "Complete Registration";
 "relationship" = "Relationship";
 "bithdate" = "Birthday";
 "done" = "Done";
@@ -243,7 +243,7 @@
 //Additional
 
 
-"Terms_Condition" = "Yes, I aggree to terms and condition";
+"Terms_Condition" = "Yes, I agree to terms and condition";
 "resigned_since" = "Resigned Since";
 "resigned_since_required" = "Resigned since required";
 "Ops_Iban" ="Oops! It seems that this is not a valid IBAN.";

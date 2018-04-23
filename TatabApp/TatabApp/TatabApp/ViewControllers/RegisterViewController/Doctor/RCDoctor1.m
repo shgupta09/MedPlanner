@@ -36,11 +36,11 @@
 
 -(void)setData{
 //    
-    _txtName.text = @"123456";
-    _txtPassword.text = @"Admin@123";
-    _txtEmail.text = @"123456@yopmail.com";
-    _txtMobile.text = @"9999708178";
-//    
+//    _txtName.text = @"123456";
+//    _txtPassword.text = @"Admin@123";
+//    _txtEmail.text = @"123456@yopmail.com";
+//    _txtMobile.text = @"9999708178";
+//
     _txtName.leftImgView.image = [UIImage imageNamed:@"b"];
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
     _txtEmail.leftImgView.image = [UIImage imageNamed:@"a"];
@@ -58,7 +58,7 @@
     _btnFemale.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
     _btnFemale.tintColor = [UIColor whiteColor];
     [self maleSelected];
-    [self setLanguageData];
+//    [self setLanguageData];
 }
 -(void)setLanguageData{
     _lbl_create.text = [Langauge getTextFromTheKey:@"create_a_doctor_account"];

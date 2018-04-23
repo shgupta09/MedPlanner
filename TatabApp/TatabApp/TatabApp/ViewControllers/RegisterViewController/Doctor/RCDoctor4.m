@@ -56,21 +56,25 @@
 
 -(void)setData{
     iscaptured = false;
+    [_btn_TesmSelection setSelected:false];
     _imgView.layer.borderWidth= 3;
     _imgView.layer.borderColor = [[CommonFunction colorWithHexString:Primary_GreenColor] CGColor];
     _txt_IBAN.leftImgView.image = [UIImage imageNamed:@"icon-credit-card"];
     _txt_ConfirmIban.leftImgView.image = [UIImage imageNamed:@"icon-credit-card"];
     _txt_photo.leftImgView.image = [UIImage imageNamed:@"icon-person"];
-//    _txtClassification.leftImgView.image = [UIImage imageNamed:@"b"];
-    [self setLanguageData];
+
+//    [self setLanguageData];
+    
+    //    _txtClassification.leftImgView.image = [UIImage imageNamed:@"b"];
+    
 //    _txt_ConfirmIban.text = @"1212121212";
 //    _txt_IBAN.text = @"1212121212";
 }
 
 -(void)setLanguageData{
     _lbl_Payment.text = [Langauge getTextFromTheKey:@"payment_details"];
-    [_btn_Terms setTitle:@"Terms_Condition" forState:UIControlStateNormal];
-    [_btn_CompleteRegistration setTitle:@"complete_registration" forState:UIControlStateNormal];
+    [_btn_Terms setTitle:[Langauge getTextFromTheKey:@"Terms_Condition"] forState:UIControlStateNormal];
+    [_btn_CompleteRegistration setTitle:[Langauge getTextFromTheKey:@"complete_registration"] forState:UIControlStateNormal];
     
     _txt_IBAN.placeholder = [Langauge getTextFromTheKey:@"iban"];
     _txt_ConfirmIban.placeholder = [Langauge getTextFromTheKey:@"confirm_iban"];
@@ -136,10 +140,10 @@
     [self presentViewController:obj animated:true completion:nil];
 }
 - (IBAction)btnAction_Terms:(id)sender {
-    if (_btn_Terms.isSelected) {
-        [_btn_Terms setSelected:false];
+    if (_btn_TesmSelection.isSelected) {
+        [_btn_TesmSelection setSelected:false];
     }else{
-        [_btn_Terms setSelected:true];
+        [_btn_TesmSelection setSelected:true];
     }
 }
 
@@ -197,7 +201,7 @@
         [validationDict setValue:@"0" forKey:BoolValueKey];
         [validationDict setValue:[Langauge getTextFromTheKey:@"select_image"] forKey:AlertKey];
     }
-    else  if (!_btn_Terms.isSelected){
+    else  if (!_btn_TesmSelection.isSelected){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         
         [validationDict setValue:[Langauge getTextFromTheKey:@"please_select_terms_and_condition"] forKey:AlertKey];

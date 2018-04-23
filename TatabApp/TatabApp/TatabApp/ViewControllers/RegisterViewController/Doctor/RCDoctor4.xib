@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="btn_CompleteRegistration" destination="Uuf-9q-Hia" id="aJ2-Wz-wUX"/>
                 <outlet property="btn_Terms" destination="cYZ-U3-n7N" id="5Vv-8Y-cKS"/>
+                <outlet property="btn_TesmSelection" destination="aM6-wW-jQE" id="WTD-eL-8h4"/>
                 <outlet property="imgView" destination="kJa-av-dSk" id="1X0-BA-fVI"/>
                 <outlet property="lbl_Payment" destination="dSH-o8-wnn" id="yOv-7g-l6o"/>
                 <outlet property="txt_ConfirmIban" destination="iOs-Cc-EWa" id="W5A-qa-nVl"/>
@@ -144,8 +145,9 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYZ-U3-n7N">
-                                            <rect key="frame" x="58" y="356" width="297" height="30"/>
-                                            <state key="normal" title="Yes, I aggree to terms and condition">
+                                            <rect key="frame" x="58" y="357" width="297" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <state key="normal" title="Yes, I agree to terms and condition">
                                                 <color key="titleColor" red="0.49803921569999998" green="0.68627450980000004" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>

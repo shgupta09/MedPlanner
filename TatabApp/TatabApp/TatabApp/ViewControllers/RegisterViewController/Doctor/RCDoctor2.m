@@ -28,18 +28,20 @@
     alertObj.frame = self.view.frame;
 }
 -(void)setData{
-        [self setLanguageData];
 
+    
+    
     _txtPassport.leftImgView.image = [UIImage imageNamed:@"icon-id-card"];
     _txt_Residence.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_workplace.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_homeLocation.leftImgView.image = [UIImage imageNamed:@"icon-map-location"];
     _txt_Nationality.leftImgView.image = [UIImage imageNamed:@"b"];
-    _txtPassport.text = @"9999708178";
-    _txt_Residence.text = @"adfaf";
-    _txt_workplace.text = @"adfaf";
-    _txt_homeLocation.text = @"adfaf";
-    _txt_Nationality.text = @"adfaf";
+//    [self setLanguageData];
+//    _txtPassport.text = @"9999708178";
+//    _txt_Residence.text = @"adfaf";
+//    _txt_workplace.text = @"adfaf";
+//    _txt_homeLocation.text = @"adfaf";
+//    _txt_Nationality.text = @"adfaf";
     
 }
 
@@ -51,6 +53,7 @@
     _txt_Nationality.placeholder = [Langauge getTextFromTheKey:@"nationalaty"];
     _txt_workplace.placeholder = [Langauge getTextFromTheKey:@"workplace"];
     _txt_homeLocation.placeholder = [Langauge getTextFromTheKey:@"home_location"];
+    
   
 }
 

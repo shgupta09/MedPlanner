@@ -97,8 +97,8 @@
 
 -(void)setLanguageData{
     _lbl_PersonalDetails.text = [Langauge getTextFromTheKey:@"personal_details"];
-    [_btn_Terms setTitle:@"Terms_Condition" forState:UIControlStateNormal];
-    [_btn_CompleteRegistration setTitle:@"complete_registration" forState:UIControlStateNormal];
+    [_btn_Terms setTitle:[Langauge getTextFromTheKey:@"Terms_Condition"] forState:UIControlStateNormal];
+    [_btn_CompleteRegistration setTitle:[Langauge getTextFromTheKey:@"complete_registration"] forState:UIControlStateNormal];
      [_btn_ConfirmAdd setTitle:[Langauge getTextFromTheKey:@"confirm_add"] forState:UIControlStateNormal];
     [_btnAddDependent setTitle:[Langauge getTextFromTheKey:@"add_dependents"] forState:UIControlStateNormal];
     [_btn_Male setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];

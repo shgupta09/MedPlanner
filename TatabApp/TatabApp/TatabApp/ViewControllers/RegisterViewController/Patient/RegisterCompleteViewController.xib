@@ -159,7 +159,8 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEl-0z-VDg">
-                                            <rect key="frame" x="58" y="383" width="297" height="30"/>
+                                            <rect key="frame" x="58" y="384" width="297" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="Yes, I aggree to terms and condition">
                                                 <color key="titleColor" red="0.49803921568627452" green="0.68627450980392157" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
