@@ -27,8 +27,12 @@
       [CommonFunction setResignTapGestureToView:self.view andsender:self];
     _txtUsername.leftImgView.image = [UIImage imageNamed:@"d"];
     _txtPassword.leftImgView.image = [UIImage imageNamed:@"c"];
-      _txtUsername.placeholder = [Langauge getTextFromTheKey:@"email"];
-      _txtPassword.placeholder = [Langauge getTextFromTheKey:@"password"];
+    
+    [_txtUsername setPlaceholderWithColor:[Langauge getTextFromTheKey:@"email"]];
+    [_txtPassword setPlaceholderWithColor:[Langauge getTextFromTheKey:@"password"]];
+
+    
+    
      [_btnLogin setTitle:[Langauge getTextFromTheKey:@"login"] forState:UIControlStateNormal];
      [_btn_CreateAccount setTitle:[Langauge getTextFromTheKey:@"create_account"] forState:UIControlStateNormal];
      [_btn_NeedHelp setTitle:[Langauge getTextFromTheKey:@"need_help"] forState:UIControlStateNormal];
@@ -55,7 +59,7 @@
 }
 
 -(void) viewDidLayoutSubviews {
-        [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
+//        [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
         loderObj.frame = self.view.frame;
         alertObj.frame = self.view.frame;
     

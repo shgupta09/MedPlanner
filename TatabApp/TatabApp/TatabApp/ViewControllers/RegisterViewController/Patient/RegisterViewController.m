@@ -73,13 +73,19 @@
 }
 -(void)setLanguageData{
     _lbl_create.text = [Langauge getTextFromTheKey:@"create_account"];
-    _txtName.placeholder = [Langauge getTextFromTheKey:@"First_Name"];
-    _txtEmail.placeholder = [Langauge getTextFromTheKey:@"email"];
-    _txt_mobile.placeholder = [Langauge getTextFromTheKey:@"mobile"];
-    _txtPassword.placeholder = [Langauge getTextFromTheKey:@"password"];
+   
+    
+    [_txtName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"First_Name"]];
+    [_txtEmail setPlaceholderWithColor:[Langauge getTextFromTheKey:@"email"]];
+    [_txt_mobile setPlaceholderWithColor:[Langauge getTextFromTheKey:@"mobile"]];
+    [_txtPassword setPlaceholderWithColor:[Langauge getTextFromTheKey:@"password"]];
+
+    
+    
     [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
     [_btnMAle setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
     [_btnFemale setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];
+    
 }
 
 -(void)resignResponder{

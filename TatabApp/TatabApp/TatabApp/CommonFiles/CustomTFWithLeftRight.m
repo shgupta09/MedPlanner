@@ -39,6 +39,9 @@
     }
     return self;
 }
-
+-(void)setPlaceholderWithColor:(NSString *)placeholder{
+    self.placeholder = placeholder;
+    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+}
 
 @end

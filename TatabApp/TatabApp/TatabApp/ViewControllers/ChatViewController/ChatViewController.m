@@ -213,6 +213,7 @@
     _lbl_Clinic.text = [Langauge getTextFromTheKey:@"clinic"];
     _lbl_Dr.text = [Langauge getTextFromTheKey:@"dr"];
     _txtField.placeholder = [Langauge getTextFromTheKey:@"chat_placeholder"];
+    
     _lbl_patient.text = [Langauge getTextFromTheKey:@"patient"];
     _lbl_FollowUP.text = [Langauge getTextFromTheKey:@"follow_up"];
     _lbl_Diagnoses.text = [Langauge getTextFromTheKey:@"diagnosis"];

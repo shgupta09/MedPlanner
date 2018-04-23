@@ -29,6 +29,11 @@
     
     // Do any additional setup after loading the view from its nib.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [CommonFunction resignFirstResponderOfAView:self.view];
+
+}
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
     alertObj.frame = self.view.frame;
@@ -58,17 +63,19 @@
     _btnFemale.backgroundColor = [CommonFunction colorWithHexString:COLORCODE_FOR_TEXTFIELD];
     _btnFemale.tintColor = [UIColor whiteColor];
     [self maleSelected];
-//    [self setLanguageData];
+    [self setLanguageData];
 }
 -(void)setLanguageData{
     _lbl_create.text = [Langauge getTextFromTheKey:@"create_a_doctor_account"];
     [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
     [_btnMAle setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
     [_btnFemale setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];
-    _txtName.placeholder = [Langauge getTextFromTheKey:@"First_Name"];
-    _txtEmail.placeholder = [Langauge getTextFromTheKey:@"email"];
-    _txtMobile.placeholder = [Langauge getTextFromTheKey:@"mobile"];
-    _txtPassword.placeholder = [Langauge getTextFromTheKey:@"password"];
+    
+    [_txtName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"First_Name"]];
+    [_txtEmail setPlaceholderWithColor:[Langauge getTextFromTheKey:@"email"]];
+    [_txtMobile setPlaceholderWithColor:[Langauge getTextFromTheKey:@"mobile"]];
+    [_txtPassword setPlaceholderWithColor:[Langauge getTextFromTheKey:@"password"]];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -138,7 +145,8 @@
         [parameterDict setValue:[CommonFunction trimString:_txtMobile.text] forKey:loginmobile];
         [parameterDict setValue:@"2" forKey:loginusergroup];
         [parameterDict setValue:genderType forKey:Gender];
-        
+        [CommonFunction resignFirstResponderOfAView:self.view];
+
         
         RCDoctor2* vc ;
         vc = [[RCDoctor2 alloc] initWithNibName:@"RCDoctor2" bundle:nil];

@@ -49,7 +49,7 @@
 }
 
 -(void)setData{
-//    [self setLanguageData];
+    [self setLanguageData];
     isSpeciality = false;
     selectedRowForSpeciality = 0;
     selectedRowForSubSpeciality = 0;
@@ -84,14 +84,17 @@
     _lbl_CV.text = [Langauge getTextFromTheKey:@"cv"];
      [_btn_Experience setTitle:[Langauge getTextFromTheKey:@"add_experience"] forState:UIControlStateNormal];
     [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
- _txt_Sepciality.placeholder = [Langauge getTextFromTheKey:@"speciality"];
-    _txt_currentGrade.placeholder = [Langauge getTextFromTheKey:@"current_grade"];
-    _txt_subSpeciality.placeholder = [Langauge getTextFromTheKey:@"subspecility"];
-    _txtClassification.placeholder = [Langauge getTextFromTheKey:@"classification"];
+
     
-   _txt_workedSince.placeholder = [Langauge getTextFromTheKey:@"working_since"];
-    _txt_hospitalName.placeholder = [Langauge getTextFromTheKey:@"hospital_name"];
-    _txt_resignedSince.placeholder = [Langauge getTextFromTheKey:@"resigned_since"];
+    
+    [_txt_Sepciality setPlaceholderWithColor:[Langauge getTextFromTheKey:@"speciality"]];
+    [_txt_currentGrade setPlaceholderWithColor:[Langauge getTextFromTheKey:@"current_grade"]];
+    [_txt_subSpeciality setPlaceholderWithColor:[Langauge getTextFromTheKey:@"subspecility"]];
+    [_txtClassification setPlaceholderWithColor:[Langauge getTextFromTheKey:@"classification"]];
+    [_txt_workedSince setPlaceholderWithColor:[Langauge getTextFromTheKey:@"working_since"]];
+    [_txt_hospitalName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"hospital_name"]];
+    [_txt_resignedSince setPlaceholderWithColor:[Langauge getTextFromTheKey:@"resigned_since"]];
+
     
     
 }
@@ -341,7 +344,8 @@ numberOfRowsInComponent:(NSInteger)component{
         }
         
             [_parameterDict setValue:tempArray forKey:Experience];
-        
+        [CommonFunction resignFirstResponderOfAView:self.view];
+
        
         RCDoctor4* vc ;
         vc = [[RCDoctor4 alloc] initWithNibName:@"RCDoctor4" bundle:nil];

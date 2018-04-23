@@ -92,9 +92,9 @@
     
      [_btnMAle setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
     [_btnFemale setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];
-    _txt_Relationship.placeholder = [Langauge getTextFromTheKey:@"relationship"];
-    _txtName.placeholder = [Langauge getTextFromTheKey:@"name"];
-    _txt_BirthDate.placeholder = [Langauge getTextFromTheKey:@"bithdate"];
+    [_txt_Relationship setPlaceholderWithColor:[Langauge getTextFromTheKey:@"relationship"]];
+    [_txtName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"name"]];
+    [_txt_BirthDate setPlaceholderWithColor:[Langauge getTextFromTheKey:@"bithdate"]];
     [_btn_DependentAdd setTitle:[Langauge getTextFromTheKey:@"confirm_add"] forState:UIControlStateNormal];
 }
 -(void)resignResponder{

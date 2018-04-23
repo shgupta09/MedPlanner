@@ -93,6 +93,7 @@
         relationArray = [Relation sharedInstance].myDataArray;
     }
     [self setLanguageData];
+    
 }
 
 -(void)setLanguageData{
@@ -103,11 +104,14 @@
     [_btnAddDependent setTitle:[Langauge getTextFromTheKey:@"add_dependents"] forState:UIControlStateNormal];
     [_btn_Male setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
     [_btn_Female setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];
-    _txt_Relationship.placeholder = [Langauge getTextFromTheKey:@"relationship"];
-    _txtBirthday.placeholder = [Langauge getTextFromTheKey:@"bithdate"];
-    _txtCity.placeholder = [Langauge getTextFromTheKey:@"city"];
-    _txt_BirthDate.placeholder = [Langauge getTextFromTheKey:@"bithdate"];
-    _txtName.placeholder = [Langauge getTextFromTheKey:@"name"];
+    
+    [_txt_Relationship setPlaceholderWithColor:[Langauge getTextFromTheKey:@"relationship"]];
+    [_txtBirthday setPlaceholderWithColor:[Langauge getTextFromTheKey:@"bithdate"]];
+    [_txtCity setPlaceholderWithColor:[Langauge getTextFromTheKey:@"city"]];
+    [_txt_BirthDate setPlaceholderWithColor:[Langauge getTextFromTheKey:@"sms_verification_number"]];
+    [_txtName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"sms_verification_number"]];
+
+    
 }
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;

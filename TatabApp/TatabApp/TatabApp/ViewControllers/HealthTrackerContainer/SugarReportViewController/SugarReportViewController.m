@@ -143,8 +143,8 @@ _graphView.legend.enabled = NO;
     
     [_btn_Submit setTitle:[Langauge getTextFromTheKey:@"submit"] forState:UIControlStateNormal];
     [_btn_Cancel setTitle:[Langauge getTextFromTheKey:@"cancel"] forState:UIControlStateNormal];
-    _txtComments.placeholder = [Langauge getTextFromTheKey:@"comment"];
     
+    [_txtComments setPlaceholderWithColor:[Langauge getTextFromTheKey:@"comment"]];
     _lbl_Today_Sugar.text = [Langauge getTextFromTheKey:@"today_blood_suger"];
     _lbl_Reading.text = [Langauge getTextFromTheKey:@"reading_mg"];
     _lbl_Timing.text = [Langauge getTextFromTheKey:@"timings"];

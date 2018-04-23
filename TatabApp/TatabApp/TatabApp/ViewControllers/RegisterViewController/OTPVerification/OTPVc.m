@@ -28,8 +28,9 @@
 -(void)setUpLanguage{
     _txt_Number.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_verificationNum.leftImgView.image = [UIImage imageNamed:@"b"];
-    _txt_Number.placeholder = [Langauge getTextFromTheKey:@"mobile"];
-    _txt_verificationNum.placeholder = [Langauge getTextFromTheKey:@"sms_verification_number"];
+    [_txt_Number setPlaceholderWithColor:[Langauge getTextFromTheKey:@"mobile"]];
+    [_txt_verificationNum setPlaceholderWithColor:[Langauge getTextFromTheKey:@"sms_verification_number"]];
+
     _lbl_Title.text = [Langauge getTextFromTheKey:@"sms_verification"];
      [_btn_Send setTitle:[Langauge getTextFromTheKey:@"send"] forState:UIControlStateNormal];
      [_btnResend setTitle:[Langauge getTextFromTheKey:@"resend"] forState:UIControlStateNormal];

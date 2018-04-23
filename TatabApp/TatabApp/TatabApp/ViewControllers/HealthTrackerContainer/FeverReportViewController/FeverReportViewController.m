@@ -132,7 +132,8 @@ _graphView.legend.enabled = NO;
    
     [_btn_Submit setTitle:[Langauge getTextFromTheKey:@"submit"] forState:UIControlStateNormal];
     [_btn_Cancel setTitle:[Langauge getTextFromTheKey:@"cancel"] forState:UIControlStateNormal];
-    _txtComments.placeholder = [Langauge getTextFromTheKey:@"comment"];
+    
+    [_txtComments setPlaceholderWithColor:[Langauge getTextFromTheKey:@"comment"]];
    _lbl_TodaysTemp.text = [Langauge getTextFromTheKey:@"Today_Temp"];
    _lbl_VeryHot.text = [Langauge getTextFromTheKey:@"very_HotTemp"];
    _lbl_Hot.text = [Langauge getTextFromTheKey:@"hot_Tempreture"];

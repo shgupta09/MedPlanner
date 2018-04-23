@@ -155,7 +155,7 @@ _graphView.legend.enabled = NO;
     
     [_btn_Submit setTitle:[Langauge getTextFromTheKey:@"submit"] forState:UIControlStateNormal];
     [_btn_Cancel setTitle:[Langauge getTextFromTheKey:@"cancel"] forState:UIControlStateNormal];
-    _txtComments.placeholder = [Langauge getTextFromTheKey:@"comment"];
+    [_txtComments setPlaceholderWithColor:[Langauge getTextFromTheKey:@"comment"]];
     _lbl_Today_Hr.text = [Langauge getTextFromTheKey:@"today_blood_pressure"];
     _lbl_Sys_MM.text = [Langauge getTextFromTheKey:@"sys_mm_hg"];
     _lbl_Dia_MM.text = [Langauge getTextFromTheKey:@"dia_mm_hg"];

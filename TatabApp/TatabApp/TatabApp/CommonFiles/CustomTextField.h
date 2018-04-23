@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomTextField : UITextField<UITextFieldDelegate>
-
+-(void)setPlaceholderWithColor:(NSString *)placeholder;
 @property (strong,nonatomic) UIImageView* leftImgView;
 @end

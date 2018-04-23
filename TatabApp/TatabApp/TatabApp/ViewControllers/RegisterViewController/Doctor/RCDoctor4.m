@@ -63,7 +63,7 @@
     _txt_ConfirmIban.leftImgView.image = [UIImage imageNamed:@"icon-credit-card"];
     _txt_photo.leftImgView.image = [UIImage imageNamed:@"icon-person"];
 
-//    [self setLanguageData];
+    [self setLanguageData];
     
     //    _txtClassification.leftImgView.image = [UIImage imageNamed:@"b"];
     
@@ -76,9 +76,12 @@
     [_btn_Terms setTitle:[Langauge getTextFromTheKey:@"Terms_Condition"] forState:UIControlStateNormal];
     [_btn_CompleteRegistration setTitle:[Langauge getTextFromTheKey:@"complete_registration"] forState:UIControlStateNormal];
     
-    _txt_IBAN.placeholder = [Langauge getTextFromTheKey:@"iban"];
-    _txt_ConfirmIban.placeholder = [Langauge getTextFromTheKey:@"confirm_iban"];
-    _txt_photo.placeholder = [Langauge getTextFromTheKey:@"photoUpload"];
+   
+    
+    [_txt_IBAN setPlaceholderWithColor:[Langauge getTextFromTheKey:@"iban"]];
+    [_txt_ConfirmIban setPlaceholderWithColor:[Langauge getTextFromTheKey:@"confirm_iban"]];
+    [_txt_photo setPlaceholderWithColor:[Langauge getTextFromTheKey:@"photoUpload"]];
+
     
 }
 
@@ -155,6 +158,8 @@
 }
 - (IBAction)btnActionCompleteRegistration:(id)sender {
     NSDictionary *dictForValidation = [self validateData];
+    [CommonFunction resignFirstResponderOfAView:self.view];
+
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
         [self hitApi];
     }

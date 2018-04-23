@@ -153,7 +153,7 @@
    _lbl_HeightInCm.text = [Langauge getTextFromTheKey:@"height_in_cm"];
     [_btn_Submit setTitle:[Langauge getTextFromTheKey:@"submit"] forState:UIControlStateNormal];
     [_btn_Cancel setTitle:[Langauge getTextFromTheKey:@"cancel"] forState:UIControlStateNormal];
-    _txt_Comment.placeholder = [Langauge getTextFromTheKey:@"comment"];
+    [_txt_Comment setPlaceholderWithColor:[Langauge getTextFromTheKey:@"comment"]];
 
 }
 -(void)viewDidLayoutSubviews{

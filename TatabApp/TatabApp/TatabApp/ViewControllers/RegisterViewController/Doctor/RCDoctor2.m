@@ -36,7 +36,7 @@
     _txt_workplace.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_homeLocation.leftImgView.image = [UIImage imageNamed:@"icon-map-location"];
     _txt_Nationality.leftImgView.image = [UIImage imageNamed:@"b"];
-//    [self setLanguageData];
+    [self setLanguageData];
 //    _txtPassport.text = @"9999708178";
 //    _txt_Residence.text = @"adfaf";
 //    _txt_workplace.text = @"adfaf";
@@ -48,11 +48,14 @@
 -(void)setLanguageData{
     _lbl_personal.text = [Langauge getTextFromTheKey:@"personal_info"];
     [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
-    _txtPassport.placeholder = [Langauge getTextFromTheKey:@"id_card_passport"];
-    _txt_Residence.placeholder = [Langauge getTextFromTheKey:@"residance"];
-    _txt_Nationality.placeholder = [Langauge getTextFromTheKey:@"nationalaty"];
-    _txt_workplace.placeholder = [Langauge getTextFromTheKey:@"workplace"];
-    _txt_homeLocation.placeholder = [Langauge getTextFromTheKey:@"home_location"];
+    
+    [_txtPassport setPlaceholderWithColor:[Langauge getTextFromTheKey:@"id_card_passport"]];
+    [_txt_Residence setPlaceholderWithColor:[Langauge getTextFromTheKey:@"residance"]];
+    [_txt_Nationality setPlaceholderWithColor:[Langauge getTextFromTheKey:@"nationalaty"]];
+    [_txt_workplace setPlaceholderWithColor:[Langauge getTextFromTheKey:@"workplace"]];
+    [_txt_homeLocation setPlaceholderWithColor:[Langauge getTextFromTheKey:@"home_location"]];
+
+    
     
   
 }
@@ -94,7 +97,8 @@
         [_parameterDict setValue:[CommonFunction trimString:_txt_workplace.text] forKey:WorkPlace];
         [_parameterDict setValue:[CommonFunction trimString:_txt_homeLocation.text] forKey:HomeLocation];
         [_parameterDict setValue:[CommonFunction trimString:_txtPassport.text] forKey:Passport];
-        
+        [CommonFunction resignFirstResponderOfAView:self.view];
+
         RCDoctor3* vc ;
         vc = [[RCDoctor3 alloc] initWithNibName:@"RCDoctor3" bundle:nil];
         vc.parameterDict = _parameterDict;

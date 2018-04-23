@@ -11,4 +11,5 @@
 @interface CustomTFWithLeftRight : UITextField
 @property (strong,nonatomic) UIImageView* leftImgView;
 @property (strong,nonatomic) UIImageView* rightImgView;
+-(void)setPlaceholderWithColor:(NSString *)placeholder;
 @end
