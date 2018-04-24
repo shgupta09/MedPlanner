@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F697241C4F65EE493FAA6C1C92C55069"
+               BlueprintIdentifier = "C92F2E25FD091B982DE50CC325CBDB90"
                BuildableName = "Pods_TatabApp.framework"
                BlueprintName = "Pods-TatabApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F697241C4F65EE493FAA6C1C92C55069"
+            BlueprintIdentifier = "C92F2E25FD091B982DE50CC325CBDB90"
             BuildableName = "Pods_TatabApp.framework"
             BlueprintName = "Pods-TatabApp"
             ReferencedContainer = "container:Pods.xcodeproj">

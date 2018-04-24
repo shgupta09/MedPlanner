@@ -9,11 +9,14 @@
 #import "NewAwareVC.h"
 #import "MediaPostCell.h"
 #import "OTPVc.h"
+#import "MMDrawerController.h"
 @interface NewAwareVC ()<UITextViewDelegate,UITextFieldDelegate>{
     
     UIView *addSubView;
     UIImageView *imgView;
     SWRevealViewController *revealController;
+    
+    MMDrawerController * drawerController;
     BOOL isOpen;
     UIView *tempView;
     UITapGestureRecognizer *singleFingerTap;
@@ -218,8 +221,11 @@
 {
     self.navigationController.navigationBar.userInteractionEnabled = true;
     if (isOpen){
-        [revealController revealToggle:nil];
-        [tempView removeGestureRecognizer:singleFingerTap];
+        if ([CommonFunction isEnglishSelected]) {
+            [revealController revealToggle:nil];
+        }else{
+            [revealController rightRevealToggle:nil];
+        }        [tempView removeGestureRecognizer:singleFingerTap];
         [tempView removeFromSuperview];
         isOpen = false;
     }else{
@@ -346,16 +352,27 @@
     
     
     if (isOpen) {
-        
-        [revealController revealToggle:nil];
+        if ([CommonFunction isEnglishSelected]) {
+            [revealController revealToggle:nil];
+        }else{
+             [revealController rightRevealToggle:nil];
+        }
+       
         
         [tempView removeGestureRecognizer:singleFingerTap];
         [tempView removeFromSuperview];
         isOpen = false;
+        
+        
+        
     }
     else{
         
-        [revealController revealToggle:nil];
+        if ([CommonFunction isEnglishSelected]) {
+            [revealController revealToggle:nil];
+        }else{
+            [revealController rightRevealToggle:nil];
+        }
         tempView.frame  =CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height);
         //tempView.backgroundColor = [UIColor redColor];
         [tempView addGestureRecognizer:singleFingerTap];

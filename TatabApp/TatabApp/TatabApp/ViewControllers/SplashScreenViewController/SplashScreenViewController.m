@@ -69,17 +69,17 @@
 //        sleep(1);
     [CommonFunction stroeBoolValueForKey:RelationApi withBoolValue:false];
     RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
+     RearViewController *rightViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];
     SWRevealViewController *mainRevealController;
     NewAwareVC *frontViewController = [[NewAwareVC alloc]initWithNibName:@"NewAwareVC" bundle:nil];
         mainRevealController = [[SWRevealViewController alloc]initWithRearViewController:rearViewController frontViewController:frontViewController];
-    mainRevealController.rightViewController = frontViewController;
+    mainRevealController.rightViewController = rightViewController;
     
     mainRevealController.delegate = self;
     mainRevealController.view.backgroundColor = [UIColor clearColor];
     mainRevealController.frontViewShadowRadius = 0;
     mainRevealController.frontViewShadowColor = [UIColor clearColor];
     
-    //            [frontViewController.view addSubview:[CommonFunction setStatusBarColor]];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mainRevealController];
     ((AppDelegate *)[[UIApplication sharedApplication] delegate]).window.rootViewController = nav;
 
