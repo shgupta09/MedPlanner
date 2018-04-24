@@ -78,6 +78,8 @@
 		884FE13F103CA6FC743E4912 /* Pods_TatabAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFA262107F2F85E287B6633 /* Pods_TatabAppTests.framework */; };
 		9C16D1B420316AA000D82769 /* AGPushNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16D1B220316AA000D82769 /* AGPushNoteView.m */; };
 		9C16D1B520316AA000D82769 /* AGPushNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C16D1B320316AA000D82769 /* AGPushNoteView.xib */; };
+		9C31B7AC208D9E410010A062 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C31B7AA208D9E410010A062 /* SettingVC.m */; };
+		9C31B7AD208D9E410010A062 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C31B7AB208D9E410010A062 /* SettingVC.xib */; };
 		9C3A0CA8206A420300B7AC25 /* OTPVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3A0CA6206A420300B7AC25 /* OTPVc.m */; };
 		9C3A0CA9206A420300B7AC25 /* OTPVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3A0CA7206A420300B7AC25 /* OTPVc.xib */; };
 		9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C5ECD1F792725003D84BD /* RegistrationDpendency.m */; };
@@ -181,8 +183,6 @@
 		D8F5A56E1F9202D300E36160 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A56C1F9202D300E36160 /* HomeCell.m */; };
 		D8F5A56F1F9202D300E36160 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F5A56D1F9202D300E36160 /* HomeCell.xib */; };
 		D8F5A5721F920B1C00E36160 /* CustomButton2.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A5711F920B1C00E36160 /* CustomButton2.m */; };
-		D8F94DB4208A5A10006D0197 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F94DB2208A5A10006D0197 /* SettingVC.m */; };
-		D8F94DB5208A5A10006D0197 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F94DB3208A5A10006D0197 /* SettingVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -318,6 +318,9 @@
 		9C16D1B120316AA000D82769 /* AGPushNoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPushNoteView.h; sourceTree = "<group>"; };
 		9C16D1B220316AA000D82769 /* AGPushNoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPushNoteView.m; sourceTree = "<group>"; };
 		9C16D1B320316AA000D82769 /* AGPushNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGPushNoteView.xib; sourceTree = "<group>"; };
+		9C31B7A9208D9E410010A062 /* SettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
+		9C31B7AA208D9E410010A062 /* SettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
+		9C31B7AB208D9E410010A062 /* SettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		9C3A0CA5206A420300B7AC25 /* OTPVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTPVc.h; sourceTree = "<group>"; };
 		9C3A0CA6206A420300B7AC25 /* OTPVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTPVc.m; sourceTree = "<group>"; };
 		9C3A0CA7206A420300B7AC25 /* OTPVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPVc.xib; sourceTree = "<group>"; };
@@ -467,9 +470,6 @@
 		D8F5A56D1F9202D300E36160 /* HomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		D8F5A5701F920B1C00E36160 /* CustomButton2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton2.h; sourceTree = "<group>"; };
 		D8F5A5711F920B1C00E36160 /* CustomButton2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton2.m; sourceTree = "<group>"; };
-		D8F94DB1208A5A10006D0197 /* SettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
-		D8F94DB2208A5A10006D0197 /* SettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
-		D8F94DB3208A5A10006D0197 /* SettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		EC3D829D93651C6DE55E17FC /* Pods-TatabApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TatabApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TatabApp/Pods-TatabApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -948,6 +948,16 @@
 			path = AGPushNote;
 			sourceTree = "<group>";
 		};
+		9C31B7A8208D9E410010A062 /* SettingVC */ = {
+			isa = PBXGroup;
+			children = (
+				9C31B7A9208D9E410010A062 /* SettingVC.h */,
+				9C31B7AA208D9E410010A062 /* SettingVC.m */,
+				9C31B7AB208D9E410010A062 /* SettingVC.xib */,
+			);
+			path = SettingVC;
+			sourceTree = "<group>";
+		};
 		9C3A0CA4206A41EE00B7AC25 /* OTPVerification */ = {
 			isa = PBXGroup;
 			children = (
@@ -1055,7 +1065,7 @@
 		9C6DE7281F8399B500635102 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				D8F94DB0208A5A10006D0197 /* SettingVC */,
+				9C31B7A8208D9E410010A062 /* SettingVC */,
 				9C6DE72E1F83A1FC00635102 /* ReaeCell */,
 				9C6DE7291F8399CD00635102 /* RearViewController.h */,
 				9C6DE72A1F8399CD00635102 /* RearViewController.m */,
@@ -1249,17 +1259,6 @@
 			path = HomeCell;
 			sourceTree = "<group>";
 		};
-		D8F94DB0208A5A10006D0197 /* SettingVC */ = {
-			isa = PBXGroup;
-			children = (
-				D8F94DB1208A5A10006D0197 /* SettingVC.h */,
-				D8F94DB2208A5A10006D0197 /* SettingVC.m */,
-				D8F94DB3208A5A10006D0197 /* SettingVC.xib */,
-			);
-			name = SettingVC;
-			path = "../../../../../../../Abhinav's Project/BackUp2/SettingVC";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1391,7 +1390,7 @@
 				9C840975203ED16700A7C3C7 /* MontserratAlternates-BoldItalic.otf in Resources */,
 				9C840976203ED16700A7C3C7 /* MontserratAlternates-ExtraBold.otf in Resources */,
 				9CD966DD207CD45E00DB3693 /* cities-en.json in Resources */,
-				D8F94DB5208A5A10006D0197 /* SettingVC.xib in Resources */,
+				9C31B7AD208D9E410010A062 /* SettingVC.xib in Resources */,
 				9C840977203ED16700A7C3C7 /* MontserratAlternates-ExtraBoldItalic.otf in Resources */,
 				9C840978203ED16700A7C3C7 /* MontserratAlternates-ExtraLight.otf in Resources */,
 				9C840979203ED16700A7C3C7 /* MontserratAlternates-ExtraLightItalic.otf in Resources */,
@@ -1758,7 +1757,7 @@
 				D86A3738202E2E57009EA562 /* CustomTabBar.m in Sources */,
 				5F70ABDB2029D6FC007E69A5 /* CommentTableViewCell.m in Sources */,
 				9C3A0CA8206A420300B7AC25 /* OTPVc.m in Sources */,
-				D8F94DB4208A5A10006D0197 /* SettingVC.m in Sources */,
+				9C31B7AC208D9E410010A062 /* SettingVC.m in Sources */,
 				5FBBBAE51F72401B00C03813 /* main.m in Sources */,
 				D8EE8B1A1F966FA8006A018E /* CustomAlert.m in Sources */,
 				5FB51C402003E5BE00E4889B /* FeverReportViewController.m in Sources */,
