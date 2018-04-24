@@ -606,7 +606,7 @@ _graphView.legend.enabled = NO;
     }else{
         _graphView.hidden = false;
         _lbl_NoDataa.hidden = true;
-        [CommonFunction addBottomLineIngraph:_graphView];
+//        [CommonFunction addBottomLineIngraph:_graphView];
     }
     LineChartDataSet *d = [[LineChartDataSet alloc] initWithValues:values label:@"fever"];
     d.lineWidth = 3;
