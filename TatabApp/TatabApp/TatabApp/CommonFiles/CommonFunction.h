@@ -30,7 +30,7 @@
 +(BOOL)validateName:(NSString *)name;
 +(BOOL)validatePassport:(NSString *)name;
 + (UIColor *)colorWithHexString:(NSString *)hexCode;
-
++(BOOL)isEnglishSelected;
 
 +(void)storeObjectInDefault:(NSDictionary *)valueDict andKey:(NSString *)keyString;
 +(NSDictionary *)getObjectFromDefaultWithKey:(NSString *)keyString;

@@ -172,10 +172,17 @@
 +(BOOL)validateName:(NSString *)name{
     
     
-    NSString *nameExpression = @"[a-zA-Z. ]{2,18}";
-    NSPredicate *regex = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", nameExpression];
-//    return true;
-    return [regex evaluateWithObject:[self trimString:name]];
+//    NSString *nameExpression = @"[a-zA-Z. ]{2,18}";
+//    NSPredicate *regex = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", nameExpression];
+////    return true;
+//    return [regex evaluateWithObject:[self trimString:name]];
+    
+    if (name.length>2 && name.length<19){
+        return true;
+    }else{
+        return false;
+    }
+    return true;
    }
 +(BOOL)validatePassport:(NSString *)name{
     
@@ -229,6 +236,12 @@
     
 }
 
++(BOOL)isEnglishSelected{
+    if ([[CommonFunction getValueFromDefaultWithKey:Selected_Language] isEqualToString:Selected_Language_English]) {
+        return true;
+    }
+    return false;
+}
 +(BOOL)reachability
 {
     Reachability  *internetReachable = [Reachability reachabilityForInternetConnection:true];

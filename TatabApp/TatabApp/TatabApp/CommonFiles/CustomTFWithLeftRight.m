@@ -34,7 +34,11 @@
         self.backgroundColor = [CommonFunction colorWithHexString:@"#00b1dd"];
         self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
         self.textColor = [UIColor whiteColor];
-        
+        if ([CommonFunction isEnglishSelected]) {
+            self.textAlignment = NSTextAlignmentLeft;
+        }else{
+            self.textAlignment = NSTextAlignmentRight;
+        }
         
     }
     return self;

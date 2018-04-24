@@ -78,7 +78,11 @@
     _lblLikesCount.text = [NSString stringWithFormat:@"%@",_postObj.total_likes];
     _lblCommentCount.text = [NSString stringWithFormat:@"%@",_postObj.total_comments];
     _lblShareCount.text = @"0";
-    
+    if ([CommonFunction isEnglishSelected]) {
+        _lblPostDataContent.textAlignment = NSTextAlignmentLeft;
+    }else{
+        _lblPostDataContent.textAlignment = NSTextAlignmentRight;
+    }
     
     // Do any additional setup after loading the view from its nib.
 }

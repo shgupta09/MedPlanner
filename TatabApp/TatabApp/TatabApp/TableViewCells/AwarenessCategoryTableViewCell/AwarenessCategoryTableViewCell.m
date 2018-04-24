@@ -21,6 +21,11 @@
     self.overlayView.layer.masksToBounds = true;
     self.lblName.adjustsFontSizeToFitWidth = true;
     self.lblName.lineBreakMode = NSLineBreakByClipping;
+    if ([CommonFunction isEnglishSelected]) {
+        self.lblName.textAlignment = NSTextAlignmentLeft;
+    }else{
+        self.lblName.textAlignment = NSTextAlignmentRight;
+    }
     // Initialization code
 }
 

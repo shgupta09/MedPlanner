@@ -28,7 +28,11 @@
          self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
         self.textColor = [UIColor whiteColor];
         self.tintColor = [UIColor whiteColor];
-
+        if ([CommonFunction isEnglishSelected]) {
+            self.textAlignment = NSTextAlignmentLeft;
+        }else{
+            self.textAlignment = NSTextAlignmentRight;
+        }
         
     }
     return self;

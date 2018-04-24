@@ -7,7 +7,6 @@
 //
 
 #import "SettingVC.h"
-
 @interface SettingVC (){
     LoderView *loderObj;
     CustomAlert *alertObj;
@@ -27,8 +26,23 @@
     [super viewWillAppear:animated];
     _lbl_Title.text = [Langauge getTextFromTheKey:@"action_settings"];
     _lbl_Notification.text = [Langauge getTextFromTheKey:@"notification"];
+    alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
+
+    [self setTitleForButton];
+
 }
 
+-(void)setTitleForButton{
+    
+    if ([[CommonFunction getValueFromDefaultWithKey:Selected_Language] isEqualToString:Selected_Language_English]) {
+        [_btn_Language setTitle:@"English" forState:UIControlStateNormal];
+      
+    }else{
+        [_btn_Language setTitle:@"Arabic" forState:UIControlStateNormal];
+        
+    }
+    
+}
 -(void)setSwitchButton{
     
     if ([CommonFunction getBoolValueFromDefaultWithKey:Notification_Related]) {
@@ -37,7 +51,9 @@
         [_mySwitch setOn:false animated:YES];
     }
 }
-
+-(void)viewDidLayoutSubviews{
+    alertObj.frame = self.view.frame;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -46,12 +62,11 @@
     [self hitApiForaddingTheDeviceID];
 }
 - (IBAction)btn_Language:(id)sender {
-    if ([[CommonFunction getValueFromDefaultWithKey:Selected_Language] isEqualToString:Selected_Language_English]) {
-        [CommonFunction storeValueInDefault:Selected_Language_Arebic andKey:Selected_Language];
-    }else{
-         [CommonFunction storeValueInDefault:Selected_Language_English andKey:Selected_Language];
-    }
-    [self viewWillAppear:true];
+    
+    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[Langauge getTextFromTheKey:@"You have to restart the app , if you made the language change"] isTwoButtonNeeded:true firstbuttonTag:105 secondButtonTag:Tag_For_Remove_Alert firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:[Langauge getTextFromTheKey:Cancel_Btn] image:Warning_Key_For_Image];
+    
+    
+    
 }
 
 
@@ -60,8 +75,65 @@
     [self.navigationController popViewControllerAnimated:true];
 }
 
-#pragma mark - Api Related
+-(void)showLanguageOption{
+  
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@""
+                                                                   message:@"Please select your preffered language"
+                                            preferredStyle:UIAlertControllerStyleActionSheet];
+     [alert setModalPresentationStyle:UIModalPresentationPopover];
+    alert.preferredContentSize = CGSizeMake(150, 300);
 
+    UIAlertAction*  englishAction= [UIAlertAction actionWithTitle:@"English" style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction * _Nonnull action) {
+                                                            [CommonFunction storeValueInDefault:Selected_Language_English andKey:Selected_Language];
+                                                            [self viewWillAppear:true];
+                                                            [self killManually];
+
+                                                        }];
+    UIAlertAction* arabicAction = [UIAlertAction actionWithTitle:@"Arabic" style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction * _Nonnull action) {
+                                                              [CommonFunction storeValueInDefault:Selected_Language_Arebic andKey:Selected_Language];
+                                                            [self viewWillAppear:true];
+                                                            [self killManually];
+                                                        }];
+    UIAlertAction* Cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * _Nonnull action) {
+                                                   }];
+    [alert addAction:englishAction];
+    [alert addAction:arabicAction];
+    [alert addAction:Cancel];
+    UIPopoverPresentationController *popPresenter = [alert
+                                                     popoverPresentationController];
+    
+
+   
+    popPresenter.delegate = self;
+    popPresenter.sourceView = _btn_Language;
+    popPresenter.sourceRect = _btn_Language.bounds;
+    popPresenter.sourceRect = CGRectMake(150,300,1,1);
+    popPresenter.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
+-(void)killManually{
+    //home button press programmatically
+    UIApplication *app = [UIApplication sharedApplication];
+    [app performSelector:@selector(suspend)];
+    //wait 2 seconds while app is going background
+    [NSThread sleepForTimeInterval:2.0];
+    //exit app when app is in background
+    NSLog(@"exit(0)");
+    exit(0);
+}
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller
+{
+    return UIModalPresentationNone;
+}
+
+
+#pragma mark - Api Related
 
 -(void)hitApiForaddingTheDeviceID{
     
@@ -159,6 +231,12 @@
         case 101:
         {
             [self removeAlert];
+        }
+            break;
+        case 105:
+        {
+             [self removeAlert];
+            [self showLanguageOption];
         }
             break;
       

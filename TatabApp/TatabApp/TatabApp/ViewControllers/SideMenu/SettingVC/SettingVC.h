@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SettingVC : UIViewController
+#import "CustomButtonWithImage.h"
+@interface SettingVC : UIViewController<UIPopoverPresentationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UISwitch *mySwitch;
 
 
@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Title;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Notification;
 
+@property (weak, nonatomic) IBOutlet CustomButtonWithImage *btn_Language;
 
 @end

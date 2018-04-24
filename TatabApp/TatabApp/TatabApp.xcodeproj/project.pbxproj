@@ -144,6 +144,7 @@
 		9C9607B02073845C00505F9F /* TermVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9607AE2073845C00505F9F /* TermVC.m */; };
 		9C9607B12073845C00505F9F /* TermVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9607AF2073845C00505F9F /* TermVC.xib */; };
 		9CD966DD207CD45E00DB3693 /* cities-en.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CD966DC207CD45E00DB3693 /* cities-en.json */; };
+		9CDE6602208F081700F8251F /* CustomButtonWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDE6601208F081700F8251F /* CustomButtonWithImage.m */; };
 		9CEA820820121B7800F84450 /* CustomButton4.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA820720121B7800F84450 /* CustomButton4.m */; };
 		9CF70E11208743ED00BC7E30 /* Langauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF70E10208743ED00BC7E30 /* Langauge.m */; };
 		9CF70E142087479400BC7E30 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CF70E162087479400BC7E30 /* Localizable.strings */; };
@@ -400,6 +401,8 @@
 		9C9607AE2073845C00505F9F /* TermVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TermVC.m; sourceTree = "<group>"; };
 		9C9607AF2073845C00505F9F /* TermVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermVC.xib; sourceTree = "<group>"; };
 		9CD966DC207CD45E00DB3693 /* cities-en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cities-en.json"; sourceTree = "<group>"; };
+		9CDE6600208F081700F8251F /* CustomButtonWithImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomButtonWithImage.h; sourceTree = "<group>"; };
+		9CDE6601208F081700F8251F /* CustomButtonWithImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomButtonWithImage.m; sourceTree = "<group>"; };
 		9CEA820620121B7800F84450 /* CustomButton4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton4.h; sourceTree = "<group>"; };
 		9CEA820720121B7800F84450 /* CustomButton4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton4.m; sourceTree = "<group>"; };
 		9CF70E0F208743ED00BC7E30 /* Langauge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Langauge.h; sourceTree = "<group>"; };
@@ -842,6 +845,8 @@
 				9C6D8CD52021A2F5004CA1B4 /* CustomTFWithLeftRight.m */,
 				5F40CDB720288280009260D8 /* CustomButtonWithoutBorder.h */,
 				5F40CDB820288280009260D8 /* CustomButtonWithoutBorder.m */,
+				9CDE6600208F081700F8251F /* CustomButtonWithImage.h */,
+				9CDE6601208F081700F8251F /* CustomButtonWithImage.m */,
 			);
 			path = CommonFiles;
 			sourceTree = "<group>";
@@ -1770,6 +1775,7 @@
 				5F9F49BE1FB1D791009E1418 /* XMPPCoreDataHandler.m in Sources */,
 				9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */,
 				5FB773E81FF5185F00982102 /* DoctorListEMRLogVC.m in Sources */,
+				9CDE6602208F081700F8251F /* CustomButtonWithImage.m in Sources */,
 				5FB51C422003E5BE00E4889B /* HealthTrackerContainerVC.m in Sources */,
 				5F70ABE52029DBA7007E69A5 /* CommentClass.m in Sources */,
 				5F02F9FC1FF7B0F500219F4C /* DetailViewController.m in Sources */,

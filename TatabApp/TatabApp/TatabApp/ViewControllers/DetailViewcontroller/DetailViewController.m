@@ -21,13 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _lblHeader.text =_detailType;
+    _lblHeader.text =[Langauge getTextFromTheKey:_detailType];
     
     if ([_detailArray count]>0) {
         _lblDetail.text = [[_detailArray lastObject] valueForKey:@"details"];
     }
     else{
-        _lblDetail.text = @"Oopss..!! No details to display..!!";
+        _lblDetail.text = [Langauge getTextFromTheKey:@"no_data"];
 
     }
     

@@ -12,6 +12,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    if ([CommonFunction isEnglishSelected]) {
+        self.lblComment.textAlignment = NSTextAlignmentLeft;
+    }else{
+        self.lblComment.textAlignment = NSTextAlignmentRight;
+    }
     // Initialization code
 }
 

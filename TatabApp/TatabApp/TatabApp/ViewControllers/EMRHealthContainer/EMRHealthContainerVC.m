@@ -318,16 +318,16 @@
                     DetailViewController* vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
                     switch (switchINt) {
                         case 3:{
-                            vc.detailType = @"Prescription";
+                            vc.detailType = @"prescription";
                             vc.detailArray = prescriptionArray;
                         }
                             break;
                         case 2:{
-                            vc.detailType = @"FollowUP";
+                            vc.detailType = @"follow_up";
                             vc.detailArray = followUPArray;
                         }break;
                         case 1:{
-                            vc.detailType = @"Diagnosis";
+                            vc.detailType = @"diagnosis";
                             vc.detailArray = diagnosysArray;
                         }
                             break;
