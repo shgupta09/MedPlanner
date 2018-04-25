@@ -132,7 +132,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyb-Kk-xOk">
-                            <rect key="frame" x="78" y="130.5" width="100.5" height="21"/>
+                            <rect key="frame" x="78" y="130.5" width="281" height="21"/>
                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -149,7 +149,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9W-89-JOd">
-                            <rect key="frame" x="78" y="158.5" width="100.5" height="21"/>
+                            <rect key="frame" x="78" y="158.5" width="281" height="21"/>
                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -239,9 +239,9 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1a-pB-tPI" customClass="CustomButton3">
-                                    <rect key="frame" x="253" y="59" width="105" height="30"/>
+                                    <rect key="frame" x="238" y="59" width="120" height="30"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="105" id="OBm-ib-1Dp"/>
+                                        <constraint firstAttribute="width" constant="120" id="OBm-ib-1Dp"/>
                                         <constraint firstAttribute="height" constant="30" id="n9a-nb-iq0"/>
                                     </constraints>
                                     <state key="normal" title="Refresh Graph"/>
@@ -401,7 +401,6 @@
                         <constraint firstItem="PFd-Hy-DI1" firstAttribute="trailing" secondItem="x1O-FO-S64" secondAttribute="trailing" id="Kib-e2-LMD"/>
                         <constraint firstItem="cM5-dL-UGB" firstAttribute="centerY" secondItem="yAS-Mu-6YQ" secondAttribute="centerY" id="LdX-hb-cOC"/>
                         <constraint firstItem="hHd-go-P9a" firstAttribute="centerX" secondItem="HXk-k9-ma6" secondAttribute="centerX" id="OIp-4N-2xI"/>
-                        <constraint firstItem="x1O-FO-S64" firstAttribute="trailing" secondItem="Y9W-89-JOd" secondAttribute="trailing" id="RRZ-m4-5TV"/>
                         <constraint firstItem="yAS-Mu-6YQ" firstAttribute="leading" secondItem="MDW-7t-bgg" secondAttribute="leading" id="S4t-UX-3fX"/>
                         <constraint firstAttribute="bottom" secondItem="zlJ-Sa-V14" secondAttribute="bottom" id="Ssr-ae-WuZ"/>
                         <constraint firstItem="zlJ-Sa-V14" firstAttribute="leading" secondItem="rmQ-Pm-ygE" secondAttribute="trailing" constant="-70" id="VHf-KJ-5yO"/>
@@ -418,17 +417,18 @@
                         <constraint firstItem="zlJ-Sa-V14" firstAttribute="leading" secondItem="AXG-hS-TgB" secondAttribute="trailing" constant="-70" id="iNS-r6-1Ih"/>
                         <constraint firstAttribute="trailing" secondItem="r4w-fl-mhy" secondAttribute="trailing" constant="10" id="jD3-Xc-tOq"/>
                         <constraint firstItem="12n-Fj-hU9" firstAttribute="centerX" secondItem="1K8-tB-QE0" secondAttribute="centerX" id="jaX-IZ-Dck"/>
+                        <constraint firstItem="x1O-FO-S64" firstAttribute="trailing" secondItem="c5M-DO-kXu" secondAttribute="trailing" id="juL-2u-Yku"/>
                         <constraint firstItem="1K8-tB-QE0" firstAttribute="top" secondItem="AXG-hS-TgB" secondAttribute="bottom" constant="7" id="k8v-TM-ecp"/>
                         <constraint firstItem="PFd-Hy-DI1" firstAttribute="leading" secondItem="AXG-hS-TgB" secondAttribute="trailing" constant="8" id="lVv-wh-vd3"/>
                         <constraint firstItem="r4w-fl-mhy" firstAttribute="centerY" secondItem="hHd-go-P9a" secondAttribute="centerY" id="llh-lS-ATO"/>
                         <constraint firstItem="Vyb-Kk-xOk" firstAttribute="leading" secondItem="hQg-Ss-N93" secondAttribute="trailing" constant="8" id="oq8-cy-N24"/>
                         <constraint firstItem="zlJ-Sa-V14" firstAttribute="leading" secondItem="hQg-Ss-N93" secondAttribute="trailing" constant="-70" id="oyM-Cg-NSH"/>
-                        <constraint firstItem="Vyb-Kk-xOk" firstAttribute="trailing" secondItem="c5M-DO-kXu" secondAttribute="trailing" id="pTa-ir-JEf"/>
                         <constraint firstItem="Vyb-Kk-xOk" firstAttribute="centerY" secondItem="hQg-Ss-N93" secondAttribute="centerY" id="pb0-d9-gzl"/>
                         <constraint firstAttribute="bottom" secondItem="zlJ-Sa-V14" secondAttribute="bottom" id="saz-bV-3jU"/>
                         <constraint firstItem="x1O-FO-S64" firstAttribute="leading" secondItem="rmQ-Pm-ygE" secondAttribute="trailing" constant="8" id="uPP-gc-80V"/>
                         <constraint firstItem="rmQ-Pm-ygE" firstAttribute="top" secondItem="Re9-fl-CS0" secondAttribute="bottom" constant="8" id="usr-5r-E9g"/>
                         <constraint firstItem="c5M-DO-kXu" firstAttribute="top" secondItem="HXk-k9-ma6" secondAttribute="bottom" constant="16" id="vKn-Id-ah3"/>
+                        <constraint firstItem="Vyb-Kk-xOk" firstAttribute="trailing" secondItem="1Fj-Id-CUb" secondAttribute="trailing" id="vwl-OY-One"/>
                         <constraint firstItem="Y9W-89-JOd" firstAttribute="centerY" secondItem="Re9-fl-CS0" secondAttribute="centerY" id="xbn-Sv-lSV"/>
                         <constraint firstItem="hQg-Ss-N93" firstAttribute="top" secondItem="c5M-DO-kXu" secondAttribute="bottom" constant="8" id="zMk-tf-x1b"/>
                         <constraint firstAttribute="trailing" secondItem="1K8-tB-QE0" secondAttribute="trailing" id="zT8-LK-AVu"/>

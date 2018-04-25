@@ -280,9 +280,9 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kx-Wo-sfS" customClass="CustomButton3">
-                                    <rect key="frame" x="255" y="56" width="105" height="28"/>
+                                    <rect key="frame" x="240" y="56" width="120" height="28"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="105" id="Dzk-eu-2cd"/>
+                                        <constraint firstAttribute="width" constant="120" id="Dzk-eu-2cd"/>
                                         <constraint firstAttribute="height" constant="28" id="XmW-c0-LUz"/>
                                     </constraints>
                                     <state key="normal" title="Refresh Graph"/>

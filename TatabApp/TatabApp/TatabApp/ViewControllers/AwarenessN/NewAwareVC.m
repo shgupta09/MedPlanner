@@ -125,16 +125,9 @@
     loderObj.frame = self.view.frame;
     alertObj.frame = self.view.frame;
     tabBarObj.frame =CGRectMake(0, self.view.frame.size.height-49, self.view.frame.size.width, 49);
-        tabBarObj.btnAwareness.imageEdgeInsets = UIEdgeInsetsMake(9, (tabBarObj.btnAwareness.frame.size.width/2)-10, 20, (tabBarObj.btnAwareness.frame.size.width/2)-10);
-        tabBarObj.btnHealthTracker.imageEdgeInsets = UIEdgeInsetsMake(9, (tabBarObj.btnHealthTracker.frame.size.width/2)-10, 20, (tabBarObj.btnAwareness.frame.size.width/2)-10);
-        tabBarObj.btnMedicalRecord.imageEdgeInsets = UIEdgeInsetsMake(9, (tabBarObj.btnMedicalRecord.frame.size.width/2)-10, 20,(tabBarObj.btnAwareness.frame.size.width/2)-10);
-        [tabBarObj.btnAwareness setContentMode:UIViewContentModeCenter];
-        [tabBarObj.btnMedicalRecord setContentMode:UIViewContentModeCenter];
-        [tabBarObj.btnHealthTracker setContentMode:UIViewContentModeCenter];
     
-    [tabBarObj layoutIfNeeded];
-    [tabBarObj layoutSubviews];
-    [tabBarObj setNeedsLayout];
+    
+    
   
 }
 -(void)receiveNotification:(NSNotification*)notObj{
@@ -1337,15 +1330,18 @@
     [tabBarObj.btnHealthTracker addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];
     [tabBarObj.btnAwareness addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];
     [tabBarObj.btnMedicalRecord addTarget:self action:@selector(btnActionForCustomTab:) forControlEvents:UIControlEventTouchUpInside];
-     [tabBarObj.btnMedicalRecord setTitle:[Langauge getTextFromTheKey:@"Consultation"] forState:UIControlStateNormal];
-     [tabBarObj.btnAwareness setTitle:[Langauge getTextFromTheKey:@"awareness"] forState:UIControlStateNormal];
-     [tabBarObj.btnHealthTracker setTitle:[Langauge getTextFromTheKey:@"emr_tracker"] forState:UIControlStateNormal];
+    
+        tabBarObj.lbl_EMR.text =[Langauge getTextFromTheKey:@"emr_tracker"];
+      tabBarObj.lbl_Consultation.text =[Langauge getTextFromTheKey:@"Consultation"];
+      tabBarObj.lbl_Awareness.text =[Langauge getTextFromTheKey:@"awareness"];
 //    tabBarObj.btnHealthTracker.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
 //    tabBarObj.btnHealthTracker.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
 //     tabBarObj.btnAwareness.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
 //     tabBarObj.btnMedicalRecord.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
 //    tabBarObj.btnMedicalRecord.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    
+    tabBarObj.imgAwareness.image = [UIImage imageNamed:@"tabAwarenessActive"];
+    tabBarObj.lbl_Awareness.textColor =  [CommonFunction colorWithHexString:primary_Color];
+
     [self.view addSubview:tabBarObj];
 }
 -(IBAction)btnActionForCustomTab:(id)sender{
@@ -1384,6 +1380,13 @@
                 [self.navigationController pushViewController:vc animated:true];
             }
             }
+            
+            tabBarObj.imgTracker.image = [UIImage imageNamed:@"tabHelthTrackerActive"];
+            tabBarObj.imgAwareness.image = [UIImage imageNamed:@"tabAwareness"];
+            tabBarObj.img_Cunsultation.image = [UIImage imageNamed:@"tabMedicalRecord"];
+            tabBarObj.lbl_Awareness.textColor = [UIColor lightGrayColor];
+            tabBarObj.lbl_EMR.textColor = [CommonFunction colorWithHexString:primary_Color];
+            tabBarObj.lbl_Consultation.textColor = [UIColor lightGrayColor];
         }
             break;
         case 1:{
@@ -1408,10 +1411,22 @@
                     [self hitApiForStartTheChat:obj];
                 }
             }
+            tabBarObj.imgTracker.image = [UIImage imageNamed:@"tabHelthTracker"];
+            tabBarObj.imgAwareness.image = [UIImage imageNamed:@"tabAwareness"];
+            tabBarObj.img_Cunsultation.image = [UIImage imageNamed:@"tabMedicalRecordActive"];
+            tabBarObj.lbl_Awareness.textColor = [UIColor lightGrayColor];
+            tabBarObj.lbl_EMR.textColor = [UIColor lightGrayColor];
+            tabBarObj.lbl_Consultation.textColor =  [CommonFunction colorWithHexString:primary_Color];
         }
             break;
         case 2:{
             [self.navigationController popToRootViewControllerAnimated:true];
+            tabBarObj.imgTracker.image = [UIImage imageNamed:@"tabHelthTracker"];
+            tabBarObj.imgAwareness.image = [UIImage imageNamed:@"tabAwarenessActive"];
+            tabBarObj.img_Cunsultation.image = [UIImage imageNamed:@"tabMedicalRecord"];
+            tabBarObj.lbl_Awareness.textColor =  [CommonFunction colorWithHexString:primary_Color];
+            tabBarObj.lbl_EMR.textColor = [UIColor lightGrayColor];
+            tabBarObj.lbl_Consultation.textColor = [UIColor lightGrayColor];
                    }
             break;
         default:
