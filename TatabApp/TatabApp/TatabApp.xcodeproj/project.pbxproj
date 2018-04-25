@@ -1325,6 +1325,7 @@
 				TargetAttributes = {
 					5FBBBADF1F72401B00C03813 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = NHLSTQX3K9;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -1939,7 +1940,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NHLSTQX3K9;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
@@ -1951,8 +1952,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.haytham.MedPlanners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6e328f3f-2540-4a5b-9ada-7f7319f64ddf";
+				PROVISIONING_PROFILE_SPECIFIER = Hakeem_Development;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/sandeepnegi/Desktop/Desktop/Shagun/Practice/My Projects/Gracery/MedPlanner/TatabApp/TatabApp/TatabApp/TatabApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1968,7 +1969,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NHLSTQX3K9;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = Tatabapp/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
@@ -1980,8 +1981,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.haytham.MedPlanners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6e328f3f-2540-4a5b-9ada-7f7319f64ddf";
+				PROVISIONING_PROFILE_SPECIFIER = Hakeem_Development;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/sandeepnegi/Desktop/Desktop/Shagun/Practice/My Projects/Gracery/MedPlanner/TatabApp/TatabApp/TatabApp/TatabApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.2;
 				TARGETED_DEVICE_FAMILY = 1;
