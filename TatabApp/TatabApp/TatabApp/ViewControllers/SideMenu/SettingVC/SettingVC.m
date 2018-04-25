@@ -63,7 +63,7 @@
 }
 - (IBAction)btn_Language:(id)sender {
     
-    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[Langauge getTextFromTheKey:@"You have to restart the app , if you made the language change"] isTwoButtonNeeded:true firstbuttonTag:105 secondButtonTag:Tag_For_Remove_Alert firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:[Langauge getTextFromTheKey:Cancel_Btn] image:Warning_Key_For_Image];
+    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[Langauge getTextFromTheKey:@"Language_Change"] isTwoButtonNeeded:true firstbuttonTag:105 secondButtonTag:Tag_For_Remove_Alert firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:[Langauge getTextFromTheKey:Cancel_Btn] image:Warning_Key_For_Image];
     
     
     
@@ -78,7 +78,7 @@
 -(void)showLanguageOption{
   
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@""
-                                                                   message:@"Please select your preffered language"
+                                                                   message:@"Preferred_Language"
                                             preferredStyle:UIAlertControllerStyleActionSheet];
      [alert setModalPresentationStyle:UIModalPresentationPopover];
     alert.preferredContentSize = CGSizeMake(150, 300);
@@ -188,6 +188,10 @@
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
     if (isTwoBUtoonNeeded) {
         alertObj.btn1.hidden = true;
+        alertObj.btn2.hidden = false;
+        alertObj.btn3.hidden = false;
+        alertObj.btn2.hidden = false;
+        alertObj.btn3.hidden = false;
         [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
         alertObj.btn2.tag = firstButtonTag;
@@ -196,8 +200,10 @@
         [alertObj.btn3 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
         
     }else{
-        alertObj.btn2.hidden = true;
+         alertObj.btn2.hidden = true;
         alertObj.btn3.hidden = true;
+        alertObj.btn1.hidden = false;
+        alertObj.btn1.hidden = false;
         alertObj.btn1.tag = firstButtonTag;
         [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn1 addTarget:self

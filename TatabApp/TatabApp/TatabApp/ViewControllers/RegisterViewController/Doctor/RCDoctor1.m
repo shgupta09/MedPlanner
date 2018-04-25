@@ -41,7 +41,7 @@
 
 -(void)setData{
 //    
-//    _txtName.text = @"123456";
+//    _txtName.text = @"dsadasd";
 //    _txtPassword.text = @"Admin@123";
 //    _txtEmail.text = @"123456@yopmail.com";
 //    _txtMobile.text = @"9999708178";
@@ -71,7 +71,7 @@
     [_btnMAle setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
     [_btnFemale setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];
     
-    [_txtName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"First_Name"]];
+    [_txtName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"name"]];
     [_txtEmail setPlaceholderWithColor:[Langauge getTextFromTheKey:@"email"]];
     [_txtMobile setPlaceholderWithColor:[Langauge getTextFromTheKey:@"mobile"]];
     [_txtPassword setPlaceholderWithColor:[Langauge getTextFromTheKey:@"password"]];
@@ -289,7 +289,7 @@
             [validationDict setValue:[Langauge getTextFromTheKey:@"Mobile_required"] forKey:AlertKey];
         }
         else{
-            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Mobile"] forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"mobile_no_is_required"] forKey:AlertKey];
         }
     }
     else if(![CommonFunction validateEmailWithString:_txtEmail.text]){
@@ -298,7 +298,7 @@
             [validationDict setValue:[Langauge getTextFromTheKey:@"email_is_required"] forKey:AlertKey];
         }
         else{
-            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Email"] forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"please_enter_valid_email"] forKey:AlertKey];
         }
     }
     
@@ -332,6 +332,8 @@
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
     if (isTwoBUtoonNeeded) {
         alertObj.btn1.hidden = true;
+        alertObj.btn2.hidden = false;
+        alertObj.btn3.hidden = false;
         [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
         alertObj.btn2.tag = firstButtonTag;
@@ -340,8 +342,9 @@
         [alertObj.btn3 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
         
     }else{
-        alertObj.btn2.hidden = true;
+         alertObj.btn2.hidden = true;
         alertObj.btn3.hidden = true;
+        alertObj.btn1.hidden = false;
         alertObj.btn1.tag = firstButtonTag;
         [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn1 addTarget:self

@@ -75,7 +75,7 @@
                                     </connections>
                                 </switch>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7s-hW-mzb" customClass="CustomButtonWithImage">
-                                    <rect key="frame" x="205" y="78" width="150" height="55"/>
+                                    <rect key="frame" x="205" y="98" width="150" height="55"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="150" id="AIf-UT-O4z"/>
                                     </constraints>
@@ -85,7 +85,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNO-Kb-dnm">
-                                    <rect key="frame" x="30" y="95" width="76" height="21"/>
+                                    <rect key="frame" x="30" y="115" width="76" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.27058823529999998" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -95,7 +95,7 @@
                             <constraints>
                                 <constraint firstItem="Q4u-xB-gb5" firstAttribute="leading" secondItem="Fs3-Dp-3Xn" secondAttribute="trailing" constant="10" id="6oK-OX-IcG"/>
                                 <constraint firstItem="xNO-Kb-dnm" firstAttribute="leading" secondItem="Fs3-Dp-3Xn" secondAttribute="leading" id="7RS-uS-HJL"/>
-                                <constraint firstItem="xNO-Kb-dnm" firstAttribute="top" secondItem="Fs3-Dp-3Xn" secondAttribute="bottom" constant="30" id="Fsi-eN-TP4"/>
+                                <constraint firstItem="xNO-Kb-dnm" firstAttribute="top" secondItem="Fs3-Dp-3Xn" secondAttribute="bottom" constant="50" id="Fsi-eN-TP4"/>
                                 <constraint firstItem="Fs3-Dp-3Xn" firstAttribute="top" secondItem="6nw-h9-hkY" secondAttribute="top" constant="44" id="Ja6-ZI-FbI"/>
                                 <constraint firstAttribute="trailing" secondItem="Q4u-xB-gb5" secondAttribute="trailing" constant="20" id="Kyk-Hw-DUZ"/>
                                 <constraint firstItem="C7s-hW-mzb" firstAttribute="centerY" secondItem="xNO-Kb-dnm" secondAttribute="centerY" id="RtG-P9-38A"/>

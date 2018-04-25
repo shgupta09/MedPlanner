@@ -177,8 +177,11 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaf-mY-jf3">
-                            <rect key="frame" x="78" y="188.5" width="39.5" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaf-mY-jf3">
+                            <rect key="frame" x="78" y="188.5" width="100.5" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="8EN-V7-LaG"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -194,8 +197,11 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5U-Ql-lFA">
-                            <rect key="frame" x="78" y="217.5" width="39.5" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5U-Ql-lFA">
+                            <rect key="frame" x="78" y="217.5" width="100.5" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="c4b-hR-LEb"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -449,6 +455,7 @@
                         <constraint firstItem="9cy-5z-L0M" firstAttribute="leading" secondItem="q8Z-wl-XuP" secondAttribute="leading" id="95b-Ws-j2Q"/>
                         <constraint firstItem="ZPk-Nv-azd" firstAttribute="leading" secondItem="q8Z-wl-XuP" secondAttribute="leading" id="9YX-jr-5hj"/>
                         <constraint firstAttribute="trailing" secondItem="9cy-5z-L0M" secondAttribute="trailing" id="ATY-PH-LE7"/>
+                        <constraint firstItem="iaf-mY-jf3" firstAttribute="trailing" secondItem="TIG-9F-W83" secondAttribute="trailing" id="E2l-ac-f7j"/>
                         <constraint firstItem="d5U-Ql-lFA" firstAttribute="trailing" secondItem="iaf-mY-jf3" secondAttribute="trailing" id="E4c-Ew-oVR"/>
                         <constraint firstItem="iaf-mY-jf3" firstAttribute="leading" secondItem="2qE-yb-Gue" secondAttribute="trailing" constant="8" id="Gwv-MV-qEg"/>
                         <constraint firstAttribute="trailing" secondItem="ZPk-Nv-azd" secondAttribute="trailing" id="IcU-71-g6a"/>

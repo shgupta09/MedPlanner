@@ -1253,6 +1253,8 @@
         alertObj.btn1.hidden = true;
         alertObj.btn2.hidden = false;
         alertObj.btn3.hidden = false;
+        alertObj.btn2.hidden = false;
+        alertObj.btn3.hidden = false;
         [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
         alertObj.btn2.tag = firstButtonTag;
@@ -1262,8 +1264,9 @@
         
     }else{
         alertObj.btn1.hidden = false;
-        alertObj.btn2.hidden = true;
+         alertObj.btn2.hidden = true;
         alertObj.btn3.hidden = true;
+        alertObj.btn1.hidden = false;
         alertObj.btn1.tag = firstButtonTag;
         [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn1 addTarget:self
@@ -1381,12 +1384,12 @@
             }
             }
             
-            tabBarObj.imgTracker.image = [UIImage imageNamed:@"tabHelthTrackerActive"];
-            tabBarObj.imgAwareness.image = [UIImage imageNamed:@"tabAwareness"];
-            tabBarObj.img_Cunsultation.image = [UIImage imageNamed:@"tabMedicalRecord"];
-            tabBarObj.lbl_Awareness.textColor = [UIColor lightGrayColor];
-            tabBarObj.lbl_EMR.textColor = [CommonFunction colorWithHexString:primary_Color];
-            tabBarObj.lbl_Consultation.textColor = [UIColor lightGrayColor];
+//            tabBarObj.imgTracker.image = [UIImage imageNamed:@"tabHelthTrackerActive"];
+//            tabBarObj.imgAwareness.image = [UIImage imageNamed:@"tabAwareness"];
+//            tabBarObj.img_Cunsultation.image = [UIImage imageNamed:@"tabMedicalRecord"];
+//            tabBarObj.lbl_Awareness.textColor = [UIColor lightGrayColor];
+//            tabBarObj.lbl_EMR.textColor = [CommonFunction colorWithHexString:primary_Color];
+//            tabBarObj.lbl_Consultation.textColor = [UIColor lightGrayColor];
         }
             break;
         case 1:{
@@ -1411,12 +1414,12 @@
                     [self hitApiForStartTheChat:obj];
                 }
             }
-            tabBarObj.imgTracker.image = [UIImage imageNamed:@"tabHelthTracker"];
-            tabBarObj.imgAwareness.image = [UIImage imageNamed:@"tabAwareness"];
-            tabBarObj.img_Cunsultation.image = [UIImage imageNamed:@"tabMedicalRecordActive"];
-            tabBarObj.lbl_Awareness.textColor = [UIColor lightGrayColor];
-            tabBarObj.lbl_EMR.textColor = [UIColor lightGrayColor];
-            tabBarObj.lbl_Consultation.textColor =  [CommonFunction colorWithHexString:primary_Color];
+//            tabBarObj.imgTracker.image = [UIImage imageNamed:@"tabHelthTracker"];
+//            tabBarObj.imgAwareness.image = [UIImage imageNamed:@"tabAwareness"];
+//            tabBarObj.img_Cunsultation.image = [UIImage imageNamed:@"tabMedicalRecordActive"];
+//            tabBarObj.lbl_Awareness.textColor = [UIColor lightGrayColor];
+//            tabBarObj.lbl_EMR.textColor = [UIColor lightGrayColor];
+//            tabBarObj.lbl_Consultation.textColor =  [CommonFunction colorWithHexString:primary_Color];
         }
             break;
         case 2:{

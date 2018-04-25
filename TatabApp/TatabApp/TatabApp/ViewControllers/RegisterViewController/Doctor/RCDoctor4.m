@@ -176,28 +176,25 @@
 -(NSDictionary *)validateData{
     NSMutableDictionary *validationDict = [[NSMutableDictionary alloc] init];
     [validationDict setValue:@"1" forKey:BoolValueKey];
-    NSString *iBan = _txt_IBAN.text;
-    iBan =[iBan substringFromIndex:2];
-    NSString *confirmIban = _txt_ConfirmIban.text;
-    confirmIban =[confirmIban substringFromIndex:2];
-    if (![CommonFunction validatePassport:iBan]){
+    
+    if (![CommonFunction validatePassport:_txt_IBAN.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        if ([CommonFunction trimString:iBan].length == 0){
+        if ([CommonFunction trimString:_txt_IBAN.text].length == 0){
             [validationDict setValue:[Langauge getTextFromTheKey:@"Iban_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Iban"]  forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Iban_required"]  forKey:AlertKey];
         }
         
-    }  else  if (![CommonFunction validatePassport:confirmIban]){
+    }  else  if (![CommonFunction validatePassport:_txt_ConfirmIban.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        if ([CommonFunction trimString:confirmIban].length == 0){
+        if ([CommonFunction trimString:_txt_ConfirmIban.text].length == 0){
             [validationDict setValue:[Langauge getTextFromTheKey:@"confirm_Iban_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Confirm_Iban"] forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"confirm_Iban_required"] forKey:AlertKey];
         }
         
     }
-    else  if (![iBan isEqualToString:confirmIban]){
+    else  if (![_txt_ConfirmIban.text isEqualToString:_txt_IBAN.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         [validationDict setValue:[Langauge getTextFromTheKey:@"iban_mismatch"] forKey:AlertKey];
     
@@ -507,6 +504,8 @@
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
     if (isTwoBUtoonNeeded) {
         alertObj.btn1.hidden = true;
+        alertObj.btn2.hidden = false;
+        alertObj.btn3.hidden = false;
         [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
         alertObj.btn2.tag = firstButtonTag;
@@ -515,8 +514,9 @@
         [alertObj.btn3 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
         
     }else{
-        alertObj.btn2.hidden = true;
+         alertObj.btn2.hidden = true;
         alertObj.btn3.hidden = true;
+        alertObj.btn1.hidden = false;
         alertObj.btn1.tag = firstButtonTag;
         [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn1 addTarget:self

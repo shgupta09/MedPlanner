@@ -77,7 +77,7 @@
 "bithdate" = "Birthday";
 "done" = "Done";
 "gender" = "Gender";
-"first_name_required" = "We need a First Name";
+"first_name_required" = "We need a Name";
 "hospital_name_required" = "We need a Hospital Name";
 "working_since_required" = "Working since required";
 "first_name_should_be_more_then_3_character" = "First Name should be 3-20 alphabets only, no special characters";
@@ -90,7 +90,7 @@
 "password_should_be_8_12_characters_with_at_least_1_nummeric" = "Password must contain at least 8-16 characters, including UPPER/LOWERCASE, special symbols and numbers";
 "password_required" = "Incorrect Password. The correct password must have a minimum of 8 characters; with at least One Character in upper case and at least One special character or Number";
 "select_city" = "Select city";
-"please_enter_relationship" = "Please enter relationship";
+"please_enter_relationship" = "Please select relationship";
 "please_enter_date_of_birth" = "Please enter Date of Birth";
 "please_enter_city" = "Please select city";
 "please_add_atleast_one_depandent" = "Please add atleast one dependent";
@@ -140,7 +140,7 @@
 "doc_profile" = "Doctor Profile";
 "error" = "Error";
 "ok" = "Ok";
-"choose_dependent" = "Choose Dependant";
+"choose_dependent" = "Choose Dependent";
 "main_profile" = "Main Profile";
 "post_should_not_be_empty" = "Post should not be empty";
 "date" = "Date";
@@ -263,7 +263,7 @@
 "Rate_Service" = "Rate your service";
 "Rate_Queue" = "Rate your wait in queue";
 "chat_placeholder" = "When i can have next Visit?";
-"dependents" = "Dependants";
+"dependents" = "Dependent";
 "temperature" = "Temperature";
 "Today_Temp" = "Today's Temperature";
 "very_HotTemp" = "Very Hot (ER) \n >39°C";
@@ -274,4 +274,5 @@
 "meal" = "meal";
 "Kg" = "Kg";
 "Cm" = "Cm";
-
+"Language_Change" = "You have to restart the app , if you made the language change";
+"Preferred_Language" = "Please select your preferred language";

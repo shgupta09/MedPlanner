@@ -67,7 +67,6 @@
     
     if ([_postObj.is_liked intValue] >0) {
         [_btnLike setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
-        _btnLike.userInteractionEnabled = false;
 
     }
     else{
@@ -255,10 +254,19 @@
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"postlike"]  postResponse:parameterDict postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
-                    [_btnLike setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
-                    _btnLike.userInteractionEnabled = false;
-                    _lblLikesCount.text = [NSString stringWithFormat:@"%d   ",[_postObj.total_likes integerValue]+1];
-
+                   
+                    if ([_postObj.is_liked intValue] >0) {
+                        _postObj.is_liked = @"0";
+                        [_btnLike setBackgroundImage:[UIImage imageNamed:@"Like"] forState:UIControlStateNormal];
+                        _lblLikesCount.text = [NSString stringWithFormat:@"%d   ",[_postObj.total_likes integerValue]-1];
+                        _postObj.total_likes = [NSString stringWithFormat:@"%d",[_postObj.total_likes integerValue]-1];
+                    }
+                    else{
+                        _postObj.is_liked = @"1";
+                        [_btnLike setBackgroundImage:[UIImage imageNamed:@"Liked"] forState:UIControlStateNormal];
+                        _lblLikesCount.text = [NSString stringWithFormat:@"%d   ",[_postObj.total_likes integerValue]+1];
+                        _postObj.total_likes = [NSString stringWithFormat:@"%d",[_postObj.total_likes integerValue]+1];
+                    }
                     [self removeloder];
                 }
                 else
@@ -310,6 +318,8 @@
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
     if (isTwoBUtoonNeeded) {
         alertObj.btn1.hidden = true;
+        alertObj.btn2.hidden = false;
+        alertObj.btn3.hidden = false;
         [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
         alertObj.btn2.tag = firstButtonTag;
@@ -318,8 +328,9 @@
         [alertObj.btn3 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
         
     }else{
-        alertObj.btn2.hidden = true;
+         alertObj.btn2.hidden = true;
         alertObj.btn3.hidden = true;
+        alertObj.btn1.hidden = false;
         alertObj.btn1.tag = firstButtonTag;
         [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn1 addTarget:self
@@ -376,7 +387,15 @@
     [self.navigationController popViewControllerAnimated:true];
 }
 - (IBAction)likeBtnAction:(id)sender {
-    [self hitAPiTolikeAPost:@"1"];
+    if ([_postObj.is_liked intValue] >0) {
+       [self hitAPiTolikeAPost:@"0"];
+        
+    }
+    else{
+       [self hitAPiTolikeAPost:@"1"];
+        
+    }
+    
 }
 - (IBAction)btnCommentSend:(id)sender {
     if ([_txtFieldComment.text  isEqual: @""]){

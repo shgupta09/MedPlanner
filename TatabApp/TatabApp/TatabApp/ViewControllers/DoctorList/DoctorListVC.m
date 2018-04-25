@@ -93,9 +93,9 @@
     
     if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
         Specialization *obj = [doctorListArray objectAtIndex:indexPath.row];
-        cell.lbl_name.text = [NSString stringWithFormat:@"Dr. %@",obj.first_name];
-        cell.lbl_specialization.text = obj.sub_specialist;
-        cell.lbl_sub_specialization.text = obj.classificationOfDoctor;
+        cell.lbl_name.text = [NSString stringWithFormat:@"Dr. %@",[obj.first_name capitalizedString]];
+        cell.lbl_specialization.text = [obj.classificationOfDoctor uppercaseString];
+        cell.lbl_sub_specialization.text = [obj.sub_specialist uppercaseString];
         //    cell.profileImageView.image = [CommonFunction getImageWithUrlString:obj.photo];
         [cell.profileImageView sd_setImageWithURL:[NSURL URLWithString:obj.photo] placeholderImage:[UIImage imageNamed:@"doctor.png"]];
         
@@ -109,7 +109,7 @@
     else
     {
         ChatPatient *obj = [patientListArray objectAtIndex:indexPath.row];
-        cell.lbl_name.text = [NSString stringWithFormat:@"Mr. %@",obj.name];
+        cell.lbl_name.text = [NSString stringWithFormat:@"Mr. %@",[obj.name capitalizedString]];
         cell.lbl_specialization.text = @"Patient";
         if ([obj.gender  isEqual: @"M"]){
             cell.lbl_sub_specialization.text = @"Male";
@@ -401,6 +401,8 @@
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
     if (isTwoBUtoonNeeded) {
         alertObj.btn1.hidden = true;
+        alertObj.btn2.hidden = false;
+        alertObj.btn3.hidden = false;
         [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
         alertObj.btn2.tag = firstButtonTag;
@@ -409,8 +411,9 @@
         [alertObj.btn3 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
         
     }else{
-        alertObj.btn2.hidden = true;
+         alertObj.btn2.hidden = true;
         alertObj.btn3.hidden = true;
+        alertObj.btn1.hidden = false;
         alertObj.btn1.tag = firstButtonTag;
         [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn1 addTarget:self

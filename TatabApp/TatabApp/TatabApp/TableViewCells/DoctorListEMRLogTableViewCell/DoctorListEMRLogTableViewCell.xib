@@ -110,6 +110,7 @@
                         </connections>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="O62-dz-5qo" firstAttribute="leading" secondItem="v7m-0c-oRA" secondAttribute="trailing" constant="5" id="1i7-74-OoQ"/>
                     <constraint firstItem="dXJ-oV-RHW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3lJ-vp-45f"/>

@@ -108,8 +108,8 @@
     [_txt_Relationship setPlaceholderWithColor:[Langauge getTextFromTheKey:@"relationship"]];
     [_txtBirthday setPlaceholderWithColor:[Langauge getTextFromTheKey:@"bithdate"]];
     [_txtCity setPlaceholderWithColor:[Langauge getTextFromTheKey:@"city"]];
-    [_txt_BirthDate setPlaceholderWithColor:[Langauge getTextFromTheKey:@"sms_verification_number"]];
-    [_txtName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"sms_verification_number"]];
+    [_txt_BirthDate setPlaceholderWithColor:[Langauge getTextFromTheKey:@"bithdate"]];
+    [_txtName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"name"]];
 
     
 }
@@ -576,7 +576,7 @@ numberOfRowsInComponent:(NSInteger)component{
         
     }else if ([_txt_Relationship.text isEqualToString:@""]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        if ([CommonFunction trimString:_txtName.text].length == 0){
+        if ([CommonFunction trimString:_txt_Relationship.text].length == 0){
             [validationDict setValue:[Langauge getTextFromTheKey:@"please_enter_relationship"] forKey:AlertKey];
         }
     }
@@ -781,6 +781,8 @@ numberOfRowsInComponent:(NSInteger)component{
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
     if (isTwoBUtoonNeeded) {
         alertObj.btn1.hidden = true;
+        alertObj.btn2.hidden = false;
+        alertObj.btn3.hidden = false;
         [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
         alertObj.btn2.tag = firstButtonTag;
@@ -791,6 +793,8 @@ numberOfRowsInComponent:(NSInteger)component{
     }else{
         alertObj.btn2.hidden = true;
         alertObj.btn3.hidden = true;
+        alertObj.btn1.hidden = false;
+
         alertObj.btn1.tag = firstButtonTag;
         [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn1 addTarget:self

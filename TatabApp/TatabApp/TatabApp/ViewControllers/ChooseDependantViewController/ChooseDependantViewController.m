@@ -83,10 +83,10 @@
 -(void)setLanguageData{
     if ( _isManageDependants) {
         [CommonFunction setResignTapGestureToView:self.view andsender:self];
-       _lbl_title.text = [Langauge getTextFromTheKey:@"choose_dependent"];
+       _lbl_title.text = [Langauge getTextFromTheKey:@"dependents"];
     }
     else{
-         _lbl_title.text = [Langauge getTextFromTheKey:@"dependents"];
+         _lbl_title.text = [Langauge getTextFromTheKey:@"choose_dependent"];
         _btnAdd.hidden = true;
     }
     
@@ -154,7 +154,7 @@
 -(void)btnClicked:(id)sender{
      
     IdTORemove = ((RegistrationDpendency *)[dependantListArray objectAtIndex:((UIButton *)sender).tag]).depedant_id;
-    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[Langauge getTextFromTheKey:@"delete_sure"] isTwoButtonNeeded:true firstbuttonTag:105 secondButtonTag:Tag_For_Remove_Alert firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:[Langauge getTextFromTheKey:Cancel_Btn] image:Warning_Key_For_Image];
+    [self addAlertWithTitle:[Langauge getTextFromTheKey:@"delete"] andMessage:[Langauge getTextFromTheKey:@"delete_sure"] isTwoButtonNeeded:true firstbuttonTag:105 secondButtonTag:Tag_For_Remove_Alert firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:[Langauge getTextFromTheKey:Cancel_Btn] image:Warning_Key_For_Image];
     
 
 }
@@ -557,20 +557,20 @@
     if (![CommonFunction validateName:_txtName.text]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txtName.text].length == 0){
-            [validationDict setValue:@"We need a First Name" forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"first_name_required"] forKey:AlertKey];
         }else{
             [validationDict setValue:@"Oops! It seems that this is not a valid First Name." forKey:AlertKey];
         }
         
     }else if ([_txt_Relationship.text isEqualToString:@""]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        if ([CommonFunction trimString:_txtName.text].length == 0){
-            [validationDict setValue:@"We need a Relationship" forKey:AlertKey];
+        if ([CommonFunction trimString:_txt_Relationship.text].length == 0){
+            [validationDict setValue:[Langauge getTextFromTheKey:@"please_enter_relationship"] forKey:AlertKey];
         }
     }
     else if(_txt_BirthDate.text.length == 0){
         [validationDict setValue:@"0" forKey:BoolValueKey];
-        [validationDict setValue:@"We need a Birth date" forKey:AlertKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"please_enter_date_of_birth"] forKey:AlertKey];
     }
     return validationDict.mutableCopy;
     
@@ -641,6 +641,8 @@ numberOfRowsInComponent:(NSInteger)component{
     alertObj.iconImage.image = [UIImage imageNamed:imageName];
     if (isTwoBUtoonNeeded) {
         alertObj.btn1.hidden = true;
+        alertObj.btn2.hidden = false;
+        alertObj.btn3.hidden = false;
         [alertObj.btn2 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn3 setTitle:secondButtonTitle forState:UIControlStateNormal];
         alertObj.btn2.tag = firstButtonTag;
@@ -649,8 +651,9 @@ numberOfRowsInComponent:(NSInteger)component{
         [alertObj.btn3 addTarget:self action:@selector(btnActionForCustomAlert:) forControlEvents:UIControlEventTouchUpInside];
         
     }else{
-        alertObj.btn2.hidden = true;
+         alertObj.btn2.hidden = true;
         alertObj.btn3.hidden = true;
+        alertObj.btn1.hidden = false;
         alertObj.btn1.tag = firstButtonTag;
         [alertObj.btn1 setTitle:firstButtonTitle forState:UIControlStateNormal];
         [alertObj.btn1 addTarget:self
