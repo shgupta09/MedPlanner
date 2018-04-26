@@ -35,6 +35,7 @@
     CustomAlert *alertObj;
     CustomTabBar *tabBarObj;
     NSString *strToSearch;
+    NSString *strToSearchEnglish;
     
 }
 @end
@@ -45,6 +46,7 @@
     [super viewDidLoad];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
     strToSearch = @"";
+    strToSearchEnglish = @"";
     _searchOptionBtnAction.tintColor = [UIColor whiteColor];
     tempView = [UIView new];
     UIImage * image = [UIImage imageNamed:@"Icon---Search"];
@@ -218,7 +220,8 @@
             [revealController revealToggle:nil];
         }else{
             [revealController rightRevealToggle:nil];
-        }        [tempView removeGestureRecognizer:singleFingerTap];
+        }
+        [tempView removeGestureRecognizer:singleFingerTap];
         [tempView removeFromSuperview];
         isOpen = false;
     }else{
@@ -552,6 +555,11 @@
 #pragma mark-BtnAction
 - (IBAction)btnAction_Search:(id)sender {
     _txt_Search.text = strToSearch ;
+    [_btn1 setTitle:[Langauge getTextFromTheKey:@"obgyne"] forState:UIControlStateNormal];
+    [_btn2 setTitle:[Langauge getTextFromTheKey:@"pediatrics"] forState:UIControlStateNormal];
+    [_btn3 setTitle:[Langauge getTextFromTheKey:@"abdominal"] forState:UIControlStateNormal];
+    [_btn4 setTitle:[Langauge getTextFromTheKey:@"psychological"] forState:UIControlStateNormal];
+    [_btn5 setTitle:[Langauge getTextFromTheKey:@"family_and_community"] forState:UIControlStateNormal];
     [self addPopupview2];
     
     
@@ -567,34 +575,40 @@
     [_btn3.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
     [_btn4.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
     [_btn5.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
-
+    
+    
     
     switch (((UIButton *)sender).tag) {
         case 0:
-            _txt_Search.text = @"obgyne";
+            _txt_Search.text = [Langauge getTextFromTheKey:@"obgyne"];
+            strToSearchEnglish = @"obgyne";
              [_btn1 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
             [_btn1.titleLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
             break;
         case 1:
-            _txt_Search.text = @"pediatric";
+            _txt_Search.text = [Langauge getTextFromTheKey:@"pediatrics"];
+            strToSearchEnglish = @"pediatric";
              [_btn2 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
             [_btn2.titleLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
 
             break;
         case 2:
-            _txt_Search.text = @"abodminal";
+            _txt_Search.text = [Langauge getTextFromTheKey:@"abdominal"];
+            strToSearchEnglish = @"abodminal";
              [_btn3 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
             [_btn3.titleLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
 
             break;
         case 3:
-            _txt_Search.text = @"psycological";
+            _txt_Search.text = [Langauge getTextFromTheKey:@"psychological"];
+            strToSearchEnglish = @"psycological";
            [_btn4 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
             [_btn4.titleLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
 
             break;
         case 4:
-            _txt_Search.text = @"Family and Community";
+            _txt_Search.text =[Langauge getTextFromTheKey:@"family_and_community"];
+            strToSearchEnglish = @"Family and Community";
              [_btn5 setTitleColor:[CommonFunction colorWithHexString:primary_Color] forState:UIControlStateNormal];
             [_btn5.titleLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
 
@@ -648,7 +662,7 @@
     sortedArray = [NSMutableArray new];
     [unsortedArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
        PostData *tempObj = (PostData *)obj;
-        if ([[tempObj.clinicName lowercaseString] containsString:[strToSearch lowercaseString]]) {
+        if ([[tempObj.clinicName lowercaseString] containsString:[strToSearchEnglish lowercaseString]]) {
             [sortedArray addObject:obj];
         }
     }];
@@ -657,7 +671,7 @@
     [CommonFunction removeAnimationFromView:_popUpView2];
     _btnClearSearch.hidden = false;
     _lbl_SearchedText.hidden = false;
-    _lbl_SearchedText.text = [NSString stringWithFormat:@"search phrase: %@",[strToSearch capitalizedString]];
+    _lbl_SearchedText.text = [NSString stringWithFormat:@"%@: %@",[Langauge getTextFromTheKey:@"search_phrase"],[strToSearch capitalizedString]];
     _tbl_Constraint.constant = 40;
 }
 - (IBAction)btnAction_CalearSearch:(id)sender {

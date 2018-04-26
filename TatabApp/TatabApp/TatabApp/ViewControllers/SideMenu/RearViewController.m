@@ -131,7 +131,11 @@
     return rearCell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [revealController revealToggle:nil];
+    if ([CommonFunction isEnglishSelected]) {
+        [revealController revealToggle:nil];
+    }else{
+        [revealController rightRevealToggle:nil];
+    }
    if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
 //    if (indexPath.row<categoryArray.count){
 //        
