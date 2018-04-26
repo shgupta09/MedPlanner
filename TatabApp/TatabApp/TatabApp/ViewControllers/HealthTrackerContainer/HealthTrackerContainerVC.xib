@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -211,44 +210,41 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ggj-LH-xAe">
-                            <rect key="frame" x="0.0" y="281" width="375" height="386"/>
+                            <rect key="frame" x="0.0" y="306" width="375" height="361"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uCE-q6-UDI">
-                                    <rect key="frame" x="20" y="188" width="335" height="10"/>
+                                    <rect key="frame" x="20" y="175.5" width="335" height="10"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="9qh-R1-Wgn"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xx-u2-pjt">
-                                    <rect key="frame" x="178" y="41" width="18" height="139"/>
+                                    <rect key="frame" x="178" y="41" width="18" height="126.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="18" id="FiH-OD-hk5"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spH-nz-9cr">
-                                    <rect key="frame" x="178" y="206" width="18" height="172"/>
+                                    <rect key="frame" x="178" y="193.5" width="18" height="159.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="18" id="EmJ-J2-OUn"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1E3-o4-E2w">
-                                    <rect key="frame" x="8" y="10" width="162" height="170"/>
+                                    <rect key="frame" x="8" y="10" width="162" height="157.5"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wJ-QH-kKM">
-                                            <rect key="frame" x="41" y="45" width="81" height="81"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="5wJ-QH-kKM" secondAttribute="height" multiplier="1:1" id="k50-Tc-b4z"/>
-                                            </constraints>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wJ-QH-kKM">
+                                            <rect key="frame" x="16.5" y="24.5" width="130" height="110"/>
                                             <state key="normal" image="001-scale"/>
                                             <connections>
                                                 <action selector="btnWeightClicked:" destination="-1" eventType="touchUpInside" id="aHD-qE-rtR"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight Report" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxc-37-wjn">
-                                            <rect key="frame" x="28" y="134" width="107" height="18"/>
+                                            <rect key="frame" x="28" y="142.5" width="107" height="18"/>
                                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -257,27 +253,25 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="yxc-37-wjn" firstAttribute="centerX" secondItem="5wJ-QH-kKM" secondAttribute="centerX" id="33r-i1-Scm"/>
-                                        <constraint firstItem="5wJ-QH-kKM" firstAttribute="width" secondItem="1E3-o4-E2w" secondAttribute="width" multiplier="0.5" id="7jL-LJ-Psq"/>
+                                        <constraint firstItem="5wJ-QH-kKM" firstAttribute="width" secondItem="1E3-o4-E2w" secondAttribute="width" multiplier="0.8:1" id="D6i-LH-EA7"/>
                                         <constraint firstItem="5wJ-QH-kKM" firstAttribute="centerY" secondItem="1E3-o4-E2w" secondAttribute="centerY" id="Hk1-Su-Qdr"/>
                                         <constraint firstItem="yxc-37-wjn" firstAttribute="top" secondItem="5wJ-QH-kKM" secondAttribute="bottom" constant="8" id="czY-iq-Foq"/>
+                                        <constraint firstItem="5wJ-QH-kKM" firstAttribute="height" secondItem="1E3-o4-E2w" secondAttribute="height" multiplier="0.7:1" id="gzN-To-B6V"/>
                                         <constraint firstItem="5wJ-QH-kKM" firstAttribute="centerX" secondItem="1E3-o4-E2w" secondAttribute="centerX" id="v04-gm-UDA"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qtd-pw-KIi">
-                                    <rect key="frame" x="204" y="10" width="162" height="170"/>
+                                    <rect key="frame" x="204" y="10" width="162" height="157.5"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yR2-xW-EeX">
-                                            <rect key="frame" x="41" y="45" width="81" height="81"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="yR2-xW-EeX" secondAttribute="height" multiplier="1:1" id="8jZ-Kv-gaZ"/>
-                                            </constraints>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yR2-xW-EeX">
+                                            <rect key="frame" x="16.5" y="24" width="130" height="110"/>
                                             <state key="normal" image="thermometer"/>
                                             <connections>
                                                 <action selector="btnFeverClicked:" destination="-1" eventType="touchUpInside" id="i4L-yG-1AZ"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fever Report" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="us4-Fs-RG2">
-                                            <rect key="frame" x="0.0" y="133" width="162" height="18"/>
+                                            <rect key="frame" x="0.0" y="141" width="162" height="18"/>
                                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -286,29 +280,27 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="yR2-xW-EeX" firstAttribute="centerY" secondItem="Qtd-pw-KIi" secondAttribute="centerY" id="0eU-Vp-YdC"/>
-                                        <constraint firstItem="yR2-xW-EeX" firstAttribute="width" secondItem="Qtd-pw-KIi" secondAttribute="width" multiplier="0.5" id="Aoa-nV-1Ya"/>
                                         <constraint firstItem="us4-Fs-RG2" firstAttribute="leading" secondItem="Qtd-pw-KIi" secondAttribute="leading" id="H7C-Pu-2sz"/>
+                                        <constraint firstItem="yR2-xW-EeX" firstAttribute="height" secondItem="Qtd-pw-KIi" secondAttribute="height" multiplier="0.7:1" id="Rdl-Kd-vO7"/>
                                         <constraint firstItem="us4-Fs-RG2" firstAttribute="centerX" secondItem="yR2-xW-EeX" secondAttribute="centerX" id="Wjn-3b-kjQ"/>
                                         <constraint firstItem="us4-Fs-RG2" firstAttribute="top" secondItem="yR2-xW-EeX" secondAttribute="bottom" constant="7" id="bGD-vn-mFU"/>
                                         <constraint firstAttribute="trailing" secondItem="us4-Fs-RG2" secondAttribute="trailing" id="eyy-Nh-AcC"/>
+                                        <constraint firstItem="yR2-xW-EeX" firstAttribute="width" secondItem="Qtd-pw-KIi" secondAttribute="width" multiplier="0.8:1" id="iAs-dy-fEt"/>
                                         <constraint firstItem="yR2-xW-EeX" firstAttribute="centerX" secondItem="Qtd-pw-KIi" secondAttribute="centerX" id="sxS-x9-U9t"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCS-4z-F5Q">
-                                    <rect key="frame" x="204" y="207" width="162" height="159"/>
+                                    <rect key="frame" x="204" y="194.5" width="162" height="146.5"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wde-IL-ITL">
-                                            <rect key="frame" x="40" y="39" width="81" height="81"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="wde-IL-ITL" secondAttribute="height" multiplier="1:1" id="miP-qc-AKJ"/>
-                                            </constraints>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wde-IL-ITL">
+                                            <rect key="frame" x="15.5" y="22" width="130" height="103"/>
                                             <state key="normal" image="002-sugar-blood-level"/>
                                             <connections>
                                                 <action selector="btnBloodSugar:" destination="-1" eventType="touchUpInside" id="tzq-pw-Ljm"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Blood Sugar Report" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sD-0v-K0j">
-                                            <rect key="frame" x="0.0" y="128" width="162" height="18"/>
+                                            <rect key="frame" x="0.0" y="133" width="162" height="18"/>
                                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -319,27 +311,25 @@
                                         <constraint firstAttribute="trailing" secondItem="8sD-0v-K0j" secondAttribute="trailing" id="4lC-Eu-6Wb"/>
                                         <constraint firstItem="wde-IL-ITL" firstAttribute="centerX" secondItem="gCS-4z-F5Q" secondAttribute="centerX" id="5df-yF-HIb"/>
                                         <constraint firstItem="8sD-0v-K0j" firstAttribute="leading" secondItem="gCS-4z-F5Q" secondAttribute="leading" id="76W-TA-3bf"/>
-                                        <constraint firstItem="wde-IL-ITL" firstAttribute="width" secondItem="gCS-4z-F5Q" secondAttribute="width" multiplier="0.5" id="CMM-2Y-8mn"/>
                                         <constraint firstItem="8sD-0v-K0j" firstAttribute="top" secondItem="wde-IL-ITL" secondAttribute="bottom" constant="8" id="M5D-vD-bJu"/>
                                         <constraint firstItem="wde-IL-ITL" firstAttribute="centerY" secondItem="gCS-4z-F5Q" secondAttribute="centerY" id="VhY-bA-KE9"/>
+                                        <constraint firstItem="wde-IL-ITL" firstAttribute="width" secondItem="gCS-4z-F5Q" secondAttribute="width" multiplier="0.8:1" id="aXf-DZ-JEA"/>
+                                        <constraint firstItem="wde-IL-ITL" firstAttribute="height" secondItem="gCS-4z-F5Q" secondAttribute="height" multiplier="0.7:1" id="rqx-w5-eid"/>
                                         <constraint firstItem="8sD-0v-K0j" firstAttribute="centerX" secondItem="wde-IL-ITL" secondAttribute="centerX" id="vSQ-Tj-R5S"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dps-0d-7CL">
-                                    <rect key="frame" x="8" y="207" width="162" height="159"/>
+                                    <rect key="frame" x="8" y="194.5" width="162" height="146.5"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFg-J8-ue5">
-                                            <rect key="frame" x="41" y="39" width="81" height="81"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="zFg-J8-ue5" secondAttribute="height" multiplier="1:1" id="M9x-bh-Wih"/>
-                                            </constraints>
+                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFg-J8-ue5">
+                                            <rect key="frame" x="16.5" y="22.5" width="130" height="103"/>
                                             <state key="normal" image="blood-pressure"/>
                                             <connections>
                                                 <action selector="btnBloodPressureClicked:" destination="-1" eventType="touchUpInside" id="DHS-oJ-dhC"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Blood Pressure Report" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggj-Ll-gzB">
-                                            <rect key="frame" x="0.0" y="122" width="162" height="34.5"/>
+                                            <rect key="frame" x="0.0" y="127.5" width="162" height="34.5"/>
                                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -348,8 +338,9 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="Ggj-Ll-gzB" firstAttribute="top" secondItem="zFg-J8-ue5" secondAttribute="bottom" constant="2" id="34a-Lj-a95"/>
+                                        <constraint firstItem="zFg-J8-ue5" firstAttribute="width" secondItem="dps-0d-7CL" secondAttribute="width" multiplier="0.8:1" id="4fJ-a0-NdW"/>
                                         <constraint firstAttribute="trailing" secondItem="Ggj-Ll-gzB" secondAttribute="trailing" id="8hw-v9-FNc"/>
-                                        <constraint firstItem="zFg-J8-ue5" firstAttribute="width" secondItem="dps-0d-7CL" secondAttribute="width" multiplier="0.5" id="MIe-mL-Cdc"/>
+                                        <constraint firstItem="zFg-J8-ue5" firstAttribute="height" secondItem="dps-0d-7CL" secondAttribute="height" multiplier="0.7:1" id="Vrd-Ba-8Bp"/>
                                         <constraint firstItem="Ggj-Ll-gzB" firstAttribute="centerX" secondItem="zFg-J8-ue5" secondAttribute="centerX" id="W07-fa-jYA"/>
                                         <constraint firstItem="zFg-J8-ue5" firstAttribute="centerY" secondItem="dps-0d-7CL" secondAttribute="centerY" id="WlU-7H-OA8"/>
                                         <constraint firstItem="zFg-J8-ue5" firstAttribute="centerX" secondItem="dps-0d-7CL" secondAttribute="centerX" id="iSy-yH-wOG"/>
@@ -405,7 +396,10 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEALTH TRACKER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksE-3g-Gwh">
-                            <rect key="frame" x="93" y="246" width="190" height="25"/>
+                            <rect key="frame" x="93" y="256" width="190" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="HQn-TA-ShP"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                             <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -417,7 +411,7 @@
                         <constraint firstItem="MQU-x2-Cfa" firstAttribute="leading" secondItem="pNE-1Z-oDf" secondAttribute="trailing" constant="8" id="0A9-Gd-ptI"/>
                         <constraint firstItem="GdK-SQ-A0u" firstAttribute="leading" secondItem="QeT-CT-1pr" secondAttribute="trailing" constant="8" id="0EQ-kG-tvd"/>
                         <constraint firstItem="MQU-x2-Cfa" firstAttribute="trailing" secondItem="Z5a-nG-1Tv" secondAttribute="trailing" id="0Oh-Td-Gyn"/>
-                        <constraint firstItem="Ggj-LH-xAe" firstAttribute="top" secondItem="ksE-3g-Gwh" secondAttribute="bottom" constant="10" id="2WS-QW-1FG"/>
+                        <constraint firstItem="Ggj-LH-xAe" firstAttribute="top" secondItem="ksE-3g-Gwh" secondAttribute="bottom" constant="20" id="2WS-QW-1FG"/>
                         <constraint firstAttribute="bottom" secondItem="oek-xq-ZWm" secondAttribute="bottom" id="2nL-Ym-knt"/>
                         <constraint firstItem="Lal-3r-Gef" firstAttribute="leading" secondItem="3DO-tn-FGb" secondAttribute="trailing" constant="8" id="49T-s5-q6x"/>
                         <constraint firstItem="Z5a-nG-1Tv" firstAttribute="leading" secondItem="rvj-kN-0yU" secondAttribute="leading" constant="16" id="5FB-vk-EYx"/>
@@ -462,7 +456,7 @@
                         <constraint firstItem="Iux-1B-wub" firstAttribute="top" secondItem="mRq-af-dVj" secondAttribute="bottom" constant="10" id="nFf-jd-4Fb"/>
                         <constraint firstItem="Z5a-nG-1Tv" firstAttribute="top" secondItem="Iux-1B-wub" secondAttribute="bottom" constant="16" id="nTX-Bf-kr5"/>
                         <constraint firstItem="om1-pf-20e" firstAttribute="leading" secondItem="hYe-JO-xri" secondAttribute="trailing" constant="8" id="nyB-QU-lps"/>
-                        <constraint firstItem="ksE-3g-Gwh" firstAttribute="top" secondItem="hYe-JO-xri" secondAttribute="bottom" constant="10" id="o7w-Sl-DG8"/>
+                        <constraint firstItem="ksE-3g-Gwh" firstAttribute="top" secondItem="hYe-JO-xri" secondAttribute="bottom" constant="20" id="o7w-Sl-DG8"/>
                         <constraint firstItem="MQU-x2-Cfa" firstAttribute="centerY" secondItem="pNE-1Z-oDf" secondAttribute="centerY" id="qBz-wO-YMr"/>
                         <constraint firstAttribute="trailing" secondItem="h4f-It-x6Y" secondAttribute="trailing" id="spP-fd-C6e"/>
                         <constraint firstItem="mRq-af-dVj" firstAttribute="top" secondItem="rvj-kN-0yU" secondAttribute="top" constant="30" id="t6J-I7-wbS"/>
@@ -478,7 +472,7 @@
                 <constraint firstAttribute="bottom" secondItem="rvj-kN-0yU" secondAttribute="bottom" id="nvG-g6-3Rr"/>
                 <constraint firstAttribute="trailing" secondItem="rvj-kN-0yU" secondAttribute="trailing" id="pP7-0Q-Xd4"/>
             </constraints>
-            <point key="canvasLocation" x="-814" y="-204"/>
+            <point key="canvasLocation" x="-814.5" y="-204.5"/>
         </view>
         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEALTH TRACKER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0OE-iC-DS4">
             <rect key="frame" x="0.0" y="0.0" width="190" height="24.5"/>

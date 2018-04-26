@@ -137,21 +137,21 @@
     [tempView removeFromSuperview];
     isOpen = false;
     if ([notObj.name isEqualToString:@"LogoutNotification"]) {
-        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[Langauge getTextFromTheKey:@"logout_success"] isTwoButtonNeeded:false firstbuttonTag:103 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[Langauge getTextFromTheKey:@"logout_success"] isTwoButtonNeeded:false firstbuttonTag:103 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Alert_Key_For_Image];
         
         [CommonFunction stroeBoolValueForKey:NOTIFICATION_BOOl withBoolValue:false];
         [CommonFunction storeValueInDefault:@"0" andKey:NOTIFICATION_DOCTOR_ID];
         [CommonFunction storeValueInDefault:@"0" andKey:NOTIFICATION_PATIENT_ID];
         [self hitApiForaddingTheDeviceID];
     }else if([notObj.name isEqualToString:@"LogOutTapped"]){
-     [self addAlertWithTitle:[Langauge getTextFromTheKey:@"logout"] andMessage:[Langauge getTextFromTheKey:@"logout_sure"]   isTwoButtonNeeded:true firstbuttonTag:101 secondButtonTag:104 firstbuttonTitle:[Langauge getTextFromTheKey:@"ok"] secondButtonTitle:[Langauge getTextFromTheKey:@"cancel"] image:Warning_Key_For_Image];
+     [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:[Langauge getTextFromTheKey:@"logout_sure"]   isTwoButtonNeeded:true firstbuttonTag:101 secondButtonTag:104 firstbuttonTitle:[Langauge getTextFromTheKey:@"ok"] secondButtonTitle:[Langauge getTextFromTheKey:@"cancel"] image:Warning_Key_For_Image];
     }else if([notObj.name isEqualToString:@"NONE TO CHAT"]){
-    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"No patient present in the queue." isTwoButtonNeeded:false firstbuttonTag:103 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+    [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:@"No patient present in the queue." isTwoButtonNeeded:false firstbuttonTag:103 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }else if ([notObj.name isEqualToString:@"UpdateCountLAbel"]){
         
         
     }else if([notObj.name isEqualToString:@"None Queue"]){
-          [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"Queue is empty." isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+          [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:@"Queue is empty." isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }else if([notObj.name isEqualToString:@"Queue Tapped"]){
         [self disapper];
     }
@@ -325,7 +325,7 @@
     
         _LBLCHARACTERCOUNT.textColor = [UIColor whiteColor];
     }else if(textView.text.length + text.length > 500 && ![text isEqualToString: @""]){
-         [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"The content length is more than 500 characters. Content length should be 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+         [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:@"The content length is more than 500 characters. Content length should be 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
         return false;
     }
     else{
@@ -643,9 +643,9 @@
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
         */
-         [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"Please enter some text" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+         [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:@"Please enter some text" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }else if(_txt_txtView.text.length >250){
-           [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"The content length is more than 250 characters. Content length should be 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+           [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:@"The content length is more than 250 characters. Content length should be 250 characters." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }else{
         
         [self uploadPost];
@@ -934,7 +934,7 @@
                     [self.navigationController pushViewController:vc animated:true];
                     
                 }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK003"]){
-                     [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"Queue is empty" isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+                     [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:@"Queue is empty" isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
                 }
                 
                 else
@@ -950,7 +950,7 @@
         }];
     } else {
         [self removeloder];
-        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
     }
 }
 
@@ -1077,7 +1077,7 @@
             }
         }];
     } else {
-        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
     }
     
 }
@@ -1098,7 +1098,7 @@
                 }
                 else
                 {
-                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -1109,13 +1109,13 @@
             
             else {
                 [self removeloder];
-            [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+            [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
             }
             
             
         }];
     } else {
-        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
     }
     
     
@@ -1170,7 +1170,7 @@
                 }
                 else
                 {
-                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -1181,13 +1181,13 @@
             
             else {
                 [self removeloder];
-           [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+           [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
             }
             
             
         }];
     } else {
-        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
     }
     
     
@@ -1219,7 +1219,7 @@
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                   
                     
-                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Alert_Key_For_Image];
                     [CommonFunction removeAnimationFromView:_popUpView];
                     _txt_txtView.text = @"";
                    
@@ -1232,7 +1232,7 @@
                 }
                 else
                 {
-                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
                     [self removeloder];
                     [self removeloder];
                 }
@@ -1243,13 +1243,13 @@
             
             else {
                 [self removeloder];
-           [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+           [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
             }
             
             
         }];
     } else {
-        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
     }
     
     
@@ -1339,6 +1339,7 @@
             
             break;
     }
+    
 }
 #pragma mark- Custom Tab Bar
 

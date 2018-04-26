@@ -54,7 +54,7 @@
     _lbl_BirthDate.text = [Langauge getTextFromTheKey:@"birthdate"];
     _lbl_WeightTitle.text = [Langauge getTextFromTheKey:@"weight"];
     _lbl_Chronic.text = [Langauge getTextFromTheKey:@"chornic"];
-    _lbl_HealthTracker.text = [Langauge getTextFromTheKey:@"height"];
+    _lbl_HealthTracker.text = [Langauge getTextFromTheKey:@"health_tracker"];
     _lbl_Fever_Report.text = [Langauge getTextFromTheKey:@"fever_report"];
     _lbl_Blood_Pressure.text = [Langauge getTextFromTheKey:@"blood_pressor_report"];
     _lbl_BloodSugar.text = [Langauge getTextFromTheKey:@"blood_suger_report"];
@@ -74,7 +74,7 @@
 
 - (IBAction)btnAction_instructions:(id)sender {
     
-    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"For more instructions about using TatabApp tracker please visit www.tatabapp.com" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"For more instructions about using TatabApp tracker please visit www.tatabapp.com" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Alert_Key_For_Image];
 }
 
 - (IBAction)btnBackClicked:(id)sender {

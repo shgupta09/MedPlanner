@@ -97,9 +97,9 @@
 - (IBAction)subMitBtnAction:(id)sender {
     
     if (!isServiceRated) {
-          [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"Please Provide Rating for our service." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+          [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:@"Please Provide Rating for our service." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }else if (!isQueueRated){
-        [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"Please Provide Rating for wait in queue." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:@"Please Provide Rating for wait in queue." isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }else{
         [self dismissViewControllerAnimated:true completion:nil];
         RearViewController *rearViewController = [[RearViewController alloc]initWithNibName:@"RearViewController" bundle:nil];

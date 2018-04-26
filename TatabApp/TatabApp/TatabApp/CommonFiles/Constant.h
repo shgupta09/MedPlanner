@@ -72,8 +72,10 @@
 #define Cancel_Btn @"cancel"
 #define AlertKey @"alert"
 #define Warning_Key @"Warning"
+#define Error_Key @"error"
+#define Alert_Key_For_Image @"success"
 #define Warning_Key_For_Image @"warning"
-#define Error_Key_For_Image @"error"
+#define Error_Key_For_Image @"error_red"
 #define Sevrer_Issue_Message @"Some network issue. Try Again."
 
 #define Network_Issue_Message @"No Network Access"
