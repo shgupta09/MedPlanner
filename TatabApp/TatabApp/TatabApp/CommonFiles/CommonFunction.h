@@ -20,7 +20,7 @@
 
 +(BOOL)validateEmailWithString:(NSString *)email;
 +(BOOL)validateMobile:(NSString *)mobile;
-
++(BOOL)validateMobileWithStartFive:(NSString *)mobile;
 +(void)setResignTapGestureToView:(UIView *)view andsender:(id )sender;
 +(void)resignFirstResponderOfAView:(UIView *)view;
 +(NSString *)trimString:(NSString *)str;

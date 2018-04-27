@@ -84,7 +84,7 @@
 "name_could_not_starts_with_dot" = "Name cannot start with a dot";
 "email_is_required" = "We need an Email ID";
 "please_enter_valid_email" = "Oops! It seems your email is not match with email format.";
-"mobile_no_is_required" = "Incorrect Phone Number. The correct phone number may only include 14 digits";
+"mobile_no_is_required" = "Incorrect Phone Number. The correct phone number may only include 10 digits and starts with 5";
 "please_enter_valid_mobile_number" = "Please enter valid mobile number";
 "number_strts_with_zero" = "Mobile Number should be 10 digits, not starting with \'0\'";
 "password_should_be_8_12_characters_with_at_least_1_nummeric" = "Password must contain at least 8-16 characters, including UPPER/LOWERCASE, special symbols and numbers";

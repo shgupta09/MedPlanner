@@ -163,7 +163,7 @@
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
     [parameter setValue:_txt_verificationNum.text forKey:@"otp"];
-    [parameter setValue:_txt_Number.text forKey:@"mobile_no"];
+    [parameter setValue:[_txt_Number.text stringByReplacingOccurrencesOfString:@"-" withString:@""]  forKey:@"mobile_no"];
     
     NSLog(@"%@",parameter);
     
@@ -274,7 +274,7 @@
 
 -(NSDictionary *)validateData{
     NSMutableDictionary *validationDict= [NSMutableDictionary new];
-    if(![CommonFunction validateMobile:[_txt_Number.text stringByReplacingOccurrencesOfString:@"-" withString:@""]]){
+    if(![CommonFunction validateMobileWithStartFive:[_txt_Number.text stringByReplacingOccurrencesOfString:@"-" withString:@""]]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_Number.text].length == 0) {
             [validationDict setValue:[Langauge getTextFromTheKey:@"Mobile_required"] forKey:AlertKey];

@@ -34,9 +34,13 @@
 {
     //!~`@#$%^&*-+();:={}[],.<>?\\/\"\'
     //NSRegularExpression* regex = [[NSRegularExpression alloc] initWithPattern:@"^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z]).*$" options:0 error:nil];
-    NSRegularExpression* regex = [[NSRegularExpression alloc] initWithPattern:@"^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])" options:0 error:nil];
-    
-    return [regex numberOfMatchesInString:password options:0 range:NSMakeRange(0, [password length])] > 0;
+//    NSRegularExpression* regex = [[NSRegularExpression alloc] initWithPattern:@"^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])" options:0 error:nil];
+//
+//    return [regex numberOfMatchesInString:password options:0 range:NSMakeRange(0, [password length])] > 0;
+    if (password.length>8 && password.length<14) {
+        return true;
+    }
+    return false;
 }
 +(UIView *)setStatusBarColor{
     UIApplication *app = [UIApplication sharedApplication];
@@ -168,7 +172,22 @@
     return true;
 }
 
-
++(BOOL)validateMobileWithStartFive:(NSString *)mobile{
+    if (mobile.length == 0){
+        return false;
+    }
+    NSString *emailRegex = @"[0-9]{10,10}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    BOOL isValidMobile = [emailTest evaluateWithObject:mobile];
+    NSString *firstCharacter = [mobile substringToIndex:1];
+    if (![firstCharacter isEqualToString:@"5"]) {
+        return false;
+    }
+    if (isValidMobile != true){
+        return false;
+    }
+    return true;
+}
 +(BOOL)validateName:(NSString *)name{
     
     

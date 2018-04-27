@@ -211,7 +211,7 @@
             [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Firstname"] forKey:AlertKey];
         }
         
-    }else if(![CommonFunction validateMobile:[_txt_mobile.text stringByReplacingOccurrencesOfString:@"966-" withString:@""]]){
+    }else if(![CommonFunction validateMobileWithStartFive:[_txt_mobile.text stringByReplacingOccurrencesOfString:@"966-" withString:@""]]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_mobile.text].length == 0) {
             [validationDict setValue:[Langauge getTextFromTheKey:@"Mobile_required"] forKey:AlertKey];
