@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self hitApiToSendOtp];
+  
     [self setUpData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -49,6 +49,7 @@
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
     [CommonFunction setResignTapGestureToView:self.view andsender:self];
     [self setUpLanguage];
+      [self hitApiToSendOtp];
 }
 
 -(void)resignResponder{

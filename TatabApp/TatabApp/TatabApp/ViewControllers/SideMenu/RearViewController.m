@@ -327,7 +327,11 @@
 
 
 - (IBAction)btn_Logout:(id)sender {
-     [revealController revealToggle:nil];
+    if ([CommonFunction isEnglishSelected]) {
+        [revealController revealToggle:nil];
+    }else{
+        [revealController rightRevealToggle:nil];
+    }
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"LogOutTapped"
      object:self];
