@@ -176,7 +176,7 @@
     if (mobile.length == 0){
         return false;
     }
-    NSString *emailRegex = @"[0-9]{10,10}";
+    NSString *emailRegex = @"[0-9]{9,9}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     BOOL isValidMobile = [emailTest evaluateWithObject:mobile];
     NSString *firstCharacter = [mobile substringToIndex:1];

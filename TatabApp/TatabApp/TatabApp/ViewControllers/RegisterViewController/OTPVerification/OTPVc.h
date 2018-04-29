@@ -21,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Theory;
 @property (weak, nonatomic) IBOutlet CustomButton *btnResend;
 @property (weak, nonatomic) IBOutlet CustomButton *btn_Send;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_Default;
 
 @end

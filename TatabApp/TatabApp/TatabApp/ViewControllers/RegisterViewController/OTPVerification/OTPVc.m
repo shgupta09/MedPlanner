@@ -26,6 +26,14 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)setUpLanguage{
+    
+    
+    if ([[CommonFunction getValueFromDefaultWithKey:Selected_Language] isEqualToString:Selected_Language_English]) {
+        _lbl_Default.textAlignment = NSTextAlignmentLeft;
+    }else{
+        _lbl_Default.textAlignment = NSTextAlignmentRight;
+    }
+    
     _txt_Number.leftImgView.image = [UIImage imageNamed:@"b"];
     _txt_verificationNum.leftImgView.image = [UIImage imageNamed:@"b"];
     [_txt_Number setPlaceholderWithColor:[Langauge getTextFromTheKey:@"mobile"]];

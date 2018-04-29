@@ -51,6 +51,11 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>MMDrawerController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
 		<key>Pods-TatabApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
