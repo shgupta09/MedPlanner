@@ -37,7 +37,7 @@
 //    NSRegularExpression* regex = [[NSRegularExpression alloc] initWithPattern:@"^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])" options:0 error:nil];
 //
 //    return [regex numberOfMatchesInString:password options:0 range:NSMakeRange(0, [password length])] > 0;
-    if (password.length>8 && password.length<14) {
+    if (password.length>=8 && password.length<=16) {
         return true;
     }
     return false;

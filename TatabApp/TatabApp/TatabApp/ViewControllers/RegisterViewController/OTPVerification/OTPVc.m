@@ -48,7 +48,7 @@
 -(void)setUpData{
     NSString *mobile = [CommonFunction getValueFromDefaultWithKey:mobileNo];
     if ([[mobile substringToIndex:3] isEqualToString:@"966"]) {
-        NSMutableString *str =  [[mobile substringWithRange:NSMakeRange(4, mobile.length-4)] mutableCopy];
+        NSMutableString *str =  [[mobile substringWithRange:NSMakeRange(3, mobile.length-3)] mutableCopy];
         NSLog(@"%@",str);
         _txt_Number.text = [NSString stringWithFormat:@"966-%@",str];
     }else{
