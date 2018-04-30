@@ -66,10 +66,10 @@
 
 -(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
     if ([[[inRequest URL] absoluteString] isEqualToString:@"ios:success"]) {
-        [_delegateProperty paymentStatusMethod:true doctor:_doctorId];
+        [_delegateProperty paymentStatusMethod:true doctor:_doctorObj];
         [self.navigationController popViewControllerAnimated:true];
     }else if([[[inRequest URL] absoluteString] isEqualToString:@"ios:failure"]){
-        [_delegateProperty paymentStatusMethod:false doctor:_doctorId];
+        [_delegateProperty paymentStatusMethod:false doctor:_doctorObj];
         [self.navigationController popViewControllerAnimated:true];
     }
     return true;

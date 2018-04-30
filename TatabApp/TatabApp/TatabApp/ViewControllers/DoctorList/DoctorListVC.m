@@ -145,8 +145,7 @@
             vc.toId = objTemp.jabberId;
             [self.navigationController pushViewController:vc animated:true];
         }else{
-            
-            [self hitApiForAddInTheQueue:objTemp.doctor_id];
+            [self hitApiForAddInTheQueue:objTemp];
 
         }
     }
@@ -275,21 +274,26 @@
 
 
 
--(void)hitApiForAddInTheQueue:(NSString *)doctorId{
+-(void)hitApiForAddInTheQueue:(Specialization *)doctorobj{
     
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:doctorId forKey:@"doctor_id"];
+    [parameter setValue:doctorobj.doctor_id forKey:@"doctor_id"];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     [parameter setValue:[dateFormatter stringFromDate:date] forKey:@"date"];
+    NSString *patientNameToshow = @"";
     if (!_isDependent) {
         [parameter setValue:@"na" forKey:DEPENDANT_ID];
+        patientNameToshow = [[CommonFunction getValueFromDefaultWithKey:loginfirstname] capitalizedString];
     }else{
         [parameter setValue:_selectedDependent.depedant_id forKey:DEPENDANT_ID];
+        patientNameToshow = [_selectedDependent.name capitalizedString];
+
     }
+    
     if ([ CommonFunction reachability]) {
         [self addLoder];
         
@@ -297,10 +301,10 @@
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,@"patientqueue"]  postResponse:parameter postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:@"" completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
             if (error == nil) {
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"]) {
-                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Alert_Key_For_Image];
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[NSString stringWithFormat:@"%@ %@ %@",patientNameToshow,[Langauge getTextFromTheKey:@"Added_Msg_ForDoctor_Name"],[doctorobj.first_name capitalizedString]] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Alert_Key_For_Image];
                 }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK005"]){
                     [self removeloder];
-                    [self hitApiForPayment:doctorId];
+                    [self hitApiForPayment:doctorobj];
                 }else if([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK004"]){
                 ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
                 vc.objDoctor = objTemp;
@@ -329,10 +333,10 @@
 }
 
 
--(void)hitApiForPayment:(NSString *)doctorId{
+-(void)hitApiForPayment:(Specialization *)doctorObj{
     
     NSMutableDictionary *parameter = [NSMutableDictionary new];
-    [parameter setValue:doctorId forKey:DOCTOR_ID];
+    [parameter setValue:doctorObj.doctor_id forKey:DOCTOR_ID];
     [parameter setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"patient_id"];
     [parameter setValue:@"20.0" forKey:@"amount"];
     
@@ -352,7 +356,7 @@
                     [self removeloder];
                     PaymentVC *paymentVC = [[PaymentVC alloc]initWithNibName:@"PaymentVC" bundle:nil];
                     paymentVC.urlString = [responseObj valueForKey:@"approval_url"];
-                    paymentVC.doctorId = doctorId;
+                    paymentVC.doctorObj = doctorObj;
                     paymentVC.delegateProperty = self;
                     [self.navigationController pushViewController:paymentVC animated:true];
 //                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
@@ -453,9 +457,9 @@
 
 #pragma mark- Payment Delegate
 
--(void)paymentStatusMethod:(BOOL)status doctor:(NSString*)doctorID{
+-(void)paymentStatusMethod:(BOOL)status doctor:(Specialization*)doctorObj{
     if (status) {
-        [self hitApiForAddInTheQueue:doctorID];
+        [self hitApiForAddInTheQueue:doctorObj];
     }
     else{
         [self addAlertWithTitle:Error_Key andMessage:@"Payment Declined" isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:@"Ok" secondButtonTitle:nil image:Error_Key_For_Image];

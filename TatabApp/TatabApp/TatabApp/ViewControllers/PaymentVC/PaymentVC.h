@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 @protocol PaymentDelegate <NSObject>
 @optional
-- (void)paymentStatusMethod:(BOOL)status doctor:(NSString*)doctorID;
+- (void)paymentStatusMethod:(BOOL)status doctor:(Specialization*)doctorObj;
 // ... other methods here
 @end
 @interface PaymentVC : UIViewController<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property(nonatomic,strong) NSString *urlString;
-@property(nonatomic,strong) NSString *doctorId;
+@property(nonatomic,strong) Specialization *doctorObj;
 @property (nonatomic, weak) id <PaymentDelegate> delegateProperty;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 

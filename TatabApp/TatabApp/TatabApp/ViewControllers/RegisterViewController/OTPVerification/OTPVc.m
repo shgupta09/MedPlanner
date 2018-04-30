@@ -78,20 +78,31 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark - Btn Action
 - (IBAction)btnAction_Resend:(id)sender {
-    NSDictionary *dictForValidation = [self validateData];
+    NSDictionary *dictForValidation = [self validateMobile];
     
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
         [self hitApiToSendOtp];
+    } else{
+        [self addAlertWithTitle:Warning_Key andMessage:[dictForValidation valueForKey:AlertKey] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }
 }
+
+
+
 
 
 - (IBAction)btnActionSend:(id)sender {
 //    [_delegateProperty otpDelegateMethodWithnumber:_txt_Number.text];
 //    [self dismissViewControllerAnimated:true completion:nil];
-    if (_txt_verificationNum.text.length>4) {
+      NSDictionary *dictForValidation = [self validateData];
+    if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]) {
         [self hitApiToVerifyOtp];
+    }else{
+        [self addAlertWithTitle:Warning_Key andMessage:[dictForValidation valueForKey:AlertKey] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }
     
 }
@@ -279,10 +290,9 @@
       
         }
 }
-
--(NSDictionary *)validateData{
+-(NSDictionary *)validateMobile{
     NSMutableDictionary *validationDict= [NSMutableDictionary new];
-    if(![CommonFunction validateMobileWithStartFive:[_txt_Number.text stringByReplacingOccurrencesOfString:@"-" withString:@""]]){
+    if(![CommonFunction validateMobileWithStartFive:[_txt_Number.text stringByReplacingOccurrencesOfString:@"966-" withString:@""]]){
         [validationDict setValue:@"0" forKey:BoolValueKey];
         if ([CommonFunction trimString:_txt_Number.text].length == 0) {
             [validationDict setValue:[Langauge getTextFromTheKey:@"Mobile_required"] forKey:AlertKey];
@@ -290,6 +300,23 @@
         else{
             [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Mobile"] forKey:AlertKey];
         }
+    }
+    return validationDict;
+}
+-(NSDictionary *)validateData{
+    NSMutableDictionary *validationDict= [NSMutableDictionary new];
+    if(![CommonFunction validateMobileWithStartFive:[_txt_Number.text stringByReplacingOccurrencesOfString:@"966-" withString:@""]]){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        if ([CommonFunction trimString:_txt_Number.text].length == 0) {
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Mobile_required"] forKey:AlertKey];
+        }
+        else{
+            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Mobile"] forKey:AlertKey];
+        }
+    }else if (_txt_verificationNum.text.length==0) {
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"otp_required"] forKey:AlertKey];
+      
     }
     return validationDict;
 }
