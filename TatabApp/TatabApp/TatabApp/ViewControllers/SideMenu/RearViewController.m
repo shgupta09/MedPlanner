@@ -57,15 +57,15 @@
     [_tbl_View reloadData];
     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
           if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"dependent",@"emr_and_tracker",@"profile",@"setting", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"dependent",@"emr_and_tracker",@"profile",@"action_settings", nil];
               titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-children",@"menu-general",@"Icon---Profile",@"Icon---Setttings", nil];
           }
           else{
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"queue",@"emr_and_tracker",@"profile",@"setting", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"queue",@"emr_and_tracker",@"profile",@"action_settings", nil];
               titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queueWhite",@"menu-general",@"Icon---Profile",@"Icon---Setttings", nil];
               [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
           }
-           _lblNAme.text = [CommonFunction getValueFromDefaultWithKey:loginfirstname];
+           _lblNAme.text = [CommonFunction getValueFromDefaultWithKey:loginemail];
           _viewToClip.hidden = false;
           _lblSectionSeparator.hidden = false;
       }else{

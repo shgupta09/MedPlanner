@@ -253,17 +253,15 @@
                                     <rect key="frame" x="14" y="96" width="348" height="280"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="use-qr-fcG">
-                                            <rect key="frame" x="20" y="255" width="5" height="25"/>
+                                            <rect key="frame" x="0.0" y="253.5" width="348" height="26.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="5" id="uUG-N5-ORP"/>
-                                            </constraints>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="use-qr-fcG" firstAttribute="height" secondItem="G83-eC-7bA" secondAttribute="height" multiplier="0.09:1" id="NKd-F4-63d"/>
-                                        <constraint firstItem="use-qr-fcG" firstAttribute="leading" secondItem="G83-eC-7bA" secondAttribute="leading" constant="20" id="lfC-zl-Sdc"/>
+                                        <constraint firstItem="use-qr-fcG" firstAttribute="height" secondItem="G83-eC-7bA" secondAttribute="height" multiplier="0.096:1" id="NKd-F4-63d"/>
+                                        <constraint firstItem="use-qr-fcG" firstAttribute="leading" secondItem="G83-eC-7bA" secondAttribute="leading" id="lfC-zl-Sdc"/>
+                                        <constraint firstItem="use-qr-fcG" firstAttribute="width" secondItem="G83-eC-7bA" secondAttribute="width" id="mEL-m4-dA8"/>
                                         <constraint firstAttribute="bottom" secondItem="use-qr-fcG" secondAttribute="bottom" id="pfX-FD-pkP"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>

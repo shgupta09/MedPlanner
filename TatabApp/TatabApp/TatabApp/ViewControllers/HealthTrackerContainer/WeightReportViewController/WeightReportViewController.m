@@ -407,6 +407,10 @@
                     [alertController addAction:ok];
                     [self presentViewController:alertController animated:YES completion:nil];
                    */
+                    
+                    [CommonFunction storeValueInDefault:_btnHeight.titleLabel.text andKey:Selected_Patient_Height];
+                     [CommonFunction storeValueInDefault:_btnWeight.titleLabel.text andKey:Selected_Patient_Weight];
+                    [self setData];
                     [self removeloder];
                     [_popUpView removeFromSuperview];
                     [self getWeight];

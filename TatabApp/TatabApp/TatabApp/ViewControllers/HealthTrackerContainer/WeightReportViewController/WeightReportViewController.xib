@@ -259,19 +259,17 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBw-uR-Hf9" customClass="LineChartView" customModule="Charts">
                                     <rect key="frame" x="16" y="92" width="344" height="285"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUl-qf-bfX">
-                                            <rect key="frame" x="20" y="259.5" width="5" height="25.5"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jhz-nV-KsY">
+                                            <rect key="frame" x="0.0" y="257" width="344" height="28"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="5" id="XSV-lG-T2n"/>
-                                            </constraints>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="EUl-qf-bfX" secondAttribute="bottom" id="GJ1-3P-m4k"/>
-                                        <constraint firstItem="EUl-qf-bfX" firstAttribute="height" secondItem="gBw-uR-Hf9" secondAttribute="height" multiplier="0.09:1" id="dMf-dQ-wuf"/>
-                                        <constraint firstItem="EUl-qf-bfX" firstAttribute="leading" secondItem="gBw-uR-Hf9" secondAttribute="leading" constant="20" id="fmL-Ce-c7S"/>
+                                        <constraint firstItem="Jhz-nV-KsY" firstAttribute="leading" secondItem="gBw-uR-Hf9" secondAttribute="leading" id="fh2-lb-8Zc"/>
+                                        <constraint firstItem="Jhz-nV-KsY" firstAttribute="width" secondItem="gBw-uR-Hf9" secondAttribute="width" id="hkM-7L-fg4"/>
+                                        <constraint firstAttribute="bottom" secondItem="Jhz-nV-KsY" secondAttribute="bottom" id="j2E-cz-FxF"/>
+                                        <constraint firstItem="Jhz-nV-KsY" firstAttribute="height" secondItem="gBw-uR-Hf9" secondAttribute="height" multiplier="0.096:1" id="qgS-oY-0rx"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="YES"/>
