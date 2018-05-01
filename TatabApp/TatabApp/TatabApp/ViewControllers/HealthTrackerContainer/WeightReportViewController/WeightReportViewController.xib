@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -257,7 +258,21 @@
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBw-uR-Hf9" customClass="LineChartView" customModule="Charts">
                                     <rect key="frame" x="16" y="92" width="344" height="285"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUl-qf-bfX">
+                                            <rect key="frame" x="20" y="259.5" width="5" height="25.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="5" id="XSV-lG-T2n"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="EUl-qf-bfX" secondAttribute="bottom" id="GJ1-3P-m4k"/>
+                                        <constraint firstItem="EUl-qf-bfX" firstAttribute="height" secondItem="gBw-uR-Hf9" secondAttribute="height" multiplier="0.09:1" id="dMf-dQ-wuf"/>
+                                        <constraint firstItem="EUl-qf-bfX" firstAttribute="leading" secondItem="gBw-uR-Hf9" secondAttribute="leading" constant="20" id="fmL-Ce-c7S"/>
+                                    </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="YES"/>
                                         <userDefinedRuntimeAttribute type="color" keyPath="colorBottom">
@@ -473,7 +488,7 @@
                 <constraint firstAttribute="bottom" secondItem="JU8-3Y-6uQ" secondAttribute="bottom" id="fAb-9M-PzJ"/>
                 <constraint firstItem="JU8-3Y-6uQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nGu-wE-IVN"/>
             </constraints>
-            <point key="canvasLocation" x="-601" y="-8"/>
+            <point key="canvasLocation" x="-601.5" y="-8.5"/>
         </view>
         <view contentMode="scaleToFill" id="INF-g5-JHj">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

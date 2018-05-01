@@ -49,7 +49,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7hP-iB-NCT" customClass="CustomTextField">
-                    <rect key="frame" x="20" y="274" width="335" height="45"/>
+                    <rect key="frame" x="20" y="230" width="335" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="LM6-zQ-5zx"/>
                     </constraints>
@@ -61,7 +61,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Verification Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EHB-96-0iz" customClass="CustomTextField">
-                    <rect key="frame" x="20" y="339" width="335" height="45"/>
+                    <rect key="frame" x="20" y="295" width="335" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Nng-rO-BSr"/>
                     </constraints>
@@ -89,7 +89,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yru-u9-Jsn" customClass="CustomButton">
-                    <rect key="frame" x="250" y="399" width="90" height="25"/>
+                    <rect key="frame" x="250" y="355" width="90" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="90" id="BaQ-lM-Pd0"/>
                         <constraint firstAttribute="height" constant="25" id="cmS-KQ-XiE"/>
@@ -124,6 +124,7 @@
                 <constraint firstItem="7hP-iB-NCT" firstAttribute="leading" secondItem="gDW-2a-8RQ" secondAttribute="leading" id="iwk-9t-h4L"/>
                 <constraint firstItem="gDW-2a-8RQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="jMt-rE-PeC"/>
                 <constraint firstItem="Yru-u9-Jsn" firstAttribute="top" secondItem="EHB-96-0iz" secondAttribute="bottom" constant="15" id="kdD-Je-Tnw"/>
+                <constraint firstItem="7hP-iB-NCT" firstAttribute="top" secondItem="gDW-2a-8RQ" secondAttribute="bottom" constant="20" id="leR-rr-lMZ"/>
                 <constraint firstItem="JRp-hm-LqR" firstAttribute="leading" secondItem="EHB-96-0iz" secondAttribute="leading" id="m2Q-fN-ukY"/>
                 <constraint firstItem="7hP-iB-NCT" firstAttribute="trailing" secondItem="gDW-2a-8RQ" secondAttribute="trailing" id="mc1-b7-Fci"/>
                 <constraint firstItem="I9n-py-4ZF" firstAttribute="top" secondItem="gDW-2a-8RQ" secondAttribute="bottom" constant="10" id="mhA-0Z-Fr7"/>
@@ -141,6 +142,7 @@
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="hYV-iE-gqG"/>
+                    <exclude reference="I9n-py-4ZF"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="26.5" y="52.5"/>

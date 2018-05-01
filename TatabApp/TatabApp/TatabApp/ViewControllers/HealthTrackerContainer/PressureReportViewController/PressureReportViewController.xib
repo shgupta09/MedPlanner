@@ -234,7 +234,21 @@
                                 </button>
                                 <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oH4-OY-B0R" customClass="LineChartView" customModule="Charts">
                                     <rect key="frame" x="20" y="87" width="335" height="289"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="16G-US-n8q">
+                                            <rect key="frame" x="20" y="263" width="5" height="26"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="5" id="QM3-ws-o38"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="16G-US-n8q" firstAttribute="leading" secondItem="oH4-OY-B0R" secondAttribute="leading" constant="20" id="LN8-NF-E7m"/>
+                                        <constraint firstAttribute="bottom" secondItem="16G-US-n8q" secondAttribute="bottom" id="Ofl-iC-zFG"/>
+                                        <constraint firstItem="16G-US-n8q" firstAttribute="height" secondItem="oH4-OY-B0R" secondAttribute="height" multiplier="0.09:1" id="Snn-yq-jaW"/>
+                                    </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="YES"/>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="enableYAxisLabel" value="YES"/>
