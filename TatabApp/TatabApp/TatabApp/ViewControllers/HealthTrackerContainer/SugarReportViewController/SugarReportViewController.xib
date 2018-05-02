@@ -282,6 +282,11 @@
                                             <real key="value" value="3"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="use-qr-fcG"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQ5-SP-y75" customClass="CustomButton3">
                                     <rect key="frame" x="242" y="56" width="120" height="20"/>

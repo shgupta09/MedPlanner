@@ -113,7 +113,35 @@ open class ViewPortHandler: NSObject
     
     @objc open var offsetBottom: CGFloat
     {
-        return _chartHeight - _contentRect.size.height - _contentRect.origin.y
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:
+//                print("iPhone 5 or 5S or 5C")
+                return -10
+            case 1334:
+//                print("iPhone 6/6S/7/8")
+                return -10
+            case 1920:
+//                print("iPhone 6+/6S+")
+                return -10
+            case  2208:
+//                print("iPhone 7+/8+")
+                return -22
+            case 2436:
+                return -22
+            default:
+//                print("unknown")
+                
+            }
+            
+        }
+        
+        
+        
+        return -10
+        
+        
+        
     }
     
     @objc open var contentTop: CGFloat
