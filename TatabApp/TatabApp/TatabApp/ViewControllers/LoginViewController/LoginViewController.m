@@ -292,7 +292,7 @@
         if ([CommonFunction trimString:_txtUsername.text].length == 0){
             [validationDict setValue:[Langauge getTextFromTheKey:@"email_is_required"] forKey:AlertKey];
         }else{
-            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Email"] forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"please_enter_valid_email"] forKey:AlertKey];
         }
     }
     else if([CommonFunction trimString:_txtPassword.text].length == 0){

@@ -298,7 +298,7 @@
             [validationDict setValue:[Langauge getTextFromTheKey:@"Mobile_required"] forKey:AlertKey];
         }
         else{
-            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Mobile"] forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"mobile_no_is_required"] forKey:AlertKey];
         }
     }
     return validationDict;
@@ -311,7 +311,7 @@
             [validationDict setValue:[Langauge getTextFromTheKey:@"Mobile_required"] forKey:AlertKey];
         }
         else{
-            [validationDict setValue:[Langauge getTextFromTheKey:@"Ops_Mobile"] forKey:AlertKey];
+            [validationDict setValue:[Langauge getTextFromTheKey:@"mobile_no_is_required"] forKey:AlertKey];
         }
     }else if (_txt_verificationNum.text.length==0) {
         [validationDict setValue:@"0" forKey:BoolValueKey];
