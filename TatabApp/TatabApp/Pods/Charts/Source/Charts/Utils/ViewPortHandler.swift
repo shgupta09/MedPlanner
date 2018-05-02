@@ -130,6 +130,7 @@ open class ViewPortHandler: NSObject
             case 2436:
                 return -22
             default:
+                 return -10
 //                print("unknown")
                 
             }
