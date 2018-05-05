@@ -164,6 +164,8 @@
 		D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84DF2021F8A0D9C00234070 /* RegisterViewController.xib */; };
 		D86A3735202E1CAC009EA562 /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D86A3734202E1CAC009EA562 /* CustomTabBar.xib */; };
 		D86A3738202E2E57009EA562 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A3737202E2E57009EA562 /* CustomTabBar.m */; };
+		D8BBBA63209D5ED200201A63 /* NeedHelpVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BBBA61209D5ED200201A63 /* NeedHelpVCViewController.m */; };
+		D8BBBA64209D5ED200201A63 /* NeedHelpVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BBBA62209D5ED200201A63 /* NeedHelpVCViewController.xib */; };
 		D8C46A98202F6006004BAC2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8C46A97202F6005004BAC2C /* GoogleService-Info.plist */; };
 		D8CD7DF2202EE5FA0036A738 /* QueueDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */; };
 		D8E1C79F2007C790007172F5 /* NewAwareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E1C79D2007C790007172F5 /* NewAwareVC.m */; };
@@ -439,6 +441,9 @@
 		D86A3734202E1CAC009EA562 /* CustomTabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
 		D86A3736202E2E57009EA562 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
 		D86A3737202E2E57009EA562 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
+		D8BBBA60209D5ED200201A63 /* NeedHelpVCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NeedHelpVCViewController.h; sourceTree = "<group>"; };
+		D8BBBA61209D5ED200201A63 /* NeedHelpVCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeedHelpVCViewController.m; sourceTree = "<group>"; };
+		D8BBBA62209D5ED200201A63 /* NeedHelpVCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NeedHelpVCViewController.xib; sourceTree = "<group>"; };
 		D8C46A97202F6005004BAC2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8CD7DF0202EE5FA0036A738 /* QueueDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueDetails.h; sourceTree = "<group>"; };
 		D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueDetails.m; sourceTree = "<group>"; };
@@ -863,6 +868,7 @@
 		5FBBBB111F726FC400C03813 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8BBBA5F209D5EC100201A63 /* NeedHelp */,
 				9CFF435D2077446D005F3AF7 /* PaymentVC */,
 				9C9607AC207383E800505F9F /* Term&Condition */,
 				9C840984203EE2BE00A7C3C7 /* RatingVC */,
@@ -1202,6 +1208,16 @@
 			path = CustomTabBar;
 			sourceTree = "<group>";
 		};
+		D8BBBA5F209D5EC100201A63 /* NeedHelp */ = {
+			isa = PBXGroup;
+			children = (
+				D8BBBA60209D5ED200201A63 /* NeedHelpVCViewController.h */,
+				D8BBBA61209D5ED200201A63 /* NeedHelpVCViewController.m */,
+				D8BBBA62209D5ED200201A63 /* NeedHelpVCViewController.xib */,
+			);
+			path = NeedHelp;
+			sourceTree = "<group>";
+		};
 		D8E1C79B2007C77C007172F5 /* AwarenessN */ = {
 			isa = PBXGroup;
 			children = (
@@ -1431,6 +1447,7 @@
 				5FBBBAF61F72401B00C03813 /* LaunchScreen.storyboard in Resources */,
 				9C9607B12073845C00505F9F /* TermVC.xib in Resources */,
 				D8F5A5691F9202AF00E36160 /* DoctorListVC.xib in Resources */,
+				D8BBBA64209D5ED200201A63 /* NeedHelpVCViewController.xib in Resources */,
 				D8C46A98202F6006004BAC2C /* GoogleService-Info.plist in Resources */,
 				D82354B01F8A6C2E0097A94C /* RCDoctor2.xib in Resources */,
 				9C6DE7421F83A6B100635102 /* VideoListTableViewCell.xib in Resources */,
@@ -1777,6 +1794,7 @@
 				5F9F49BE1FB1D791009E1418 /* XMPPCoreDataHandler.m in Sources */,
 				9C4C5ECE1F792725003D84BD /* RegistrationDpendency.m in Sources */,
 				5FB773E81FF5185F00982102 /* DoctorListEMRLogVC.m in Sources */,
+				D8BBBA63209D5ED200201A63 /* NeedHelpVCViewController.m in Sources */,
 				9CDE6602208F081700F8251F /* CustomButtonWithImage.m in Sources */,
 				5FB51C422003E5BE00E4889B /* HealthTrackerContainerVC.m in Sources */,
 				5F70ABE52029DBA7007E69A5 /* CommentClass.m in Sources */,

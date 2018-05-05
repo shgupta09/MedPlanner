@@ -53,7 +53,7 @@
     selectedRowForCity = 0;
     relationArray = [NSMutableArray new];
     cityArray = [[NSMutableArray new] mutableCopy];
-    cityArray = [CommonFunction getCityArray];
+    cityArray = [[CommonFunction getCityArray] mutableCopy];
     [CommonFunction setResignTapGestureToView:self.view andsender:self];
     [CommonFunction setResignTapGestureToView:_popUpView andsender:self];
     isMale = true;
@@ -323,7 +323,6 @@ numberOfRowsInComponent:(NSInteger)component{
                           CGRectMake(0, self.view.frame.size.height-
                                      pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
     [toolBar setBarStyle:UIBarStyleBlackOpaque];
-    UIToolbar *toolBarForTitle;
     viewOverPicker.backgroundColor = [UIColor clearColor];
     [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
     

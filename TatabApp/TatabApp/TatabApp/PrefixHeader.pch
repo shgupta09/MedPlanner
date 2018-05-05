@@ -8,6 +8,7 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
+#import "NeedHelpVCViewController.h"
 #import "CustomButton2.h"
 #import "SWRevealViewController.h"
 #import "SplashScreenViewController.h"

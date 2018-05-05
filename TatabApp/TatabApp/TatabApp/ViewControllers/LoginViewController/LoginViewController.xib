@@ -106,6 +106,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooU-dk-LAa" customClass="CustomButtonWithoutBorder">
                                             <rect key="frame" x="203" y="184.5" width="152" height="40"/>
                                             <state key="normal" title="Need Help?"/>
+                                            <connections>
+                                                <action selector="btn_NeedHelp:" destination="-1" eventType="touchUpInside" id="eyH-GO-gTd"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1b-hX-NOU">
                                             <rect key="frame" x="188" y="201" width="0.0" height="0.0"/>

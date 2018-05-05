@@ -269,3 +269,14 @@
 "Preferred_Language" = "Please select your preferred language";
 "Warning" = "Warning";
 "Added_Msg_ForDoctor_Name" = "has been joined to queue for Dr.";
+
+
+//Change Request1
+
+"Technical_support_request" = "Technical Support Request";
+"Problem_Type" = "Problem Type";
+"Problem_Title" = "Problem Title";
+"Problem_Decription" = "Problem Description";
+"Problem_Type_required" = "We need a problem type";
+"Problem_Title_required" = "We need a problem title";
+"Problem_Description_required" = "We need a problem description";

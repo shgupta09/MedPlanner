@@ -142,6 +142,10 @@
 - (IBAction)btnBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
 }
+- (IBAction)btn_NeedHelp:(id)sender {
+    NeedHelpVCViewController* vc = [[NeedHelpVCViewController alloc] initWithNibName:@"NeedHelpVCViewController" bundle:nil];
+    [self.navigationController presentViewController:vc animated:true completion:nil];
+}
 - (IBAction)btnRegisterClicked:(id)sender {
   
     
