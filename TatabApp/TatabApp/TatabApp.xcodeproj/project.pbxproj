@@ -164,8 +164,19 @@
 		D84DF2061F8A0D9C00234070 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84DF2021F8A0D9C00234070 /* RegisterViewController.xib */; };
 		D86A3735202E1CAC009EA562 /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D86A3734202E1CAC009EA562 /* CustomTabBar.xib */; };
 		D86A3738202E2E57009EA562 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A3737202E2E57009EA562 /* CustomTabBar.m */; };
+		D86E9680209EC50800FB2EB1 /* DProfileCellType1.m in Sources */ = {isa = PBXBuildFile; fileRef = D86E967E209EC50800FB2EB1 /* DProfileCellType1.m */; };
+		D86E9681209EC50800FB2EB1 /* DProfileCellType1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D86E967F209EC50800FB2EB1 /* DProfileCellType1.xib */; };
+		D86E9685209EC74900FB2EB1 /* DProfileCellType2.m in Sources */ = {isa = PBXBuildFile; fileRef = D86E9683209EC74900FB2EB1 /* DProfileCellType2.m */; };
+		D86E9686209EC74900FB2EB1 /* DProfileCellType2.xib in Resources */ = {isa = PBXBuildFile; fileRef = D86E9684209EC74900FB2EB1 /* DProfileCellType2.xib */; };
+		D86E968A209EF94B00FB2EB1 /* ProfileImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D86E9688209EF94B00FB2EB1 /* ProfileImageCell.m */; };
+		D86E968B209EF94B00FB2EB1 /* ProfileImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D86E9689209EF94B00FB2EB1 /* ProfileImageCell.xib */; };
+		D86E9691209F71BF00FB2EB1 /* Education.m in Sources */ = {isa = PBXBuildFile; fileRef = D86E9690209F71BF00FB2EB1 /* Education.m */; };
+		D86E9694209F722600FB2EB1 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = D86E9693209F722600FB2EB1 /* Profile.m */; };
+		D86E9697209F745600FB2EB1 /* ExperianceClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D86E9696209F745600FB2EB1 /* ExperianceClass.m */; };
 		D8BBBA63209D5ED200201A63 /* NeedHelpVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BBBA61209D5ED200201A63 /* NeedHelpVCViewController.m */; };
 		D8BBBA64209D5ED200201A63 /* NeedHelpVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BBBA62209D5ED200201A63 /* NeedHelpVCViewController.xib */; };
+		D8BBBA6F209E457A00201A63 /* DProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BBBA6D209E457A00201A63 /* DProfileVC.m */; };
+		D8BBBA70209E457A00201A63 /* DProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BBBA6E209E457A00201A63 /* DProfileVC.xib */; };
 		D8C46A98202F6006004BAC2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8C46A97202F6005004BAC2C /* GoogleService-Info.plist */; };
 		D8CD7DF2202EE5FA0036A738 /* QueueDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */; };
 		D8E1C79F2007C790007172F5 /* NewAwareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E1C79D2007C790007172F5 /* NewAwareVC.m */; };
@@ -441,9 +452,27 @@
 		D86A3734202E1CAC009EA562 /* CustomTabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
 		D86A3736202E2E57009EA562 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
 		D86A3737202E2E57009EA562 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
+		D86E967D209EC50800FB2EB1 /* DProfileCellType1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DProfileCellType1.h; sourceTree = "<group>"; };
+		D86E967E209EC50800FB2EB1 /* DProfileCellType1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DProfileCellType1.m; sourceTree = "<group>"; };
+		D86E967F209EC50800FB2EB1 /* DProfileCellType1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DProfileCellType1.xib; sourceTree = "<group>"; };
+		D86E9682209EC74900FB2EB1 /* DProfileCellType2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DProfileCellType2.h; sourceTree = "<group>"; };
+		D86E9683209EC74900FB2EB1 /* DProfileCellType2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DProfileCellType2.m; sourceTree = "<group>"; };
+		D86E9684209EC74900FB2EB1 /* DProfileCellType2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DProfileCellType2.xib; sourceTree = "<group>"; };
+		D86E9687209EF94B00FB2EB1 /* ProfileImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileImageCell.h; sourceTree = "<group>"; };
+		D86E9688209EF94B00FB2EB1 /* ProfileImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileImageCell.m; sourceTree = "<group>"; };
+		D86E9689209EF94B00FB2EB1 /* ProfileImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageCell.xib; sourceTree = "<group>"; };
+		D86E968F209F71BF00FB2EB1 /* Education.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Education.h; sourceTree = "<group>"; };
+		D86E9690209F71BF00FB2EB1 /* Education.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Education.m; sourceTree = "<group>"; };
+		D86E9692209F722600FB2EB1 /* Profile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		D86E9693209F722600FB2EB1 /* Profile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		D86E9695209F745600FB2EB1 /* ExperianceClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExperianceClass.h; sourceTree = "<group>"; };
+		D86E9696209F745600FB2EB1 /* ExperianceClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExperianceClass.m; sourceTree = "<group>"; };
 		D8BBBA60209D5ED200201A63 /* NeedHelpVCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NeedHelpVCViewController.h; sourceTree = "<group>"; };
 		D8BBBA61209D5ED200201A63 /* NeedHelpVCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeedHelpVCViewController.m; sourceTree = "<group>"; };
 		D8BBBA62209D5ED200201A63 /* NeedHelpVCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NeedHelpVCViewController.xib; sourceTree = "<group>"; };
+		D8BBBA6C209E457A00201A63 /* DProfileVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DProfileVC.h; sourceTree = "<group>"; };
+		D8BBBA6D209E457A00201A63 /* DProfileVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DProfileVC.m; sourceTree = "<group>"; };
+		D8BBBA6E209E457A00201A63 /* DProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DProfileVC.xib; sourceTree = "<group>"; };
 		D8C46A97202F6005004BAC2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8CD7DF0202EE5FA0036A738 /* QueueDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueDetails.h; sourceTree = "<group>"; };
 		D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueDetails.m; sourceTree = "<group>"; };
@@ -868,6 +897,7 @@
 		5FBBBB111F726FC400C03813 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8BBBA65209E3AAC00201A63 /* Profile */,
 				D8BBBA5F209D5EC100201A63 /* NeedHelp */,
 				9CFF435D2077446D005F3AF7 /* PaymentVC */,
 				9C9607AC207383E800505F9F /* Term&Condition */,
@@ -1010,6 +1040,12 @@
 				D8F3351B201CE282000C6FAE /* Relation.m */,
 				D8CD7DF0202EE5FA0036A738 /* QueueDetails.h */,
 				D8CD7DF1202EE5FA0036A738 /* QueueDetails.m */,
+				D86E968F209F71BF00FB2EB1 /* Education.h */,
+				D86E9690209F71BF00FB2EB1 /* Education.m */,
+				D86E9692209F722600FB2EB1 /* Profile.h */,
+				D86E9693209F722600FB2EB1 /* Profile.m */,
+				D86E9695209F745600FB2EB1 /* ExperianceClass.h */,
+				D86E9696209F745600FB2EB1 /* ExperianceClass.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1208,6 +1244,22 @@
 			path = CustomTabBar;
 			sourceTree = "<group>";
 		};
+		D86E967C209EC49D00FB2EB1 /* DoctorProfileCell's */ = {
+			isa = PBXGroup;
+			children = (
+				D86E967D209EC50800FB2EB1 /* DProfileCellType1.h */,
+				D86E967E209EC50800FB2EB1 /* DProfileCellType1.m */,
+				D86E967F209EC50800FB2EB1 /* DProfileCellType1.xib */,
+				D86E9682209EC74900FB2EB1 /* DProfileCellType2.h */,
+				D86E9683209EC74900FB2EB1 /* DProfileCellType2.m */,
+				D86E9684209EC74900FB2EB1 /* DProfileCellType2.xib */,
+				D86E9687209EF94B00FB2EB1 /* ProfileImageCell.h */,
+				D86E9688209EF94B00FB2EB1 /* ProfileImageCell.m */,
+				D86E9689209EF94B00FB2EB1 /* ProfileImageCell.xib */,
+			);
+			path = "DoctorProfileCell's";
+			sourceTree = "<group>";
+		};
 		D8BBBA5F209D5EC100201A63 /* NeedHelp */ = {
 			isa = PBXGroup;
 			children = (
@@ -1216,6 +1268,25 @@
 				D8BBBA62209D5ED200201A63 /* NeedHelpVCViewController.xib */,
 			);
 			path = NeedHelp;
+			sourceTree = "<group>";
+		};
+		D8BBBA65209E3AAC00201A63 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D8BBBA66209E3ABE00201A63 /* DoctorProfile */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D8BBBA66209E3ABE00201A63 /* DoctorProfile */ = {
+			isa = PBXGroup;
+			children = (
+				D86E967C209EC49D00FB2EB1 /* DoctorProfileCell's */,
+				D8BBBA6C209E457A00201A63 /* DProfileVC.h */,
+				D8BBBA6D209E457A00201A63 /* DProfileVC.m */,
+				D8BBBA6E209E457A00201A63 /* DProfileVC.xib */,
+			);
+			path = DoctorProfile;
 			sourceTree = "<group>";
 		};
 		D8E1C79B2007C77C007172F5 /* AwarenessN */ = {
@@ -1398,6 +1469,7 @@
 				9C840968203ED16700A7C3C7 /* Montserrat-Italic.otf in Resources */,
 				9C840969203ED16700A7C3C7 /* Montserrat-Light.otf in Resources */,
 				9C84096A203ED16700A7C3C7 /* Montserrat-LightItalic.otf in Resources */,
+				D8BBBA70209E457A00201A63 /* DProfileVC.xib in Resources */,
 				9C84096B203ED16700A7C3C7 /* Montserrat-Medium.otf in Resources */,
 				9C84096C203ED16700A7C3C7 /* Montserrat-MediumItalic.otf in Resources */,
 				9C84096D203ED16700A7C3C7 /* Montserrat-Regular.otf in Resources */,
@@ -1408,6 +1480,7 @@
 				9C840972203ED16700A7C3C7 /* MontserratAlternates-Black.otf in Resources */,
 				9C840973203ED16700A7C3C7 /* MontserratAlternates-BlackItalic.otf in Resources */,
 				9C840974203ED16700A7C3C7 /* MontserratAlternates-Bold.otf in Resources */,
+				D86E9681209EC50800FB2EB1 /* DProfileCellType1.xib in Resources */,
 				9C840975203ED16700A7C3C7 /* MontserratAlternates-BoldItalic.otf in Resources */,
 				9C840976203ED16700A7C3C7 /* MontserratAlternates-ExtraBold.otf in Resources */,
 				9CD966DD207CD45E00DB3693 /* cities-en.json in Resources */,
@@ -1440,6 +1513,7 @@
 				5FB773EE1FF5189E00982102 /* EMRHealthContainerVC.xib in Resources */,
 				5F90A460201C62DD00DA259B /* ChoosePatientViewController.xib in Resources */,
 				D82354AB1F8A37790097A94C /* RCDoctor1.xib in Resources */,
+				D86E968B209EF94B00FB2EB1 /* ProfileImageCell.xib in Resources */,
 				5F4F6C601F828E5A000C65A0 /* AwarenessCategoryViewController.xib in Resources */,
 				5F1E9B3B1F763C73009FECDD /* UserSelectViewController.xib in Resources */,
 				5F02F9FD1FF7B0F500219F4C /* DetailViewController.xib in Resources */,
@@ -1454,6 +1528,7 @@
 				5F4F6C691F82915F000C65A0 /* AwarenessCategoryTableViewCell.xib in Resources */,
 				D8F5A56F1F9202D300E36160 /* HomeCell.xib in Resources */,
 				D8EE8B1C1F966FB8006A018E /* CustomAlert.xib in Resources */,
+				D86E9686209EC74900FB2EB1 /* DProfileCellType2.xib in Resources */,
 				D84B6BBD1F77837500F37660 /* LoderView.xib in Resources */,
 				5F1E9B311F763C49009FECDD /* SplashScreenViewController.xib in Resources */,
 				5F1E9B5E1F76AAB4009FECDD /* DependantDetailTableViewCell.xib in Resources */,
@@ -1721,6 +1796,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F4F6C5F1F828E5A000C65A0 /* AwarenessCategoryViewController.m in Sources */,
+				D86E968A209EF94B00FB2EB1 /* ProfileImageCell.m in Sources */,
 				D8E1C7A3200902A8007172F5 /* PostData.m in Sources */,
 				5FE822DC203D507C00F20F4D /* TatabApp.xcdatamodeld in Sources */,
 				9C8FE6D71F8B53270003003C /* RCDoctor3.m in Sources */,
@@ -1728,6 +1804,7 @@
 				5FD369151FFE954A00FC6C3F /* CommonInfoPatient.m in Sources */,
 				5FBBBB1A1F72720800C03813 /* LoginViewController.m in Sources */,
 				D84B6BB71F777D2C00F37660 /* WebServicesCall.m in Sources */,
+				D86E9680209EC50800FB2EB1 /* DProfileCellType1.m in Sources */,
 				5FB773F31FF525F300982102 /* DoctorListEMRLogTableViewCell.m in Sources */,
 				5F90A459201C5FCB00DA259B /* SelectUserTableViewCell.m in Sources */,
 				5F4F6C631F828F81000C65A0 /* AwarenessCategory.m in Sources */,
@@ -1741,7 +1818,9 @@
 				9C6D8CD62021A2F5004CA1B4 /* CustomTFWithLeftRight.m in Sources */,
 				9C8FE6DC1F8B8DCF0003003C /* RCDoctor4.m in Sources */,
 				5F40CDB920288280009260D8 /* CustomButtonWithoutBorder.m in Sources */,
+				D8BBBA6F209E457A00201A63 /* DProfileVC.m in Sources */,
 				9C6DE7381F83A60600635102 /* AwarenessVideoListViewController.m in Sources */,
+				D86E9697209F745600FB2EB1 /* ExperianceClass.m in Sources */,
 				5FB2D742201C6ECB00D60DE8 /* ChooseDependantViewController.m in Sources */,
 				5F9F49BF1FB1D791009E1418 /* XMPPHandler.m in Sources */,
 				D8F3351C201CE282000C6FAE /* Relation.m in Sources */,
@@ -1763,8 +1842,10 @@
 				5FB51C442003E5BE00E4889B /* PressureReportViewController.m in Sources */,
 				5FE2757E2010C05900EC875E /* CustomSlider.m in Sources */,
 				9C840988203EE56500A7C3C7 /* RatingVC.m in Sources */,
+				D86E9694209F722600FB2EB1 /* Profile.m in Sources */,
 				D8F108C11FC09A140049296C /* Chat+CoreDataClass.m in Sources */,
 				9C16D1B420316AA000D82769 /* AGPushNoteView.m in Sources */,
+				D86E9685209EC74900FB2EB1 /* DProfileCellType2.m in Sources */,
 				5F1E9B301F763C49009FECDD /* SplashScreenViewController.m in Sources */,
 				9C6DE73C1F83A61A00635102 /* VideoListObject.m in Sources */,
 				9C5505752008E2FC0037F07F /* CustomButton3.m in Sources */,
@@ -1773,6 +1854,7 @@
 				5FC496DC1FCBDC1B004E537A /* ChatPatient.m in Sources */,
 				5F1E9B3A1F763C73009FECDD /* UserSelectViewController.m in Sources */,
 				D84DF2031F8A0D9C00234070 /* RegisterCompleteViewController.m in Sources */,
+				D86E9691209F71BF00FB2EB1 /* Education.m in Sources */,
 				D8CD7DF2202EE5FA0036A738 /* QueueDetails.m in Sources */,
 				5F90A45F201C62DD00DA259B /* ChoosePatientViewController.m in Sources */,
 				5F0B0FD01FB1EC82006468AA /* ChatViewController.m in Sources */,

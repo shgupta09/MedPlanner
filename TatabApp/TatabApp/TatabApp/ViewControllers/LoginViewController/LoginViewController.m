@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "SWRevealViewController.h"
-
+#import "DProfileVC.h"
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet CustomTextField *txtUsername;
@@ -38,8 +38,8 @@
      [_btn_NeedHelp setTitle:[Langauge getTextFromTheKey:@"need_help"] forState:UIControlStateNormal];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
-//  _txtPassword.text = @"Admin@123";
-//  _txtUsername.text = @"kasim@yopmail.com";
+  _txtPassword.text = @"Admin@123";
+  _txtUsername.text = @"kasim@yopmail.com";
 //_txtUsername.text = @"gg@ggg.com";
 //_txtUsername.text = @"abhinav@gmail.com";
 //      _txtUsername.text = @"Asdf@yopmail.com";
@@ -143,7 +143,9 @@
     [self.navigationController popViewControllerAnimated:true];
 }
 - (IBAction)btn_NeedHelp:(id)sender {
-    NeedHelpVCViewController* vc = [[NeedHelpVCViewController alloc] initWithNibName:@"NeedHelpVCViewController" bundle:nil];
+//    NeedHelpVCViewController* vc = [[NeedHelpVCViewController alloc] initWithNibName:@"NeedHelpVCViewController" bundle:nil];
+    DProfileVC* vc = [[DProfileVC alloc] initWithNibName:@"DProfileVC" bundle:nil];
+
     [self.navigationController presentViewController:vc animated:true completion:nil];
 }
 - (IBAction)btnRegisterClicked:(id)sender {
@@ -175,7 +177,7 @@
 -(void) loginFunction {
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
     [parameterDict setValue:[CommonFunction trimString:_txtUsername.text] forKey:loginemail];
-    [parameterDict setValue:_txtPassword.text forKey:loginPassword];
+    [parameterDict setValue:_txtPassword.text forKey:loginPassword];  
     
     if ([ CommonFunction reachability]) {
         [self addLoder];

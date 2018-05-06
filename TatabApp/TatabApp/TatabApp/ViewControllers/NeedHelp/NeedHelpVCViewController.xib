@@ -36,10 +36,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XL6-aF-n1V">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgx-3S-drg">
-                                            <rect key="frame" x="93.5" y="28.5" width="189" height="26"/>
+                                            <rect key="frame" x="93.5" y="61" width="189" height="26"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                             <color key="textColor" red="0.49783343079999998" green="0.68638932699999999" blue="0.2307600081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEH-Ro-AYz">
-                                    <rect key="frame" x="0.0" y="64.5" width="375" height="582.5"/>
+                                    <rect key="frame" x="0.0" y="97" width="375" height="550"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9sd-jm-XKg" customClass="CustomTextField">
                                             <rect key="frame" x="20" y="29" width="335" height="45"/>
@@ -197,7 +197,7 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="XL6-aF-n1V" secondAttribute="trailing" id="1L9-1S-4tM"/>
                                 <constraint firstAttribute="bottom" secondItem="eEH-Ro-AYz" secondAttribute="bottom" id="PXi-9T-Yai"/>
-                                <constraint firstItem="XL6-aF-n1V" firstAttribute="height" secondItem="015-3U-r6F" secondAttribute="height" multiplier="0.1" id="RHz-2a-6Zl"/>
+                                <constraint firstItem="XL6-aF-n1V" firstAttribute="height" secondItem="015-3U-r6F" secondAttribute="height" multiplier="0.15" id="RHz-2a-6Zl"/>
                                 <constraint firstAttribute="trailing" secondItem="eEH-Ro-AYz" secondAttribute="trailing" id="TBu-eS-v5m"/>
                                 <constraint firstItem="eEH-Ro-AYz" firstAttribute="top" secondItem="XL6-aF-n1V" secondAttribute="bottom" id="a2p-B2-z7q"/>
                                 <constraint firstItem="XL6-aF-n1V" firstAttribute="leading" secondItem="015-3U-r6F" secondAttribute="leading" id="boj-lj-U9u"/>

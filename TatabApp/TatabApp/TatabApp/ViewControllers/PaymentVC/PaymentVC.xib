@@ -45,17 +45,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vh3-VX-CCx">
-                    <rect key="frame" x="0.0" y="87" width="375" height="2"/>
+                    <rect key="frame" x="0.0" y="87" width="375" height="1"/>
                     <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="2" id="at0-dd-ex1"/>
+                        <constraint firstAttribute="height" constant="1" id="at0-dd-ex1"/>
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="QeR-nf-LIw">
-                    <rect key="frame" x="0.0" y="89" width="375" height="578"/>
+                    <rect key="frame" x="0.0" y="88" width="375" height="579"/>
                 </imageView>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLK-Wk-Zpn">
-                    <rect key="frame" x="0.0" y="89" width="375" height="578"/>
+                    <rect key="frame" x="0.0" y="88" width="375" height="579"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="T3d-ap-LRc"/>

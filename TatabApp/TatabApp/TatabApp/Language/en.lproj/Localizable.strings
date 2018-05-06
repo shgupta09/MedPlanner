@@ -280,3 +280,12 @@
 "Problem_Type_required" = "We need a problem type";
 "Problem_Title_required" = "We need a problem title";
 "Problem_Description_required" = "We need a problem description";
+"Doctor_Profile" = "Doctor Profile";
+
+
+
+"About_Me" = "About me";
+"Education" = "Edcation";
+"Location" = "Location";
+"Years_Of_Experience" = "Years Of Experiance";
+"Edit" = "Edit";
