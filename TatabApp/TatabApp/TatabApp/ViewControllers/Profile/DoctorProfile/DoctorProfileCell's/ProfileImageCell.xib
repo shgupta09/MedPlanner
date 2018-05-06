@@ -20,13 +20,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dependentsuser" translatesAutoresizingMaskIntoConstraints="NO" id="Fib-jV-bmm">
-                        <rect key="frame" x="80" y="0.0" width="160" height="134.5"/>
+                        <rect key="frame" x="95" y="0.0" width="130" height="130"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="134.5" id="jl9-4k-TgP"/>
+                            <constraint firstAttribute="height" constant="130" id="jl9-4k-TgP"/>
+                            <constraint firstAttribute="width" constant="130" id="zvv-k9-SOE"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbG-Mx-7zs">
-                        <rect key="frame" x="0.0" y="139.5" width="320" height="10"/>
+                        <rect key="frame" x="0.0" y="135" width="320" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -36,10 +37,9 @@
                     <constraint firstItem="FbG-Mx-7zs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DIw-3n-mIZ"/>
                     <constraint firstItem="FbG-Mx-7zs" firstAttribute="top" secondItem="Fib-jV-bmm" secondAttribute="bottom" constant="5" id="GSc-Fs-ZG0"/>
                     <constraint firstItem="Fib-jV-bmm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Yhd-jt-euN"/>
-                    <constraint firstItem="Fib-jV-bmm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="80" id="fO3-ok-npt"/>
+                    <constraint firstItem="Fib-jV-bmm" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="cMc-NW-X5u"/>
                     <constraint firstAttribute="bottom" secondItem="FbG-Mx-7zs" secondAttribute="bottom" id="hao-Q8-ize"/>
                     <constraint firstAttribute="trailing" secondItem="FbG-Mx-7zs" secondAttribute="trailing" id="qrX-tO-NnY"/>
-                    <constraint firstAttribute="trailing" secondItem="Fib-jV-bmm" secondAttribute="trailing" constant="80" id="xzj-bm-yjq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

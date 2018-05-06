@@ -81,7 +81,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.img_Profile.layer.masksToBounds = true;
-        cell.img_Profile.layer.cornerRadius = cell.img_Profile.frame.size.height/2;
+        cell.img_Profile.layer.cornerRadius = 65;
         cell.lbl_Title.text = profileObj.name;
         [cell.img_Profile sd_setImageWithURL:[NSURL URLWithString:profileObj.upload]];
 //        cell.img_Profile.image = [UIImage imageNamed:@"Like"];
@@ -123,12 +123,14 @@
                  cell.btn.layer.borderColor = [CommonFunction colorWithHexString:primary_Color].CGColor;
                  cell.traillingConstraint.constant = 5;
                  cell.btnDelete.hidden = true;
-                 [cell.btn addTarget:self action:@selector(btnActionEditAbout) forControlEvents:UIControlEventAllTouchEvents];
+                 cell.btn.tag = 3;
+                 cell.btn.hidden = false;
+                 [cell.btn addTarget:self action:@selector(btnActionAdd:) forControlEvents:UIControlEventTouchUpInside];
              }else{
                  cell.traillingConstraint.constant = 5;
                  cell.btnDelete.hidden = true;
                  cell.btn.layer.borderColor = [UIColor clearColor   ].CGColor;
-
+                 cell.btn.hidden = true;
              }
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -174,7 +176,7 @@
                cell.btn.tag = 100 + (indexPath.row - 3);
                cell.btnDelete.tag = 200 + (indexPath.row - 3);
                [cell.btn addTarget:self action:@selector(btnActionEditEducation:) forControlEvents:UIControlEventAllTouchEvents];
-               [cell.btn addTarget:self action:@selector(btnActionDeleteEducation:) forControlEvents:UIControlEventAllTouchEvents];
+               [cell.btnDelete addTarget:self action:@selector(btnActionDeleteEducation:) forControlEvents:UIControlEventAllTouchEvents];
 
            }
            else{
@@ -251,8 +253,13 @@
            cell.lbl3.text = objClass.descriptionObj;
            if(isEdit){
                cell.btn.layer.borderColor = [CommonFunction colorWithHexString:primary_Color].CGColor;
+               cell.btn.tag =
                cell.traillingConstraint.constant = 30;
                cell.btnDelete.hidden = false;
+               cell.btn.tag = 100 + (indexPath.row - 6-profileObj.educationArray.count);
+               cell.btnDelete.tag = 100 + (indexPath.row - 6-profileObj.educationArray.count);
+               [cell.btn addTarget:self action:@selector(btnActionEditExperience:) forControlEvents:UIControlEventTouchUpInside];
+               [cell.btnDelete addTarget:self action:@selector(btnActionDeleteExperience:) forControlEvents:UIControlEventTouchUpInside];
            }
            else{
                cell.btn.layer.borderColor = [UIColor clearColor   ].CGColor;
@@ -285,6 +292,8 @@
         NSLog(@"Location");
     }else if (btn.tag == 2){
         NSLog(@"Add experience");
+    }else if(btn.tag ==3){
+        NSLog(@"About tapped");
     }
     
 }
@@ -295,7 +304,13 @@
     NSLog(@"EducationEditTapped %d",btn.tag);
 }
 -(void)btnActionDeleteEducation:(UIButton *)btn{
-    NSLog(@"EducationEditTapped %d",btn.tag);
+    NSLog(@"EducationDEleteTapped %d",btn.tag);
+}
+-(void)btnActionEditExperience:(UIButton *)btn{
+    NSLog(@"ExperienceEditTapped %d",btn.tag);
+}
+-(void)btnActionDeleteExperience:(UIButton *)btn{
+    NSLog(@"ExperienceDEleteTapped %d",btn.tag);
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
