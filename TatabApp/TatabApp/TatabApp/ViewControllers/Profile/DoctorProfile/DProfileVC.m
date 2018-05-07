@@ -20,6 +20,18 @@
     int numberOfYearOfExperience;
     BOOL isEdit;
     Profile *profileObj;
+    NSDate *dateForResignedSince;
+    NSDate *dateForJoin;
+    NSString *dateForResignedSinceString;
+    NSString *dateForJoinStrng;
+    UIDatePicker* pickerForDate;
+    UIView *viewOverPicker;
+    UIToolbar *toolBar;
+    NSInteger replacableIndex;
+    BOOL isEditExperience;
+    NSMutableArray *cityArray;
+    NSInteger selectedRowForCity;
+    UIPickerView *pickerObj;
 }
 
 @end
@@ -38,8 +50,20 @@
     alertObj.frame = self.view.frame;
 }
 -(void)setData{
+     selectedRowForCity = 0;
+     cityArray = [NSMutableArray new] ;
+     cityArray = [[CommonFunction getCityArray] mutableCopy];
     numberOfEducation = 2;
     numberOfYearOfExperience = 2;
+    
+    [CommonFunction setResignTapGestureToView:_popUpEducation andsender:self];
+    [CommonFunction setResignTapGestureToView:_popUpExperience andsender:self];
+    [CommonFunction setResignTapGestureToView:_popUpAbout andsender:self];
+
+    //date
+    dateForJoin = [NSDate date];
+    dateForResignedSince = [NSDate date];
+
     [self setLanguageData];
     [self setUpTableData];
     [self hitDoctorApi];
@@ -47,12 +71,150 @@
 -(void)setLanguageData{
     _lbl_Title.text = [Langauge getTextFromTheKey:@"Doctor_Profile"];
     [_btn_Save setTitle:[Langauge getTextFromTheKey:@"Edit"] forState:UIControlStateNormal];
+    [_btn_ConfirmAdd setTitle:[Langauge getTextFromTheKey:@"confirm_add"] forState:UIControlStateNormal];
+    [_btn_ConfirmAddEducation setTitle:[Langauge getTextFromTheKey:@"confirm_add"] forState:UIControlStateNormal];
+
+    [_txt_workedSince setPlaceholderWithColor:[Langauge getTextFromTheKey:@"working_since"]];
+    [_txt_hospitalName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"hospital_name"]];
+    [_txt_resignedSince setPlaceholderWithColor:[Langauge getTextFromTheKey:@"resigned_since"]];
+    [_txt_description setPlaceholderWithColor:[Langauge getTextFromTheKey:@"Description"]];
+    [_txt_Universitydescription setPlaceholderWithColor:[Langauge getTextFromTheKey:@"Description"]];
+    [_txt_UniversityName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"Unversity_Name"]];
     isEdit = false;
+    isEditExperience = false;
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark - picker data Source
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 1;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component{
+    if (pickerView.tag ==0) {
+        return [cityArray count];
+    }
+    return 0;
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
+(NSInteger)row forComponent:(NSInteger)component{
+    if (pickerView.tag ==0) {
+        return  [[cityArray objectAtIndex:row] valueForKey:@"Name"];
+    }
+    return @"";
+    
+    
+    
+    
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component{
+    if (pickerView.tag == 0) {
+        profileObj.home_location =  [[cityArray objectAtIndex:row] valueForKey:@"Name"];;
+        selectedRowForCity = row;
+    }
+    [_tblList reloadData];
+}
+
+#pragma mark- TextView Delegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:[Langauge getTextFromTheKey:@"About_Text"]]) {
+        textView.text = @"";
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = [Langauge getTextFromTheKey:@"About_Text"];
+    }
+    [textView resignFirstResponder];
+}
+
+#pragma mark - Date
+- (IBAction)btnActionBirthDay:(UIButton *)sender {
+    
+    [CommonFunction resignFirstResponderOfAView:self.view];
+    pickerForDate = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerForDate.datePickerMode = UIDatePickerModeDate;
+    pickerForDate.tag = ((UIButton *)sender).tag;
+    if(sender.tag == 0){
+        [pickerForDate setDate:dateForJoin];
+        [pickerForDate setMaximumDate: [NSDate date]];
+    }else{
+        [pickerForDate setDate:dateForResignedSince];
+        [pickerForDate setMinimumDate: dateForJoin];
+        [pickerForDate setMaximumDate:[NSDate date]];
+    }
+    
+    
+    
+    
+    [pickerForDate addTarget:self action:@selector(dueDateChanged:)
+            forControlEvents:UIControlEventValueChanged];
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    pickerForDate.backgroundColor = [UIColor lightGrayColor];
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    toolBar = [[UIToolbar alloc]initWithFrame:
+               CGRectMake(0, self.view.frame.size.height-
+                          pickerForDate.frame.size.height-50, self.view.frame.size.width, 50)];
+    //    [toolBar setBarTintColor:[UIColor redColor]];
+    UIBarButtonItem *doneButton2 = [[UIBarButtonItem alloc]
+                                    initWithTitle:@"" style:UIBarButtonItemStyleDone
+                                    target:nil action:nil];
+    //    doneButton2.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    NSDictionary *barButtonAppearanceDict = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0], NSForegroundColorAttributeName: [CommonFunction colorWithHexString:@"f7a41e"]};
+    [doneButton2 setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    NSArray *toolbarItems = [NSArray arrayWithObjects:space,doneButton2,
+                             space,doneButton, nil];
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:pickerForDate];
+    [viewOverPicker addSubview:toolBar];
+    [self.view addSubview:viewOverPicker];
+}
+
+// value change of the date picker
+-(void) dueDateChanged:(UIDatePicker *)sender {
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    //self.myLabel.text = [dateFormatter stringFromDate:[dueDatePickerView date]];
+    NSLog(@"Picked the date %@", [dateFormatter stringFromDate:[sender date]]);
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    
+    if (sender.tag == 0){
+        dateForJoinStrng = [dateFormatter stringFromDate:[sender date]];
+        dateForJoin = sender.date;
+        _txt_workedSince.text = dateForJoinStrng;
+    }else if (sender.tag == 1){
+        dateForResignedSinceString = [dateFormatter stringFromDate:[sender date]];
+        dateForResignedSince = sender.date;
+        _txt_resignedSince.text = dateForResignedSinceString;
+    }
+    
+}
+
+-(void)doneForPicker:(id)sender{
+    [viewOverPicker removeFromSuperview];
+    
 }
 #pragma mark- tableView delegate
 
@@ -125,7 +287,7 @@
                  cell.btnDelete.hidden = true;
                  cell.btn.tag = 3;
                  cell.btn.hidden = false;
-                 [cell.btn addTarget:self action:@selector(btnActionAdd:) forControlEvents:UIControlEventTouchUpInside];
+                 [cell.btn addTarget:self action:@selector(btnActionEdit:) forControlEvents:UIControlEventTouchUpInside];
              }else{
                  cell.traillingConstraint.constant = 5;
                  cell.btnDelete.hidden = true;
@@ -156,7 +318,7 @@
            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
-       else if ((indexPath.row >3 && ((indexPath.row <= 3+profileObj.educationArray.count )&&profileObj.educationArray.count>0))){
+       else if ( ((indexPath.row <= 3+profileObj.educationArray.count )&&profileObj.educationArray.count>0)){
            DProfileCellType2 *cell = [_tblList dequeueReusableCellWithIdentifier:@"DProfileCellType2"];
            
            if (cell == nil) {
@@ -166,17 +328,17 @@
            cell.lbl2.hidden = true;
            cell.lbl3_UpperConstraint.constant = 10;
            Education *objClass = [Education new];
-           objClass = [profileObj.educationArray objectAtIndex:indexPath.row-3];
+           objClass = [profileObj.educationArray objectAtIndex:indexPath.row-4];
            cell.lbl1.text = objClass.university_name;
-           cell.lbl3.text = objClass.description;
+           cell.lbl3.text = objClass.descriptionObj;
            if(isEdit){
                cell.btn.layer.borderColor = [CommonFunction colorWithHexString:primary_Color].CGColor;
              cell.traillingConstraint.constant = 30;
                cell.btnDelete.hidden = false;
-               cell.btn.tag = 100 + (indexPath.row - 3);
-               cell.btnDelete.tag = 200 + (indexPath.row - 3);
-               [cell.btn addTarget:self action:@selector(btnActionEditEducation:) forControlEvents:UIControlEventAllTouchEvents];
-               [cell.btnDelete addTarget:self action:@selector(btnActionDeleteEducation:) forControlEvents:UIControlEventAllTouchEvents];
+               cell.btn.tag = 100 + (indexPath.row - 4);
+               cell.btnDelete.tag = 100 + (indexPath.row - 4);
+               [cell.btn addTarget:self action:@selector(btnActionEdit:) forControlEvents:UIControlEventTouchUpInside];
+               [cell.btnDelete addTarget:self action:@selector(btnActionDelete:) forControlEvents:UIControlEventTouchUpInside];
 
            }
            else{
@@ -244,7 +406,7 @@
                
            }
            ExperianceClass *objClass = [ExperianceClass new];
-           objClass = [profileObj.experianceArray objectAtIndex:indexPath.row-6];
+           objClass = [profileObj.experianceArray objectAtIndex:indexPath.row-6-profileObj.educationArray.count];
            cell.lbl1.hidden = false;
            cell.lbl2.hidden = false;
            cell.lbl3_UpperConstraint.constant = 10;
@@ -256,13 +418,13 @@
                cell.btn.tag =
                cell.traillingConstraint.constant = 30;
                cell.btnDelete.hidden = false;
-               cell.btn.tag = 100 + (indexPath.row - 6-profileObj.educationArray.count);
-               cell.btnDelete.tag = 100 + (indexPath.row - 6-profileObj.educationArray.count);
-               [cell.btn addTarget:self action:@selector(btnActionEditExperience:) forControlEvents:UIControlEventTouchUpInside];
-               [cell.btnDelete addTarget:self action:@selector(btnActionDeleteExperience:) forControlEvents:UIControlEventTouchUpInside];
+               cell.btn.tag = 200 + (indexPath.row - 6-profileObj.educationArray.count);
+               cell.btnDelete.tag = 200 + (indexPath.row - 6-profileObj.educationArray.count);
+               [cell.btn addTarget:self action:@selector(btnActionEdit:) forControlEvents:UIControlEventTouchUpInside];
+               [cell.btnDelete addTarget:self action:@selector(btnActionDelete:) forControlEvents:UIControlEventTouchUpInside];
            }
            else{
-               cell.btn.layer.borderColor = [UIColor clearColor   ].CGColor;
+               cell.btn.layer.borderColor = [UIColor clearColor].CGColor;
                cell.traillingConstraint.constant = 5;
                cell.btnDelete.hidden = true;
 
@@ -285,33 +447,6 @@
 }
 
 
--(void)btnActionAdd:(UIButton *)btn{
-    if (btn.tag == 0) {
-        NSLog(@"Add Education");
-    }else if (btn.tag == 1){
-        NSLog(@"Location");
-    }else if (btn.tag == 2){
-        NSLog(@"Add experience");
-    }else if(btn.tag ==3){
-        NSLog(@"About tapped");
-    }
-    
-}
--(void)btnActionEditAbout{
-    NSLog(@"AboutEditTapped");
-}
--(void)btnActionEditEducation:(UIButton *)btn{
-    NSLog(@"EducationEditTapped %d",btn.tag);
-}
--(void)btnActionDeleteEducation:(UIButton *)btn{
-    NSLog(@"EducationDEleteTapped %d",btn.tag);
-}
--(void)btnActionEditExperience:(UIButton *)btn{
-    NSLog(@"ExperienceEditTapped %d",btn.tag);
-}
--(void)btnActionDeleteExperience:(UIButton *)btn{
-    NSLog(@"ExperienceDEleteTapped %d",btn.tag);
-}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
@@ -319,20 +454,222 @@
 
 #pragma mark - Btn Action
 
+- (IBAction)btnAction_AdoutAdd:(id)sender {
+    NSDictionary *dictForValidation = [self validateDataForAbout];
+    if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
+        [_popUpAbout removeFromSuperview];
+        profileObj.about_me = [CommonFunction trimString:_txt_about.text];
+        [_tblList reloadData];
+        [self viewDidLayoutSubviews];
+    }
+    else{
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:[dictForValidation valueForKey:AlertKey]   isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+        
+    }
+    
+}
+-(void)btnActionAdd:(UIButton *)btn{
+    if (btn.tag == 0) {
+        _txt_UniversityName.text = @"";
+        _txt_Universitydescription.text = @"";
+        isEditExperience = false;
+        [[self popUpEducation] setAutoresizesSubviews:true];
+        [[self popUpEducation] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+        CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
+        frame.origin.y = 0.0f;
+        self.popUpEducation.center = CGPointMake(self.view.center.x, self.view.center.y);
+        [[self popUpEducation] setFrame:frame];
+        [self.view addSubview:_popUpEducation];
+        [CommonFunction addAnimationToview:_popUpEducation];
+    }else if (btn.tag == 1){
+        pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+        pickerObj.delegate = self;
+        pickerObj.dataSource = self;
+        pickerObj.showsSelectionIndicator = YES;
+        pickerObj.backgroundColor = [UIColor lightGrayColor];
+        pickerObj.tag = 0;
+        viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+        UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                              CGRectMake(0, self.view.frame.size.height-
+                                         pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+        [toolBar setBarStyle:UIBarStyleBlackOpaque];
+        viewOverPicker.backgroundColor = [UIColor clearColor];
+        [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+        
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                       initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                       target:self action:@selector(doneForPicker:)];
+        doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+        UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        
+        NSArray *toolbarItems = [NSArray arrayWithObjects:
+                                 space,doneButton, nil];
+        pickerObj.hidden = false;
+        [toolBar setItems:toolbarItems];
+        [viewOverPicker addSubview:toolBar];
+        if (pickerObj.tag == 1) {
+            [pickerObj  selectRow:selectedRowForCity inComponent:0 animated:true];
+        }
+        [viewOverPicker addSubview:pickerObj];
+        [self.view addSubview:viewOverPicker];
+        [pickerObj reloadAllComponents];
+        
+    }else if (btn.tag == 2){
+        isEditExperience = false;
+        _txt_hospitalName.text = @"";
+        _txt_workedSince.text = @"";
+        _txt_resignedSince.text = @"";
+        _txt_description.text = @"";
+        [[self popUpExperience] setAutoresizesSubviews:true];
+        [[self popUpExperience] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+        CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
+        frame.origin.y = 0.0f;
+        self.popUpExperience.center = CGPointMake(self.view.center.x, self.view.center.y);
+        [[self popUpExperience] setFrame:frame];
+        [self.view addSubview:_popUpExperience];
+        [CommonFunction addAnimationToview:_popUpExperience];
+        
+    }
+    
+}
+
+
+
+-(void)btnActionEdit:(UIButton *)btn{
+    
+    
+    if (btn.tag/100 == 1) {
+        isEditExperience = true;
+        replacableIndex =(btn.tag%100);
+        Education *temp = [profileObj.educationArray objectAtIndex:(btn.tag%100)];
+        _txt_UniversityName.text = temp.university_name;
+        _txt_Universitydescription.text = temp.descriptionObj;
+        [[self popUpEducation] setAutoresizesSubviews:true];
+        [[self popUpEducation] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+        CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
+        frame.origin.y = 0.0f;
+        self.popUpEducation.center = CGPointMake(self.view.center.x, self.view.center.y);
+        [[self popUpEducation] setFrame:frame];
+        [self.view addSubview:_popUpEducation];
+        [CommonFunction addAnimationToview:_popUpEducation];
+    }else if (btn.tag/100 == 2){
+        isEditExperience = true;
+        replacableIndex =(btn.tag%100);
+        ExperianceClass *temp = [profileObj.experianceArray objectAtIndex:(btn.tag%100)];
+        _txt_hospitalName.text = temp.hospital_name;
+        _txt_workedSince.text = temp.worked_since;
+        _txt_resignedSince.text = temp.resigned_since;
+        _txt_description.text = temp.descriptionObj;
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+        [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+        dateForJoin = [dateFormatter dateFromString:temp.worked_since];
+        dateForResignedSince = [dateFormatter dateFromString:temp.resigned_since];
+        [[self popUpExperience] setAutoresizesSubviews:true];
+        [[self popUpExperience] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+        CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
+        frame.origin.y = 0.0f;
+        self.popUpExperience.center = CGPointMake(self.view.center.x, self.view.center.y);
+        [[self popUpExperience] setFrame:frame];
+        [self.view addSubview:_popUpExperience];
+        [CommonFunction addAnimationToview:_popUpExperience];
+    }else if(btn.tag ==3){
+        
+        if ([profileObj.about_me isEqualToString:@""]) {
+            _txt_about.text = [Langauge getTextFromTheKey:@"About_Text"];
+        }else{
+            _txt_about.text = profileObj.about_me;
+        }
+        [[self popUpAbout] setAutoresizesSubviews:true];
+        [[self popUpAbout] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+        CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
+        frame.origin.y = 0.0f;
+        self.popUpAbout.center = CGPointMake(self.view.center.x, self.view.center.y);
+        [[self popUpExperience] setFrame:frame];
+        [self.view addSubview:_popUpAbout];
+        [CommonFunction addAnimationToview:_popUpAbout];
+    }
+    
+}
+-(void)btnActionDelete:(UIButton *)btn{
+    if (btn.tag/100 == 1) {
+        [profileObj.educationArray removeObjectAtIndex:(btn.tag%100)];
+    }else if (btn.tag/100 == 2){
+         [profileObj.experianceArray removeObjectAtIndex:(btn.tag%100)];
+    }
+    [_tblList reloadData];
+}
+
+- (IBAction)btnActionConfirmAdd_Education:(id)sender {
+    
+    NSDictionary *dictForValidation = [self validateDataForEducation];
+    if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
+        [_popUpEducation removeFromSuperview];
+        
+        Education *dependencyObj = [Education new];
+        dependencyObj.university_name = [CommonFunction trimString:_txt_UniversityName.text];
+        dependencyObj.descriptionObj = [CommonFunction trimString:_txt_Universitydescription.text];
+        if (isEditExperience) {
+            [profileObj.educationArray replaceObjectAtIndex:replacableIndex withObject:dependencyObj];
+        }else{
+            [profileObj.educationArray addObject:dependencyObj];
+        }
+        [_tblList reloadData];
+        [self viewDidLayoutSubviews];
+        isEditExperience = false;
+        
+    }
+    else{
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:[dictForValidation valueForKey:AlertKey]   isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+        
+    }
+}
+
+
+- (IBAction)btnAction_ConfirmAddExperiance:(id)sender {
+    
+    NSDictionary *dictForValidation = [self validateDataForExperience];
+    
+    if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
+        [_popUpExperience removeFromSuperview];
+        
+        ExperianceClass *dependencyObj = [ExperianceClass new];
+        dependencyObj.hospital_name = [CommonFunction trimString:_txt_hospitalName.text];
+        dependencyObj.worked_since = [CommonFunction trimString:_txt_workedSince.text];
+        dependencyObj.resigned_since = [CommonFunction trimString:_txt_resignedSince.text];
+        dependencyObj.descriptionObj = [CommonFunction trimString:_txt_description.text];
+        if (isEditExperience) {
+            [profileObj.experianceArray replaceObjectAtIndex:replacableIndex withObject:dependencyObj];
+        }else{
+        [profileObj.experianceArray addObject:dependencyObj];
+        }
+        
+        [_tblList reloadData];
+        [self viewDidLayoutSubviews];
+        isEditExperience = false;
+        
+    }
+    else{
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:[dictForValidation valueForKey:AlertKey]   isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+        
+    }
+}
+
 - (IBAction)btnAction_Save:(id)sender {
     if (!isEdit) {
         isEdit = true;
          [_btn_Save setTitle:[Langauge getTextFromTheKey:@"Save"] forState:UIControlStateNormal];
         [_tblList reloadData];
     }else{
-        isEdit = false;
-        [_tblList reloadData];
-         [_btn_Save setTitle:[Langauge getTextFromTheKey:@"Edit"] forState:UIControlStateNormal];
+       
+        [self hitApiToUpload];
     }
     
 }
 - (IBAction)btnAction_Back:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+    [self.navigationController popViewControllerAnimated:true];
 }
 #pragma mark - hit api
 -(void)hitDoctorApi{
@@ -371,7 +708,7 @@
                         
                         eduObj.edu_id = [CommonFunction checkForNull:[obj valueForKey:@"edu_id"]];
                         eduObj.university_name = [CommonFunction checkForNull:[obj valueForKey:@"university_name"]];
-                        eduObj.description = [CommonFunction checkForNull:[obj valueForKey:@"description"]];
+                        eduObj.descriptionObj = [CommonFunction checkForNull:[obj valueForKey:@"description"]];
                         [tempArray2 addObject:eduObj];
                     }];
                     profileObj.educationArray = tempArray2;
@@ -397,6 +734,77 @@
     
     
 }
+
+
+-(void)hitApiToUpload{
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:loginUser];
+        [dict setValue:profileObj.name forKey:@"fname"];
+    [dict setValue:profileObj.about_me forKey:@"about_me"];
+    
+    NSArray *temp = [NSArray new];
+    temp = profileObj.educationArray;
+    NSMutableArray *tempMutable = [NSMutableArray new];
+    [temp enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSMutableDictionary *tempDict = [NSMutableDictionary new];
+        Education *temp = (Education *)obj;
+        [tempDict setValue:@"1"  forKey:@"edu_id"];
+         [tempDict setValue:temp.university_name forKey:@"university_name"];
+         [tempDict setValue:temp.descriptionObj forKey:@"description"];
+        [tempMutable addObject:tempDict];
+    }];
+    [dict setValue:[tempMutable mutableCopy] forKey:@"education"];
+    temp = profileObj.experianceArray;
+    [tempMutable removeAllObjects];
+    [temp enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSMutableDictionary *tempDict = [NSMutableDictionary new];
+        ExperianceClass *temp = (ExperianceClass *)obj;
+        [tempDict setValue:@"1" forKey:@"exp_id"];
+        [tempDict setValue:temp.hospital_name forKey:@"hospital_name"];
+        [tempDict setValue:temp.worked_since forKey:@"joining_date"];
+        [tempDict setValue:temp.resigned_since forKey:@"resigned_date"];
+        [tempDict setValue:temp.descriptionObj forKey:@"description"];
+        [tempMutable addObject:tempDict];
+    }];
+    [dict setValue:[tempMutable mutableCopy] forKey:@"experience"];
+    [dict setValue:profileObj.home_location forKey:@"location"];
+
+    [dict setValue:profileObj.upload forKey:@"url"];
+
+   
+
+    
+    
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_Update_Doctor]  postResponse:[dict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                   
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:1002 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Alert_Key_For_Image];
+                    [self removeloder];
+                }
+                else
+                {
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
+                    [self removeloder];
+                }
+            }
+            else {
+                [self removeloder];
+                [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:1001 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
+            }
+            
+            
+        }];
+    } else {
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
+    }
+    
+    
+}
+
 -(void)addLoder{
     self.view.userInteractionEnabled = NO;
     //  loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
@@ -468,13 +876,86 @@
             [self removeAlert];
         }
         case 1001:{
-            [self dismissViewControllerAnimated:true completion:nil];
+            [self.navigationController popViewControllerAnimated:true];
+            
+            
+        }case 1002:{
+            [_btn_Save setTitle:[Langauge getTextFromTheKey:@"Edit"] forState:UIControlStateNormal];
+            isEdit = false;
+            [_tblList reloadData];
             
             
         }
         default:
             
             break;
+    }
+}
+
+#pragma mark - Validation
+
+-(NSDictionary *)validateDataForExperience{
+    NSMutableDictionary *validationDict = [[NSMutableDictionary alloc] init];
+    [validationDict setValue:@"1" forKey:BoolValueKey];
+    if ([CommonFunction trimString:_txt_hospitalName.text].length == 0){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        //        if ([CommonFunction trimString:_txt_hospitalName.text].length == 0){
+        [validationDict setValue:[Langauge getTextFromTheKey:@"hospital_name_required"] forKey:AlertKey];
+        //        }else{
+        //            [validationDict setValue:[Langauge getTextFromTheKey:@"hospital_name_required"] forKey:AlertKey];
+        //        }
+        
+    }
+    else if(_txt_workedSince.text.length == 0){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"working_since_required"] forKey:AlertKey];
+    }
+    else if(_txt_resignedSince.text.length == 0){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"resigned_since_required"] forKey:AlertKey];
+    }else if(_txt_description.text.length == 0){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"description_required"] forKey:AlertKey];
+    }
+    return validationDict.mutableCopy;
+    
+}
+-(NSDictionary *)validateDataForEducation{
+    NSMutableDictionary *validationDict = [[NSMutableDictionary alloc] init];
+    [validationDict setValue:@"1" forKey:BoolValueKey];
+    if ([CommonFunction trimString:_txt_UniversityName.text].length == 0){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"University_required"] forKey:AlertKey];
+    }
+    else if(_txt_Universitydescription.text.length == 0){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"description_required"] forKey:AlertKey];
+    }
+    return validationDict.mutableCopy;
+}
+
+-(NSDictionary *)validateDataForAbout{
+    NSMutableDictionary *validationDict = [[NSMutableDictionary alloc] init];
+    [validationDict setValue:@"1" forKey:BoolValueKey];
+    if ([CommonFunction trimString:_txt_about.text].length == 0){
+        [validationDict setValue:@"0" forKey:BoolValueKey];
+        [validationDict setValue:[Langauge getTextFromTheKey:@"About_required"] forKey:AlertKey];
+    }
+    return validationDict.mutableCopy;
+}
+
+#pragma mark - other
+
+-(void)resignResponder{
+    [CommonFunction resignFirstResponderOfAView:self.view];
+    if ([viewOverPicker isDescendantOfView:self.view]) {
+        [viewOverPicker removeFromSuperview];
+    }else if ([_popUpEducation isDescendantOfView:self.view]) {
+        [_popUpEducation removeFromSuperview];
+    }else if ([_popUpExperience isDescendantOfView:self.view]) {
+        [_popUpExperience removeFromSuperview];
+    }else if ([_popUpAbout isDescendantOfView:self.view]) {
+        [_popUpAbout removeFromSuperview];
     }
 }
 @end

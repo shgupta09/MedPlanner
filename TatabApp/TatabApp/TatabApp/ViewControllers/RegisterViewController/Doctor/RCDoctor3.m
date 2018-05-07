@@ -84,6 +84,7 @@
     _lbl_CV.text = [Langauge getTextFromTheKey:@"cv"];
      [_btn_Experience setTitle:[Langauge getTextFromTheKey:@"add_experience"] forState:UIControlStateNormal];
     [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
+     [_btn_ConfirmAdd setTitle:[Langauge getTextFromTheKey:@"confirm_add"] forState:UIControlStateNormal];
 
     
     

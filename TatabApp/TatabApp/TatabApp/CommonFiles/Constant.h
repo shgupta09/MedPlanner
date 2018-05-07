@@ -148,6 +148,7 @@ static NSString* const API_USER_URL = @"np-user-service/users/";
 static NSString* const API_LOCATION_URL = @"np-location-service/locations/";
 static NSString* const API_SUPPORT = @"support";
 static NSString* const API_Get_Doctor = @"getdoctor";
+static NSString* const API_Update_Doctor = @"updatedoctor";
 static NSString* const API_REGISTER_USER_URL = @"registerpatient";
 static NSString* const API_LOGIN_URL = @"login";
 static NSString* const API_ADD_PATIENT_URL = @"addpatient";

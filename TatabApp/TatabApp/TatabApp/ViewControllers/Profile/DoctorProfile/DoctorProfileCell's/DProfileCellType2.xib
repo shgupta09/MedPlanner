@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQk-pj-887">
-                                <rect key="frame" x="0.0" y="5" width="288" height="38"/>
+                                <rect key="frame" x="0.0" y="-5" width="288" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -71,7 +71,7 @@
                             <constraint firstItem="zE6-GQ-vz7" firstAttribute="top" secondItem="5nv-50-Md0" secondAttribute="bottom" constant="8" id="rcH-yE-ZDO"/>
                             <constraint firstItem="Krf-Ne-Gm7" firstAttribute="top" secondItem="VuK-zF-lGh" secondAttribute="top" constant="5" id="vd4-WT-5wq"/>
                             <constraint firstAttribute="bottom" secondItem="zE6-GQ-vz7" secondAttribute="bottom" id="w7g-Ib-x3R"/>
-                            <constraint firstItem="oQk-pj-887" firstAttribute="top" secondItem="5nv-50-Md0" secondAttribute="top" constant="-5" id="xiW-KV-syd"/>
+                            <constraint firstItem="oQk-pj-887" firstAttribute="top" secondItem="5nv-50-Md0" secondAttribute="top" constant="-15" id="xiW-KV-syd"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThE-WR-AGO">

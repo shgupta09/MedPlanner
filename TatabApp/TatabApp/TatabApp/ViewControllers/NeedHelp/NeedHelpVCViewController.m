@@ -27,8 +27,9 @@
     selectedRowForCity = 0;
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
     cityArray = [NSMutableArray new] ;
-    [cityArray addObject:@"Support"];
-    [cityArray addObject:@"b"];
+    [cityArray addObject:[Langauge getTextFromTheKey:@"Technical_issue"]];
+    [cityArray addObject:[Langauge getTextFromTheKey:@"Payments_issue"]];
+    [cityArray addObject:[Langauge getTextFromTheKey:@"Other"]];
     [self setData];
     // Do any additional setup after loading the view from its nib.
 }

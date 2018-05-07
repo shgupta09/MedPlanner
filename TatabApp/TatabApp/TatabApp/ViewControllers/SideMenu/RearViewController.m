@@ -8,6 +8,7 @@
 
 #import "RearViewController.h"
 #import "SettingVC.h"
+#import "DProfileVC.h"
 @interface RearViewController ()
 {
     NSMutableArray *titleArray;
@@ -61,8 +62,8 @@
               titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-children",@"menu-general",@"Icon---Profile",@"Icon---Setttings", nil];
           }
           else{
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"queue",@"emr_and_tracker",@"profile",@"action_settings", nil];
-              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queueWhite",@"menu-general",@"Icon---Profile",@"Icon---Setttings", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"queue",@"emr_and_tracker",@"profile",@"action_settings",@"Doctor_Profile", nil];
+              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queueWhite",@"menu-general",@"Icon---Profile",@"Icon---Setttings",@"Icon---Setttings", nil];
               [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
           }
            _lblNAme.text = [CommonFunction getValueFromDefaultWithKey:loginemail];
@@ -250,6 +251,9 @@
                 }
                     break;
                 case 4:{
+
+                    DProfileVC* vc = [[DProfileVC alloc] initWithNibName:@"DProfileVC" bundle:nil];
+                    [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
             

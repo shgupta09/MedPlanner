@@ -283,9 +283,18 @@
 "Doctor_Profile" = "Doctor Profile";
 
 
-
+"Description" = "Description";
 "About_Me" = "About me";
 "Education" = "Edcation";
 "Location" = "Location";
 "Years_Of_Experience" = "Years Of Experiance";
 "Edit" = "Edit";
+"Doctor_Profile" = "Doctor's Profile";
+"description_required" = "We need a description";
+"Technical_issue" = "Technical issue";
+"Payments_issue" = "Payments issue";
+"Other" = "Other";
+"Unversity_Name" = "University Name";
+"University_required" = "We need a University Name";
+"About_Text" = "Please enter some text";
+"About_required" = "We need about text";

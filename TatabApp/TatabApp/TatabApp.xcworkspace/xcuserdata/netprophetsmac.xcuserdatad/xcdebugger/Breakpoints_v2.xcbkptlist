@@ -4,51 +4,13 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-            timestampString = "546928691.1142859"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "calcMinMaxY(fromX:toX:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Charts.ChartDataSet.calcMinMaxY(fromX: Swift.Double, toX: Swift.Double) -&gt; ()"
-                  moduleName = "Charts"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/netprophetsmac/Projects/Git/MedPlanner/TatabApp/TatabApp/Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-                  timestampString = "546871367.433117"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "192">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Charts.ChartDataSet.calcMinMaxY(fromX: Swift.Double, toX: Swift.Double) -&gt; ()"
-                  moduleName = "Charts"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/netprophetsmac/Projects/Git/MedPlanner/TatabApp/TatabApp/Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-                  timestampString = "546871367.995844"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "200">
-               </Location>
-            </Locations>
+            scope = "0"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -57,46 +19,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-            timestampString = "546928691.114751"
+            filePath = "TatabApp/ViewControllers/Profile/DoctorProfile/DProfileVC.m"
+            timestampString = "547389170.862772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "entriesForXValue(_:)"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
+            landmarkName = "-btnActionAdd:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Charts.ChartDataSet.entriesForXValue(Swift.Double) -&gt; Swift.Array&lt;Charts.ChartDataEntry&gt;"
-                  moduleName = "Charts"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/netprophetsmac/Projects/Git/MedPlanner/TatabApp/TatabApp/Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-                  timestampString = "546871367.438122"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "225"
-                  endingLineNumber = "225"
-                  offsetFromSymbolStart = "1128">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Charts.ChartDataSet.entriesForXValue(Swift.Double) -&gt; Swift.Array&lt;Charts.ChartDataEntry&gt;"
-                  moduleName = "Charts"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/netprophetsmac/Projects/Git/MedPlanner/TatabApp/TatabApp/Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-                  timestampString = "546871368.005262"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "225"
-                  endingLineNumber = "225"
-                  offsetFromSymbolStart = "988">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -105,46 +35,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-            timestampString = "546928691.114875"
+            filePath = "TatabApp/ViewControllers/Profile/DoctorProfile/DProfileVC.m"
+            timestampString = "547389170.863505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
-            landmarkName = "entriesForXValue(_:)"
+            startingLineNumber = "784"
+            endingLineNumber = "784"
+            landmarkName = "-hitApiToUpload"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Charts.ChartDataSet.entriesForXValue(Swift.Double) -&gt; Swift.Array&lt;Charts.ChartDataEntry&gt;"
-                  moduleName = "Charts"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/netprophetsmac/Projects/Git/MedPlanner/TatabApp/TatabApp/Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-                  timestampString = "546871367.442845"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "1678">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Charts.ChartDataSet.entriesForXValue(Swift.Double) -&gt; Swift.Array&lt;Charts.ChartDataEntry&gt;"
-                  moduleName = "Charts"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/netprophetsmac/Projects/Git/MedPlanner/TatabApp/TatabApp/Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-                  timestampString = "546871368.055838"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "1464">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -153,46 +51,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-            timestampString = "546928691.115002"
+            filePath = "TatabApp/ViewControllers/Profile/DoctorProfile/DProfileVC.m"
+            timestampString = "547389170.863941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "entryIndex(x:closestToY:rounding:)"
+            startingLineNumber = "774"
+            endingLineNumber = "774"
+            landmarkName = "-hitApiToUpload"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Charts.ChartDataSet.entryIndex(x: Swift.Double, closestToY: Swift.Double, rounding: Charts.ChartDataSetRounding) -&gt; Swift.Int"
-                  moduleName = "Charts"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/netprophetsmac/Projects/Git/MedPlanner/TatabApp/TatabApp/Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-                  timestampString = "546871367.449131"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "273"
-                  endingLineNumber = "273"
-                  offsetFromSymbolStart = "262">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Charts.ChartDataSet.entryIndex(x: Swift.Double, closestToY: Swift.Double, rounding: Charts.ChartDataSetRounding) -&gt; Swift.Int"
-                  moduleName = "Charts"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/netprophetsmac/Projects/Git/MedPlanner/TatabApp/TatabApp/Pods/Charts/Source/Charts/Data/Implementations/Standard/ChartDataSet.swift"
-                  timestampString = "546871368.060092"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "273"
-                  endingLineNumber = "273"
-                  offsetFromSymbolStart = "228">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

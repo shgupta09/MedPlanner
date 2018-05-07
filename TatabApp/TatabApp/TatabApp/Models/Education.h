@@ -11,5 +11,5 @@
 @interface Education : NSObject
 @property(nonatomic ,strong) NSString *edu_id;
 @property(nonatomic ,strong) NSString *university_name;
-@property(nonatomic ,strong) NSString *description;
+@property(nonatomic ,strong) NSString *descriptionObj;
 @end
