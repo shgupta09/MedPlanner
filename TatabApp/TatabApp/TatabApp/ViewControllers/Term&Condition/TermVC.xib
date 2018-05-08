@@ -27,17 +27,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PbV-cC-CsB">
-                    <rect key="frame" x="0.0" y="67" width="375" height="2"/>
+                    <rect key="frame" x="0.0" y="62" width="375" height="2"/>
                     <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="1je-C0-5HK"/>
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="zt5-Im-8ye">
-                    <rect key="frame" x="0.0" y="67" width="375" height="600"/>
+                    <rect key="frame" x="0.0" y="62" width="375" height="605"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31h-PK-Qkp">
-                    <rect key="frame" x="20" y="30" width="30" height="30"/>
+                    <rect key="frame" x="5" y="25" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="eKj-HB-n2S"/>
                         <constraint firstAttribute="height" constant="30" id="ihP-kx-BcE"/>
@@ -48,13 +48,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Conditions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrD-m4-9gg">
-                    <rect key="frame" x="103" y="35" width="170" height="21"/>
+                    <rect key="frame" x="103" y="30" width="170" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                     <color key="textColor" red="0.27058823529999998" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hay-51-iY0">
-                    <rect key="frame" x="0.0" y="69" width="375" height="598"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <string key="text">
 تطبّب منصة إلكترونية تقدم الخدمات الطبية الاستشارية عن طريق ربط المريض مع الطبيب، كما تقدم منصة توعوية تهدف إلى رفع مستوى الوعي الصحي لدى المجتمع، كما تتضمن خاصية تتبع حالتك الصحية من خلال مراقبة المقاييس الصحية للمستخدم، والتي يمكن أن تساعد للحصول على أسلوب حياة صحية أكثر.
@@ -266,7 +266,7 @@ xiv.	https://www.kry.se
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="31h-PK-Qkp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="2bw-Go-Tyu"/>
+                <constraint firstItem="31h-PK-Qkp" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="5" id="2bw-Go-Tyu"/>
                 <constraint firstItem="zt5-Im-8ye" firstAttribute="top" secondItem="PbV-cC-CsB" secondAttribute="top" id="5U8-HP-4hD"/>
                 <constraint firstItem="PbV-cC-CsB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GxW-Kq-XHh"/>
                 <constraint firstItem="lrD-m4-9gg" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="IQS-aH-WIU"/>
@@ -281,7 +281,7 @@ xiv.	https://www.kry.se
                 <constraint firstAttribute="trailing" secondItem="PbV-cC-CsB" secondAttribute="trailing" id="dg8-X3-LoT"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Hay-51-iY0" secondAttribute="trailing" id="iyx-8N-Ikv"/>
                 <constraint firstItem="Hay-51-iY0" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="jsG-Gq-y8j"/>
-                <constraint firstItem="31h-PK-Qkp" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="pO9-Zb-G7V"/>
+                <constraint firstItem="31h-PK-Qkp" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="5" id="pO9-Zb-G7V"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="-469" y="-411"/>

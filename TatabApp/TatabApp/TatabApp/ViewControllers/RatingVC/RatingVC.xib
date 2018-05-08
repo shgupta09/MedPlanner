@@ -38,22 +38,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="VMV-HV-hOC">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate your wait in queue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M62-zs-aeo">
-                    <rect key="frame" x="83.5" y="333" width="208.5" height="21"/>
+                    <rect key="frame" x="83.5" y="323" width="208.5" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.69411764705882351" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate your service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJK-5B-eTC">
-                    <rect key="frame" x="112" y="192" width="151" height="21"/>
+                    <rect key="frame" x="112" y="182" width="151" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.69411764705882351" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Be4-R3-Eza">
-                    <rect key="frame" x="20" y="243" width="335" height="60"/>
+                    <rect key="frame" x="20" y="233" width="335" height="60"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0op-m6-ASH">
                             <rect key="frame" x="0.0" y="0.0" width="67" height="60"/>
@@ -170,7 +170,7 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZV-AY-Jgh">
-                    <rect key="frame" x="20" y="384" width="335" height="60"/>
+                    <rect key="frame" x="20" y="374" width="335" height="60"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scJ-EP-pxS">
                             <rect key="frame" x="0.0" y="0.0" width="67" height="60"/>
@@ -279,7 +279,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="if1-SY-MMN" secondAttribute="trailing" constant="20" id="1kH-xE-jW6"/>
-                <constraint firstItem="VMV-HV-hOC" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="4L1-OI-e73"/>
+                <constraint firstItem="VMV-HV-hOC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4L1-OI-e73"/>
                 <constraint firstItem="M62-zs-aeo" firstAttribute="centerY" secondItem="VMV-HV-hOC" secondAttribute="centerY" id="5AD-NP-7LO"/>
                 <constraint firstItem="Be4-R3-Eza" firstAttribute="top" secondItem="QJK-5B-eTC" secondAttribute="bottom" constant="30" id="9mm-f8-Lqe"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="VMV-HV-hOC" secondAttribute="trailing" id="Fb8-dM-N4n"/>

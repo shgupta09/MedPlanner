@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -38,13 +39,13 @@
                     <rect key="frame" x="-0.5" y="0.0" width="375" height="720"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhQ-Ui-vsb" customClass="TPKeyboardAvoidingScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="720"/>
+                    <rect key="frame" x="0.0" y="25" width="375" height="695"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s71-H5-W4w">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="682.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICS-Mr-vMg">
-                                    <rect key="frame" x="8" y="21" width="30" height="30"/>
+                                    <rect key="frame" x="5" y="0.0" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="GeD-zT-2Ac"/>
                                         <constraint firstAttribute="width" constant="30" id="ywT-4B-yHo"/>
@@ -269,10 +270,10 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="ICS-Mr-vMg" firstAttribute="leading" secondItem="s71-H5-W4w" secondAttribute="leading" constant="8" id="3Kp-dV-qvf"/>
+                                <constraint firstItem="ICS-Mr-vMg" firstAttribute="leading" secondItem="s71-H5-W4w" secondAttribute="leading" constant="5" id="3Kp-dV-qvf"/>
                                 <constraint firstAttribute="bottom" secondItem="LFt-TF-OcC" secondAttribute="bottom" id="5NS-Zh-hoe"/>
                                 <constraint firstItem="LFt-TF-OcC" firstAttribute="top" secondItem="hBQ-sM-OIV" secondAttribute="bottom" id="5ed-mt-Qb2"/>
-                                <constraint firstItem="ICS-Mr-vMg" firstAttribute="top" secondItem="s71-H5-W4w" secondAttribute="top" constant="21" id="9Aj-I7-HDT"/>
+                                <constraint firstItem="ICS-Mr-vMg" firstAttribute="top" secondItem="s71-H5-W4w" secondAttribute="top" id="9Aj-I7-HDT"/>
                                 <constraint firstAttribute="trailing" secondItem="LFt-TF-OcC" secondAttribute="trailing" id="IF6-Tz-BNW"/>
                                 <constraint firstItem="hBQ-sM-OIV" firstAttribute="top" secondItem="s71-H5-W4w" secondAttribute="top" constant="56" id="Io7-lN-Oyi"/>
                                 <constraint firstItem="LFt-TF-OcC" firstAttribute="leading" secondItem="s71-H5-W4w" secondAttribute="leading" id="J5x-M1-oBg"/>
@@ -294,7 +295,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="zhQ-Ui-vsb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4rO-pw-B5S"/>
+                <constraint firstItem="zhQ-Ui-vsb" firstAttribute="top" secondItem="NOZ-XD-zLf" secondAttribute="top" constant="5" id="4rO-pw-B5S"/>
                 <constraint firstItem="zhQ-Ui-vsb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4u7-ix-PcW"/>
                 <constraint firstItem="wbT-OT-TT0" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="8NP-IL-v0Z"/>
                 <constraint firstItem="wbT-OT-TT0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Smq-eA-BOQ"/>
@@ -304,6 +305,7 @@
                 <constraint firstAttribute="trailing" secondItem="zhQ-Ui-vsb" secondAttribute="trailing" id="iOg-8i-TK8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="NOZ-XD-zLf"/>
             <point key="canvasLocation" x="-1299" y="33"/>
         </view>
         <view contentMode="scaleToFill" id="w8v-lp-0lb">
@@ -424,6 +426,7 @@
                 <constraint firstAttribute="bottom" secondItem="WWo-lK-Qg3" secondAttribute="bottom" id="MqT-3f-XiQ"/>
                 <constraint firstItem="WWo-lK-Qg3" firstAttribute="top" secondItem="w8v-lp-0lb" secondAttribute="top" id="x8L-bT-l5I"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="kmi-Nh-Irg"/>
             <point key="canvasLocation" x="-388.5" y="820.5"/>
         </view>
     </objects>
