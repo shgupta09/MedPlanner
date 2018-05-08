@@ -151,7 +151,7 @@
                                                 <constraint firstAttribute="height" constant="45" id="D3K-xV-x5a"/>
                                             </constraints>
                                             <state key="normal" title="Send">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" red="0.49803921569999998" green="0.68627450980000004" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="btnContinueClicked:" destination="-1" eventType="touchUpInside" id="q4M-K2-4vx"/>

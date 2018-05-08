@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DProfileVC : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UITextViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
+@interface DProfileVC : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UITextViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Title;
 @property (weak, nonatomic) IBOutlet UITableView *tblList;
 @property (weak, nonatomic) IBOutlet UIButton *btn_Save;
@@ -26,4 +26,7 @@
 
 @property (weak, nonatomic) IBOutlet CustomButton *btn_ConfirmAddEducation;
 @property (weak, nonatomic) IBOutlet CustomButton *btn_ConfirmAddAbout;
+@property(nonatomic) BOOL isLofinUser;
+@property (strong, nonatomic)Specialization *doctorObj;
+
 @end

@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *txt_Description;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrlView;
 @property (weak, nonatomic) IBOutlet CustomButton *txt_Send;
+@property (nonatomic)BOOL isPushed;
 
 @end

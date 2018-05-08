@@ -34,8 +34,8 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)setData{
-    _txt_Type.leftImgView.image = [UIImage imageNamed:@"a"];
-    _txt_Title.leftImgView.image = [UIImage imageNamed:@"c"];
+    _txt_Type.leftImgView.image = [UIImage imageNamed:@"icon-drop-down"];
+    _txt_Title.leftImgView.image = [UIImage imageNamed:@"Icon---Name-x1"];
     _txt_Email.leftImgView.image = [UIImage imageNamed:@"a"];
     _txt_Mobile.leftImgView.image = [UIImage imageNamed:@"Mobile"];
     _txt_Description.tintColor = [UIColor whiteColor];
@@ -148,7 +148,12 @@ numberOfRowsInComponent:(NSInteger)component{
 #pragma mark - btnActions
 
 - (IBAction)btnAction_Back:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+    if (_isPushed) {
+        [self.navigationController popViewControllerAnimated:true];
+    }else{
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
+    
 }
 
 
@@ -385,9 +390,11 @@ numberOfRowsInComponent:(NSInteger)component{
             [self removeAlert];
         }
         case 1001:{
-            [self dismissViewControllerAnimated:true completion:nil];
-
-            
+            if (_isPushed) {
+                [self.navigationController popViewControllerAnimated:true];
+            }else{
+                [self dismissViewControllerAnimated:true completion:nil];
+            }
         }
         default:
             

@@ -44,7 +44,7 @@
     selectedRowForWeight = 0;
     selectedRowForheight = 0;
     selectedRowForHeartRate = 0;
-    [_btnWeight setTitle:[NSString stringWithFormat:@"%d",20] forState:UIControlStateNormal];
+    [_btnWeight setTitle:[NSString stringWithFormat:@"%d",1] forState:UIControlStateNormal];
     [_btnHeartRate setTitle:[NSString stringWithFormat:@"%d",40] forState:UIControlStateNormal];
     [_btnHeight setTitle:[NSString stringWithFormat:@"%d",30] forState:UIControlStateNormal];
 //    _txt_Comment.text = @"comment";
@@ -551,10 +551,8 @@ numberOfRowsInComponent:(NSInteger)component{
 (NSInteger)row forComponent:(NSInteger)component{
     
     if (pickerObj.tag == 0){
-        if (row == 0){
-            return [NSString stringWithFormat:@"%d",20];
-        }
-        return [NSString stringWithFormat:@"%d",20+row];
+       
+        return [NSString stringWithFormat:@"%d",row+1];
     }
     else if (pickerObj.tag == 1){
         //Weight
@@ -572,7 +570,7 @@ numberOfRowsInComponent:(NSInteger)component{
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component{
     if (pickerObj.tag == 0){
-        [_btnWeight setTitle:[NSString stringWithFormat:@"%d",20+row] forState:UIControlStateNormal];
+        [_btnWeight setTitle:[NSString stringWithFormat:@"%d",row+1] forState:UIControlStateNormal];
         selectedRowForWeight = row;
     }
     else if (pickerObj.tag == 1){

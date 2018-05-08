@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_name;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_specialization;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_sub_specialization;
+@property (weak, nonatomic) IBOutlet UIButton *btn_Profile;
 
+@property (weak, nonatomic) IBOutlet UIButton *btn_Payment;
 
 @end

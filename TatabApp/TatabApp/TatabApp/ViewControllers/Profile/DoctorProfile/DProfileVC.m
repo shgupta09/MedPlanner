@@ -16,8 +16,7 @@
 @interface DProfileVC (){
     LoderView *loderObj;
     CustomAlert *alertObj;
-    int numberOfEducation;
-    int numberOfYearOfExperience;
+   
     BOOL isEdit;
     Profile *profileObj;
     NSDate *dateForResignedSince;
@@ -32,6 +31,10 @@
     NSMutableArray *cityArray;
     NSInteger selectedRowForCity;
     UIPickerView *pickerObj;
+    BOOL isImageCaptured;
+    UIImage *capturedImage;
+    ExperianceClass *experienceToAdd;
+    Education *educationToAdd;
 }
 
 @end
@@ -48,22 +51,34 @@
 -(void)viewDidLayoutSubviews{
     loderObj.frame = self.view.frame;
     alertObj.frame = self.view.frame;
+    _popUpAbout.frame = self.view.frame;
+    _popUpEducation.frame = self.view.frame;
+    _popUpExperience.frame = self.view.frame;
 }
 -(void)setData{
+    if (_isLofinUser) {
+        _btn_Save.hidden = false;
+    }else{
+        _btn_Save.hidden = true;
+    }
      selectedRowForCity = 0;
      cityArray = [NSMutableArray new] ;
      cityArray = [[CommonFunction getCityArray] mutableCopy];
-    numberOfEducation = 2;
-    numberOfYearOfExperience = 2;
+  
     
     [CommonFunction setResignTapGestureToView:_popUpEducation andsender:self];
     [CommonFunction setResignTapGestureToView:_popUpExperience andsender:self];
     [CommonFunction setResignTapGestureToView:_popUpAbout andsender:self];
-
+    isImageCaptured = false;
     //date
     dateForJoin = [NSDate date];
     dateForResignedSince = [NSDate date];
-
+    _txt_hospitalName.leftImgView.image = [UIImage imageNamed:@"b"];
+    _txt_UniversityName.leftImgView.image = [UIImage imageNamed:@"b"];
+    _txt_description.leftImgView.image = [UIImage imageNamed:@"b"];
+    _txt_Universitydescription.leftImgView.image = [UIImage imageNamed:@"b"];
+    _txt_workedSince.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
+    _txt_resignedSince.leftImgView.image = [UIImage imageNamed:@"icon-calendar"];
     [self setLanguageData];
     [self setUpTableData];
     [self hitDoctorApi];
@@ -73,7 +88,6 @@
     [_btn_Save setTitle:[Langauge getTextFromTheKey:@"Edit"] forState:UIControlStateNormal];
     [_btn_ConfirmAdd setTitle:[Langauge getTextFromTheKey:@"confirm_add"] forState:UIControlStateNormal];
     [_btn_ConfirmAddEducation setTitle:[Langauge getTextFromTheKey:@"confirm_add"] forState:UIControlStateNormal];
-
     [_txt_workedSince setPlaceholderWithColor:[Langauge getTextFromTheKey:@"working_since"]];
     [_txt_hospitalName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"hospital_name"]];
     [_txt_resignedSince setPlaceholderWithColor:[Langauge getTextFromTheKey:@"resigned_since"]];
@@ -89,6 +103,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - textField
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSMutableString * str = [textField.text mutableCopy];
+    [str replaceCharactersInRange:range withString:string];
+    if (textField.tag == 1009) {
+        profileObj.name = [str mutableCopy];
+    }
+    return true;
+}
+
 #pragma mark - picker data Source
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     
@@ -161,7 +186,7 @@ numberOfRowsInComponent:(NSInteger)component{
     [pickerForDate addTarget:self action:@selector(dueDateChanged:)
             forControlEvents:UIControlEventValueChanged];
     viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
-    pickerForDate.backgroundColor = [UIColor lightGrayColor];
+    pickerForDate.backgroundColor = [UIColor clearColor];
     viewOverPicker.backgroundColor = [UIColor clearColor];
     [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
@@ -242,10 +267,28 @@ numberOfRowsInComponent:(NSInteger)component{
             
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.img_Profile.layer.masksToBounds = true;
-        cell.img_Profile.layer.cornerRadius = 65;
-        cell.lbl_Title.text = profileObj.name;
+//        cell.img_Profile.layer.masksToBounds = true;
+//        cell.img_Profile.layer.cornerRadius = 65;
+//        cell.lbl_Title.text = profileObj.name;
+        if (isImageCaptured) {
+            cell.img_Profile.image  = capturedImage;
+        }else{
         [cell.img_Profile sd_setImageWithURL:[NSURL URLWithString:profileObj.upload]];
+        }
+        
+        
+        if(isEdit){
+            cell.btn.tag = 6;
+            cell.btn.hidden = false;
+            [cell.btn addTarget:self action:@selector(btnActionAdd:) forControlEvents:UIControlEventTouchUpInside];
+            cell.txt_Name.userInteractionEnabled = true;
+        }else{
+            cell.txt_Name.userInteractionEnabled = false;
+            cell.txt_Name.text = [profileObj.name capitalizedString];
+            cell.txt_Name.tag = 1009;
+            cell.txt_Name.delegate = self;
+            cell.btn.hidden = true;
+        }
 //        cell.img_Profile.image = [UIImage imageNamed:@"Like"];
 //        cell.lbl_Title.text = [Langauge getTextFromTheKey:@"About_Me"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -259,7 +302,7 @@ numberOfRowsInComponent:(NSInteger)component{
                 cell = [[DProfileCellType1 alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DProfileCellType1"];
                 }
             cell.lbl2.hidden = true;
-            cell.img_Icon.image = [UIImage imageNamed:@"Like"];
+            cell.img_Icon.image = [UIImage imageNamed:@"aboutDoctor"];
             cell.lbl_titleName.text = [Langauge getTextFromTheKey:@"About_Me"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
        
@@ -274,7 +317,7 @@ numberOfRowsInComponent:(NSInteger)component{
             }
             cell.lbl1.hidden = true;
             cell.lbl2.hidden = true;
-            cell.lbl3_UpperConstraint.constant = -10;
+            cell.lbl3_UpperConstraint.constant = -20;
              
              if ([profileObj.about_me isEqualToString:@""]) {
                  cell.lbl3.text = @"N/A";
@@ -283,16 +326,21 @@ numberOfRowsInComponent:(NSInteger)component{
              }
              if(isEdit){
                  cell.btn.layer.borderColor = [CommonFunction colorWithHexString:primary_Color].CGColor;
-                 cell.traillingConstraint.constant = 5;
+                 cell.traillingConstraint.constant = 10;
                  cell.btnDelete.hidden = true;
                  cell.btn.tag = 3;
                  cell.btn.hidden = false;
                  [cell.btn addTarget:self action:@selector(btnActionEdit:) forControlEvents:UIControlEventTouchUpInside];
+                              [cell.view setBackgroundColor:[UIColor clearColor]];
              }else{
-                 cell.traillingConstraint.constant = 5;
+               [cell.view setBackgroundColor:[UIColor whiteColor]];
+                 [CommonFunction setShadowOpacity:cell.view];
+                 [CommonFunction setCornerRadius:cell.view Radius:5.0];
+                 cell.btn.layer.borderColor = [UIColor clearColor].CGColor;
+                 cell.traillingConstraint.constant = 10;
                  cell.btnDelete.hidden = true;
                  cell.btn.layer.borderColor = [UIColor clearColor   ].CGColor;
-                 cell.btn.hidden = true;
+                 cell.btn.hidden = false;
              }
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -313,7 +361,7 @@ numberOfRowsInComponent:(NSInteger)component{
                cell.lbl2.text = @"";
                cell.btn.hidden = true;
            }
-           cell.img_Icon.image = [UIImage imageNamed:@"Like"];
+           cell.img_Icon.image = [UIImage imageNamed:@"education"];
            cell.lbl_titleName.text = [Langauge getTextFromTheKey:@"Education"];
            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
@@ -339,12 +387,17 @@ numberOfRowsInComponent:(NSInteger)component{
                cell.btnDelete.tag = 100 + (indexPath.row - 4);
                [cell.btn addTarget:self action:@selector(btnActionEdit:) forControlEvents:UIControlEventTouchUpInside];
                [cell.btnDelete addTarget:self action:@selector(btnActionDelete:) forControlEvents:UIControlEventTouchUpInside];
+                            [cell.view setBackgroundColor:[UIColor clearColor]];
 
            }
            else{
-               cell.btn.layer.borderColor = [UIColor clearColor].CGColor;
-               cell.traillingConstraint.constant = 5;
+               cell.btn.layer.borderColor = [UIColor clearColor   ].CGColor;
+               cell.traillingConstraint.constant = 10;
                cell.btnDelete.hidden = true;
+               [CommonFunction setShadowOpacity:cell.view];
+               [CommonFunction setCornerRadius:cell.view Radius:5.0];
+           
+              [cell.view setBackgroundColor:[UIColor whiteColor]];
            }
            cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -359,7 +412,7 @@ numberOfRowsInComponent:(NSInteger)component{
            }
            cell.lbl2.hidden = false;
            cell.lbl2.text = profileObj.home_location;
-           cell.img_Icon.image = [UIImage imageNamed:@"Like"];
+           cell.img_Icon.image = [UIImage imageNamed:@"location"];
            cell.lbl_titleName.text = [Langauge getTextFromTheKey:@"Location"];
            if(isEdit){
                cell.btn.layer.borderColor = [CommonFunction colorWithHexString:primary_Color].CGColor;
@@ -384,15 +437,18 @@ numberOfRowsInComponent:(NSInteger)component{
            if (isEdit) {
                cell.btn.tag = 2;
                cell.btn.hidden = false;
+               cell.lbl2.hidden = false;
                cell.lbl2.text = @"+";
                [cell.btn addTarget:self action:@selector(btnActionAdd:) forControlEvents:UIControlEventTouchUpInside];
            }
            else{
                cell.lbl2.text = @"";
                cell.btn.hidden = true;
+               cell.btn.layer.borderColor = [UIColor clearColor   ].CGColor;
+
            }
 //           cell.lbl2.text = @"Kasganj";
-           cell.img_Icon.image = [UIImage imageNamed:@"Like"];
+           cell.img_Icon.image = [UIImage imageNamed:@"experiance"];
            cell.lbl_titleName.text = [Langauge getTextFromTheKey:@"Years_Of_Experience"];
            cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -411,21 +467,25 @@ numberOfRowsInComponent:(NSInteger)component{
            cell.lbl2.hidden = false;
            cell.lbl3_UpperConstraint.constant = 10;
            cell.lbl1.text = objClass.hospital_name;
-           cell.lbl2.text = [NSString stringWithFormat:@"%@-%@",objClass.worked_since,objClass.resigned_since];
+           cell.lbl2.text = [NSString stringWithFormat:@"%@-%@",[objClass.worked_since substringToIndex:4],[objClass.resigned_since substringToIndex:4]];
            cell.lbl3.text = objClass.descriptionObj;
            if(isEdit){
                cell.btn.layer.borderColor = [CommonFunction colorWithHexString:primary_Color].CGColor;
                cell.btn.tag =
-               cell.traillingConstraint.constant = 30;
+               cell.traillingConstraint.constant = 40;
                cell.btnDelete.hidden = false;
                cell.btn.tag = 200 + (indexPath.row - 6-profileObj.educationArray.count);
                cell.btnDelete.tag = 200 + (indexPath.row - 6-profileObj.educationArray.count);
                [cell.btn addTarget:self action:@selector(btnActionEdit:) forControlEvents:UIControlEventTouchUpInside];
                [cell.btnDelete addTarget:self action:@selector(btnActionDelete:) forControlEvents:UIControlEventTouchUpInside];
+               [cell.view setBackgroundColor:[UIColor clearColor]];
            }
            else{
-               cell.btn.layer.borderColor = [UIColor clearColor].CGColor;
-               cell.traillingConstraint.constant = 5;
+               [CommonFunction setShadowOpacity:cell.view];
+               [CommonFunction setCornerRadius:cell.view Radius:5.0];
+              [cell.view setBackgroundColor:[UIColor whiteColor]];
+               cell.btn.layer.borderColor = [UIColor clearColor   ].CGColor;
+               cell.traillingConstraint.constant = 10;
                cell.btnDelete.hidden = true;
 
            }
@@ -469,7 +529,10 @@ numberOfRowsInComponent:(NSInteger)component{
     
 }
 -(void)btnActionAdd:(UIButton *)btn{
+    [CommonFunction resignFirstResponderOfAView:self.view];
     if (btn.tag == 0) {
+         educationToAdd = [Education new];
+        educationToAdd.edu_id = @"na";
         _txt_UniversityName.text = @"";
         _txt_Universitydescription.text = @"";
         isEditExperience = false;
@@ -482,6 +545,8 @@ numberOfRowsInComponent:(NSInteger)component{
         [self.view addSubview:_popUpEducation];
         [CommonFunction addAnimationToview:_popUpEducation];
     }else if (btn.tag == 1){
+         experienceToAdd = [ExperianceClass new];
+        experienceToAdd.exp_id = @"na";
         pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
         pickerObj.delegate = self;
         pickerObj.dataSource = self;
@@ -529,6 +594,13 @@ numberOfRowsInComponent:(NSInteger)component{
         [self.view addSubview:_popUpExperience];
         [CommonFunction addAnimationToview:_popUpExperience];
         
+    }else if (btn.tag == 6){
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        [self presentViewController:picker animated:YES completion:NULL];
     }
     
 }
@@ -536,14 +608,15 @@ numberOfRowsInComponent:(NSInteger)component{
 
 
 -(void)btnActionEdit:(UIButton *)btn{
-    
+    [CommonFunction resignFirstResponderOfAView:self.view];
     
     if (btn.tag/100 == 1) {
+        educationToAdd = [Education new];
         isEditExperience = true;
         replacableIndex =(btn.tag%100);
-        Education *temp = [profileObj.educationArray objectAtIndex:(btn.tag%100)];
-        _txt_UniversityName.text = temp.university_name;
-        _txt_Universitydescription.text = temp.descriptionObj;
+        educationToAdd = [profileObj.educationArray objectAtIndex:(btn.tag%100)];
+        _txt_UniversityName.text = educationToAdd.university_name;
+        _txt_Universitydescription.text = educationToAdd.descriptionObj;
         [[self popUpEducation] setAutoresizesSubviews:true];
         [[self popUpEducation] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
@@ -553,20 +626,21 @@ numberOfRowsInComponent:(NSInteger)component{
         [self.view addSubview:_popUpEducation];
         [CommonFunction addAnimationToview:_popUpEducation];
     }else if (btn.tag/100 == 2){
+         experienceToAdd = [ExperianceClass new];
         isEditExperience = true;
         replacableIndex =(btn.tag%100);
-        ExperianceClass *temp = [profileObj.experianceArray objectAtIndex:(btn.tag%100)];
-        _txt_hospitalName.text = temp.hospital_name;
-        _txt_workedSince.text = temp.worked_since;
-        _txt_resignedSince.text = temp.resigned_since;
-        _txt_description.text = temp.descriptionObj;
+       experienceToAdd = [profileObj.experianceArray objectAtIndex:(btn.tag%100)];
+        _txt_hospitalName.text = experienceToAdd.hospital_name;
+        _txt_workedSince.text = experienceToAdd.worked_since;
+        _txt_resignedSince.text = experienceToAdd.resigned_since;
+        _txt_description.text = experienceToAdd.descriptionObj;
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:NSDateFormatterLongStyle];
         [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
         [dateFormatter setDateFormat:@"YYYY-MM-dd"];
-        dateForJoin = [dateFormatter dateFromString:temp.worked_since];
-        dateForResignedSince = [dateFormatter dateFromString:temp.resigned_since];
+        dateForJoin = [dateFormatter dateFromString:experienceToAdd.worked_since];
+        dateForResignedSince = [dateFormatter dateFromString:experienceToAdd.resigned_since];
         [[self popUpExperience] setAutoresizesSubviews:true];
         [[self popUpExperience] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
@@ -588,8 +662,10 @@ numberOfRowsInComponent:(NSInteger)component{
         frame.origin.y = 0.0f;
         self.popUpAbout.center = CGPointMake(self.view.center.x, self.view.center.y);
         [[self popUpExperience] setFrame:frame];
+       
         [self.view addSubview:_popUpAbout];
         [CommonFunction addAnimationToview:_popUpAbout];
+         [_popUpAbout reloadInputViews];
     }
     
 }
@@ -608,13 +684,13 @@ numberOfRowsInComponent:(NSInteger)component{
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
         [_popUpEducation removeFromSuperview];
         
-        Education *dependencyObj = [Education new];
-        dependencyObj.university_name = [CommonFunction trimString:_txt_UniversityName.text];
-        dependencyObj.descriptionObj = [CommonFunction trimString:_txt_Universitydescription.text];
+        educationToAdd.university_name = [CommonFunction trimString:_txt_UniversityName.text];
+        educationToAdd.descriptionObj = [CommonFunction trimString:_txt_Universitydescription.text];
         if (isEditExperience) {
-            [profileObj.educationArray replaceObjectAtIndex:replacableIndex withObject:dependencyObj];
+            [profileObj.educationArray replaceObjectAtIndex:replacableIndex withObject:educationToAdd];
         }else{
-            [profileObj.educationArray addObject:dependencyObj];
+            educationToAdd.edu_id = @"na";
+            [profileObj.educationArray addObject:educationToAdd];
         }
         [_tblList reloadData];
         [self viewDidLayoutSubviews];
@@ -635,15 +711,16 @@ numberOfRowsInComponent:(NSInteger)component{
     if (![[dictForValidation valueForKey:BoolValueKey] isEqualToString:@"0"]){
         [_popUpExperience removeFromSuperview];
         
-        ExperianceClass *dependencyObj = [ExperianceClass new];
-        dependencyObj.hospital_name = [CommonFunction trimString:_txt_hospitalName.text];
-        dependencyObj.worked_since = [CommonFunction trimString:_txt_workedSince.text];
-        dependencyObj.resigned_since = [CommonFunction trimString:_txt_resignedSince.text];
-        dependencyObj.descriptionObj = [CommonFunction trimString:_txt_description.text];
+       
+        experienceToAdd.hospital_name = [CommonFunction trimString:_txt_hospitalName.text];
+        experienceToAdd.worked_since = [CommonFunction trimString:_txt_workedSince.text];
+        experienceToAdd.resigned_since = [CommonFunction trimString:_txt_resignedSince.text];
+        experienceToAdd.descriptionObj = [CommonFunction trimString:_txt_description.text];
         if (isEditExperience) {
-            [profileObj.experianceArray replaceObjectAtIndex:replacableIndex withObject:dependencyObj];
+            [profileObj.experianceArray replaceObjectAtIndex:replacableIndex withObject:experienceToAdd];
         }else{
-        [profileObj.experianceArray addObject:dependencyObj];
+             experienceToAdd.exp_id = @"na";
+        [profileObj.experianceArray addObject:experienceToAdd];
         }
         
         [_tblList reloadData];
@@ -658,24 +735,97 @@ numberOfRowsInComponent:(NSInteger)component{
 }
 
 - (IBAction)btnAction_Save:(id)sender {
+    [CommonFunction resignFirstResponderOfAView:self.view];
     if (!isEdit) {
         isEdit = true;
-         [_btn_Save setTitle:[Langauge getTextFromTheKey:@"Save"] forState:UIControlStateNormal];
+         [_btn_Save setTitle:[Langauge getTextFromTheKey:@"save"] forState:UIControlStateNormal];
         [_tblList reloadData];
     }else{
+        if ([[CommonFunction trimString:profileObj.name] isEqualToString:@""]) {
+            [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:[Langauge getTextFromTheKey:@"name_required"]   isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+        }else{
+            if (isImageCaptured) {
+                [self hitApiForImage];
+            }else{
+                [self hitApiToUpload];
+            }
+        }
        
-        [self hitApiToUpload];
+       
     }
     
 }
 - (IBAction)btnAction_Back:(id)sender {
-    [self.navigationController popViewControllerAnimated:true];
+    if (isEdit) {
+         [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:[Langauge getTextFromTheKey:@"save_Message"] isTwoButtonNeeded:true firstbuttonTag:1003 secondButtonTag:1001 firstbuttonTitle:[Langauge getTextFromTheKey:@"yes"] secondButtonTitle:[Langauge getTextFromTheKey:@"no"] image:Warning_Key_For_Image];
+    }else{
+        [self.navigationController popViewControllerAnimated:true];
+    }
+}
+#pragma mark - image Picker
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    capturedImage = chosenImage;
+    isImageCaptured = true;
+    [_tblList reloadData];
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 #pragma mark - hit api
+
+
+-(void)hitApiForImage{
+    NSData *imageData = UIImagePNGRepresentation(capturedImage);
+   
+    NSMutableArray *imgArray = [NSMutableArray new];
+    [imgArray addObject:imageData];
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UploadDocument] postResponse:nil withImageData:nil isImageChanged:false requestType:POST requiredAuthorization:false ImageKey:@"photo" DataArray:imgArray completetion:^(BOOL status, id responseObj, NSString *tag, NSError *error, NSInteger statusCode) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                    profileObj.upload = [[responseObj valueForKey:@"urls"] valueForKey:@"photo"];
+                     [self hitApiToUpload];
+                }
+                else
+                {
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
+                    [self removeloder];
+                    [self removeloder];
+                }
+            }
+            else {
+                [self removeloder];
+                [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
+            }
+            
+            
+        }];
+    } else {
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
+    }
+    
+    
+}
 -(void)hitDoctorApi{
     NSMutableDictionary *dict = [NSMutableDictionary new];
-    //[dict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:loginUser];
-    [dict setValue:@"26" forKey:@"doctor_id"];
+    
+    
+    if (_isLofinUser) {
+    [dict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
+    }else{
+         [dict setValue:_doctorObj.doctor_id forKey:@"doctor_id"];
+    }
+//    [dict setValue:@"26" forKey:@"doctor_id"];
     if ([ CommonFunction reachability]) {
         [self addLoder];
         [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_Get_Doctor]  postResponse:[dict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:NO header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
@@ -694,6 +844,7 @@ numberOfRowsInComponent:(NSInteger)component{
                     tempArray =  [dataDict valueForKey:@"experience"];
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         ExperianceClass *expObj = [ExperianceClass new];
+                        expObj.exp_id = [obj valueForKey:@"exp_id"];
                         expObj.descriptionObj = [CommonFunction checkForNull:[obj valueForKey:@"description"]];
                         expObj.hospital_name = [CommonFunction checkForNull:[obj valueForKey:@"hospital_name"]];
                         expObj.resigned_since = [CommonFunction checkForNull:[obj valueForKey:@"resigned_since"]];
@@ -706,7 +857,7 @@ numberOfRowsInComponent:(NSInteger)component{
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                         Education *eduObj = [Education new];
                         
-                        eduObj.edu_id = [CommonFunction checkForNull:[obj valueForKey:@"edu_id"]];
+                        eduObj.edu_id = [obj valueForKey:@"edu_id"];
                         eduObj.university_name = [CommonFunction checkForNull:[obj valueForKey:@"university_name"]];
                         eduObj.descriptionObj = [CommonFunction checkForNull:[obj valueForKey:@"description"]];
                         [tempArray2 addObject:eduObj];
@@ -738,7 +889,7 @@ numberOfRowsInComponent:(NSInteger)component{
 
 -(void)hitApiToUpload{
     NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:loginUser];
+    [dict setValue:[CommonFunction getValueFromDefaultWithKey:loginuserId] forKey:@"doctor_id"];
         [dict setValue:profileObj.name forKey:@"fname"];
     [dict setValue:profileObj.about_me forKey:@"about_me"];
     
@@ -748,7 +899,7 @@ numberOfRowsInComponent:(NSInteger)component{
     [temp enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSMutableDictionary *tempDict = [NSMutableDictionary new];
         Education *temp = (Education *)obj;
-        [tempDict setValue:@"1"  forKey:@"edu_id"];
+        [tempDict setValue:temp.edu_id  forKey:@"edu_id"];
          [tempDict setValue:temp.university_name forKey:@"university_name"];
          [tempDict setValue:temp.descriptionObj forKey:@"description"];
         [tempMutable addObject:tempDict];
@@ -759,7 +910,7 @@ numberOfRowsInComponent:(NSInteger)component{
     [temp enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSMutableDictionary *tempDict = [NSMutableDictionary new];
         ExperianceClass *temp = (ExperianceClass *)obj;
-        [tempDict setValue:@"1" forKey:@"exp_id"];
+        [tempDict setValue:temp.exp_id forKey:@"exp_id"];
         [tempDict setValue:temp.hospital_name forKey:@"hospital_name"];
         [tempDict setValue:temp.worked_since forKey:@"joining_date"];
         [tempDict setValue:temp.resigned_since forKey:@"resigned_date"];
@@ -768,6 +919,7 @@ numberOfRowsInComponent:(NSInteger)component{
     }];
     [dict setValue:[tempMutable mutableCopy] forKey:@"experience"];
     [dict setValue:profileObj.home_location forKey:@"location"];
+    [dict setValue:@" " forKey:@"lname"];
 
     [dict setValue:profileObj.upload forKey:@"url"];
 
@@ -781,9 +933,11 @@ numberOfRowsInComponent:(NSInteger)component{
             if (error == nil) {
                 
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
-                   
+                    isEdit = false;
+                    [_btn_Save setTitle:[Langauge getTextFromTheKey:@"Edit"] forState:UIControlStateNormal];
                     [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:1002 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Alert_Key_For_Image];
                     [self removeloder];
+                    [_tblList reloadData];
                 }
                 else
                 {
@@ -874,18 +1028,26 @@ numberOfRowsInComponent:(NSInteger)component{
             [self removeloder];
             // [_popUpView removeFromSuperview];
             [self removeAlert];
-        }
+        }break;
         case 1001:{
             [self.navigationController popViewControllerAnimated:true];
-            
-            
-        }case 1002:{
+        }break;
+        case 1002:{
+               [self removeAlert];
             [_btn_Save setTitle:[Langauge getTextFromTheKey:@"Edit"] forState:UIControlStateNormal];
             isEdit = false;
             [_tblList reloadData];
-            
-            
         }
+            break;
+        case 1003:{
+               [self removeAlert];
+            if (isImageCaptured) {
+                [self hitApiForImage];
+            }else{
+                [self hitApiToUpload];
+            }
+        }break;
+        
         default:
             
             break;

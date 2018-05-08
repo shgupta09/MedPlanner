@@ -38,8 +38,8 @@
      [_btn_NeedHelp setTitle:[Langauge getTextFromTheKey:@"need_help"] forState:UIControlStateNormal];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
 
-  _txtPassword.text = @"Admin@123";
-  _txtUsername.text = @"kasim@yopmail.com";
+//  _txtPassword.text = @"Admin@123";
+//  _txtUsername.text = @"kasim@yopmail.com";
 //_txtUsername.text = @"gg@ggg.com";
 //_txtUsername.text = @"abhinav@gmail.com";
 //      _txtUsername.text = @"Asdf@yopmail.com";
@@ -144,7 +144,7 @@
 }
 - (IBAction)btn_NeedHelp:(id)sender {
     NeedHelpVCViewController* vc = [[NeedHelpVCViewController alloc] initWithNibName:@"NeedHelpVCViewController" bundle:nil];
-//    DProfileVC* vc = [[DProfileVC alloc] initWithNibName:@"DProfileVC" bundle:nil];
+    vc.isPushed = false;
     [self.navigationController presentViewController:vc animated:true completion:nil];
 }
 - (IBAction)btnRegisterClicked:(id)sender {

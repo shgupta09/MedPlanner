@@ -11,6 +11,7 @@
 @interface DProfileCellType2 : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *lbl1;
 @property (weak, nonatomic) IBOutlet UILabel *lbl2;
+@property (weak, nonatomic) IBOutlet UIView *view;
 @property (weak, nonatomic) IBOutlet UILabel *lbl3;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lbl3_UpperConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *btn;

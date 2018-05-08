@@ -21,26 +21,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SMILY1" translatesAutoresizingMaskIntoConstraints="NO" id="rJL-Ji-us3">
-                        <rect key="frame" x="20" y="9" width="25" height="25"/>
+                        <rect key="frame" x="10" y="9" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="5RV-rW-CmR"/>
                             <constraint firstAttribute="width" constant="25" id="mnz-HJ-izh"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fwb-xW-r2h">
-                        <rect key="frame" x="65" y="11" width="42" height="21"/>
+                        <rect key="frame" x="43" y="11" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtK-9v-0E2">
-                        <rect key="frame" x="284" y="11.5" width="20" height="20.5"/>
+                        <rect key="frame" x="269" y="11.5" width="20" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x2-GQ-EAL">
-                        <rect key="frame" x="279" y="6.5" width="30" height="30.5"/>
+                        <rect key="frame" x="264" y="6.5" width="30" height="30.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -55,22 +55,24 @@
                         </userDefinedRuntimeAttributes>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="5x2-GQ-EAL" firstAttribute="leading" secondItem="mtK-9v-0E2" secondAttribute="leading" constant="-5" id="0td-bq-xIk"/>
                     <constraint firstItem="rJL-Ji-us3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Aaf-8F-3iI"/>
                     <constraint firstItem="mtK-9v-0E2" firstAttribute="centerY" secondItem="Fwb-xW-r2h" secondAttribute="centerY" id="EGI-2D-btv"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="mtK-9v-0E2" secondAttribute="trailing" id="FKc-q3-zNQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="mtK-9v-0E2" secondAttribute="trailing" constant="15" id="FKc-q3-zNQ"/>
                     <constraint firstItem="5x2-GQ-EAL" firstAttribute="bottom" secondItem="mtK-9v-0E2" secondAttribute="bottom" constant="5" id="Ftn-77-6V6"/>
-                    <constraint firstItem="rJL-Ji-us3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="P9R-Q5-8ro"/>
+                    <constraint firstItem="rJL-Ji-us3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="P9R-Q5-8ro"/>
                     <constraint firstItem="5x2-GQ-EAL" firstAttribute="top" secondItem="mtK-9v-0E2" secondAttribute="top" constant="-5" id="Tvw-Hs-Jn1"/>
                     <constraint firstAttribute="bottom" secondItem="rJL-Ji-us3" secondAttribute="bottom" constant="9.5" id="bei-ZW-4yT"/>
                     <constraint firstItem="mtK-9v-0E2" firstAttribute="leading" secondItem="Fwb-xW-r2h" secondAttribute="trailing" priority="250" constant="10" id="iqz-43-Wbz"/>
                     <constraint firstItem="Fwb-xW-r2h" firstAttribute="centerY" secondItem="rJL-Ji-us3" secondAttribute="centerY" id="mKt-xZ-jzc"/>
                     <constraint firstItem="5x2-GQ-EAL" firstAttribute="trailing" secondItem="mtK-9v-0E2" secondAttribute="trailing" constant="5" id="q4F-5k-qcW"/>
-                    <constraint firstItem="Fwb-xW-r2h" firstAttribute="leading" secondItem="rJL-Ji-us3" secondAttribute="trailing" constant="20" id="qau-1z-odi"/>
+                    <constraint firstItem="Fwb-xW-r2h" firstAttribute="leading" secondItem="rJL-Ji-us3" secondAttribute="trailing" constant="8" id="qau-1z-odi"/>
                     <constraint firstItem="rJL-Ji-us3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="rMq-gM-gfZ"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="btn" destination="5x2-GQ-EAL" id="ajG-by-fyH"/>

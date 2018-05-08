@@ -8,6 +8,7 @@
 
 #import "DoctorListVC.h"
 #import "PaymentVC.h"
+#import "DProfileVC.h"
 @interface DoctorListVC ()
 {
     LoderView *loderObj;
@@ -102,7 +103,10 @@
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width/2;
         cell.profileImageView.clipsToBounds = true;
         
-        
+        cell.btn_Profile.tag = indexPath.row;
+        cell.btn_Payment.tag = indexPath.row;
+        [cell.btn_Payment addTarget:self action:@selector(btnActionPayment:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.btn_Profile addTarget:self action:@selector(btnActionProfile:) forControlEvents:UIControlEventTouchUpInside];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -129,13 +133,14 @@
     }
 
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+-(void)btnActionPayment:(UIButton *)btn{
     if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
         
-        objTemp = [doctorListArray objectAtIndex:indexPath.row];
+        objTemp = [doctorListArray objectAtIndex:btn.tag];
         NSString *str1 =[CommonFunction getValueFromDefaultWithKey:NOTIFICATION_DOCTOR_ID];
         NSString *str2 =[NSString stringWithFormat:@"%@",objTemp.doctor_id];
-       
+        
         if ([CommonFunction getBoolValueFromDefaultWithKey:NOTIFICATION_BOOl] && [str1 isEqualToString:str2]) {
             ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
             vc.objDoctor = objTemp;
@@ -146,8 +151,37 @@
             [self.navigationController pushViewController:vc animated:true];
         }else{
             [self hitApiForAddInTheQueue:objTemp];
-
+            
         }
+    }
+}
+-(void)btnActionProfile:(UIButton *)btn{
+     objTemp = [doctorListArray objectAtIndex:btn.tag];
+    DProfileVC* vc = [[DProfileVC alloc] initWithNibName:@"DProfileVC" bundle:nil];
+    vc.isLofinUser = false;
+    vc.doctorObj = objTemp;
+    [self.navigationController pushViewController:vc animated:true];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
+//
+//        objTemp = [doctorListArray objectAtIndex:indexPath.row];
+//        NSString *str1 =[CommonFunction getValueFromDefaultWithKey:NOTIFICATION_DOCTOR_ID];
+//        NSString *str2 =[NSString stringWithFormat:@"%@",objTemp.doctor_id];
+//
+//        if ([CommonFunction getBoolValueFromDefaultWithKey:NOTIFICATION_BOOl] && [str1 isEqualToString:str2]) {
+//            ChatViewController* vc = [[ChatViewController alloc] initWithNibName:@"ChatViewController" bundle:nil];
+//            vc.objDoctor = objTemp;
+//            objTemp.dependent_id = _selectedDependent.depedant_id;
+//            objTemp.dependent_Name = _selectedDependent.name;
+//            vc.awarenessObj = _awarenessObj;
+//            vc.toId = objTemp.jabberId;
+//            [self.navigationController pushViewController:vc animated:true];
+//        }else{
+//            [self hitApiForAddInTheQueue:objTemp];
+//
+//        }
     }
     else
     {

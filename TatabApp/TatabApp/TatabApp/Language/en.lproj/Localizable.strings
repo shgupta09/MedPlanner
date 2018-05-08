@@ -285,7 +285,7 @@
 
 "Description" = "Description";
 "About_Me" = "About me";
-"Education" = "Edcation";
+"Education" = "Education";
 "Location" = "Location";
 "Years_Of_Experience" = "Years Of Experiance";
 "Edit" = "Edit";
@@ -298,3 +298,5 @@
 "University_required" = "We need a University Name";
 "About_Text" = "Please enter some text";
 "About_required" = "We need about text";
+"save_Message" = "Do you want to save the changes?";
+"save" = "Save";

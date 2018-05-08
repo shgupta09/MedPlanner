@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CustomAlert.h"
 @interface CommonFunction : NSObject
++(void)setShadowOpacity:(UIView *)view;
++(void)setCornerRadius:(UIView *)view Radius:(CGFloat)radius;
 +(BOOL)isValidPassword:(NSString*)password;
 +(UIView *)setStatusBarColor;
 +(void)setNavToController:(UIViewController *)viewController title:(NSString *)title isCrossBusston:(BOOL)IsCross;

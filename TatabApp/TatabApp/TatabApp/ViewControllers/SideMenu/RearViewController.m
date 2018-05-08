@@ -58,12 +58,12 @@
     [_tbl_View reloadData];
     if ([CommonFunction getBoolValueFromDefaultWithKey:isLoggedIn]){
           if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"dependent",@"emr_and_tracker",@"profile",@"action_settings", nil];
-              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-children",@"menu-general",@"Icon---Profile",@"Icon---Setttings", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"dependent",@"emr_and_tracker",@"profile",@"action_settings",@"need_help", nil];
+              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-children",@"menu-general",@"Icon---Profile",@"Icon---Setttings",@"Icon---Setttings", nil];
           }
           else{
-              titleArray  = [[NSMutableArray alloc]initWithObjects:@"queue",@"emr_and_tracker",@"profile",@"action_settings",@"Doctor_Profile", nil];
-              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queueWhite",@"menu-general",@"Icon---Profile",@"Icon---Setttings",@"Icon---Setttings", nil];
+              titleArray  = [[NSMutableArray alloc]initWithObjects:@"queue",@"emr_and_tracker",@"profile",@"action_settings",@"Doctor_Profile", @"need_help",nil];
+              titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queueWhite",@"menu-general",@"Icon---Profile",@"Icon---Setttings",@"Icon---Setttings",@"Icon---Setttings", nil];
               [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
           }
            _lblNAme.text = [CommonFunction getValueFromDefaultWithKey:loginemail];
@@ -186,6 +186,9 @@
 
                 
                 case 4:{
+                    NeedHelpVCViewController* vc = [[NeedHelpVCViewController alloc] initWithNibName:@"NeedHelpVCViewController" bundle:nil];
+                    vc.isPushed = true;
+                    [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
 
@@ -253,10 +256,15 @@
                 case 4:{
 
                     DProfileVC* vc = [[DProfileVC alloc] initWithNibName:@"DProfileVC" bundle:nil];
+                    vc.isLofinUser = true;
                     [self.navigationController pushViewController:vc animated:true];
                 }
                     break;
-            
+                case 5:{
+                    NeedHelpVCViewController* vc = [[NeedHelpVCViewController alloc] initWithNibName:@"NeedHelpVCViewController" bundle:nil];
+                    vc.isPushed = true;
+                    [self.navigationController pushViewController:vc animated:true];
+                }break;
                 default:
                     break;
             }
