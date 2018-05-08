@@ -29,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="93m-MH-8Zk">
-                    <rect key="frame" x="0.0" y="25" width="375" height="642"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="EZA-Yo-HFW" customClass="TPKeyboardAvoidingScrollView">
                     <rect key="frame" x="0.0" y="25" width="375" height="642"/>
@@ -180,7 +180,7 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="93m-MH-8Zk" secondAttribute="bottom" id="4Ub-hQ-T7H"/>
                 <constraint firstAttribute="trailing" secondItem="EZA-Yo-HFW" secondAttribute="trailing" id="798-RE-WhG"/>
-                <constraint firstItem="93m-MH-8Zk" firstAttribute="top" secondItem="eWI-k1-dqY" secondAttribute="top" constant="5" id="8Jv-F8-qCq"/>
+                <constraint firstItem="93m-MH-8Zk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8Jv-F8-qCq"/>
                 <constraint firstItem="93m-MH-8Zk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8mW-N1-knk"/>
                 <constraint firstItem="EZA-Yo-HFW" firstAttribute="top" secondItem="eWI-k1-dqY" secondAttribute="top" constant="5" id="aYQ-2x-aiz"/>
                 <constraint firstItem="EZA-Yo-HFW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fJi-dE-ynj"/>

@@ -39,7 +39,7 @@
     _txt_Email.leftImgView.image = [UIImage imageNamed:@"a"];
     _txt_Mobile.leftImgView.image = [UIImage imageNamed:@"Mobile"];
     _txt_Description.tintColor = [UIColor whiteColor];
-    [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
+//    [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
     [CommonFunction setResignTapGestureToView:self.view andsender:self];
     [self setLanguageData];
 }
