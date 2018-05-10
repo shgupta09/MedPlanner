@@ -899,7 +899,7 @@
 		004A3A9D0DF455C98155F1D9B1A3F4A8 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		00A16360A2ABE40D9910EDD43668E122 /* pb_decode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_decode.h; sourceTree = "<group>"; };
 		00DB1A55AE157EDCDFED810A1A812037 /* XMPPSASLAuthentication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPSASLAuthentication.h; path = Authentication/XMPPSASLAuthentication.h; sourceTree = "<group>"; };
-		00F44E3855CEEB72ADBD9E6F354EE863 /* rfc3454.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = rfc3454.c; path = lib/rfc3454.c; sourceTree = "<group>"; };
+		00F44E3855CEEB72ADBD9E6F354EE863 /* rfc3454.c */ = {isa = PBXFileReference; includeInIndex = 1; name = rfc3454.c; path = lib/rfc3454.c; sourceTree = "<group>"; };
 		0158305C164F4A4D6AF786B19D2FA345 /* LineChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineChartView.swift; path = Source/Charts/Charts/LineChartView.swift; sourceTree = "<group>"; };
 		018CC439866BF2F9C0FA3A5633ECA0AE /* UIImage+ForceDecode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ForceDecode.h"; path = "SDWebImage/UIImage+ForceDecode.h"; sourceTree = "<group>"; };
 		018EE59230207FB801FE15DA0A4055AA /* GCDAsyncSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = Source/GCD/GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -908,7 +908,7 @@
 		02503A96450BC15CCC9D12CEB928A960 /* GPBUnknownField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBUnknownField.h; path = objectivec/GPBUnknownField.h; sourceTree = "<group>"; };
 		0271F5788F291786962063BFE1FD7B12 /* GPBArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBArray.h; path = objectivec/GPBArray.h; sourceTree = "<group>"; };
 		02AFDFC247A8A58F89E178C018DB1A32 /* XMPPURI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPURI.h; path = "Extensions/XEP-0147/XMPPURI.h"; sourceTree = "<group>"; };
-		02B297B11CAC60A2CD58628AD2BF2589 /* CocoaAsyncSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CocoaAsyncSocket.modulemap; sourceTree = "<group>"; };
+		02B297B11CAC60A2CD58628AD2BF2589 /* CocoaAsyncSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CocoaAsyncSocket.modulemap; sourceTree = "<group>"; };
 		02D70944FD981BBD7526556DE0C0D05B /* KissXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KissXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		033C42BD36DD49583F0AF86D5F3B1776 /* BarChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarChartView.swift; path = Source/Charts/Charts/BarChartView.swift; sourceTree = "<group>"; };
 		03E7DB345711449015F753ED6F9805EE /* Pods-TatabApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TatabApp-dummy.m"; sourceTree = "<group>"; };
@@ -920,7 +920,7 @@
 		053D0F352C4E60F1378C69E35B8D9AD7 /* XMPPvCardTempEmail.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPvCardTempEmail.h; path = "Extensions/XEP-0054/XMPPvCardTempEmail.h"; sourceTree = "<group>"; };
 		054405C4660E88F88782BE4AEA9E5B79 /* SquareShapeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SquareShapeRenderer.swift; path = Source/Charts/Renderers/Scatter/SquareShapeRenderer.swift; sourceTree = "<group>"; };
 		05D4C9B388BB6B4438BC6B401FC979CF /* ILineChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ILineChartDataSet.swift; path = Source/Charts/Data/Interfaces/ILineChartDataSet.swift; sourceTree = "<group>"; };
-		05F7872749608D2DC6772C01624C7797 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05F7872749608D2DC6772C01624C7797 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Charts.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0655EB425B36FA435EC2EF115F93D7C3 /* XMPPStanzaIdModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPStanzaIdModule.h; path = "Extensions/XEP-0359/XMPPStanzaIdModule.h"; sourceTree = "<group>"; };
 		06F96077BD652A3FE5246D1F25DFD7FD /* XMPPRosterMemoryStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPRosterMemoryStorage.h; path = Extensions/Roster/MemoryStorage/XMPPRosterMemoryStorage.h; sourceTree = "<group>"; };
 		070B824D6D967FF9CF7262EBCAE55588 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -933,7 +933,7 @@
 		09883651B277A4CA732A957CED541CCE /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		0A1BAB1B4EDA013BD4BFCD3238D5FBB8 /* ILineScatterCandleRadarChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ILineScatterCandleRadarChartDataSet.swift; path = Source/Charts/Data/Interfaces/ILineScatterCandleRadarChartDataSet.swift; sourceTree = "<group>"; };
 		0AABEC4ED4F6FEAA1133F2DB80A96B3D /* XMPPRoomMemoryStorage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPRoomMemoryStorage.m; path = "Extensions/XEP-0045/MemoryStorage/XMPPRoomMemoryStorage.m"; sourceTree = "<group>"; };
-		0AC27BDF60D93DE3DEAA0FADEF39118F /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AC27BDF60D93DE3DEAA0FADEF39118F /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = nanopb.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B1BA55EFF3583041B9BAC7598D40AEB /* XMPPBandwidthMonitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPBandwidthMonitor.h; path = Extensions/BandwidthMonitor/XMPPBandwidthMonitor.h; sourceTree = "<group>"; };
 		0B609ABC09C932F82B371B7B2835474F /* KissXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KissXML.h; path = KissXML/KissXML.h; sourceTree = "<group>"; };
 		0BA3BF908788A931A1B02D2AF71F0212 /* XMPPUserCoreDataStorageObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPUserCoreDataStorageObject.m; path = Extensions/Roster/CoreDataStorage/XMPPUserCoreDataStorageObject.m; sourceTree = "<group>"; };
@@ -977,10 +977,10 @@
 		17D6CC23BB0B83CBFF2B7914EAC49ABE /* XMPPMessage+XEP_0333.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XMPPMessage+XEP_0333.m"; path = "Extensions/XEP-0333/XMPPMessage+XEP_0333.m"; sourceTree = "<group>"; };
 		18633D0A36B309391A59DCC652BE1AE9 /* XMPPConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPConstants.m; path = Core/XMPPConstants.m; sourceTree = "<group>"; };
 		1931D7DAA7BC7359655A8CFCB7755C25 /* OMEMOPreKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OMEMOPreKey.h; path = Extensions/OMEMO/OMEMOPreKey.h; sourceTree = "<group>"; };
-		194DC1252319449C96A99ECF0F6A7D79 /* pb_encode.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = pb_encode.c; sourceTree = "<group>"; };
+		194DC1252319449C96A99ECF0F6A7D79 /* pb_encode.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_encode.c; sourceTree = "<group>"; };
 		19796CFB8EE2FFA42BDADF3858EB127F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		1996873E87E391E9A678D33B1743D51E /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MultiFormat.h"; path = "SDWebImage/UIImage+MultiFormat.h"; sourceTree = "<group>"; };
-		1A06663101ECC3E257AFA5DE31AF1404 /* pb_common.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = pb_common.c; sourceTree = "<group>"; };
+		1A06663101ECC3E257AFA5DE31AF1404 /* pb_common.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_common.c; sourceTree = "<group>"; };
 		1A0E92BA2C42E44A91133B4D3635C816 /* XMPPStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPStream.h; path = Core/XMPPStream.h; sourceTree = "<group>"; };
 		1A1C02B0482B41BE55B861437575308D /* DDASLLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogger.h; path = Classes/DDASLLogger.h; sourceTree = "<group>"; };
 		1A4EDC036BE42410550EBDCE524ECCF0 /* XMPPUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPUser.h; path = Extensions/Roster/XMPPUser.h; sourceTree = "<group>"; };
@@ -998,7 +998,7 @@
 		1DEEE33A589398B4DFB38D3618A0AC25 /* XMPPXOAuth2Google.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPXOAuth2Google.m; path = "Authentication/X-OAuth2-Google/XMPPXOAuth2Google.m"; sourceTree = "<group>"; };
 		1E062ADC6CB623965A4B91D382D5AA92 /* XMPPStreamManagement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPStreamManagement.h; path = "Extensions/XEP-0198/XMPPStreamManagement.h"; sourceTree = "<group>"; };
 		1E4F869A09E60A3137B3FEE7D7DE26F2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1E86D2249733B51704D028FE9E5B730A /* KissXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KissXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E86D2249733B51704D028FE9E5B730A /* KissXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KissXML.framework; path = KissXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EBB5BB5CFDB8DC3D9E1530EE506BC50 /* XMPPFramework.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPFramework.h; path = Core/XMPPFramework.h; sourceTree = "<group>"; };
 		1F3A22442B73F78CB0FDC617C571033F /* XMPPRoomOccupantHybridMemoryStorageObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPRoomOccupantHybridMemoryStorageObject.h; path = "Extensions/XEP-0045/HybridStorage/XMPPRoomOccupantHybridMemoryStorageObject.h"; sourceTree = "<group>"; };
 		1FB505150AB479C1AEFF2909990AEE76 /* NSString+IDN.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+IDN.m"; path = "Framework/NSString+IDN.m"; sourceTree = "<group>"; };
@@ -1013,11 +1013,11 @@
 		22EE92892837C09D6F52F8DD8F04F970 /* XMPPSoftwareVersion.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPSoftwareVersion.m; path = "Extensions/XEP-0092/XMPPSoftwareVersion.m"; sourceTree = "<group>"; };
 		235583E9B82564958C670F8443E8F14D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24010B110F2F62C2CA5D091EEC6303E7 /* UIButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WebCache.h"; path = "SDWebImage/UIButton+WebCache.h"; sourceTree = "<group>"; };
-		240B9F1ECCC04924E10090D68585140C /* nfkc.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = nfkc.c; path = lib/nfkc.c; sourceTree = "<group>"; };
+		240B9F1ECCC04924E10090D68585140C /* nfkc.c */ = {isa = PBXFileReference; includeInIndex = 1; name = nfkc.c; path = lib/nfkc.c; sourceTree = "<group>"; };
 		246CA458B8109BA117C09CB2B72D104B /* YAxisRendererRadarChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YAxisRendererRadarChart.swift; path = Source/Charts/Renderers/YAxisRendererRadarChart.swift; sourceTree = "<group>"; };
 		24A2C8D0AADEC1606E597A39450E9174 /* DDList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDList.m; path = Utilities/DDList.m; sourceTree = "<group>"; };
 		25F8438B562EC79906A458D8F5C52F77 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMSimpleLineGraphView.m; path = Classes/BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
-		2604742E62C0D733C5CCAD1C0D4B8A28 /* SWRevealViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SWRevealViewController.modulemap; sourceTree = "<group>"; };
+		2604742E62C0D733C5CCAD1C0D4B8A28 /* SWRevealViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SWRevealViewController.modulemap; sourceTree = "<group>"; };
 		26D9CECE58B8D21E3169CE4DAB5C25B3 /* SWRevealViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-umbrella.h"; sourceTree = "<group>"; };
 		26FDFD2B291080B06FFADC74665FD127 /* DDXMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDXMLNode.m; path = KissXML/DDXMLNode.m; sourceTree = "<group>"; };
 		2707FC36EFE58732AC098C88878AE549 /* libidn-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "libidn-dummy.m"; sourceTree = "<group>"; };
@@ -1030,7 +1030,7 @@
 		294F0A773C034402AC55EF07E0FC46AE /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMSimpleLineGraphView.h; path = Classes/BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
 		29D6C9AF536499620E985BDB06700902 /* XMPPMessage+XEP_0184.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XMPPMessage+XEP_0184.m"; path = "Extensions/XEP-0184/XMPPMessage+XEP_0184.m"; sourceTree = "<group>"; };
 		2A09BFB2B6CF16E662F5A9D3F74F4241 /* NSString+DDXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+DDXML.h"; path = "KissXML/Categories/NSString+DDXML.h"; sourceTree = "<group>"; };
-		2A9513CD3379CE8C515D47BDAFCD1F0D /* SWRevealViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWRevealViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A9513CD3379CE8C515D47BDAFCD1F0D /* SWRevealViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWRevealViewController.framework; path = SWRevealViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC0F024357FBAE176CA18F6C61CEDA3 /* CombinedHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CombinedHighlighter.swift; path = Source/Charts/Highlight/CombinedHighlighter.swift; sourceTree = "<group>"; };
 		2B48F7735324DEF3D8CFB646519B08F3 /* LineRadarChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineRadarChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/LineRadarChartDataSet.swift; sourceTree = "<group>"; };
 		2BBD7EA6F25C93C8C179153309F1ECAE /* XMPPMessage+XEP_0224.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XMPPMessage+XEP_0224.h"; path = "Extensions/XEP-0224/XMPPMessage+XEP_0224.h"; sourceTree = "<group>"; };
@@ -1038,7 +1038,7 @@
 		2C8FF532C85573C8555FFA67419587F0 /* ComponentBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ComponentBase.swift; path = Source/Charts/Components/ComponentBase.swift; sourceTree = "<group>"; };
 		2CE2C310509A71623605E39FD9A69067 /* ILineRadarChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ILineRadarChartDataSet.swift; path = Source/Charts/Data/Interfaces/ILineRadarChartDataSet.swift; sourceTree = "<group>"; };
 		2D607BAA2BFDFAB67983AF3399503CD7 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
-		2D7B63DA0CB4E595568756901A534D64 /* profiles.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = profiles.c; path = lib/profiles.c; sourceTree = "<group>"; };
+		2D7B63DA0CB4E595568756901A534D64 /* profiles.c */ = {isa = PBXFileReference; includeInIndex = 1; name = profiles.c; path = lib/profiles.c; sourceTree = "<group>"; };
 		2D87EEDB94073605C4DD309A12063EAA /* OMEMOBundle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OMEMOBundle.h; path = Extensions/OMEMO/OMEMOBundle.h; sourceTree = "<group>"; };
 		2DF5B36DD5DCF9BA803EC4F6492AB824 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = Source/GCD/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		2E62F193DE2270DAEC443C54A478949E /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+TPKeyboardAvoidingAdditions.m"; path = "TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
@@ -1051,7 +1051,7 @@
 		2FF4E3594E22F896E008B8A800887D87 /* DDXMLDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDXMLDocument.m; path = KissXML/DDXMLDocument.m; sourceTree = "<group>"; };
 		30052C1787C4BEC6412FFF66CBE95B35 /* Any.pbobjc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Any.pbobjc.m; path = objectivec/google/protobuf/Any.pbobjc.m; sourceTree = "<group>"; };
 		304BDC1A9DEF33AEB248716FA896B2F8 /* MMDrawerVisualState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMDrawerVisualState.h; path = MMDrawerController/MMDrawerVisualState.h; sourceTree = "<group>"; };
-		30737084A508A1BAE07580F193AA612D /* KissXML.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = KissXML.modulemap; sourceTree = "<group>"; };
+		30737084A508A1BAE07580F193AA612D /* KissXML.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = KissXML.modulemap; sourceTree = "<group>"; };
 		30CF62CAFC402D4AB4058C096B8AB0B5 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
 		31A1644F0AF1596CA58335FF081DF707 /* XMPPIDTracker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPIDTracker.m; path = Utilities/XMPPIDTracker.m; sourceTree = "<group>"; };
 		31B64D92796A3A4791AD8889E9E4CFC2 /* XMPPRoomHybrid.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = XMPPRoomHybrid.xcdatamodel; sourceTree = "<group>"; };
@@ -1081,12 +1081,12 @@
 		38CF4D231F1913F80E22C46EE72B5D94 /* HorizontalBarChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HorizontalBarChartRenderer.swift; path = Source/Charts/Renderers/HorizontalBarChartRenderer.swift; sourceTree = "<group>"; };
 		3962B161DF1727570296B262D6022C21 /* HorizontalBarHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HorizontalBarHighlighter.swift; path = Source/Charts/Highlight/HorizontalBarHighlighter.swift; sourceTree = "<group>"; };
 		398BE0AEE922670099A0C5B890BEF280 /* CocoaLumberjack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CocoaLumberjack.h; path = Classes/CocoaLumberjack.h; sourceTree = "<group>"; };
-		39A1CA76FE2DDD550E3B40002D69B70A /* u8-check.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = "u8-check.c"; path = "lib/u8-check.c"; sourceTree = "<group>"; };
+		39A1CA76FE2DDD550E3B40002D69B70A /* u8-check.c */ = {isa = PBXFileReference; includeInIndex = 1; name = "u8-check.c"; path = "lib/u8-check.c"; sourceTree = "<group>"; };
 		39B0E3498D0F30BC5719010DCBF6950F /* XMPPRoomLightCoreDataStorage+XEP_0313.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XMPPRoomLightCoreDataStorage+XEP_0313.m"; path = "Extensions/XEP-0313/XMPPRoomLightCoreDataStorage+XEP_0313.m"; sourceTree = "<group>"; };
 		3A2207EC3F0155E8D5ED2A15C03C3218 /* XMPPMUCLight.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPMUCLight.h; path = Extensions/XMPPMUCLight/XMPPMUCLight.h; sourceTree = "<group>"; };
 		3A271DB53D56697664CBC9EE0A2CFAA2 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMessaging.framework; path = Frameworks/FirebaseMessaging.framework; sourceTree = "<group>"; };
 		3A42140A95E8834C192EA6AAD2694BE1 /* XMPPIQ+XEP_0060.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XMPPIQ+XEP_0060.m"; path = "Extensions/XEP-0060/XMPPIQ+XEP_0060.m"; sourceTree = "<group>"; };
-		3A879138A167114265E2C6E65DD1C467 /* libidn.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = libidn.modulemap; sourceTree = "<group>"; };
+		3A879138A167114265E2C6E65DD1C467 /* libidn.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = libidn.modulemap; sourceTree = "<group>"; };
 		3B4EC35706A1E8FCBEAD36D94D6BC21D /* PieChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartRenderer.swift; path = Source/Charts/Renderers/PieChartRenderer.swift; sourceTree = "<group>"; };
 		3BA3CDB17BE942AFED710BFF27523F12 /* BEMPermanentPopupView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMPermanentPopupView.h; path = Classes/BEMPermanentPopupView.h; sourceTree = "<group>"; };
 		3BC10E9206F2FA9E4F14C134C2049AFB /* IAxisValueFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IAxisValueFormatter.swift; path = Source/Charts/Formatters/IAxisValueFormatter.swift; sourceTree = "<group>"; };
@@ -1098,7 +1098,7 @@
 		3E590CD7AAC10496C33D86F9ADD05B13 /* XMPPRoomOccupantCoreDataStorageObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPRoomOccupantCoreDataStorageObject.h; path = "Extensions/XEP-0045/CoreDataStorage/XMPPRoomOccupantCoreDataStorageObject.h"; sourceTree = "<group>"; };
 		3ED8DC037BF361291DA9B851037A9AB6 /* libidn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libidn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA53249F7049038D81AB12410EF366C /* Struct.pbobjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Struct.pbobjc.h; path = objectivec/google/protobuf/Struct.pbobjc.h; sourceTree = "<group>"; };
-		3FF3D480A581196890C640A5EF3E0419 /* Pods_TatabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TatabApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FF3D480A581196890C640A5EF3E0419 /* Pods_TatabApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TatabApp.framework; path = "Pods-TatabApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF4C9CB405F91F695BB8B1E2EB80DC5 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMDrawerBarButtonItem.h; path = MMDrawerController/MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
 		3FF6776070EE06827FD2937E80C59DDE /* XMPPIQ+OMEMO.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XMPPIQ+OMEMO.m"; path = "Extensions/OMEMO/XMPPIQ+OMEMO.m"; sourceTree = "<group>"; };
 		40C42C02B326CD104A635D653B6167A4 /* GPBUtilities_PackagePrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBUtilities_PackagePrivate.h; path = objectivec/GPBUtilities_PackagePrivate.h; sourceTree = "<group>"; };
@@ -1124,13 +1124,13 @@
 		47DED13710723378D64DE920FAF1FF7D /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		47E90059542E0F43E2E4670E61FAB343 /* XMPPIQ+XEP_0066.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XMPPIQ+XEP_0066.h"; path = "Extensions/XEP-0066/XMPPIQ+XEP_0066.h"; sourceTree = "<group>"; };
 		47F1882184412077E97125B40C22B9B4 /* Range.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Range.swift; path = Source/Charts/Highlight/Range.swift; sourceTree = "<group>"; };
-		484A43291952705720B9EE4132240576 /* AFNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AFNetworking.modulemap; sourceTree = "<group>"; };
+		484A43291952705720B9EE4132240576 /* AFNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AFNetworking.modulemap; sourceTree = "<group>"; };
 		4961F7A86B20550412CD5512D8B731CE /* XMPPGroupCoreDataStorageObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPGroupCoreDataStorageObject.h; path = Extensions/Roster/CoreDataStorage/XMPPGroupCoreDataStorageObject.h; sourceTree = "<group>"; };
 		4980EE761A4ED0C2F73969FA7D8FB5D2 /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
 		4ACC1F2BC31D8FB96D08B3BC11BC56FA /* XShapeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XShapeRenderer.swift; path = Source/Charts/Renderers/Scatter/XShapeRenderer.swift; sourceTree = "<group>"; };
-		4AEABD60386A291EE8299DDC77843303 /* pb_decode.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = pb_decode.c; sourceTree = "<group>"; };
+		4AEABD60386A291EE8299DDC77843303 /* pb_decode.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_decode.c; sourceTree = "<group>"; };
 		4B4023552531E86F4699A3762E5FB3F9 /* GPBDictionary_PackagePrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBDictionary_PackagePrivate.h; path = objectivec/GPBDictionary_PackagePrivate.h; sourceTree = "<group>"; };
-		4BF0DCFB0BB0CC176E29F5ED03ABC3A5 /* Pods_TatabAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TatabAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BF0DCFB0BB0CC176E29F5ED03ABC3A5 /* Pods_TatabAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TatabAppTests.framework; path = "Pods-TatabAppTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C0F1F99593BBF66E7DB7814B80FACA3 /* DDXML.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DDXML.swift; path = KissXML/DDXML.swift; sourceTree = "<group>"; };
 		4CA26CB3EF2F8498F1E7EE0F6A4DCB66 /* PieChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/PieChartDataSet.swift; sourceTree = "<group>"; };
 		4CD0DB07C09954BE118E64F810905189 /* DDASLLogCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogCapture.h; path = Classes/DDASLLogCapture.h; sourceTree = "<group>"; };
@@ -1219,7 +1219,7 @@
 		65080269722AFD2938B5EFEA826FC379 /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+AFNetworking.h"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
 		652676ED628E237E3914CBE14940FB3D /* XMPPSRVResolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPSRVResolver.h; path = Utilities/XMPPSRVResolver.h; sourceTree = "<group>"; };
 		6577E2DD828368915027A0DE8F5820B4 /* NSXMLElement+XEP_0352.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSXMLElement+XEP_0352.h"; path = "Extensions/XEP-0352/NSXMLElement+XEP_0352.h"; sourceTree = "<group>"; };
-		66A9FF4291EE124BBE27CD9F7A902AD4 /* Protobuf.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Protobuf.modulemap; sourceTree = "<group>"; };
+		66A9FF4291EE124BBE27CD9F7A902AD4 /* Protobuf.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Protobuf.modulemap; sourceTree = "<group>"; };
 		66E5E79A884DBF3DD49517D00112A91D /* GPBRootObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBRootObject.h; path = objectivec/GPBRootObject.h; sourceTree = "<group>"; };
 		67515D51DBC1621124FEFA55B04AF455 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		679C566F13837C3E0AEAB73CB0F686D2 /* NSXMLElement+XEP_0359.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSXMLElement+XEP_0359.h"; path = "Extensions/XEP-0359/NSXMLElement+XEP_0359.h"; sourceTree = "<group>"; };
@@ -1246,7 +1246,7 @@
 		6DA2203570CDBEDA57DC02A18ED9AF50 /* XMPPvCardTempTel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPvCardTempTel.h; path = "Extensions/XEP-0054/XMPPvCardTempTel.h"; sourceTree = "<group>"; };
 		6DDFA0D18BF38CF66034C94B80D362B2 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
 		6E4169ED629944CD842238190DED2B1D /* XMPPResourceMemoryStorageObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPResourceMemoryStorageObject.m; path = Extensions/Roster/MemoryStorage/XMPPResourceMemoryStorageObject.m; sourceTree = "<group>"; };
-		6EB2544E88F4FDB72BB4B6B0D62CA938 /* MMDrawerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMDrawerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB2544E88F4FDB72BB4B6B0D62CA938 /* MMDrawerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MMDrawerController.framework; path = MMDrawerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		705E34F7EB368540F37DF94F8D6612A5 /* XMPPAutoTime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPAutoTime.h; path = "Extensions/XEP-0202/XMPPAutoTime.h"; sourceTree = "<group>"; };
 		70B7D21C6CD4901207C76F1BCD6416A2 /* MoveViewJob.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MoveViewJob.swift; path = Source/Charts/Jobs/MoveViewJob.swift; sourceTree = "<group>"; };
 		70FCCB248FAC31C8D07C16ED92BB6BBE /* KissXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KissXML.xcconfig; sourceTree = "<group>"; };
@@ -1280,7 +1280,7 @@
 		79060747C57D2A9CB9317300B21A0443 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		79C4491231A0D5384478133E6D9694BE /* XMPPMessageDeliveryReceipts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPMessageDeliveryReceipts.h; path = "Extensions/XEP-0184/XMPPMessageDeliveryReceipts.h"; sourceTree = "<group>"; };
 		79E6ADEE8522E6A723E185DFF95BAC13 /* CrossShapeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrossShapeRenderer.swift; path = Source/Charts/Renderers/Scatter/CrossShapeRenderer.swift; sourceTree = "<group>"; };
-		7A099389F81D1CBE3384FFB34ABAD70A /* libidn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libidn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A099389F81D1CBE3384FFB34ABAD70A /* libidn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = libidn.framework; path = libidn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2E18836F9A0B782674EB6522544458 /* XMPPStreamManagementStanzas.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPStreamManagementStanzas.m; path = "Extensions/XEP-0198/Private/XMPPStreamManagementStanzas.m"; sourceTree = "<group>"; };
 		7AB4EAD55FE80DC0CD1C478338341542 /* CandleChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/CandleChartDataSet.swift; sourceTree = "<group>"; };
 		7B14B498562D4104EE2324845FDE2DBB /* nanopb-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "nanopb-dummy.m"; sourceTree = "<group>"; };
@@ -1295,15 +1295,15 @@
 		7CF0423424D1C23AD77A62E1734884AA /* BarChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarChartData.swift; path = Source/Charts/Data/Implementations/Standard/BarChartData.swift; sourceTree = "<group>"; };
 		7E07643C32D460C6240AB96359E9D25D /* PieRadarHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieRadarHighlighter.swift; path = Source/Charts/Highlight/PieRadarHighlighter.swift; sourceTree = "<group>"; };
 		7E671F95E744B5A0D09ABD905B538EA8 /* BubbleChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BubbleChartView.swift; path = Source/Charts/Charts/BubbleChartView.swift; sourceTree = "<group>"; };
-		7E7EDEB996D63FD920AE9E95D558ED71 /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
+		7E7EDEB996D63FD920AE9E95D558ED71 /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
 		7E8F0CF2A9F7CF48424B6DAB9619D174 /* SDImageCacheConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCacheConfig.m; path = SDWebImage/SDImageCacheConfig.m; sourceTree = "<group>"; };
 		7ECED71F4231918273493666BAF782EA /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		7F7085E1CDCBFF326E9E20BACCC51EC2 /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDXMLElementAdditions.m; path = KissXML/Additions/DDXMLElementAdditions.m; sourceTree = "<group>"; };
-		8006304EC4F2B51FED334C13219A7272 /* BEMSimpleLineGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BEMSimpleLineGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8006304EC4F2B51FED334C13219A7272 /* BEMSimpleLineGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BEMSimpleLineGraph.framework; path = BEMSimpleLineGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80392B4FBF09F0A97771C1486EFE4E51 /* ChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartDataProvider.swift; path = Source/Charts/Interfaces/ChartDataProvider.swift; sourceTree = "<group>"; };
 		8113CC5B2D5FF104EF8870752E37F834 /* XMPPResourceMemoryStorageObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPResourceMemoryStorageObject.h; path = Extensions/Roster/MemoryStorage/XMPPResourceMemoryStorageObject.h; sourceTree = "<group>"; };
 		811AA6883CAA49927579FD536701F943 /* pb_common.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_common.h; sourceTree = "<group>"; };
-		816F0B3AA042ECBC21260F5AB4C14DDF /* XMPPFramework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = XMPPFramework.modulemap; sourceTree = "<group>"; };
+		816F0B3AA042ECBC21260F5AB4C14DDF /* XMPPFramework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = XMPPFramework.modulemap; sourceTree = "<group>"; };
 		81AFDE7EDB88012ABD7CD1FF0A392E2B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		81D5F8C437A50D21F6B3C4AE049B616B /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		8224B32C9B69000084C17BD77C5BC003 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
@@ -1320,7 +1320,7 @@
 		86F41A0C94D84131797E28808CE37B80 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		870382C20B6986C14B5C12F7F67906E5 /* XMPPvCardAvatarCoreDataStorageObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPvCardAvatarCoreDataStorageObject.h; path = "Extensions/XEP-0054/CoreDataStorage/XMPPvCardAvatarCoreDataStorageObject.h"; sourceTree = "<group>"; };
 		875B98150C92F7CADC6E76A67CD940EE /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
-		876F6A36843A514500007ACD66A8DC31 /* BEMSimpleLineGraph.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BEMSimpleLineGraph.modulemap; sourceTree = "<group>"; };
+		876F6A36843A514500007ACD66A8DC31 /* BEMSimpleLineGraph.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = BEMSimpleLineGraph.modulemap; sourceTree = "<group>"; };
 		878844B9EA82D90E198ED44EE462474D /* XMPPMUC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPMUC.h; path = "Extensions/XEP-0045/XMPPMUC.h"; sourceTree = "<group>"; };
 		87924C725E28331C5EC33A23DC5A7C0C /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMDrawerBarButtonItem.m; path = MMDrawerController/MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
 		87AAA4BC27623209B9C46AC1ACAA1A2A /* XMPPModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPModule.m; path = Core/XMPPModule.m; sourceTree = "<group>"; };
@@ -1350,7 +1350,7 @@
 		91CBF83250B7DE7BD23273FA12C19AB0 /* BEMCircle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMCircle.h; path = Classes/BEMCircle.h; sourceTree = "<group>"; };
 		9278EDA458FF02CCF1B3FAFFD2BF0439 /* XMPPCapabilities+XEP_0359.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XMPPCapabilities+XEP_0359.h"; path = "Extensions/XEP-0359/XMPPCapabilities+XEP_0359.h"; sourceTree = "<group>"; };
 		9391EF783219C2935561278D9FCF3C92 /* Wrappers.pbobjc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Wrappers.pbobjc.m; path = objectivec/google/protobuf/Wrappers.pbobjc.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93E7D210C6EF4EBB63D5FD9FF2F98873 /* DDXMLElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDXMLElement.h; path = KissXML/DDXMLElement.h; sourceTree = "<group>"; };
 		94EF52699FBF5B3AE06AE517EC180AB7 /* XMPPIncomingFileTransfer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPIncomingFileTransfer.h; path = Extensions/FileTransfer/XMPPIncomingFileTransfer.h; sourceTree = "<group>"; };
 		9585F9C46D82BF7C2290ECEC5502140F /* XMPPIQ+JabberRPC.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XMPPIQ+JabberRPC.m"; path = "Extensions/XEP-0009/XMPPIQ+JabberRPC.m"; sourceTree = "<group>"; };
@@ -1358,20 +1358,20 @@
 		962081CB9474B280D43A6C350A2500DC /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
 		96FBF068F76AAF09034C988511089100 /* TPKeyboardAvoiding-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TPKeyboardAvoiding-umbrella.h"; sourceTree = "<group>"; };
 		976D3CC8D13D3E952876A87730C38785 /* SWRevealViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWRevealViewController-dummy.m"; sourceTree = "<group>"; };
-		97A99FCA96A011FEB3E3B258B7C61A66 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A99FCA96A011FEB3E3B258B7C61A66 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Protobuf.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9806894F1E49FC5C331C1C97DF1D0F6E /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDDispatchQueueLogFormatter.h; path = Classes/Extensions/DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		9810A57C7614B2D4388B9B00B564C08C /* XMPPProcessOne.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPProcessOne.m; path = Extensions/ProcessOne/XMPPProcessOne.m; sourceTree = "<group>"; };
 		981EAF7871012CE4DA4182FA900EC020 /* XMPPMessageArchiving.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPMessageArchiving.h; path = "Extensions/XEP-0136/XMPPMessageArchiving.h"; sourceTree = "<group>"; };
-		98A1BEAC7DE4A0EC48476DDB18A0FED6 /* Pods-TatabApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TatabApp.modulemap"; sourceTree = "<group>"; };
+		98A1BEAC7DE4A0EC48476DDB18A0FED6 /* Pods-TatabApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TatabApp.modulemap"; sourceTree = "<group>"; };
 		990690E6229B25A95EE2729C78318044 /* Api.pbobjc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Api.pbobjc.m; path = objectivec/google/protobuf/Api.pbobjc.m; sourceTree = "<group>"; };
 		9910F90FD462F6583529CCDF705F501E /* XMPPMessage+XEP_0308.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XMPPMessage+XEP_0308.m"; path = "Extensions/XEP-0308/XMPPMessage+XEP_0308.m"; sourceTree = "<group>"; };
 		99860B4D647A07F854B5901354F54DF6 /* SWRevealViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-prefix.pch"; sourceTree = "<group>"; };
 		9A16B66407B0EB60E3FF33329AC9399D /* XMPPXOAuth2Google.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPXOAuth2Google.h; path = "Authentication/X-OAuth2-Google/XMPPXOAuth2Google.h"; sourceTree = "<group>"; };
 		9A18286DC470CB9137F102A0CF84A304 /* XMPPvCardTempEmail.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPvCardTempEmail.m; path = "Extensions/XEP-0054/XMPPvCardTempEmail.m"; sourceTree = "<group>"; };
 		9B07059C9AB28AFBC9BA531E81D6AA40 /* GPBUnknownFieldSet_PackagePrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBUnknownFieldSet_PackagePrivate.h; path = objectivec/GPBUnknownFieldSet_PackagePrivate.h; sourceTree = "<group>"; };
-		9B1CC78B0131078B27F7B94DE7CBC605 /* TPKeyboardAvoiding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TPKeyboardAvoiding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B1CC78B0131078B27F7B94DE7CBC605 /* TPKeyboardAvoiding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TPKeyboardAvoiding.framework; path = TPKeyboardAvoiding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B938695D582E54A751B44FA8F5C61D4 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
-		9B9CE18309D75C795C62790123A23311 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B9CE18309D75C795C62790123A23311 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CocoaAsyncSocket.framework; path = CocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB5C3B8CB1AFF9A0D4C39C86F0667ED /* XMPPRoomLight.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; name = XMPPRoomLight.xcdatamodel; path = Extensions/XMPPMUCLight/CoreDataStorage/XMPPRoomLight.xcdatamodel; sourceTree = "<group>"; };
 		9C02F94C8E9115AA8DFF0F2D7448B707 /* XMPPRoomLightMessageCoreDataStorageObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPRoomLightMessageCoreDataStorageObject.m; path = Extensions/XMPPMUCLight/CoreDataStorage/XMPPRoomLightMessageCoreDataStorageObject.m; sourceTree = "<group>"; };
 		9C1A3DED6A379ED03BD12770A0782E89 /* XMPPRoster.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; name = XMPPRoster.xcdatamodel; path = Extensions/Roster/CoreDataStorage/XMPPRoster.xcdatamodel; sourceTree = "<group>"; };
@@ -1387,13 +1387,13 @@
 		9DF502FA068D318B05A7257D1C337F07 /* DDFileLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDFileLogger.h; path = Classes/DDFileLogger.h; sourceTree = "<group>"; };
 		9E33EAFAC07A199F022C65A385F68AF3 /* XMPPCoreDataStorageProtected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPCoreDataStorageProtected.h; path = Extensions/CoreDataStorage/XMPPCoreDataStorageProtected.h; sourceTree = "<group>"; };
 		9E3E366E2E23EAF03E68A07B9F829E95 /* CandleChartDataEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleChartDataEntry.swift; path = Source/Charts/Data/Implementations/Standard/CandleChartDataEntry.swift; sourceTree = "<group>"; };
-		9E75F2F89F8842450F6D86CA04BB6D3F /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E75F2F89F8842450F6D86CA04BB6D3F /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E98F728A0286841AB940ADE77C9C0E9 /* XMPPIQ+LastActivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XMPPIQ+LastActivity.h"; path = "Extensions/XEP-0012/XMPPIQ+LastActivity.h"; sourceTree = "<group>"; };
 		9EAA04E7C2275A2D2E41751119B6E9B5 /* XMPPvCardTempTel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPvCardTempTel.m; path = "Extensions/XEP-0054/XMPPvCardTempTel.m"; sourceTree = "<group>"; };
 		9EC8F2C71291D5A42355BE934D65DF9F /* RadarChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RadarChartRenderer.swift; path = Source/Charts/Renderers/RadarChartRenderer.swift; sourceTree = "<group>"; };
 		9F6C504CDAC0458EB5B3B4E807644B32 /* UIImage+ForceDecode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ForceDecode.m"; path = "SDWebImage/UIImage+ForceDecode.m"; sourceTree = "<group>"; };
 		9FB3A4C051750072AA952C63553236AD /* XMPPAutoTime.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPAutoTime.m; path = "Extensions/XEP-0202/XMPPAutoTime.m"; sourceTree = "<group>"; };
-		A01CB031337B8A6B6048F84A52D9CCDD /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SDWebImage.modulemap; sourceTree = "<group>"; };
+		A01CB031337B8A6B6048F84A52D9CCDD /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SDWebImage.modulemap; sourceTree = "<group>"; };
 		A050CD3A3068DC1CDE1F42EE39FFFB4A /* XMPPUserCoreDataStorageObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPUserCoreDataStorageObject.h; path = Extensions/Roster/CoreDataStorage/XMPPUserCoreDataStorageObject.h; sourceTree = "<group>"; };
 		A1024EF58953937DE4FA936562E36D93 /* XMPPRoster.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPRoster.h; path = Extensions/Roster/XMPPRoster.h; sourceTree = "<group>"; };
 		A1346549FF957868D5EDC5A8E91B7142 /* Duration.pbobjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Duration.pbobjc.h; path = objectivec/google/protobuf/Duration.pbobjc.h; sourceTree = "<group>"; };
@@ -1449,7 +1449,7 @@
 		B236114CFFCBB69C1B30DB2DAC7F46D3 /* XMPPBlocking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPBlocking.m; path = "Extensions/XEP-0191/XMPPBlocking.m"; sourceTree = "<group>"; };
 		B26BCEE5B072DD9B4E8AB39346BEDA36 /* PieChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartView.swift; path = Source/Charts/Charts/PieChartView.swift; sourceTree = "<group>"; };
 		B2A855918F261479DE4F08D9E621FFA9 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDAbstractDatabaseLogger.h; path = Classes/DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		B2B24A25C08C9A23600CC1EA4DD0730C /* stringprep.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = stringprep.c; path = lib/stringprep.c; sourceTree = "<group>"; };
+		B2B24A25C08C9A23600CC1EA4DD0730C /* stringprep.c */ = {isa = PBXFileReference; includeInIndex = 1; name = stringprep.c; path = lib/stringprep.c; sourceTree = "<group>"; };
 		B3169D017AAE42625E94E7F8083B06BA /* Description.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Description.swift; path = Source/Charts/Components/Description.swift; sourceTree = "<group>"; };
 		B40E57BC9C9805E4F04E93B56FC48B25 /* XMPPMessage+XEP_0172.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XMPPMessage+XEP_0172.h"; path = "Extensions/XEP-0172/XMPPMessage+XEP_0172.h"; sourceTree = "<group>"; };
 		B4100EDF8278EE81EC63EF546FCF5882 /* XMPPRegistration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPRegistration.h; path = "Extensions/XEP-0077/XMPPRegistration.h"; sourceTree = "<group>"; };
@@ -1499,7 +1499,7 @@
 		BEFA5A834AE3CDF38FF9A9651B899FE0 /* XMPPMessage+XEP_0184.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XMPPMessage+XEP_0184.h"; path = "Extensions/XEP-0184/XMPPMessage+XEP_0184.h"; sourceTree = "<group>"; };
 		BF19A8B4D607C0C6502933F1A150D081 /* XMPPSlot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPSlot.h; path = "Extensions/XEP-0363/XMPPSlot.h"; sourceTree = "<group>"; };
 		BF423F8061D247D2766B7C5FE3CB84BD /* XMPPAttentionModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPAttentionModule.h; path = "Extensions/XEP-0224/XMPPAttentionModule.h"; sourceTree = "<group>"; };
-		BF57E3647F1794CF4CDCC4FE0107566C /* CocoaLumberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF57E3647F1794CF4CDCC4FE0107566C /* CocoaLumberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CocoaLumberjack.framework; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5F81F829F61CC52253EF4C04C07382 /* XMPPvCardTempBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPvCardTempBase.m; path = "Extensions/XEP-0054/XMPPvCardTempBase.m"; sourceTree = "<group>"; };
 		BF6DA7088244B309614D213A09235569 /* XMPPvCardTempCoreDataStorageObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPvCardTempCoreDataStorageObject.h; path = "Extensions/XEP-0054/CoreDataStorage/XMPPvCardTempCoreDataStorageObject.h"; sourceTree = "<group>"; };
 		BFD073FF2FF4E02DC644D1D7B00ED3EE /* TPKeyboardAvoiding.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TPKeyboardAvoiding.xcconfig; sourceTree = "<group>"; };
@@ -1541,14 +1541,14 @@
 		CA68600CF9CB98F087F8E29FE0E0410B /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
 		CADCBD3D04B07E31D95E0A1CA4A2C8A6 /* KissXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KissXML-dummy.m"; sourceTree = "<group>"; };
 		CADF4407A572D15371282C76B0E6BAB5 /* XMPPvCard.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = XMPPvCard.xcdatamodel; sourceTree = "<group>"; };
-		CAF9E87B11C72149FDA3D0F1760F8201 /* nanopb.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = nanopb.modulemap; sourceTree = "<group>"; };
+		CAF9E87B11C72149FDA3D0F1760F8201 /* nanopb.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = nanopb.modulemap; sourceTree = "<group>"; };
 		CB0A7FFD6DE7FDF85FF86C928724BB4E /* GPBMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBMessage.h; path = objectivec/GPBMessage.h; sourceTree = "<group>"; };
 		CB4EAD6598B50A22568B87BA34D0E9F1 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+MMDrawerController.h"; path = "MMDrawerController/UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		CB508BB507A5F4DA8BAFB226D4856C91 /* NSString+DDXML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+DDXML.m"; path = "KissXML/Categories/NSString+DDXML.m"; sourceTree = "<group>"; };
 		CBF9AE8EE8ED4927EC71A2AB29F64474 /* nanopb-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "nanopb-prefix.pch"; sourceTree = "<group>"; };
 		CC905B081B2B9D3D9CB6972DEC1EEED2 /* XMPPMessageArchivingCoreDataStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPMessageArchivingCoreDataStorage.h; path = "Extensions/XEP-0136/CoreDataStorage/XMPPMessageArchivingCoreDataStorage.h"; sourceTree = "<group>"; };
 		CCA0FFB2B86F2A232E9ACC31CE632E0A /* XMPPvCardCoreDataStorageObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPvCardCoreDataStorageObject.m; path = "Extensions/XEP-0054/CoreDataStorage/XMPPvCardCoreDataStorageObject.m"; sourceTree = "<group>"; };
-		CCEED72151E1F762DE16CB725BF58470 /* TPKeyboardAvoiding.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TPKeyboardAvoiding.modulemap; sourceTree = "<group>"; };
+		CCEED72151E1F762DE16CB725BF58470 /* TPKeyboardAvoiding.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = TPKeyboardAvoiding.modulemap; sourceTree = "<group>"; };
 		CD371884142A43E5445909F94F1F8E47 /* OMEMOModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OMEMOModule.h; path = Extensions/OMEMO/OMEMOModule.h; sourceTree = "<group>"; };
 		CDFC8A30816B81BC6EAC539227D5D978 /* NSData+XMPP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+XMPP.m"; path = "Categories/NSData+XMPP.m"; sourceTree = "<group>"; };
 		CE45DFB00C7D5FEEB3BB2EE80994C9B5 /* Pods-TatabAppTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TatabAppTests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -1569,7 +1569,7 @@
 		D1A8C3574469DCA57AD5BDBE3847BCC3 /* XMPPvCardAvatarModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPvCardAvatarModule.m; path = "Extensions/XEP-0153/XMPPvCardAvatarModule.m"; sourceTree = "<group>"; };
 		D1FBE48023990D8AACAFA5EB7B2A008C /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		D23D5AAA42863704F8DADBDB8F0300A6 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		D32F342DCCE6A128954B4B2AE80FA015 /* Pods-TatabAppTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TatabAppTests.modulemap"; sourceTree = "<group>"; };
+		D32F342DCCE6A128954B4B2AE80FA015 /* Pods-TatabAppTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TatabAppTests.modulemap"; sourceTree = "<group>"; };
 		D34257BD84A5F698B86ADB5AF042DD11 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		D3529A08531356D0B3E2365A31EA7493 /* GTMLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMLogger.h; path = Foundation/GTMLogger.h; sourceTree = "<group>"; };
 		D3552BFF8C8618F76F99B1AF5DA41ACF /* SDWebImageFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageFrame.h; path = SDWebImage/SDWebImageFrame.h; sourceTree = "<group>"; };
@@ -1583,7 +1583,7 @@
 		D624A9942A958C149A89D5EE28E8001E /* XMPPvCardCoreDataStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPvCardCoreDataStorage.h; path = "Extensions/XEP-0054/CoreDataStorage/XMPPvCardCoreDataStorage.h"; sourceTree = "<group>"; };
 		D63A51ABC80801D5FE4C1507E6BF0528 /* XMPPRoomMessageCoreDataStorageObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPRoomMessageCoreDataStorageObject.m; path = "Extensions/XEP-0045/CoreDataStorage/XMPPRoomMessageCoreDataStorageObject.m"; sourceTree = "<group>"; };
 		D63D2D463B025017A14EB3C601F6FFCF /* XMPPPushModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPPushModule.h; path = "Extensions/XEP-0357/XMPPPushModule.h"; sourceTree = "<group>"; };
-		D64514AA0284BA626CEF440009A8C013 /* MMDrawerController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MMDrawerController.modulemap; sourceTree = "<group>"; };
+		D64514AA0284BA626CEF440009A8C013 /* MMDrawerController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MMDrawerController.modulemap; sourceTree = "<group>"; };
 		D66F284DD6EC105C5712C7A41EA3482D /* XMPPSCRAMSHA1Authentication.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPSCRAMSHA1Authentication.m; path = "Authentication/SCRAM-SHA-1/XMPPSCRAMSHA1Authentication.m"; sourceTree = "<group>"; };
 		D6727837C4954367FF1F03165EAAC9D4 /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
 		D71470873B858E1DEF44D46A4C653C87 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
@@ -1602,7 +1602,7 @@
 		DAAFF4712A29A67BC68ADEEABEF1727D /* GPBDescriptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBDescriptor.h; path = objectivec/GPBDescriptor.h; sourceTree = "<group>"; };
 		DAF1C6BFEB4D7F45C37476CD39A5F728 /* NSXMLElement+XEP_0203.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSXMLElement+XEP_0203.h"; path = "Extensions/XEP-0203/NSXMLElement+XEP_0203.h"; sourceTree = "<group>"; };
 		DB174821A2B16AD7C4D4B0B98A5DF15A /* XMPPRoomLightCoreDataStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPRoomLightCoreDataStorage.h; path = Extensions/XMPPMUCLight/CoreDataStorage/XMPPRoomLightCoreDataStorage.h; sourceTree = "<group>"; };
-		DC549376290A9D8E29D9B2A34319FF02 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC549376290A9D8E29D9B2A34319FF02 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFNetworking.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8482C57B47C51FDD011C5C678AA6A0 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMDrawerVisualState.m; path = MMDrawerController/MMDrawerVisualState.m; sourceTree = "<group>"; };
 		DCFF5224B67AC56D2B4458F87C3759DE /* XMPPIQ+LastActivity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XMPPIQ+LastActivity.m"; path = "Extensions/XEP-0012/XMPPIQ+LastActivity.m"; sourceTree = "<group>"; };
 		DD2010343D5C50DF267A5970A33D25F1 /* GPBCodedInputStream_PackagePrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBCodedInputStream_PackagePrivate.h; path = objectivec/GPBCodedInputStream_PackagePrivate.h; sourceTree = "<group>"; };
@@ -1661,8 +1661,8 @@
 		EA7E48DF12E7B633D9CA0DE41FBE00DD /* PieHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieHighlighter.swift; path = Source/Charts/Highlight/PieHighlighter.swift; sourceTree = "<group>"; };
 		EB0CCDDA559C37A8171F37809E30D0FD /* MMDrawerController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MMDrawerController-dummy.m"; sourceTree = "<group>"; };
 		EB12CF513167CBD7E6AF3A43B05A52FA /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		EB439F384A387399FFA15D23134DC924 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB44335D26DAF8DD1CB55A478FEBA7AB /* XMPPFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XMPPFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB439F384A387399FFA15D23134DC924 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB44335D26DAF8DD1CB55A478FEBA7AB /* XMPPFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XMPPFramework.framework; path = XMPPFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB609B2AA2162C9D40EBBC230179E88F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB75BA43E27E4047E307894472C6332E /* libidn-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "libidn-umbrella.h"; sourceTree = "<group>"; };
 		EBBA5DB1C1F2D6C78F8ADBE7BC0E4643 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -1672,7 +1672,7 @@
 		ECB3603DCD6E2902ECC634187313EC46 /* XMPPCapsResourceCoreDataStorageObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPCapsResourceCoreDataStorageObject.h; path = "Extensions/XEP-0115/CoreDataStorage/XMPPCapsResourceCoreDataStorageObject.h"; sourceTree = "<group>"; };
 		ECBAF9EDA4A8FFB2CB45A76EE69E3A62 /* BarLineChartViewBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarLineChartViewBase.swift; path = Source/Charts/Charts/BarLineChartViewBase.swift; sourceTree = "<group>"; };
 		ED99662746F911FAA2C0D29918F8097B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED9F4301E7A3385C0A7F15A79FFF4806 /* Charts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Charts.modulemap; sourceTree = "<group>"; };
+		ED9F4301E7A3385C0A7F15A79FFF4806 /* Charts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Charts.modulemap; sourceTree = "<group>"; };
 		EE13C1DDA30B537535D75D2F8B1021BB /* Timestamp.pbobjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Timestamp.pbobjc.h; path = objectivec/google/protobuf/Timestamp.pbobjc.h; sourceTree = "<group>"; };
 		EE8905C6E77D0B85337E1CC56462AA7D /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDContextFilterLogFormatter.m; path = Classes/Extensions/DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
 		EE8BA96CB17BCCFC9BCA2B0502491287 /* XMPPStringPrep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPStringPrep.m; path = Utilities/XMPPStringPrep.m; sourceTree = "<group>"; };
@@ -1681,7 +1681,7 @@
 		EF90AB663B4E52BDA8201C45C01F8FF1 /* XMPPvCardTempLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XMPPvCardTempLabel.m; path = "Extensions/XEP-0054/XMPPvCardTempLabel.m"; sourceTree = "<group>"; };
 		F03DF85851409CC41A1F45849EBE4197 /* NSXMLElement+XMPP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSXMLElement+XMPP.m"; path = "Categories/NSXMLElement+XMPP.m"; sourceTree = "<group>"; };
 		F0CC2C730CF52470A8E75C19A2B0044D /* NSXMLElement+XEP_0059.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSXMLElement+XEP_0059.m"; path = "Extensions/XEP-0059/NSXMLElement+XEP_0059.m"; sourceTree = "<group>"; };
-		F0CEC092953BB48253EE1ED4932FD354 /* CocoaLumberjack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CocoaLumberjack.modulemap; sourceTree = "<group>"; };
+		F0CEC092953BB48253EE1ED4932FD354 /* CocoaLumberjack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CocoaLumberjack.modulemap; sourceTree = "<group>"; };
 		F155C4904E925B0C843F67377EA2B428 /* XMPPBlocking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XMPPBlocking.h; path = "Extensions/XEP-0191/XMPPBlocking.h"; sourceTree = "<group>"; };
 		F167FD6FA4274B986665437FEC0122B3 /* XMPPMessage+OMEMO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XMPPMessage+OMEMO.h"; path = "Extensions/OMEMO/XMPPMessage+OMEMO.h"; sourceTree = "<group>"; };
 		F1F08F8582FED2AD158C13DF241AA025 /* XMPPCapabilities+XEP_0359.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XMPPCapabilities+XEP_0359.m"; path = "Extensions/XEP-0359/XMPPCapabilities+XEP_0359.m"; sourceTree = "<group>"; };
@@ -1945,6 +1945,7 @@
 				EF7C5962F62F55F8E712894C202DEE9C /* GCDAsyncUdpSocket.m */,
 				CFA02AC337B44B6917D219E50602225F /* Support Files */,
 			);
+			name = CocoaAsyncSocket;
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
@@ -1977,6 +1978,7 @@
 				E4502A3920CF584759F4933718D62AAD /* Core */,
 				4304AFCC822E9B1924D54D4285AADCA8 /* Support Files */,
 			);
+			name = Charts;
 			path = Charts;
 			sourceTree = "<group>";
 		};
@@ -1999,6 +2001,7 @@
 			children = (
 				9FFB84B2CFAB985ECE9B6AB1D771481D /* Frameworks */,
 			);
+			name = FirebaseCore;
 			path = FirebaseCore;
 			sourceTree = "<group>";
 		};
@@ -2053,6 +2056,7 @@
 				9BB86180A6E3E52578790824A8F6DD39 /* Extensions */,
 				D7EBD45CFCADE466483F0CC966B1A616 /* Support Files */,
 			);
+			name = CocoaLumberjack;
 			path = CocoaLumberjack;
 			sourceTree = "<group>";
 		};
@@ -2076,6 +2080,7 @@
 				9B4B28534C7C0D6C36A918C08FE90914 /* Subclass */,
 				DB5E387052548AB6301BDA72637AC00B /* Support Files */,
 			);
+			name = MMDrawerController;
 			path = MMDrawerController;
 			sourceTree = "<group>";
 		};
@@ -2173,6 +2178,7 @@
 			children = (
 				5C1C0683BF79666FCA85471ECEA75C9B /* Frameworks */,
 			);
+			name = FirebaseInstanceID;
 			path = FirebaseInstanceID;
 			sourceTree = "<group>";
 		};
@@ -2242,6 +2248,7 @@
 				CB508BB507A5F4DA8BAFB226D4856C91 /* NSString+DDXML.m */,
 				599A04C16ECE8C725A423CC326F098A9 /* Support Files */,
 			);
+			name = KissXML;
 			path = KissXML;
 			sourceTree = "<group>";
 		};
@@ -2305,6 +2312,7 @@
 				39A1CA76FE2DDD550E3B40002D69B70A /* u8-check.c */,
 				154A51E716BDF83AB780933198A423CE /* Support Files */,
 			);
+			name = libidn;
 			path = libidn;
 			sourceTree = "<group>";
 		};
@@ -2437,6 +2445,7 @@
 				B81C22A6EA922A6AE285BD50862CB710 /* encode */,
 				18239B36990ABD55990D0B43C32BE73B /* Support Files */,
 			);
+			name = nanopb;
 			path = nanopb;
 			sourceTree = "<group>";
 		};
@@ -2445,6 +2454,7 @@
 			children = (
 				F796CCF5922D167B7A6A63DA231FB1AD /* Core */,
 			);
+			name = Firebase;
 			path = Firebase;
 			sourceTree = "<group>";
 		};
@@ -2475,6 +2485,7 @@
 				3F4245104E1FEF7B4235BB1B65192D65 /* Core */,
 				0044E6D95EF32AA68960AA143B24D1D2 /* Support Files */,
 			);
+			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -2490,6 +2501,7 @@
 				BC02F529B8186107FD7094FAD990618A /* Support Files */,
 				8651BBC904401A438670B4121C1F639F /* UIKit */,
 			);
+			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -2575,6 +2587,7 @@
 				9391EF783219C2935561278D9FCF3C92 /* Wrappers.pbobjc.m */,
 				4DCA7C07FE94A2A928C6AE798BCFC5A3 /* Support Files */,
 			);
+			name = Protobuf;
 			path = Protobuf;
 			sourceTree = "<group>";
 		};
@@ -2605,6 +2618,7 @@
 				2E62F193DE2270DAEC443C54A478949E /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 				DA3AD1F49A9C55B2F99D25E0EADDA20D /* Support Files */,
 			);
+			name = TPKeyboardAvoiding;
 			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
@@ -2700,6 +2714,7 @@
 				45D4C8A3604A503419D7F907D00C725D /* NSData+zlib */,
 				EDE0C876D37CCFB4646E39A22B862FE0 /* Support Files */,
 			);
+			name = GoogleToolboxForMac;
 			path = GoogleToolboxForMac;
 			sourceTree = "<group>";
 		};
@@ -2866,6 +2881,7 @@
 				A6442AC9EF4D6CCB4DE0314F82125B5A /* SWRevealViewController.m */,
 				778F7CDC7854C066CA22FDCA0B65DCC9 /* Support Files */,
 			);
+			name = SWRevealViewController;
 			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
@@ -2874,6 +2890,7 @@
 			children = (
 				6B93C58D2007372A16664538CC9199FE /* Frameworks */,
 			);
+			name = FirebaseAnalytics;
 			path = FirebaseAnalytics;
 			sourceTree = "<group>";
 		};
@@ -2913,6 +2930,7 @@
 			children = (
 				60B41081234BD80BD9CFB5ADA41F3E1F /* Frameworks */,
 			);
+			name = FirebaseMessaging;
 			path = FirebaseMessaging;
 			sourceTree = "<group>";
 		};
@@ -3253,6 +3271,7 @@
 				C3125C52137C939EAAEDC61E82E4DB39 /* Resources */,
 				F667A5FDE2B3533D2DE72288A01D0543 /* Support Files */,
 			);
+			name = XMPPFramework;
 			path = XMPPFramework;
 			sourceTree = "<group>";
 		};
@@ -3271,6 +3290,7 @@
 				25F8438B562EC79906A458D8F5C52F77 /* BEMSimpleLineGraphView.m */,
 				5C2B9D9963DBE307AA72D6441D61842F /* Support Files */,
 			);
+			name = BEMSimpleLineGraph;
 			path = BEMSimpleLineGraph;
 			sourceTree = "<group>";
 		};
@@ -4832,7 +4852,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -5138,7 +5158,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

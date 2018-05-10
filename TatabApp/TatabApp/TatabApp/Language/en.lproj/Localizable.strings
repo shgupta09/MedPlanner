@@ -27,7 +27,7 @@
 "setting" = "Setting";
 "dependent" = "Dependent";
 "queue" = "Queue";
-"emr_and_tracker" = "EMR and Tracker";
+"emr_and_tracker" = "EHR and Tracker";
 "notification" = "Notification";
 "tatab_app" = "TatabApp";
 "register" = "Register";
