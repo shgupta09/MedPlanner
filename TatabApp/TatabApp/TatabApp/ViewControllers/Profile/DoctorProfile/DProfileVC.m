@@ -558,7 +558,7 @@ numberOfRowsInComponent:(NSInteger)component{
         pickerObj.delegate = self;
         pickerObj.dataSource = self;
         pickerObj.showsSelectionIndicator = YES;
-        pickerObj.backgroundColor = [UIColor lightGrayColor];
+        pickerObj.backgroundColor = [UIColor darkGrayColor];
         pickerObj.tag = 0;
         viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
         UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
@@ -858,7 +858,12 @@ numberOfRowsInComponent:(NSInteger)component{
                         expObj.worked_since = [CommonFunction checkForNull:[obj valueForKey:@"worked_since"]];
                         [tempArray2 addObject:expObj];
                     }];
-                    profileObj.experianceArray = tempArray2;
+                    if (tempArray.count == 0) {
+                        profileObj.experianceArray = [NSMutableArray new];
+                    }else{
+                        profileObj.experianceArray = tempArray2;
+
+                    }
                     tempArray =  [dataDict valueForKey:@"education"];
                     tempArray2 = [NSMutableArray new];
                     [tempArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -869,7 +874,12 @@ numberOfRowsInComponent:(NSInteger)component{
                         eduObj.descriptionObj = [CommonFunction checkForNull:[obj valueForKey:@"description"]];
                         [tempArray2 addObject:eduObj];
                     }];
-                    profileObj.educationArray = tempArray2;
+                    if (tempArray.count == 0) {
+                        profileObj.educationArray = [NSMutableArray new];
+                    }else{
+                        profileObj.educationArray = tempArray2;
+
+                    }
                     [_tblList reloadData];
                     [self removeloder];
                 }
