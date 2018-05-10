@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblNAme;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Loguot;
 @property (weak, nonatomic) IBOutlet UIView *viewToClip;
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
 
 @end

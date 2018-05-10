@@ -112,33 +112,50 @@ open class ViewPortHandler: NSObject
     }
     
     @objc open var offsetBottom: CGFloat
+        
+        
+        
     {
+        
         if UIDevice().userInterfaceIdiom == .phone {
+            
             switch UIScreen.main.nativeBounds.height {
+                
             case 1136:
-//                print("iPhone 5 or 5S or 5C")
+                
+                print("iPhone 5 or 5S or 5C")
+                
                 return -10
+                
             case 1334:
-//                print("iPhone 6/6S/7/8")
+                
+                print("iPhone 6/6S/7/8")
+                
                 return -10
+                
             case 1920:
-//                print("iPhone 6+/6S+")
+                
+                print("iPhone 6+/6S+")
+                
                 return -10
+                
             case  2208:
-//                print("iPhone 7+/8+")
-                return -22
+                
+                print("iPhone 7+/8+")
+                
+                return -20
+                
             case 2436:
-                return -22
+                
+                return -20
+                
             default:
-                 return -10
-//                print("unknown")
+                
+                print("unknown")
                 
             }
             
         }
-        
-        
-        
         return -10
         
         

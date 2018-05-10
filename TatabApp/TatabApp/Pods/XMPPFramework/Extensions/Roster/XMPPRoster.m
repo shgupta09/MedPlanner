@@ -50,7 +50,7 @@ enum XMPPRosterFlags
 
 - (id)initWithRosterStorage:(id <XMPPRosterStorage>)storage dispatchQueue:(dispatch_queue_t)queue
 {
-	//NSParameterAssert(storage != nil);
+	NSParameterAssert(storage != nil);
 	
 	if ((self = [super initWithDispatchQueue:queue]))
 	{

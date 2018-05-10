@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCDoctor2 : UIViewController<UITextFieldDelegate>
+@interface RCDoctor2 : UIViewController<UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_Nationality;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_Residence;
 @property (weak, nonatomic) IBOutlet CustomTextField *txt_workplace;

@@ -275,14 +275,21 @@ numberOfRowsInComponent:(NSInteger)component{
         }else{
         [cell.img_Profile sd_setImageWithURL:[NSURL URLWithString:profileObj.upload]];
         }
-        
+        cell.txt_Name.layer.cornerRadius = 17;
+        cell.txt_Name.layer.masksToBounds = true;
         
         if(isEdit){
             cell.btn.tag = 6;
             cell.btn.hidden = false;
             [cell.btn addTarget:self action:@selector(btnActionAdd:) forControlEvents:UIControlEventTouchUpInside];
             cell.txt_Name.userInteractionEnabled = true;
+            cell.txt_Name.backgroundColor= [CommonFunction colorWithHexString:primary_Color];
+            cell.txt_Name.textColor = [UIColor whiteColor];
+            cell.txt_Name.tintColor = [UIColor whiteColor];
         }else{
+            cell.txt_Name.backgroundColor= [UIColor whiteColor];
+            cell.txt_Name.textColor= [CommonFunction colorWithHexString:primary_Color];
+            cell.txt_Name.tintColor = [CommonFunction colorWithHexString:primary_Color];
             cell.txt_Name.userInteractionEnabled = false;
             cell.txt_Name.text = [profileObj.name capitalizedString];
             cell.txt_Name.tag = 1009;

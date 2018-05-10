@@ -278,10 +278,6 @@ numberOfRowsInComponent:(NSInteger)component{
     }
         Relation* relationObj = [relationArray objectAtIndex:row];
         return relationObj.name;
-  
-
-   
-    
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component{
