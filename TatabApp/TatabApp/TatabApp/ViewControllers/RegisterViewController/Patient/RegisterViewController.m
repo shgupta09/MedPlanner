@@ -72,7 +72,7 @@
 
 }
 -(void)setLanguageData{
-    _lbl_create.text = [Langauge getTextFromTheKey:@"create_account"];
+    _lbl_create.text = [[Langauge getTextFromTheKey:@"create_account"] uppercaseString];
    
     
     [_txtName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"name"]];

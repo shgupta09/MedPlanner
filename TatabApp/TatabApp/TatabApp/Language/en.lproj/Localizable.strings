@@ -33,7 +33,7 @@
 "register" = "Register";
 "username" = "Username";
 "password" = "Password";
-"need_help" = "Need Help";
+"need_help" = "Need Help?";
 "create_account" = "Create Account";
 "create_a_doctor_account" = "Create a doctor account";
 "male" = "Male";
@@ -106,7 +106,7 @@
 "network_error" = "Network error. Please try after some time.";
 "please_connect_to_the_internet" = "Please connet to the internet first.";
 "health_tracker" = "Health Tracker";
-"emr_tracker" = "EHR/Tracker";
+"emr_tracker" = "EHR";
 "Consultation" = "Consultation";
 "emr" = "EHR";
 "birthdate" = "BirthDate";

@@ -277,21 +277,35 @@ numberOfRowsInComponent:(NSInteger)component{
         }
         cell.txt_Name.layer.cornerRadius = 17;
         cell.txt_Name.layer.masksToBounds = true;
-        
+        cell.txt_Name.layer.borderWidth = 1;
+        cell.txt_Name.layer.masksToBounds = true;
         if(isEdit){
             cell.btn.tag = 6;
             cell.btn.hidden = false;
             [cell.btn addTarget:self action:@selector(btnActionAdd:) forControlEvents:UIControlEventTouchUpInside];
             cell.txt_Name.userInteractionEnabled = true;
-            cell.txt_Name.backgroundColor= [CommonFunction colorWithHexString:primary_Color];
-            cell.txt_Name.textColor = [UIColor whiteColor];
+            cell.txt_Name.layer.borderColor= [CommonFunction colorWithHexString:primary_Color].CGColor;
+            cell.txt_Name.layer.borderWidth = 1;
+            cell.txt_Name.layer.masksToBounds = true;
             cell.txt_Name.tintColor = [UIColor whiteColor];
+            if([profileObj.name containsString:@"Dr."])
+            {
+                cell.txt_Name.text = [NSString stringWithFormat:@"%@",[profileObj.name capitalizedString]];
+            }else{
+                cell.txt_Name.text = [NSString stringWithFormat:@"Dr. %@",[profileObj.name capitalizedString]];
+            }
         }else{
-            cell.txt_Name.backgroundColor= [UIColor whiteColor];
-            cell.txt_Name.textColor= [CommonFunction colorWithHexString:primary_Color];
+            cell.txt_Name.layer.borderColor= [UIColor whiteColor].CGColor;
             cell.txt_Name.tintColor = [CommonFunction colorWithHexString:primary_Color];
             cell.txt_Name.userInteractionEnabled = false;
-            cell.txt_Name.text = [profileObj.name capitalizedString];
+            
+            
+            if([profileObj.name containsString:@"Dr."])
+            {
+                cell.txt_Name.text = [NSString stringWithFormat:@"%@",[profileObj.name capitalizedString]];
+            }else{
+                cell.txt_Name.text = [NSString stringWithFormat:@"Dr. %@",[profileObj.name capitalizedString]];
+            }
             cell.txt_Name.tag = 1009;
             cell.txt_Name.delegate = self;
             cell.btn.hidden = true;
@@ -347,7 +361,7 @@ numberOfRowsInComponent:(NSInteger)component{
                  cell.traillingConstraint.constant = 10;
                  cell.btnDelete.hidden = true;
                  cell.btn.layer.borderColor = [UIColor clearColor   ].CGColor;
-                 cell.btn.hidden = false;
+                 cell.btn.hidden = true;
              }
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -390,6 +404,7 @@ numberOfRowsInComponent:(NSInteger)component{
                cell.btn.layer.borderColor = [CommonFunction colorWithHexString:primary_Color].CGColor;
              cell.traillingConstraint.constant = 30;
                cell.btnDelete.hidden = false;
+               cell.btn.hidden = false;
                cell.btn.tag = 100 + (indexPath.row - 4);
                cell.btnDelete.tag = 100 + (indexPath.row - 4);
                [cell.btn addTarget:self action:@selector(btnActionEdit:) forControlEvents:UIControlEventTouchUpInside];
@@ -401,6 +416,7 @@ numberOfRowsInComponent:(NSInteger)component{
                cell.btn.layer.borderColor = [UIColor clearColor   ].CGColor;
                cell.traillingConstraint.constant = 10;
                cell.btnDelete.hidden = true;
+               cell.btn.hidden = true;
                [CommonFunction setShadowOpacity:cell.view];
                [CommonFunction setCornerRadius:cell.view Radius:5.0];
            
@@ -481,6 +497,8 @@ numberOfRowsInComponent:(NSInteger)component{
                cell.btn.tag =
                cell.traillingConstraint.constant = 40;
                cell.btnDelete.hidden = false;
+               cell.btn.hidden = false;
+
                cell.btn.tag = 200 + (indexPath.row - 6-profileObj.educationArray.count);
                cell.btnDelete.tag = 200 + (indexPath.row - 6-profileObj.educationArray.count);
                [cell.btn addTarget:self action:@selector(btnActionEdit:) forControlEvents:UIControlEventTouchUpInside];
@@ -494,6 +512,7 @@ numberOfRowsInComponent:(NSInteger)component{
                cell.btn.layer.borderColor = [UIColor clearColor   ].CGColor;
                cell.traillingConstraint.constant = 10;
                cell.btnDelete.hidden = true;
+               cell.btn.hidden = true;
 
            }
            cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -952,6 +971,7 @@ numberOfRowsInComponent:(NSInteger)component{
                 if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
                     isEdit = false;
                     [_btn_Save setTitle:[Langauge getTextFromTheKey:@"Edit"] forState:UIControlStateNormal];
+                    [CommonFunction storeValueInDefault:[CommonFunction trimString:profileObj.name] andKey:loginfirstname];
                     [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:1002 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Alert_Key_For_Image];
                     [self removeloder];
                     [_tblList reloadData];
@@ -1057,11 +1077,26 @@ numberOfRowsInComponent:(NSInteger)component{
         }
             break;
         case 1003:{
-               [self removeAlert];
-            if (isImageCaptured) {
-                [self hitApiForImage];
+            
+            
+            if (!isEdit) {
+                isEdit = true;
+                [_btn_Save setTitle:[Langauge getTextFromTheKey:@"save"] forState:UIControlStateNormal];
+                [_tblList reloadData];
             }else{
-                [self hitApiToUpload];
+                if ([[CommonFunction trimString:profileObj.name] isEqualToString:@""]) {
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:[Langauge getTextFromTheKey:@"name_required"]   isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+                }else{
+                    [self removeAlert];
+
+                    if (isImageCaptured) {
+                        [self hitApiForImage];
+                    }else{
+                        [self hitApiToUpload];
+                    }
+                }
+                
+                
             }
         }break;
         

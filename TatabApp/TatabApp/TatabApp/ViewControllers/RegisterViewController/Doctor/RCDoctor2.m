@@ -51,7 +51,7 @@
 }
 
 -(void)setLanguageData{
-    _lbl_personal.text = [Langauge getTextFromTheKey:@"personal_info"];
+    _lbl_personal.text = [[Langauge getTextFromTheKey:@"personal_info"] uppercaseString];
     [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
     
     [_txtPassport setPlaceholderWithColor:[Langauge getTextFromTheKey:@"id_card_passport"]];

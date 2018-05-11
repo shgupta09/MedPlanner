@@ -117,14 +117,21 @@
 }
 
 -(void)killManually{
+    
+    
+    
+    
+//    SplashScreenViewController *sp = [[SplashScreenViewController alloc]initWithNibName:@"SplashScreenViewController" bundle:nil];
+//     [AppDelegate getDelegate].window.rootViewController = sp;
     //home button press programmatically
-    UIApplication *app = [UIApplication sharedApplication];
-    [app performSelector:@selector(suspend)];
-    //wait 2 seconds while app is going background
-    [NSThread sleepForTimeInterval:2.0];
-    //exit app when app is in background
-    NSLog(@"exit(0)");
-    exit(0);
+    
+//    UIApplication *app = [UIApplication sharedApplication];
+//    [app performSelector:@selector(suspend)];
+//    //wait 2 seconds while app is going background
+//    [NSThread sleepForTimeInterval:2.0];
+//    //exit app when app is in background
+//    NSLog(@"exit(0)");
+//    exit(0);
 }
 
 - (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller

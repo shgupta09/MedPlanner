@@ -97,7 +97,7 @@
 }
 
 -(void)setLanguageData{
-    _lbl_PersonalDetails.text = [Langauge getTextFromTheKey:@"personal_details"];
+    _lbl_PersonalDetails.text = [[Langauge getTextFromTheKey:@"personal_details"] uppercaseString];
     [_btn_Terms setTitle:[Langauge getTextFromTheKey:@"Terms_Condition"] forState:UIControlStateNormal];
     [_btn_CompleteRegistration setTitle:[Langauge getTextFromTheKey:@"complete_registration"] forState:UIControlStateNormal];
      [_btn_ConfirmAdd setTitle:[Langauge getTextFromTheKey:@"confirm_add"] forState:UIControlStateNormal];
