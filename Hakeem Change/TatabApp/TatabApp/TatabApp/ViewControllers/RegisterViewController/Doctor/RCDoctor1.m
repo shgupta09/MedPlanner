@@ -66,7 +66,7 @@
     [self setLanguageData];
 }
 -(void)setLanguageData{
-    _lbl_create.text = [Langauge getTextFromTheKey:@"create_a_doctor_account"];
+    _lbl_create.text = [[Langauge getTextFromTheKey:@"create_a_doctor_account"] uppercaseString];
     [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
     [_btnMAle setTitle:[Langauge getTextFromTheKey:@"male"] forState:UIControlStateNormal];
     [_btnFemale setTitle:[Langauge getTextFromTheKey:@"female"] forState:UIControlStateNormal];

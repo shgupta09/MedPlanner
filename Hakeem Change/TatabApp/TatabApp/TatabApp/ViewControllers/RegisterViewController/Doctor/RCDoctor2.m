@@ -11,6 +11,10 @@
 @interface RCDoctor2 ()
 {
     CustomAlert *alertObj;
+    NSMutableArray *cityArray;
+    NSInteger selectedRowForCity;
+    UIPickerView *pickerObj;
+    UIView *viewOverPicker;
 
 }
 @end
@@ -20,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
-
+    
     [self setData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -28,8 +32,9 @@
     alertObj.frame = self.view.frame;
 }
 -(void)setData{
-
-    
+    selectedRowForCity = 0;
+    cityArray = [[NSMutableArray new] mutableCopy];
+    cityArray = [[CommonFunction getCityArray] mutableCopy];
     
     _txtPassport.leftImgView.image = [UIImage imageNamed:@"icon-id-card"];
     _txt_Residence.leftImgView.image = [UIImage imageNamed:@"b"];
@@ -46,14 +51,14 @@
 }
 
 -(void)setLanguageData{
-    _lbl_personal.text = [Langauge getTextFromTheKey:@"personal_info"];
+    _lbl_personal.text = [[Langauge getTextFromTheKey:@"personal_info"] uppercaseString];
     [_btn_Continue setTitle:[Langauge getTextFromTheKey:@"continue_tv"] forState:UIControlStateNormal];
     
     [_txtPassport setPlaceholderWithColor:[Langauge getTextFromTheKey:@"id_card_passport"]];
     [_txt_Residence setPlaceholderWithColor:[Langauge getTextFromTheKey:@"residance"]];
     [_txt_Nationality setPlaceholderWithColor:[Langauge getTextFromTheKey:@"nationalaty"]];
     [_txt_workplace setPlaceholderWithColor:[Langauge getTextFromTheKey:@"workplace"]];
-    [_txt_homeLocation setPlaceholderWithColor:[Langauge getTextFromTheKey:@"home_location"]];
+    [_txt_homeLocation setPlaceholderWithColor:[Langauge getTextFromTheKey:@"city"]];
 
     
     
@@ -80,8 +85,76 @@
     }
     return NO;
 }
-
+#pragma mark - picker data Source
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 1;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component{
+    if (pickerView.tag ==1) {
+        return [cityArray count];
+    }
+    return 0;
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:
+(NSInteger)row forComponent:(NSInteger)component{
+    if (pickerView.tag ==1) {
+        return [[cityArray objectAtIndex:row] valueForKey:@"Name"];
+    }
+    return @"";
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component{
+    if (pickerView.tag == 1) {
+        _txt_homeLocation.text = [[cityArray objectAtIndex:row] valueForKey:@"Name"];
+        selectedRowForCity = row;
+    }
+    
+}
+-(void)resignResponder{
+    [CommonFunction resignFirstResponderOfAView:self.view];
+    if ([viewOverPicker isDescendantOfView:self.view]) {
+        [viewOverPicker removeFromSuperview];
+    }
+}
 #pragma mark - BtnAction
+
+- (IBAction)btnAcion_relationShip:(id)sender {
+    
+    pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
+    pickerObj.delegate = self;
+    pickerObj.dataSource = self;
+    pickerObj.showsSelectionIndicator = YES;
+    pickerObj.backgroundColor = [UIColor lightGrayColor];
+    pickerObj.tag = ((UIButton *)sender).tag;
+    viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     pickerObj.frame.size.height-50, self.view.frame.size.width, 50)];
+    [toolBar setBarStyle:UIBarStyleBlackOpaque];
+    viewOverPicker.backgroundColor = [UIColor clearColor];
+    [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(doneForPicker:)];
+    doneButton.tintColor = [CommonFunction colorWithHexString:@"f7a41e"];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             space,doneButton, nil];
+    pickerObj.hidden = false;
+    [toolBar setItems:toolbarItems];
+    [viewOverPicker addSubview:toolBar];
+    if (pickerObj.tag == 1) {
+        [pickerObj  selectRow:selectedRowForCity inComponent:0 animated:true];
+        
+    }
+    [viewOverPicker addSubview:pickerObj];
+    [self.view addSubview:viewOverPicker];
+    [pickerObj reloadAllComponents];
+}
 
 
 - (IBAction)btnBackClicked:(id)sender {

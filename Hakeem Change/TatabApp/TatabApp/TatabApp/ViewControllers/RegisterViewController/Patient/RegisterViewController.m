@@ -51,7 +51,7 @@
     _txtEmail.leftImgView.image = [UIImage imageNamed:@"a"];
     _txt_mobile.leftImgView.image = [UIImage imageNamed:@"Mobile"];
 
-    [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
+//    [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
     [CommonFunction setResignTapGestureToView:self.view andsender:self];
     
     
@@ -72,7 +72,7 @@
 
 }
 -(void)setLanguageData{
-    _lbl_create.text = [Langauge getTextFromTheKey:@"create_account"];
+    _lbl_create.text = [[Langauge getTextFromTheKey:@"create_account"] uppercaseString];
    
     
     [_txtName setPlaceholderWithColor:[Langauge getTextFromTheKey:@"name"]];

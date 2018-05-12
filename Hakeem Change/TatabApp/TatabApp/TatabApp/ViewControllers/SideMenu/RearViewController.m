@@ -60,13 +60,25 @@
           if ([[CommonFunction getValueFromDefaultWithKey:loginuserType] isEqualToString:@"Patient"]) {
               titleArray  = [[NSMutableArray alloc]initWithObjects:@"dependent",@"emr_and_tracker",@"profile",@"action_settings",@"need_help", nil];
               titleImageArray = [[NSMutableArray alloc] initWithObjects:@"menu-children",@"menu-general",@"Icon---Profile",@"Icon---Setttings",@"Icon---Setttings", nil];
+             
+              _lblName.text = [[CommonFunction getValueFromDefaultWithKey:loginfirstname] capitalizedString];
           }
           else{
               titleArray  = [[NSMutableArray alloc]initWithObjects:@"queue",@"emr_and_tracker",@"profile",@"action_settings",@"Doctor_Profile", @"need_help",nil];
               titleImageArray = [[NSMutableArray alloc] initWithObjects:@"queueWhite",@"menu-general",@"Icon---Profile",@"Icon---Setttings",@"Icon---Setttings",@"Icon---Setttings", nil];
               [_imgView sd_setImageWithURL:[NSURL URLWithString:[CommonFunction getValueFromDefaultWithKey:logInImageUrl]]];
+            
+              if([[CommonFunction getValueFromDefaultWithKey:loginfirstname] containsString:@"Dr."])
+              {
+                    _lblName.text = [NSString stringWithFormat:@"%@",[[CommonFunction getValueFromDefaultWithKey:loginfirstname] capitalizedString]];
+              }else{
+                  _lblName.text = [NSString stringWithFormat:@"Dr. %@",[[CommonFunction getValueFromDefaultWithKey:loginfirstname] capitalizedString]];
+              }
+            
+
           }
            _lblNAme.text = [CommonFunction getValueFromDefaultWithKey:loginemail];
+        
           _viewToClip.hidden = false;
           _lblSectionSeparator.hidden = false;
       }else{

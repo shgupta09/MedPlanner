@@ -27,13 +27,13 @@
 "setting" = "Setting";
 "dependent" = "Dependent";
 "queue" = "Queue";
-"emr_and_tracker" = "EHR and Tracker";
+"emr_and_tracker" = "EHR";
 "notification" = "Notification";
 "tatab_app" = "TatabApp";
 "register" = "Register";
 "username" = "Username";
 "password" = "Password";
-"need_help" = "Need Help";
+"need_help" = "Need Help?";
 "create_account" = "Create Account";
 "create_a_doctor_account" = "Create a doctor account";
 "male" = "Male";
@@ -106,9 +106,9 @@
 "network_error" = "Network error. Please try after some time.";
 "please_connect_to_the_internet" = "Please connet to the internet first.";
 "health_tracker" = "Health Tracker";
-"emr_tracker" = "EMR/Tracker";
+"emr_tracker" = "EHR";
 "Consultation" = "Consultation";
-"emr" = "EMR";
+"emr" = "EHR";
 "birthdate" = "BirthDate";
 "weight" = "weight";
 "height" = "Height";
@@ -215,7 +215,7 @@
 "abodminal" = "Abodminal";
 "pediatric" = "Pediatric";
 "search_phrase" = "Search phrase";
-"emr_log" = "EMR LOG";
+"emr_log" = "EHR LOG";
 "chat_ended" = "Chat ended by doctor";
 "for_more_info" = "for more instructions about using TatabApp tracker please visit www.tatabapp.com";
 "heartRate" = "Heart Rate :";

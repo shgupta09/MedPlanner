@@ -66,7 +66,7 @@
     
     alertObj = [[CustomAlert alloc] initWithFrame:self.view.frame];
     
-    [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
+//    [CommonFunction setViewBackground:self.scrlView withImage:[UIImage imageNamed:@"BackgroundGeneral"]];
     [_tblView registerNib:[UINib nibWithNibName:@"DependantDetailTableViewCell" bundle:nil]forCellReuseIdentifier:@"DependantDetailTableViewCell"];
     _tblView.rowHeight = UITableViewAutomaticDimension;
     _tblView.estimatedRowHeight = 35;
@@ -97,7 +97,7 @@
 }
 
 -(void)setLanguageData{
-    _lbl_PersonalDetails.text = [Langauge getTextFromTheKey:@"personal_details"];
+    _lbl_PersonalDetails.text = [[Langauge getTextFromTheKey:@"personal_details"] uppercaseString];
     [_btn_Terms setTitle:[Langauge getTextFromTheKey:@"Terms_Condition"] forState:UIControlStateNormal];
     [_btn_CompleteRegistration setTitle:[Langauge getTextFromTheKey:@"complete_registration"] forState:UIControlStateNormal];
      [_btn_ConfirmAdd setTitle:[Langauge getTextFromTheKey:@"confirm_add"] forState:UIControlStateNormal];
@@ -278,10 +278,6 @@ numberOfRowsInComponent:(NSInteger)component{
     }
         Relation* relationObj = [relationArray objectAtIndex:row];
         return relationObj.name;
-  
-
-   
-    
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component{

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -37,17 +38,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="CnV-ti-5ST">
-                    <rect key="frame" x="0.0" y="67" width="375" height="600"/>
+                    <rect key="frame" x="0.0" y="62" width="375" height="605"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWC-Bd-b9z">
-                    <rect key="frame" x="0.0" y="67" width="375" height="2"/>
+                    <rect key="frame" x="0.0" y="62" width="375" height="2"/>
                     <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="TzC-Cl-s6u"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ds3-lF-tvA">
-                    <rect key="frame" x="20" y="30" width="30" height="30"/>
+                    <rect key="frame" x="5" y="25" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="hCi-gq-2hL"/>
                         <constraint firstAttribute="width" constant="30" id="q5v-m8-Uzj"/>
@@ -58,13 +59,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Dependant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFs-bD-OrY">
-                    <rect key="frame" x="103.5" y="34.5" width="169.5" height="21"/>
+                    <rect key="frame" x="103.5" y="29.5" width="169.5" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                     <color key="textColor" red="0.27058823529411763" green="0.68235294117647061" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4mG-BR-w60">
-                    <rect key="frame" x="0.0" y="69" width="375" height="598"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="6nQ-Fv-IIa"/>
@@ -72,7 +73,7 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeV-iU-qX6">
-                    <rect key="frame" x="325" y="30" width="30" height="30"/>
+                    <rect key="frame" x="325" y="25" width="30" height="30"/>
                     <connections>
                         <action selector="btnAddFileClicked:" destination="-1" eventType="touchUpInside" id="8S2-Df-pts"/>
                     </connections>
@@ -80,13 +81,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Ds3-lF-tvA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="0Gx-4n-Bdt"/>
+                <constraint firstItem="Ds3-lF-tvA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="0Gx-4n-Bdt"/>
                 <constraint firstAttribute="trailing" secondItem="JWC-Bd-b9z" secondAttribute="trailing" id="0fM-MU-Vvr"/>
                 <constraint firstItem="WeV-iU-qX6" firstAttribute="width" secondItem="Ds3-lF-tvA" secondAttribute="width" id="9WN-Gh-Pe3"/>
                 <constraint firstAttribute="trailing" secondItem="WeV-iU-qX6" secondAttribute="trailing" constant="20" id="DW7-cS-i6h"/>
                 <constraint firstItem="4mG-BR-w60" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="G17-zD-xwf"/>
                 <constraint firstItem="4mG-BR-w60" firstAttribute="top" secondItem="Ds3-lF-tvA" secondAttribute="bottom" constant="9" id="Np4-7m-b81"/>
-                <constraint firstItem="Ds3-lF-tvA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="Rmt-I6-yC8"/>
+                <constraint firstItem="Ds3-lF-tvA" firstAttribute="top" secondItem="akt-kr-03W" secondAttribute="top" constant="5" id="Rmt-I6-yC8"/>
                 <constraint firstItem="JWC-Bd-b9z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RxA-yO-9si"/>
                 <constraint firstAttribute="bottom" secondItem="CnV-ti-5ST" secondAttribute="bottom" id="Tb9-kF-ZvY"/>
                 <constraint firstItem="4mG-BR-w60" firstAttribute="top" secondItem="JWC-Bd-b9z" secondAttribute="bottom" id="Wdg-1c-Zxv"/>
@@ -102,6 +103,7 @@
                 <constraint firstItem="JWC-Bd-b9z" firstAttribute="top" secondItem="Ds3-lF-tvA" secondAttribute="bottom" constant="7" id="l7m-pm-1Zh"/>
                 <constraint firstItem="CnV-ti-5ST" firstAttribute="top" secondItem="JWC-Bd-b9z" secondAttribute="top" id="uqc-La-DCW"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="akt-kr-03W"/>
         </view>
         <view contentMode="scaleToFill" id="QDa-GM-u1A">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -252,6 +254,7 @@
                 <constraint firstItem="njO-VT-2G7" firstAttribute="leading" secondItem="QDa-GM-u1A" secondAttribute="leading" id="hTQ-fQ-N0q"/>
                 <constraint firstItem="njO-VT-2G7" firstAttribute="top" secondItem="QDa-GM-u1A" secondAttribute="top" id="prL-4U-VoZ"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="9XR-jg-1Cg"/>
             <point key="canvasLocation" x="-388.5" y="820.5"/>
         </view>
     </objects>

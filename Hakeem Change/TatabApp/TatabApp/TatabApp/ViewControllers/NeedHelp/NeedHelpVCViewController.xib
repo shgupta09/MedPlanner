@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,23 +29,26 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umc-GI-xFh" customClass="TPKeyboardAvoidingScrollView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="uty-lJ-SnQ">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="umc-GI-xFh" customClass="TPKeyboardAvoidingScrollView">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="015-3U-r6F">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XL6-aF-n1V">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgx-3S-drg">
-                                            <rect key="frame" x="93.5" y="61" width="189" height="26"/>
+                                            <rect key="frame" x="93.5" y="58" width="189" height="26"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                             <color key="textColor" red="0.49783343079999998" green="0.68638932699999999" blue="0.2307600081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGT-Wc-N9d">
-                                            <rect key="frame" x="22" y="21" width="30" height="30"/>
+                                            <rect key="frame" x="5" y="5" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="TqU-SQ-39r"/>
                                                 <constraint firstAttribute="width" constant="30" id="m6c-Zj-n9Q"/>
@@ -59,13 +62,13 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="mgx-3S-drg" firstAttribute="centerX" secondItem="XL6-aF-n1V" secondAttribute="centerX" id="2P8-On-1R4"/>
-                                        <constraint firstItem="IGT-Wc-N9d" firstAttribute="leading" secondItem="XL6-aF-n1V" secondAttribute="leading" constant="22" id="XVr-aA-fnJ"/>
-                                        <constraint firstItem="IGT-Wc-N9d" firstAttribute="top" secondItem="XL6-aF-n1V" secondAttribute="top" constant="21" id="fbY-sn-CLB"/>
+                                        <constraint firstItem="IGT-Wc-N9d" firstAttribute="leading" secondItem="XL6-aF-n1V" secondAttribute="leading" constant="5" id="XVr-aA-fnJ"/>
+                                        <constraint firstItem="IGT-Wc-N9d" firstAttribute="top" secondItem="XL6-aF-n1V" secondAttribute="top" constant="5" id="fbY-sn-CLB"/>
                                         <constraint firstAttribute="bottom" secondItem="mgx-3S-drg" secondAttribute="bottom" constant="10" id="vBc-AO-Be5"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEH-Ro-AYz">
-                                    <rect key="frame" x="0.0" y="97" width="375" height="550"/>
+                                    <rect key="frame" x="0.0" y="94" width="375" height="533"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9sd-jm-XKg" customClass="CustomTextField">
                                             <rect key="frame" x="20" y="29" width="335" height="45"/>
@@ -127,6 +130,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="128" id="6ou-sC-I1d"/>
                                             </constraints>
+                                            <inset key="scrollIndicatorInsets" minX="150" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -220,7 +224,11 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="umc-GI-xFh" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="A6I-yH-aoT"/>
-                <constraint firstItem="umc-GI-xFh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IPK-vc-Ge1"/>
+                <constraint firstItem="uty-lJ-SnQ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="HHs-4m-EgA"/>
+                <constraint firstItem="umc-GI-xFh" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="IPK-vc-Ge1"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="uty-lJ-SnQ" secondAttribute="bottom" id="KW4-Xh-CAg"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="uty-lJ-SnQ" secondAttribute="trailing" id="Z6J-BG-DtT"/>
+                <constraint firstItem="uty-lJ-SnQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hfv-Ol-yOU"/>
                 <constraint firstItem="umc-GI-xFh" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="jiW-Ip-uil"/>
                 <constraint firstAttribute="trailing" secondItem="umc-GI-xFh" secondAttribute="trailing" id="xmn-ve-CTx"/>
             </constraints>
@@ -229,6 +237,7 @@
         </view>
     </objects>
     <resources>
+        <image name="BackgroundGeneral" width="750" height="1334"/>
         <image name="back" width="55" height="45"/>
     </resources>
 </document>

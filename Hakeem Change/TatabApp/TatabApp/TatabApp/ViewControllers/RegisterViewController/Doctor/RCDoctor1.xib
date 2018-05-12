@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -32,7 +33,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="9OU-Cl-5TZ" customClass="TPKeyboardAvoidingScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="25" width="375" height="642"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBQ-v8-O6E">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
@@ -47,13 +48,23 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE A DOCTOR ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQK-sP-JdN">
-                                            <rect key="frame" x="57" y="120" width="261" height="22"/>
+                                            <rect key="frame" x="50" y="120" width="275" height="22"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="275" id="0bW-U8-jMZ"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" red="0.49783343079999998" green="0.68638932699999999" blue="0.2307600081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="11"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhR-fk-WE8">
-                                            <rect key="frame" x="22" y="21" width="30" height="30"/>
+                                            <rect key="frame" x="5" y="0.0" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="Dh4-1b-STt"/>
                                                 <constraint firstAttribute="height" constant="30" id="HUc-rn-Sgo"/>
@@ -67,11 +78,11 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="yQK-sP-JdN" firstAttribute="centerX" secondItem="BaR-wS-AfD" secondAttribute="centerX" id="3hF-Pu-bED"/>
-                                        <constraint firstItem="jhR-fk-WE8" firstAttribute="top" secondItem="BaR-wS-AfD" secondAttribute="top" constant="21" id="3os-9d-bsY"/>
+                                        <constraint firstItem="jhR-fk-WE8" firstAttribute="top" secondItem="BaR-wS-AfD" secondAttribute="top" id="3os-9d-bsY"/>
                                         <constraint firstItem="zqK-Qy-NmV" firstAttribute="top" secondItem="BaR-wS-AfD" secondAttribute="top" constant="64" id="9gw-ZX-MkX"/>
                                         <constraint firstAttribute="bottom" secondItem="yQK-sP-JdN" secondAttribute="bottom" constant="15" id="D8P-n8-zg1"/>
                                         <constraint firstItem="zqK-Qy-NmV" firstAttribute="leading" secondItem="BaR-wS-AfD" secondAttribute="leading" constant="60" id="DfR-jn-2ua"/>
-                                        <constraint firstItem="jhR-fk-WE8" firstAttribute="leading" secondItem="BaR-wS-AfD" secondAttribute="leading" constant="22" id="Fm5-QV-oKr"/>
+                                        <constraint firstItem="jhR-fk-WE8" firstAttribute="leading" secondItem="BaR-wS-AfD" secondAttribute="leading" constant="5" id="Fm5-QV-oKr"/>
                                         <constraint firstAttribute="trailing" secondItem="zqK-Qy-NmV" secondAttribute="trailing" constant="60" id="P2a-dT-arN"/>
                                     </constraints>
                                 </view>
@@ -239,9 +250,10 @@
                 <constraint firstAttribute="trailing" secondItem="g0o-d7-FTm" secondAttribute="trailing" id="dt3-v5-2zR"/>
                 <constraint firstItem="g0o-d7-FTm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h2q-sk-ShG"/>
                 <constraint firstItem="g0o-d7-FTm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kal-Yj-LJR"/>
-                <constraint firstItem="9OU-Cl-5TZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qFu-ds-bw2"/>
+                <constraint firstItem="9OU-Cl-5TZ" firstAttribute="top" secondItem="e9v-Up-bJw" secondAttribute="top" constant="5" id="qFu-ds-bw2"/>
                 <constraint firstAttribute="bottom" secondItem="9OU-Cl-5TZ" secondAttribute="bottom" id="yWn-TN-Ob2"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="e9v-Up-bJw"/>
             <point key="canvasLocation" x="35.5" y="54.5"/>
         </view>
     </objects>

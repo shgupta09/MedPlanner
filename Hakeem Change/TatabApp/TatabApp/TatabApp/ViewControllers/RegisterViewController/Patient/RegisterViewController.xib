@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,14 +30,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOU-XN-uDE" customClass="TPKeyboardAvoidingScrollView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="jWC-jg-9l0">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOU-XN-uDE" customClass="TPKeyboardAvoidingScrollView">
+                    <rect key="frame" x="0.0" y="25" width="375" height="642"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUj-9x-sQA">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="622"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O5F-kO-kTB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="step-1-2-Indicator" translatesAutoresizingMaskIntoConstraints="NO" id="cKi-Wi-lry">
                                             <rect key="frame" x="60" y="64" width="255" height="45"/>
@@ -45,13 +49,23 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFS-uW-ac5">
-                                            <rect key="frame" x="93.5" y="126" width="189" height="26"/>
+                                            <rect key="frame" x="83" y="120" width="210" height="26"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="210" id="NvH-9h-D6U"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                             <color key="textColor" red="0.49783343076705933" green="0.68638932704925537" blue="0.23076000809669495" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="11"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltz-ew-KyX">
-                                            <rect key="frame" x="22" y="21" width="30" height="30"/>
+                                            <rect key="frame" x="5" y="0.0" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="86r-7B-kva"/>
                                                 <constraint firstAttribute="height" constant="30" id="qQ0-48-PlN"/>
@@ -67,14 +81,14 @@
                                         <constraint firstItem="cKi-Wi-lry" firstAttribute="top" secondItem="O5F-kO-kTB" secondAttribute="top" constant="64" id="BRv-yk-zrQ"/>
                                         <constraint firstAttribute="trailing" secondItem="cKi-Wi-lry" secondAttribute="trailing" constant="60" id="FzW-My-gx9"/>
                                         <constraint firstAttribute="bottom" secondItem="oFS-uW-ac5" secondAttribute="bottom" constant="10" id="GXC-lU-DeR"/>
-                                        <constraint firstItem="Ltz-ew-KyX" firstAttribute="top" secondItem="O5F-kO-kTB" secondAttribute="top" constant="21" id="JHi-JR-ba7"/>
+                                        <constraint firstItem="Ltz-ew-KyX" firstAttribute="top" secondItem="O5F-kO-kTB" secondAttribute="top" id="JHi-JR-ba7"/>
                                         <constraint firstItem="oFS-uW-ac5" firstAttribute="centerX" secondItem="O5F-kO-kTB" secondAttribute="centerX" id="YjW-nf-Pnq"/>
-                                        <constraint firstItem="Ltz-ew-KyX" firstAttribute="leading" secondItem="O5F-kO-kTB" secondAttribute="leading" constant="22" id="b3r-Xd-JDX"/>
+                                        <constraint firstItem="Ltz-ew-KyX" firstAttribute="leading" secondItem="O5F-kO-kTB" secondAttribute="leading" constant="5" id="b3r-Xd-JDX"/>
                                         <constraint firstItem="cKi-Wi-lry" firstAttribute="leading" secondItem="O5F-kO-kTB" secondAttribute="leading" constant="60" id="jYj-Ij-TJb"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KLT-iX-xZG">
-                                    <rect key="frame" x="0.0" y="162" width="375" height="485"/>
+                                    <rect key="frame" x="0.0" y="156" width="375" height="466"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lK9-e9-f0c" customClass="CustomTextField">
                                             <rect key="frame" x="20" y="29" width="335" height="45"/>
@@ -233,15 +247,21 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="0Su-zz-oKU" firstAttribute="bottom" secondItem="jWC-jg-9l0" secondAttribute="bottom" id="BUk-bW-Tj7"/>
+                <constraint firstItem="0Su-zz-oKU" firstAttribute="trailing" secondItem="jWC-jg-9l0" secondAttribute="trailing" id="EM6-HA-Jnq"/>
+                <constraint firstItem="jWC-jg-9l0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EhL-QV-X1K"/>
+                <constraint firstItem="jWC-jg-9l0" firstAttribute="leading" secondItem="0Su-zz-oKU" secondAttribute="leading" id="MRO-o9-3AS"/>
                 <constraint firstItem="lOU-XN-uDE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NIP-Y4-5pE"/>
                 <constraint firstAttribute="bottom" secondItem="lOU-XN-uDE" secondAttribute="bottom" id="RAP-AT-1Tw"/>
                 <constraint firstAttribute="trailing" secondItem="lOU-XN-uDE" secondAttribute="trailing" id="kJw-Qh-91K"/>
-                <constraint firstItem="lOU-XN-uDE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qS9-3e-MKl"/>
+                <constraint firstItem="lOU-XN-uDE" firstAttribute="top" secondItem="0Su-zz-oKU" secondAttribute="top" constant="5" id="qS9-3e-MKl"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="0Su-zz-oKU"/>
             <point key="canvasLocation" x="26.5" y="51.5"/>
         </view>
     </objects>
     <resources>
+        <image name="BackgroundGeneral" width="750" height="1334"/>
         <image name="back" width="55" height="45"/>
         <image name="step-1-2-Indicator" width="560" height="108"/>
     </resources>

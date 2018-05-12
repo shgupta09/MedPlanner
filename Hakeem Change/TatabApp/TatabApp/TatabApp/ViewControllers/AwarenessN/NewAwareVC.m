@@ -151,7 +151,7 @@
         
         
     }else if([notObj.name isEqualToString:@"None Queue"]){
-          [self addAlertWithTitle:[Langauge getTextFromTheKey:Warning_Key] andMessage:@"Queue is empty." isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
+          [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"Queue is empty." isTwoButtonNeeded:false firstbuttonTag:Tag_For_Remove_Alert secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Warning_Key_For_Image];
     }else if([notObj.name isEqualToString:@"Queue Tapped"]){
         [self disapper];
     }

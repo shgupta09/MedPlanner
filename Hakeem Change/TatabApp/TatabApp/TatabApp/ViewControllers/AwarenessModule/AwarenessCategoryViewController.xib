@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,17 +28,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="EUt-OL-99f">
-                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <rect key="frame" x="0.0" y="66" width="375" height="601"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auO-AQ-QPA">
-                    <rect key="frame" x="0.0" y="63" width="375" height="1"/>
+                    <rect key="frame" x="0.0" y="65" width="375" height="1"/>
                     <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="c5M-3H-2dL"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27H-lB-YQl">
-                    <rect key="frame" x="20" y="23" width="30" height="30"/>
+                    <rect key="frame" x="5" y="25" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="egr-xI-fqa"/>
                         <constraint firstAttribute="height" constant="30" id="pMA-6v-75s"/>
@@ -48,7 +49,7 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uL3-9j-rGG">
-                    <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                    <rect key="frame" x="0.0" y="74" width="375" height="593"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="BaS-ps-bMb"/>
@@ -56,7 +57,7 @@
                     </connections>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consultation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gc6-JJ-Uwr">
-                    <rect key="frame" x="133" y="28" width="109" height="21"/>
+                    <rect key="frame" x="133" y="30" width="109" height="21"/>
                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -66,10 +67,10 @@
             <constraints>
                 <constraint firstItem="uL3-9j-rGG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9GA-w8-L9h"/>
                 <constraint firstItem="EUt-OL-99f" firstAttribute="top" secondItem="auO-AQ-QPA" secondAttribute="bottom" id="CAC-CG-Tep"/>
-                <constraint firstItem="27H-lB-YQl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="F8D-eO-rHP"/>
+                <constraint firstItem="27H-lB-YQl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="F8D-eO-rHP"/>
                 <constraint firstAttribute="trailing" secondItem="auO-AQ-QPA" secondAttribute="trailing" id="Kfv-Y4-xYr"/>
                 <constraint firstItem="auO-AQ-QPA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OyH-m2-xhM"/>
-                <constraint firstItem="27H-lB-YQl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="PKX-TM-IzT"/>
+                <constraint firstItem="27H-lB-YQl" firstAttribute="top" secondItem="3oC-KU-ds1" secondAttribute="top" constant="5" id="PKX-TM-IzT"/>
                 <constraint firstItem="EUt-OL-99f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rxz-Y4-0Mv"/>
                 <constraint firstAttribute="trailing" secondItem="EUt-OL-99f" secondAttribute="trailing" id="SHM-Gp-oGQ"/>
                 <constraint firstItem="Gc6-JJ-Uwr" firstAttribute="centerX" secondItem="EUt-OL-99f" secondAttribute="centerX" id="VRU-fz-aGr"/>
@@ -80,6 +81,7 @@
                 <constraint firstItem="auO-AQ-QPA" firstAttribute="top" secondItem="27H-lB-YQl" secondAttribute="bottom" constant="10" id="vDV-ZW-MTw"/>
                 <constraint firstAttribute="bottom" secondItem="uL3-9j-rGG" secondAttribute="bottom" id="wWd-DP-3uz"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="3oC-KU-ds1"/>
             <point key="canvasLocation" x="33.5" y="164.5"/>
         </view>
     </objects>
