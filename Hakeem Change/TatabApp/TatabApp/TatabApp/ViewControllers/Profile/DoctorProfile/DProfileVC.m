@@ -186,7 +186,7 @@ numberOfRowsInComponent:(NSInteger)component{
     [pickerForDate addTarget:self action:@selector(dueDateChanged:)
             forControlEvents:UIControlEventValueChanged];
     viewOverPicker = [[UIView alloc]initWithFrame:self.view.frame];
-    pickerForDate.backgroundColor = [UIColor clearColor];
+    pickerForDate.backgroundColor = [UIColor darkGrayColor];
     viewOverPicker.backgroundColor = [UIColor clearColor];
     [CommonFunction setResignTapGestureToView:viewOverPicker andsender:self];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
@@ -377,6 +377,7 @@ numberOfRowsInComponent:(NSInteger)component{
                cell.btn.tag = 0;
                cell.btn.hidden = false;
                cell.lbl2.text = @"+";
+               cell.lbl2.font = [UIFont fontWithName:@"Montserrat-Regular" size:30];
                [cell.btn addTarget:self action:@selector(btnActionAdd:) forControlEvents:UIControlEventTouchUpInside];
            }else{
                cell.lbl2.text = @"";
@@ -434,9 +435,10 @@ numberOfRowsInComponent:(NSInteger)component{
                
            }
            cell.lbl2.hidden = false;
+           cell.lbl2.font = [UIFont fontWithName:@"Montserrat-Regular" size:13];
            cell.lbl2.text = profileObj.home_location;
            cell.img_Icon.image = [UIImage imageNamed:@"location"];
-           cell.lbl_titleName.text = [Langauge getTextFromTheKey:@"Location"];
+           cell.lbl_titleName.text = [Langauge getTextFromTheKey:@"city"];
            if(isEdit){
                cell.btn.layer.borderColor = [CommonFunction colorWithHexString:primary_Color].CGColor;
                cell.btn.tag = 1;
@@ -462,6 +464,8 @@ numberOfRowsInComponent:(NSInteger)component{
                cell.btn.hidden = false;
                cell.lbl2.hidden = false;
                cell.lbl2.text = @"+";
+               cell.lbl2.font = [UIFont fontWithName:@"Montserrat-Regular" size:30];
+               cell.btn.layer.borderColor = [UIColor clearColor   ].CGColor;
                [cell.btn addTarget:self action:@selector(btnActionAdd:) forControlEvents:UIControlEventTouchUpInside];
            }
            else{
@@ -490,6 +494,7 @@ numberOfRowsInComponent:(NSInteger)component{
            cell.lbl2.hidden = false;
            cell.lbl3_UpperConstraint.constant = 10;
            cell.lbl1.text = objClass.hospital_name;
+           cell.lbl2.font = [UIFont fontWithName:@"Montserrat-Regular" size:13];
            cell.lbl2.text = [NSString stringWithFormat:@"%@-%@",[objClass.worked_since substringToIndex:4],[objClass.resigned_since substringToIndex:4]];
            cell.lbl3.text = objClass.descriptionObj;
            if(isEdit){
@@ -571,8 +576,7 @@ numberOfRowsInComponent:(NSInteger)component{
         [self.view addSubview:_popUpEducation];
         [CommonFunction addAnimationToview:_popUpEducation];
     }else if (btn.tag == 1){
-         experienceToAdd = [ExperianceClass new];
-        experienceToAdd.exp_id = @"na";
+        
         pickerObj = [[UIPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 150, self.view.frame.size.width, 150)];
         pickerObj.delegate = self;
         pickerObj.dataSource = self;
@@ -606,6 +610,8 @@ numberOfRowsInComponent:(NSInteger)component{
         [pickerObj reloadAllComponents];
         
     }else if (btn.tag == 2){
+        experienceToAdd = [ExperianceClass new];
+        experienceToAdd.exp_id = @"na";
         isEditExperience = false;
         _txt_hospitalName.text = @"";
         _txt_workedSince.text = @"";
@@ -972,6 +978,8 @@ numberOfRowsInComponent:(NSInteger)component{
                     isEdit = false;
                     [_btn_Save setTitle:[Langauge getTextFromTheKey:@"Edit"] forState:UIControlStateNormal];
                     [CommonFunction storeValueInDefault:[CommonFunction trimString:profileObj.name] andKey:loginfirstname];
+                    
+                    [CommonFunction storeValueInDefault:[CommonFunction trimString:profileObj.upload] andKey:logInImageUrl];
                     [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:1002 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Alert_Key_For_Image];
                     [self removeloder];
                     [_tblList reloadData];
@@ -1071,6 +1079,7 @@ numberOfRowsInComponent:(NSInteger)component{
         }break;
         case 1002:{
                [self removeAlert];
+            [self removeloder];
             [_btn_Save setTitle:[Langauge getTextFromTheKey:@"Edit"] forState:UIControlStateNormal];
             isEdit = false;
             [_tblList reloadData];

@@ -83,7 +83,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThE-WR-AGO">
-                        <rect key="frame" x="275" y="21" width="20" height="20"/>
+                        <rect key="frame" x="270" y="21" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="FDw-9A-WJG"/>
                             <constraint firstAttribute="height" constant="20" id="bcJ-Tj-gfa"/>
@@ -97,7 +97,7 @@
                     <constraint firstItem="VuK-zF-lGh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="gBL-VT-PuE"/>
                     <constraint firstItem="VuK-zF-lGh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="j3J-nr-tKE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="VuK-zF-lGh" secondAttribute="trailing" id="tef-WZ-B80"/>
-                    <constraint firstAttribute="trailing" secondItem="ThE-WR-AGO" secondAttribute="trailing" constant="25" id="vmV-Ad-42G"/>
+                    <constraint firstAttribute="trailing" secondItem="ThE-WR-AGO" secondAttribute="trailing" constant="30" id="vmV-Ad-42G"/>
                     <constraint firstItem="ThE-WR-AGO" firstAttribute="centerY" secondItem="Krf-Ne-Gm7" secondAttribute="centerY" id="yaf-y1-E9q"/>
                 </constraints>
             </tableViewCellContentView>
