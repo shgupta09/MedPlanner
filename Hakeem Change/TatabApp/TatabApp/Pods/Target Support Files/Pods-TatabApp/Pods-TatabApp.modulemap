@@ -1,0 +1,6 @@
+framework module Pods_TatabApp {
+  umbrella header "Pods-TatabApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

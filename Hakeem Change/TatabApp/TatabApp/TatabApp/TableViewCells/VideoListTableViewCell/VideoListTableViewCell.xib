@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="67" id="KGk-i7-Jjw" customClass="VideoListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashBackground" translatesAutoresizingMaskIntoConstraints="NO" id="dgS-w6-0jc">
+                        <rect key="frame" x="8" y="8" width="84" height="51"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="84" id="UDH-q9-TwO"/>
+                            <constraint firstAttribute="height" constant="51" id="e3B-By-CgD"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIF-FY-wNi">
+                        <rect key="frame" x="100" y="8" width="212" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUO-9C-0mI">
+                        <rect key="frame" x="100" y="31" width="212" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="vwt-gi-ULM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="mUO-9C-0mI" secondAttribute="trailing" constant="8" id="BjJ-yD-qrO"/>
+                    <constraint firstAttribute="bottom" secondItem="dgS-w6-0jc" secondAttribute="bottom" constant="7.5" id="H16-L4-R0q"/>
+                    <constraint firstItem="tIF-FY-wNi" firstAttribute="leading" secondItem="dgS-w6-0jc" secondAttribute="trailing" constant="8" id="QL8-MH-UI1"/>
+                    <constraint firstItem="mUO-9C-0mI" firstAttribute="top" secondItem="tIF-FY-wNi" secondAttribute="bottom" constant="2" id="QyN-M1-yih"/>
+                    <constraint firstItem="tIF-FY-wNi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="dag-cP-JLg"/>
+                    <constraint firstAttribute="bottom" secondItem="mUO-9C-0mI" secondAttribute="bottom" constant="7.5" id="jOf-zB-HqE"/>
+                    <constraint firstItem="mUO-9C-0mI" firstAttribute="leading" secondItem="dgS-w6-0jc" secondAttribute="trailing" constant="8" id="ltH-OL-o5z"/>
+                    <constraint firstItem="dgS-w6-0jc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="x7b-gJ-kTx"/>
+                    <constraint firstItem="tIF-FY-wNi" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="zHw-vI-kes"/>
+                    <constraint firstItem="dgS-w6-0jc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="zg0-fk-dWE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgView" destination="dgS-w6-0jc" id="rMO-UT-IaR"/>
+                <outlet property="lblVideoContent" destination="mUO-9C-0mI" id="o15-Pa-POW"/>
+                <outlet property="lblVideoHeading" destination="tIF-FY-wNi" id="pzP-Xp-p5s"/>
+            </connections>
+            <point key="canvasLocation" x="27" y="38.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="SplashBackground" width="750" height="1334"/>
+    </resources>
+</document>

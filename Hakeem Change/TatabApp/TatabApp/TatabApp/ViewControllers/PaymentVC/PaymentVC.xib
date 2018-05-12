@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-SemiBold.otf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentVC">
+            <connections>
+                <outlet property="lbl_title" destination="SaX-es-rbP" id="Aao-fI-rjh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="cLK-Wk-Zpn" id="KG0-nz-cZt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho0-qF-pus">
+                    <rect key="frame" x="30" y="50" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="LHa-Yb-0mq"/>
+                        <constraint firstAttribute="height" constant="30" id="wVS-Fe-w7Y"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="back"/>
+                    <connections>
+                        <action selector="btnBackClicked:" destination="-1" eventType="touchUpInside" id="fr0-V5-a3e"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make Payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaX-es-rbP">
+                    <rect key="frame" x="122" y="55" width="132" height="21"/>
+                    <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                    <color key="textColor" red="0.27058823529999998" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vh3-VX-CCx">
+                    <rect key="frame" x="0.0" y="87" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="at0-dd-ex1"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" translatesAutoresizingMaskIntoConstraints="NO" id="QeR-nf-LIw">
+                    <rect key="frame" x="0.0" y="88" width="375" height="579"/>
+                </imageView>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLK-Wk-Zpn">
+                    <rect key="frame" x="0.0" y="88" width="375" height="579"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="T3d-ap-LRc"/>
+                    </connections>
+                </webView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vh3-VX-CCx" firstAttribute="top" secondItem="ho0-qF-pus" secondAttribute="bottom" constant="7" id="0TX-Nj-1Vd"/>
+                <constraint firstItem="QeR-nf-LIw" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="1Nq-MT-waO"/>
+                <constraint firstItem="vh3-VX-CCx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="71f-Rm-4gk"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="QeR-nf-LIw" secondAttribute="bottom" id="BhY-R1-c3A"/>
+                <constraint firstItem="ho0-qF-pus" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="30" id="DRc-Dq-yt7"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="cLK-Wk-Zpn" secondAttribute="trailing" id="Fsv-p6-R27"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="QeR-nf-LIw" secondAttribute="trailing" id="IE5-vD-dUn"/>
+                <constraint firstItem="cLK-Wk-Zpn" firstAttribute="top" secondItem="vh3-VX-CCx" secondAttribute="bottom" id="IOP-RF-qi3"/>
+                <constraint firstItem="SaX-es-rbP" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="KKm-t4-JVF"/>
+                <constraint firstAttribute="trailing" secondItem="vh3-VX-CCx" secondAttribute="trailing" id="MfD-2r-tci"/>
+                <constraint firstItem="QeR-nf-LIw" firstAttribute="top" secondItem="vh3-VX-CCx" secondAttribute="bottom" id="OJN-MW-aZv"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="cLK-Wk-Zpn" secondAttribute="bottom" id="Rmj-fN-4eg"/>
+                <constraint firstItem="cLK-Wk-Zpn" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="ga8-QV-agQ"/>
+                <constraint firstItem="SaX-es-rbP" firstAttribute="centerY" secondItem="ho0-qF-pus" secondAttribute="centerY" id="gmQ-5j-QEx"/>
+                <constraint firstItem="ho0-qF-pus" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="oFp-IW-eKp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="BackgroundGeneral" width="750" height="1334"/>
+        <image name="back" width="55" height="45"/>
+    </resources>
+</document>

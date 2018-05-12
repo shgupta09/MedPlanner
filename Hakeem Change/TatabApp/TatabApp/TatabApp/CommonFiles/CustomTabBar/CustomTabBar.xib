@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomTabBar">
+            <connections>
+                <outlet property="btnAwareness" destination="55I-o1-O95" id="80w-Qb-aBN"/>
+                <outlet property="btnHealthTracker" destination="QSO-Mt-s0x" id="tVW-pm-jJC"/>
+                <outlet property="btnMedicalRecord" destination="jjp-5l-5Az" id="9H2-2H-J5D"/>
+                <outlet property="imgAwareness" destination="yDP-DR-TO7" id="3bk-T0-t7y"/>
+                <outlet property="imgTracker" destination="7WP-ld-BFg" id="pyw-Np-uxo"/>
+                <outlet property="img_Cunsultation" destination="XBu-x2-23M" id="ut8-hV-4dS"/>
+                <outlet property="lbl_Awareness" destination="EHJ-oM-HOj" id="RNH-08-x93"/>
+                <outlet property="lbl_Consultation" destination="DTe-yf-e5M" id="DNf-TD-6kZ"/>
+                <outlet property="lbl_EMR" destination="gbs-hf-pjY" id="S0Q-rn-RSy"/>
+                <outlet property="view" destination="iN0-l3-epB" id="MFq-99-uiK"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabHelthTracker" translatesAutoresizingMaskIntoConstraints="NO" id="7WP-ld-BFg">
+                    <rect key="frame" x="52.5" y="4.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="VHb-0s-guh"/>
+                        <constraint firstAttribute="width" constant="20" id="hiU-f5-AEq"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMR/Tracker." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbs-hf-pjY">
+                    <rect key="frame" x="25.5" y="29.5" width="75" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabMedicalRecord" translatesAutoresizingMaskIntoConstraints="NO" id="XBu-x2-23M">
+                    <rect key="frame" x="177" y="4.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="jAA-Xi-xde"/>
+                        <constraint firstAttribute="width" constant="20" id="tVr-Ym-iiE"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consultation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTe-yf-e5M">
+                    <rect key="frame" x="152" y="29.5" width="71.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabAwareness" translatesAutoresizingMaskIntoConstraints="NO" id="yDP-DR-TO7">
+                    <rect key="frame" x="302.5" y="4.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Mzv-UY-XQJ"/>
+                        <constraint firstAttribute="width" constant="20" id="n5x-ZV-AkY"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awareness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHJ-oM-HOj">
+                    <rect key="frame" x="282" y="29.5" width="61" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izL-Im-M5h">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSO-Mt-s0x">
+                            <rect key="frame" x="0.0" y="0.0" width="125" height="49"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                            <inset key="titleEdgeInsets" minX="-30" minY="25" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
+                            <state key="normal">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjp-5l-5Az">
+                            <rect key="frame" x="125" y="0.0" width="125" height="49"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
+                            <inset key="titleEdgeInsets" minX="-25" minY="25" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
+                            <state key="normal">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55I-o1-O95">
+                            <rect key="frame" x="250" y="0.0" width="125" height="49"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="9"/>
+                            <inset key="titleEdgeInsets" minX="-29" minY="25" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="53" minY="9" maxX="53" maxY="20"/>
+                            <state key="normal">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" red="0.0" green="0.69411764710000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="QSO-Mt-s0x" firstAttribute="width" secondItem="jjp-5l-5Az" secondAttribute="width" id="1CY-Jt-Bhl"/>
+                        <constraint firstItem="QSO-Mt-s0x" firstAttribute="width" secondItem="55I-o1-O95" secondAttribute="width" id="wcw-IE-xbP"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="izL-Im-M5h" secondAttribute="bottom" id="80c-3R-Kra"/>
+                <constraint firstItem="EHJ-oM-HOj" firstAttribute="centerX" secondItem="yDP-DR-TO7" secondAttribute="centerX" id="9sN-re-mId"/>
+                <constraint firstItem="yDP-DR-TO7" firstAttribute="centerY" secondItem="55I-o1-O95" secondAttribute="centerY" constant="-10" id="GOl-Um-lkX"/>
+                <constraint firstItem="gbs-hf-pjY" firstAttribute="centerX" secondItem="7WP-ld-BFg" secondAttribute="centerX" id="HN9-yW-pya"/>
+                <constraint firstItem="DTe-yf-e5M" firstAttribute="centerX" secondItem="XBu-x2-23M" secondAttribute="centerX" id="KZb-yj-iKZ"/>
+                <constraint firstItem="7WP-ld-BFg" firstAttribute="centerX" secondItem="QSO-Mt-s0x" secondAttribute="centerX" id="UPD-ti-Zz5"/>
+                <constraint firstAttribute="trailing" secondItem="izL-Im-M5h" secondAttribute="trailing" id="Ug7-c5-V0J"/>
+                <constraint firstItem="EHJ-oM-HOj" firstAttribute="top" secondItem="yDP-DR-TO7" secondAttribute="bottom" constant="5" id="WQK-o8-lGY"/>
+                <constraint firstItem="7WP-ld-BFg" firstAttribute="centerY" secondItem="QSO-Mt-s0x" secondAttribute="centerY" constant="-10" id="aq3-4w-vgZ"/>
+                <constraint firstItem="XBu-x2-23M" firstAttribute="centerY" secondItem="jjp-5l-5Az" secondAttribute="centerY" constant="-10" id="d2k-IV-ygg"/>
+                <constraint firstItem="yDP-DR-TO7" firstAttribute="centerX" secondItem="55I-o1-O95" secondAttribute="centerX" id="icx-mg-DgZ"/>
+                <constraint firstItem="DTe-yf-e5M" firstAttribute="top" secondItem="XBu-x2-23M" secondAttribute="bottom" constant="5" id="jFq-R5-FGw"/>
+                <constraint firstItem="gbs-hf-pjY" firstAttribute="top" secondItem="7WP-ld-BFg" secondAttribute="bottom" constant="5" id="pch-V7-zdd"/>
+                <constraint firstItem="izL-Im-M5h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qnA-HN-mVN"/>
+                <constraint firstItem="izL-Im-M5h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vr0-tr-fkp"/>
+                <constraint firstItem="XBu-x2-23M" firstAttribute="centerX" secondItem="jjp-5l-5Az" secondAttribute="centerX" id="zLT-5N-ebH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-214" y="113"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tabAwareness" width="50" height="63"/>
+        <image name="tabHelthTracker" width="54" height="69"/>
+        <image name="tabMedicalRecord" width="43" height="50"/>
+    </resources>
+</document>

@@ -1,0 +1,80 @@
+//
+//  PrefixHeader.pch
+//  TatabApp
+//
+//  Created by Shagun Verma on 23/09/17.
+//  Copyright © 2017 Shagun Verma. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "NeedHelpVCViewController.h"
+#import "CustomButton2.h"
+#import "SWRevealViewController.h"
+#import "SplashScreenViewController.h"
+#import "CommonFunction.h"
+#import "CustomTextField.h"
+#import "HomeViewController.h"
+#import "UserSelectViewController.h"
+#import "CustomButton.h"
+#import "Reachability.h"
+#import "Constant.h"
+#import "MMDrawerController.h"
+#import "LoginViewController.h"
+#import "RegisterViewController.h"
+#import "RegisterCompleteViewController.h"
+#import "DependantDetailTableViewCell.h"
+#import "WebServicesCall.h"
+#import "LoderView.h"
+#import "RegistrationDpendency.h"
+#import "CommonInfoPatient.h"
+#import "AwarenessCategory.h"
+#import "AwarenessCategoryViewController.h"
+#import "AwarenessCategoryTableViewCell.h"
+#import "RearViewController.h"
+#import "AwarenessVideoListViewController.h"
+#import "VideoListObject.h"
+#import "CustomButton.h"
+#import "VideoListTableViewCell.h"
+#import "RCDoctor1.h"
+#import "AppDelegate.h"
+#import "RearCell.h"
+#import "HomeCell.h"
+#import "PatientHomeVC.h"
+#import "DoctorListVC.h"
+#import "Specialization.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "CustomAlert.h"
+#import "ChatViewController.h"
+#import "ImageMessageTableViewCell.h"
+#import "ChatPatient.h"
+#import "EMRHealthContainerVC.h"
+#import "HealthTrackerContainerVC.h"
+#import "WeightReportViewController.h"
+#import "PressureReportViewController.h"
+#import "SugarReportViewController.h"
+#import "FeverReportViewController.h"
+#import "Report.h"
+#import <BEMSimpleLineGraph/BEMSimpleLineGraphView.h>
+#import "NewAwareVC.h"
+#import "CustomButton3.h"
+#import "CustomButton4.h"
+#import "SelectUserTableViewCell.h"
+#import "ChoosePatientViewController.h"
+#import "ChooseDependantViewController.h"
+#import "PostData.h"
+#import "CustomTFWithLeftRight.h"
+#import "Relation.h"
+#import "CustomAlert.h"
+#import "CommentClass.h"
+#import "CommentTableViewCell.h"
+#import "CommentVCViewController.h"
+#import "CustomTabBar.h"
+#import "QueueDetails.h"
+#import "TermVC.h"
+#import "Langauge.h"
+#import "CustomButtonWithoutBorder.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

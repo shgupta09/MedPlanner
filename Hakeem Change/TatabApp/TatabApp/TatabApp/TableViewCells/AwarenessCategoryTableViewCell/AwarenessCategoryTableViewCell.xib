@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="64" id="KGk-i7-Jjw" customClass="AwarenessCategoryTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S19-BP-Lg8">
+                        <rect key="frame" x="20" y="10" width="280" height="59.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ucn-fQ-haO">
+                                <rect key="frame" x="20" y="12" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="CCE-0i-3Ym"/>
+                                    <constraint firstAttribute="width" constant="35" id="jW3-iT-yza"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="sXO-B5-vXK">
+                                <rect key="frame" x="75" y="12" width="185" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <color key="textColor" red="0.47843137254901957" green="0.76862745098039209" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sXO-B5-vXK" firstAttribute="bottom" secondItem="Ucn-fQ-haO" secondAttribute="bottom" id="1Mr-0u-H6T"/>
+                            <constraint firstAttribute="height" constant="59.5" id="9DC-I1-b26"/>
+                            <constraint firstItem="Ucn-fQ-haO" firstAttribute="centerY" secondItem="S19-BP-Lg8" secondAttribute="centerY" id="Pxl-mz-jM2"/>
+                            <constraint firstItem="sXO-B5-vXK" firstAttribute="top" secondItem="Ucn-fQ-haO" secondAttribute="top" id="WA6-AI-xcO"/>
+                            <constraint firstItem="sXO-B5-vXK" firstAttribute="leading" secondItem="Ucn-fQ-haO" secondAttribute="trailing" constant="20" id="Ysc-HC-0bw"/>
+                            <constraint firstItem="sXO-B5-vXK" firstAttribute="centerY" secondItem="Ucn-fQ-haO" secondAttribute="centerY" id="sUF-aB-36z"/>
+                            <constraint firstItem="Ucn-fQ-haO" firstAttribute="leading" secondItem="S19-BP-Lg8" secondAttribute="leading" constant="20" id="v2B-HQ-7mo"/>
+                            <constraint firstAttribute="trailing" secondItem="sXO-B5-vXK" secondAttribute="trailing" constant="20" id="xf6-1D-8dY"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="S19-BP-Lg8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="4YW-Kr-tYY"/>
+                    <constraint firstAttribute="trailing" secondItem="S19-BP-Lg8" secondAttribute="trailing" constant="20" id="G0i-lF-lNf"/>
+                    <constraint firstItem="S19-BP-Lg8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="IDl-Ma-Ldo"/>
+                    <constraint firstAttribute="bottom" secondItem="S19-BP-Lg8" secondAttribute="bottom" constant="10" id="b97-6P-XV4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="imgView" destination="Ucn-fQ-haO" id="khZ-Ty-238"/>
+                <outlet property="lblName" destination="sXO-B5-vXK" id="BaN-Oe-IPx"/>
+                <outlet property="overlayView" destination="S19-BP-Lg8" id="lw6-s6-fxq"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="59"/>
+        </tableViewCell>
+    </objects>
+</document>

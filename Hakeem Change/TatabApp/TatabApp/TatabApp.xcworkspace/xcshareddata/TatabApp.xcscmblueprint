@@ -1,0 +1,34 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8289a3ed-7895-4553-886e-87c2beee11fb++8881",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "8289a3ed-7895-4553-886e-87c2beee11fb++8881" : {
+      "DVTSourceControlWorkingCopyRepositoryBranchesLocationKey" : "branches",
+      "DVTSourceControlWorkingCopyRepositoryTagsLocationKey" : "tags",
+      "DVTSourceControlWorkingCopyRepositoryPrimaryBranchLocationKey" : "trunk"
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8289a3ed-7895-4553-886e-87c2beee11fb++8881" : 9223372036854775807,
+    "91D60A574415339B319D32BE125F1D884D72F018" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B60F7FB0-3790-483D-8749-E0CCCA287244",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8289a3ed-7895-4553-886e-87c2beee11fb++8881" : "..",
+    "91D60A574415339B319D32BE125F1D884D72F018" : "MedPlanner\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TatabApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TatabApp\/TatabApp\/TatabApp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/coreapps.npglobal.in\/svn\/ShreeAirlines",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8289a3ed-7895-4553-886e-87c2beee11fb++8881"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/shgupta09\/MedPlanner.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "91D60A574415339B319D32BE125F1D884D72F018"
+    }
+  ]
+}
