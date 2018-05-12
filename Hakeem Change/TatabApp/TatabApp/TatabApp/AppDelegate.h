@@ -48,5 +48,7 @@
 -(void)hideStatusBar;
 -(void)showStatusBar;
 -(void)addStatusBar;
+- (void)switchLanguage;
+
 @end
 

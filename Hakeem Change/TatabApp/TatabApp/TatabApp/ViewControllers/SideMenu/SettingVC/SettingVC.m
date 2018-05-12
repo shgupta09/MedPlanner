@@ -119,7 +119,7 @@
 -(void)killManually{
     
     
-    
+    [[AppDelegate getDelegate] switchLanguage];
     
 //    SplashScreenViewController *sp = [[SplashScreenViewController alloc]initWithNibName:@"SplashScreenViewController" bundle:nil];
 //     [AppDelegate getDelegate].window.rootViewController = sp;

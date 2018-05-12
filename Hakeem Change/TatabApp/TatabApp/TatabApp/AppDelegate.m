@@ -35,13 +35,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [FIRMessaging messaging].delegate = self;
-    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [CommonFunction stroeBoolValueForKey:isLoggedInHit withBoolValue:false];
-    SplashScreenViewController* vc;
-    vc = [[SplashScreenViewController alloc] initWithNibName:@"SplashScreenViewController" bundle:nil];
-    _window.rootViewController = vc;
-    [self.window makeKeyAndVisible];
+
+    [FIRMessaging messaging].delegate = self;
+    [self initRootViewController];
     
     if (![CommonFunction getBoolValueFromDefaultWithKey:IsLanguageSelected]) {
         [CommonFunction stroeBoolValueForKey:IsLanguageSelected withBoolValue:true];
@@ -421,5 +418,22 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     UIViewController *presentedViewController = (UIViewController *)rootViewController.presentedViewController;
     return [self topViewController:presentedViewController];
 }
+
+
+#pragma mark - initializeWindow
+
+
+- (void)initRootViewController {
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    SplashScreenViewController* vc;
+    vc = [[SplashScreenViewController alloc] initWithNibName:@"SplashScreenViewController" bundle:nil];
+    _window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+}
+- (void)switchLanguage {
+    [self.window removeFromSuperview];
+    [self initRootViewController];
+}
+
 
 @end
