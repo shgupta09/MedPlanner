@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -376,10 +376,18 @@
                                     <color key="textColor" red="0.2723567784" green="0.68184441330000001" blue="0.83073687549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtp-Wa-7qe">
+                                    <rect key="frame" x="8" y="8" width="46" height="30"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="btnActionUploadReport:" destination="-1" eventType="touchUpInside" id="tNu-Bi-6w0"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="UyR-TU-Tej" firstAttribute="centerY" secondItem="IBh-YE-D4r" secondAttribute="centerY" id="0C3-D9-M4i"/>
+                                <constraint firstItem="Dtp-Wa-7qe" firstAttribute="top" secondItem="hPX-ho-Cbl" secondAttribute="top" id="3lB-6A-YN1"/>
                                 <constraint firstItem="8Kx-Wo-sfS" firstAttribute="trailing" secondItem="gBw-uR-Hf9" secondAttribute="trailing" id="557-Bt-Cnz"/>
                                 <constraint firstItem="IBh-YE-D4r" firstAttribute="centerY" secondItem="oCz-ok-Lfc" secondAttribute="centerY" id="6aP-W7-AX2"/>
                                 <constraint firstItem="RHo-HR-Uwm" firstAttribute="leading" secondItem="oCz-ok-Lfc" secondAttribute="trailing" constant="5" id="81u-Fw-3cW"/>
@@ -397,6 +405,7 @@
                                 <constraint firstItem="UyR-TU-Tej" firstAttribute="leading" secondItem="gBw-uR-Hf9" secondAttribute="leading" id="XZH-6a-VCL"/>
                                 <constraint firstItem="IBh-YE-D4r" firstAttribute="leading" secondItem="UyR-TU-Tej" secondAttribute="trailing" constant="5" id="Y3X-VR-JIJ"/>
                                 <constraint firstItem="hPX-ho-Cbl" firstAttribute="top" secondItem="tAS-f5-7wx" secondAttribute="top" constant="8" id="agQ-uU-BmD"/>
+                                <constraint firstItem="Dtp-Wa-7qe" firstAttribute="leading" secondItem="tAS-f5-7wx" secondAttribute="leading" constant="8" id="e3y-pc-lWg"/>
                                 <constraint firstAttribute="bottom" secondItem="w59-a5-GdQ" secondAttribute="bottom" constant="8" id="eK3-di-Aqq"/>
                                 <constraint firstAttribute="trailing" secondItem="hPX-ho-Cbl" secondAttribute="trailing" constant="8" id="k9B-Hv-sMq"/>
                                 <constraint firstItem="Hu6-oM-9BC" firstAttribute="centerX" secondItem="tAS-f5-7wx" secondAttribute="centerX" id="rXL-XB-vKK"/>

@@ -159,6 +159,7 @@ static NSString* const API_HISTORY_DETAIL = @"getBookingDetails";
 
 static NSString* const API_COUNTRY_CODE = @"list/NpCountry";
 static NSString* const API_WEATHER = @"list/Weather";
+static NSString* const API_REPORT = @"pdfreport";
 
 static NSString* const API_UploadDocument = @"upload";
 static NSString* const API_FETCH_PATIENTS = @"patients";

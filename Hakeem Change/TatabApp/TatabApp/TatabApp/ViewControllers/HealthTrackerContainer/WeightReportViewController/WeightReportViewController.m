@@ -173,6 +173,13 @@
 
 
 #pragma mark - btn Actions
+
+- (IBAction)btnActionUploadReport:(id)sender {
+    
+    
+    [self generateReport];
+}
+
 - (IBAction)btnAction_instructions:(id)sender {
     
     [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:@"For more instructions about using TatabApp tracker please visit www.tatabapp.com" isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Alert_Key_For_Image];
@@ -360,9 +367,68 @@
 
 
 
+#pragma mark- Api
 
+-(void)generateReport{
+    NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
+    
+    if (!_isdependant){
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:@"na" forKey:DEPENDANT_ID];
+    }
+    else
+    {
+        [parameterDict setValue:_patient.patient_id forKey:PATIENT_ID];
+        [parameterDict setValue:_dependant.depedant_id forKey:DEPENDANT_ID];
+    }
+    
+    [parameterDict setValue:_btnWeight.titleLabel.text forKey:@"weight"];
+    [parameterDict setValue:_btnHeight.titleLabel.text forKey:@"height"];
+    [parameterDict setValue:@"2" forKey:@"report"];
+    [parameterDict setValue:fromDateString forKey:@"from"];
+    [parameterDict setValue:toDateString forKey:@"to"];
 
-
+    if ([ CommonFunction reachability]) {
+        [self addLoder];
+        
+        //            loaderView = [CommonFunction loaderViewWithTitle:@"Please wait..."];
+        [WebServicesCall responseWithUrl:[NSString stringWithFormat:@"%@%@",API_BASE_URL,API_REPORT]  postResponse:[parameterDict mutableCopy] postImage:nil requestType:POST tag:nil isRequiredAuthentication:YES header:NPHeaderName completetion:^(BOOL status, id responseObj, NSString *tag, NSError * error, NSInteger statusCode, id operation, BOOL deactivated) {
+            if (error == nil) {
+                if ([[responseObj valueForKey:@"status_code"] isEqualToString:@"HK001"] == true){
+                    /*UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:[responseObj valueForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                     [alertController addAction:ok];
+                     [self presentViewController:alertController animated:YES completion:nil];
+                     */
+                    
+                   
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:AlertKey] andMessage:[responseObj valueForKey:@"message"]  isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Alert_Key_For_Image];
+                    
+                }
+                else
+                {
+                    [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:[responseObj valueForKey:@"message"] isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
+                    [self removeloder];
+                    [self removeloder];
+                }
+                
+                
+                
+            }
+            
+            else {
+                [self removeloder];
+                [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Sevrer_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
+            }
+            
+            
+        }];
+    } else {
+        [self addAlertWithTitle:[Langauge getTextFromTheKey:Error_Key] andMessage:Network_Issue_Message isTwoButtonNeeded:false firstbuttonTag:100 secondButtonTag:0 firstbuttonTitle:[Langauge getTextFromTheKey:OK_Btn] secondButtonTitle:nil image:Error_Key_For_Image];
+    }
+    
+    
+}
 -(void)uploadWeight{
     NSMutableDictionary *parameterDict = [[NSMutableDictionary alloc]init];
 
