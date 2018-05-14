@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,21 +32,37 @@
                         <rect key="frame" x="16" y="11" width="288" height="48"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nv-50-Md0">
+<<<<<<< HEAD:Hakeem Change/TatabApp/TatabApp/TatabApp/ViewControllers/Profile/DoctorProfile/DoctorProfileCell's/DProfileCellType2.xib
                                 <rect key="frame" x="10" y="10" width="48" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+=======
+                                <rect key="frame" x="10" y="10" width="28" height="12"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+>>>>>>> parent of fe41372... sadasd:TatabApp/TatabApp/TatabApp/ViewControllers/Profile/DoctorProfile/DoctorProfileCell's/DProfileCellType2.xib
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krf-Ne-Gm7">
+<<<<<<< HEAD:Hakeem Change/TatabApp/TatabApp/TatabApp/ViewControllers/Profile/DoctorProfile/DoctorProfileCell's/DProfileCellType2.xib
                                 <rect key="frame" x="210" y="10" width="48" height="20"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+=======
+                                <rect key="frame" x="230" y="10" width="28" height="12"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+>>>>>>> parent of fe41372... sadasd:TatabApp/TatabApp/TatabApp/ViewControllers/Profile/DoctorProfile/DoctorProfileCell's/DProfileCellType2.xib
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zE6-GQ-vz7">
+<<<<<<< HEAD:Hakeem Change/TatabApp/TatabApp/TatabApp/ViewControllers/Profile/DoctorProfile/DoctorProfileCell's/DProfileCellType2.xib
                                 <rect key="frame" x="10" y="38" width="268" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+=======
+                                <rect key="frame" x="10" y="30" width="268" height="8"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+>>>>>>> parent of fe41372... sadasd:TatabApp/TatabApp/TatabApp/ViewControllers/Profile/DoctorProfile/DoctorProfileCell's/DProfileCellType2.xib
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQk-pj-887">
@@ -83,7 +99,11 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThE-WR-AGO">
+<<<<<<< HEAD:Hakeem Change/TatabApp/TatabApp/TatabApp/ViewControllers/Profile/DoctorProfile/DoctorProfileCell's/DProfileCellType2.xib
                         <rect key="frame" x="270" y="21" width="20" height="20"/>
+=======
+                        <rect key="frame" x="275" y="17" width="20" height="20"/>
+>>>>>>> parent of fe41372... sadasd:TatabApp/TatabApp/TatabApp/ViewControllers/Profile/DoctorProfile/DoctorProfileCell's/DProfileCellType2.xib
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="FDw-9A-WJG"/>
                             <constraint firstAttribute="height" constant="20" id="bcJ-Tj-gfa"/>
