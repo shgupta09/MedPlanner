@@ -27,11 +27,7 @@
 "setting" = "Setting";
 "dependent" = "Dependent";
 "queue" = "Queue";
-<<<<<<< HEAD:Hakeem Change/TatabApp/TatabApp/TatabApp/Language/en.lproj/Localizable.strings
 "emr_and_tracker" = "EHR";
-=======
-"emr_and_tracker" = "EMR and Tracker";
->>>>>>> parent of fe41372... sadasd:TatabApp/TatabApp/TatabApp/Language/en.lproj/Localizable.strings
 "notification" = "Notification";
 "tatab_app" = "TatabApp";
 "register" = "Register";
